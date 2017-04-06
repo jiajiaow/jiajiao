@@ -32,6 +32,7 @@ Route::group(['prefix' => '/admin'],function($a='1'){
          Route::get('/out','admin\LoginController@out');
 
 
+
 });
 //----------后台END----------//
 
