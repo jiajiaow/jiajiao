@@ -17,7 +17,8 @@ class AdminController extends Controller
     }
     public function fzlb()
     {
-        return view('admin.fzlb');
+        $re = DB::table('jjw_position_city')->where('prefix','!=','')->get();
+        return view('admin.fzlb',['re' => $re]);
     }
     public function tjfz()
     {

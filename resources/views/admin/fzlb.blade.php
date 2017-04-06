@@ -60,17 +60,20 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            @foreach($re as $data)
                                 <tr class="gradeX">
-                                    <td>2034</td>
-                                    <td>广州</td>
-                                    <td>gz</td>
-                                    <td class="center">www.gzjjw.com</td>
+                                    <td>{{ $data->id }}</td>
+                                    <td>{{ $data->city_name}}</td>
+                                    <td>{{ $data->prefix }}</td>
+                                    <td class="center">{{ $data->url }}</td>
                                     <td class="center">
                                         <a>编辑</a>
                                         <a>起用</a>
                                         <a>删除</a>
                                     </td>
                                 </tr>
+                            @endforeach
+                            </tbody>
                         </table>
 
                     </div>
