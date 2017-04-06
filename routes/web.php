@@ -18,35 +18,28 @@ Route::get('/change_city','home\indexController@change');
 Route::get('/yz','YzController@index');
 
 //----------  后台  ----------//
-Route::group(['prefix' => '/admin'],function($a='1'){
+//登录视图 方法
+Route::get('/admin/login',function(){ return view('admin.login');  });
+//登录 Login控制器
+Route::post('/admin/Logins','admin\LoginController@Login');
+//路由群组 中间件 拒绝后台未登录访问页面
+Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     //首页 admin控制器
     Route::get('/index','admin\AdminController@index');
-
     //首页 右边栏 admin控制器
      Route::get('/indexi','admin\AdminController@indexi');
-    //登录视图 方法
-    Route::get('/login',function(){ return view('admin.login');  });
-    //登录 Login控制器
-    Route::post('/Logins','admin\LoginController@Login');
     //退出登录 exit Login控制器
     Route::get('/out','admin\LoginController@out');
     //分站列表
     Route::get('/fzlb','admin\AdminController@fzlb');
     //添加分站
     Route::get('/tjfz','admin\AdminController@tjfz');
+    //例：北京市 湖南省
     Route::post('/sheng','admin\AdminController@sheng');
+    //市辖县
     Route::post('/xian','admin\AdminController@xian');
     //处理
     Route::post('/dotjfz','admin\AdminController@dotjfz');
-        //首页 右边栏 admin控制器
-        Route::get('/indexi','admin\AdminController@indexi');
-
-    //登录视图 方法
-    Route::get('/login',function(){ return view('admin.login');  });
-        //登录 Login控制器
-        Route::post('/Logins','admin\LoginController@Login');
-        //退出登录 exit Login控制器
-         Route::get('/out','admin\LoginController@out');
 });
 //----------后台END----------//
 
