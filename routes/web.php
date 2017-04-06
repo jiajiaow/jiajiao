@@ -14,5 +14,5 @@
 Route :: get（' / '，function（）{
     return view（' welcome '）;
 }）;
-Route::get('/yz','YzController@index');
+Route::get('/yzm','YzController@index');
 
