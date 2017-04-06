@@ -37,5 +37,6 @@ class indexController extends Controller{
         //dd($re,$dq);
         return view('home.change',['re' => $re,'data' => $dq]);
     }
+
 }
 

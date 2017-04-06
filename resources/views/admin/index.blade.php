@@ -37,6 +37,21 @@
                     <li>
                         <a href="#">
                             <i class="fa fa fa-bar-chart-o"></i>
+                            <span class="nav-label">分站管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="/admin/fzlb">分站列表</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="/admin/tjfz">添加分站</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa fa-bar-chart-o"></i>
                             <span class="nav-label">统计图表</span>
                             <span class="fa arrow"></span>
                         </a>
