@@ -294,7 +294,7 @@
                             <li><a class="J_menuItem" href="table_foo_table.html">Foo Tables</a>
                             </li>
                             <li><a class="J_menuItem" href="table_bootstrap.html">Bootstrap Table
-                                <span class="label label-danger pull-right">推荐</span></a>
+                                    <span class="label label-danger pull-right">推荐</span></a>
                             </li>
                         </ul>
                     </li>
@@ -419,7 +419,7 @@
                 </nav>
             </div>
             <div class="row J_mainContent" id="content-main">
-                {{--<iframe id="J_iframe" width="100%" height="100%" src="{{ URL('/admin/indexi') }}" frameborder="0" data-id="indexi" seamless></iframe>--}}
+                <iframe id="J_iframe" width="100%" height="100%" src="{{ URL('/admin/indexi') }}" frameborder="0" data-id="indexi" seamless></iframe>
             </div>
         </div>
         <!--右侧部分结束-->
