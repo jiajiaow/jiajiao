@@ -12,3 +12,4 @@
 */
 
 Route::get('/','home\indexController@index');
+Route::get('/change_city','home\indexController@change');

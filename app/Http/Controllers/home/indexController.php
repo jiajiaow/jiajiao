@@ -2,14 +2,9 @@
 namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use \DB;
 class indexController extends Controller{
-    public function __construct(Requests $request)
-    {
-        session(['dq' => '广州']);
-    }
     public function getCity($ip = '')
     {
         if($ip == ''){
@@ -24,13 +19,20 @@ class indexController extends Controller{
             }
             $data = (array)$ip->data;
         }
-
         return $data['city'];
     }
-    public function index(Requests $request)
+    public function index(Request $request)
     {
-        echo $this->getCity();
-        dd(session('dq'));
+        $dq = $this->getCity();
+        $re = DB::table('jjw_position_city')->where('city_name','like','%' . $dq . '%')->get();
+        dd($re);
+    }
+    public function change(Request $request)
+    {
+        $re = DB::table('jjw_position_city')->get();
+        $dq = DB::table('jjw_position_provice')->get();
+        //dd($re,$dq);
+        return view('home.change',['re' => $re,'data' => $dq]);
     }
 }
 
