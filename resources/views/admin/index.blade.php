@@ -355,6 +355,9 @@
                         </form>
                     </div>
                     <ul class="nav navbar-top-links navbar-right">
+                        尊敬的 <strong> {{ Session('name') }}！ </strong>
+                        <a class="glyphicon glyphicon-off" href="/admin/out" aria-hidden="true">退出</a>
+                        </form>
                         <li class="dropdown">
                             <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
                                 <i class="fa fa-envelope"></i> <span class="label label-warning">16</span>

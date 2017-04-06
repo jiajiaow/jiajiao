@@ -19,20 +19,18 @@ Route::get('/yz','YzController@index');
 
 //----------  后台  ----------//
 Route::group(['prefix' => '/admin'],function($a='1'){
-    //首页
+    //首页 admin控制器
     Route::get('/index','admin\AdminController@index');
-    //首页 右大块
-    Route::get('/indexi','admin\AdminController@indexi');
-    //分站列表
-    Route::get('/fzlb','admin\AdminController@fzlb');
-    //添加分站
-    Route::get('/tjfz','admin\AdminController@tjfz');
-    //处理添加
-    Route::get('/dofztj','admin\AdminController@dotjfz');
-    //省
-    Route::post('/cs','admin\AdminController@cs');
-    //市
-    Route::post('/co','admin\AdminController@co');
+        //首页 右边栏 admin控制器
+        Route::get('/indexi','admin\AdminController@indexi');
+
+    //登录视图 方法
+    Route::get('/login',function(){ return view('admin.login');  });
+        //登录 Login控制器
+        Route::post('/Logins','admin\LoginController@Login');
+        //退出登录 exit Login控制器
+         Route::get('/out','admin\LoginController@out');
+
 
 });
 //----------后台END----------//
