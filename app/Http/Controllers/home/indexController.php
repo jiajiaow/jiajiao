@@ -21,9 +21,12 @@ class indexController extends Controller{
         }
         return $data['city'];
     }
+
     public function index(Request $request)
     {
+        //调用getCity方法
         $dq = $this->getCity();
+        //模糊查询jjw_position_city表
         $re = DB::table('jjw_position_city')->where('city_name','like','%' . $dq . '%')->get();
         dd($re);
     }

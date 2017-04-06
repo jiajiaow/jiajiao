@@ -32,10 +32,10 @@
             </dl>
             @foreach($data as $data)
             <dl>
-                <dt>{{ $data->provice_name }}</dt>
+                <dt>{{ $data->provice_name }}</dt> <!-- 省 -->
                 @foreach($re as $re1)
                     @if($data->provice_id == $re1->province_id)
-                <dd><a href="http://{{ $re1->id }}.jjw.com/">{{ $re1->city_name }}</a></dd>
+                <dd><a href="http://{{ $re1->id }}.jjw.com/">{{ $re1->city_name }}</a></dd><!-- 市 -->
                     @endif
                 @endforeach
             </dl>
