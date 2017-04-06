@@ -30,13 +30,14 @@ class AdminController extends Controller
         $data = $request->all();
         dd($data);
     }
-
-    public function cs(Request $request)
+    //例子：北京市 湖南省
+    public function sheng(Request $request)
     {
         $list =  \DB::table('jjw_position_provice')->get();
         return $list;
     }
-    public function co(Request $request)
+    //市辖县
+    public function xian(Request $request)
     {
         $pid = $_POST['pid'];
         $list = \DB::table('jjw_position_city')->where('province_id',$pid)->get();

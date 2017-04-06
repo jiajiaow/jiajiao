@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <title> - 基本表单</title>
+    <title>添加分站</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
 <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -99,7 +99,7 @@
     <script type="text/javascript">
     //例：北京市
         $.ajax({
-            url:'/admin/cs',              //请求地址
+            url:'/admin/sheng',              //请求地址
             type:'post',                //请求方式
             async:true,                 //是否异步
             success:function(data){     //成功回调函数
@@ -120,7 +120,7 @@
             var ob = $(this);
             //alert(ob.val());
             $.ajax({
-                url:'/admin/co',              //请求地址
+                url:'/admin/xian',              //请求地址
                 type:'post',                //请求方式
                 async:true,                 //是否异步
                 data:{pid:($(this).val())}, //发送的数据
