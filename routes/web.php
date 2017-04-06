@@ -11,5 +11,8 @@
 |
 */
 
-Route::get('/','YzController@index');
-Route::get('/1','YzController@index');
+Route :: get（' / '，function（）{
+    return view（' welcome '）;
+}）;
+Route::get('/yzm','YzController@index');
+
