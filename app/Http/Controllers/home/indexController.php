@@ -6,9 +6,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use \DB;
 class indexController extends Controller{
-    public function __construct()
+    public function __construct(Requests $request)
     {
-
+        session(['dq' => '广州']);
     }
     public function getCity($ip = '')
     {
@@ -26,6 +26,11 @@ class indexController extends Controller{
         }
 
         return $data['city'];
+    }
+    public function index(Requests $request)
+    {
+        echo $this->getCity();
+        dd(session('dq'));
     }
 }
 
