@@ -34,8 +34,8 @@
             <dl>
                 <dt>{{ $data->provice_name }}</dt>
                 @foreach($re as $re1)
-                    @if($data->provice_id == $re1->province_id)
-                <dd><a href="http://{{ $re1->id }}.jjw.com/">{{ $re1->city_name }}</a></dd>
+                    @if($data->provice_id == $re1->province_id && $re1->url !== null)
+                <dd><a href="http://{{ $re1->url }}.jjw.com"/>{{ $re1->city_name }}</a></dd>
                     @endif
                 @endforeach
             </dl>
