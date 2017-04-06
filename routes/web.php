@@ -11,5 +11,13 @@
 |
 */
 
+<<<<<<< HEAD
 Route::get('/','home\indexController@index');
 Route::get('/change_city','home\indexController@change');
+=======
+Route::get(' / ',function(){
+    return  view(' welcome ');
+  });
+Route::get('/yz','YzController@index');
+
+>>>>>>> 71f4178987b665e5ff3808ea4449c8c986397e11
