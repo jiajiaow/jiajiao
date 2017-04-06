@@ -34,6 +34,7 @@
                             <span class="nav-label">主页</span>
                         </a>
                     </li>
+                    @if(session('admin_id')==1)
                     <li>
                         <a href="#">
                             <i class="fa fa fa-bar-chart-o"></i>
@@ -42,13 +43,16 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
+
                                 <a class="J_menuItem" href="/admin/fzlb">分站列表</a>
+
                             </li>
                             <li>
                                 <a class="J_menuItem" href="/admin/tjfz">添加分站</a>
                             </li>
                         </ul>
                     </li>
+                    @endif
                     <li>
                         <a href="#">
                             <i class="fa fa fa-bar-chart-o"></i>
@@ -442,6 +446,7 @@
         </div>
         <!--右侧部分结束-->
     </div>
+
 @endsection
 
 

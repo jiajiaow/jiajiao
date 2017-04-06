@@ -10,7 +10,7 @@
     <title>添加分站</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
-<meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
     <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
@@ -27,14 +27,17 @@
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>添加分站</h5>
+                        @if(session("msg"))
+                                <h3>{{session("msg")}}</h3>
+                        @endif
                     </div>
                     <div class="ibox-content">
-                        <form method="get" action="{{ asset('/admin/dofztj') }}" class="form-horizontal">
+                        <form method="post" action="{{ asset('/admin/dotjfz') }}" class="form-horizontal" enctype="multipart/form-data">
                         {{ csrf_field() }}
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">网站名称</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="title" class="form-control">
+                                    <input type="text" name="title" placeholder="请输入网站名：例：XXX家教网" class="form-control">
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
@@ -42,7 +45,21 @@
                                 <label class="col-sm-2 control-label">联系电话</label>
 
                                 <div class="col-sm-10">
-                                    <input type="text" name="phone" class="form-control" >
+                                    <input type="text" name="phone" placeholder="请输入联系电话：例：400******" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">URL</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="url" placeholder="请输入网站名：例：http://www.baidu.com" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">前缀</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="prefix" placeholder="请输入前缀：例：广州 -> gz , 深圳 -> sz" class="form-control" >
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
@@ -66,6 +83,15 @@
                                     </select>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">LOGO</label>
+
+                                <div class="col-sm-10">
+                                    <input type="file" name="file"  class="btn btn-default">
+                                </div>
+                            </div>
+
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <div class="col-sm-4 col-sm-offset-2">
@@ -128,7 +154,7 @@
                 success:function(data){     //成功回调函数
                     console.log(data);
                     if(data.length>0){
-                        var select = $("<select id='city' class='form-control m-b'><option>--请选择--</option></select>")
+                        var select = $("<select id='city' class='form-control m-b' name='city'><option>--请选择--</option></select>")
                         for (var i = 0; i < data.length; i++) {
                             $(select).append("<option value='"+data[i].city_id+"'>"+data[i].city_name+"</option>");
                         };

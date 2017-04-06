@@ -16,10 +16,12 @@ class AdminController extends Controller
         return view('admin.indexi');
     }
 
-    public function fzlb()
+    public function fzlb(Request $request)
     {
-        $re = DB::table('jjw_position_city')->where('prefix','!=','')->get();
-        return view('admin.fzlb',['re' => $re]);
+
+            $list = DB::table('jjw_position_city')->where('state','1')->get();
+            return view('admin.fzlb',['list'=>$list]);
+
     }
     public function tjfz()
     {
@@ -28,8 +30,41 @@ class AdminController extends Controller
     }
     public function dotjfz(Request $request)
     {
-        $data = $request->all();
-        dd($data);
+        $file = $request->file('file');
+        //判断是否是空,
+        if($file == null) {
+            return back()->with('msg', '请不要上传空内容!');
+        }else if($request->input('prefix')){
+            return back()->with('msg', '前缀不能为空!');
+        }else if($request->input('url')){
+            return back()->with('msg', 'URL不能为空!');
+        }else if($request->input('title')){
+            return back()->with('msg', '标题不能为空!');
+        }else if($request->input('city')){
+            return back()->with('msg', '省市级别不能为空!');
+        }
+        if($file->isValid()){
+            $ext = $file->getClientOriginalExtension();//获取后缀
+            $filename = time().rand(1000,9999).".".$ext;//新文件名
+            $file->move("admin/dotjfz_image/",$filename);//移动目录
+            $logo = "/admin/dotjfz_image/".$filename;//组成路径
+            // 获取数据
+            $stu = [
+                'title'=>$request->input('title'),
+                'url'=>$request->input('url'),
+                'prefix'=>$request->input('prefix'),
+                'state'=>$request->input('state'),
+                'phone'=>$request->input('phone'),
+                'logo'=> $logo,
+            ];
+            //写入数据库
+            $list = \DB::table('jjw_position_city')->where('city_id',$request->input('city'))->update($stu);
+            if($list){
+                return redirect('/admin/fzlb');
+            }
+        }else{
+            return back()->with('msg', '请不要上传空内容!');
+        }
     }
     //例子：北京市 湖南省
     public function sheng(Request $request)

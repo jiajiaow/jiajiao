@@ -56,24 +56,31 @@
                                     <th>分站名称</th>
                                     <th>前缀</th>
                                     <th>绑定域名</th>
+                                    <th>状态</th>
+                                    <th>联系人电话</th>
+                                    <th>logo</th>
                                     <th>操作</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach($re as $data)
+                                @foreach($list as $lis)
                                 <tr class="gradeX">
-                                    <td>{{ $data->id }}</td>
-                                    <td>{{ $data->city_name}}</td>
-                                    <td>{{ $data->prefix }}</td>
-                                    <td class="center">{{ $data->url }}</td>
+                                    <td class="center">{{ $lis->id }}</td>
+                                    <td>{{ $lis->title }}</td>
+                                    <td>{{ $lis->prefix }}</td>
+                                    <td class="center">{{ $lis->url }}</td>
+                                    <td class="center">{{ $lis->state==1?'启用':'没启用' }}</td>
+                                    <td class="center">{{ $lis->phone }}</td>
+                                    <td class="center"><img src="{{ $lis->logo }}" width="50px;"/></td>
                                     <td class="center">
                                         <a>编辑</a>
                                         <a>起用</a>
                                         <a>删除</a>
                                     </td>
                                 </tr>
-                            @endforeach
+                                @endforeach
                             </tbody>
+
                         </table>
 
                     </div>
