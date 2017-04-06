@@ -11,5 +11,4 @@
 |
 */
 
-Route::get('/yz','YzController@index');
-
+Route::get('/','YzController@index');

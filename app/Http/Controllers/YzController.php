@@ -18,6 +18,6 @@ class YzController extends Controller
     public function index()
     {
         $result=$this->sms->send("17600199751","季枫","{'code':'1234'}",'SMS_35975005');
-        echo "11111";
+        echo "11111aaaaaaaaaaaaaaaaa";
     }
 }
