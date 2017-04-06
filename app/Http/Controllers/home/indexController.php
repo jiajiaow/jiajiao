@@ -23,10 +23,14 @@ class indexController extends Controller{
     }
     public function index(Request $request)
     {
+        //获取客户端地区
         $dq = $this->getCity();
-        $re = DB::table('jjw_position_city')->where('city_name','like','%' . $dq . '%')->get();
-        dd($re);
+        $re = DB::table('jjw_position_city')->where('city_name','like','%' . $dq . '%')->first();
+        //保存地区ID  id=region
+        $request->session()->put('region',$re->province_id);
+        $data = $request->session()->all();
     }
+    //地区切换
     public function change(Request $request)
     {
         $re = DB::table('jjw_position_city')->get();
