@@ -38,7 +38,7 @@ Route::group(['prefix' => '/admin'],function($a='1'){
     Route::post('/dotjfz','admin\AdminController@dotjfz');
         //首页 右边栏 admin控制器
         Route::get('/indexi','admin\AdminController@indexi');
-
+//测试提交
     //登录视图 方法
     Route::get('/login',function(){ return view('admin.login');  });
         //登录 Login控制器
