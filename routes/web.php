@@ -34,6 +34,7 @@ Route::group(['prefix' => '/admin'],function($a='1'){
     //市
     Route::post('/co','admin\AdminController@co');
 
+
 });
 //----------后台END----------//
 
