@@ -47,7 +47,6 @@ class indexController extends Controller{
                         //独立分站
                         session(['dlwz' => $re->city_id]);
                         session(['regionid' => $re->city_id]);
-                        dd($request->session()->all());
                         return '独立网站---域名为'.$url.'独立网站id--'.$re->city_id;
                     }else{
                         //分站为开通
