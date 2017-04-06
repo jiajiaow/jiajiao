@@ -32,10 +32,15 @@
             </dl>
             @foreach($data as $data)
             <dl>
-                <dt>{{ $data->provice_name }}</dt>
+                <dt>{{ $data->provice_name }}</dt> <!-- 省 -->
                 @foreach($re as $re1)
+<<<<<<< .merge_file_V8LMtF
                     @if($data->provice_id == $re1->province_id && $re1->url !== null)
                 <dd><a href="http://{{ $re1->url }}.jjw.com"/>{{ $re1->city_name }}</a></dd>
+=======
+                    @if($data->provice_id == $re1->province_id)
+                <dd><a href="http://{{ $re1->id }}.jjw.com/">{{ $re1->city_name }}</a></dd><!-- 市 -->
+>>>>>>> .merge_file_ACBr25
                     @endif
                 @endforeach
             </dl>

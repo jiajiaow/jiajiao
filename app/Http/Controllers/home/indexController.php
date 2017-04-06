@@ -21,16 +21,15 @@ class indexController extends Controller{
         }
         return $data['city'];
     }
+
     public function index(Request $request)
     {
-        //获取客户端地区
+        //调用getCity方法
         $dq = $this->getCity();
-        $re = DB::table('jjw_position_city')->where('city_name','like','%' . $dq . '%')->first();
-        //保存地区ID  id=region
-        $request->session()->put('region',$re->province_id);
-        $data = $request->session()->all();
+        //模糊查询jjw_position_city表
+        $re = DB::table('jjw_position_city')->where('city_name','like','%' . $dq . '%')->get();
+        dd($re);
     }
-    //地区切换
     public function change(Request $request)
     {
         $re = DB::table('jjw_position_city')->get();
