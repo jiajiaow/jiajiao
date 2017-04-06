@@ -62,7 +62,7 @@
 
                                 <div class="col-sm-10">
                                     <select class="form-control m-b" id="cid"  name='provice'>
-                                        <option></option>
+                                        <option>--请选择--</option>
                                     </select>
                                 </div>
                             </div>
@@ -99,12 +99,9 @@
     <script type="text/javascript">
     //例：北京市
         $.ajax({
-            url:'{{ asset('/admin/cs') }}',              //请求地址
+            url:'/admin/cs',              //请求地址
             type:'post',                //请求方式
             async:true,                 //是否异步
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
             success:function(data){     //成功回调函数
                 console.log(data);
                 for (var i = 0; i < data.length; i++) {
@@ -118,12 +115,12 @@
 
     //例：北京市 - 市辖区（市辖县）
 
-        $("#cid").live('change',function(){
+        $("#cid").change(function(){
             $(this).nextAll("select").remove();
             var ob = $(this);
             //alert(ob.val());
             $.ajax({
-                url:'/co',              //请求地址
+                url:'/admin/co',              //请求地址
                 type:'post',                //请求方式
                 async:true,                 //是否异步
                 data:{pid:($(this).val())}, //发送的数据
@@ -131,7 +128,7 @@
                 success:function(data){     //成功回调函数
                     console.log(data);
                     if(data.length>0){
-                        var select = $("<select id='city'><option>--请选择--</option></select>")
+                        var select = $("<select id='city' class='form-control m-b'><option>--请选择--</option></select>")
                         for (var i = 0; i < data.length; i++) {
                             $(select).append("<option value='"+data[i].city_id+"'>"+data[i].city_name+"</option>");
                         };

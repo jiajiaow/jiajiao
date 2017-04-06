@@ -21,23 +21,15 @@ Route::get('/yz','YzController@index');
 Route::group(['prefix' => '/admin'],function($a='1'){
     //首页 admin控制器
     Route::get('/index','admin\AdminController@index');
-
-    //首页 右边栏 admin控制器
-     Route::get('/indexi','admin\AdminController@indexi');
-    //登录视图 方法
-    Route::get('/login',function(){ return view('admin.login');  });
-    //登录 Login控制器
-    Route::post('/Logins','admin\LoginController@Login');
-    //退出登录 exit Login控制器
-    Route::get('/out','admin\LoginController@out');
-    //分站列表
-    Route::get('/fzlb','admin\AdminController@fzlb');
-    //添加分站
-    Route::get('/tjfz','admin\AdminController@tjfz');
-    //处理
-    Route::post('/dotjfz','admin\AdminController@dotjfz');
         //首页 右边栏 admin控制器
         Route::get('/indexi','admin\AdminController@indexi');
+
+    Route::get('/tjfz','admin\AdminController@tjfz');
+    Route::get('/fzlb','admin\AdminController@fzlb');
+    Route::post('/cs','admin\AdminController@cs');
+    Route::post('/co','admin\AdminController@co');
+    //处理
+    Route::post('/dotjfz','admin\AdminController@dotjfz');
 
     //登录视图 方法
     Route::get('/login',function(){ return view('admin.login');  });
@@ -45,6 +37,9 @@ Route::group(['prefix' => '/admin'],function($a='1'){
         Route::post('/Logins','admin\LoginController@Login');
         //退出登录 exit Login控制器
          Route::get('/out','admin\LoginController@out');
+
+
+
 });
 //----------后台END----------//
 

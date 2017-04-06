@@ -15,6 +15,7 @@ class AdminController extends Controller
     public function indexi(Request $request){
         return view('admin.indexi');
     }
+
     public function fzlb()
     {
         return view('admin.fzlb');
@@ -29,13 +30,16 @@ class AdminController extends Controller
         $data = $request->all();
         dd($data);
     }
+
     public function cs(Request $request)
     {
-        $list = think\Db::name('jjw_position_provice')->get();
+        $list =  \DB::table('jjw_position_provice')->get();
         return $list;
     }
     public function co(Request $request)
     {
-
+        $pid = $_POST['pid'];
+        $list = \DB::table('jjw_position_city')->where('province_id',$pid)->get();
+        return $list;
     }
 }
