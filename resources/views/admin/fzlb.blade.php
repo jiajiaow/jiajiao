@@ -96,7 +96,7 @@
     <!-- 全局js -->
     <script src="js/jquery.min.js?v=2.1.4"></script>
     <script src="js/bootstrap.min.js?v=3.3.6"></script>
-
+    <script src="/admin/js/plugins/layer/layer.min.js"></script>
 
 
     <script src="js/plugins/jeditable/jquery.jeditable.js"></script>
@@ -145,6 +145,28 @@
                 "New row",
                 "New row"]);
 
+        }
+
+        //删除
+        function del(obj,id){
+            $(obj).parents("tr").remove();
+            $.ajax({
+                url:'/admin/fzlb_del',              //请求地址
+                type:'post',                //请求方式
+                async:true,                 //是否异步
+                data:{'id':id}, //发送的数据
+                dataType:'json',            //响应的数据类型
+                success:function(data){     //成功回调函数
+                    if(data == 'y'){
+                        $(obj).parents("tr").remove();
+                        layer.alert('删除分站成功!', {icon: 6});
+                    }
+                },
+                error:function(){
+                    //alert('ajax请求失败');  //失败回调
+                }
+            });
+           //
         }
     </script>
 

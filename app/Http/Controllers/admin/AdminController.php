@@ -136,4 +136,18 @@ class AdminController extends Controller
         \DB::table('jjw_position_city')->where('id',$id)->update(['state' => '2']);
         return redirect('/admin/fzlb');
     }
+    public function fzlb_del(Request $request){
+        $stu = [
+            'title' => '',
+            'url' => '',
+            'prefix' => '',
+            'state' => '0',
+            'phone' => '',
+            'logo' => '',
+        ];
+        $list = \DB::table('jjw_position_city')->where('id', $_POST['id'])->update($stu);
+        if($list){
+            return "y";
+        }
+    }
 }

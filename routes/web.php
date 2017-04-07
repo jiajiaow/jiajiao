@@ -48,7 +48,8 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::get('/fzty/{id?}','admin\AdminController@fzty');
     //分站起用
     Route::get('/fzqy/{id?}','admin\AdminController@fzqy');
-
+    //处理删除分站
+    Route::any('/fzlb_del','admin\AdminController@fzlb_del');
 });
 //----------后台END----------//
 
