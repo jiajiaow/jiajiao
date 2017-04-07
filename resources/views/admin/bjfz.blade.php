@@ -37,7 +37,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">网站名称</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="title" placeholder="请输入要修改网站名：当前为 {{ $list->title }}" class="form-control">
+                                    <input type="text" name="title" value="{{ $list->title }}" class="form-control">
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
@@ -45,21 +45,21 @@
                                 <label class="col-sm-2 control-label">联系电话</label>
 
                                 <div class="col-sm-10">
-                                    <input type="text" name="phone" placeholder="请输入要修改联系电话：当前为 {{ $list->phone }}" class="form-control" >
+                                    <input type="text" name="phone" value="{{ $list->phone }}" class="form-control" >
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">URL</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="url" placeholder="请输入要修改网站名：当前为 {{ $list->url }}" class="form-control" >
+                                    <input type="text" name="url" value="{{ $list->url }}" class="form-control" >
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">前缀</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="prefix" placeholder="请输入要修改的前缀：当前为 {{ $list->prefix }}" class="form-control" >
+                                    <input type="text" name="prefix" value="{{ $list->prefix }}" class="form-control" >
                                     <input type="hidden" name="id" value="{{ $list->id }}" class="form-control" >
                                 </div>
                             </div>

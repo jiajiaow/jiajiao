@@ -45,7 +45,7 @@
                                 <label class="col-sm-2 control-label">联系电话</label>
 
                                 <div class="col-sm-10">
-                                    <input type="text" name="phone" placeholder="请输入联系电话：例：400******" class="form-control" >
+                                    <input type="text" name="phone" placeholder="请输入联系电话：例：4008-000-000" class="form-control" >
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
