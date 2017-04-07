@@ -126,4 +126,20 @@ class AdminController extends Controller
             return back()->with('msg', '请不要上传空内容!');
         }
     }
+
+    //处理分站列表删除
+    public function fzlb_del(Request $request){
+        $stu = [
+            'title' => '',
+            'url' => '',
+            'prefix' => '',
+            'state' => '0',
+            'phone' => '',
+            'logo' => '',
+        ];
+        $list = \DB::table('jjw_position_city')->where('id', $_POST['id'])->update($stu);
+        if($list){
+            return "y";
+        }
+    }
 }

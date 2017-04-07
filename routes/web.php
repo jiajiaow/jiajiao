@@ -44,6 +44,8 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::any('/bjfz{id?}','admin\AdminController@bjfz');
     //处理编辑分站
     Route::any('/dobjfz','admin\AdminController@dobjfz');
+    //处理删除分站
+    Route::any('/fzlb_del','admin\AdminController@fzlb_del');
 });
 //----------后台END----------//
 
