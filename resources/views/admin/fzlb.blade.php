@@ -74,8 +74,11 @@
                                     <td class="center"><img src="{{ $lis->logo }}" width="50px;"/></td>
                                     <td class="center">
                                         <a class="glyphicon glyphicon-wrench" href="/admin/bjfz?id={{ $lis->id }}">编辑</a>
-                                        <a class="glyphicon glyphicon-ok">启用</a>
-                                        <a class="glyphicon glyphicon-remove">弃用</a>
+                                        @if($lis->state == 1)
+                                        <a href="/admin/fzty/{{ $lis->id }}" class="glyphicon glyphicon-ok">停用</a>
+                                        @else
+                                        <a href="/admin/fzqy/{{ $lis->id }}" class="glyphicon glyphicon-remove">起用</a>
+                                        @endif
                                         <a class="glyphicon glyphicon-trash">删除</a>
                                     </td>
                                 </tr>

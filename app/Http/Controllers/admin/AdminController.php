@@ -19,7 +19,7 @@ class AdminController extends Controller
     public function fzlb(Request $request)
     {
 
-            $list = DB::table('jjw_position_city')->where('state','1')->get();
+            $list = DB::table('jjw_position_city')->where('state','!=','0')->get();
             return view('admin.fzlb',['list'=>$list]);
 
     }
@@ -125,5 +125,15 @@ class AdminController extends Controller
         }else{
             return back()->with('msg', '请不要上传空内容!');
         }
+    }
+    public function fzqy(Request $request,$id)
+    {
+        \DB::table('jjw_position_city')->where('id',$id)->update(['state' => '1']);
+        return redirect('/admin/fzlb');
+    }
+    public function fzty(Request $request,$id)
+    {
+        \DB::table('jjw_position_city')->where('id',$id)->update(['state' => '2']);
+        return redirect('/admin/fzlb');
     }
 }
