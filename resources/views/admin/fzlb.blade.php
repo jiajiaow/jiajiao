@@ -73,9 +73,10 @@
                                     <td class="center">{{ $lis->phone }}</td>
                                     <td class="center"><img src="{{ $lis->logo }}" width="50px;"/></td>
                                     <td class="center">
-                                        <a>编辑</a>
-                                        <a>起用</a>
-                                        <a>删除</a>
+                                        <a class="glyphicon glyphicon-wrench" href="/admin/bjfz?id={{ $lis->id }}">编辑</a>
+                                        <a class="glyphicon glyphicon-ok">启用</a>
+                                        <a class="glyphicon glyphicon-remove">弃用</a>
+                                        <a class="glyphicon glyphicon-trash">删除</a>
                                     </td>
                                 </tr>
                                 @endforeach

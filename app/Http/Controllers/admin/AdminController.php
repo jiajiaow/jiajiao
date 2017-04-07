@@ -34,13 +34,13 @@ class AdminController extends Controller
         //判断是否是空,
         if($file == null) {
             return back()->with('msg', '请不要上传空内容!');
-        }else if($request->input('prefix')){
+        }else if($request->input('prefix') == null){
             return back()->with('msg', '前缀不能为空!');
-        }else if($request->input('url')){
+        }else if($request->input('url') == null){
             return back()->with('msg', 'URL不能为空!');
-        }else if($request->input('title')){
+        }else if($request->input('title') == null){
             return back()->with('msg', '标题不能为空!');
-        }else if($request->input('city')){
+        }else if($request->input('city') == null){
             return back()->with('msg', '省市级别不能为空!');
         }
         if($file->isValid()){
@@ -78,5 +78,52 @@ class AdminController extends Controller
         $pid = $_POST['pid'];
         $list = \DB::table('jjw_position_city')->where('province_id',$pid)->get();
         return $list;
+    }
+
+    //编辑分站
+    public function bjfz(Request $request){
+        $list = \DB::table('jjw_position_city')->where('id',$_GET['id'])->first();
+        return view('/admin.bjfz',['list'=>$list]);
+    }
+
+
+    //处理编辑分站
+    public function dobjfz(Request $request)
+    {
+        $file = $request->file('file');
+        //判断是否是空,
+        if ($file == null) {
+            return back()->with('msg', '请不要上传空内容!');
+        } else if ($request->input('prefix') == null) {
+            return back()->with('msg', '前缀不能为空!');
+        } else if ($request->input('url') == null) {
+            return back()->with('msg', 'URL不能为空!');
+        } else if ($request->input('title') == null) {
+            return back()->with('msg', '标题不能为空!');
+        } else if ($request->input('city') == null) {
+            return back()->with('msg', '省市级别不能为空!');
+        }
+        if ($file->isValid()) {
+            $ext = $file->getClientOriginalExtension();//获取后缀
+            $filename = time() . rand(1000, 9999) . "." . $ext;//新文件名
+            $file->move("admin/dotjfz_image/", $filename);//移动目录
+            $logo = "/admin/dotjfz_image/" . $filename;//组成路径
+            // 获取数据
+            $stu = [
+                'title' => $request->input('title'),
+                'url' => $request->input('url'),
+                'prefix' => $request->input('prefix'),
+                'state' => $request->input('state'),
+                'phone' => $request->input('phone'),
+                'logo' => $logo,
+            ];
+            //写入数据库
+            $list = \DB::table('jjw_position_city')->where('id', $request->input('id'))->update($stu);
+            if($list){
+                return redirect('/admin/fzlb');
+            }
+        }else{
+            return back()->with('msg', '请不要上传空内容!');
+        }
     }
 }

@@ -34,12 +34,16 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::get('/fzlb','admin\AdminController@fzlb');
     //添加分站
     Route::get('/tjfz','admin\AdminController@tjfz');
+    //处理添加分站
+    Route::post('/dotjfz','admin\AdminController@dotjfz');
     //例：北京市 湖南省
     Route::post('/sheng','admin\AdminController@sheng');
     //市辖县
     Route::post('/xian','admin\AdminController@xian');
-    //处理
-    Route::post('/dotjfz','admin\AdminController@dotjfz');
+    //编辑分站
+    Route::any('/bjfz{id?}','admin\AdminController@bjfz');
+    //处理编辑分站
+    Route::any('/dobjfz','admin\AdminController@dobjfz');
 });
 //----------后台END----------//
 
