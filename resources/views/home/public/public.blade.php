@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>【栗志家教】@yield('title')家教_专业大学生家教全国连锁领导品牌!</title>
         <meta name="description" content="专业大学生一对一上门家教，专业大学生家教全国连锁领导品牌。免费上门试课热线：400-XXXXXXXX。业务覆盖全国200多个城市，汇集数十万名大学生、专职老师在内的各类优秀教员，竭诚为广大学员提供最专业、最值得信赖的一对一上门家教辅导。免费上门试课热线：400-XXXXXXXX" />
-        <meta name="keywords" content="栗志家教,{{ mb_substr($_COOKIE['regionname'],0,2) }}家教,{{ mb_substr($_COOKIE['regionname'],0,2) }}家教网,{{ mb_substr($_COOKIE['regionname'],0,2) }}大学生家教,{{ mb_substr($_COOKIE['regionname'],0,2) }}家教,{{ mb_substr($_COOKIE['regionname'],0,2) }}家教网,辅导,补习,一对一" />
+        <meta name="keywords" content="栗志家教,{{ mb_substr(session('regionname'),0,2) }}家教,{{ mb_substr(session('regionname'),0,2) }}家教网,{{ mb_substr(session('regionname'),0,2) }}大学生家教,{{ mb_substr(session('regionname'),0,2) }}家教,{{ mb_substr(session('regionname'),0,2) }}家教网,辅导,补习,一对一" />
         <link href="/home/css/style.css" rel="stylesheet" type="text/css" />
         <link rel="icon" href="" type="/home/image/x-icon" />
 @section('style')
@@ -34,7 +34,7 @@
 
     </div>
 
-    <div class="city pull-right"><span>{{ mb_substr($_COOKIE['regionname'],0,2) }}</span>
+    <div class="city pull-right"><span>{{ mb_substr(session('regionname'),0,2) }}</span>
         <div class="city-down">
             <ul id="zz">
                 <li><a href="http://bj.jiajiao114.com/">北京</a></li>
