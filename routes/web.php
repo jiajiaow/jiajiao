@@ -52,6 +52,26 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::get('/fzqy/{id?}','admin\AdminController@fzqy');
     //处理删除分站
     Route::any('/fzlb_del','admin\AdminController@fzlb_del');
+    //导航
+    Route::get('/daohang','admin\DaohangController@daohang');
+    //导航----添加一级分类
+    Route::get('/yiji','admin\DaohangController@yiji');
+    //处理导航----添加一级分类
+    Route::post('/doyiji','admin\DaohangController@doyiji');
+    //导航----添加二级分类
+    Route::get('/erji/{id?}','admin\DaohangController@erji');
+    //处理导航----添加一级分类
+    Route::post('/doerji','admin\DaohangController@doerji');
+    //导航----添加三级分类
+    Route::get('/sanji','admin\DaohangController@sanji');
+    //处理导航----添加三级分类
+    Route::post('/dosanji','admin\DaohangController@dosanji');
+    //处理导航修改
+    Route::get('/dhedit/{id?}/{fl?}','admin\DaohangController@dhedit');
+    //处理导航删除
+    Route::post('/dhdel','admin\DaohangController@dhdel');
+    //处理导航修改
+    Route::post('/dodhedit','admin\DaohangController@dodhedit');
 });
 //----------后台END----------//
 
