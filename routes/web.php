@@ -26,7 +26,7 @@ Route::get('/yz','YzController@index');
 //登录视图 方法
 Route::get('/admin/login',function(){ return view('admin.login');  });
 //登录 Login控制器
-Route::post('/admin/Logins','admin\LoginController@Login');
+Route::post('/admin/Logins','admin\LoginController@login');
 //路由群组 中间件 拒绝后台未登录访问页面
 Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     //首页 admin控制器
