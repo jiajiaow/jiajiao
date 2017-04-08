@@ -1,5 +1,5 @@
 @extends('home.public.public')
-@section('title',mb_substr($_COOKIE['regionname'],0,2))
+@section('title',mb_substr(session('regionname'),0,2))
 @section('content')
     <div id="banner">
         <div class="container">
