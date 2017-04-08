@@ -4,6 +4,7 @@ namespace App\Http\Controllers\home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use \DB;
+use \Cookie;
 class indexController extends Controller{
     /**
     *获取客户端地区
@@ -31,40 +32,58 @@ class indexController extends Controller{
     */
     public function index(Request $request)
     {
-        //获取url
-        $url = 'http://'.$_SERVER['SERVER_NAME'];
-        if($url == 'http://www.jjw.com'){
-            //当前客户的站
-            $dq = $this->getCity();
-            $re = DB::table('jjw_position_city')->where('city_name','like','%' . $dq . '%')->first();
-            session(['regionid' => $re->city_id]);
-            return $re->city_name.'全国站--当前客户---地区id'.$re->city_id;
+                //获取当前域名
+        $url = $_SERVER['SERVER_NAME'];
+        $x = explode(".",$url);
+        $qz = $x[0]."";
+        $zy = $x[1];
+        $data = $request->session()->all();
+
+        if($url == 'www.zl.com'){
+            //地区id
+            setcookie("regionid","110100000000");
+            //模板
+            setcookie("Template","1");
+            //查询数据
+            $re = DB::table('jjw_position_city')->where('city_id','110100000000')->first();
+            //地区名称
+            setcookie("regionname",$re->city_name);
+            return view('home.index');
+        }elseif($url == 'www.dl.com'){
+            //模板id
+            setcookie("Template","2");
+            //地区id
+            setcookie("regionid","110100000000");
+
+            $re = DB::table('jjw_position_city')->where('city_id','110100000000')->first();
+            //地区名称
+            setcookie("regionname",$re->title);
+            return view('home.index');
         }else{
-            if(preg_match("#http://(.*?)\.#i",$url,$match)){
-                if($match[1] == 'www'){
-                    $re = DB::table('jjw_position_city')->where('url',$url)->first();
-                    if($re){
-                        //独立分站
-                        session(['dlwz' => $re->city_id]);
-                        session(['regionid' => $re->city_id]);
-                        return '独立网站---域名为'.$url.'独立网站id--'.$re->city_id;
-                    }else{
-                        //分站为开通
-                        return '分站为开通';
-                    }
-                }else{
-                    //全国分站
-                    $re = DB::table('jjw_position_city')->where('prefix',$match[1])->first();
-                    session(['regionid' => $re->city_id]);
-                    return $re->city_name.'全国二级分站----当前分站id'.$re->city_id;
-                }
+            if($zy == 'zl'){
+                $re = DB::table('jjw_position_city')->where('prefix',$qz)->first();
+                //模板id
+                setcookie("Template","1");
+                //地区id
+                setcookie("regionid",$re->city_id);
+                //地区名称
+                setcookie("regionname",$re->city_name);
+                return view('home.index');
+            }else{
+                $re = DB::table('jjw_position_city')->where('prefix',$qz)->first();
+                //模板id
+                setcookie("Template","2");
+                //地区id
+                setcookie("regionid",$re->city_id );
+                //地区名称
+                setcookie("regionname",$re->title);
+                return view('home.index');
             }
         }
     }
     /**
     *网站地区切换
-    *
-    */
+    **/
     public function change(Request $request)
     {
         $re = DB::table('jjw_position_city')->get();

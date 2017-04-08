@@ -14,34 +14,28 @@
 <div id="city-content">
     <div class="city-contain">
         <div class="top-link">
-            <a href="http://www.jjw.com" class="btn">进入上海家教114</a>
+            <a href="http://www.zl.com" class="btn">进入上海家教114</a>
         </div>
         <div class="city-list">
             <dl class="first">
                 <dt>热门城市</dt>
-                <dd><a href="http://www.jjw.com/">上海</a></dd>
-                <dd><a href="http://bj.jjw.com/">北京</a></dd>
-                <dd><a href="http://tj.jjw.com/">天津</a></dd>
-                <dd><a href="http://gz.jjw.com/">广州</a></dd>
-                <dd><a href="http://sz.jjw.com/">深圳</a></dd>
-                <dd><a href="http://hz.jjw.com/">杭州</a></dd>
-                <dd><a href="http://nj.jjw.com/">南京</a></dd>
-                <dd><a href="http://wh.jjw.com/">武汉</a></dd>
-                <dd><a href="http://xa.jjw.com/">西安</a></dd>
-                <dd><a href="http://cd.jjw.com/">成都</a></dd>
+                <dd><a href="http://www.zl.com/">广州</a></dd>
+                <dd><a href="http://bj.zl.com/">北京</a></dd>
+                <dd><a href="http://tj.zl.com/">天津</a></dd>
+                <dd><a href="http://gz.zl.com/">广州</a></dd>
+                <dd><a href="http://sz.zl.com/">深圳</a></dd>
+                <dd><a href="http://hz.zl.com/">杭州</a></dd>
+                <dd><a href="http://nj.zl.com/">南京</a></dd>
+                <dd><a href="http://wh.zl.com/">武汉</a></dd>
+                <dd><a href="http://xa.zl.com/">西安</a></dd>
+                <dd><a href="http://cd.zl.com/">成都</a></dd>
             </dl>
             @foreach($data as $data)
             <dl>
                 <dt>{{ $data->provice_name }}</dt> <!-- 省 -->
                 @foreach($re as $re1)
-
                     @if($data->provice_id == $re1->province_id && $re1->url !== null)
-                <dd><a href="http://{{ $re1->url }}.jjw.com"/>{{ $re1->city_name }}</a></dd>
-
-                    @if($data->provice_id == $re1->province_id)
-                <dd><a href="http://{{ $re1->id }}.jjw.com/">{{ $re1->city_name }}</a></dd><!-- 市 -->
-
-                <dd><a href="http://{{ $re1->prefix }}.jjw.com"  target="_blank" rel="nofollow">{{ $re1->city_name }}</a></dd>
+                <dd><a href="http://{{ $re1->prefix }}.zl.com"  target="_blank" rel="nofollow">{{ $re1->city_name }}</a></dd>
                     @endif
                 @endforeach
             </dl>
