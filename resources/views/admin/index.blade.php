@@ -55,6 +55,27 @@
                     @endif
                     <li>
                         <a href="#">
+                            <i class="fa fa-desktop"></i>
+                            <span class="nav-label">导航管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="/admin/daohang">导航分类列表</a>
+                            </li>
+                            {{--<li>--}}
+                                {{--<a class="J_menuItem" href="/admin/yiji">添加一级分类</a>--}}
+                            {{--</li>--}}
+                            {{--<li>--}}
+                                {{--<a class="J_menuItem" href="/admin/erji">添加二级分类</a>--}}
+                            {{--</li>--}}
+                            {{--<li>--}}
+                                {{--<a class="J_menuItem" href="/admin/sanji">添加三级分类</a>--}}
+                            {{--</li>--}}
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
                             <i class="fa fa fa-bar-chart-o"></i>
                             <span class="nav-label">统计图表</span>
                             <span class="fa arrow"></span>
