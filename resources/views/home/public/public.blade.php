@@ -68,310 +68,47 @@
                     </div>
                     <div class="dropdown">
                         <ul class="drop-menu">
-                            <li>
-                                <dl>
-                                    <dt>高中</dt>
-                                    <dd><a href="">数学</a></dd>
-                                    <dd><a href="">英语</a></dd>
-                                    <dd><a href="">语文</a></dd>
-                                    <dd><a href="">文综</a></dd>
-                                    <dd><a href="">理综</a></dd>
-                                </dl>
-                            </li>
-                            <li>
-                                <dl>
-                                    <dt>初中</dt>
-                                    <dd><a href="">数学</a></dd>
-                                    <dd><a href="">英语</a></dd>
-                                    <dd><a href="">语文</a></dd>
-                                    <dd><a href="">物理</a></dd>
-                                    <dd><a href="">化学</a></dd>
-                                </dl>
-                            </li>
-                            <li>
-                                <dl>
-                                    <dt>小学及学龄前</dt>
-                                    <dd><a href="">作业辅导</a></dd>
-                                    <dd><a href="">全科</a></dd>
-                                    <dd><a href="">奥数</a></dd>
-                                    <dd><a href="">英语</a></dd>
-                                </dl>
-                            </li>
-                            <li>
-                                <dl>
-                                    <dt>语言</dt>
-                                    <dd><a href="">雅思</a></dd>
-                                    <dd><a href="">托福</a></dd>
-                                    <dd><a href="">口语</a></dd>
-                                    <dd><a href="">小语种</a></dd>
-                                </dl>
-                            </li>
+                            @foreach($yiji as $yj)
+                                <li>
+                                    <dl>
+                                        <dt>{{ $yj->yiji }}</dt>
+                                        @foreach($erji as $ej)
+                                            @if( $yj->id == $ej->yiji_id )
 
+                                                @foreach($sanji as $sj)
+                                                    @if($ej->id == $sj->erji_id)
+                                                        <dd><a href="">{{ $sj->sanji }}</a></dd>
+                                                    @endif
+                                                @endforeach
 
-
-                            <!--<li>-->
-                                <!--<dl>-->
-                                    <!--<dt>初中</dt>-->
-                                    <!--<dd><a href="">语文</a></dd>-->
-                                    <!--<dd><a href="">数学</a></dd>-->
-                                    <!--<dd><a href="">英语</a></dd>-->
-                                    <!--<dd><a href="">物理</a></dd>-->
-                                    <!--<dd><a href="">化学</a></dd>-->
-                                <!--</dl>-->
-                            <!--</li>-->
-                            <!--<li>-->
-                                <!--<dl>-->
-                                    <!--<dt>小学</dt>-->
-                                    <!--<dd><a href="">语文</a></dd>-->
-                                    <!--<dd><a href="">数学</a></dd>-->
-                                    <!--<dd><a href="">英语</a></dd>-->
-                                    <!--<dd><a href="">奥数</a></dd>-->
-                                <!--</dl>-->
-                            <!--</li>-->
-
-                            <li>
-                                <dl>
-                                    <dt>艺术</dt>
-                                    <dd><a href="">乒乓球</a></dd>
-                                    <dd><a href="">羽毛球</a></dd>
-                                    <dd><a href="">跆拳道</a></dd>
-                                    <dd><a href="">篮球</a></dd>
-                                </dl>
-                            </li>
-                            <li>
-                                <dl>
-                                    <dt></dt>
-                                    <dd><a href="">乒乓球</a></dd>
-                                    <dd><a href="">羽毛球</a></dd>
-                                    <dd><a href="">跆拳道</a></dd>
-                                    <dd><a href="">篮球</a></dd>
-                                </dl>
-                            </li>
-
+                                            @endif
+                                        @endforeach
+                                    </dl>
+                                </li>
+                            @endforeach
                         </ul>
                         <div class="dropright">
-                            <ul class="menu">
-                                <li>
-                                    <dl>
-                                        <dt>高中</dt>
-                                        <dd>
-                                            <a href="">高三语文</a>
-                                            <a href="">高三数学</a>
-                                            <a href="">高三英语</a>
-                                            <a href="">高三物理</a>
-                                            <a href="">高三化学</a>
-                                            <a href="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-                                            <a href="">高一高二语文</a>
-                                            <a href="">高一高二数学</a>
-                                            <a href="">高一高二英语</a>
-                                            <a href="">高一高二物理</a>
-                                            <a href="">高一高二化学</a>
-                                            <a href="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-                                            <a href="">高中历史</a>
-                                            <a href="">高中地理</a>
-                                            <a href="">高中政治</a>
-                                            <a href="">高中生物</a>
-                                            <a href="">信息科技</a>
-                                            <a href="">SAT</a>
-                                        </dd>
-                                    </dl>
-                                </li>
-                            </ul>
-                            <ul class="menu">
-                                <li>
-                                    <dl>
-                                        <dt>初中</dt>
-                                        <dd>
-                                            <a href="">初三语文</a>
-                                            <a href="">初三数学</a>
-                                            <a href="">初三英语</a>
-                                            <a href="">初三物理</a>
-                                            <a href="">初三化学</a>
-                                            <a href="">初中奥数</a>
-                                            <a href="">初中历史</a>
-                                            <a href="">初中地理</a>
-                                            <a href="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-                                            <a href="">初一初二语文</a>
-                                            <a href="">初一初二数学</a>
-                                            <a href="">初一初二英语</a>
-                                            <a href="">初一初二物理</a>
-                                        </dd>
-                                    </dl>
-                                </li>
+                            @foreach($yiji as $yj)
+                                        <ul class="menu">
+                                            <li>
+                                                @foreach($erji as $ej)
+                                                    @if( $yj->id == $ej->yiji_id )
+                                                <dl>
+                                                    <dt>{{ $ej->erji }}</dt>
+                                                    <dd>
+                                                        @foreach($sanji as $sj)
+                                                            @if($ej->id == $sj->erji_id)
+                                                                <a href="/l-c1-a1-n332/">{{ $sj->sanji }}</a>
+                                                            @endif
+                                                        @endforeach
+                                                    </dd>
+                                                </dl>
+                                                    @endif
+                                                @endforeach
+                                            </li>
 
-                            </ul>
-                            <ul class="menu">
-                                <li>
-                                    <dl>
-                                        <dt>小学</dt>
-                                        <dd>
-                                            <a href="">小学奥数</a>
-                                            <a href="">小学数学</a>
-                                            <a href="">小学英语</a>
-                                            <a href="">小学语文</a>
-                                            <a href="">小学陪读</a>
-                                            <a href="">陪读陪玩</a>
-                                            <a href="">学前教育</a>
-                                            <a href="">幼教</a>
-                                        </dd>
-                                    </dl>
-                                </li>
-
-                            </ul>
-                            <ul class="menu">
-                                <li>
-                                    <dl>
-                                        <dt>等级考试</dt>
-                                        <dd>
-                                            <a href="">托福</a>
-                                            <a href="">雅思</a>
-                                            <a href="">SBS英语</a>
-                                        </dd>
-                                    </dl>
-                                </li>
-                                <li>
-                                    <dl>
-                                        <dt>实用英语</dt>
-                                        <dd>
-                                            <a href="">口语英语</a>
-                                            <a href="">商务英语</a>
-                                            <a href="">牛津英语</a>
-                                            <a href="">新概念英语</a>
-                                        </dd>
-                                    </dl>
-                                </li>
-                                <li>
-                                    <dl>
-                                        <dt>小语种</dt>
-                                        <dd>
-                                            <a href="">上海话</a>
-                                            <a href="">日语</a>
-                                            <a href="">韩语</a>
-                                            <a href="">德语</a>
-                                            <a href="">法语</a>
-                                            <a href="">意大利语</a>
-                                            <a href="">西班牙语</a>
-                                            <a href="">阿拉伯语</a>
-                                            <a href="">对外汉语</a>
-                                            <a href="">俄语</a>
-                                            <a href="">葡萄牙语</a>
-                                        </dd>
-                                    </dl>
-                                </li>
-                            </ul>
-                            <ul class="menu">
-                                <li>
-                                    <dl>
-                                        <dt>小学学龄前</dt>
-                                        <dd>
-                                            <a href="">小学奥数</a>
-                                            <a href="">小学数学</a>
-                                            <a href="">小学英语</a>
-                                            <a href="">小学语文</a>
-                                            <a href="">小学陪读</a>
-                                            <a href="">陪读陪玩</a>
-                                            <a href="">学前教育</a>
-                                            <a href="">幼教</a>
-                                        </dd>
-                                    </dl>
-                                </li>
-
-                            </ul>
-
-                            <ul class="menu">
-                                <li>
-                                    <dl>
-                                        <dt>初中</dt>
-                                        <dd>
-                                            <a href="">初三语文</a>
-                                            <a href="">初三数学</a>
-                                            <a href="">初三英语</a>
-                                            <a href="">初三物理</a>
-                                            <a href="">初三化学</a>
-                                            <a href="">初中奥数</a>
-                                            <a href="">初中历史</a>
-                                            <a href="">初中地理</a>
-                                            <a href="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-                                            <a href="">初一初二语文</a>
-                                            <a href="">初一初二数学</a>
-                                            <a href="">初一初二英语</a>
-                                            <a href="">初一初二物理</a>
-                                        </dd>
-                                    </dl>
-                                </li>
-
-                            </ul>
-
-
-                            <ul class="menu">
-                                <li>
-                                    <dl>
-                                        <dt>音乐</dt>
-                                        <dd>
-                                            <a href="">钢琴</a>
-                                            <a href="">声乐</a>
-                                            <a href="">电子琴</a>
-                                            <a href="">小提琴</a>
-                                            <a href="">小号</a>
-                                            <a href="">吉他</a>
-                                            <a href="/l-c1-a1-n197/">单簧管</a>
-                                            <a href="/l-c1-a1-n196/">萨克斯</a>
-                                            <a href="/l-c1-a1-n196/">大号</a>
-                                            <a href="/l-c1-a1-n280/">圆号</a>
-                                            <a href="/l-c1-a1-n166/">古筝</a>
-                                            <a href="/l-c1-a1-n159/">手风琴</a>
-                                            <a href="/l-c1-a1-n157/">琵琶</a>
-                                            <a href="/l-c1-a1-n153/">长笛</a>
-                                            <a href="/l-c1-a1-n182/">视唱练耳</a>
-                                            <a href="/l-c1-a1-n274/">打击乐</a>
-                                            <a href="/l-c1-a1-n273/">大提琴</a>
-                                            <a href="/l-c1-a1-n249/">二胡</a>
-                                            <a href="/l-c1-a1-n240/">古琴</a>
-                                            <a href="/l-c1-a1-n332/">中提琴</a>
-                                        </dd>
-                                    </dl>
-                                </li>
-                                <li>
-                                    <dl>
-                                        <dt>舞蹈</dt>
-                                        <dd>
-                                            <a href="/l-c1-a1-n219/">芭蕾舞</a>
-                                            <a href="/l-c1-a1-n209/">民族舞</a>
-                                            <a href="/l-c1-a1-n197/">单簧舞</a>
-                                        </dd>
-                                    </dl>
-                                </li>
-                                <li>
-                                    <dl>
-                                        <dt>美术</dt>
-                                        <dd>
-                                            <a href="/l-c1-a1-n231/">素描</a>
-                                            <a href="/l-c1-a1-n261/">水彩画</a>
-                                            <a href="/l-c1-a1-n233/">油画</a>
-                                        </dd>
-                                    </dl>
-                                </li>
-                            </ul>
-                            <ul class="menu">
-                                <li>
-                                    <dl>
-                                        <dt>其他</dt>
-                                        <dd>
-                                            <a href="/l-c1-a1-n142/">网球</a>
-                                            <a href="/l-c1-a1-n141/">乒乓球</a>
-                                            <a href="/l-c1-a1-n138/">羽毛球</a>
-                                            <a href="/l-c1-a1-n215/">围棋</a>
-                                            <a href="/l-c1-a1-n167/">中国象棋</a>
-                                            <a href="/l-c1-a1-n179/">国家象棋</a>
-                                            <a href="/l-c1-a1-n139/">跆拳道</a>
-                                            <a href="/l-c1-a1-n279/">空手道</a>
-                                            <a href="/l-c1-a1-n545/">计算机</a>
-                                            <a href="/l-c1-a1-n158/">书法</a>
-                                            <a href="/l-c1-a1-n140/">游泳</a>
-                                        </dd>
-                                    </dl>
-                                </li>
-                            </ul>
+                                         </ul>
+                            @endforeach
                         </div>
                     </div>
                     </div>

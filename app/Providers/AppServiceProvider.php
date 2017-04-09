@@ -13,7 +13,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer(
+            'layouts.partials.sidebar','App\Http\ViewComposers\MenuComposer'
+        );
+        //导航查询
+        $yiji = \DB::table('jjw_yiji')->get();
+        $erji = \DB::table('jjw_erji')->get();
+        $sanji = \DB::table('jjw_sanji')->get();
+
+        view()->share(array('yiji'=>$yiji,'erji'=>$erji,'sanji'=>$sanji));
     }
 
     /**
