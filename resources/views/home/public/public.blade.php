@@ -70,7 +70,7 @@
                         <ul class="drop-menu">
                             @foreach($yiji as $yj)
                                 <li>
-                                    <dl>
+                                    <dl style="width:200px;overflow: hidden;height: 38px;">
                                         <dt>{{ $yj->yiji }}</dt>
                                         @foreach($erji as $ej)
                                             @if( $yj->id == $ej->yiji_id )
