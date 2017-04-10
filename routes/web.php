@@ -14,9 +14,9 @@
 //首页
 Route::get('/','home\indexController@index');
 //地区切换
-Route::get('/change_city.html','home\indexController@change');
+Route::get('/change_city','home\indexController@change');
 //手机入口
-Route::get('/mobile','home\indexController@index');
+Route::get('/mobile/{a?}/{b?}/{c?}','home\indexController@index');
 //手机登录
 Route::get('/mobile/login','home\indexController@login');
 Route::get('/yz','YzController@index');

@@ -17,8 +17,13 @@
         <div class="container">
             <div class="left pull-left">
                 <a href="/signin.php" class="login">教员 请[登录]</a>
-                <a  href="/member/signup2.php">[免费注册]</a>
+                <a  href="/member/signup2.php">[教员注册]</a>/
             </div>
+                        <div class="left pull-left">
+                <a href="/signin.php" class="login">学员 请[登录]</a>
+                <a  href="/member/signup2.php">[学员注册]</a>
+            </div>
+
             <div style="color: #eeeeee" class="right pull-right">
                 <img src="/home/picture/icon_phone.png" alt="021-61300114">上海请家教热线：15985773757
             </div>
