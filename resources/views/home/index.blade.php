@@ -44,18 +44,16 @@
                 <dl>
                     <dt>热门</br>区域</dt>
                     <dd>
-                                            <a href="l-c1-a105/" class="down last">闵行</a>
-                                            <a href="l-c1-a112/" >普陀</a>
-                                            <a href="l-c1-a129/" >浦东</a>
-                                            <a href="l-c1-a100/" >徐汇</a>
-                                            <a href="l-c1-a123/" class="last">杨浦</a>
-                                            <a href="l-c1-a110/" class="down">长宁</a>
-                                            <a href="l-c1-a125/" class="down">虹口</a>
-                                            <a href="l-c1-a117/" class="down">卢湾</a>
-                                            <a href="l-c1-a115/" class="down">静安</a>
-                                            <a href="l-c1-a216/" class="down">松江</a>
-
-
+                        <a href="l-c1-a105/" class="down last">闵行</a>
+                        <a href="l-c1-a112/" >普陀</a>
+                        <a href="l-c1-a129/" >浦东</a>
+                        <a href="l-c1-a100/" >徐汇</a>
+                        <a href="l-c1-a123/" class="last">杨浦</a>
+                        <a href="l-c1-a110/" class="down">长宁</a>
+                        <a href="l-c1-a125/" class="down">虹口</a>
+                        <a href="l-c1-a117/" class="down">卢湾</a>
+                        <a href="l-c1-a115/" class="down">静安</a>
+                        <a href="l-c1-a216/" class="down">松江</a>
                     </dd>
                 </dl>
                 <div class="clear"></div>

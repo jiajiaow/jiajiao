@@ -55,10 +55,10 @@
                             <th>ID</th>
                             <th>分站名称</th>
                             <th>前缀</th>
-                            <th>绑定域名</th>
+
                             <th>状态</th>
                             <th>联系人电话</th>
-                            <th>logo</th>
+
                             <th>操作</th>
                         </tr>
                         </thead>
@@ -68,10 +68,8 @@
                                 <td class="center">{{ $lis->id }}</td>
                                 <td>{{ $lis->title }}</td>
                                 <td>{{ $lis->prefix }}</td>
-                                <td class="center">{{ $lis->url }}</td>
                                 <td class="center">{{ $lis->state==1?'启用':'没启用' }}</td>
                                 <td class="center">{{ $lis->phone }}</td>
-                                <td class="center"><img src="{{ $lis->logo }}" width="50px;"/></td>
                                 <td class="center">
                                     <a class="glyphicon glyphicon-wrench" href="/admin/bjfz?id={{ $lis->id }}">编辑</a>
                                     @if($lis->state == 1)

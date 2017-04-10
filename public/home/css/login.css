@@ -4,6 +4,9 @@ body {
 	font-size: 14px;
 	background: #fff;
 }
+form.z{
+	display:none;
+}
 
 *{	
 	box-sizing: border-box;
@@ -3180,7 +3183,7 @@ textarea{
 	border:none;
 	outline: none;
 	padding-left: 5px;
-	color: #aaa;
+	/*color: #aaa;*/
 	width: 92%;
 	height: 100%;
 }
@@ -6706,6 +6709,7 @@ textarea{
 	top: 0px;
 	display: none;
 }
+
 #pcontent .left-nav li i {
 	position: absolute;
 	display: block;
@@ -7622,13 +7626,13 @@ textarea{
 #register-banner .form h4 {
 	color: #333;
 	font-size: 16px;
-	border-bottom: 3px solid #50c645;
+	border-bottom: 3px solid #F7B529;
 	display: inline-block;
 	height: 35px;
 }
 #login-banner .form .fg,
 #register-banner .form .fg {
-	margin-top: 15px;
+	margin-top: 35px;
 	border: 1px solid #bbb;
 	height: 45px;
 	line-height: 43px;
@@ -7644,7 +7648,7 @@ textarea{
 	border:none;
 	outline: none;
 	padding-left: 5px;
-	color: #aaa;
+	/*color: #aaa;*/
 	width: 92%;
 	height: 100%;
 }
@@ -7652,8 +7656,8 @@ textarea{
 #register-banner .form button {
 	border: none;
 	outline: none;
-	color: #fff;
-	background: #50c645;
+	/*color: #fff;*/
+	background: #F7B529;
 	width: 100%;
 	height: 45px;
 	line-height: 45px;
@@ -7663,8 +7667,8 @@ textarea{
 }
 #login-banner .form a,
 #register-banner .form a {
-	color: #888;
-	font-size: 13px;
+	/*color: #eee;*/
+	font-size: 16px;
 	/*margin-top: 10px;*/
 }
 #login-banner .form a:hover,
@@ -9057,4 +9061,47 @@ textarea{
 	text-align: center;
 	border-top: 1px solid #eee;
 	padding: 35px 0;
+}
+#mobile{
+	/*float: left;*/
+}
+input #getsms{
+	float:right;
+
+}
+#z{
+	float: left;
+	margin-right: 20px;
+	width: 120px;
+	display: block;
+	cursor: pointer;
+	/*border-radius: 4px;*/
+	padding: 5px 10px 0;
+	padding-bottom: 15px;
+	padding-left: 17px;
+	font-size: 16px;
+	border-bottom: 1px solid #e7e7e7;
+	position: relative;
+}
+#y{
+	float: left;
+	width: 120px;
+	display: block;
+	cursor: pointer;
+	/*border-radius: 4px;*/
+	padding: 5px 10px;
+	font-size: 16px;
+	padding: 5px 10px 0;
+	padding-bottom: 15px;
+	padding-left: 28px;
+	border-bottom: 1px solid #e7e7e7;
+	margin-left: 20px;
+}
+div.line{
+	width: 23%;
+	background: #f60;
+	height: 2px;
+	position: absolute;
+	top:65px;
+	left: 40%;
 }

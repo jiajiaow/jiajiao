@@ -20,11 +20,24 @@ Route::get('/mobile/{a?}/{b?}/{c?}','home\indexController@index');
 //手机登录
 Route::get('/mobile/login','home\indexController@login');
 Route::get('/yz','YzController@index');
-
+//登录
+Route::get('/login.html',function(){ return view('home.login');  });
+////处理执行教师登录
+Route::post('/dologin.html','home\LoginController@dologin');
+//教师注册
+Route::get('/reg.html',function(){ return view('home.reg');  });
+//处理执行教师注册
+Route::post('/doreg.html','home\LoginController@doreg');
+//处理执行发送教师注册验证码
+Route::post('/docode.html','home\LoginController@docode');
+//前台退出登录
+Route::get('/outlogin.html','home\LoginController@outlogin');
+//个人中心
+Route::get('/gerenzhongx.html','home\LoginController@gerenzhongx');
 
 //----------  后台  ----------//
 //登录视图 方法
-Route::get('/admin/login',function(){ return view('admin.login');  });
+Route::get('/admin/login.html',function(){ return view('admin.login');  });
 //登录 Login控制器
 Route::post('/admin/Logins','admin\LoginController@login');
 //路由群组 中间件 拒绝后台未登录访问页面

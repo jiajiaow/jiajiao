@@ -27,9 +27,6 @@
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>添加分站</h5>
-                        @if(session("msg"))
-                                <h3>{{session("msg")}}</h3>
-                        @endif
                     </div>
                     <div class="ibox-content">
                         <form method="post" action="{{ asset('/admin/dotjfz') }}" class="form-horizontal" enctype="multipart/form-data">
@@ -48,13 +45,13 @@
                                     <input type="text" name="phone" placeholder="请输入联系电话：例：4008-000-000" class="form-control" >
                                 </div>
                             </div>
-                            <div class="hr-line-dashed"></div>
+                            {{--<div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">URL</label>
                                 <div class="col-sm-10">
                                     <input type="text" name="url" placeholder="请输入网站名：例：http://www.baidu.com" class="form-control" >
                                 </div>
-                            </div>
+                            </div>--}}
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">前缀</label>
@@ -84,13 +81,13 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                           {{-- <div class="form-group">
                                 <label class="col-sm-2 control-label">LOGO</label>
 
                                 <div class="col-sm-10">
                                     <input type="file" name="file"  class="btn btn-default">
                                 </div>
-                            </div>
+                            </div>--}}
 
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
@@ -108,7 +105,7 @@
     <!-- 全局js -->
     <script src="js/jquery.min.js?v=2.1.4"></script>
     <script src="js/bootstrap.min.js?v=3.3.6"></script>
-
+    <script src="/admin/js/plugins/layer/layer.min.js"></script>
     <!-- 自定义js -->
     <script src="js/content.js?v=1.0.0"></script>
 
@@ -166,6 +163,9 @@
                 }
             });
         });
+        @if(session("msg"))
+             layer.alert('{{session("msg")}}',{icon: 5,time:2000});
+        @endif
     </script>
 
 
