@@ -7,8 +7,7 @@ use App\Http\Controllers\Controller;
 use \DB;
 use App\Http\Requests;
 use iscms\Alisms\SendsmsPusher as Sms;
-
-
+use \Cookie;
 class LoginController extends Controller
 {
     public function __construct(Sms $sms)
@@ -22,16 +21,13 @@ class LoginController extends Controller
         if(isset($_POST['code'])){
             $phone = $_POST['phone'];
             $yzm = $_POST['code'];
-            //验证码登录
-            $list = DB::select("select tc.*,code.* from jjw_code as code,jjw_teachers as tc where code.code_phone = '{$phone}'  AND code.code_yzm = '{$yzm}' AND code.code_phone =tc.tc_phone  AND code.id =(select MAX(id) from jjw_code where code_phone = '{$phone}')");
-           // dd($list);
-            if($list != null){
+            $list = \DB::table('jjw_teachers')->where('tc_phone',$phone)->first();
+            if($list != null AND $request->cookie('code') == $yzm){
                 //设置session
-                session(['tc_phone' => $list[0]->tc_phone]);
-                //删除验证码
-                $sc = \DB::table('jjw_code')->where('id',$list[0]->id)->delete();
+                session(['tc_phone' => $list->tc_phone]);
                 //重定向
                 return redirect('/gerenzhongx.html');
+
             }else{
                 //重定向
                 return redirect('/login.html')->with('msg','账号不存在,请重新输入!');
@@ -64,33 +60,32 @@ class LoginController extends Controller
     //教师注册
     public function doreg(Request $request){
         //var_dump($_POST);
+        //地区id
+        $city_id = session('regionid');
+//        dd(session('regionid'));
+        //手机号码
         $phone = $_POST['mobile'];
-        $pass = $_POST['pw1'];
+        //密码
+        $pass = md5($_POST['pw1']);
+        //验证码
         $yzm = $_POST['mobile_code'];
         $data = [
             'tc_phone'=>$phone,
-            'tc_pass'=>md5($pass),
+            'tc_pass'=>$pass,
+            'tc_city_id'=>$city_id,
+            'tc_reg_date'=>date("Y-m-d h:i:s",time()),
         ];
+       // var_dump($request->cookie());
         //查询教师表信息是否存在
         $laos = \DB::table('jjw_teachers')->where('tc_phone',$phone)->get();
         if(count($laos) == '0'){
-           // var_dump($data);
-            //查询验证码MAX最大ID
-            $list = DB::select("select * from jjw_code where code_phone = '{$phone}'  AND code_yzm = '{$yzm}' AND id =(select MAX(id) from jjw_code where code_phone = '{$phone}')");
-            //var_dump($results);
-            foreach($list as $v){
-                $lis=$v;
-            }
-            //判断lis || list中验证码是否存在
-            if(isset($lis)){
-                if($lis != null){
+            if($request->cookie('code') == $yzm){
                     //插入教师表
                     $inse = \DB::table('jjw_teachers')->insert($data);
-                    //删除验证码
-                    $sc = \DB::table('jjw_code')->where('id',$lis->id)->delete();
+//                    //删除验证码
+//                    $sc = \DB::table('jjw_code')->where('id',$lis->id)->delete();
                     //成功返回
                     return "y";
-                }
             }else{
                 ////成功返回 n 验证码失效
                 return "n";
@@ -106,12 +101,8 @@ class LoginController extends Controller
     public function docode(Request $request){
         $phone = $_POST['phone'];
         $yzm = rand(1000,9999);
+        Cookie::queue("code", $yzm, 5);
         $result=$this->sms->send("$phone","家教网","{'code':'{$yzm}'}",'SMS_35975005');
-        $data = [
-            'code_phone'=>$phone,
-            'code_yzm'=>$yzm,
-        ];
-        $list = \DB::table('jjw_code')->insert($data);
         return "y";
     }
 

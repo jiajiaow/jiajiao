@@ -120,13 +120,13 @@ function CheckValue()
 		}else if(data == 'ls'){
 			    layer.alert('该用户已经注册!',{icon: 5,time:2000});
  		}
-		data = eval('('+data+')');
-		if(data.status == 1){
-			alert(data.msg);
-		}
-		if(data.status == 2){
-			location.href=data.url;
-		}
+//		data = eval('('+data+')');
+//		if(data.status == 1){
+//			alert(data.msg);
+//		}
+//		if(data.status == 2){
+//			location.href=data.url;
+//		}
 	}
 })
 }
