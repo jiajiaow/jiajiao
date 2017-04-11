@@ -5,7 +5,7 @@ body {
 	background: #fff;
 }
 
-*{	
+*{
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
@@ -258,7 +258,7 @@ textarea{
 	position: absolute;
 	top: 100%;
 	left: 0;
-	
+
 	color: #fff;
 	line-height: 1;
 	width: 615px;
@@ -419,7 +419,7 @@ textarea{
 	font-size: 19px;
 }
 #banner form .fg {
-	height: 35px; 
+	height: 35px;
 	line-height: 35px;
 	padding-left: 10px;
 	margin-bottom: 13px;
@@ -443,7 +443,7 @@ textarea{
 	font-size: 16px;
 	border: none;
 	outline: none;
-	height: 35px; 
+	height: 35px;
 	line-height: 35px;
 	margin-top: 10px;
 	cursor: pointer;
@@ -973,7 +973,7 @@ textarea{
 #footer .foot-top .foot-logoer img {
 	display: inline-block;
 	vertical-align: middle;
-	width:100px; 
+	width:100px;
 }
 #footer .foot-top dl {
 	float: left;
@@ -1007,7 +1007,7 @@ textarea{
 	color: #aaa;
 	text-align: center;
 	font-size: 12px;
-}	
+}
 #footer .foot-top .code i {
 	/*color: #50c645;*/
 	font-size: 26px;
@@ -1015,7 +1015,7 @@ textarea{
 }
 #footer .foot-top .code span {
 	display: block;
-	margin-top: 8px; 
+	margin-top: 8px;
 }
 #footer .foot-top .code img {
 	display: inline-block;
@@ -1263,7 +1263,7 @@ textarea{
 	float: left;
 }
 #content .teacher-list > ul > li {
-	border: 1px solid #eee;	
+	border: 1px solid #eee;
 	background: #fff;
 	transition: .3s;
 	-o-transition: .3s;
@@ -1447,7 +1447,7 @@ textarea{
 }
 #content .nav-page ul li {
 	float: left;
-	margin-right: 10px;	
+	margin-right: 10px;
 	line-height: 30px;
 	color: #333;
 }
@@ -1568,7 +1568,7 @@ textarea{
 #ibanner .teach-left .teach-img span.fx {
 	float: left;
 	margin-right: 10px;
-} 
+}
 #ibanner .teach-left .teach-img a.jr {
 	float: right;
 }
@@ -1704,7 +1704,7 @@ textarea{
 	margin: 0 auto;
 }
 #content .detial-tab.fixed #one-page {
-	padding-top: 68px; 
+	padding-top: 68px;
 }
 #content .detial-tab .tab-link li {
 	float: left;
@@ -1861,7 +1861,7 @@ textarea{
 }
 #content .detial-tab .link-cont tfoot td a img {
 	vertical-align: middle;
-	position: relative; 
+	position: relative;
 	top: -2px;
 	margin-right: 5px;
 }
@@ -2226,7 +2226,7 @@ textarea{
 	border-right: 1px solid #fff;
 }
 #pcontent .left-nav li.active a {
-	border-left: 3px solid #50c645;	
+	border-left: 3px solid #50c645;
 }
 #pcontent .left-nav li a {
 	display: block;
@@ -2368,7 +2368,7 @@ textarea{
 #pcontent .right-cont .resume h3 {
 	color: #f9b04e;
 	font-size: 22px;
-	margin-top: 15px;: 
+	margin-top: 15px;:
 }
 #pcontent .right-cont .resume dl {
 	padding: 20px 0;
@@ -2484,7 +2484,7 @@ textarea{
 	/*background: url(../images/head_bg.png) no-repeat left center;*/
 }
 #pcontent .right-cont .personal-data .top .left-img img {
-	width: 100%;	
+	width: 100%;
 }
 #pcontent .right-cont .personal-data .top a {
 	float: left;
@@ -2559,10 +2559,10 @@ textarea{
 #pcontent .right-cont .personal-data .tech-info,
 #pcontent .right-cont .personal-data .tech-exp {
 	margin-top: 60px;
-}	
+}
 #pcontent .right-cont .personal-data .show-box{
 	padding: 20px 60px 30px;
-	border: 1px solid #ddd; 
+	border: 1px solid #ddd;
 }
 #pcontent .right-cont .personal-data .tit {
 	margin-bottom: 15px;
@@ -2620,25 +2620,25 @@ textarea{
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	height: 200px;
-	overflow-y: scroll; 
+	overflow-y: scroll;
 }
 #pcontent .right-cont .personal-data .hide-box .li-box .left ul::-webkit-scrollbar,
-#pcontent .right-cont .personal-data .hide-box .li-box .right ul::-webkit-scrollbar  {  
-    width: 3px;  
-    height: 3px;  
-    background-color: #ccc;  
-}  
+#pcontent .right-cont .personal-data .hide-box .li-box .right ul::-webkit-scrollbar  {
+    width: 3px;
+    height: 3px;
+    background-color: #ccc;
+}
 #pcontent .right-cont .personal-data .hide-box .li-box .left ul::-webkit-scrollbar-track,
-#pcontent .right-cont .personal-data .hide-box .li-box .right ul::-webkit-scrollbar-track {  
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);  
-    border-radius: 10px;  
-    background-color: #F5F5F5;  
-} 
+#pcontent .right-cont .personal-data .hide-box .li-box .right ul::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
 #pcontent .right-cont .personal-data .hide-box .li-box .left ul::-webkit-scrollbar-thumb,
-#pcontent .right-cont .personal-data .hide-box .li-box .right ul::-webkit-scrollbar-thumb  {  
-    border-radius: 10px;  
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
-    background-color: #555;  
+#pcontent .right-cont .personal-data .hide-box .li-box .right ul::-webkit-scrollbar-thumb  {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
 }
 #pcontent .right-cont .personal-data .hide-box .li-box  ul li {
 	padding: 10px 15px;
@@ -2656,7 +2656,7 @@ textarea{
 	border-radius: 5px;
 	margin-left: 25px;
 	box-shadow: 0 1px 1px 1px #ddd;
-} 
+}
 #pcontent .right-cont .personal-data .hide-box .li-box .right ul {
 	height: 100%;
 	overflow-y: scroll;
@@ -2678,7 +2678,7 @@ textarea{
 	top: 8px;
 	cursor: pointer;
 	display: none;
-}	
+}
 #pcontent .right-cont .personal-data .hide-box .li-box .right li em:hover {
 	background: url(../images/chaon.png) no-repeat center center;
 }
@@ -2709,7 +2709,7 @@ textarea{
 #pcontent .right-cont .personal-data .hide-box button {
 	float: right;
 	margin-left: 15px;
-	cursor: pointer; 
+	cursor: pointer;
 }
 #pcontent .right-cont .personal-data .hide-box button[type="reset"] {
 	background: #999;
@@ -3050,7 +3050,7 @@ textarea{
 	min-width: 1200px;
 }
 #fcontent .educate-form{
-	border-top: 3px solid #50c645;
+	border-top: 3px solid #F7B529;
 	padding: 50px 0 120px 0;
 }
 #fcontent .educate-form h4 {
@@ -3063,7 +3063,7 @@ textarea{
 	width: 370px;
 }
 #fcontent .educate-form .fg {
-	border: 1px solid #50c645;
+	border: 1px solid #F7B529;
 	margin-top: 26px;
 	height: 40px;
 	line-height: 38px;
@@ -3326,7 +3326,7 @@ textarea{
 }
 /*完善个人信息*/
 #header .top-logout {
-	background: #333; 
+	background: #333;
 	color: #fff;
 	height: 40px;
 	line-height: 40px;
@@ -3451,10 +3451,10 @@ textarea{
 	margin-top: 20px;
 	padding: 30px 110px;
 	background: #fff;
-}	
+}
 #fill-content .fill-info .personal-data .show-box{
 	padding: 20px 40px;
-	border: 1px solid #ddd; 
+	border: 1px solid #ddd;
 }
 #fill-content .fill-info .personal-data .tit {
 	margin-bottom: 15px;
@@ -3528,7 +3528,7 @@ textarea{
 	border-radius: 5px;
 	margin-left: 25px;
 	box-shadow: 0 1px 1px 1px #ddd;
-} 
+}
 #fill-content .fill-info .personal-data .hide-box .li-box .right li {
 	position: relative;
 	display: none;
@@ -3546,7 +3546,7 @@ textarea{
 	top: 8px;
 	cursor: pointer;
 	display: none;
-}	
+}
 #fill-content .fill-info .personal-data .hide-box .li-box .right li em:hover {
 	background: url(../images/chaon.png) no-repeat center center;
 }
@@ -3577,7 +3577,7 @@ textarea{
 #fill-content .fill-info .personal-data .hide-box button {
 	float: right;
 	margin-left: 15px;
-	cursor: pointer; 
+	cursor: pointer;
 }
 #fill-content .fill-info .personal-data .hide-box button[type="reset"] {
 	background: #999;
@@ -3738,7 +3738,7 @@ textarea{
 	padding-left: 10px;
 	margin-bottom: 20px;
 }
-#option-content .teacher-list > ul > li {	
+#option-content .teacher-list > ul > li {
 	color: #a8aaa8;
 	padding: 25px;
 	border-bottom: 1px solid #ccc;
@@ -4008,7 +4008,7 @@ textarea{
 #process .process-cont .info {
 	height: 166px;
 	background: url(../images/process_bg.png) no-repeat center center;
-	background-size: cover; 
+	background-size: cover;
 	margin-bottom: 50px;
 }
 #process .process-cont .info ul {
@@ -4112,7 +4112,7 @@ textarea{
 }
 #news .nav-page ul li {
 	float: left;
-	margin-right: 10px;	
+	margin-right: 10px;
 	line-height: 30px;
 	color: #333;
 }
@@ -4494,7 +4494,7 @@ body {
 	background: #fff;
 }
 
-*{	
+*{
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
@@ -4757,7 +4757,7 @@ textarea{
 	position: absolute;
 	top: 100%;
 	left: 0;
-	
+
 	color: #fff;
 	line-height: 1;
 	width: 615px;
@@ -4946,7 +4946,7 @@ textarea{
 	font-size: 19px;
 }
 #banner form .fg {
-	height: 35px; 
+	height: 35px;
 	line-height: 35px;
 	padding-left: 10px;
 	margin-bottom: 13px;
@@ -4970,7 +4970,7 @@ textarea{
 	font-size: 16px;
 	border: none;
 	outline: none;
-	height: 35px; 
+	height: 35px;
 	line-height: 35px;
 	margin-top: 10px;
 	cursor: pointer;
@@ -5437,7 +5437,7 @@ textarea{
 #footer .foot-top .foot-logoer img {
 	display: inline-block;
 	vertical-align: middle;
-	width:100px; 
+	width:100px;
 }
 #footer .foot-top dl {
 	float: left;
@@ -5471,7 +5471,7 @@ textarea{
 	color: #aaa;
 	text-align: center;
 	font-size: 12px;
-}	
+}
 #footer .foot-top .code i {
 	color: #0f1011;
 	font-size: 16px;
@@ -5479,7 +5479,7 @@ textarea{
 }
 #footer .foot-top .code span {
 	display: block;
-	margin-top: 8px; 
+	margin-top: 8px;
 }
 #footer .foot-top .code img {
 	display: inline-block;
@@ -5727,7 +5727,7 @@ textarea{
 	float: left;
 }
 #content .teacher-list > ul > li {
-	border: 1px solid #eee;	
+	border: 1px solid #eee;
 	background: #fff;
 	transition: .3s;
 	-o-transition: .3s;
@@ -5911,7 +5911,7 @@ textarea{
 }
 #content .nav-page ul li {
 	float: left;
-	margin-right: 10px;	
+	margin-right: 10px;
 	line-height: 30px;
 	color: #333;
 }
@@ -6032,7 +6032,7 @@ textarea{
 #ibanner .teach-left .teach-img span.fx {
 	float: left;
 	margin-right: 10px;
-} 
+}
 #ibanner .teach-left .teach-img a.jr {
 	float: right;
 }
@@ -6168,7 +6168,7 @@ textarea{
 	margin: 0 auto;
 }
 #content .detial-tab.fixed #one-page {
-	padding-top: 68px; 
+	padding-top: 68px;
 }
 #content .detial-tab .tab-link li {
 	float: left;
@@ -6325,7 +6325,7 @@ textarea{
 }
 #content .detial-tab .link-cont tfoot td a img {
 	vertical-align: middle;
-	position: relative; 
+	position: relative;
 	top: -2px;
 	margin-right: 5px;
 }
@@ -6690,7 +6690,7 @@ textarea{
 	border-right: 1px solid #fff;
 }
 #pcontent .left-nav li.active a {
-	border-left: 3px solid #F7B529;	
+	border-left: 3px solid #F7B529;
 }
 #pcontent .left-nav li a {
 	display: block;
@@ -6832,7 +6832,7 @@ textarea{
 #pcontent .right-cont .resume h3 {
 	color: #f9b04e;
 	font-size: 22px;
-	margin-top: 15px;: 
+	margin-top: 15px;:
 }
 #pcontent .right-cont .resume dl {
 	padding: 20px 0;
@@ -6948,7 +6948,7 @@ textarea{
 	/*background: url(../images/head_bg.png) no-repeat left center;*/
 }
 #pcontent .right-cont .personal-data .top .left-img img {
-	width: 100%;	
+	width: 100%;
 }
 #pcontent .right-cont .personal-data .top a {
 	float: left;
@@ -7023,10 +7023,10 @@ textarea{
 #pcontent .right-cont .personal-data .tech-info,
 #pcontent .right-cont .personal-data .tech-exp {
 	margin-top: 60px;
-}	
+}
 #pcontent .right-cont .personal-data .show-box{
 	padding: 20px 60px 30px;
-	border: 1px solid #ddd; 
+	border: 1px solid #ddd;
 }
 #pcontent .right-cont .personal-data .tit {
 	margin-bottom: 15px;
@@ -7084,25 +7084,25 @@ textarea{
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	height: 200px;
-	overflow-y: scroll; 
+	overflow-y: scroll;
 }
 #pcontent .right-cont .personal-data .hide-box .li-box .left ul::-webkit-scrollbar,
-#pcontent .right-cont .personal-data .hide-box .li-box .right ul::-webkit-scrollbar  {  
-    width: 3px;  
-    height: 3px;  
-    background-color: #ccc;  
-}  
+#pcontent .right-cont .personal-data .hide-box .li-box .right ul::-webkit-scrollbar  {
+    width: 3px;
+    height: 3px;
+    background-color: #ccc;
+}
 #pcontent .right-cont .personal-data .hide-box .li-box .left ul::-webkit-scrollbar-track,
-#pcontent .right-cont .personal-data .hide-box .li-box .right ul::-webkit-scrollbar-track {  
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);  
-    border-radius: 10px;  
-    background-color: #F5F5F5;  
-} 
+#pcontent .right-cont .personal-data .hide-box .li-box .right ul::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
 #pcontent .right-cont .personal-data .hide-box .li-box .left ul::-webkit-scrollbar-thumb,
-#pcontent .right-cont .personal-data .hide-box .li-box .right ul::-webkit-scrollbar-thumb  {  
-    border-radius: 10px;  
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
-    background-color: #555;  
+#pcontent .right-cont .personal-data .hide-box .li-box .right ul::-webkit-scrollbar-thumb  {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
 }
 #pcontent .right-cont .personal-data .hide-box .li-box  ul li {
 	padding: 10px 15px;
@@ -7120,7 +7120,7 @@ textarea{
 	border-radius: 5px;
 	margin-left: 25px;
 	box-shadow: 0 1px 1px 1px #ddd;
-} 
+}
 #pcontent .right-cont .personal-data .hide-box .li-box .right ul {
 	height: 100%;
 	overflow-y: scroll;
@@ -7142,7 +7142,7 @@ textarea{
 	top: 8px;
 	cursor: pointer;
 	display: none;
-}	
+}
 #pcontent .right-cont .personal-data .hide-box .li-box .right li em:hover {
 	background: url(../images/chaon.png) no-repeat center center;
 }
@@ -7173,7 +7173,7 @@ textarea{
 #pcontent .right-cont .personal-data .hide-box button {
 	float: right;
 	margin-left: 15px;
-	cursor: pointer; 
+	cursor: pointer;
 }
 #pcontent .right-cont .personal-data .hide-box button[type="reset"] {
 	background: #999;
@@ -7447,7 +7447,7 @@ textarea{
 #tcontent .top-cont {
 	color: #b6b6b6;
 	padding-top: 30px;
-	border-top: 3px solid #50c645;
+	border-top: 3px solid #F7B529;
 	border-bottom: 4px double #50c645;
 	font-style: italic;
 }
@@ -7514,11 +7514,11 @@ textarea{
 	min-width: 1200px;
 }
 #fcontent .educate-form{
-	border-top: 3px solid #50c645;
+
 	padding: 50px 0 120px 0;
 }
 #fcontent .educate-form h4 {
-	color: #50c645;
+	color: #F7B529;
 	font-size: 20px;
 	text-align: center;
 }
@@ -7528,7 +7528,7 @@ textarea{
 }
 #fcontent .educate-form .fg {
 	border: 1px solid #50c645;
-	margin-top: 26px;
+	margin-top: 20px;
 	height: 40px;
 	line-height: 38px;
 }
@@ -7544,7 +7544,7 @@ textarea{
 	height: 40px;
 	line-height: 40px;
 	color: #fff;
-	background: #50c645;
+	background: #F7B529;
 	width: 100%;
 	border: none;
 	outline: none;
@@ -7790,7 +7790,7 @@ textarea{
 }
 /*完善个人信息*/
 #header .top-logout {
-	background: #333; 
+	background: #333;
 	color: #fff;
 	height: 40px;
 	line-height: 40px;
@@ -7915,10 +7915,10 @@ textarea{
 	margin-top: 20px;
 	padding: 30px 110px;
 	background: #fff;
-}	
+}
 #fill-content .fill-info .personal-data .show-box{
 	padding: 20px 40px;
-	border: 1px solid #ddd; 
+	border: 1px solid #ddd;
 }
 #fill-content .fill-info .personal-data .tit {
 	margin-bottom: 15px;
@@ -7992,7 +7992,7 @@ textarea{
 	border-radius: 5px;
 	margin-left: 25px;
 	box-shadow: 0 1px 1px 1px #ddd;
-} 
+}
 #fill-content .fill-info .personal-data .hide-box .li-box .right li {
 	position: relative;
 	display: none;
@@ -8010,7 +8010,7 @@ textarea{
 	top: 8px;
 	cursor: pointer;
 	display: none;
-}	
+}
 #fill-content .fill-info .personal-data .hide-box .li-box .right li em:hover {
 	background: url(../images/chaon.png) no-repeat center center;
 }
@@ -8041,7 +8041,7 @@ textarea{
 #fill-content .fill-info .personal-data .hide-box button {
 	float: right;
 	margin-left: 15px;
-	cursor: pointer; 
+	cursor: pointer;
 }
 #fill-content .fill-info .personal-data .hide-box button[type="reset"] {
 	background: #999;
@@ -8202,7 +8202,7 @@ textarea{
 	padding-left: 10px;
 	margin-bottom: 20px;
 }
-#option-content .teacher-list > ul > li {	
+#option-content .teacher-list > ul > li {
 	color: #a8aaa8;
 	padding: 25px;
 	border-bottom: 1px solid #ccc;
@@ -8472,7 +8472,7 @@ textarea{
 #process .process-cont .info {
 	height: 166px;
 	background: url(../images/process_bg.png) no-repeat center center;
-	background-size: cover; 
+	background-size: cover;
 	margin-bottom: 50px;
 }
 #process .process-cont .info ul {
@@ -8576,7 +8576,7 @@ textarea{
 }
 #news .nav-page ul li {
 	float: left;
-	margin-right: 10px;	
+	margin-right: 10px;
 	line-height: 30px;
 	color: #333;
 }
@@ -9017,12 +9017,12 @@ textarea{
 	font-size: 15px;
 	margin-bottom: 22px;
 	width: 100%;
-} 
+}
 #city-content .city-list dl dt {
 	float: left;
 	font-weight: bold;
 	margin-right: 20px;
-} 
+}
 #city-content .city-list dl dd {
 	float: left;
 	margin-right: 10px;

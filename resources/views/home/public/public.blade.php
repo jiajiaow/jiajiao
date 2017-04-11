@@ -129,7 +129,7 @@
                     <li class="active"><a href="/">首页</a></li>
                     <li class=""><a href="/qianyue.php">签约老师<i><img src="/home/picture/hot.png" alt=""></i></a></li>
                     <li class=""><a href="/l-c1/">挑老师</a></li>
-                    <li class=""><a href="/xuqiu.php">快速请家教</a></li>
+                    <li class=""><a href="/yuyuelaoshi.html">快速请家教</a></li>
                     <li class=""><a href="/help/jiajiao_fee.php">资费说明</a></li>
                     <li class=""><a href="/xueyuan/">最新学员</a></li>
                     <li class=""><a href="/al/">家长学堂</a></li>

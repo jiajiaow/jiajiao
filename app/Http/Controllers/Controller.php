@@ -10,7 +10,7 @@ use \DB;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-            //获取当前域名
+        //获取当前域名
         public function __construct()
         {
         //获取当前域名
@@ -19,7 +19,6 @@ class Controller extends BaseController
         $qz = $x[0];
         $zy = $x[1];
         $hz = $x[2];
-        //dd($qz);
         if($qz == 'www'){
             $zlpc = substr($_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"],0,20);
             $zlurl = substr($_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"],0,27);
@@ -31,10 +30,6 @@ class Controller extends BaseController
             $dlpc = substr($zy.'.'.$hz. $_SERVER["REQUEST_URI"],0,15);
             $dlurl = substr($zy.'.'.$hz. $_SERVER["REQUEST_URI"],0,22);
         }
-        $murl = substr($_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"],0,27);
-        //dd($murl);
-        $pcurl = substr($_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"],0,20);
-        //dd($zlpc,$zlurl);
         if($zlurl == 'www.lizhijiajiao.com/mobile'){
             //查询数据
             $re = DB::table('jjw_position_city')->where('city_id','110100000000')->first();

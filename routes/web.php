@@ -14,7 +14,7 @@
 //首页
 Route::get('/','home\indexController@index');
 //地区切换
-Route::get('/change_city','home\indexController@change');
+Route::get('/change_city.html','home\indexController@change');
 //手机入口
 Route::get('/mobile/{a?}/{b?}/{c?}','home\indexController@index');
 //手机登录
@@ -34,7 +34,13 @@ Route::post('/docode.html','home\LoginController@docode');
 Route::get('/outlogin.html','home\LoginController@outlogin');
 //个人中心
 Route::get('/gerenzhongx.html','home\LoginController@gerenzhongx');
-
+//预约老师
+Route::get('/yuyuelaoshi.html','home\yuyueController@index');
+//预约验证码
+Route::post('/register','home\yuyueController@register');
+//预约验证码
+Route::post('/registerdo','home\yuyueController@registerdo');
+//验证码查询
 //----------  后台  ----------//
 //登录视图 方法
 Route::get('/admin/login.html',function(){ return view('admin.login');  });

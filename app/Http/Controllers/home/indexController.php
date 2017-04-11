@@ -12,9 +12,7 @@ class indexController extends Controller{
     */
     public function index(Request $request,$id = null)
     {
-        $data = $request->session()->all();
-
-        dd($data);
+        return view('home.index');
     }
     /**
     *网站地区切换
