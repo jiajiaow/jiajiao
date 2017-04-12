@@ -55,6 +55,21 @@
                     @endif
                     <li>
                         <a href="#">
+                            <i class="fa fa fa-bar-chart-o"></i>
+                            <span class="nav-label">订单管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="/admin/xsdd">学生订单</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="/admin/jsdd">教师订单</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
                             <i class="fa fa-desktop"></i>
                             <span class="nav-label">导航管理</span>
                             <span class="fa arrow"></span>

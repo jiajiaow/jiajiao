@@ -16,7 +16,8 @@
 <div id="fcontent">
         <div class="container">
             <div class="educate-form">
-                <form>
+                <form id="do" method="post" action="/doyyform">
+                    {{ csrf_field() }}
                     <h4>简单填写，快速预约老师</h4>
                     <div class="fg" style="border: 1px solid #E0E0E0;">
                         <input type="text" name="lxr" id="lxr" placeholder="联系人" maxlength="10">
@@ -45,6 +46,9 @@
         $(this).addClass('active')
                 .siblings().removeClass('active')
     })
+    @if (session('error'))
+    {{ session('error') }}
+    @endif
     function test()
     {
         var phone = $("#phone").val();
@@ -143,8 +147,8 @@
             },
             success:(function(result){
                 if(result == 'y'){
-                    alert('2');
-                    layer.alert('请注意查收短信!',{icon: 6,time:1500});
+                    //$("#tj[type='button']").attr('type','submit');
+                    $("#do").submit();
                 }else{
                     layer.msg('验证码错误', {icon: 5});
                 }

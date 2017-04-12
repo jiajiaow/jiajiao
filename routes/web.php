@@ -38,8 +38,10 @@ Route::get('/gerenzhongx.html','home\LoginController@gerenzhongx');
 Route::get('/yuyuelaoshi.html','home\yuyueController@index');
 //预约验证码
 Route::post('/register','home\yuyueController@register');
-//预约验证码
+//查询验证码
 Route::post('/registerdo','home\yuyueController@registerdo');
+//提交数据
+Route::post('/doyyform','home\yuyueController@doyyform');
 //验证码查询
 //----------  后台  ----------//
 //登录视图 方法
@@ -94,6 +96,9 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::post('/dhdel','admin\DaohangController@dhdel');
     //处理导航修改
     Route::post('/dodhedit','admin\DaohangController@dodhedit');
+    //学生订单
+    Route::get('/xsdd','admin\orderController@xsdd');
+    //教师订单
+    Route::get('/jsdd','admin\orderController@jsdd');
 });
 //----------后台END----------//
-
