@@ -97,6 +97,9 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::post('/dhdel','admin\DaohangController@dhdel');
     //处理导航修改
     Route::post('/dodhedit','admin\DaohangController@dodhedit');
+    //学生订单
+    Route::get('/xsdd','admin\orderController@xsdd');
+    //教师订单
+    Route::get('/jsdd','admin\orderController@jsdd');
 });
 //----------后台END----------//
-
