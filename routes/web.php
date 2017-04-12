@@ -34,6 +34,7 @@ Route::post('/docode.html','home\LoginController@docode');
 Route::get('/outlogin.html','home\LoginController@outlogin');
 //个人中心
 Route::get('/gerenzhongx.html','home\LoginController@gerenzhongx');
+
 //预约老师
 Route::get('/yuyuelaoshi.html','home\yuyueController@index');
 //预约验证码
@@ -96,9 +97,6 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::post('/dhdel','admin\DaohangController@dhdel');
     //处理导航修改
     Route::post('/dodhedit','admin\DaohangController@dodhedit');
-    //学生订单
-    Route::get('/xsdd','admin\orderController@xsdd');
-    //教师订单
-    Route::get('/jsdd','admin\orderController@jsdd');
 });
 //----------后台END----------//
+

@@ -86,94 +86,30 @@
 
                 <div class="tabcont" id="qianyue">
                     <ul class="active tabbox">
-
-                                                <li class="kuan">
-                            <div class="top">
-                                <img src="/home/images/logo.png" alt="魏玲" width="110" height="110">
-                                <i>赵教员</i>
-                                <span>
-                                    <img src="/home/picture/icon_imperial.png" alt="签约教员-魏玲">
-                                </span>
-                                <div class="hover">
-                                    <p>性格开朗，为人真诚，具有较强的亲和力和沟通能力。曾在著名辅导机构精锐教育担任专职数学教师，有多年中考辅导经验，曾获得中考高特等奖。擅长根...</p>
-                                    <a href="javascript:void(0)" onclick="location.href='/teacher/365196.html'" class="look">查看 ></a>
-
+                    @foreach($jinpai as $jp)
+                         @if($jp->tc_jinpai == 2)
+                            <li class="kuan">
+                                <div class="top">
+                                    <img src="/home/images/logo.png" alt="魏玲" width="110" height="110">
+                                    <i>{{ $jp->tc_name }}</i>
+                                    <span>
+                                        <img src="/home/picture/icon_imperial.png" alt="{{ $jp->tc_name }}">
+                                    </span>
+                                    <div class="hover">
+                                        <p>{{ $jp->tc_case }}.</p>
+                                        <a href="javascript:void(0)" onclick="location.href='/teacher/{{ $jp->id }}.html'" class="look">查看 ></a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="bottom">
-                                <a href="">初中数学</a>
-                                <br/>
-                                <a href="">福建师范大学本科大二</a>
-
-                                <div class="clear"></div>
-                                <a href="javascript:void(0);" onclick="writeCookie(365196);yuyueCookie();" class="btn">预约免费试课</a>
-                            </div>
-                        </li>
-                                                <li class="kuan">
-                            <div class="top">
-                                <img src="/home/images/logo.png" alt="张红" width="110" height="110">
-                                <i>赵教员</i>
-                                <span>
-                                    <img src="/home/picture/icon_imperial.png" alt="签约教员-张红">
-                                </span>
-                                <div class="hover">
-                                    <p>本人重点师范院校毕业，毕业后一直从事教师工作，主要负责初中数学的教学，拥有教师资格证，普通话等级证书，大学英语六级证书，对工作认真负责，...</p>
-                                    <a href="javascript:void(0)" onclick="location.href='/teacher/365129.html'" class="look">查看 ></a>
-
+                                <div class="bottom">
+                                    <a href="">{{ $jp->tc_type }}</a>
+                                    <br/>
+                                    <a href="">{{ $jp->tc_school }}</a>
+                                    <div class="clear"></div>
+                                    <a href="javascript:void(0);" onclick="writeCookie({{ $jp->id }});yuyueCookie();" class="btn">预约免费试课</a>
                                 </div>
-                            </div>
-                            <div class="bottom">
-                                <a href="">初中数学</a>
-                                <br/>
-                                <a href="">福建师范大学本科大二</a>
-                                <div class="clear"></div>
-                                <a href="javascript:void(0);" onclick="writeCookie(365129);yuyueCookie();" class="btn">预约免费试课</a>
-                            </div>
-                        </li>
-                                                <li class="kuan">
-                            <div class="top">
-                                <img src="/home/images/logo.png" alt="王立军" width="110" height="110">
-                                <i>赵教员</i>
-                                <span>
-                                    <img src="/home/picture/icon_imperial.png" alt="签约教员-王立军">
-                                </span>
-                                <div class="hover">
-                                    <p>在南京211大学学习四年，英语专业毕业，获得英语学士学位证书。大学专业成绩保持专业前三名，曾获得国家奖学金、国家励志奖学金、一等奖学金、...</p>
-                                    <a href="javascript:void(0)" onclick="location.href='/teacher/365009.html'" class="look">查看 ></a>
-
-                                </div>
-                            </div>
-                            <div class="bottom">
-                                <a href="">初中数学</a>
-                                <br/>
-                                <a href="">福建师范大学本科大二</a>
-                                <div class="clear"></div>
-                                <a href="javascript:void(0);" onclick="writeCookie(365009);yuyueCookie();" class="btn">预约免费试课</a>
-                            </div>
-                        </li>
-                                                <li class="kuan">
-                            <div class="top">
-                                <img src="/home/images/logo.png" alt="周涛" width="110" height="110">
-                                <i>赵教员</i>
-                                <span>
-                                    <img src="/home/picture/icon_imperial.png" alt="签约教员-周涛">
-                                </span>
-                                <div class="hover">
-                                    <p>主要是理科方面知识的教授，认为理科都是想通的，尤其是物理和化学数学这三门课，需要找到合适的学习方法，就可以轻松取得优异的成绩，不需要为考...</p>
-                                    <a href="javascript:void(0)" onclick="location.href='/teacher/365003.html'" class="look">查看 ></a>
-
-                                </div>
-                            </div>
-                            <div class="bottom">
-                                <a href="">初中数学</a>
-                                <br/>
-                                <a href="">福建师范大学本科大二</a>
-
-                                <div class="clear"></div>
-                                <a href="javascript:void(0);" onclick="writeCookie(365003);yuyueCookie();" class="btn">预约免费试课</a>
-                            </div>
-                        </li>
-
+                            </li>
+                        @endif
+                    @endforeach
                         <div class="clear"></div>
                     </ul>
                 </div>
@@ -211,61 +147,24 @@
                             <a href="">可悲的鱼</a><br/>
                         </div>
                         <ul class="active tabbox">
+                        @foreach($jinpai as $jp)
+                            {{-- 判断 0 为学生教员 --}}
+                            @if($jp->tc_jinpai == 0)
                             <li >
                                 <div class="top">
-                                    <img src="/home/images/logo.png" alt="王立军" width="110" height="110">
-                                    <i>赵教员</i>
+                                    <img src="/home/images/logo.png" alt="{{ $jp->tc_name }}" width="110" height="110">
+                                    <i>{{ $jp->tc_name }}</i>
                                 </div>
                                 <div class="bottom">
-                                    <a href="">初中数学</a>
+                                    <a href="">{{ $jp->tc_type }}</a>
                                     <br/>
-                                    <a href="">福建师范大学本科大二</a>
+                                    <a href="">{{ $jp->tc_school }}</a>
                                     <div class="clear"></div>
-                                    <a href="javascript:void(0);" onclick="writeCookie(365009);yuyueCookie();" class="btn">预约免费试课</a>
+                                    <a href="javascript:void(0);" onclick="writeCookie({{ $jp->id }});yuyueCookie();" class="btn">预约免费试课</a>
                                 </div>
                             </li>
-                            <li style="margin-left: 13px">
-                                <div class="top">
-                                    <img src="/home/images/logo.png" alt="王立军" width="110" height="110">
-                                    <i>赵教员</i>
-                                </div>
-                                <div class="bottom">
-                                    <a href="">初中数学</a>
-                                    <br/>
-                                    <a href="">福建师范大学本科大二</a>
-                                    <div class="clear"></div>
-                                    <a href="javascript:void(0);" onclick="writeCookie(365009);yuyueCookie();" class="btn">预约免费试课</a>
-                                </div>
-                            </li>
-                            <li style="margin-left: 13px">
-                                <div class="top">
-                                    <img src="/home/images/logo.png" alt="王立军" width="110" height="110">
-                                    <i>赵教员</i>
-                                </div>
-                                <div class="bottom">
-                                    <a href="">初中数学</a>
-                                    <br/>
-                                    <a href="">福建师范大学本科大二</a>
-                                    <div class="clear"></div>
-                                    <a href="javascript:void(0);" onclick="writeCookie(365009);yuyueCookie();" class="btn">预约免费试课</a>
-                                </div>
-                            </li>
-                            <li style="margin-left: 13px">
-                                <div class="top">
-                                    <img src="/home/images/logo.png" alt="王立军" width="110" height="110">
-                                    <i>赵教员</i>
-                                </div>
-                                <div class="bottom">
-                                    <a href="">初中数学</a>
-                                    <br/>
-                                    <a href="">福建师范大学本科大二</a>
-                                    <div class="clear"></div>
-                                    <a href="javascript:void(0);" onclick="writeCookie(365009);yuyueCookie();" class="btn">预约免费试课</a>
-                                </div>
-                            </li>
-
-
-
+                            @endif
+                        @endforeach
                         </ul>
                         <div class="clear"></div>
                     </div>
@@ -302,62 +201,24 @@
                             <a href="">可悲的鱼</a><br/>
                         </div>
                         <ul class="active tabbox">
+                        @foreach($jinpai as $jp)
+                            {{-- 判断 0 为专职教员 --}}
+                            @if($jp->tc_jinpai == 1)
                             <li >
                                 <div class="top">
-                                    <img src="/home/images/logo.png" alt="王立军" width="110" height="110">
-                                    <i>赵教员</i>
+                                    <img src="/home/images/logo.png" alt="{{ $jp->tc_name }}" width="110" height="110">
+                                    <i>{{ $jp->tc_name }}</i>
                                 </div>
                                 <div class="bottom">
-                                    <a href="">初中数学</a>
+                                    <a href="">{{ $jp->tc_type }}</a>
                                     <br/>
-                                    <a href="">福建师范大学本科大二</a>
+                                    <a href="">{{ $jp->tc_school }}</a>
                                     <div class="clear"></div>
-                                    <a href="javascript:void(0);" onclick="writeCookie(365009);yuyueCookie();" class="btn">预约免费试课</a>
+                                    <a href="javascript:void(0);" onclick="writeCookie({{ $jp->id }});yuyueCookie();" class="btn">预约免费试课</a>
                                 </div>
                             </li>
-                            <li style="margin-left: 13px">
-                                <div class="top">
-                                    <img src="/home/images/logo.png" alt="王立军" width="110" height="110">
-                                    <i>赵教员</i>
-                                </div>
-                                <div class="bottom">
-                                    <a href="">初中数学</a>
-                                    <br/>
-                                    <a href="">福建师范大学本科大二</a>
-                                    <div class="clear"></div>
-                                    <a href="javascript:void(0);" onclick="writeCookie(365009);yuyueCookie();" class="btn">预约免费试课</a>
-                                </div>
-                            </li>
-                            <li style="margin-left: 13px">
-                                <div class="top">
-                                    <img src="/home/images/logo.png" alt="王立军" width="110" height="110">
-                                    <i>赵教员</i>
-                                </div>
-                                <div class="bottom">
-                                    <a href="">初中数学</a>
-                                    <br/>
-                                    <a href="">福建师范大学本科大二</a>
-                                    <div class="clear"></div>
-                                    <a href="javascript:void(0);" onclick="writeCookie(365009);yuyueCookie();" class="btn">预约免费试课</a>
-                                </div>
-                            </li>
-                            <li style="margin-left: 13px">
-                                <div class="top">
-                                    <img src="/home/images/logo.png" alt="王立军" width="110" height="110">
-                                    <i>赵教员</i>
-                                </div>
-                                <div class="bottom">
-                                    <a href="">初中数学</a>
-                                    <br/>
-                                    <a href="">福建师范大学本科大二</a>
-                                    <div class="clear"></div>
-                                    <a href="javascript:void(0);" onclick="writeCookie(365009);yuyueCookie();" class="btn">预约免费试课</a>
-                                </div>
-                            </li>
-
-
-
-
+                            @endif
+                        @endforeach
                         </ul>
                         <div class="clear"></div>
                     </div>

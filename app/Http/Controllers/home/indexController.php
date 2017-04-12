@@ -12,7 +12,10 @@ class indexController extends Controller{
     */
     public function index(Request $request,$id = null)
     {
-        return view('home.index');
+        $data = $request->session()->all();
+        //查询地区教员
+        $jinpai = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->get();
+        return view('home.index',['jinpai'=>$jinpai]);
     }
     /**
     *网站地区切换
