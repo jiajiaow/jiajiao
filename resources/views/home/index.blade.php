@@ -147,20 +147,20 @@
                             <a href="">可悲的鱼</a><br/>
                         </div>
                         <ul class="active tabbox">
-                        @foreach($jinpai as $jp)
+                        @foreach($xueshen as $xs)
                             {{-- 判断 0 为学生教员 --}}
-                            @if($jp->tc_jinpai == 0)
+                            @if($xs->tc_jinpai == 0)
                             <li >
                                 <div class="top">
-                                    <img src="/home/images/logo.png" alt="{{ $jp->tc_name }}" width="110" height="110">
-                                    <i>{{ $jp->tc_name }}</i>
+                                    <img src="/home/images/logo.png" alt="{{ $xs->tc_name }}" width="110" height="110">
+                                    <i>{{ $xs->tc_name }}</i>
                                 </div>
                                 <div class="bottom">
-                                    <a href="">{{ $jp->tc_type }}</a>
+                                    <a href="">{{ $xs->tc_type }}</a>
                                     <br/>
-                                    <a href="">{{ $jp->tc_school }}</a>
+                                    <a href="">{{ $xs->tc_school }}</a>
                                     <div class="clear"></div>
-                                    <a href="javascript:void(0);" onclick="writeCookie({{ $jp->id }});yuyueCookie();" class="btn">预约免费试课</a>
+                                    <a href="javascript:void(0);" onclick="writeCookie({{ $xs->id }});yuyueCookie();" class="btn">预约免费试课</a>
                                 </div>
                             </li>
                             @endif
@@ -201,23 +201,23 @@
                             <a href="">可悲的鱼</a><br/>
                         </div>
                         <ul class="active tabbox">
-                        @foreach($jinpai as $jp)
-                            {{-- 判断 0 为专职教员 --}}
-                            @if($jp->tc_jinpai == 1)
+                        @foreach($zhuanzhi as $zz)
+                            {{-- 判断 1专职教员 --}}
+
                             <li >
                                 <div class="top">
-                                    <img src="/home/images/logo.png" alt="{{ $jp->tc_name }}" width="110" height="110">
-                                    <i>{{ $jp->tc_name }}</i>
+                                    <img src="/home/images/logo.png" alt="{{ $zz->tc_name }}" width="110" height="110">
+                                    <i>{{ $zz->tc_name }}</i>
                                 </div>
                                 <div class="bottom">
-                                    <a href="">{{ $jp->tc_type }}</a>
+                                    <a href="">{{ $zz->tc_type }}</a>
                                     <br/>
-                                    <a href="">{{ $jp->tc_school }}</a>
+                                    <a href="">{{ $zz->tc_school }}</a>
                                     <div class="clear"></div>
-                                    <a href="javascript:void(0);" onclick="writeCookie({{ $jp->id }});yuyueCookie();" class="btn">预约免费试课</a>
+                                    <a href="javascript:void(0);" onclick="writeCookie({{ $zz->id }});yuyueCookie();" class="btn">预约免费试课2</a>
                                 </div>
                             </li>
-                            @endif
+
                         @endforeach
                         </ul>
                         <div class="clear"></div>
