@@ -539,4 +539,8 @@ return array(
     'SebastianBergmann\\ResourceOperations\\ResourceOperations' => $vendorDir . '/sebastian/resource-operations/src/ResourceOperations.php',
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
+    'Toplan\\FilterManager\\Facades\\FilterManager' => $vendorDir . '/toplan/filter-manager/src/FilterManager/Facades/FilterManager.php',
+    'Toplan\\FilterManager\\FilterManager' => $vendorDir . '/toplan/filter-manager/src/FilterManager/FilterManager.php',
+    'Toplan\\FilterManager\\FilterManagerException' => $vendorDir . '/toplan/filter-manager/src/FilterManager/FilterManagerException.php',
+    'Toplan\\FilterManager\\FilterManagerServiceProvider' => $vendorDir . '/toplan/filter-manager/src/FilterManager/FilterManagerServiceProvider.php',
 );

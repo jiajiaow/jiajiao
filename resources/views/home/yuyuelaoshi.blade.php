@@ -16,7 +16,7 @@
 <div id="fcontent">
         <div class="container">
             <div class="educate-form">
-                <form id="do" method="post" action="/doyyform">
+                <form id="do" method="post" action="/yuyuexiangxi.html">
                     {{ csrf_field() }}
                     <h4>简单填写，快速预约老师</h4>
                     <div class="fg" style="border: 1px solid #E0E0E0;">

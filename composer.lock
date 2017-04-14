@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "877090d80411eddccf9807ae5cbac093",
-    "content-hash": "cdcd16246002766f54d9ffba15232403",
+    "hash": "f6ae2a6c1be9025fde8de73d26ae8edc",
+    "content-hash": "870dea20329587d9d160ea7ed2b608dd",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -2009,6 +2009,46 @@
             "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
             "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
             "time": "2016-09-20 12:50:39"
+        },
+        {
+            "name": "toplan/filter-manager",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/toplan/FilterManager.git",
+                "reference": "a2b0d648321c81bd2f292dd888bf74d2e6c58140"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/toplan/FilterManager/a2b0d648321c81bd2f292dd888bf74d2e6c58140.zip",
+                "reference": "a2b0d648321c81bd2f292dd888bf74d2e6c58140",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ],
+                "psr-0": {
+                    "Toplan\\FilterManager": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "toplan",
+                    "email": "toplan710@gmail.com"
+                }
+            ],
+            "description": "Filter manager package for product list,elegant generate url.",
+            "keywords": [
+                "filter",
+                "product list filter manager"
+            ],
+            "time": "2016-12-05 08:50:55"
         },
         {
             "name": "vlucas/phpdotenv",

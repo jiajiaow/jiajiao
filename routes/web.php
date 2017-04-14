@@ -42,8 +42,13 @@ Route::post('/register','home\yuyueController@register');
 //查询验证码
 Route::post('/registerdo','home\yuyueController@registerdo');
 //提交数据
-Route::post('/doyyform','home\yuyueController@doyyform');
-//验证码查询
+Route::post('/yuyuexiangxi.html','home\yuyueController@doyyform');
+//填写预约详细
+Route::post('/yuyuexxform','home\yuyueController@yuyuexxform');
+//提交
+Route::post('/StudentAdd','home\yuyueController@StudentAdd');
+//测试
+Route::post('/test','test\testController@index');
 //----------  后台  ----------//
 //登录视图 方法
 Route::get('/admin/login.html',function(){ return view('admin.login');  });

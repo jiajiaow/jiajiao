@@ -265,6 +265,13 @@ class ComposerStaticInit89c7234f6a61cd51e7529d918765dc61
     );
 
     public static $prefixesPsr0 = array (
+        'T' => 
+        array (
+            'Toplan\\FilterManager' => 
+            array (
+                0 => __DIR__ . '/..' . '/toplan/filter-manager/src',
+            ),
+        ),
         'P' => 
         array (
             'Prophecy\\' => 
@@ -837,6 +844,10 @@ class ComposerStaticInit89c7234f6a61cd51e7529d918765dc61
         'SebastianBergmann\\ResourceOperations\\ResourceOperations' => __DIR__ . '/..' . '/sebastian/resource-operations/src/ResourceOperations.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
+        'Toplan\\FilterManager\\Facades\\FilterManager' => __DIR__ . '/..' . '/toplan/filter-manager/src/FilterManager/Facades/FilterManager.php',
+        'Toplan\\FilterManager\\FilterManager' => __DIR__ . '/..' . '/toplan/filter-manager/src/FilterManager/FilterManager.php',
+        'Toplan\\FilterManager\\FilterManagerException' => __DIR__ . '/..' . '/toplan/filter-manager/src/FilterManager/FilterManagerException.php',
+        'Toplan\\FilterManager\\FilterManagerServiceProvider' => __DIR__ . '/..' . '/toplan/filter-manager/src/FilterManager/FilterManagerServiceProvider.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

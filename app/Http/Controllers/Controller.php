@@ -47,6 +47,7 @@ class Controller extends BaseController
 
             $re = DB::table('jjw_position_city')->where('city_id','110100000000')->first();
             //地区名称
+            session(['phone' => $re->phone]);
             session(['regionname' => $re->title]);
         }else{
             if($zlurl == 'lizhijiajiao.com/mobile'){
@@ -65,6 +66,7 @@ class Controller extends BaseController
                 session(['regionid' => $re->city_id]);
                 //地区名称
                 session(['regionname' => $re->title]);
+                session(['phone' => $re->phone]);
             }
         }
         if($zlpc == 'www.lizhijiajiao.com'){
@@ -87,6 +89,7 @@ class Controller extends BaseController
             //dd($re);
             //地区名称
             session(['regionname' => $re->title]);
+            session(['phone' => $re->phone]);
         }else{
             if($zy == 'lizhijiajiao'){
                 $re = DB::table('jjw_position_city')->where('prefix',$qz)->first();
@@ -104,6 +107,7 @@ class Controller extends BaseController
                 session(['regionid' => $re->city_id]);
                 //地区名称
                 session(['regionname' => $re->title]);
+                session(['phone' => $re->phone]);
             }
         }
     }

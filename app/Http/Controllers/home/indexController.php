@@ -12,14 +12,17 @@ class indexController extends Controller{
     */
     public function index(Request $request,$id = null)
     {
+        if(session('Template') == '2'){
+            return view('delijiajiao.index');
+        }
         $data = $request->session()->all();
         //查询地区金牌教员
         $jinpai = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai','2')->limit(4)->get();
         //查询地区学生教员
         $xueshen = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai','0')->limit(4)->get();
-//        //查询地区专职教员
+        //查询地区专职教员
         $zhuanzhi = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai','1')->limit(4)->get();
-       // dd($zhuanzhi);
+        // dd($zhuanzhi);
         return view('home.index',['jinpai'=>$jinpai,'xueshen'=>$xueshen,'zhuanzhi'=>$zhuanzhi]);
     }
     /**

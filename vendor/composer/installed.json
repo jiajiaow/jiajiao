@@ -3648,5 +3648,47 @@
             "profiler",
             "webprofiler"
         ]
+    },
+    {
+        "name": "toplan/filter-manager",
+        "version": "1.0.4",
+        "version_normalized": "1.0.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/toplan/FilterManager.git",
+            "reference": "a2b0d648321c81bd2f292dd888bf74d2e6c58140"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/toplan/FilterManager/a2b0d648321c81bd2f292dd888bf74d2e6c58140.zip",
+            "reference": "a2b0d648321c81bd2f292dd888bf74d2e6c58140",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "time": "2016-12-05 08:50:55",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "src/"
+            ],
+            "psr-0": {
+                "Toplan\\FilterManager": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "authors": [
+            {
+                "name": "toplan",
+                "email": "toplan710@gmail.com"
+            }
+        ],
+        "description": "Filter manager package for product list,elegant generate url.",
+        "keywords": [
+            "filter",
+            "product list filter manager"
+        ]
     }
 ]

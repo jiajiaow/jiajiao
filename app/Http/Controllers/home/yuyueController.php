@@ -18,7 +18,8 @@ class yuyueController extends Controller
     public function register(Request $request)
     {
         $phone = $request->input('phone');
-        $code = rand(1000,9999);
+        //$code = rand(1000,9999);
+        $code = '1111';
         Cookie::queue('code',$code,3);
         Cookie::queue('phone',$phone,3);
         $config = [
@@ -59,16 +60,27 @@ class yuyueController extends Controller
             $re = DB::table('jjw_user')->where('phone',$phone)->first();
             if($re){
                 $userid = DB::table('jjw_user')->where('phone',$phone)->first();
-                $order = DB::table('jjw_order')->insert(['user_id' => $userid->id,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time()]);
-                return '账号存在 没有页面';
+                $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid->id,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time()]);
+
+                return view('home.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
             }else{
                 $userid = DB::table('jjw_user')->insertGetId(['name' => $user,'phone' => $phone,'password' => $password,'city_id' => $regionid]);
-                $order = DB::table('jjw_order')->insert(['user_id' => $userid,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time()]);
-                return '新注册 没有页面';
+                $orderid = DB::table('jjw_order')->insert(['user_id' => $userid,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time()]);
+                return view('home.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
             }
         }else{
             $request->session()->flash('error', "layer.msg('非法请求', {icon: 5});");
             return back();
         }
+    }
+    public function yuyuexxform(Request $request)
+    {
+        $orderid = $request->input('orderid');
+        return view('home.yuyuexxform',['orderid' => $orderid]);
+    }
+    public function StudentAdd(Request $request)
+    {
+        $data = $request->all();
+        dd($data);
     }
 }
