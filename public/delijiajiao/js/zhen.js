@@ -1,9 +1,9 @@
 /*广告轮播*/
 var imgs=[
-	{"i":0,"img":"picture/banner.png"},
-	{"i":1,"img":"picture/banner.png"},
-	{"i":2,"img":"picture/banner.png"},
-	{"i":3,"img":"picture/banner.png"},
+	{"i":0,"img":"/delijiajiao/picture/banner.png"},
+	{"i":1,"img":"/delijiajiao/picture/banner.png"},
+	{"i":2,"img":"/delijiajiao/picture/banner.png"},
+	{"i":3,"img":"/delijiajiao/picture/banner.png"},
 ];
 var adv={
 	liwidth:0,
@@ -12,7 +12,7 @@ var adv={
 	WAIT:2000,
 	timer:null,
 	init:function(){
-		
+
 		this.liwidth=parseFloat($(".banner-main").css("width"));
 		this.$ullist=$(".banner-list");
 		this.updateView();
@@ -20,7 +20,7 @@ var adv={
 			var target=$(".banner-index>li").index(e.target);
 			var old=imgs[0].i;
 			this.move(target-old);
-		
+
 		});
 		this.autoMove();
 	},
@@ -52,7 +52,7 @@ var adv={
 		this.autoMove();
 	},
 	updateView:function(){
-		
+
 		for(var i=0,lis="",idex="";i<imgs.length;i++){
 			lis+=`<li><img src="${imgs[i].img}"></li>`;
 			idex+="<li></li>";
@@ -61,8 +61,8 @@ var adv={
 					.css("width",imgs.length*this.liwidth);
 		$(".banner-index").html(idex)
 						  .children(`li:eq(${imgs[0].i})`).addClass("hover");
-		
+
 	}
-	
+
 };
 adv.init();//调用函数

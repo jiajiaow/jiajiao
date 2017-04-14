@@ -13,7 +13,12 @@ class yuyueController extends Controller
 {
     public function index()
     {
-        return view('home.yuyuelaoshi');
+        if(session('Template') == '2'){
+            return view('delijiajiao.yuyuelaoshi');
+        }else{
+            return view('home.yuyuelaoshi');
+        }
+
     }
     public function register(Request $request)
     {

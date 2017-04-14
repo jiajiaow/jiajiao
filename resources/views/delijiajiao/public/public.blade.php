@@ -8,8 +8,9 @@
   <meta name="description" content="【德栗家教忘】 - 您身边的家教"/>
   <script src="/delijiajiao/js/jquery-1.7.2.min.js"></script>
   <link rel="stylesheet" href="/delijiajiao/css/index.css" onerror="tracker.resErr(this)" />
-    <link rel="stylesheet" href="/delijiajiao/css/style.css" onerror="tracker.resErr(this)" />
+    <link rel="stylesheet" href="/delijiajiao/css/style3.css" onerror="tracker.resErr(this)" />
      <link rel="stylesheet" href="/delijiajiao/css/style1.css" onerror="tracker.resErr(this)" />
+    <link href="/home/css/style.css" rel="stylesheet" type="text/css" />
       <link rel="stylesheet" href="/delijiajiao/css/common.css" onerror="tracker.resErr(this)" />
 @section('style')
 
@@ -62,7 +63,7 @@ for(i=0; i <tabList.length; i++)
       <span class="listing-slogan">{{ session('regionname') }}</span><span class="listing-slogan1">【高校联盟】【德栗家教】</span>
      </div>
      <div class="pull-right">
-      <a href="//www.baixing.com/resume/fill?src=gongzuo_l_top" target="_blank" class="resume-btn">我要找老师</a>
+      <a href="/yuyuelaoshi.html" class="resume-btn">我要找老师</a>
       <a href="/fabu/gongzuo" class="post">我要当老师</a>
      </div>
     </div>
@@ -92,11 +93,7 @@ for(i=0; i <tabList.length; i++)
                 </a>
                 @foreach($erji as $ej)
                  @if( $yj->id == $ej->yiji_id )
-                    @foreach($sanji as $sj)
-                      @if($ej->id == $sj->erji_id)
-                      <span><a href="">{{ $sj->sanji }}</a></span>
-                      @endif
-                    @endforeach
+                      <span>{{ $yj->introduce }}<br><Br></span>
                  @endif
                 @endforeach
 

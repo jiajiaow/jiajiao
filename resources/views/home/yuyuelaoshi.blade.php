@@ -38,6 +38,7 @@
             </div>
         </div>
     </div>
+
 @endsection
 @section('js')
 <script src="/layer/layer.js"></script>

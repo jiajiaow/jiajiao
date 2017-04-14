@@ -47,7 +47,9 @@ Route::post('/dokemu.html','home\teacherinfoController@dokemu');
 //生成假数据
 Route::get('/jia.html','home\indexController@jia');
 
-//预约老师
+//zl预约老师
+Route::get('/yuyuelaoshi.html','home\yuyueController@index');
+//dl预约老师
 Route::get('/yuyuelaoshi.html','home\yuyueController@index');
 //预约验证码
 Route::post('/register','home\yuyueController@register');
