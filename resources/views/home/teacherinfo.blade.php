@@ -300,8 +300,14 @@
                                     <!-- 学校是下拉+手动输入-->
                                     <label for="">学　　校：</label>
                                     <select name="tc_school">
-                                        <option value="一中">一中</option>
-                                        <option value="二中">二中</option>
+                                        <option value="广州大学">广州大学</option>
+                                        <option value="广州师范学院">广州师范学院</option>
+                                        <option value="中山大学">中山大学</option>
+                                        <option value="暨南大学">暨南大学</option>
+                                        <option value="华南理工大学">华南理工大学</option>
+                                        <option value="广东外语外贸大学">广东外语外贸大学</option>
+                                        <option value="华南农业大学">华南农业大学</option>
+                                        <option value="广东工业大学">广东工业大学</option>
                                         <option >如无上述学校请手动输入</option>
                                         <input style="width:300px;" name="tc_school_bak" type="text" value="{{ $list->tc_school_bak }}" placeholder="请手动输入"/>
                                     </select>
