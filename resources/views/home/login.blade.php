@@ -6,6 +6,11 @@
 	<link rel="stylesheet" href="{{ asset('/home/css/login.css') }}">
 	<script type="text/javascript" src= "{{ asset('/home/js/jquery-2.2.3.min.js') }}"></script>
 	<script src="/admin/js/plugins/layer/layer.min.js"></script>
+	<script>
+		@if(session('tc_phone') != null)
+				window.location.href="{{ URL('/teacherinfo.html') }}";
+		@endif
+	</script>
 </head>
 <body>
 	<div id="header">
@@ -24,7 +29,7 @@
 		</div>
 	</div>
 	<div id="login-banner">
-		<img src="{{ asset('/home/picture/banner_1.jpg') }}">
+		<img src="{{ asset('/home/images/dl.jpg') }}" style="height:450px;">
 		<div class="inbanner">
 			<div class="container">
 				<div class="right-form pull-right">
@@ -87,23 +92,9 @@
 		</div>
 	</div>
 
-	<div id="footer"><div class="foot-top"><div class="container">
-				<div style="margin-top: 30px;" class="foot-logoer">
-					<a href="/"><img src="/home/images/logo.png" alt=""> </a></div>
-				<dl>
-					<dt>我是学员</dt><dd><a href="">请家教流程</a></dd>
-					<dd><a href="">学员收费标准</a></dd>
-					<dd><a href="">挑选合适教员</a></dd></dl><dl><dt>我是老师</dt>
-					<dd><a href="">如何预约订单</a></dd>
-					<dd><a href="">教员收费标准</a></dd>
-					<dd><a href="">汇款接单手续</a></dd></dl><dl class="last"><dt>关于我们</dt>
-					<dd><a href="">福州手机家教版</a></dd>
-					<dd><a href="">联系我们</a></dd>
-					<dd><a href="">网站地图</a></dd>
+	<div id="footer">
 
-				</dl>
-				<div class="code">
-					<i>15985773757</i><span>7*24小时在线客服</span><img src="/home/picture/code.png" alt=""></div><div class="clear"></div></div></div><div class="foot-bottom"><div class="container">
+		<div class="foot-bottom"><div class="container">
 				<ul style="width:100%"><li>友情链接：</li><li><a href="" target="_blank">仓山区</a></li>
 					<li><a href="" target="_blank">鼓楼区</a></li>
 					<li><a href="" target="_blank">晋安区</a></li>
@@ -131,7 +122,13 @@
 					<li><a href="" target="_blank">台江区宁化</a></li>
 					<li><a href="" target="_blank">台江区中州岛</a></li>
 
-					<div class="clear"></div></ul><ul style="font-size:15px;color:#262626 "> Copyright2007－2017广州学求易教育咨询有限公司 版权所有 All rights reserved</ul></div></div></div><div class="suspend"><ul><li><img src="/home/picture/float_1.png" alt=""><div class="wechat hidebox"><div class="inbox"><img src="/home/picture/code.png" alt=""><i>【扫一扫】随时请家教</i></div></div></li><li><a href="http://p.qiao.baidu.com/im/index?siteid=9008098&ucid=20781114&cp=&cr=&cw=" target="_blank"><img src="/home/picture/float_2.png" alt=""></a></li><li class="scroll-top"><img src="/home/picture/float_4.png" alt=""></li></ul>
+					<div class="clear"></div>
+				</ul>
+					<ul style="font-size:15px;color:#262626 "> Copyright2007－2017广州学求易教育咨询有限公司 版权所有 All rights reserved</ul>
+				</div>
+				</div>
+				</div>
+				<div class="suspend"><ul><li><img src="/home/picture/float_1.png" alt=""><div class="wechat hidebox"><div class="inbox"><img src="/home/picture/code.png" alt=""><i>【扫一扫】随时请家教</i></div></div></li><li><a href="http://p.qiao.baidu.com/im/index?siteid=9008098&ucid=20781114&cp=&cr=&cw=" target="_blank"><img src="/home/picture/float_2.png" alt=""></a></li><li class="scroll-top"><img src="/home/picture/float_4.png" alt=""></li></ul>
 			</div>
 		</body>
 

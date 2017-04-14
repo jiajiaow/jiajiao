@@ -33,7 +33,19 @@ Route::post('/docode.html','home\LoginController@docode');
 //前台退出登录
 Route::get('/outlogin.html','home\LoginController@outlogin');
 //个人中心
-Route::get('/gerenzhongx.html','home\LoginController@gerenzhongx');
+Route::get('/teacherinfo.html','home\teacherinfoController@index');
+//处理个人中心
+Route::post('/doteacherinfo.html','home\teacherinfoController@doteacherinfo');
+//省
+Route::post('/sheng','home\teacherinfoController@sheng');
+//县
+Route::post('/xian','home\teacherinfoController@xian');
+//当前的区
+Route::post('/qu','home\teacherinfoController@qu');
+//修改教学授课科目信息
+Route::post('/dokemu.html','home\teacherinfoController@dokemu');
+//生成假数据
+Route::get('/jia.html','home\indexController@jia');
 
 //预约老师
 Route::get('/yuyuelaoshi.html','home\yuyueController@index');
@@ -51,7 +63,7 @@ Route::post('/StudentAdd','home\yuyueController@StudentAdd');
 Route::post('/test','test\testController@index');
 //----------  后台  ----------//
 //登录视图 方法
-Route::get('/admin/login.html',function(){ return view('admin.login');  });
+Route::get('/admin/login',function(){ return view('admin.login');  });
 //登录 Login控制器
 Route::post('/admin/Logins','admin\LoginController@login');
 //路由群组 中间件 拒绝后台未登录访问页面

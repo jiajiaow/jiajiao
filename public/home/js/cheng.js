@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	//登陆时的切换
 	$('#y').click(function(e){
 		e.preventDefault();
 		$("div.line").css('left','70%');
@@ -9,31 +10,13 @@ $(document).ready(function(){
 		e.preventDefault();
 		$('div.line').css('left','40%');
 		$('#validForm').show()
-		 .siblings('#ptForm').hide();
+					   .siblings('#ptForm').hide();
 	});
 	$('#getsms').click(function(){
+		
 		getCode();
 		var get_code=$('#getsms');
 		time(get_code);
-		var phone = $("#uname").val();
-		$.ajax({
-			type:'POST',
-			url:"/docode.html",
-			contentType:"application/x-www-form-urlencoded; charset=utf8",
-			data:{"phone":phone},
-			/*dataType:'JSON',*/
-			success:(function(result){
-				if(result == 'y'){
-					layer.alert('请注意查收短信!',{icon: 6,time:1500});
-				}
-				//console.log(result);
-			}),
-			error:(function(result,status){
-				//console.log(result);
-				//larye.alert('短信sb!');
-			})
-
-		});
 		
 	});
 	
@@ -45,14 +28,14 @@ $(document).ready(function(){
 	})
 function checkSubmitMobil() {
 		if ($("#uname").val() == "") {
-			layer.alert("手机号码不能为空！",{icon:5,time:1500});
+			alert("手机号码不能为空！");
 
 			$("#uname").focus();
 			return false;
 		}
 
 		if (!$("#uname").val().match(/^1[345678][0-9]{9}$/)) {
-			layer.alert("手机号码格式不正确！",{icon: 5,time:1500});
+			alert("手机号码格式不正确！");
 			$("#uname").focus();
 			return false;
 		}
@@ -103,4 +86,49 @@ function time(o,p){
         },1000);
     }
 }
-$('')
+//此处是教员中心的全选
+$('#all').click(function(){
+	checkAll(this.checked);
+})
+function checkAll(caozhen){
+	var arr =$('.X');
+	if(caozhen){
+		for(var i=0;i<arr.length;i++){
+			arr[i].checked = true;
+		}
+		
+	}else{
+		for(var i=0;i<arr.length;i++){
+			arr[i].checked = false;
+		}
+	}
+}
+function cheng(q){
+	var all=$('.x');
+	if(q){
+		for(var i=0;i<all.length;i++){
+			all[i].checked = true;
+		}
+	}else{
+		for(var i=0;i<all.length;i++){
+			all[i].checked = false;
+		}
+	}
+}
+//码农的悲哀
+$('#li').click(function(){
+	quanxuan(this.checked);
+})
+function quanxuan(v){
+	var suoyou = $('.li');
+	if(v){
+		for(var i= 0;i<suoyou.length;i++){
+			suoyou[i].checked = true;
+		}
+	}else{
+		for(var i= 0;i<suoyou.length;i++){
+			suoyou[i].checked = false;
+		}
+	}
+}
+

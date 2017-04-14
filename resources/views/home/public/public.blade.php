@@ -18,17 +18,14 @@
             @if(session('tc_phone')== null)
             <div class="left pull-left">
                 <a href="/login.html" class="login">教员 请[登录]</a>
-                <a  href="/reg.html">[免费注册]</a>
-                <a href="/signin.php" class="login">教员 请[登录]</a>
-                <a  href="/member/signup2.php">[教员注册]</a>/
-            </div>
-                        <div class="left pull-left">
+                <a  href="/reg.html">[教员注册]</a>
+                /
                 <a href="/signin.php" class="login">学员 请[登录]</a>
                 <a  href="/member/signup2.php">[学员注册]</a>
             </div>
             @else
                 <div class="left pull-left">
-                    {{ Session('tc_phone') }}<a href="/gerenzhongx.html" class="login">个人中心</a>
+                    {{ Session('tc_phone') }}<a href="/teacherinfo.html" class="login">个人中心</a>
                     <a href="/outlogin.html" class="login">退出登录</a>
                 </div>
             @endif
@@ -85,17 +82,9 @@
                                 <li>
                                     <dl style="width:200px;overflow: hidden;height: 38px;">
                                         <dt>{{ $yj->yiji }}</dt>
-                                        @foreach($erji as $ej)
-                                            @if( $yj->id == $ej->yiji_id )
 
-                                                @foreach($sanji as $sj)
-                                                    @if($ej->id == $sj->erji_id)
-                                                        <dd><a href="">{{ $sj->sanji }}</a></dd>
-                                                    @endif
-                                                @endforeach
+                                        <a>{{ $yj->introduce }}</a>
 
-                                            @endif
-                                        @endforeach
                                     </dl>
                                 </li>
                             @endforeach

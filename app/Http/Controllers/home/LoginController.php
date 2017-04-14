@@ -41,9 +41,9 @@ class LoginController extends Controller
 
             if($list != null){
                 //设置session
-                session(['tc_phone' => $list->tc_phone]);
+                session(['tc_phone' => $list->tc_phone,'tc_name'=>$list->tc_phone]);
                 //重定向
-                return redirect('/gerenzhongx.html');
+                return redirect('/teacherinfo.html');
             }else{
                 //重定向
                 return redirect('/login.html')->with('msg','账号不存在,请重新输入!');
@@ -54,6 +54,7 @@ class LoginController extends Controller
     //退出登录
     public function outlogin(){
         session()->forget("tc_phone");
+        session()->forget("tc_name");
         return redirect('/login.html')->with('msg','已退出登录!');
     }
 
@@ -100,9 +101,10 @@ class LoginController extends Controller
     //教师注册验证码
     public function docode(Request $request){
         $phone = $_POST['phone'];
+        $zt = $_POST['zt'];
         $yzm = rand(1000,9999);
         Cookie::queue("code", $yzm, 5);
-        $result=$this->sms->send("$phone","家教网","{'code':'{$yzm}'}",'SMS_35975005');
+        $result=$this->sms->send("$phone","栗志家教","{zt:'{$zt}','code':'{$yzm}'}",'SMS_61850084');
         return "y";
     }
 

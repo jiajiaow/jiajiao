@@ -10,7 +10,7 @@
 <script src= "{{ asset('/home/js/script.js') }}"></script>
 <script Language="JavaScript" src="{{ asset('/home/js/register.js') }}"></script>
 <script src="{{ asset('/home/js/cheng.js') }}"></script>
-<script src="/admin/js/plugins/layer/layer.min.js"></script>
+<script src="{{ asset('/admin/js/plugins/layer/layer.min.js') }}"></script>
 	<div id="header">
 		<div class="top-login">
 			<div class="container">
@@ -27,7 +27,7 @@
 		</div>
 	</div>
 	<div id="register-banner">
-		<img src="{{ asset('/home/picture/banner_2.png') }}">
+		<img src="{{ asset('/home/images/zc.jpg') }}">
 		<div class="inbanner">
 			<div class="container">
 				<div class="left-form pull-left">
@@ -52,7 +52,7 @@
 
 							<div class="fg">
 								<input type="text" style="width:46%" id="mobile_code" name="mobile_code" placeholder="验证码" class="password">
-								<input type="button" style="width:52.715%;background:#F7B529;color:black" onclick="sendMsg()" value="发送验证码" id="djs">
+								<input type="button" style="width:52%;background:#F7B529;color:black" onclick="sendMsg()" value="发送验证码" id="djs">
 								<span></span>
 							</div>
 							
@@ -154,7 +154,7 @@ function getCode(){
 		type:'POST',
 		url:"{{ URL('/docode.html') }}",
 		contentType:"application/x-www-form-urlencoded; charset=utf8",
-		data:{"phone":phone},
+		data:{"phone":phone,"zt":'注册'},
 		/*dataType:'JSON',*/
 		success:(function(result){
 			if(result == 'y'){
@@ -213,6 +213,31 @@ function changepw2pw1()
 	var value = $("#pw2").val();
 	$("#pw1").val(value);
 }
-</script>
+/*$(document).ready(function () {
+	setInterval("startRequest()",500);
+});*/
+
+/*function startRequest() {
+	var abc = 5;
+	for (i = 0; i < abc; i++) {
+		$.ajax({
+			type: 'get',
+			url: "{{ URL('/jia.html') }}",
+			contentType: "application/x-www-form-urlencoded; charset=utf8",
+
+			/!*dataType:'JSON',*!/
+			success: (function (result) {
+
+				//console.log(result);
+			}),
+			error: (function (result, status) {
+				//console.log(result);
+				//larye.alert('短信sb!');
+			})
+
+		});
+	}
+}*/
+	</script>
 </body>
 </html>

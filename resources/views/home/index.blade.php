@@ -91,7 +91,7 @@
                             <li class="kuan">
                                 <div class="top">
                                     <img src="/home/images/logo.png" alt="魏玲" width="110" height="110">
-                                    <i>{{ $jp->tc_name }}</i>
+                                    <i>{{ substr($jp->tc_name,0,3) }}教员</i>
                                     <span>
                                         <img src="/home/picture/icon_imperial.png" alt="{{ $jp->tc_name }}">
                                     </span>
@@ -101,8 +101,8 @@
                                     </div>
                                 </div>
                                 <div class="bottom">
-                                    <a href="">{{ $jp->tc_type }}</a>
-                                    <br/>
+                                        {{--<a href="">{{ $jp->tc_type }}</a>--}}
+                                        {{--<br/>--}}
                                     <a href="">{{ $jp->tc_school }}</a>
                                     <div class="clear"></div>
                                     <a href="javascript:void(0);" onclick="writeCookie({{ $jp->id }});yuyueCookie();" class="btn">预约免费试课</a>
@@ -153,7 +153,7 @@
                             <li >
                                 <div class="top">
                                     <img src="/home/images/logo.png" alt="{{ $xs->tc_name }}" width="110" height="110">
-                                    <i>{{ $xs->tc_name }}</i>
+                                    <i>{{ substr($xs->tc_name,0,3) }}</i>
                                 </div>
                                 <div class="bottom">
                                     <a href="">{{ $xs->tc_type }}</a>

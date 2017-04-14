@@ -213,8 +213,8 @@
 			var id = $(this).attr("data-value");
 			var _val = $(this).html(),
 				len = $(".li-box .top-left").siblings(".right").find("li").length;
-			if (len>9) {
-				alert("最多选择九项！")
+			if (len>30) {
+				alert("最多选择30项！")
 			} else{
 				$(this).parent().parent().siblings(".right").find("li").each(function(){
 				var spanVal = $(this).find("span").html();
