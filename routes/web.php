@@ -52,6 +52,8 @@ Route::post('/dokemu.html','home\teacherinfoController@dokemu');
 Route::get('/jia.html','home\indexController@jia');
 //教师详细
 Route::get('/teacher/detail/{m?}.html','home\teacherinfoController@teacher');
+//学员库
+Route::get('/xueyuan.html','home\teacherinfoController@xueyuan');
 
 //zl预约老师
 Route::get('/yuyuelaoshi.html/{a?}/{b?}/{c?}/{d?}','home\yuyueController@index');

@@ -78,9 +78,9 @@ for(i=0; i <tabList.length; i++)
   <div class="nav-horizontal">
    <div class="nav-horizontal-content">
     <ul>
-     <li class="vtle"><a href="#" target="_blank">德栗首页</a></li>
-     <li><a href="/faculty.html" target="_blank">教员库</a></li>
-     <li><a href="#" target="_blank">学员库</a></li>
+     <li class="vtle"><a href="/" >德栗首页</a></li>
+     <li><a href="/faculty.html" >教员库</a></li>
+     <li><a href="/xueyuan.html" >学员库</a></li>
      <li><a href="123.html" target="_blank">资费说明</a></li>
      <li><a href="#" target="_blank">快速请家教</a></li>
      <li><a href="#" target="_blank">最新学员</a></li>
@@ -102,7 +102,7 @@ for(i=0; i <tabList.length; i++)
                       <span >{{ $yj->introduce }}</span>
                  @endif
                 @endforeach
-                <dl >
+
                     @foreach($erji as $ej)
                         @if( $yj->id == $ej->yiji_id )
                             <dt>{{ $ej->erji }}</dt>
@@ -125,102 +125,76 @@ for(i=0; i <tabList.length; i++)
 @show
   </div>
 </div>
-<footer id="f">
-   <div>
-    <a href="#" target="_blank" rel="nofollow">xxxxx</a>
-    <i class="sep">|</i>
-    <a href="#" target="_blank" rel="nofollow">xxxxx</a>
-    <i class="sep">|</i>
-    <a href="#" target="_blank">xxxxx</a>
-    <i class="sep">|</i>
-    <a href="#" target="_blank" rel="nofollow">xxxxx</a>
-    <i class="sep">|</i>
-    <a href="#" target="_blank" data-toggle="tracker" data-source="footer">xxxxx</a>
-    <i class="sep">|</i>
-    <a href="#" target="_blank" rel="nofollow">xxxxx</a>
-    <i class="sep">|</i>
-    <a href="#" target="_blank" rel="nofollow">xxxxx</a>
-    <i class="sep">|</i>
-    <a href="#" target="_blank">xxxxx</a>
-    <i class="sep">|</i>
-    <a href="#" target="_blank">xxxxx</a>
-    <i class="sep">|</i>
-    <a href="#" rel="nofollow">xxxxx</a>
-   </div>
-   <div>
-    <span class="copyright">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
-   </div>
-   <div>
-    <a target="_blank" rel="nofollow" href="#"><img height="30" alt="网购大家评" src="/delijiajiao/picture/8fa27c5945f2ec31155a36e4a03cc841.png"></a>
-    <a target="_blank" rel="nofollow" href="#"><img height="30" alt="上海市互联网举报平台" src="/delijiajiao/picture/b795b51d45c5297739d0add5d4b87475.jpg"></a>
-    <a target="_blank" rel="nofollow" href="#"><img width="30" alt="上海工商" src="/delijiajiao/picture/icon_footer02.png"></a>
-    <a target="_blank" rel="nofollow" href="#"><img height="30" alt="网络社会征信网" src="/delijiajiao/picture/icon_footer01.png"><span class="beian">xxxxx</span></a>
-    <span class="at-haojing">6&nbsp;G:118&nbsp;GM:898</span>
-   </div>
-  </footer>
-
-
-  <div id="sidebar-buttons">
-   <a id="feedback-button" href="#" title="我要反馈" class="feedback"><i class="icon-side-feedback"></i></a>
-   <a id="back-to-top" href="#" title="返回顶部"><i class="icon-arrow-up"></i></a>
-  </div>
-  <div id="xiangyang-feedback-modal" role="dialog" tabindex="-1" class="modal feedback-modal">
-   <div class="modal-dialog">
-    <div class="modal-content">
-     <div class="modal-header">
-      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="">&times;</span></button>
-      <h4 class="modal-title">反馈建议</h4>
-     </div>
-     <div class="modal-body">
-      <form novalidate=""
-       <span id="desc"></span>
-       <input type="hidden" name="labels" value="helpcenter" />
-       <div class="p-line"></div>
-       <div class="p-line">
-        <label class="p-label">描述：</label>
-        <span class="p-value"><textarea type="text" maxlength="500" name="post[content]" required="required" data-parent=".p-line" value="" placeholder="请尽可能详细地输入您的问题，我们将尽快帮您解决。" style="overflow: hidden; word-wrap: break-word; resize: none; width: 400px;" class="input input-5"></textarea><br /><span style="padding-left:0;" class="p-error-empty">请填写描述</span></span>
-       </div>
-       <div class="p-line">
-        <label class="p-label">手机号：</label>
-        <span class="p-value"><input name="post[mobile]" maxlength="11" required="required" data-parent=".p-line" type="mobile" value="" class="input" /><input id="feedback_ad" name="ad" type="hidden" value="" /><input id="feedback_type" name="type" type="hidden" value="" /><input id="feedback_bangui" name="bangui" type="hidden" value="" /><input id="feedback_source" name="source" type="hidden" value="" /><input id="feedback_survey" name="survey_fid" type="hidden" value="" /><span class="p-error">请填写手机号</span><span class="p-error-empty">请填写手机号</span></span>
-       </div>
-       <div class="p-line">
-        <label class="p-label">上传图片：</label>
-        <span id="feedback_picture" class="p-value"></span>
-       </div>
-       <div class="p-line">
-        <label class="p-label"></label>
-        <span class="p-value"><input type="submit" value="提交反馈" class="button" /><a href="/PublicReview/?src=feedback" target="_blank" class="public-review link">邀请您参加大众评审</a></span>
-       </div>
+  <div id="footer">
+      <form action="">
+          <p>姓名：<input id="mingzi"  type="" value=""/>
+              手机：<input id='shouji' type='' value="" disabled='true'maxlength='11'>
+              验证码：<input id='yanzhenma'type='' value="">
+              <input style='width:94px;padding:.5em 0;' id='huoqu' type="button" value='获取验证码'/>
+              <input style='background-color:#f8b529;' type="submit" value="快速请家教" />
       </form>
-     </div>
-    </div>
-   </div>
-  </div>
 
-  <div id="promote-weixin-modal" class="fade hide in modal">
-    <div class="modal-content">
-     <div class="modal-header">
-      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="">&times;</span></button>
-      <div class="modal-title">
-       xxxxxxxxxxxxxxxxxxxxxxxxxxxx
-      </div>
-     </div>
-     <div class="modal-body">
-      <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-      <img id="promoQrcode" src="/delijiajiao/weixin.jpg" style="float:right;" />
-      <div class="promoteWeixinContent">
-       <p>绑定后，您可以：</p>
-       <p>1. xxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-       <p>2. xxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-       <p>3. xxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-       <p>4. xxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-       <p>5. xxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-      </div>
-     </div>
-    </div>
-   </div>
+      </p>
   </div>
+  </div></div>
+  <footer>
+      <div class="footw">
+          <div class="r1">
+              <div class="b1">
+                  <li><a a href='/' class='primary-logo' ><img alt="广州" src="/delijiajiao/picture/guangzhou.png" class="city-logo" /></a><br><p>德栗家教</p></li>
+              </div>
+              <div class="line"></div>
+              <div class="b2">
+                  <li><a href="#" target="_blank" rel="nofollow">我是学员</a></li>
+                  <li> <a href="#" target="_blank" rel="nofollow">快速请家教</a></li>
+                  <li><a href="#" target="_blank">学员资费标准</a></li>
+                  <li><a href="#" target="_blank" rel="nofollow">挑选合适教员</a></li>
+              </div>
+              <div class="line"></div>
+              <div class="b3">
+                  <li><a href="#" target="_blank" data-toggle="tracker" data-source="footer">我是老师</a></li>
+                  <li><a href="#" target="_blank" rel="nofollow">预约订单流程</a></li>
+                  <li><a href="#" target="_blank" rel="nofollow">教员收费标准</a></li>
+                  <li><a href="#" target="_blank">支付方式</a></li>
+              </div>
+              <div class="line"></div>
+              <div class="b4">
+                  <li><a href="#" target="_blank">关于我们</a></li>
+                  <li><a href="#" target="_blank" rel="nofollow">联系我们</a></li>
+                  <li><a href="#" target="_blank" data-toggle="tracker" data-source="footer">我是老师</a></li>
+                  <li><a href="#" target="_blank" rel="nofollow">公司简介</a></li>
+              </div>
+              <div class="line"></div>
+              <div class="b5">
+                  <li><a a href='/' class='primary-logo' ><img alt="广州" src="/delijiajiao/picture/guangzhou.png" class="city-logo" /></a><br><p>电话：400-8080-740
+
+                      </p></li>
+                  <!--<li><a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备16062097号</a></li>-->
+              </div>
+          </div>
+      </div>
+  </footer>
+  <div class="banquanxinxi">© 2005－2017德栗家教   |   粤ICP备16062097号 关键词：家教,一对一家教,广州家教网</div>
+  <script type="text/javascript">
+      $(function(){
+
+          var navH = $("#cheng").offset().top;
+
+          $(window).scroll(function(){
+
+              var scroH = $(this).scrollTop();
+
+              if(scroH>=navH){
+                  $("#cheng").css({"position":"fixed","top":0});
+              }else if(scroH<navH){
+                  $("#cheng").css({"position":"relative","z-index":999});
+                  //    $(".nav-vertical ul li.nav-item dl dd").css("top","200px");
+              }
+          })
+      })
+
+  </script>
+  <script type="text/javascript" src="/delijiajiao/js/layer.js"></script>
    <script type="text/javascript">
          $(function(){
 

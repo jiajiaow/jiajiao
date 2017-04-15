@@ -210,4 +210,12 @@ class teacherinfoController extends Controller
       // dd($xy);
         return view('delijiajiao.jiaoyuan',['quyu'=>$quyu,'list'=>$list,'xx'=>$xx]);
     }
+    //德栗学员库
+    public function xueyuan(Request $request){
+        //区域
+        $quyu = \DB::table('jjw_position_county')->where('city_id',Session('regionid'))->get();
+        //学员
+        $list = \DB::table('jjw_order')->paginate(10);
+        return view('delijiajiao.xueyuanku',['quyu'=>$quyu,'list'=>$list]);
+    }
 }

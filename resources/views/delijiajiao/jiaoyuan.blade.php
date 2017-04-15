@@ -76,7 +76,6 @@
 	</div>
 	
 </div>
-        <div class="acrtp"> {{ $list->links()}} </div>
       <div class="indext3">
           <div class="lebt">
                 <div class="l">
@@ -118,10 +117,6 @@
   </div>
    <div class="acrtp"> {{ $list->links()}}</div>
 
-   <div id="footer">
-    <p>姓名：<input onkeyup="value=value.replace(/[ -~]/g,'')" onkeydown="if(event.keyCode==13)event.keyCode=9">手机：<input onkeyup="value=value.replace(/[ -~]/g,'')" onkeydown="if(event.keyCode==13)event.keyCode=9">验证码：<input onkeyup="value=value.replace(/[ -~]/g,'')" onkeydown="if(event.keyCode==13)event.keyCode=9"><input type="button" value="快速请家教" />
-  </p>
-   </div>
    <script type="text/javascript">
          $(function(){ 
            
@@ -186,8 +181,6 @@ $(".eliminateCriteria").live("click",function(){
 
 @endsection
 @section('js')
-  <link rel="stylesheet"  href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"  onerror="tracker.resErr(this)" />
-  <script type="text/javascript" src="{{ asset('/delijiajiao/js/zhen.js') }}"></script>
     <script type="text/javascript">
         $('#cheng').remove();
         $('#f').remove();
