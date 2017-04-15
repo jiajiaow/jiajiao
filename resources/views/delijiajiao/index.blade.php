@@ -76,15 +76,14 @@
                                 <img src="/delijiajiao/picture/icon_imperial.png">
                             </span>
                             <div class="hover">
-                                <p>{{ $jp->tc_comments }}</p>
+                                <p>{{ subtext($jp->tc_comments,40) }}</p>
                                 <a href="javascript:void(0)" onclick="location.href='/teacher/365196.html'" class="look">查看 ></a>
                             </div>
                         </div>
                         <div class="bottom">
-                            <a href="">{{ mb_substr($jp->tc_subjects,0,20) }}</a>
+                            <a href="">{{ $jp->tc_type }}</a>
                             <br/>
                             <a href="">{{ $jp->tc_school }}</a>
-
                             <div class="clear"></div>
                             <a href="/yuyuelaoshi.html" class="btn">预约免费试课</a>
                         </div>
@@ -110,7 +109,7 @@
                     </div>
                 </div>
                 <div class="bottom">
-                    <a href="">{{ mb_substr($xs->tc_subjects,0,20) }}</a>
+                    <a href="">{{ $xs->tc_type }}</a>
                     <br/>
                     <a href="">{{ $xs->tc_school }}</a>
                     <div class="clear"></div>
@@ -137,7 +136,7 @@
                     </div>
                 </div>
                 <div class="bottom">
-                    <a href="">{{ mb_substr($zhuanzhi->tc_subjects,0,20) }}</a>
+                    <a href="">{{ $zhuanzhi->tc_type }}</a>
                     <br/>
                     <a href="">{{ $zhuanzhi->tc_school }}</a>
                     <div class="clear"></div>

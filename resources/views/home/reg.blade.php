@@ -15,7 +15,7 @@
 		<div class="top-login">
 			<div class="container">
 				<div class="logo pull-left">
-					<a href="/" class="pull-left"><img src="{{ asset('/home/picture/logo.png') }}" alt=""></a>
+					<a href="/" class="pull-left">{{--<img src="{{ asset('/home/picture/logo.png') }}" alt="">--}}</a>
 					<a href="javascript:void(0)" class="pull-right dl">欢迎注册</a>
 					<div class="clear"></div>
 				</div>

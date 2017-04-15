@@ -101,8 +101,12 @@
              <li>
                   <p id="tta"> <a href="/yuyuelaoshi.html?{{ $li->id }}">预约|免费试课</a> </p>
                    <p id="ttb"> <a href="">查看详情</a></p>
-                     <p id="ttd" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap; "> {{ $li->tc_comments }}</p>
-                     <div id="tte">{{ $li->tc_school }}</div>
+                     <p id="ttd"> {{ subtext($li->tc_comments,50) }}</p>
+                     <div id="tte">{{ $li->tc_school }}
+                                   {{-- {{ $li->tc_hsam }}
+                                    {{ $li->tc_zhuanye }}
+                                    {{ $li->tc_nj }}--}}
+                     </div>
                        <p id="ttf">{{ substr($li->tc_name,0,3) }}教员<br />{{ $li->tc_sex=='1'?'男':'女' }}</p>
                         <p id="ttg"> <br>T{{ $li->id }}</p>
               </li>

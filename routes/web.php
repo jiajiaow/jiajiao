@@ -21,7 +21,11 @@ Route::get('/mobile/{a?}/{b?}/{c?}','home\indexController@index');
 Route::get('/mobile/login','home\indexController@login');
 Route::get('/yz','YzController@index');
 //登录
-Route::get('/login.html',function(){ return view('home.login');  });
+Route::get('/login.html',function(){
+    session()->forget("tc_phone");
+    session()->forget("tc_name");
+    return view('home.login');
+});
 ////处理执行教师登录
 Route::post('/dologin.html','home\LoginController@dologin');
 //教师注册
