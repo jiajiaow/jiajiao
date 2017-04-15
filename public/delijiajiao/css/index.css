@@ -244,7 +244,7 @@ body .ui-page>header .location a.post,body>header .location a.post{height:44px;l
 .modal-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}
 table td[class*=col-],table th[class*=col-]{position:static;float:none;display:table-cell}
 body .ui-page>.container,body .ui-page>header .location,body .ui-page>header .toolbar,body>.container,body>header .location,body>header .toolbar{max-width:1200px;margin-left:auto;margin-right:auto}
-input,input[type=password],input[type=search],select,textarea{border:1px solid #ddd;border-radius:2px;font-size:1em;padding:.5em;outline:0;-webkit-transition:box-shadow 217ms ease;transition:box-shadow 217ms ease}
+input,input[type=password],input[type=search],select,textarea{border:1px solid #f8b529;border-radius:2px;font-size:1em;padding:.5em;outline:0;-webkit-transition:box-shadow 217ms ease;transition:box-shadow 217ms ease}
 input:focus,input[type=password]:focus,input[type=search]:focus,select:focus,textarea:focus{border:1px solid #00d1c1}
 input[type=button],input[type=reset],input[type=submit]{border:1px solid #ddd;border-radius:2px;font-size:1em;padding:.5em 1.5em;background:#fff;text-decoration:none}
 aside{width:225px;float:right}

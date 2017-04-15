@@ -96,8 +96,8 @@
                                         <img src="/home/picture/icon_imperial.png" alt="{{ $jp->tc_name }}">
                                     </span>
                                     <div class="hover">
-                                        <p>{{ $jp->tc_case }}.</p>
-                                        <a href="javascript:void(0)" onclick="location.href='/teacher/{{ $jp->id }}.html'" class="look">查看 ></a>
+                                        <p>{{ $jp->tc_case}}.</p>
+                                        <a href="javascript:void(0)" onclick="location.href='/teacher/detail/{{ $jp->id }}.html'" class="look">查看 ></a>
                                     </div>
                                 </div>
                                 <div class="bottom">
@@ -153,7 +153,7 @@
                             <li >
                                 <div class="top">
                                     <img src="/home/images/logo.png" alt="{{ $xs->tc_name }}" width="110" height="110">
-                                    <i>{{ substr($xs->tc_name,0,3) }}</i>
+                                    <i>{{ substr($xs->tc_name,0,3) }}教员</i>
                                 </div>
                                 <div class="bottom">
                                     <a href="">{{ $xs->tc_type }}</a>

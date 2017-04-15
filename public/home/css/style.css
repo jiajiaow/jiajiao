@@ -1483,7 +1483,7 @@ textarea{
 #ibanner {
 	width: 100%;
 	min-width: 1200px;
-	background: url(../images/ibanner_bg.png);
+	
 	background-size: 100% 100%;
 }
 #ibanner .teach-left {
@@ -5947,7 +5947,7 @@ textarea{
 #ibanner {
 	width: 100%;
 	min-width: 1200px;
-	background: url(../images/ibanner_bg.png);
+	
 	background-size: 100% 100%;
 }
 #ibanner .teach-left {
@@ -5985,7 +5985,7 @@ textarea{
 #ibanner .teach-left .teach-img span.btn {
 	display: block;
 	width: 140px;
-	background: #50c645;
+	background: #F7B529;
 	color: #fff;
 	text-align: center;
 	height: 36px;
@@ -6046,7 +6046,7 @@ textarea{
 }
 #ibanner .teach-left .teach-info {
 	float: left;
-	width: 260px;
+	width: 420px;
 	margin: 20px 0 0 120px;
 }
 #ibanner .teach-left .teach-info ul li {
@@ -6131,7 +6131,7 @@ textarea{
 	font-family: "Microsoft YaHei";
 }
 #ibanner .teach-form button {
-	background: #50c645;
+	background: #F7B529;
 	color: #fff;
 	font-size: 17px;
 	border: 1px solid #50c645;
@@ -6187,7 +6187,7 @@ textarea{
 #content .detial-tab .tab-link li.active a {
 	border-left-color: #fff;
 	border-bottom-color: #fff;
-	border-top: 3px solid #50c645;
+	border-top: 3px solid #F7B529;
 
 }
 #content .detial-tab .link-cont h3 {
@@ -6223,7 +6223,7 @@ textarea{
 }
 #two-page,
 #three-page {
-	height: 50px;
+	height: 150px;
 }
 #content .detial-tab .link-cont .inner-cont dl {
 	float: left;
@@ -9107,4 +9107,10 @@ div.line{
 }
 table.kuandu td{
 	width:69px;
+}
+.qw input{
+	border: none;
+}
+textarea{
+	border :none ;
 }

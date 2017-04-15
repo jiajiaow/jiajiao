@@ -46,6 +46,8 @@ Route::post('/qu','home\teacherinfoController@qu');
 Route::post('/dokemu.html','home\teacherinfoController@dokemu');
 //生成假数据
 Route::get('/jia.html','home\indexController@jia');
+//教师详细
+Route::get('/teacher/detail/{m?}.html','home\teacherinfoController@teacher');
 
 //zl预约老师
 Route::get('/yuyuelaoshi.html/{a?}/{b?}/{c?}/{d?}','home\yuyueController@index');
@@ -61,6 +63,8 @@ Route::post('/yuyuexxform','home\yuyueController@yuyuexxform');
 Route::post('/StudentAdd','home\yuyueController@StudentAdd');
 //测试
 Route::get('/test','testController@index');
+//教员库
+Route::get('/faculty.html','home\teacherinfoController@faculty');
 //----------  后台  ----------//
 //登录视图 方法
 Route::get('/admin/login',function(){ return view('admin.login');  });

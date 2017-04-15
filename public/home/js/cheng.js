@@ -131,4 +131,20 @@ function quanxuan(v){
 		}
 	}
 }
+//实现select框可以选择和手动输入
+var Select = {
+		del : function(obj,e){
+			if((e.keyCode||e.which||e.charCode) == 32){
+				var opt = obj.options[0];
+				opt.text = opt.value = opt.value.substring(0, opt.value.length>0?opt.value.length-1:0);
+			}
+		},
+		write : function(obj,e){
+			if((e.keyCode||e.which||e.charCode) == 32)return ;
+			var opt = obj.options[1];
+			opt.selected = "selected";
+			opt.text = opt.value += String.fromCharCode(e.charCode||e.which||e.keyCode);
+		}
+};
+
 

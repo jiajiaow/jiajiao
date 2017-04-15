@@ -73,7 +73,7 @@ for(i=0; i <tabList.length; i++)
    <div class="nav-horizontal-content">
     <ul>
      <li class="vtle"><a href="#" target="_blank">德栗首页</a></li>
-     <li><a href="#" target="_blank">教员库</a></li>
+     <li><a href="/faculty.html" target="_blank">教员库</a></li>
      <li><a href="#" target="_blank">学员库</a></li>
      <li><a href="123.html" target="_blank">资费说明</a></li>
      <li><a href="#" target="_blank">快速请家教</a></li>
@@ -121,7 +121,7 @@ for(i=0; i <tabList.length; i++)
 @show
   </div>
 </div>
-<footer>
+<footer id="f">
    <div>
     <a href="#" target="_blank" rel="nofollow">xxxxx</a>
     <i class="sep">|</i>

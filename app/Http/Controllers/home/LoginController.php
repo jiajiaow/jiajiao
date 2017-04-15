@@ -24,7 +24,7 @@ class LoginController extends Controller
             $list = \DB::table('jjw_teachers')->where('tc_phone',$phone)->first();
             if($list != null AND $request->cookie('code') == $yzm){
                 //设置session
-                session(['tc_phone' => $list->tc_phone]);
+                session(['tc_phone' => $list->tc_phone,'tc_name'=>$list->tc_name]);
                 //重定向
                 return redirect('/gerenzhongx.html');
 
@@ -41,7 +41,7 @@ class LoginController extends Controller
 
             if($list != null){
                 //设置session
-                session(['tc_phone' => $list->tc_phone,'tc_name'=>$list->tc_phone]);
+                session(['tc_phone' => $list->tc_phone,'tc_name'=>$list->tc_name]);
                 //重定向
                 return redirect('/teacherinfo.html');
             }else{

@@ -441,12 +441,12 @@
                                 <div class='fg sfg'>
                                     <label for="">教　　龄：</label>
                                     <select name="tc_jl" id="">
-                                        <option value="0">1年以内</option>
-                                        <option value="1">1年</option>
-                                        <option value="2">2年</option>
-                                        <option value="3">3年</option>
-                                        <option value="4">4年</option>
-                                        <option value="5">4年以上</option>
+                                        <option value="1年以内">1年以内</option>
+                                        <option value="1年">1年</option>
+                                        <option value="2年">2年</option>
+                                        <option value="3年">3年</option>
+                                        <option value="4年">4年</option>
+                                        <option value="4年以上">4年以上</option>
                                     </select>
                                 </div>
                                 <button type="submint">保存</button>
@@ -724,7 +724,7 @@
                                             <label  for="">上传证书：</label>
                                             <div>
                                                 <div>
-                                                    <input type="file" id="up" style="display:none;" accept="image" onchange="return  upTp('up','src_tp','sctp')" >
+                                                    <input type="file" id="up" style="display:none;" accept="image" onchange="return  upTp()" >
                                                 </div>
                                                 <img src="/home/image/weixinerweima.jpg" alt="" id="src_tp">
                                                 <a href="javascript:void(0)" id='sctp'>点击上传</a>
@@ -1332,21 +1332,26 @@
         $('#sctp').click(function(){
             $('#up').click();
         })
-        function upTp(up,src_tp,sctp){
-            $.ajax({
-                url:'/xian',              //请求地址
-                type:'post',                //请求方式
-                async:true,                 //是否异步
-                data:{}, //发送的数据
-                dataType:'json',            //响应的数据类型
-                success:function(data){     //成功回调函数
 
+        function uptp(){
+            var images = $("#up").val();
+            if ($.trim(images) == "") {
+                alert("请选择图片！");
+                return;
+
+            var actionUrl = "";
+
+            $("#othersave2").ajaxSubmit({
+
+                type: "POST",//提交类型
+                url: actionUrl,//请求地址
+                data: { "action": "TemporaryImage" },//请求数据
+                success: function (data) {//请求成功后的函数
+                    $("#src_tp").attr("src",data);
                 },
-                error:function(){
-                    //alert('ajax请求失败');  //失败回调
-                }
+                error: function (data) { },//请求失败的函数
+                async: true
             });
-
         }
     </script>
 
