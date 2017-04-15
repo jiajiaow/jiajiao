@@ -10,6 +10,7 @@
                 <form id="do" method="post" action="/yuyuexiangxi.html">
                     {{ csrf_field() }}
                     <h4>简单填写，快速预约老师</h4>
+
                     <div class="fg" style="border: 1px solid #E0E0E0;">
                         <input type="text" name="lxr" id="lxr" placeholder="联系人" maxlength="10">
                     </div>

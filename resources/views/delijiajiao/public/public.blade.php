@@ -98,6 +98,7 @@ for(i=0; i <tabList.length; i++)
                     <i class="icon-arrow-right right"></i>
                 </a>
                       <span>{{ $yj->introduce }}<br><Br></span>
+
                 <dl>
                     @foreach($erji as $ej)
                         @if( $yj->id == $ej->yiji_id )

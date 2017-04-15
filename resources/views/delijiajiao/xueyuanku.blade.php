@@ -65,6 +65,7 @@
             </div>
           
           <div class="acrty">
+
               <li>
                   <p class="ta" > 查看详情 </p>
                    <p class="tb" > 发布时间</p>

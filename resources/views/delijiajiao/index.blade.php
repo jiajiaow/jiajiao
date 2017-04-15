@@ -29,6 +29,7 @@
                 <li style="width: 24.5%; overflow:hidden; text-overflow:ellipsis;"><a href="" target="_blank">{{ $xx->sh_shool }}</a></li>
                 @endforeach
             </ul>
+
         </div>
         <div class="meta-area meta-block">
             <h3><i class="icon-welfares"></i>热门学科</h3>
