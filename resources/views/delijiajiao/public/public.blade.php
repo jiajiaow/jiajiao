@@ -93,29 +93,27 @@ for(i=0; i <tabList.length; i++)
     <div class="nav-vertical" id="dropdown">
       <ul id="cheng">
       @foreach($yiji as $yj)
-            <li class="nav-item">
+            <li class="nav-item" style="display:block;overflow: hidden；">
                 <a href="javascript:void(0);" class="nav-item-title">{{ $yj->yiji }}
                     <i class="icon-arrow-right right"></i>
                 </a>
                 @foreach($erji as $ej)
                  @if( $yj->id == $ej->yiji_id )
-                      <span>{{ $yj->introduce }}<br><Br></span>
+                      <span >{{ $yj->introduce }}</span>
                  @endif
                 @endforeach
+                <dl >
+                    @foreach($erji as $ej)
+                        @if( $yj->id == $ej->yiji_id )
+                            <dt>{{ $ej->erji }}</dt>
+                            @foreach($sanji as $sj)
+                                @if($ej->id == $sj->erji_id)
+                                    <dd><a href="">{{ $sj->sanji }}</a></dd>
+                                @endif
+                            @endforeach
 
-                <dl>
-
-                                        @foreach($erji as $ej)
-                                            @if( $yj->id == $ej->yiji_id )
-                                                <dt>{{ $ej->erji }}</dt>
-                                                @foreach($sanji as $sj)
-                                                    @if($ej->id == $sj->erji_id)
-                                                        <dd><a href="">{{ $sj->sanji }}</a></dd>
-                                                    @endif
-                                                @endforeach
-
-                                            @endif
-                                        @endforeach
+                        @endif
+                    @endforeach
                </dl>
             </li>
       @endforeach
