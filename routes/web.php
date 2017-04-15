@@ -71,6 +71,8 @@ Route::post('/StudentAdd','home\yuyueController@StudentAdd');
 Route::get('/test','testController@index');
 //教员库
 Route::get('/faculty.html','home\teacherinfoController@faculty');
+//资费说明
+Route::get('/zfsm.html','home\zfsmController@index');
 //----------  后台  ----------//
 //登录视图 方法
 Route::get('/admin/login',function(){ return view('admin.login');  });

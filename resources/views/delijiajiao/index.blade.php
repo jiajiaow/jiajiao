@@ -16,9 +16,9 @@
 
       </div>
       <div class="small-banner">
-       <a target="_blank" href="#" class="a_d_s_hidden_link adsense-image-link"><img class="a_d_s_img" src="/delijiajiao/picture/b1.png" /></a>
-       <a target="_blank" href="#" class="a_d_s_hidden_link adsense-image-link"><img class="a_d_s_img" src="/delijiajiao/picture/b2.png" /></a>
-       <a target="_blank" href="#" class="a_d_s_hidden_link adsense-image-link"><img class="a_d_s_img" src="/delijiajiao/picture/b3.png" /></a>
+       <a target="_blank" href="/yuyuelaoshi.html" class="a_d_s_hidden_link adsense-image-link"><img class="a_d_s_img" src="/delijiajiao/picture/b1.png" /></a>
+       <a target="_blank" href="/faculty.html" class="a_d_s_hidden_link adsense-image-link"><img class="a_d_s_img" src="/delijiajiao/picture/b2.png" /></a>
+       <a target="_blank" href="/reg.html" class="a_d_s_hidden_link adsense-image-link"><img class="a_d_s_img" src="/delijiajiao/picture/b3.png" /></a>
       </div>
      </div>
     <div class="meta-box">

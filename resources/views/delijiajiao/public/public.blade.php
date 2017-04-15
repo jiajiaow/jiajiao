@@ -56,8 +56,8 @@ for(i=0; i <tabList.length; i++)
              <li><a href="/reg.html" rel="nofollow" data-toggle="userAuth" data-type="reg">教员注册</a></li>
              <li><a href="/login.html" rel="nofollow" data-toggle="userAuth" data-type="login">教员登录</a></li>
              <li><a href="#" rel="nofollow" data-toggle="userAuth" data-type="login">学员登录</a></li>
-             <li><a href="#" rel="nofollow" data-toggle="userAuth" data-type="login">快速请家教</a></li>
-             <li><a href="#" target="_blank">请家教帮助</a></li>
+             <li><a href="/yuyuelaoshi.html" rel="nofollow" data-toggle="userAuth" data-type="login">快速请家教</a></li>
+             {{-- <li><a href="#" target="_blank">请家教帮助</a></li> --}}
          @endif
      </ul>
     </div>
@@ -70,7 +70,7 @@ for(i=0; i <tabList.length; i++)
      </div>
      <div class="pull-right">
       <a href="/yuyuelaoshi.html" class="resume-btn">我要找老师</a>
-      <a href="/fabu/gongzuo" class="post">我要当老师</a>
+      <a href="/reg.html" class="post">我要当老师</a>
      </div>
     </div>
    </div>
@@ -81,10 +81,9 @@ for(i=0; i <tabList.length; i++)
      <li class="vtle"><a href="/" >德栗首页</a></li>
      <li><a href="/faculty.html" >教员库</a></li>
      <li><a href="/xueyuan.html" >学员库</a></li>
-     <li><a href="123.html" target="_blank">资费说明</a></li>
-     <li><a href="#" target="_blank">快速请家教</a></li>
-     <li><a href="#" target="_blank">最新学员</a></li>
-     <li><a href="#" target="_blank">家长课堂</a></li>
+     <li><a href="/zfsm.html" target="_blank">资费说明</a></li>
+     <li><a href="/yuyuelaoshi.html" target="_blank">快速请家教</a></li>
+     {{-- <li><a href="#" target="_blank">家长课堂</a></li> --}}
     </ul>
    </div>
   </div>
@@ -126,12 +125,13 @@ for(i=0; i <tabList.length; i++)
   </div>
 </div>
   <div id="footer">
-      <form action="">
-          <p>姓名：<input id="mingzi"  type="" value=""/>
-              手机：<input id='shouji' type='' value="" disabled='true'maxlength='11'>
-              验证码：<input id='yanzhenma'type='' value="">
-              <input style='width:94px;padding:.5em 0;' id='huoqu' type="button" value='获取验证码'/>
-              <input style='background-color:#f8b529;' type="submit" value="快速请家教" />
+      <form id="do" method="post" action="/yuyuexiangxi.html">
+                    {{ csrf_field() }}
+          <p>姓名：<input type="text" name="lxr" id="lxr" placeholder="联系人" maxlength="10">
+              手机：<input type="text" id="phone" name="phone" maxlength="11" placeholder="手机号码">
+              验证码：<input type='text' name="yzm" id="yzm" placeholder="验证码" >
+              <input id="zhen" type='button' onclick="test();" value="获取验证码" >
+              <button id='tj' style="width: 110px;height: 35px;" type="button" onclick="dopost();">快速请家教</button>
       </form>
 
       </p>
@@ -215,6 +215,131 @@ for(i=0; i <tabList.length; i++)
 
         </script>
         <script type="text/javascript" src="/delijiajiao/js/zhen.js"></script>
+        <script>
+    $(function(){
+        $("#dropdown").hide();
+    })
+
+    $('.navbar li:nth-child(4)').mouseover(function(){
+        $(this).addClass('active')
+                .siblings().removeClass('active')
+    })
+    @if (session('error'))
+    {{ session('error') }}
+    @endif
+    function test()
+    {
+        var phone = $("#phone").val();
+        var lxr = $("#lxr").val();
+        var km = $("#km").val();
+        var get_code = $("#zhen");
+
+        if(lxr == '')
+        {
+            layer.msg('请输入联系人', {icon: 5});
+            return false;
+        }
+        if(km == '')
+        {
+            layer.msg('请输入科目', {icon: 5});
+            return false;
+        }
+        if(phone == '')
+        {
+            layer.msg('请输入手机号码', {icon: 5});
+            return false;
+        }
+        time(get_code);
+        $.ajax({
+            type:'POST',
+            url:"/register",
+            contentType:"application/x-www-form-urlencoded; charset=utf8",
+            data:{"phone":phone},
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success:(function(result){
+                if(result == 'y'){
+                    layer.alert('请注意查收短信!',{icon: 6,time:1500});
+                }
+                //console.log(result);
+            }),
+            error:(function(result,status){
+                //console.log(result);
+                //larye.alert('短信sb!');
+            })
+
+        });
+
+
+    }
+    var wait  = 60;
+    function time(o,p){
+        if (wait==0){
+            o.removeAttr('disabled');
+            o.val("获取验证码");
+            wait = 60;
+
+        }else{
+            o.attr('disabled','true');
+            o.val('重新发送'+wait+'s');
+            wait--;
+            setTimeout(function(){
+                time(o,p);
+            },1000);
+        }
+
+    }
+    function dopost(){
+        var phone = $("#phone").val();
+        var lxr = $("#lxr").val();
+        var km = $("#km").val();
+        var yzm = $("#yzm").val();
+        if(lxr == '')
+        {
+            layer.msg('请输入联系人', {icon: 5});
+            return false;
+        }
+        if(km == '')
+        {
+            layer.msg('请输入科目', {icon: 5});
+            return false;
+        }
+        if(phone == '')
+        {
+            layer.msg('请输入手机号码', {icon: 5});
+            return false;
+        }
+        if(yzm == '')
+        {
+            layer.msg('请输入验证码', {icon: 5});
+            return false;
+        }
+        $.ajax({
+            type:'POST',
+            url:"/registerdo",
+            contentType:"application/x-www-form-urlencoded; charset=utf8",
+            data:{"code":yzm,"name":lxr,"km":km,"phone":phone},
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success:(function(result){
+                if(result == 'y'){
+                    //$("#tj[type='button']").attr('type','submit');
+                    $("#do").submit();
+                }else{
+                    layer.msg('验证码错误', {icon: 5});
+                }
+                //console.log(result);
+            }),
+            error:(function(result,status){
+                //console.log(result);
+                larye.alert('系统错误请联系管理员!');
+            })
+
+        });
+    }
+</script>
 @section('js')
 
 
