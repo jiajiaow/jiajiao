@@ -161,7 +161,7 @@
             @endforeach
           </div>
       </div>
- <div class="index5">
+ {{--<div class="index5">
         <div class="lebt">
     <div class="l"><img src="/delijiajiao/images/icon_title5.png">教学资源</div>
         <div class="r">
@@ -291,7 +291,7 @@
   <!-- 选项卡结束 -->
   </div>
   </center>
- <div>
+ <div>--}}
            <a style="display:block;" href="">
                 <img style="width:980px;float:right;" src="/delijiajiao/images/33.png" alt="" />
            </a>
