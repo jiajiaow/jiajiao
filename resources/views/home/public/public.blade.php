@@ -25,7 +25,7 @@
             </div>
             @else
                 <div class="left pull-left">
-                    {{ Session('tc_phone') }}<a href="/teacherinfo.html" class="login">个人中心</a>
+                    {{ substr(Session('tc_name'),0,3) }}教员您好!<a href="/teacherinfo.html" class="login">个人中心</a>
                     <a href="/outlogin.html" class="login">退出登录</a>
                 </div>
             @endif

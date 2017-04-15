@@ -48,11 +48,17 @@ for(i=0; i <tabList.length; i++)
 家教上门联系电话：{{ session('phone') }}
      </div>
      <ul id="user-tools" class="navbar-nav">
-      <li><a href="#" rel="nofollow" data-toggle="userAuth" data-type="reg">教员注册</a></li>
-      <li><a href="#" rel="nofollow" data-toggle="userAuth" data-type="login">教员登录</a></li>
-      <li><a href="#" rel="nofollow" data-toggle="userAuth" data-type="login">学员登录</a></li>
-      <li><a href="#" rel="nofollow" data-toggle="userAuth" data-type="login">快速请家教</a></li>
-      <li><a href="#" target="_blank">请家教帮助</a></li>
+         @if(session('tc_name') != null or session('tc_phone') != null)
+             <li><arel="nofollow" data-toggle="userAuth" data-type="reg">尊敬的{{ substr(session('tc_name'),0,3) }}教员</a>  </li>
+             <li><a href="/grzx.html" rel="nofollow" data-toggle="userAuth" data-type="reg">教员中心</a></li>
+             <li><a href="/outlogin.html" rel="nofollow" data-toggle="userAuth" data-type="reg">退出</a></li>
+             @else
+             <li><a href="/reg.html" rel="nofollow" data-toggle="userAuth" data-type="reg">教员注册</a></li>
+             <li><a href="/login.html" rel="nofollow" data-toggle="userAuth" data-type="login">教员登录</a></li>
+             <li><a href="#" rel="nofollow" data-toggle="userAuth" data-type="login">学员登录</a></li>
+             <li><a href="#" rel="nofollow" data-toggle="userAuth" data-type="login">快速请家教</a></li>
+             <li><a href="#" target="_blank">请家教帮助</a></li>
+         @endif
      </ul>
     </div>
    </div>
@@ -73,7 +79,7 @@ for(i=0; i <tabList.length; i++)
    <div class="nav-horizontal-content">
     <ul>
      <li class="vtle"><a href="#" target="_blank">德栗首页</a></li>
-     <li><a href="#" target="_blank">教员库</a></li>
+     <li><a href="/faculty.html" target="_blank">教员库</a></li>
      <li><a href="#" target="_blank">学员库</a></li>
      <li><a href="123.html" target="_blank">资费说明</a></li>
      <li><a href="#" target="_blank">快速请家教</a></li>
@@ -121,7 +127,7 @@ for(i=0; i <tabList.length; i++)
 @show
   </div>
 </div>
-<footer>
+<footer id="f">
    <div>
     <a href="#" target="_blank" rel="nofollow">xxxxx</a>
     <i class="sep">|</i>

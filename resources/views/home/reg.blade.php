@@ -15,7 +15,7 @@
 		<div class="top-login">
 			<div class="container">
 				<div class="logo pull-left">
-					<a href="/" class="pull-left"><img src="{{ asset('/home/picture/logo.png') }}" alt=""></a>
+					<a href="/" class="pull-left">{{--<img src="{{ asset('/home/picture/logo.png') }}" alt="">--}}</a>
 					<a href="javascript:void(0)" class="pull-right dl">欢迎注册</a>
 					<div class="clear"></div>
 				</div>
@@ -215,17 +215,17 @@ function changepw2pw1()
 }
 /*$(document).ready(function () {
 	setInterval("startRequest()",500);
-});*/
+});
 
-/*function startRequest() {
-	var abc = 5;
+function startRequest() {
+	var abc = 10;
 	for (i = 0; i < abc; i++) {
 		$.ajax({
 			type: 'get',
 			url: "{{ URL('/jia.html') }}",
 			contentType: "application/x-www-form-urlencoded; charset=utf8",
 
-			/!*dataType:'JSON',*!/
+			dataType:'JSON',
 			success: (function (result) {
 
 				//console.log(result);

@@ -85,7 +85,7 @@ class teacherinfoController extends Controller
                 'tc_teaches'=>$_POST['teaches'],
                 'tc_photo'=>$photo,
             ];
-            //dd($data);
+           // dd($data);
             //写入数据库
             $list = \DB::table('jjw_teachers')->where('tc_phone',$_POST['tc_phone'])->update($data);
           if($list){
@@ -186,5 +186,28 @@ class teacherinfoController extends Controller
             return "y";
         }
 
+    }
+    //栗志教师详细
+    public function teacher(Request $request,$m){
+       // dd($m);
+        $list = \DB::table('jjw_teachers')->where('id',$m)->first();
+//        dd($list);
+        return view('home.teacher',['list'=>$list]);
+    }
+
+    //德栗教员库
+    public function faculty(Request $request){
+
+        // $list = \DB::table('jjw_position_city')->where('city_id',Session('regionid'))->first();
+        //区域
+         $quyu = \DB::table('jjw_position_county')->where('city_id',Session('regionid'))->get();
+        //教员
+         $list = \DB::table('jjw_teachers')->paginate(10);
+        //学校表市id
+        $xxsid= DB::table('city_info')->where('ci_city','like','%'.substr(session('regionname'),0,6).'%')->first();
+        //学校
+        $xx= DB::table('shool_info')->where('sh_city',$xxsid->ci_id)->limit(10)->get();
+      // dd($xy);
+        return view('delijiajiao.jiaoyuan',['quyu'=>$quyu,'list'=>$list,'xx'=>$xx]);
     }
 }

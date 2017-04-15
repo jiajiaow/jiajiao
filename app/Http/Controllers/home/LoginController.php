@@ -24,9 +24,13 @@ class LoginController extends Controller
             $list = \DB::table('jjw_teachers')->where('tc_phone',$phone)->first();
             if($list != null AND $request->cookie('code') == $yzm){
                 //设置session
-                session(['tc_phone' => $list->tc_phone]);
-                //重定向
-                return redirect('/gerenzhongx.html');
+                session(['tc_phone' => $list->tc_phone,'tc_name'=>$list->tc_name]);
+                //重定向  //判断是德栗还是栗志  1是栗志 2是德栗
+                if(session('Template') =='1'){
+                    return redirect('/teacherinfo.html');
+                }else if(session('Template') =='2'){
+                    return redirect('/teacherinfo.html');
+                }
 
             }else{
                 //重定向
@@ -41,9 +45,13 @@ class LoginController extends Controller
 
             if($list != null){
                 //设置session
-                session(['tc_phone' => $list->tc_phone,'tc_name'=>$list->tc_phone]);
-                //重定向
-                return redirect('/teacherinfo.html');
+                session(['tc_phone' => $list->tc_phone,'tc_name'=>$list->tc_name]);
+                //重定向  //判断是德栗还是栗志  1是栗志 2是德栗
+                if(session('Template') =='1'){
+                    return redirect('/teacherinfo.html');
+                }else if(session('Template') =='2'){
+                    return redirect('/teacherinfo.html');
+                }
             }else{
                 //重定向
                 return redirect('/login.html')->with('msg','账号不存在,请重新输入!');
@@ -59,7 +67,7 @@ class LoginController extends Controller
     }
 
     //教师注册
-    public function doreg(Request $request){
+    public function doreg(Request $request){dd($request);
         //var_dump($_POST);
         //地区id
         $city_id = session('regionid');
