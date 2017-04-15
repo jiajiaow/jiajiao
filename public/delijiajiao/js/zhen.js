@@ -17,7 +17,7 @@ var adv={
 	WAIT:2000,
 	timer:null,
 	init:function(){
-		
+
 		this.liwidth=parseFloat($(".banner-main").css("width"));
 		this.$ullist=$(".banner-list");
 		this.updateView();
@@ -25,7 +25,7 @@ var adv={
 			var target=$(".banner-index>li").index(e.target);
 			var old=imgs[0].i;
 			this.move(target-old);
-		
+
 		});
 		this.autoMove();
 	},
@@ -57,7 +57,7 @@ var adv={
 		this.autoMove();
 	},
 	updateView:function(){
-		
+
 		for(var i=0,lis="",idex="";i<imgs.length;i++){
 			lis+=`<li><img src="${imgs[i].img}"></li>`;
 			idex+="<li></li>";
@@ -66,9 +66,9 @@ var adv={
 					.css("width",imgs.length*this.liwidth);
 		$(".banner-index").html(idex)
 						  .children(`li:eq(${imgs[0].i})`).addClass("hover");
-		
+
 	}
-	
+
 };
 adv.init();//调用函数
 $('#shou').click(function(){
@@ -78,7 +78,7 @@ $('#shou').click(function(){
 <<<<<<< HEAD
 
 =======
-    
+
 >>>>>>> 9fd2507a84c652d4c1c7cdd7991b043d8f968249
 });
 $('#gen').click(function(){
@@ -99,7 +99,7 @@ function caozhen(type){
 		alert("请输入正确的手机号码！");
 		return false;
 	}
-	
+
 	var contact = document.getElementById("cheng_contact").value;
 	if(contact == '')
 	{
@@ -122,7 +122,7 @@ $(window).on('scroll',function(){
 })
 function zhenwoaini(){
     if($('.cheng_teach-form').length){
-        
+
         var shing = $(window).scrollTop();
         Htop = ($(window).height()-$('.cheng_teach-form').height())/2,
         offtop = $('#sxc').offset().top +50;
@@ -136,9 +136,9 @@ function zhenwoaini(){
                     $(".cheng_teach-form").stop(true).delay(0).animate({top: scrolltoTop  + "px" },  { duration: 0, easing: "linear" });
 		}
         }else{
-            $(".cheng_teach-form").stop(true).delay(0).animate({top: 15 + "px" },  { duration: 0, easing: "linear" });	
+            $(".cheng_teach-form").stop(true).delay(0).animate({top: 15 + "px" },  { duration: 0, easing: "linear" });
         }
-        
+
     }
 }
 //学员登陆的验证码和手机号码的验证
@@ -163,7 +163,7 @@ function createCode(){
 			console.log(result);
 			console.log(status);
 		}
-		
+
 	});
 }
 var wait = 60;
@@ -191,7 +191,7 @@ function time(c,z){
 		}
 	})
 	$('#shouji').blur(function(){
-		
+
 		if($(this).val()==''){
 			layer.alert('手机号码不能为空',{icon:5});
 			return;
@@ -226,7 +226,7 @@ function createCode(){
 			console.log(result);
 			console.log(status);
 		}
-		
+
 	});
 }
 var wait = 60;
@@ -254,7 +254,7 @@ function time(c,z){
 		}
 	})
 	$('#gy_1_sj').blur(function(){
-		
+
 		if($(this).val()==''){
 			layer.alert('手机号码不能为空',{icon:5});
 			return;
@@ -289,7 +289,7 @@ function createCode(){
 			console.log(result);
 			console.log(status);
 		}
-		
+
 	});
 }
 var wait = 60;
@@ -317,7 +317,7 @@ function time(c,z){
 		}
 	})
 	$('#gy_2_sj').blur(function(){
-		
+
 		if($(this).val()==''){
 			layer.alert('手机号码不能为空',{icon:5});
 			return;

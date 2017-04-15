@@ -81,7 +81,7 @@ for(i=0; i <tabList.length; i++)
      <li class="vtle"><a href="/" >德栗首页</a></li>
      <li><a href="/faculty.html" >教员库</a></li>
      <li><a href="/xueyuan.html" >学员库</a></li>
-     <li><a href="/zfsm.html" target="_blank">资费说明</a></li>
+     <li><a href="/zfsm.html" >资费说明</a></li>
      <li><a href="/yuyuelaoshi.html" target="_blank">快速请家教</a></li>
      {{-- <li><a href="#" target="_blank">家长课堂</a></li> --}}
     </ul>
@@ -213,7 +213,6 @@ for(i=0; i <tabList.length; i++)
         </script>
         <script type="text/javascript" src="/delijiajiao/js/zhen.js"></script>
         <script>
-
     $('.navbar li:nth-child(4)').mouseover(function(){
         $(this).addClass('active')
                 .siblings().removeClass('active')
