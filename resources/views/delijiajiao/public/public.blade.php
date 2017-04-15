@@ -97,14 +97,8 @@ for(i=0; i <tabList.length; i++)
                 <a href="javascript:void(0);" class="nav-item-title">{{ $yj->yiji }}
                     <i class="icon-arrow-right right"></i>
                 </a>
-                @foreach($erji as $ej)
-                 @if( $yj->id == $ej->yiji_id )
                       <span>{{ $yj->introduce }}<br><Br></span>
-                 @endif
-                @endforeach
-
                 <dl>
-
                     @foreach($erji as $ej)
                         @if( $yj->id == $ej->yiji_id )
                             <dt>{{ $ej->erji }}</dt>
