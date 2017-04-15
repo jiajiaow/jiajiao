@@ -22,25 +22,47 @@ class yuyueController extends Controller
     }
     public function register(Request $request)
     {
-        $phone = $request->input('phone');
-        //$code = rand(1000,9999);
-        $code = '1111';
-        Cookie::queue('code',$code,3);
-        Cookie::queue('phone',$phone,3);
-        $config = [
-            'app_key'    => '23746117',
-            'app_secret' => 'f0e278be87e2663cb6f47bb876c29deb',
-        ];
-        //dd($code);
-        $client = new Client(new App($config));
-        $req    = new AlibabaAliqinFcSmsNumSend;
+        if(session('Template') == '2'){
+            $phone = $request->input('phone');
+            //$code = rand(1000,9999);
+            $code = '1111';
+            Cookie::queue('code',$code,3);
+            Cookie::queue('phone',$phone,3);
+            $config = [
+                'app_key'    => '23746117',
+                'app_secret' => 'f0e278be87e2663cb6f47bb876c29deb',
+            ];
+            //dd($code);
+            $client = new Client(new App($config));
+            $req    = new AlibabaAliqinFcSmsNumSend;
 
-        $req->setRecNum($phone)
-            ->setSmsParam(['code' => $code])
-            ->setSmsFreeSignName('德栗家教')
-            ->setSmsTemplateCode('SMS_60940366');
-            $resp = $client->execute($req);
-            return 'y';
+            $req->setRecNum($phone)
+                ->setSmsParam(['code' => $code])
+                ->setSmsFreeSignName('德栗家教')
+                ->setSmsTemplateCode('SMS_60940366');
+                $resp = $client->execute($req);
+                return 'y';
+        }else{
+            $phone = $request->input('phone');
+            //$code = rand(1000,9999);
+            $code = '1111';
+            Cookie::queue('code',$code,3);
+            Cookie::queue('phone',$phone,3);
+            $config = [
+                'app_key'    => '23746117',
+                'app_secret' => 'f0e278be87e2663cb6f47bb876c29deb',
+            ];
+            //dd($code);
+            $client = new Client(new App($config));
+            $req    = new AlibabaAliqinFcSmsNumSend;
+
+            $req->setRecNum($phone)
+                ->setSmsParam(['code' => $code])
+                ->setSmsFreeSignName('德栗家教')
+                ->setSmsTemplateCode('SMS_60940366');
+                $resp = $client->execute($req);
+                return 'y';
+        }
 
     }
     public function registerdo(Request $request)
@@ -61,27 +83,50 @@ class yuyueController extends Controller
         $phone = $request->input('phone');
         $password = substr($phone,7,4);
         $regionid = $request->session()->get('regionid');
-        if($phone == Cookie::get('phone')){
-            $re = DB::table('jjw_user')->where('phone',$phone)->first();
-            if($re){
-                $userid = DB::table('jjw_user')->where('phone',$phone)->first();
-                $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid->id,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time()]);
+        if(session('Template') == '2'){
+            if($phone == Cookie::get('phone')){
+                $re = DB::table('jjw_user')->where('phone',$phone)->first();
+                if($re){
+                    $userid = DB::table('jjw_user')->where('phone',$phone)->first();
+                    $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid->id,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid]);
 
-                return view('home.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
+                    return view('home.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
+                }else{
+                    $userid = DB::table('jjw_user')->insertGetId(['name' => $user,'phone' => $phone,'password' => $password,'city_id' => $regionid]);
+                    $orderid = DB::table('jjw_order')->insert(['user_id' => $userid,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid]);
+                    return view('home.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
+                }
             }else{
-                $userid = DB::table('jjw_user')->insertGetId(['name' => $user,'phone' => $phone,'password' => $password,'city_id' => $regionid]);
-                $orderid = DB::table('jjw_order')->insert(['user_id' => $userid,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time()]);
-                return view('home.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
+                $request->session()->flash('error', "layer.msg('非法请求', {icon: 5});");
+                return back();
             }
         }else{
-            $request->session()->flash('error', "layer.msg('非法请求', {icon: 5});");
-            return back();
+            if($phone == Cookie::get('phone')){
+                $re = DB::table('jjw_user')->where('phone',$phone)->first();
+                if($re){
+                    $userid = DB::table('jjw_user')->where('phone',$phone)->first();
+                    $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid->id,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid]);
+
+                    return view('home.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
+                }else{
+                    $userid = DB::table('jjw_user')->insertGetId(['name' => $user,'phone' => $phone,'password' => $password,'city_id' => $regionid]);
+                    $orderid = DB::table('jjw_order')->insert(['user_id' => $userid,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid]);
+                    return view('home.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
+                }
+            }else{
+                $request->session()->flash('error', "layer.msg('非法请求', {icon: 5});");
+                return back();
+            }
         }
     }
     public function yuyuexxform(Request $request)
     {
         $orderid = $request->input('orderid');
-        return view('home.yuyuexxform',['orderid' => $orderid]);
+        if(session('Template') == '2'){
+            return view('home.yuyuexxform',['orderid' => $orderid]);
+        }else{
+            return view('home.yuyuexxform',['orderid' => $orderid]);
+        }
     }
     public function StudentAdd(Request $request)
     {

@@ -327,12 +327,9 @@
                         </li>
                         <li style="width: 270px" class="last">
                             <img src="/home/picture/icon_step3.png" alt="">
-                            <h4>等待结果</h4>
-                            <p>匹配老师后，根据您的需求评出分数</p>
+                            <h4>确定授课</h4>
+                            <p>您对教员满意后，签署授课确认书，我们及教员将共同努力，实实在在提高学员成绩</p>
                         </li>
-
-
-
                         <div class="clear"></div>
                     </ul>
                 </div>

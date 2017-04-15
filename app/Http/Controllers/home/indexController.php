@@ -10,12 +10,19 @@ class indexController extends Controller{
     *首页 网站判断
     *
     */
-    public function index(Request $request,$id = null)
+    public function index(Request $request)
     {
         if(session('Template') == '2'){
-            return view('delijiajiao.index');
+            //查询地区金牌教员
+            $jinpai = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai','2')->limit(5)->get();
+            //查询地区学生教员
+            $xueshen = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai','0')->limit(5)->get();
+            //查询地区专职教员
+            $zhuanzhi = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai','1')->limit(5)->get();
+            //最新学生订单
+            $order = DB::table('jjw_order')->where('city_id',session('regionid'))->limit(6)->get();
+            return view('delijiajiao.index',['jinpai'=>$jinpai,'xueshen'=>$xueshen,'zhuanzhi'=>$zhuanzhi,'order' => $order]);
         }
-        $data = $request->session()->all();
         //查询地区金牌教员
         $jinpai = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai','2')->limit(4)->get();
         //查询地区学生教员

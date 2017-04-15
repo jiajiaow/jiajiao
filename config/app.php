@@ -179,6 +179,7 @@ return [
 
         iscms\Alisms\AlidayuServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        'Stevenyangecho\UEditor\UEditorServiceProvider'
 
     ],
 

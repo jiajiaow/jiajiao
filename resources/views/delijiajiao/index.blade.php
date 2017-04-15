@@ -61,7 +61,7 @@
         </div>
     </div>
         <div class="img_">
-            <a href=""><img style="width:970px;float:right;" src="/delijiajiao/images/2.png" alt="" /></a>
+            <a style="display:block;" href="/yuyuelaoshi.html"><img style="width:970px;float:right;" src="/delijiajiao/images/2.png" alt="" /></a>
         </div>
     </div>
 
@@ -71,326 +71,89 @@
           <div class="lebt">
           <div class="l">
             <img src="/delijiajiao/images/icon_title1.png">金牌教员</div> <div class="r">更多</div></div>
-          <div class="acrt">
-                                <li class="kuan">
-                            <div class="top">
-                                <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
-                                <i>赵教员</i>
-                                <span>
-                                    <img src="/delijiajiao/picture/icon_imperial.png" alt="签约教员-魏玲">
-                                </span>
-                                <div class="hover">
-                                    <p>性格开朗，为人真诚，具有较强的亲和力和沟通能力。曾在著名辅导机构精锐教育担任专职数学教师，有多年中考辅导经验，曾获得中考高特等奖。擅长根...</p>
-                                    <a href="javascript:void(0)" onclick="location.href='/teacher/365196.html'" class="look">查看 ></a>
-
-                                </div>
+                <div class="acrt">
+                @foreach($jinpai as $jp)
+                    <li class="kuan">
+                        <div class="top">
+                            <img src="/delijiajiao/images/logo.png" width="110" height="110">
+                            <i>{{ mb_substr($jp->tc_name,0,1) }}教员</i>
+                            <span>
+                                <img src="/delijiajiao/picture/icon_imperial.png">
+                            </span>
+                            <div class="hover">
+                                <p>{{ $jp->tc_comments }}</p>
+                                <a href="javascript:void(0)" onclick="location.href='/teacher/365196.html'" class="look">查看 ></a>
                             </div>
-                            <div class="bottom">
-                                <a href="">初中数学</a>
-                                <br/>
-                                <a href="">福建师范大学本科大二</a>
+                        </div>
+                        <div class="bottom">
+                            <a href="">{{ mb_substr($jp->tc_subjects,0,20) }}</a>
+                            <br/>
+                            <a href="">{{ $jp->tc_school }}</a>
 
-                                <div class="clear"></div>
-                                <a href="javascript:void(0);" onclick="writeCookie(365196);yuyueCookie();" class="btn">预约免费试课</a>
-                            </div>
-                        </li>
-                                                <li class="kuan">
-                            <div class="top">
-                                <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
-                                <i>赵教员</i>
-                                <span>
-                                    <img src="/delijiajiao/picture/icon_imperial.png" alt="签约教员-魏玲">
-                                </span>
-                                <div class="hover">
-                                    <p>性格开朗，为人真诚，具有较强的亲和力和沟通能力。曾在著名辅导机构精锐教育担任专职数学教师，有多年中考辅导经验，曾获得中考高特等奖。擅长根...</p>
-                                    <a href="javascript:void(0)" onclick="location.href='/teacher/365196.html'" class="look">查看 ></a>
-
-                                </div>
-                            </div>
-                            <div class="bottom">
-                                <a href="">初中数学</a>
-                                <br/>
-                                <a href="">福建师范大学本科大二</a>
-
-                                <div class="clear"></div>
-                                <a href="javascript:void(0);" onclick="writeCookie(365196);yuyueCookie();" class="btn">预约免费试课</a>
-                            </div>
-                        </li>
-                                                <li class="kuan">
-                            <div class="top">
-                                <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
-                                <i>赵教员</i>
-                                <span>
-                                    <img src="/delijiajiao/picture/icon_imperial.png" alt="签约教员-魏玲">
-                                </span>
-                                <div class="hover">
-                                    <p>性格开朗，为人真诚，具有较强的亲和力和沟通能力。曾在著名辅导机构精锐教育担任专职数学教师，有多年中考辅导经验，曾获得中考高特等奖。擅长根...</p>
-                                    <a href="javascript:void(0)" onclick="location.href='/teacher/365196.html'" class="look">查看 ></a>
-
-                                </div>
-                            </div>
-                            <div class="bottom">
-                                <a href="">初中数学</a>
-                                <br/>
-                                <a href="">福建师范大学本科大二</a>
-
-                                <div class="clear"></div>
-                                <a href="javascript:void(0);" onclick="writeCookie(365196);yuyueCookie();" class="btn">预约免费试课</a>
-                            </div>
-                        </li>
-                                                <li class="kuan">
-                            <div class="top">
-                                <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
-                                <i>赵教员</i>
-                                <span>
-                                    <img src="/delijiajiao/picture/icon_imperial.png" alt="签约教员-魏玲">
-                                </span>
-                                <div class="hover">
-                                    <p>性格开朗，为人真诚，具有较强的亲和力和沟通能力。曾在著名辅导机构精锐教育担任专职数学教师，有多年中考辅导经验，曾获得中考高特等奖。擅长根...</p>
-                                    <a href="javascript:void(0)" onclick="location.href='/teacher/365196.html'" class="look">查看 ></a>
-
-                                </div>
-                            </div>
-                            <div class="bottom">
-                                <a href="">初中数学</a>
-                                <br/>
-                                <a href="">福建师范大学本科大二</a>
-
-                                <div class="clear"></div>
-                                <a href="javascript:void(0);" onclick="writeCookie(365196);yuyueCookie();" class="btn">预约免费试课</a>
-                            </div>
-                        </li>
-                                                <li class="kuan">
-                            <div class="top">
-                                <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
-                                <i>赵教员</i>
-                                <span>
-                                    <img src="/delijiajiao/picture/icon_imperial.png" alt="签约教员-魏玲">
-                                </span>
-                                <div class="hover">
-                                    <p>性格开朗，为人真诚，具有较强的亲和力和沟通能力。曾在著名辅导机构精锐教育担任专职数学教师，有多年中考辅导经验，曾获得中考高特等奖。擅长根...</p>
-                                    <a href="javascript:void(0)" onclick="location.href='/teacher/365196.html'" class="look">查看 ></a>
-
-                                </div>
-                            </div>
-                            <div class="bottom">
-                                <a href="">初中数学</a>
-                                <br/>
-                                <a href="">福建师范大学本科大二</a>
-
-                                <div class="clear"></div>
-                                <a href="javascript:void(0);" onclick="writeCookie(365196);yuyueCookie();" class="btn">预约免费试课</a>
-                            </div>
-                        </li>
-
-          </div>
+                            <div class="clear"></div>
+                            <a href="/yuyuelaoshi.html" class="btn">预约免费试课</a>
+                        </div>
+                    </li>
+                @endforeach
+                </div>
+      </div>
+      <div class="index1">
+        <div class="lebt">
+            <div class="l">
+                <img src="/delijiajiao/images/icon_title2.png">学生教员</div>
+            <div class="r">更多</div>
+        </div>
+            <div class="acrt">
+            @foreach($xueshen as $xs)
+            <li class="kuan">
+                <div class="top">
+                    <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
+                    <i>{{ mb_substr($xs->tc_name,0,1) }}教员</i>
+                    <div class="hover">
+                        <p>{{ $xs->tc_comments }}</p>
+                        <a href="javascript:void(0)" class="look">查看 ></a>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <a href="">{{ mb_substr($xs->tc_subjects,0,20) }}</a>
+                    <br/>
+                    <a href="">{{ $xs->tc_school }}</a>
+                    <div class="clear"></div>
+                    <a href="/yuyuelaoshi.html" class="btn">预约免费试课</a>
+                </div>
+            </li>
+            @endforeach
+            </div>
       </div>
       <div class="index1">
           <div class="lebt">
-          <div class="l"><img src="/delijiajiao/images/icon_title2.png">学生教员</div> <div class="r">更多</div></div>
-          <div class="acrt">
-                                <li class="kuan">
-                            <div class="top">
-                                <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
-                                <i>赵教员</i>
-                                <div class="hover">
-                                    <p>性格开朗，为人真诚，具有较强的亲和力和沟通能力。曾在著名辅导机构精锐教育担任专职数学教师，有多年中考辅导经验，曾获得中考高特等奖。擅长根...</p>
-                                    <a href="javascript:void(0)" onclick="location.href='/teacher/365196.html'" class="look">查看 ></a>
-
-                                </div>
-                            </div>
-                            <div class="bottom">
-                                <a href="">初中数学</a>
-                                <br/>
-                                <a href="">福建师范大学本科大二</a>
-
-                                <div class="clear"></div>
-                                <a href="javascript:void(0);" onclick="writeCookie(365196);yuyueCookie();" class="btn">预约免费试课</a>
-                            </div>
-                        </li>
-                                                <li class="kuan">
-                            <div class="top">
-                                <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
-                                <i>赵教员</i>
-                                <div class="hover">
-                                    <p>性格开朗，为人真诚，具有较强的亲和力和沟通能力。曾在著名辅导机构精锐教育担任专职数学教师，有多年中考辅导经验，曾获得中考高特等奖。擅长根...</p>
-                                    <a href="javascript:void(0)" onclick="location.href='/teacher/365196.html'" class="look">查看 ></a>
-
-                                </div>
-                            </div>
-                            <div class="bottom">
-                                <a href="">初中数学</a>
-                                <br/>
-                                <a href="">福建师范大学本科大二</a>
-
-                                <div class="clear"></div>
-                                <a href="javascript:void(0);" onclick="writeCookie(365196);yuyueCookie();" class="btn">预约免费试课</a>
-                            </div>
-                        </li>
-                                                <li class="kuan">
-                            <div class="top">
-                                <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
-                                <i>赵教员</i>
-                                <div class="hover">
-                                    <p>性格开朗，为人真诚，具有较强的亲和力和沟通能力。曾在著名辅导机构精锐教育担任专职数学教师，有多年中考辅导经验，曾获得中考高特等奖。擅长根...</p>
-                                    <a href="javascript:void(0)" onclick="location.href='/teacher/365196.html'" class="look">查看 ></a>
-
-                                </div>
-                            </div>
-                            <div class="bottom">
-                                <a href="">初中数学</a>
-                                <br/>
-                                <a href="">福建师范大学本科大二</a>
-
-                                <div class="clear"></div>
-                                <a href="javascript:void(0);" onclick="writeCookie(365196);yuyueCookie();" class="btn">预约免费试课</a>
-                            </div>
-                        </li>
-                                                <li class="kuan">
-                            <div class="top">
-                                <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
-                                <i>赵教员</i>
-                                <div class="hover">
-                                    <p>性格开朗，为人真诚，具有较强的亲和力和沟通能力。曾在著名辅导机构精锐教育担任专职数学教师，有多年中考辅导经验，曾获得中考高特等奖。擅长根...</p>
-                                    <a href="javascript:void(0)" onclick="location.href='/teacher/365196.html'" class="look">查看 ></a>
-
-                                </div>
-                            </div>
-                            <div class="bottom">
-                                <a href="">初中数学</a>
-                                <br/>
-                                <a href="">福建师范大学本科大二</a>
-
-                                <div class="clear"></div>
-                                <a href="javascript:void(0);" onclick="writeCookie(365196);yuyueCookie();" class="btn">预约免费试课</a>
-                            </div>
-                        </li>
-                                                <li class="kuan">
-                            <div class="top">
-                                <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
-                                <i>赵教员</i>
-                                <div class="hover">
-                                    <p>性格开朗，为人真诚，具有较强的亲和力和沟通能力。曾在著名辅导机构精锐教育担任专职数学教师，有多年中考辅导经验，曾获得中考高特等奖。擅长根...</p>
-                                    <a href="javascript:void(0)" onclick="location.href='/teacher/365196.html'" class="look">查看 ></a>
-
-                                </div>
-                            </div>
-                            <div class="bottom">
-                                <a href="">初中数学</a>
-                                <br/>
-                                <a href="">福建师范大学本科大二</a>
-
-                                <div class="clear"></div>
-                                <a href="javascript:void(0);" onclick="writeCookie(365196);yuyueCookie();" class="btn">预约免费试课</a>
-                            </div>
-                        </li>
-
+            <div class="l"><img src="/delijiajiao/images/icon_title3.png">专职教员</div>
+            <div class="r">更多</div>
           </div>
-      </div>
-      <div class="index1">
-          <div class="lebt">
-          <div class="l"><img src="/delijiajiao/images/icon_title3.png">专职教员</div> <div class="r">更多</div></div>
           <div class="acrt">
-                                <li class="kuan">
-                            <div class="top">
-                                <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
-                                <i>赵教员</i>
-                                <div class="hover">
-                                    <p>性格开朗，为人真诚，具有较强的亲和力和沟通能力。曾在著名辅导机构精锐教育担任专职数学教师，有多年中考辅导经验，曾获得中考高特等奖。擅长根...</p>
-                                    <a href="javascript:void(0)" onclick="location.href='/teacher/365196.html'" class="look">查看 ></a>
-
-                                </div>
-                            </div>
-                            <div class="bottom">
-                                <a href="">初中数学</a>
-                                <br/>
-                                <a href="">福建师范大学本科大二</a>
-
-                                <div class="clear"></div>
-                                <a href="javascript:void(0);" onclick="writeCookie(365196);yuyueCookie();" class="btn">预约免费试课</a>
-                            </div>
-                        </li>
-                                                <li class="kuan">
-                            <div class="top">
-                                <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
-                                <i>赵教员</i>
-                                <div class="hover">
-                                    <p>性格开朗，为人真诚，具有较强的亲和力和沟通能力。曾在著名辅导机构精锐教育担任专职数学教师，有多年中考辅导经验，曾获得中考高特等奖。擅长根...</p>
-                                    <a href="javascript:void(0)" onclick="location.href='/teacher/365196.html'" class="look">查看 ></a>
-
-                                </div>
-                            </div>
-                            <div class="bottom">
-                                <a href="">初中数学</a>
-                                <br/>
-                                <a href="">福建师范大学本科大二</a>
-
-                                <div class="clear"></div>
-                                <a href="javascript:void(0);" onclick="writeCookie(365196);yuyueCookie();" class="btn">预约免费试课</a>
-                            </div>
-                        </li>
-                                                <li class="kuan">
-                            <div class="top">
-                                <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
-                                <i>赵教员</i>
-                                <div class="hover">
-                                    <p>性格开朗，为人真诚，具有较强的亲和力和沟通能力。曾在著名辅导机构精锐教育担任专职数学教师，有多年中考辅导经验，曾获得中考高特等奖。擅长根...</p>
-                                    <a href="javascript:void(0)" onclick="location.href='/teacher/365196.html'" class="look">查看 ></a>
-
-                                </div>
-                            </div>
-                            <div class="bottom">
-                                <a href="">初中数学</a>
-                                <br/>
-                                <a href="">福建师范大学本科大二</a>
-
-                                <div class="clear"></div>
-                                <a href="javascript:void(0);" onclick="writeCookie(365196);yuyueCookie();" class="btn">预约免费试课</a>
-                            </div>
-                        </li>
-                                                <li class="kuan">
-                            <div class="top">
-                                <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
-                                <i>赵教员</i>
-                                <div class="hover">
-                                    <p>性格开朗，为人真诚，具有较强的亲和力和沟通能力。曾在著名辅导机构精锐教育担任专职数学教师，有多年中考辅导经验，曾获得中考高特等奖。擅长根...</p>
-                                    <a href="javascript:void(0)" onclick="location.href='/teacher/365196.html'" class="look">查看 ></a>
-
-                                </div>
-                            </div>
-                            <div class="bottom">
-                                <a href="">初中数学</a>
-                                <br/>
-                                <a href="">福建师范大学本科大二</a>
-
-                                <div class="clear"></div>
-                                <a href="javascript:void(0);" onclick="writeCookie(365196);yuyueCookie();" class="btn">预约免费试课</a>
-                            </div>
-                        </li>
-                                                <li class="kuan">
-                            <div class="top">
-                                <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
-                                <i>赵教员</i>
-                                <div class="hover">
-                                    <p>性格开朗，为人真诚，具有较强的亲和力和沟通能力。曾在著名辅导机构精锐教育担任专职数学教师，有多年中考辅导经验，曾获得中考高特等奖。擅长根...</p>
-                                    <a href="javascript:void(0)" onclick="location.href='/teacher/365196.html'" class="look">查看 ></a>
-
-                                </div>
-                            </div>
-                            <div class="bottom">
-                                <a href="">初中数学</a>
-                                <br/>
-                                <a href="">福建师范大学本科大二</a>
-
-                                <div class="clear"></div>
-                                <a href="javascript:void(0);" onclick="writeCookie(365196);yuyueCookie();" class="btn">预约免费试课</a>
-                            </div>
-                        </li>
-
+            @foreach($zhuanzhi as $zhuanzhi)
+            <li class="kuan">
+                <div class="top">
+                    <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
+                    <i>{{ mb_substr($zhuanzhi->tc_name,0,1) }}教员</i>
+                    <div class="hover">
+                        <p>{{ $zhuanzhi->tc_comments }}</p>
+                        <a href="javascript:void(0)" class="look">查看 ></a>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <a href="">{{ mb_substr($zhuanzhi->tc_subjects,0,20) }}</a>
+                    <br/>
+                    <a href="">{{ $zhuanzhi->tc_school }}</a>
+                    <div class="clear"></div>
+                    <a href="/yuyuelaoshi.html" class="btn">预约免费试课</a>
+                </div>
+            </li>
+            @endforeach
           </div>
       </div>
       <div>
-           <a style="display:block;" href="">
+           <a style="display:block;" href="/yuyuelaoshi.html">
                 <img style="width:970px;float:right;" src="/delijiajiao/images/2.png" alt="" />
            </a>
       </div>
@@ -398,6 +161,7 @@
           <div class="lebt">
           <div class="l"><img src="/delijiajiao/images/icon_title4.png">学员信息</div> <div class="r">更多</div></div>
           <div class="acrt1">
+            @foreach($order as $or)
               <li>
                   <p id="t1"> 详情 </p>
                    <p id="t2"> 2017-04-12</p>
@@ -407,51 +171,7 @@
                        <p id="t6"> 六年级作业辅导 </p>
                         <p id="t7"> 张学员</p>
               </li>
-              <li>
-                  <p id="t1"> 详情 </p>
-                   <p id="t2"> 2017-04-12</p>
-                    <p id="t3" style="background-color:#3597FA;"> 已预约 </p>
-                     <p id="t4"> 有家教经验，有责任心</p>
-                      <p id="t5"> 晋安区 大名城</p>
-                       <p id="t6"> 六年级作业辅导 </p>
-                        <p id="t7"> 张学员</p>
-              </li>
-               <li>
-                  <p id="t1"> 详情 </p>
-                   <p id="t2"> 2017-04-12</p>
-                    <p id="t3" style="background-color: #00FF00;">预约中 </p>
-                     <p id="t4"> 有家教经验，有责任心</p>
-                      <p id="t5"> 晋安区 大名城</p>
-                       <p id="t6"> 六年级作业辅导 </p>
-                        <p id="t7"> 张学员</p>
-              </li>
-              <li>
-                  <p id="t1"> 详情 </p>
-                   <p id="t2"> 2017-04-12</p>
-                    <p id="t3" style="background-color: #9AD9EA;"> 已成功 </p>
-                     <p id="t4"> 有家教经验，有责任心</p>
-                      <p id="t5"> 晋安区 大名城</p>
-                       <p id="t6"> 六年级作业辅导 </p>
-                        <p id="t7"> 张学员</p>
-              </li>
-               <li>
-                  <p id="t1"> 详情 </p>
-                   <p id="t2"> 2017-04-12</p>
-                    <p id="t3" style="background-color: #F7B529;"> 新发布 </p>
-                     <p id="t4"> 有家教经验，有责任心有家教经验，有责任心有家教经验，有责任心</p>
-                      <p id="t5"> 晋安区 大名城</p>
-                       <p id="t6"> 六年级作业辅导 </p>
-                        <p id="t7"> 张学员</p>
-              </li>
-              <li>
-                  <p id="t1"> 详情 </p>
-                   <p id="t2"> 2017-04-12</p>
-                    <p id="t3" style="background-color: #F7B529;"> 新发布 </p>
-                     <p id="t4"> 有家教经验，有责任心</p>
-                      <p id="t5"> 晋安区 大名城</p>
-                       <p id="t6"> 六年级作业辅导 </p>
-                        <p id="t7"> 张学员</p>
-              </li>
+            @endforeach
           </div>
       </div>
  <div class="index5">

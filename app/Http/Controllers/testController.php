@@ -7,12 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class YzController extends Controller
+class testController extends Controller
 {
-
-
     public function index()
     {
-        echo "11";
+        return view('test');
     }
 }

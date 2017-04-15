@@ -13,6 +13,7 @@ class ComposerStaticInit89c7234f6a61cd51e7529d918765dc61
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
+        '841780ea2e1d6545ea3a253239d59c05' => __DIR__ . '/..' . '/qiniu/php-sdk/src/Qiniu/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         '4a1f389d6ce373bda9e57857d3b61c84' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/helpers.php',
@@ -56,10 +57,15 @@ class ComposerStaticInit89c7234f6a61cd51e7529d918765dc61
             'Symfony\\Component\\Debug\\' => 24,
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
+            'Stevenyangecho\\UEditor\\' => 23,
         ),
         'R' => 
         array (
             'Ramsey\\Uuid\\' => 12,
+        ),
+        'Q' => 
+        array (
+            'Qiniu\\' => 6,
         ),
         'P' => 
         array (
@@ -190,9 +196,17 @@ class ComposerStaticInit89c7234f6a61cd51e7529d918765dc61
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
         ),
+        'Stevenyangecho\\UEditor\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/stevenyangecho/laravel-u-editor/src',
+        ),
         'Ramsey\\Uuid\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/uuid/src',
+        ),
+        'Qiniu\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/qiniu/php-sdk/src/Qiniu',
         ),
         'Psy\\' => 
         array (
