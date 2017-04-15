@@ -163,7 +163,7 @@ for(i=0; i <tabList.length; i++)
               </div>
               <div class="line"></div>
               <div class="b5">
-                  <li><a a href='/' class='primary-logo' ><img alt="广州" src="/delijiajiao/picture/guangzhou.png" class="city-logo" /></a><br><p>电话：400-8080-740
+                  <li><a a href='/' class='primary-logo' ><img alt="广州" src="/delijiajiao/picture/erwei.png" class="city-logo" width="100px"/></a><br><p>电话：400-8080-740
 
                       </p></li>
                   <!--<li><a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备16062097号</a></li>-->
