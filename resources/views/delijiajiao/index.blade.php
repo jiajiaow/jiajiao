@@ -34,14 +34,9 @@
         <div class="meta-area meta-block">
             <h3><i class="icon-welfares"></i>热门学科</h3>
             <ul>
-                <li><a href="" target="_blank">xxxxxx</a></li>
-                <li><a href="" target="_blank">xxxxxx</a></li>
-                <li><a href="" target="_blank">xxxxxx</a></li>
-                <li><a href="" target="_blank">xxxxxx</a></li>
-                <li><a href="" target="_blank">xxxxxx</a></li>
-                <li><a href="" target="_blank">xxxxxx</a></li>
-                <li><a href="" target="_blank">xxxxxx</a></li>
-                <li><a href="" target="_blank">xxxxxx</a></li>
+                @foreach($xueke as $xk)
+                <li><a href="/facult.html">{{ $xk->sanji }}</a></li>
+                @endforeach
             </ul>
         </div>
         <div class="meta-salary-filter meta-block">

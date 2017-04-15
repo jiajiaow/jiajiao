@@ -29,8 +29,11 @@ class indexController extends Controller{
             //dd($xueshen);
             $zhuanzhi = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai','1')->limit(5)->get();
             //最新学生订单
-            $data = DB::table('jjw_order')->where('city_id',session('regionid'))->limit(5)->get();
-            return view('delijiajiao.index',['jinpai'=>$jinpai,'xueshen'=>$xueshen,'zhuanzhi'=>$zhuanzhi,'data'=>$data,'xx' => $xx,'dq' => $dq]);
+            $data = DB::table('jjw_order')->where('city_id',session('regionid'))->limit(6)->get();
+            //热门学科
+            $xueke = DB::table('jjw_sanji')->where('hot','1')->limit(8)->get();
+
+            return view('delijiajiao.index',['jinpai'=>$jinpai,'xueshen'=>$xueshen,'zhuanzhi'=>$zhuanzhi,'data'=>$data,'xx' => $xx,'xueke'=>$xueke,'dq'=>$dq]);
         }
         //查询地区金牌教员
         $jinpai = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai','2')->limit(4)->get();
