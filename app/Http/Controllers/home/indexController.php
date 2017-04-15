@@ -13,15 +13,22 @@ class indexController extends Controller{
     public function index(Request $request)
     {
         if(session('Template') == '2'){
+
+            $s = DB::table('jjw_position_city')->where('city_id',session('regionid'))->first();
+            $x = DB::table('city_info')->where('ci_city','like',mb_substr($s->city_name,0,2).'%')->first();
+            $xx = DB::table('shool_info')->where('sh_city',$x->ci_id)->limit(8)->get();
             //查询地区金牌教员
+            //dd($xx);
+            //var_dump($xx['0']->sh_shool);
             $jinpai = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai','2')->limit(5)->get();
             //查询地区学生教员
             $xueshen = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai','0')->limit(5)->get();
             //查询地区专职教员
+            //dd($xueshen);
             $zhuanzhi = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai','1')->limit(5)->get();
             //最新学生订单
-            $order = DB::table('jjw_order')->where('city_id',session('regionid'))->limit(6)->get();
-            return view('delijiajiao.index',['jinpai'=>$jinpai,'xueshen'=>$xueshen,'zhuanzhi'=>$zhuanzhi,'order' => $order]);
+            $data = DB::table('jjw_order')->where('city_id',session('regionid'))->limit(5)->get();
+            return view('delijiajiao.index',['jinpai'=>$jinpai,'xueshen'=>$xueshen,'zhuanzhi'=>$zhuanzhi,'data'=>$data,'xx' => $xx]);
         }
         //查询地区金牌教员
         $jinpai = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai','2')->limit(4)->get();

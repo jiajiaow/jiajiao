@@ -48,9 +48,7 @@ Route::post('/dokemu.html','home\teacherinfoController@dokemu');
 Route::get('/jia.html','home\indexController@jia');
 
 //zl预约老师
-Route::get('/yuyuelaoshi.html','home\yuyueController@index');
-//dl预约老师
-Route::get('/yuyuelaoshi.html','home\yuyueController@index');
+Route::get('/yuyuelaoshi.html/{a?}/{b?}/{c?}/{d?}','home\yuyueController@index');
 //预约验证码
 Route::post('/register','home\yuyueController@register');
 //查询验证码

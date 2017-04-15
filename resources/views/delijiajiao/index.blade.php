@@ -25,14 +25,9 @@
         <div class="meta-welfares meta-block">
             <h3><i class="icon-area"></i>热门大学</h3>
             <ul>
-                <li><a href="" target="_blank">xxxxxx</a></li>
-                <li><a href="" target="_blank">xxxxxx</a></li>
-                <li><a href="" target="_blank">xxxxxx</a></li>
-                <li><a href="" target="_blank">xxxxxx</a></li>
-                <li><a href="" target="_blank">xxxxxx</a></li>
-                <li><a href="" target="_blank">xxxxxx</a></li>
-                <li><a href="" target="_blank">xxxxxx</a></li>
-                <li><a href="" target="_blank">xxxxxx</a></li>
+                @foreach($xx as $xx)
+                <li style="width: 24.5%; overflow:hidden; text-overflow:ellipsis;"><a href="" target="_blank">{{ $xx->sh_shool }}</a></li>
+                @endforeach
             </ul>
         </div>
         <div class="meta-area meta-block">
@@ -161,15 +156,15 @@
           <div class="lebt">
           <div class="l"><img src="/delijiajiao/images/icon_title4.png">学员信息</div> <div class="r">更多</div></div>
           <div class="acrt1">
-            @foreach($order as $or)
+            @foreach($data as $data)
               <li>
-                  <p id="t1"> 详情 </p>
-                   <p id="t2"> 2017-04-12</p>
+                  <p id="t1">详情</p>
+                   <p id="t2">{{ date("Y-m-d",$data->time) }}</p>
                     <p id="t3" style="background-color: #F7B529;"> 新发布 </p>
-                     <p id="t4"> 有家教经验，有责任心</p>
-                      <p id="t5"> 晋安区 大名城</p>
-                       <p id="t6"> 六年级作业辅导 </p>
-                        <p id="t7"> 张学员</p>
+                     <p id="t4">暂为填写</p>
+                      <p id="t5">暂为填写</p>
+                       <p id="t6"> 暂为填写 </p>
+                        <p id="t7"> {{ $data->user_name }}</p>
               </li>
             @endforeach
           </div>

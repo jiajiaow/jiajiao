@@ -11,9 +11,10 @@ use Cookie;
 use DB;
 class yuyueController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         if(session('Template') == '2'){
+            //dd($request->all());
             return view('delijiajiao.yuyuelaoshi');
         }else{
             return view('home.yuyuelaoshi');
@@ -23,6 +24,7 @@ class yuyueController extends Controller
     public function register(Request $request)
     {
         if(session('Template') == '2'){
+
             $phone = $request->input('phone');
             //$code = rand(1000,9999);
             $code = '1111';
