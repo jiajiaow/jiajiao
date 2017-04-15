@@ -26,7 +26,7 @@
             <h3><i class="icon-area"></i>热门大学</h3>
             <ul>
                 @foreach($xx as $xx)
-                <li style="width: 24.5%; overflow:hidden; text-overflow:ellipsis;"><a href="" target="_blank">{{ $xx->sh_shool }}</a></li>
+                <li style="width: 24.5%; overflow:hidden; text-overflow:ellipsis;"><a href="/faculty.html" target="_blank">{{ $xx->sh_shool }}</a></li>
                 @endforeach
             </ul>
 
