@@ -44,11 +44,11 @@ function checkSubmitMobil() {
 
 //获取验证码
 function getCode(){
-    var mobile=$('#mobile').val();
+    var phone=$('#uname').val();
     $.ajax({
         type:"POST",
-        url:'',
-        data:{"mobile":mobile},
+        url:"/docode.html",
+        data:{"phone":phone,"zt":'登录'},
         dataType:'Json',
         contentType: "application/x-www-form-urlencoded; charset=utf8",
         complete: function () { },
