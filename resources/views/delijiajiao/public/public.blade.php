@@ -93,7 +93,7 @@ for(i=0; i <tabList.length; i++)
     <div class="nav-vertical" id="dropdown">
       <ul id="cheng">
       @foreach($yiji as $yj)
-            <li class="nav-item">
+            <li class="nav-item" style="display:block;overflow: hidden；">
                 <a href="javascript:void(0);" class="nav-item-title">{{ $yj->yiji }}
                     <i class="icon-arrow-right right"></i>
                 </a>
