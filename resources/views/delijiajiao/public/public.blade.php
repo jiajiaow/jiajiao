@@ -8,7 +8,7 @@
   <meta name="description" content="【德栗家教忘】 - 您身边的家教"/>
   <script src="/delijiajiao/js/jquery-1.7.2.min.js"></script>
   <link rel="stylesheet" href="/delijiajiao/css/index.css" onerror="tracker.resErr(this)" />
-  <link rel="stylesheet" href="/delijiajiao/css/style3.css" onerror="tracker.resErr(this)" />
+  <link rel="stylesheet" href="/delijiajiao/css/style.css" onerror="tracker.resErr(this)" />
   <link rel="stylesheet" href="/delijiajiao/css/style1.css" onerror="tracker.resErr(this)" />
   <link rel="stylesheet" href="/delijiajiao/css/common.css" onerror="tracker.resErr(this)" />
   {{-- <link href="/home/css/style.css" rel="stylesheet" type="text/css" /> --}}
@@ -84,7 +84,7 @@ for(i=0; i <tabList.length; i++)
   </div>
   <div class="container">
    <div class="main-box">
-    <div class="nav-vertical">
+    <div class="nav-vertical" id="dropdown">
       <ul id="cheng">
       @foreach($yiji as $yj)
             <li class="nav-item">

@@ -413,17 +413,13 @@ ul.search-history .search-history-title {
 	display:block;
         border:1px solid #F7B529;
 }
-.nav-vertical ul li span{
-	text-align: center;
-}
 .nav-vertical ul li.nav-item {
 	width:200px;
     border:1px solid #F7B529;
-	height:80px;
-	overflow: hidden;
+	height:70px;
 }
 .nav-vertical ul li.nav-item:hover {
-	height:80px;
+	height:70px;
 }
 .nav-vertical ul li.nav-item:hover .nav-item-title {
 	position:relative;
@@ -456,14 +452,14 @@ ul.search-history .search-history-title {
 }
 .nav-vertical ul li.nav-item dl {
 	display:none;
-	background-color:#fff;
+	background-color:rgba(255,255,255,.9);
 	position:absolute;
 	left:200px;
 	top:0;
 	padding-left:20px;
 	padding-right:20px;
 	margin:0;
-	width:500px;
+	width:400px;
 	border:2px solid #F7B529;
 	z-index:9999;}
 .nav-vertical ul li.nav-item dl dt {
@@ -471,8 +467,7 @@ ul.search-history .search-history-title {
 	line-height:2.5em;
 	font-size:18px;
 	display:block;
-	border-top:1px dashed #cdcdcd;
-	opacity: .8;
+	border-top:1px dashed #cdcdcd
 }
 .nav-vertical ul li.nav-item dl dt:first-of-type {
 	border-top:none
@@ -505,7 +500,7 @@ ul.search-history .search-history-title {
 }
 .subCategory-gongzuo-page ul li.nav-item .nav-item-title {
 	/* height:70px; */
-	 line-height:35px;
+	 line-height:35px; 
 
 }
 .subCategory-gongzuo-page ul li.nav-item .nav-item-title .right {
@@ -516,9 +511,7 @@ ul.search-history .search-history-title {
 	color:#cdcdcd
 }
 .subCategory-gongzuo-page ul li.nav-item dl {
-	min-height:348px;
-	width: 500px;
-	opacity: .8;
+	min-height:421px
 }
 .category-list-container {
 	max-width:1200px
@@ -866,7 +859,7 @@ ul.search-history .search-history-title {
         padding:1px 6px 1px 6px;
 	border-bottom:1px solid #e5e5e5;
         border-left:1px solid #e5e5e5;
-        border-right:1px solid #e5e5e5;
+        border-right:1px solid #e5e5e5;  
 }
 .category-posts-list ul li:first-child {
 	border-top:none
@@ -1082,7 +1075,7 @@ body.subCategory-gongzuo-page .resume-btn {
 }
 .navbar{
 	margin-left:10px;
-
+	
 }
 div>.img{
 	width:980px;
@@ -1094,14 +1087,14 @@ div.img_{
 .lebt span{
 	line-height:40px;
 	font-size:16px;
-
+	
 }
 .lebt a{
 	position:relative;
 	margin-left:72px;
 }
 .lebt a:hover{
-	 text-decoration:none;
+	 text-decoration:none; 
 }
 .lebt i.active{
 	background:url('../images/z.png') no-repeat;
@@ -1109,13 +1102,6 @@ div.img_{
 	width:80px;
 	height:8px;
 	left:450px;
-}
-.cheng_do{
-	margin: 0 auto ;
-	width: 370px;
-}
-.cheng_fg{
-
 }
 
 

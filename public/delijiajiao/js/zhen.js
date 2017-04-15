@@ -1,9 +1,8 @@
 /*广告轮播*/
 var imgs=[
 	{"i":0,"img":"/delijiajiao/picture/banner.png"},
-	{"i":1,"img":"/delijiajiao/picture/banner.png"},
-	{"i":2,"img":"/delijiajiao/picture/banner.png"},
-	{"i":3,"img":"/delijiajiao/picture/banner.png"},
+	{"i":1,"img":"/delijiajiao/picture/br1.png"},
+	{"i":2,"img":"/delijiajiao/picture/br2.png"},
 ];
 var adv={
 	liwidth:0,
@@ -66,3 +65,14 @@ var adv={
 
 };
 adv.init();//调用函数
+$('#shou').click(function(){
+   $(this).css('display','none');
+    $('#gen').css('display','block');
+    $('.x').css('display','none');
+
+});
+$('#gen').click(function(){
+    $(this).css('display','none');
+     $('#shou').css('display','block')
+    $('.x').css('display','block');
+})
