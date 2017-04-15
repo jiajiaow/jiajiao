@@ -47,12 +47,9 @@
         <div class="meta-salary-filter meta-block">
             <h3><i class="icon-salary"></i>热门区域</h3>
             <ul>
-                <li><a href="" target="_blank">xxxxxx</a></li>
-                <li><a href="" target="_blank">xxxxxx</a></li>
-                <li><a href="" target="_blank">xxxxxx</a></li>
-                <li><a href="" target="_blank">xxxxxx</a></li>
-                <li><a href="" target="_blank">xxxxxx</a></li>
-                <li><a href="" target="_blank">xxxxxx</a></li>
+            @foreach($dq as $dq)
+                <li><a href="/faculty.html" target="_blank">{{ $dq->county_name }}</a></li>
+            @endforeach
             </ul>
         </div>
     </div>
