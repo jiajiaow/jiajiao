@@ -213,9 +213,6 @@ for(i=0; i <tabList.length; i++)
         </script>
         <script type="text/javascript" src="/delijiajiao/js/zhen.js"></script>
         <script>
-    $(function(){
-        $("#dropdown").hide();
-    })
 
     $('.navbar li:nth-child(4)').mouseover(function(){
         $(this).addClass('active')
