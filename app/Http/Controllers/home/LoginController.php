@@ -67,7 +67,7 @@ class LoginController extends Controller
     }
 
     //教师注册
-    public function doreg(Request $request){dd($request);
+    public function doreg(Request $request){
         //var_dump($_POST);
         //地区id
         $city_id = session('regionid');

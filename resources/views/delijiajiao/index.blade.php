@@ -97,7 +97,7 @@
                     <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
                     <i>{{ mb_substr($xs->tc_name,0,1) }}教员</i>
                     <div class="hover">
-                        <p>{{ $xs->tc_comments }}</p>
+                        <p>{{subtext( $xs->tc_comments,40) }}</p>
                         <a href="javascript:void(0)" class="look">查看 ></a>
                     </div>
                 </div>
@@ -124,7 +124,7 @@
                     <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
                     <i>{{ mb_substr($zhuanzhi->tc_name,0,1) }}教员</i>
                     <div class="hover">
-                        <p>{{ $zhuanzhi->tc_comments }}</p>
+                        <p>{{ subtext($zhuanzhi->tc_comments,40) }}</p>
                         <a href="javascript:void(0)" class="look">查看 ></a>
                     </div>
                 </div>
@@ -161,7 +161,7 @@
             @endforeach
           </div>
       </div>
- <div class="index5">
+ {{--<div class="index5">
         <div class="lebt">
     <div class="l"><img src="/delijiajiao/images/icon_title5.png">教学资源</div>
         <div class="r">
@@ -291,7 +291,7 @@
   <!-- 选项卡结束 -->
   </div>
   </center>
- <div>
+ <div>--}}
            <a style="display:block;" href="">
                 <img style="width:980px;float:right;" src="/delijiajiao/images/33.png" alt="" />
            </a>

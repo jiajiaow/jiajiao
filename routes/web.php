@@ -53,7 +53,7 @@ Route::get('/jia.html','home\indexController@jia');
 //教师详细
 Route::get('/teacher/detail/{m?}.html','home\teacherinfoController@teacher');
 //学员库
-Route::get('/xueyuan.html','home\teacherinfoController@xueyuan');
+Route::get('/xueyuan.html','home\xueshenController@xueyuan');
 
 //zl预约老师
 Route::get('/yuyuelaoshi.html/{a?}/{b?}/{c?}/{d?}','home\yuyueController@index');
@@ -69,10 +69,19 @@ Route::any('/yuyuexxform','home\yuyueController@yuyuexxform');
 Route::post('/StudentAdd','home\yuyueController@StudentAdd');
 //测试
 Route::get('/test','testController@index');
-//教员库
+//德栗教员库
 Route::get('/faculty.html','home\teacherinfoController@faculty');
 //资费说明
 Route::get('/zfsm.html','home\zfsmController@index');
+
+
+
+
+
+
+
+
+
 //----------  后台  ----------//
 //登录视图 方法
 Route::get('/admin/login',function(){ return view('admin.login');  });
