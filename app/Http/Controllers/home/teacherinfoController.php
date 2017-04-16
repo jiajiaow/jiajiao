@@ -187,12 +187,15 @@ class teacherinfoController extends Controller
         }
 
     }
-    //栗志教师详细
+    //栗志-德栗教师详细
     public function teacher(Request $request,$m){
-       // dd($m);
         $list = \DB::table('jjw_teachers')->where('id',$m)->first();
-//        dd($list);
-        return view('home.teacher',['list'=>$list]);
+        //判断是栗志还是德栗
+        if(session('Template') =='1') {
+            return view('home.teacher', ['list' => $list]);
+        }else if(session('Template') =='2'){
+            return view('delijiajiao.faculty_content',['list'=>$list]);
+        }
     }
 
     //德栗教员库
@@ -209,13 +212,5 @@ class teacherinfoController extends Controller
         $xx= DB::table('shool_info')->where('sh_city',$xxsid->ci_id)->limit(10)->get();
       // dd($xy);
         return view('delijiajiao.jiaoyuan',['quyu'=>$quyu,'list'=>$list,'xx'=>$xx]);
-    }
-    //德栗学员库
-    public function xueyuan(Request $request){
-        //区域
-        $quyu = \DB::table('jjw_position_county')->where('city_id',Session('regionid'))->get();
-        //学员
-        $list = \DB::table('jjw_order')->paginate(10);
-        return view('delijiajiao.xueyuanku',['quyu'=>$quyu,'list'=>$list]);
     }
 }

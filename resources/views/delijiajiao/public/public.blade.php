@@ -69,7 +69,7 @@ for(i=0; i <tabList.length; i++)
       <span class="listing-slogan">{{ session('regionname') }}</span><span class="listing-slogan1">【高校联盟】【德栗家教】</span>
      </div>
      <div class="pull-right">
-      <a href="/yuyuelaoshi.html" class="resume-btn">我要找老师</a>
+      <a href="/yuyuelaoshi.html" class="resume-btn">我要请老师</a>
       <a href="/reg.html" class="post">我要当老师</a>
      </div>
     </div>
