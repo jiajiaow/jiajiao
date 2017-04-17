@@ -116,8 +116,8 @@ class LoginController extends Controller
     public function docode(Request $request){
         $phone = $_POST['phone'];
         $zt = $_POST['zt'];
-        $yzm = rand(1000,9999);
-        Cookie::queue("code",1111, 5);
+        $yzm = '1111';
+        Cookie::queue("code", $yzm, 5);
         if(session('Template') == '1'){
             $result=$this->sms->send("$phone","栗志家教","{zt:'{$zt}','code':'{$yzm}'}",'SMS_61850084');
         }else if(session('Template') == '2'){
