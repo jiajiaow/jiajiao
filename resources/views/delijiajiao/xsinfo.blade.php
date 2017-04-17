@@ -10,7 +10,8 @@
         <div class="education-info">
           <div class="stitle">
             <i><img src="/home/picture/title_left.png" alt=""></i>
-            <h3>{{ $data->dq }}{{ mb_substr($data->user_name,0,1) }}请{{ $data->grade }}{{ $data->subject_id }}家教</h3>
+            <h3>{{ $data->dq }}{{ mb_substr($data->user_name,0,1) }}@if($data->user_sex == '')@elseif($data->user_sex == '0')女生@elseif($data->user_sex == '1')先生
+@else其它@endif请{{ $data->grade }}{{ $data->subject_id }}家教</h3>
             <span>{{ date('Y-m-d',$data->time) }}发布</span>
           </div>
           <div class="info">

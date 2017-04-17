@@ -32,7 +32,7 @@ class Controller extends BaseController
         }
         if($zlurl == 'www.lizhijiajiao.com/mobile'){
             //查询数据
-            $re = DB::table('jjw_position_city')->where('city_id','110100000000')->first();
+            $re = DB::table('jjw_position_city')->where('city_id','440100000000')->first();
             //模板
             session(['Templatesj' => '3']);
             //地区名称
@@ -41,11 +41,11 @@ class Controller extends BaseController
             session(['regionid' => $re->city_id]);
         }else if($dlurl == 'www.delijiajiao.com/mobile'){
             //地区id
-            session(['regionid' => '110100000000']);
+            session(['regionid' => '440100000000']);
             //模板
             session(['Templatesj' => '4']);
 
-            $re = DB::table('jjw_position_city')->where('city_id','110100000000')->first();
+            $re = DB::table('jjw_position_city')->where('city_id','440100000000')->first();
             //地区名称
             session(['phone' => $re->phone]);
             session(['regionname' => $re->title]);
@@ -71,21 +71,21 @@ class Controller extends BaseController
         }
         if($zlpc == 'www.lizhijiajiao.com'){
             //地区id
-            session(['regionid' => '110100000000']);
+            session(['regionid' => '440100000000']);
             //模板
             session(['Template' => '1']);
             //查询数据
-            $re = DB::table('jjw_position_city')->where('city_id','110100000000')->first();
+            $re = DB::table('jjw_position_city')->where('city_id','440100000000')->first();
             //地区名称
             session(['regionname' => $re->city_name]);
             return 'zlpc';
         }elseif($dlpc == 'www.delijiajiao.com'){
             //地区id
-            session(['regionid' => '110100000000']);
+            session(['regionid' => '440100000000']);
             //模板
             session(['Template' => '2']);
 
-            $re = DB::table('jjw_position_city')->where('city_id','110100000000')->first();
+            $re = DB::table('jjw_position_city')->where('city_id','440100000000')->first();
             //dd($re);
             //地区名称
             session(['regionname' => $re->title]);
