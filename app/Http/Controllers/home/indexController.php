@@ -22,7 +22,9 @@ class indexController extends Controller{
             //查询地区金牌教员
             //dd($xx);
             //var_dump($xx['0']->sh_shool);
+            //dd(session('regionid'));
             $jinpai = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai','2')->limit(5)->get();
+            //dd($jinpai);
             //查询地区学生教员
             $xueshen = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai','0')->limit(5)->get();
             //查询地区专职教员

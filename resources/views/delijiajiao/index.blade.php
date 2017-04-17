@@ -26,7 +26,7 @@
             <h3><i class="icon-area"></i>热门大学</h3>
             <ul>
                 @foreach($xx as $xx)
-                <li style="width:100px; overflow:hidden; text-overflow:ellipsis;"><a href="/faculty.html" target="_blank">{{ $xx->sh_shool }}</a></li>
+                <li style="width:100px; overflow:hidden; text-overflow:ellipsis;"><a href="/hot.html/学院/{{ $xx->sh_shool }}" target="_blank">{{ $xx->sh_shool }}</a></li>
                 @endforeach
             </ul>
 
@@ -37,14 +37,14 @@
                 {{--@foreach($xueke as $xk)--}}
                 {{--<li><a href="/facult.html">{{ $xk->sanji }}</a></li>--}}
                 {{--@endforeach--}}
-                <li><a href="/facult.html">数学</a></li>
-                <li><a href="/facult.html">英语</a></li>
-                <li><a href="/facult.html">语文</a></li>
-                <li><a href="/facult.html">理综</a></li>
-                <li><a href="/facult.html">物理</a></li>
-                <li><a href="/facult.html">化学</a></li>
-                <li><a href="/facult.html">地理</a></li>
-                <li><a href="/facult.html">全科</a></li>
+                <li><a href="/hot.html/学科/数学">数学</a></li>
+                <li><a href="/hot.html/学科/英语">英语</a></li>
+                <li><a href="/hot.html/学科/语文">语文</a></li>
+                <li><a href="/hot.html/学科/理综">理综</a></li>
+                <li><a href="/hot.html/学科/物理">物理</a></li>
+                <li><a href="/hot.html/学科/化学">化学</a></li>
+                <li><a href="/hot.html/学科/地理">地理</a></li>
+                <li><a href="/hot.html/学科/全科">全科</a></li>
 
             </ul>
         </div>
@@ -52,7 +52,7 @@
             <h3><i class="icon-salary"></i>热门区域</h3>
             <ul>
             @foreach($dq as $dq)
-                <li><a href="/faculty.html" target="_blank">{{ $dq->county_name }}</a></li>
+                <li><a href="/hot.html/区域/{{ $dq->county_name }}" target="_blank">{{ $dq->county_name }}</a></li>
             @endforeach
             </ul>
         </div>
@@ -67,7 +67,7 @@
    <div class="index1">
           <div class="lebt">
           <div class="l">
-            <img src="/delijiajiao/images/icon_title1.png">金牌教员</div> <div class="r">更多</div></div>
+            <img src="/delijiajiao/images/icon_title1.png">金牌教员</div> <div class="r"><a href="/facultys.html/gd/2" >更多</a></div></div>
                 <div class="acrt">
                 @foreach($jinpai as $jp)
                     <li class="kuan">
@@ -101,7 +101,7 @@
         <div class="lebt">
             <div class="l">
                 <img src="/delijiajiao/images/icon_title2.png">学生教员</div>
-            <div class="r">更多</div>
+            <div class="r"><a href="/facultys.html/gd/0">更多</a></div>
         </div>
             <div class="acrt">
             @foreach($xueshen as $xs)
@@ -133,7 +133,7 @@
       <div class="index1">
           <div class="lebt">
             <div class="l"><img src="/delijiajiao/images/icon_title3.png">专职教员</div>
-            <div class="r">更多</div>
+            <div class="r"><a href="/facultys.html/gd/1">更多</a></div>
           </div>
           <div class="acrt">
             @foreach($zhuanzhi as $zhuanzhi)

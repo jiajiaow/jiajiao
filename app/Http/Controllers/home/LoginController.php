@@ -28,6 +28,7 @@ class LoginController extends Controller
             //dd($list);
             if($list != null AND $request->cookie('code') == $yzm){
                 //设置session
+                $inse = \DB::table('jjw_teachers')->where('tc_phone',$phone)->update(['tc_dltimes'=>time()]);
                 session(['tc_phone' => $list->tc_phone,'tc_name'=>$list->tc_name]);
                 //重定向  //判断是德栗还是栗志  1是栗志 2是德栗
                 if(session('Template') =='1'){
@@ -49,6 +50,7 @@ class LoginController extends Controller
             //dd($list);
             if($list != null){
                 //设置session
+                $inse = \DB::table('jjw_teachers')->where('tc_phone',$phone)->update(['tc_dltimes'=>time()]);
                 session(['tc_phone' => $list->tc_phone,'tc_name'=>$list->tc_name]);
                 //重定向  //判断是德栗还是栗志  1是栗志 2是德栗
                 if(session('Template') =='1'){
@@ -114,7 +116,7 @@ class LoginController extends Controller
     public function docode(Request $request){
         $phone = $_POST['phone'];
         $zt = $_POST['zt'];
-        $yzm = rand(1000,9999);
+        $yzm = '1111';
         Cookie::queue("code", $yzm, 5);
         if(session('Template') == '1'){
             $result=$this->sms->send("$phone","栗志家教","{zt:'{$zt}','code':'{$yzm}'}",'SMS_61850084');

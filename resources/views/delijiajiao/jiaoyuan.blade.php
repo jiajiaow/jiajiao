@@ -1,4 +1,5 @@
 ﻿      @extends('delijiajiao.public.public')
+      <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
       @section('title',session('regionname') )
       @section('content')
   <!--<![endif]-->
@@ -54,12 +55,12 @@
 	</div>
     <div>
         <span style="display:block;" id="gen">
-            <img src="images/top1.png" alt="">
+            <img src="/delijiajiao/images/top1.png" alt="">
             更多筛选条件</span>
     <div>
     <div>
         <span id="shou">
-             <img src="images/top.png" alt="">
+             <img src="/delijiajiao/images/top.png" alt="">
             收起筛选条件</span>
     </div>
     
@@ -182,5 +183,6 @@ $(".eliminateCriteria").live("click",function(){
     <script type="text/javascript">
         $('#cheng').remove();
         $('#f').remove();
+
     </script>
 @endsection
