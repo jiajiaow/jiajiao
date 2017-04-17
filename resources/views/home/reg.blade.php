@@ -10,7 +10,7 @@
 <script src= "{{ asset('/home/js/script.js') }}"></script>
 <script Language="JavaScript" src="{{ asset('/home/js/register.js') }}"></script>
 <script src="{{ asset('/home/js/cheng.js') }}"></script>
-<script src="{{ asset('/admin/js/plugins/layer/layer.min.js') }}"></script>
+<script src="{{ asset('/delijiajiao/js/layer.js') }}"></script>
 	<div id="header">
 		<div class="top-login">
 			<div class="container">
@@ -30,7 +30,7 @@
 		<img src="{{ asset('/home/images/zc.jpg') }}">
 		<div class="inbanner">
 			<div class="container">
-				<div class="left-form pull-left">
+				<div style="top:90px;" class="left-form pull-left">
 					<div class="form pull-left">
 						<h4>教员注册</h4>
 						<form name="form1" method="post" id="form1" action="{{ URL('/doreg.html') }}">
@@ -40,7 +40,7 @@
 							</div>
 							
 							<div class="yfg" id="hidepassword">
-								<input type="password" id="pw1" name="pw1" placeholder="密码（长度不小于六位）" class="pass" onblur="changepw1pw2() ">
+								<input type="password" id="pw1" name="pw1" placeholder="请设置密码" class="pass" onblur="changepw1pw2() ">
 								{{--<a href="javascript:void(0)" onclick="showpassword()">显示</a>--}}
 							</div>
 
@@ -51,22 +51,30 @@
 
 
 							<div class="fg">
-								<input type="text" style="width:46%" id="mobile_code" name="mobile_code" placeholder="验证码" class="password">
-								<input type="button" style="width:52%;background:#F7B529;color:black" onclick="sendMsg()" value="发送验证码" id="djs">
+								<input type="text" style="width:150px" id="mobile_code" name="mobile_code" placeholder="验证码" class="password">
+								<input type="button" style="width:156px;background:#F7B529;color:black;cursor: pointer;" onclick="sendMsg()" value="发送验证码" id="djs">
 								<span></span>
 							</div>
 							
-							<button type="button" onclick="CheckValue()">注册</button>
+							<button type="button" onclick="CheckValue()" style="color:#000">注册</button>
 						</form>
 						<a href="{{ URL('/login.html') }}">已有账号 直接登录</a>
 						<div class="clear"></div>
 					</div>
 					<div class="right-code pull-right">
 						<div class="code">
-							<img src="{{ asset('/home/picture/code.png') }}">
+							<img src="{{ asset('/home/picture/qqqCode.jpg') }}">
 						</div>
-						<p>扫描二维码</p>
-						<p>关注微信公众号</p>
+						<p>信息发布群</p>
+						<p>367144804</p>
+
+					</div>
+					<div class="right-code pull-right">
+						<div class="code">
+							<img src="{{ asset('/home/picture/qqCode.jpg') }}">
+						</div>
+						<p>微信联系</p>
+						<p>delijiajiao</p>
 					</div>
 					<div class="clear"></div>
 				</div>
@@ -76,7 +84,9 @@
 	<div id="footer">
 		<div class="pfoot">
 			<div class="container">
-				<p>© 2005－2016 版权所有：上海四帆固教育科技有限公司-家教114  |   沪ICP备09062748号-5</p>
+				<p>© 2005－2017 版权所有：广州学求易教育咨询有限公司|   粤ICP备16062097号-4
+				</p>
+
 			</div>
 		</div>
 	</div>
@@ -158,7 +168,12 @@ function getCode(){
 		/*dataType:'JSON',*/
 		success:(function(result){
 			if(result == 'y'){
-				layer.alert('请注意查收短信!',{icon: 6,time:2000});
+				if({{ session('Template') }} == '1'){
+					layer.alert('请注意查收短信!',{icon: 4,time:2000});
+				}else{
+					layer.alert('请注意查收短信!',{icon: 3,time:2000});
+				}
+
 			}
 			//console.log(result);
 		}),

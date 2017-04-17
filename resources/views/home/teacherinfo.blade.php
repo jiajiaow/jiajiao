@@ -1,11 +1,8 @@
 <!DOCTYPE html>
-
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
     <title>个人中心 -栗智</title>
     <link rel="stylesheet" href="{{ asset('/home/css/style.css') }}">
     <script src="{{ asset('/home/js/jquery.min.js') }}"></script>
-
     <script type="text/javascript">
         function delete_info(id){
             if(confirm("你确定要此信息吗？")){
@@ -27,8 +24,12 @@
     <div class="top-info">
         <div class="container">
             <div class="logo pull-left">
-                <a href="http://www.jiajiao114.com/" class="pull-left">
-                    <img style="width:40px;height:40px;" src="{{ asset('/home/image/logo.png') }}" alt=""></a>
+                <a href="" class="pull-left"></a>
+                @if(session('Template') == '1')
+                    <img style="width:40px;height:40px;" src="{{ asset('/home/image/logo.png') }}" alt="">
+                @else
+                    <img style="width:40px;height:40px;" src="/delijiajiao/images/logo.png" alt="">
+                @endif
                 <a href="{{ URL('/teacherinfo.html') }}" class="pull-right user">个人中心</a>
                 <div class="clear"></div>
             </div>
@@ -579,7 +580,9 @@
                                             //授课区域
                                             function addnodes(id){
                                                 var jiu = $("#tc_area").val();
+                                                alert(id);
                                                 jiu = jiu + "," + id;
+                                                alert(jiu);
                                                 //alert(jiu);
                                                 $("#tc_area").val(jiu);
                                                 $("#quyu").html(jiu);
@@ -601,7 +604,8 @@
                                             </label>
                                             <div style="width:500px;" id="">
                                                 @foreach($qu as $quyu)
-                                                    <input name="" onclick="addnodes('{{ $quyu->county_name }}')"  type="checkbox" value="{{ $quyu->county_name }}" style="margin:10px 0px 10px 0px;" />{{ $quyu->county_name }}
+                                                    {{--<input name="" onclick="addnodes('{{ $quyu->county_name }}')"  type="checkbox" value="{{ $quyu->county_name }}" style="margin:10px 0px 10px 0px;" />{{ $quyu->county_name }}--}}
+                                                    <input type="checkbox" value="{{ $quyu->county_name }}" style="margin:10px 0px 10px 0px;" />{{ $quyu->county_name }}
                                                 @endforeach
                                                     <input type="hidden" name="tc_area" id="tc_area" value="">
                                                     <input type="hidden" name="tc_id" id="" value="{{ $list->id }}">

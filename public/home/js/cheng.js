@@ -42,25 +42,7 @@ function checkSubmitMobil() {
 		return true;
 	}
 
-//获取验证码
-function getCode(){
-    var phone=$('#uname').val();
-    $.ajax({
-        type:"POST",
-        url:"/docode.html",
-        data:{"phone":phone,"zt":'登录'},
-        dataType:'Json',
-        contentType: "application/x-www-form-urlencoded; charset=utf8",
-        complete: function () { },
-        success:function(result){
-            alert(result);
-        },
-        error:function(result,status){
-            console.log(result);
-        }
-    });
 
-}
 //验证码倒计时
 var wait=60;
 function time(o,p){

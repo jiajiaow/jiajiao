@@ -21,10 +21,11 @@
                 <td width="619" height="80" style="font-size: 20px; color: #FF0000; font-weight:bold;" align="center" valign="bottom"><img src="http://www.dxc020.com/Images/stu-success.gif" align="absmiddle" alt="注册成功" width="35" height="38"> 恭喜您，您填写请家教需求订单已发布!</td>
               </tr>
               <tr>
-                <td height="50"><div align="center">您同时注册了本网站的会员，用户名是：<b style="font-family:Arial, Helvetica, sans-serif; font-size:18px; color:#FF0000;">{{ $phone }}</b> 密码是：<b style="font-family:Arial, Helvetica, sans-serif; font-size:18px; color:#FF0000;">{{ substr($phone,7,4) }}</b></div></td>
+                <td height="50"><div align="center">您同时注册了本网站的会员，用户名是您的手机号码：<b style="font-family:Arial, Helvetica, sans-serif; font-size:18px; color:#FF0000;"></b>
+                        初始密码是您手机为后4位：<b style="font-family:Arial, Helvetica, sans-serif; font-size:18px; color:#FF0000;">{{ substr($phone,7,4) }}</b></div></td>
               </tr>
                   <tr>
-                <td height="50"><div align="center" style="font-size: 18px; color: #FF0000; font-weight:bold; font-family:微软雅黑,Tahoma,Arial,宋体;">本中心会在24小时内为你安排老师！</div></td>
+                <td height="50"><div align="center" style="font-size: 18px; color: #FF0000; font-weight:bold; font-family:微软雅黑,Tahoma,Arial,宋体;">本中心会在24小时内为您安排老师！</div></td>
               </tr>
 
               <tr>

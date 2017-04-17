@@ -13,6 +13,24 @@
   <link rel="stylesheet" href="/delijiajiao/css/common.css" onerror="tracker.resErr(this)" />
   <link rel="icon" href="/delijiajiao/favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="/delijiajiao/favicon.ico" type="image/x-icon">
+     <style>
+         #cheng-href{
+             color:#a7a7a7;
+
+         }
+         #cheng-href li {
+             float: left;
+         }
+         #cheng-href a{
+             color:#a7a7a7;
+             display: inline-block;
+             width:100px;
+           line-height: 50px;
+             text-align: center;
+
+         }
+     </style>
+
   {{-- <link href="/home/css/style.css" rel="stylesheet" type="text/css" /> --}}
 @section('style')
 
@@ -47,7 +65,8 @@ for(i=0; i <tabList.length; i++)
    <div>
     <div class="toolbar">
      <div class="toolbar-link">
-家教上门联系电话：{{ session('phone') }}
+家教上门联系电话：☎
+        {{ session('phone') }}
      </div>
      <ul id="user-tools" class="navbar-nav">
          @if(session('tc_name') != null or session('tc_phone') != null)
@@ -71,8 +90,8 @@ for(i=0; i <tabList.length; i++)
       <span class="listing-slogan">{{ session('regionname') }}</span><span class="listing-slogan1">【德栗家教】【高校联盟】</span><a href="/change_city.html">更多城市</a>
      </div>
      <div class="pull-right">
-      <a href="/yuyuelaoshi.html" class="resume-btn" style="font-size: 20px">我要请老师</a>
-      <a href="/reg.html" class="post" style="font-size: 20px">我要当老师</a>
+      <a href="/yuyuelaoshi.html" class="resume-btn" style="font-size: 16px">请老师</a>
+      <a href="/reg.html" class="post" style="font-size: 16px">当老师</a>
      </div>
     </div>
    </div>
@@ -85,6 +104,8 @@ for(i=0; i <tabList.length; i++)
      <li><a href="/faculty.html" >挑老师</a></li>
      <li><a href="/zfsm.html" >资费说明</a></li>
      <li><a href="/xueyuan.html" >学员库</a></li>
+        <li><a href="">会员中心</a></li>
+        <li><a href="">资源中心</a></li>
     {{-- <li><a href="#" target="_blank">家长课堂</a></li> --}}
     {{-- <li><a href="#" target="_blank">家长课堂</a></li> --}}
     </ul>
@@ -124,18 +145,7 @@ for(i=0; i <tabList.length; i++)
 @show
   </div>
 </div>
-  <div id="footer">
-      <form id="do" method="post" action="/yuyuexiangxi.html">
-                    {{ csrf_field() }}
-          <p>姓名：<input type="text" name="lxr" id="lxr" placeholder="联系人" maxlength="10">
-              手机：<input type="text" id="phone" name="phone" maxlength="11" placeholder="手机号码">
-              验证码：<input type='text' name="yzm" id="yzm" placeholder="验证码" >
-              <input id="zhen" type='button' onclick="test();" value="获取验证码" >
-              <button id='tj' style="width: 110px;height: 35px;" type="button" onclick="dopost();">快速请家教</button>
-      </form>
 
-      </p>
-  </div>
   </div></div>
   <footer>
       <div class="footw">
@@ -171,10 +181,48 @@ for(i=0; i <tabList.length; i++)
                       </p></li>
                   <!--<li><a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备16062097号</a></li>-->
               </div>
+
           </div>
       </div>
   </footer>
-  <div class="banquanxinxi">© 2005－2017德栗家教   |   粤ICP备16062097号 关键词：家教,一对一家教,广州家教网</div>
+{{--  <div>
+      <ul id="cheng-href">
+          <li>
+              <a href="">友情链接</a>
+          </li>
+          <li>
+              <a href="">新浪新闻</a>
+          </li>
+          <li>
+              <a href="">网易云音乐</a>
+          </li>
+          <li>
+              <a href="">腾讯新闻</a>
+          </li>
+          <li>
+              <a href="">百度</a>
+          </li>
+             <li>
+                 <a href="">360</a>
+             </li>
+      </ul>
+  </div>--}}
+  <div class="banquanxinxi">
+
+          © 2005－2017德栗家教   |   粤ICP备16062097号 关键词：家教,一对一家教,广州家教网</div>
+
+  <div id="footer">
+      <form id="do" method="post" action="/yuyuexiangxi.html">
+          {{ csrf_field() }}
+          姓名：<input type="text" name="lxr" id="lxr" placeholder="联系人" maxlength="10">
+              手机：<input type="text" id="phone" name="phone" maxlength="11" placeholder="手机号码">
+              验证码：<input type='text' name="yzm" id="yzm" placeholder="验证码" >
+              <input id="zhen" type='button' onclick="test();" value="获取验证码" >
+              <button id='tj' style="width: 110px;height: 35px;" type="button" onclick="dopost();">快速请家教</button>
+      </form>
+
+
+  </div>
   <script type="text/javascript">
       $(function(){
 

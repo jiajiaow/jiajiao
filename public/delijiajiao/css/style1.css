@@ -95,7 +95,14 @@
 .screenBox dl.noborder{border-bottom:0px;border-left:0px;border-top:0px;border-right:0px}
 .screenBox dl.goodstype{border-bottom:#e6e6e6 1px dashed}
 .screenBox dl dt{float:left;height:30px}
-.screenBox dl dt{text-align:right;width:100px;height:30px;font-weight:600;vertical-align: middle;}
+.screenBox dl dt{
+    /*text-align:right;*/
+    width:100px;
+    height:30px;
+    font-weight:600;
+    vertical-align: middle;
+    padding-left: 21px;
+}
 .screenBox dl dd{position:relative;padding-bottom:0px;padding-left:0px;width:1000px;padding-right:48px;float:left;height:25px;overflow:hidden;padding-top:0px}
 .screenBox dl dd a{line-height:14px;margin:0px 5px 0px 0px;display:inline-block;color:#36c;overflow:hidden;text-decoration:none}
 .screenBox dl dd a:hover{background:#39c;color:#fff}
@@ -190,14 +197,14 @@
     color:#fff;
 }
 #footer{
-    position:fixed;
+    /*position:fixed;*/
     bottom: 0;
     left:0px;
     z-index: 999;
     background-color:#f8b529;
     opacity: .8;
     width: 100%;
-    height:50px;
+    /*height:50px;*/
     border-radius: 5px;
     text-align: center;  
 }
@@ -256,6 +263,7 @@
 #fcontent .educate-form form input {
 	border: none;
 	outline: none;
+
 	height: 100%;
 	padding-left: 10px;
 	color: #999;
@@ -421,12 +429,31 @@ margin: -1px 0px 0px -1px;
 .footw .r1 .b3 li{margin-bottom: 10px;}
 .footw .r1 .b4{float:left;width: 20%;height: 25px;padding-right: 25px;list-style-type: none;}
 .footw .r1 .b4 li{margin-bottom: 10px;}
-.footw .r1 .b5{float:left;width: 20%;height:25px;padding-left:25px;list-style-type: none;text-align:left;}
+.footw .r1 .b5{
+    float:left;
+    /*width: 20%;*/
+    /*height:25px;*/
+    padding-left:25px;
+    list-style-type: none;
+    text-align:left;
+}
 .footw .r1 .b5 li{margin-bottom: 10px;}
 .footw .r1 .b5 li img{margin-right: 25px;}
-.footw .r1 .b5 li p{margin-right: 5px;font-size: 16px;font-weight: 900px;}
+.footw .r1 .b5 li p{
+    margin-right: 5px;
+    /*font-size: 16px;*/
+    font-weight: 900px;
+
+}
 .footw .line{height: 120px;width: 1px;background-color: #eee;float: left}
 
 .yqlj{width: 1200px;height: 100%;margin: auto;}
 .yqlj li{width:80px;height: 25px;float: left;list-style-type: none;}
-.banquanxinxi{width: 1200px; margin: 15px 15px;text-align: center;}
+.banquanxinxi{
+    width: 1200px;
+    /*margin: 15px 15px;*/
+
+    margin-top: 10px;
+    text-align: center;
+    padding: 15px 15px ;
+}

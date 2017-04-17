@@ -22,7 +22,7 @@
                     </div>
                     <div class="fg sfg" style="border: 1px solid #E0E0E0;">
                                         <input type='text' name="yzm" id="yzm" placeholder="验证码" ></input>
-                        <input id="zhen" type='button' onclick="test();" value="获取验证码" style="cursor: pointer;background-color: #F7B529;color:#fff;width: 100px;float: right;"></input>
+                        <input id="zhen" type='button' onclick="test();" value="获取验证码" style="cursor: pointer;background-color: #F7B529;color:#fff;width: 100px;float: right;padding: 0px"></input>
                     </div>
                     <button id='tj' type="button" onclick="dopost();">提交</button>
                 </form>
@@ -156,5 +156,6 @@
 
         });
     }
+    $('#footer').remove();
 </script>
 @endsection

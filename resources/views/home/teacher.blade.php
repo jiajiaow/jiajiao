@@ -1,18 +1,12 @@
 ﻿<!doctype html>
-
 <html lang="en">
-
 <head>
-
 	<meta charset="UTF-8">
-
 	<title></title>
 	<link href="{{ asset('/home/css/style.css') }}" rel="stylesheet" type="text/css" />
-
 </head>
 
 <body>
-
 <div id="ibanner">
 	<div class="container">
 		<div class="teach-left">

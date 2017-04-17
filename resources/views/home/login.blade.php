@@ -5,7 +5,7 @@
 	<title>登录</title>
 	<link rel="stylesheet" href="{{ asset('/home/css/login.css') }}">
 	<script type="text/javascript" src= "{{ asset('/home/js/jquery-2.2.3.min.js') }}"></script>
-	<script src="/admin/js/plugins/layer/layer.min.js"></script>
+	<script src="{{ asset('/delijiajiao/js/layer.js') }}"></script>
 	<script>
 		@if(session('tc_phone') != null)
 				window.location.href="{{ URL('/teacherinfo.html') }}";
@@ -35,11 +35,17 @@
 				<div class="right-form pull-right">
 					<div class="left-code pull-left">
 						<div class="code">
-							<img src="{{ asset('/home/picture/code.png') }}">
+							<img src="{{ asset('/home/picture/qqqcode.jpg') }}">
 						</div>
-						<p>扫描二维码</p>
-						<p>关注微信公众号</p>
+						<p>QQ信息发布群</p>
+						<p>367144804</p>
+						<div class="code" style="margin-top: 40px;">
+							<img src="{{ asset('/home/picture/qqcode.jpg') }}">
+						</div>
+						<p>微信联系</p>
+						<p>delijiajiao</p>
 					</div>
+
 					<div class="form pull-right">
 					<script type="text/javascript"></script>
 					
@@ -62,7 +68,7 @@
 									<img src="{{ asset('/home/picture/icon_pass.png') }}">
 								</label>
 								<input id="mobile" type="tel"  style='width:46%' name="code" placeholder="验证码">
-								<input style="width: 128.2px;cursor: pointer;background-color: #F7B529" id="getsms" type="button" value="获取验证码"/>
+								<input style="width: 128px;cursor: pointer;background-color: #F7B529" id="getsms" type="button" value="获取验证码"/>
 
 							</div>
 							<button id="deng"  type="submit">登录</button>
@@ -95,7 +101,7 @@
 	<div id="footer">
 
 		<div class="foot-bottom"><div class="container">
-				<ul style="width:100%"><li>友情链接：</li><li><a href="" target="_blank">仓山区</a></li>
+		<!--		<ul style="width:100%"><li>友情链接：</li><li><a href="" target="_blank">仓山区</a></li>
 					<li><a href="" target="_blank">鼓楼区</a></li>
 					<li><a href="" target="_blank">晋安区</a></li>
 					<li><a href="" target="_blank">马尾区</a></li>
@@ -121,10 +127,12 @@
 					<li><a href="" target="_blank">台江区鳌峰</a></li>
 					<li><a href="" target="_blank">台江区宁化</a></li>
 					<li><a href="" target="_blank">台江区中州岛</a></li>
-
+-->
 					<div class="clear"></div>
 				</ul>
-					<ul style="font-size:15px;color:#262626 "> Copyright2007－2017广州学求易教育咨询有限公司 版权所有 All rights reserved</ul>
+					<ul style="font-size:15px;color:#262626 "> Copyright2005－2017广州学求易教育咨询有限公司
+						版权所有 &nbsp;粤ICP备16062097号-4
+					</ul>
 				</div>
 				</div>
 				</div>
@@ -142,5 +150,26 @@
 	@if(session("msg"))
            layer.alert('{{session("msg")}}',{icon: 5});
 	@endif
+	//获取验证码
+	function getCode(){
+		var phone=$('#uname').val();
+		$.ajax({
+			type:"POST",
+			url:"/docode.html",
+			data:{"phone":phone,"zt":'登录'},
+			contentType: "application/x-www-form-urlencoded; charset=utf8",
+			success:function(result){
+				if({{ session('Template') }} == '1'){
+					layer.alert('请注意查收短信!',{icon: 4,time:2000});
+				}else{
+					layer.alert('请注意查收短信!',{icon: 3,time:2000});
+				}
+			},
+			error:function(result,status){
+				console.log(result);
+			}
+		});
+
+	}
 </script>
 </html>

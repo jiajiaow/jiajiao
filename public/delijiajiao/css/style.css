@@ -201,8 +201,8 @@ body .newline a:last-of-type {
 }
 body .resume-btn {
 	width:200px;
-	height:60px;
-	line-height:60px;
+	height:50px;
+	line-height:50px;
 	position:absolute;
 	right:200px
 }
@@ -1002,6 +1002,7 @@ ul.search-history .search-history-title {
 }
 .center .meta-box .meta-area ul>li {
 	width:25%;
+	text-align: center;
 	white-space:nowrap;
 	text-overflow:ellipsis;
 	overflow:hidden
@@ -1061,9 +1062,9 @@ ul.search-history .search-history-title {
 	height:24px
 }
 body.subCategory-gongzuo-page>header .location a.post {
-	width:220px;
-	height:60px;
-	line-height:60px
+	width:200px;
+	height:50px;
+	line-height:50px
 }
 body.subCategory-gongzuo-page .resume-btn {
 	right:230px

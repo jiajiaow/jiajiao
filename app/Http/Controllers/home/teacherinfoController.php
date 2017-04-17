@@ -30,6 +30,7 @@ class teacherinfoController extends Controller
        // session(['szd' => $sd[0]->provice_name,'szds'=>$sd[0]->city_name]);
         //地区
         $qu = \DB::table('jjw_position_county')->where('city_id',$list->tc_city_id)->get();
+
         //所在地
        // $szd = \DB::table('jjw_position_provice')->get();
 //        return view('home.teacherinfo',['list'=>$list,'szd'=>$szd,'sd'=>$sd,'qu'=>$qu]);

@@ -89,8 +89,8 @@
                   <p class="ta" > 预约 </p>
                    <p class="tb" > 查看详情</p>
                     <p class="tc" >自我描述</p>
-                      <p class="te" >就读丶毕业高校丶专业丶学历</p>
-                       <p class="tf" >姓名/性别</p>
+                      <p class="te" >就读/专业/年级</p>
+                       <p class="tf" >姓名丶性别</p>
                         <p class="tg" > 教员编号</p>
               </li> </div>
               <div class="acrtt3">

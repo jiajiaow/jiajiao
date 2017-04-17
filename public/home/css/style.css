@@ -3280,6 +3280,7 @@ textarea{
 #register-banner .left-form a {
 	display: block;
 	text-align: center;
+	margin-top: 15px;
 }
 #register-banner .left-form form > .fg {
 	position: relative;
@@ -3325,7 +3326,7 @@ textarea{
 	margin-top: 25px;
 }
 #register-banner .right-code {
-	margin-top: 30%;
+	/*margin-top: 30%;*/
 }
 /*完善个人信息*/
 #header .top-logout {
@@ -7790,7 +7791,8 @@ textarea{
 	margin-top: 25px;
 }
 #register-banner .right-code {
-	margin-top: 30%;
+	/*margin-top: 30%;*/
+	margin-bottom: 60px;
 }
 /*完善个人信息*/
 #header .top-logout {

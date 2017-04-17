@@ -8,6 +8,9 @@ use \DB;
 use App\Http\Requests;
 use iscms\Alisms\SendsmsPusher as Sms;
 use \Cookie;
+use Flc\Alidayu\Client;
+use Flc\Alidayu\App;
+use Flc\Alidayu\Requests\AlibabaAliqinFcSmsNumSend;
 class LoginController extends Controller
 {
     public function __construct(Sms $sms)
@@ -21,7 +24,8 @@ class LoginController extends Controller
         if(isset($_POST['code'])){
             $phone = $_POST['phone'];
             $yzm = $_POST['code'];
-            $list = \DB::table('jjw_teachers')->where('tc_phone',$phone)->first();
+            $list = \DB::table('jjw_teachers')->where('tc_phone',$phone)->where('tc_city_id',session('regionid'))->first();
+            //dd($list);
             if($list != null AND $request->cookie('code') == $yzm){
                 //设置session
                 session(['tc_phone' => $list->tc_phone,'tc_name'=>$list->tc_name]);
@@ -41,8 +45,8 @@ class LoginController extends Controller
             $phone = $_POST['phone'];
             $pass = md5($_POST['pwd']);
             //查询账号密码是否存在
-            $list = \DB::table('jjw_teachers')->where('tc_phone',$phone)->where('tc_pass',$pass)->first();
-
+            $list = \DB::table('jjw_teachers')->where('tc_phone',$phone)->where('tc_pass',$pass)->where('tc_city_id',session('regionid'))->first();
+            //dd($list);
             if($list != null){
                 //设置session
                 session(['tc_phone' => $list->tc_phone,'tc_name'=>$list->tc_name]);
@@ -112,7 +116,24 @@ class LoginController extends Controller
         $zt = $_POST['zt'];
         $yzm = rand(1000,9999);
         Cookie::queue("code", $yzm, 5);
-        $result=$this->sms->send("$phone","栗志家教","{zt:'{$zt}','code':'{$yzm}'}",'SMS_61850084');
+        if(session('Template') == '1'){
+            $result=$this->sms->send("$phone","栗志家教","{zt:'{$zt}','code':'{$yzm}'}",'SMS_61850084');
+        }else if(session('Template') == '2'){
+            $config = [
+                'app_key'    => '23746117',
+                'app_secret' => 'f0e278be87e2663cb6f47bb876c29deb',
+            ];
+            //dd($code);
+            $client = new Client(new App($config));
+            $req    = new AlibabaAliqinFcSmsNumSend;
+            $req->setRecNum($phone)
+                ->setSmsParam(['code' => $yzm,'zt'=> $zt ])
+                ->setSmsFreeSignName('德栗家教')
+                ->setSmsTemplateCode('SMS_62215171');
+            $resp = $client->execute($req);
+
+           // $result=$this->sms->send("$phone","德栗家教","{zt:'{$zt}','code':'{$yzm}'}",'');
+        }
         return "y";
     }
 

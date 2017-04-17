@@ -34,9 +34,18 @@
         <div class="meta-area meta-block">
             <h3><i class="icon-welfares"></i>热门学科</h3>
             <ul>
-                @foreach($xueke as $xk)
-                <li><a href="/facult.html">{{ $xk->sanji }}</a></li>
-                @endforeach
+                {{--@foreach($xueke as $xk)--}}
+                {{--<li><a href="/facult.html">{{ $xk->sanji }}</a></li>--}}
+                {{--@endforeach--}}
+                <li><a href="/facult.html">数学</a></li>
+                <li><a href="/facult.html">英语</a></li>
+                <li><a href="/facult.html">语文</a></li>
+                <li><a href="/facult.html">理综</a></li>
+                <li><a href="/facult.html">物理</a></li>
+                <li><a href="/facult.html">化学</a></li>
+                <li><a href="/facult.html">地理</a></li>
+                <li><a href="/facult.html">全科</a></li>
+
             </ul>
         </div>
         <div class="meta-salary-filter meta-block">
@@ -70,7 +79,7 @@
                             </span>
                             <div class="hover">
                                 <p>{{ subtext($jp->tc_comments,40) }}</p>
-                                <a href="javascript:void(0)" onclick="location.href='/teacher/365196.html'" class="look">查看 ></a>
+                                <a href="javascript:void(0)" onclick="location.href='/teacher/detail/{{ $jp->id }}.html'" class="look">查看 ></a>
                             </div>
                         </div>
                         <div class="bottom">
@@ -98,7 +107,7 @@
                     <i>{{ mb_substr($xs->tc_name,0,1) }}教员</i>
                     <div class="hover">
                         <p>{{subtext( $xs->tc_comments,40) }}</p>
-                        <a href="javascript:void(0)" class="look">查看 ></a>
+                        <a href="javascript:void(0)" class="look" onclick="location.href='/teacher/detail/{{ $xs->id }}.html'" >查看 ></a>
                     </div>
                 </div>
                 <div class="bottom">
@@ -125,7 +134,7 @@
                     <i>{{ mb_substr($zhuanzhi->tc_name,0,1) }}教员</i>
                     <div class="hover">
                         <p>{{ subtext($zhuanzhi->tc_comments,40) }}</p>
-                        <a href="javascript:void(0)" class="look">查看 ></a>
+                        <a href="javascript:void(0)" class="look" onclick="location.href='/teacher/detail/{{ $zhuanzhi->id }}.html'">查看 ></a>
                     </div>
                 </div>
                 <div class="bottom">

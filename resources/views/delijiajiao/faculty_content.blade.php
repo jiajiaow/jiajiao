@@ -39,7 +39,7 @@
   </div>
 <!-- 选项卡开始 -->
         <div class="cheng_teach-form">
-            <h4 style="background:white">预约XXX教员<i>(编号：{{ $list->id }})</i></h4>
+            <h4 style="background:white">预约{{ substr($list->tc_name,0,3) }}教员<i>(编号：T{{ $list->id }})</i></h4>
 		<form action="" method="post" onsubmit="return caozhen(1)">
                     <div class="cheng_fg">
 			<label for="">联系人</label>
