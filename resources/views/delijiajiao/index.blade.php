@@ -169,12 +169,12 @@
       </div>
       <div class="index1">
           <div class="lebt">
-          <div class="l"><img src="/delijiajiao/images/icon_title4.png">学员信息</div> <div class="r">更多</div></div>
+          <div class="l"><img src="/delijiajiao/images/icon_title4.png">学员信息</div> <div class="r"><a href="/xueyuan.html">更多</a></div></div>
           <div class="acrt1">
             @foreach($data as $data)
               <li>
                   <p id="t1"><a href="/xsinfo{{ $data->id }}.html">详情</a></p>
-                   <p id="t2">{{ $data->time }}</p>
+                   <p id="t2">{{ date('Y-m-d',$data->time) }}</p>
                     <p id="t3" style="background-color: #F7B529;"> 新发布 </p>
                      <p id="t4">{{ $data->user_situation }}</p>
                       <p id="t5">{{ $data->dq}}</p>
