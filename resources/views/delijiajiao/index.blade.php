@@ -26,7 +26,7 @@
             <h3><i class="icon-area"></i>热门大学</h3>
             <ul>
                 @foreach($xx as $xx)
-                <li style="width: 24.5%; overflow:hidden; text-overflow:ellipsis;"><a href="/faculty.html" target="_blank">{{ $xx->sh_shool }}</a></li>
+                <li style="width:100px; overflow:hidden; text-overflow:ellipsis;"><a href="/faculty.html" target="_blank">{{ $xx->sh_shool }}</a></li>
                 @endforeach
             </ul>
 
@@ -83,9 +83,13 @@
                             </div>
                         </div>
                         <div class="bottom">
-                            <a href="">{{ $jp->tc_type }}</a>
-                            <br/>
                             <a href="">{{ $jp->tc_school }}</a>
+
+                            <br/>@if($jp->tc_zhuanye)
+                                <span>{{ $jp->tc_zhuanye }}</span>
+                            @else
+                                <span>其他</span>
+                            @endif
                             <div class="clear"></div>
                             <a href="/yuyuelaoshi.html" class="btn">预约免费试课</a>
                         </div>
@@ -111,9 +115,14 @@
                     </div>
                 </div>
                 <div class="bottom">
-                    <a href="">{{ $xs->tc_type }}</a>
-                    <br/>
                     <a href="">{{ $xs->tc_school }}</a>
+
+                    <br/>
+                    @if($xs->tc_zhuanye)
+                        <span>{{ $xs->tc_zhuanye }}</span>
+                    @else
+                        <span>其他</span>
+                    @endif
                     <div class="clear"></div>
                     <a href="/yuyuelaoshi.html" class="btn">预约免费试课</a>
                 </div>
@@ -138,9 +147,14 @@
                     </div>
                 </div>
                 <div class="bottom">
-                    <a href="">{{ $zhuanzhi->tc_type }}</a>
-                    <br/>
                     <a href="">{{ $zhuanzhi->tc_school }}</a>
+
+                    <br/>
+                    @if($zhuanzhi->tc_zhuanye)
+                        <span>{{ $zhuanzhi->tc_zhuanye }}</span>
+                    @else
+                        <span>其他</span>
+                    @endif
                     <div class="clear"></div>
                     <a href="/yuyuelaoshi.html" class="btn">预约免费试课</a>
                 </div>

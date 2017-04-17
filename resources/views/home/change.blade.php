@@ -7,12 +7,14 @@
 </head>
 <body>
 <div id="city-top">
-    <div class="city-contain">
-        <img src="home/dq/images/city_top.png">
+    <div style="width: 100%" class="city-contain">
+
+        <img style="width: 100%" src="home/dq/images/city_top.png">
     </div>
 </div>
 <div id="city-content">
     <div class="city-contain">
+<<<<<<< HEAD
         <div class="top-link">
             @if(session('Template') == '1')
             <a href="http://www.lizhijiajiao.com" class="btn">进入栗志家教</a>
@@ -23,6 +25,11 @@
         <div class="city-list">
             @if(session('Template') == '1')
             <dl class="first">
+=======
+
+        <div class="city-list">
+            <dl style="margin-top: 10px;" class="first">
+>>>>>>> 239436f2fb52015e2307e3ead4f4cc5e1752089b
                 <dt>热门城市</dt>
                 <dd><a href="http://www.lizhijiajiao.com/">广州</a></dd>
                 <dd><a href="http://bj.lizhijiajiao.com/">北京</a></dd>
@@ -69,7 +76,9 @@
 </div>
 <div id="city-footer">
     <div class="city-contain">
-        <p>© 2005－2016版权所有：上海四帆固教育科技有限公司-家教114 | 沪ICP备09062748号-5</p>
+        <p>© 2005－2017版权所有：广州学求易教育咨询有限公司
+            | 粤ICP备16062097号-4
+        </p>
     </div>
 </div>
 </body>
