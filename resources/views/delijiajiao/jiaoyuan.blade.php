@@ -1,7 +1,7 @@
-﻿      @extends('delijiajiao.public.public')
-      <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-      @section('title',session('regionname') )
-      @section('content')
+﻿@extends('delijiajiao.public.public')
+@section('title',session('regionname') )
+@section('content')
+<link rel="stylesheet"  href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"  onerror="tracker.resErr(this)" />
   <!--<![endif]-->
   <div class="container">
    <div class="main-box">
@@ -55,12 +55,12 @@
 	</div>
     <div>
         <span style="display:block;" id="gen">
-            <img src="/delijiajiao/images/top1.png" alt="">
+            <img src="images/top1.png" alt="">
             更多筛选条件</span>
     <div>
     <div>
         <span id="shou">
-             <img src="/delijiajiao/images/top.png" alt="">
+             <img src="images/top.png" alt="">
             收起筛选条件</span>
     </div>
     
@@ -90,8 +90,8 @@
                   <p class="ta" > 预约 </p>
                    <p class="tb" > 查看详情</p>
                     <p class="tc" >自我描述</p>
-                      <p class="te" >就读/专业/年级</p>
-                       <p class="tf" >姓名丶性别</p>
+                      <p class="te" >就读丶毕业高校丶专业丶学历</p>
+                       <p class="tf" >姓名/性别</p>
                         <p class="tg" > 教员编号</p>
               </li> </div>
               <div class="acrtt3">
@@ -183,6 +183,5 @@ $(".eliminateCriteria").live("click",function(){
     <script type="text/javascript">
         $('#cheng').remove();
         $('#f').remove();
-
     </script>
 @endsection

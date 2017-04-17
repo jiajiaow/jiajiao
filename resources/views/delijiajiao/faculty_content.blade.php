@@ -7,7 +7,7 @@
       <img src=@if($list->tc_photo !='')
       {{ $list->tc_photo }}
       @else
-      {{ asset('/home/picture/2276d79d46584f964acf3cf3441c3ef9f4575918.jpg') }}
+      {{ asset('/delijiajiao/images/logo.png') }}
       @endif" />
       <div class="jybtnl"><div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more">分享老师名片</a></div>
 <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></div>
@@ -73,10 +73,24 @@
     <!-- 内容开始 -->
   <div class="TabContent">
        <div id="myTab0_Content0">
-           <span style="float: left;margin: 15px 5px 15px 5px;"><p style="float: left;padding: 0px 10px;color: #ff0000;">可授课目:</p>{{ substr($list->tc_subjects,1,800) }}</span><br>
-           <span style="float: left;margin: 15px 5px 15px 5px;"><p style="float: left;padding: 0px 10px;color: #ff0000;">授课区域:</p>{{ substr($list->tc_area,1,800) }}</span><br>
-           <span style="float: left;margin: 15px 5px 15px 5px;"><p style="float: left;padding: 0px 10px;color: #ff0000;">可授课时间:</p>{{ $list->tc_sktime }}</span><br>
-           <span style="float: left;margin: 15px 5px 15px 5px;"><p style="float: left;padding: 0px 10px;color: #ff0000;">课酬要求:</p>@if($list->tc_salary == null)执行德栗家教收费标准@else{{ $list->tc_salary }}@endif</span><br>
+           <table class="table">
+               <tr class="gradeU sc1">
+                   <td>可授课科目:</td>
+                   <td>{{ substr($list->tc_subjects,1,800) }}</td>
+               </tr>
+               <tr class="gradeU sc1">
+                   <td>可授课区域:</td>
+                   <td>{{ substr($list->tc_area,1,800) }}</td>
+               </tr>
+               <tr class="gradeU sc1">
+                   <td>可授课时间:</td>
+                   <td>{{ $list->tc_sktime }}</td>
+               </tr>
+               <tr class="gradeU sc1">
+                   <td>课酬要求:</td>
+                   <td>@if($list->tc_salary == null)执行德栗家教收费标准@else{{ $list->tc_salary }}@endif</td>
+               </tr>
+           </table>
        </div>
        <div id="myTab0_Content1" class="none">
            <span style="float: left;margin: 15px 5px 15px 5px;"><p style="float: left;padding: 0px 10px;color: #ff0000;">自我评价:</p>{{ $list->tc_comments }}</span><br>

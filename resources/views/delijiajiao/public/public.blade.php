@@ -87,7 +87,7 @@ for(i=0; i <tabList.length; i++)
     <div class="location">
      <div class="breadcrumb">
       <h1><a a href='/' class='primary-logo' ><img alt="广州" src="/delijiajiao/picture/guangzhou.png" class="city-logo" /></a></h1>
-      <span class="listing-slogan">{{ session('regionname') }}</span><span class="listing-slogan1">【德栗家教】【高校联盟】</span><a href="/change_city.html">更多城市</a>
+      <span class="listing-slogan">{{ session('regionname') }}</span><span class="listing-slogan1">【德栗家教】【高校联盟】</span>{{--<a href="/change_city.html">更多城市</a>--}}
      </div>
      <div class="pull-right">
       <a href="/yuyuelaoshi.html" class="resume-btn" style="font-size: 16px">请老师</a>
@@ -163,17 +163,17 @@ for(i=0; i <tabList.length; i++)
               <div class="line"></div>
               <div class="b3">
                   <li>我是老师</li>
-                  <li><a href="#" target="_blank" rel="nofollow">预约订单流程</a></li>
-                  <li><a href="#" target="_blank" rel="nofollow">教员收费标准</a></li>
-                  <li><a href="#" target="_blank">支付方式</a></li>
+                  <li><a href="" target="_blank" rel="nofollow">预约订单流程</a></li>
+                  <li><a href="/faculty_sfbz.html" target="_blank" rel="nofollow">教员收费标准</a></li>
+                  <li><a href="/payment_way.html" target="_blank">支付方式</a></li>
               </div>
               <div class="line"></div>
               <div class="b4">
                   <li>关于我们</li>
 
-                  <li><a href="#" target="_blank" rel="nofollow">联系我们</a></li>
-                  <li><a href="#" target="_blank" rel="nofollow">公司简介</a></li>
-                  <li><a href="#" target="_blank" data-toggle="tracker" data-source="footer">版权声明</a></li>
+                  <li><a href="/contact.html" target="_blank" rel="nofollow">联系我们</a></li>
+                  <li><a href="/company.html" target="_blank" rel="nofollow">公司简介</a></li>
+                  <li><a href="/copyright.html" target="_blank" data-toggle="tracker" data-source="footer">版权声明</a></li>
               </div>
               <div class="line"></div>
               <div class="b5">

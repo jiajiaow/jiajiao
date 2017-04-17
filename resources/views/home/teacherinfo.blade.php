@@ -307,14 +307,9 @@
                                     <!-- 学校是下拉+手动输入-->
                                     <label for="">学　　校：</label>
                                     <select name="tc_school">
-                                        <option value="广州大学">广州大学</option>
-                                        <option value="广州师范学院">广州师范学院</option>
-                                        <option value="中山大学">中山大学</option>
-                                        <option value="暨南大学">暨南大学</option>
-                                        <option value="华南理工大学">华南理工大学</option>
-                                        <option value="广东外语外贸大学">广东外语外贸大学</option>
-                                        <option value="华南农业大学">华南农业大学</option>
-                                        <option value="广东工业大学">广东工业大学</option>
+                                        @foreach($xuexiao as $xx)
+                                        <option value="{{ $xx->school_name }}">{{ $xx->school_name }}</option>
+                                        @endforeach
                                         <option >如无上述学校请手动输入</option>
                                         <input style="width:300px;" name="tc_school_bak" type="text" value="{{ $list->tc_school_bak }}" placeholder="请手动输入"/>
                                     </select>
@@ -1435,18 +1430,18 @@
                     <div class="tab-cont ">
                         <div class="resetting">
                             <h3>修改密码</h3>
-                            <form action="" method="post" onsubmit="return checkpassword()">
+                            <form action="/doeditpass" method="post" onsubmit="return checkpassword()">
                                 <div class="fg">
                                     <label for="" style="font-size:13px;">原　　密　　码：</label>
-                                    <input type="password" name="turnpassword">
+                                    <input type="password" name="pass">
                                 </div>
                                 <div class="fg">
                                     <label for="" style="font-size:13px;">新　　密　　码：</label>
-                                    <input type="password" name="newpassword" id="newpassword">
+                                    <input type="password" name="onepass" id="newpassword">
                                 </div>
                                 <div class="fg">
                                     <label for="" style="font-size:13px;">再次输入新密码：</label>
-                                    <input type="password" name="confirmnewpassword" id="confirmnewpassword">
+                                    <input type="password" name="towpass" id="confirmnewpassword">
                                 </div>
                                 <button type="submit">确认修改</button>
                             </form>

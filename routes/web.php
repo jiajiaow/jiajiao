@@ -83,6 +83,16 @@ Route::get('/zfsm.html','home\zfsmController@index');
 Route::get('/xsinfo{id?}.html','home\xsinfoController@index');
 //教员预约
 Route::get('/Teacheryy.html/{orderid?}','home\TeacheryyController@index');
+//联系我们
+Route::get('/contact.html','home\flootsController@contact');
+//公司简介
+Route::get('/company.html','home\flootsController@company');
+//版权声明
+Route::get('/copyright.html','home\flootsController@copyright');
+//支付方式
+Route::get('/payment_way.html','home\flootsController@payment_way');
+//支付方式
+Route::get('/faculty_sfbz.html','home\flootsController@faculty_sfbz');
 
 
 

@@ -36,7 +36,10 @@ class teacherinfoController extends Controller
 //        return view('home.teacherinfo',['list'=>$list,'szd'=>$szd,'sd'=>$sd,'qu'=>$qu]);
         //科目
         $km = \DB::table('jjw_sanji')->get();
-        return view('home.teacherinfo',['list'=>$list,'qu'=>$qu,'km'=>$km]);
+        //学校
+        $xuexiao = \DB::table('school_t')->where('city_id',session('regionid'))->get();
+       // dd($xx);
+        return view('home.teacherinfo',['list'=>$list,'qu'=>$qu,'km'=>$km,'xuexiao'=>$xuexiao]);
     }
 
     //修改教员个人中心
@@ -219,7 +222,7 @@ class teacherinfoController extends Controller
     public function facultys(Request $request,$id){
         $quyu = \DB::table('jjw_position_county')->where('city_id',Session('regionid'))->get();
         //教员
-        $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai',$id)->paginate(10);
+        $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai',$id)->orderBy('id','desc')->paginate(10);
         //学校表市id
         $xxsid= DB::table('city_info')->where('ci_city','like','%'.substr(session('regionname'),0,6).'%')->first();
         //学校

@@ -1,6 +1,7 @@
 ﻿@extends('delijiajiao.public.public')
 @section('title',session('regionname') )
 @section('content')
+<link rel="stylesheet"  href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"  onerror="tracker.resErr(this)" />
 <div class="container">
   <div class="main-box">
 	    <div id="selectList" class="screenBox screenBackground">
@@ -72,7 +73,7 @@
                     <p class="tc" >学员状态</p>
                      <p class="td" >教员性别/要求/预约人数</p>
                       <p class="te" >课酬</p>
-                       <p class="tf" >年级性别/求教课程</p>
+                       <p class="tf" >年级性别/科目</p>
                         <p class="tg" > 学员姓名/编号</p>
               </li>
           </div>
@@ -91,7 +92,15 @@
                             @elseif($li->status == 3)
                          <p id="tc" style="background-color: #cc6699;"> 已成功 </p>
                             @endif
-                        <p id="td"> [{{ $li->teacher_sex }}]{{  subtext($li->teacher_info,45) }}[]</p>
+                        <p id="td"> [
+                            @if($li->teacher_sex == '1')
+                                男
+                            @elseif($li->teacher_sex == '2')
+                                女
+                            @elseif($li->teacher_sex=='3')
+                                男女不限
+                            @endif
+                            ]{{  subtext($li->teacher_info,45) }}</p>
                         <p id="te">{{ $li->money==''?'执行德栗家教收费标准':$li->money }}</p>
                         <p id="tf"> {{ $li->grade }}({{ $li->user_sex=='1'?'男':'女' }})<br>{{ $li->subject_id }} </p>
                         <p id="tg"> {{ substr($li->user_name,0,3) }}学员<br>{{ $li->id }}</p>
@@ -101,8 +110,12 @@
           </div>
         </div>
      </div>
+    <div class="acrtp"> {{ $list->links()}}</div>
+
+
     <div class="selectNumberScreen">
   </div></div>
+
 
 <script type="text/javascript">
     var dlNum  =$("#selectList").find("dl");
