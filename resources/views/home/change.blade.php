@@ -14,7 +14,6 @@
 </div>
 <div id="city-content">
     <div class="city-contain">
-<<<<<<< HEAD
         <div class="top-link">
             @if(session('Template') == '1')
             <a href="http://www.lizhijiajiao.com" class="btn">进入栗志家教</a>
@@ -25,11 +24,8 @@
         <div class="city-list">
             @if(session('Template') == '1')
             <dl class="first">
-=======
-
         <div class="city-list">
             <dl style="margin-top: 10px;" class="first">
->>>>>>> 239436f2fb52015e2307e3ead4f4cc5e1752089b
                 <dt>热门城市</dt>
                 <dd><a href="http://www.lizhijiajiao.com/">广州</a></dd>
                 <dd><a href="http://bj.lizhijiajiao.com/">北京</a></dd>
