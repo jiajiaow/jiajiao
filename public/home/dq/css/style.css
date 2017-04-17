@@ -8861,7 +8861,7 @@ textarea{
 }
 #city-top {
 	text-align: center;
-	padding-top: 35px;
+	/*padding-top: 35px;*/
 	border-bottom: 2px solid #ff6600;
 }
 #city-top img {

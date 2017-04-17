@@ -14,7 +14,27 @@
 </div>
 <div id="city-content">
     <div class="city-contain">
+        <div class="top-link">
+            @if(session('Template') == '1')
+            <a href="http://www.lizhijiajiao.com" class="btn">进入栗志家教</a>
+            @else
+            <a href="http://www.delijiajiao.com" class="btn">德栗家教</a>
+            @endif
+        </div>
         <div class="city-list">
+            <dl style="margin-top: 10px;" class="first">
+                <dt>热门城市</dt>
+                <dd><a href="http://www.lizhijiajiao.com/">广州</a></dd>
+                <dd><a href="http://bj.lizhijiajiao.com/">北京</a></dd>
+                <dd><a href="http://tj.lizhijiajiao.com/">天津</a></dd>
+                <dd><a href="http://gz.lizhijiajiao.com/">广州</a></dd>
+                <dd><a href="http://sz.lizhijiajiao.com/">深圳</a></dd>
+                <dd><a href="http://hz.lizhijiajiao.com/">杭州</a></dd>
+                <dd><a href="http://nj.lizhijiajiao.com/">南京</a></dd>
+                <dd><a href="http://wh.lizhijiajiao.com/">武汉</a></dd>
+                <dd><a href="http://xa.lizhijiajiao.com/">西安</a></dd>
+                <dd><a href="http://cd.lizhijiajiao.com/">成都</a></dd>
+            </dl>
             @foreach($data as $data)
             <dl>
                 <dt>{{ $data->provice_name }}</dt> <!-- 省 -->
