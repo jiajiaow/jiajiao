@@ -42,7 +42,7 @@
              <img src="/delijiajiao/images/top.png" alt="">
             收起筛选条件</span>
     </div>
-    
+
 	<div class="hasBeenSelected">
 		<dl>
 			<dd style="display:none" class="clearDd">
@@ -51,7 +51,7 @@
 			</dd>
 		</dl>
 	</div>
-	
+
 </div>
       <div class="index3">
           <div class="lebt">
@@ -63,7 +63,7 @@
                   <input id="sousuo" type="submit">
                 </div>
             </div>
-          
+
           <div class="acrty">
 
               <li>
@@ -80,7 +80,7 @@
                   @foreach($list as $li)
                  <li>
                       <p id="ta"> <a href="">查看详情</a></p>
-                       <p id="tb"> {{ date("Y-m-d",$li->time) }}</p>
+                       <p id="tb"> {{ $li->time }}</p>
 
                             @if($li->status == 0)
                          <p id="tc" style="background-color: #ff9900;">  新发布</p>
@@ -100,7 +100,7 @@
               </div>
           </div>
         </div>
-     </div> 
+     </div>
     <div class="selectNumberScreen">
   </div></div>
 

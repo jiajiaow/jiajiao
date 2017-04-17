@@ -173,7 +173,7 @@
           <div class="acrt1">
             @foreach($data as $data)
               <li>
-                  <p id="t1">详情</p>
+                  <p id="t1"><a href="/xsinfo{{ $data->id }}.html">详情</a></p>
                    <p id="t2">{{ $data->time }}</p>
                     <p id="t3" style="background-color: #F7B529;"> 新发布 </p>
                      <p id="t4">{{ $data->user_situation }}</p>

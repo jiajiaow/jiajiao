@@ -14,49 +14,7 @@
 </div>
 <div id="city-content">
     <div class="city-contain">
-<<<<<<< HEAD
-        <div class="top-link">
-            @if(session('Template') == '1')
-            <a href="http://www.lizhijiajiao.com" class="btn">进入栗志家教</a>
-            @else
-            <a href="http://www.delijiajiao.com" class="btn">德栗家教</a>
-            @endif
-        </div>
         <div class="city-list">
-            @if(session('Template') == '1')
-            <dl class="first">
-=======
-
-        <div class="city-list">
-            <dl style="margin-top: 10px;" class="first">
->>>>>>> 239436f2fb52015e2307e3ead4f4cc5e1752089b
-                <dt>热门城市</dt>
-                <dd><a href="http://www.lizhijiajiao.com/">广州</a></dd>
-                <dd><a href="http://bj.lizhijiajiao.com/">北京</a></dd>
-                <dd><a href="http://tj.lizhijiajiao.com/">天津</a></dd>
-                <dd><a href="http://gz.lizhijiajiao.com/">广州</a></dd>
-                <dd><a href="http://sz.lizhijiajiao.com/">深圳</a></dd>
-                <dd><a href="http://hz.lizhijiajiao.com/">杭州</a></dd>
-                <dd><a href="http://nj.lizhijiajiao.com/">南京</a></dd>
-                <dd><a href="http://wh.lizhijiajiao.com/">武汉</a></dd>
-                <dd><a href="http://xa.lizhijiajiao.com/">西安</a></dd>
-                <dd><a href="http://cd.lizhijiajiao.com/">成都</a></dd>
-            </dl>
-            @else
-            <dl class="first">
-                <dt>热门城市</dt>
-                <dd><a href="http://www.delijiajiao.com/">广州</a></dd>
-                <dd><a href="http://bj.delijiajiao.com/">北京</a></dd>
-                <dd><a href="http://tj.delijiajiao.com/">天津</a></dd>
-                <dd><a href="http://gz.delijiajiao.com/">广州</a></dd>
-                <dd><a href="http://sz.delijiajiao.com/">深圳</a></dd>
-                <dd><a href="http://hz.delijiajiao.com/">杭州</a></dd>
-                <dd><a href="http://nj.delijiajiao.com/">南京</a></dd>
-                <dd><a href="http://wh.delijiajiao.com/">武汉</a></dd>
-                <dd><a href="http://xa.delijiajiao.com/">西安</a></dd>
-                <dd><a href="http://cd.delijiajiao.com/">成都</a></dd>
-            </dl>
-            @endif
             @foreach($data as $data)
             <dl>
                 <dt>{{ $data->provice_name }}</dt> <!-- 省 -->

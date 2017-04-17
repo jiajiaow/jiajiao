@@ -73,7 +73,8 @@ Route::get('/test','testController@index');
 Route::get('/faculty.html','home\teacherinfoController@faculty');
 //资费说明
 Route::get('/zfsm.html','home\zfsmController@index');
-
+//学员详细资料
+Route::get('/xsinfo{id?}.html','home\xsinfoController@index');
 
 
 

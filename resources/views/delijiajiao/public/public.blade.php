@@ -211,15 +211,6 @@ for(i=0; i <tabList.length; i++)
 
           © 2005－2017德栗家教   |   粤ICP备16062097号 关键词：家教,一对一家教,广州家教网</div>
 
-  <div id="footer">
-      <form id="do" method="post" action="/yuyuexiangxi.html">
-          {{ csrf_field() }}
-          姓名：<input type="text" name="lxr" id="lxr" placeholder="联系人" maxlength="10">
-              手机：<input type="text" id="phone" name="phone" maxlength="11" placeholder="手机号码">
-              验证码：<input type='text' name="yzm" id="yzm" placeholder="验证码" >
-              <input id="zhen" type='button' onclick="test();" value="获取验证码" >
-              <button id='tj' style="width: 110px;height: 35px;" type="button" onclick="dopost();">快速请家教</button>
-      </form>
 
 
   </div>

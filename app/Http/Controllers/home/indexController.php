@@ -29,7 +29,7 @@ class indexController extends Controller{
             //dd($xueshen);
             $zhuanzhi = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai','1')->limit(5)->get();
             //最新学生订单
-            $data = DB::table('jjw_order')->where('city_id',session('regionid'))->limit(6)->orderBy('id', 'DESC')->get();
+            $data = DB::table('jjw_order')->where('city_id',session('regionid'))->limit(6)->orderBy('time', 'DESC')->get();
             //热门学科
             $xueke = DB::table('jjw_sanji')->where('hot','1')->limit(8)->get();
 
