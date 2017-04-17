@@ -136,7 +136,7 @@
                         <ul>
                             <li><p>{{ $data->user_phone }}</p></li>
                             <li><p>{{ $data->user_name }}</p></li>
-                            <li><p>{{ date("Y-m-d h:i:s",$data->time) }}</p></li>
+                            <li><p>{{ $data->time }}</p></li>
                             <li><p>新家长/老家长（以往订单数量）</p></li>
                             <li><p>(家长等级)</p></li>
                             <li><p>备注框</p></li>

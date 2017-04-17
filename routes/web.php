@@ -71,9 +71,16 @@ Route::post('/StudentAdd','home\yuyueController@StudentAdd');
 Route::get('/test','testController@index');
 //德栗教员库
 Route::get('/faculty.html','home\teacherinfoController@faculty');
+//更多金牌 专职 学员 教师
+Route::get('/facultys.html/gd/{id?}','home\teacherinfoController@facultys');
+//热门学科 大学 区域
+Route::get('/hot.html/{type?}/{key?}','home\teacherinfoController@hot');
+//导航搜索
+Route::get('//navigation.html/{type?}/{key?}','home\teacherinfoController@hot');
 //资费说明
 Route::get('/zfsm.html','home\zfsmController@index');
-
+//学员详细资料
+Route::get('/xsinfo{id?}.html','home\xsinfoController@index');
 
 
 
@@ -138,6 +145,6 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     //订单
     Route::get('/xsdd','admin\orderController@xsdd');
     //修改订单
-    Route::post('/doorder','admin\orderController@doorder');
+    Route::post('/doorder','admin\orderController@');
 });
 //----------后台END----------//

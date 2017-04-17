@@ -36,7 +36,7 @@
             <div class="right-info pull-right">
                 <ul>
                     <li>
-                        <a href="http://www.jiajiao114.com/xueyuan/" target="_blank">最新家教信息</a>
+                        <a href="" target="_blank">最新家教信息</a>
                     </li>
                     <li>
                         <a href="" onclick="javascript:location.href=&#39;/teacher/365360.html&#39;" class="look">简历预览</a>
@@ -117,7 +117,7 @@
                                         <span><img src="{{ asset('/home/image/three.png') }}"></span>
                                         <h4>简历详尽，突出优势</h4>
                                     </div>
-                                    <p style="font-size:18px;">尽量将您的资料填写详细，并突出您的特长和家教相关经验，以方便家长及家教114工作人员选择、推荐。好的简历，事半功倍，可以大大增加您的接单率！</p>
+                                    <p style="font-size:18px;">尽量将您的资料填写详细，并突出您的特长和家教相关经验，以方便家长及德栗家教工作人员选择、推荐。好的简历，事半功倍，可以大大增加您的接单率！</p>
                                     <a style="font-size:18px;" href="http://www.jiajiao114.com/teacher/365360" class="look">简历预览</a><a style="font-size:18px;" class="change" href="http://www.jiajiao114.com/member/index.php?d=1">修改简历</a>
                                 </div>
                                 <div class="section">
@@ -315,8 +315,17 @@
                                 </div>
                                 <div class="fg sex">
                                     <label for="">性　　别：</label>
-                                    <input type="radio" name="sex" value="1" {{ $list->tc_sex=='1'?'checked':'' }} ><span>男</span>
-                                    <input type="radio" name="sex" value="0" {{ $list->tc_sex=='0'?'checked':'' }} ><span>女</span>
+                                    @if($list->tc_sex=='1')
+                                        <input type="radio" name="sex" value="1" checked><span>男</span>
+                                        <input type="radio" name="sex" value="0"><span>女</span>
+                                    @elseif($list->tc_sex=='0')
+                                        <input type="radio" name="sex" value="1" ><span>男</span>
+                                        <input type="radio" name="sex" value="0" checked><span>女</span>
+                                    @elseif($list->tc_sex=='')
+                                        <input type="radio" name="sex" value="1" checked><span>男</span>
+                                        <input type="radio" name="sex" value="0"><span>女</span>
+                                    @endif
+
                                 </div>
 
                                 <div class='fg'>
@@ -336,7 +345,7 @@
                                 </div>
                                 <div class='fg'>
                                     <label for="">任教学校或机构：</label>
-                                    <input style="width:460px;"  type="text" name="teaches" value="" class="" placeholder="仅专职老师或退休教师需要填写任教学校或机构，此项对外不公布，请放心填写
+                                    <input style="width:460px;"  type="text" name="teaches" value="" class="" placeholder="仅专职老师填写任教学校或机构，此项对外不公布，请放心填写
 ">
 
                                 </div>
@@ -713,10 +722,10 @@
                                     <div class="clear"></div>
                                 </div>
                                 <div class="hide-box">
-                                    <form action="" id="othersave2">
+                                    <form action="" id="othersave2" enctype= multipart/form-data >
                                         <div class="tfg">
                                             <label for="">自我描述：</label><br/>
-                                            <a  style="color: #333" href="">查看范例</a>
+                                            {{--<a  style="color: #333" href="">查看范例</a>--}}
                                             <textarea name="resume" placeholder="注：写的越详细，家长会觉得你越负责，也越了解你的情况，将增加家长对你的好感，大幅增加成功接单的概率。" class="al"></textarea>
                                         </div>
                                         <div class="fg">
@@ -734,14 +743,14 @@
                                                 <a href="javascript:void(0)" id='sctp'>点击上传</a>
                                             </div>
                                             <br/>
-                                            <a  style="color: #333" href="">查看范例</a>
+                                            {{--<a  style="color: #333" href="">查看范例</a>--}}
                                         </div>
 
 
                                         <div class="tfg" >
                                             <label for="">家教简历：</label>
                                             <br/>
-                                            <a style="color: #333;margin-bottom: 15px;display: inline-block" href="">查看范例</a>
+                                            {{--<a style="color: #333;margin-bottom: 15px;display: inline-block" href="">查看范例</a>--}}
                                             <div>
                                                 <div style="height: 180px;">
                                                     <div style="float:left;margin-right:10px">
@@ -754,7 +763,9 @@
                                                         <span>教授科目</span>
                                                         <br />
                                                         <select name="" id="">
-                                                            <option value="">可选科目</option>
+                                                            @foreach($km as $k)
+                                                            <option value="{{ $k->sanji }}">{{ $k->sanji }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                     <div style="float:left;">
@@ -783,7 +794,9 @@
                                                         <span>教授科目</span>
                                                         <br />
                                                         <select name="" id="">
-                                                            <option value="">可选科目</option>
+                                                            @foreach($km as $k)
+                                                                <option value="{{ $k->sanji }}">{{ $k->sanji }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                     <div style="float:left;">
@@ -812,7 +825,9 @@
                                                         <span>教授科目</span>
                                                         <br />
                                                         <select name="" id="">
-                                                            <option value="">可选科目</option>
+                                                            @foreach($km as $k)
+                                                                <option value="{{ $k->sanji }}">{{ $k->sanji }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                     <div style="float:left;">
@@ -932,7 +947,7 @@
                         <div class="succeed">
                             <div class="section">
                                 <h3><i></i>的成功家教记录</h3>
-                                <p>成功记录是您过往在家教114接受聘用并持续任教的历史记录，成功记录丰富，学员将会更愿意选择您任教。</p>
+                                <p>成功记录是您过往在德栗家教接受聘用并持续任教的历史记录，成功记录丰富，学员将会更愿意选择您任教。</p>
                             </div>
                             <table>
                                 <caption>家教记录</caption>
@@ -1335,14 +1350,13 @@
     <script type="text/javascript">
         $('#sctp').click(function(){
             $('#up').click();
-        })
-
-        function uptp(){
+        });
+        function upTp(){
             var images = $("#up").val();
             if ($.trim(images) == "") {
                 alert("请选择图片！");
                 return;
-
+            }
             var actionUrl = "";
 
             $("#othersave2").ajaxSubmit({

@@ -71,7 +71,7 @@ for(i=0; i <tabList.length; i++)
      <ul id="user-tools" class="navbar-nav">
          @if(session('tc_name') != null or session('tc_phone') != null)
              <li><arel="nofollow" data-toggle="userAuth" data-type="reg">尊敬的{{ substr(session('tc_name'),0,3) }}教员</a>  </li>
-             <li><a href="/grzx.html" rel="nofollow" data-toggle="userAuth" data-type="reg">教员中心</a></li>
+             <li><a href="/teacherinfo.html" rel="nofollow" data-toggle="userAuth" data-type="reg">教员中心</a></li>
              <li><a href="/outlogin.html" rel="nofollow" data-toggle="userAuth" data-type="reg">退出</a></li>
              @else
              <li><a href="/reg.html" rel="nofollow" data-toggle="userAuth" data-type="reg">教员注册</a></li>
@@ -105,7 +105,7 @@ for(i=0; i <tabList.length; i++)
      <li><a href="/zfsm.html" >资费说明</a></li>
      <li><a href="/xueyuan.html" >学员库</a></li>
         <li><a href="">会员中心</a></li>
-        <li><a href="">资源中心</a></li>
+        {{--<li><a href="">资源中心</a></li>--}}
     {{-- <li><a href="#" target="_blank">家长课堂</a></li> --}}
     {{-- <li><a href="#" target="_blank">家长课堂</a></li> --}}
     </ul>
@@ -128,7 +128,7 @@ for(i=0; i <tabList.length; i++)
                             <dt>{{ $ej->erji }}</dt>
                             @foreach($sanji as $sj)
                                 @if($ej->id == $sj->erji_id)
-                                    <dd><a href="">{{ $sj->sanji }}</a></dd>
+                                    <dd><a href="/navigation.html/学科/{{ $sj->sanji }}">{{ $sj->sanji }}</a></dd>
                                 @endif
                             @endforeach
 
@@ -155,24 +155,25 @@ for(i=0; i <tabList.length; i++)
               </div>
               <div class="line"></div>
               <div class="b2">
-                  <li><a href="#" target="_blank" rel="nofollow">我是学员</a></li>
-                  <li> <a href="#" target="_blank" rel="nofollow">快速请家教</a></li>
-                  <li><a href="#" target="_blank">学员资费标准</a></li>
-                  <li><a href="#" target="_blank" rel="nofollow">挑选合适教员</a></li>
+                  <li>我是学员</li>
+                  <li> <a href="/yuyuelaoshi.html" target="_blank" rel="nofollow">快速请家教</a></li>
+                  <li><a href="/zfsm.html" target="_blank">学员资费标准</a></li>
+                  <li><a href="/faculty.html" target="_blank" rel="nofollow">挑选合适教员</a></li>
               </div>
               <div class="line"></div>
               <div class="b3">
-                  <li><a href="#" target="_blank" data-toggle="tracker" data-source="footer">我是老师</a></li>
+                  <li>我是老师</li>
                   <li><a href="#" target="_blank" rel="nofollow">预约订单流程</a></li>
                   <li><a href="#" target="_blank" rel="nofollow">教员收费标准</a></li>
                   <li><a href="#" target="_blank">支付方式</a></li>
               </div>
               <div class="line"></div>
               <div class="b4">
-                  <li><a href="#" target="_blank">关于我们</a></li>
+                  <li>关于我们</li>
+
                   <li><a href="#" target="_blank" rel="nofollow">联系我们</a></li>
-                  <li><a href="#" target="_blank" data-toggle="tracker" data-source="footer">我是老师</a></li>
                   <li><a href="#" target="_blank" rel="nofollow">公司简介</a></li>
+                  <li><a href="#" target="_blank" data-toggle="tracker" data-source="footer">版权声明</a></li>
               </div>
               <div class="line"></div>
               <div class="b5">
@@ -211,15 +212,6 @@ for(i=0; i <tabList.length; i++)
 
           © 2005－2017德栗家教   |   粤ICP备16062097号 关键词：家教,一对一家教,广州家教网</div>
 
-  <div id="footer">
-      <form id="do" method="post" action="/yuyuexiangxi.html">
-          {{ csrf_field() }}
-          姓名：<input type="text" name="lxr" id="lxr" placeholder="联系人" maxlength="10">
-              手机：<input type="text" id="phone" name="phone" maxlength="11" placeholder="手机号码">
-              验证码：<input type='text' name="yzm" id="yzm" placeholder="验证码" >
-              <input id="zhen" type='button' onclick="test();" value="获取验证码" >
-              <button id='tj' style="width: 110px;height: 35px;" type="button" onclick="dopost();">快速请家教</button>
-      </form>
 
 
   </div>

@@ -331,7 +331,7 @@ body .ui-page>header .location .breadcrumb .icon-arrow-right,body>header .locati
 body .ui-page>header .location .breadcrumb .post-total-count,body>header .location .breadcrumb .post-total-count{color:#bebebe;font-size:14px}
 body .ui-page>header .location .primary-logo,body>header .location .primary-logo{position:relative;top:10px;text-decoration:none}
 body .ui-page>header .location .primary-logo span.city-logo,body>header .location .primary-logo span.city-logo{position:relative;bottom:5px;margin-right:1px;font-family:Microsoft Yahei,Hiragino Sans GB,WenQuanYi Micro Hei,sans-serif;font-weight:700;font-size:20px;color:#f46}
-body .ui-page>header .location .primary-logo img,body>header .location .primary-logo img{margin-right:1px;vertical-align:baseline}
+body .ui-page>header .location .primary-logo img,body>header .location .primary-logo img{margin-right:1px;vertical-align:baseline;width: 60px;}
 body .ui-page>header .location a.post,body>header .location a.post{float:right;margin:24px 0;width:260px}
 body .ui-page>header .location a.other-post,body>header .location a.other-post{background:#fff;color:#f46}
 body .ui-page>header .location a.other-post:hover,body>header .location a.other-post:hover{background-image:none}

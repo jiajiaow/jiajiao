@@ -9,7 +9,7 @@ class orderController extends Controller
 {
     public function xsdd(Request $request)
     {
-        $data = DB::table('jjw_order')->get();
+        $data = DB::table('jjw_order')->orderBy('id','desc')->limit(5)->get();
         return view('admin.xsdd',['data' => $data]);
     }
     public function doorder(Request $request)

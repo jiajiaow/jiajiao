@@ -42,7 +42,7 @@
              <img src="/delijiajiao/images/top.png" alt="">
             收起筛选条件</span>
     </div>
-    
+
 	<div class="hasBeenSelected">
 		<dl>
 			<dd style="display:none" class="clearDd">
@@ -51,7 +51,7 @@
 			</dd>
 		</dl>
 	</div>
-	
+
 </div>
       <div class="index3">
           <div class="lebt">
@@ -63,7 +63,7 @@
                   <input id="sousuo" type="submit">
                 </div>
             </div>
-          
+
           <div class="acrty">
 
               <li>
@@ -79,7 +79,7 @@
               <div class="acrt3">
                   @foreach($list as $li)
                  <li>
-                      <p id="ta"> <a href="">查看详情</a></p>
+                      <p id="ta"> <a href="/xsinfo{{ $li->id }}.html">查看详情</a></p>
                        <p id="tb"> {{ date("Y-m-d",$li->time) }}</p>
 
                             @if($li->status == 0)
@@ -91,16 +91,16 @@
                             @elseif($li->status == 3)
                          <p id="tc" style="background-color: #cc6699;"> 已成功 </p>
                             @endif
-                        <p id="td"> [{{ $li->teacher_sex }}]{{  subtext($li->teacher_info,45) }}[{{ $li->about_number }}]</p>
+                        <p id="td"> [{{ $li->teacher_sex }}]{{  subtext($li->teacher_info,45) }}[]</p>
                         <p id="te">{{ $li->money==''?'执行德栗家教收费标准':$li->money }}</p>
-                        <p id="tf"> {{ $li->grade }}({{ $li->user_sex }})<br>{{ $li->subject_id }} </p>
+                        <p id="tf"> {{ $li->grade }}({{ $li->user_sex=='1'?'男':'女' }})<br>{{ $li->subject_id }} </p>
                         <p id="tg"> {{ substr($li->user_name,0,3) }}学员<br>{{ $li->id }}</p>
                   </li>
                  @endforeach
               </div>
           </div>
         </div>
-     </div> 
+     </div>
     <div class="selectNumberScreen">
   </div></div>
 
