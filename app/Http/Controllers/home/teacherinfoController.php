@@ -232,11 +232,12 @@ class teacherinfoController extends Controller
         $quyu = \DB::table('jjw_position_county')->where('city_id',Session('regionid'))->get();
         //教员
         if($type=="学科"){
-            $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_subjects','like','%'.$key.'%')->paginate(10);
+            $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_subjects','like','%'.$key.'%')->orderBy('id','desc')->paginate(10);
         }else if($type=="区域"){
-            $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_area','like','%'.$key.'%')->paginate(10);
+            $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_area','like','%'.$key.'%')->orderBy('id','desc')->orderBy('tc_reg_date','desc')->paginate(10);
         }else if($type=="学院"){
-            $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_school','like','%'.$key.'%')->paginate(10);
+            $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_school','like','%'.$key.'%')->orderBy('id','desc')->paginate(10);
+
         }
         //dd($list);
         //学校表市id
@@ -245,5 +246,6 @@ class teacherinfoController extends Controller
         $xx= DB::table('shool_info')->where('sh_city',$xxsid->ci_id)->limit(10)->get();
         // dd($xy);
         return view('delijiajiao.jiaoyuan',['quyu'=>$quyu,'list'=>$list,'xx'=>$xx]);
+
     }
 }
