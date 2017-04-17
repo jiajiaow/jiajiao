@@ -219,6 +219,12 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    <tr>
+                                        <td>订单号</td>
+                                        <td>订单号</td>
+                                        <td>订单号</td>
+                                        <td>订单号</td>
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -900,26 +906,262 @@
                     </div>
                     <div class="tab-cont ">
                         <div class="no-payment">
-                            <div class="section">
-                                <h3>尊敬的教员！<i></i>，您有<i>0</i>笔家教订单代支付!</h3>
-                                <p>由于家教信息具有很强时效性，请尽快完成支付谢谢配合。</p>
+                            <div class="section" id="tit">
+                                <span class="NewInfo_1">新家教单</span>
+                                <span class="NewInfo_2">我预约的单</span>
+                                <span class="NewInfo_3">我已接的单</span>
+                                <span class="NewInfo_4">成功的单</span>
                             </div>
-                            <table>
-                                <caption>待付订单</caption>
-                                <thead>
-                                <tr>
-                                    <th>订单号</th>
-                                    <th>所在区域</th>
-                                    <th>求教科目</th>
-                                    <th>待付金额</th>
-                                    <th>接单时间</th>
-                                    <th>操作</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                </tbody></table>
+                                <div>
+                                    <table>
+                                        <caption>新家教单</caption>
+                                    </table>
+                                </div>
+                                <ul id="con">
+                                    <li class="show">
+                                        <div class="content">
+                                            <table border="1">
+                                                <tr>
+                                                  <th style="width: 100px;" >订单状态/教员要求/编号</th>
+                                                  <th  style="width: 80px;">年级科目/查看详情</th>
+                                                  <th style="width: 170px;">地址</th>
+                                                  <th colspan="2" style="width: 200px;">课酬/信息费</th>
+                                                  <th style="width: 150px;">获取订单</th>
+                                                  <th style="width: 100px;">备注</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>新家教</td>
+                                                    <td>初一数学</td>
+                                                    <td>地址</td>
+                                                    <td rowspan="3" style="width: 120px;">
+                                                        <p>课酬：</p>
+                                                        <p>周课酬：</p>
+                                                        <p>信息费：</p>
+                                                        <p>家长服务费：</p>
+                                                        <p>预付信息费:</p>
+                                                        <p>成功后需付信息费：</p>
+                                                    </td>
+                                                    <td rowspan="3" style="width: 200px">
+                                                        <p>180元/次</p>
+                                                        <p>360元/周</p>
+                                                        <p>360元</p>
+                                                        <p>50元</p>
+                                                        <p>300元</p>
+                                                        <p>60元</p>
+                                                    </td>
+                                                    <td>一键预约</td>
+                                                    <td>备注/疑问</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>签约教员单/非签约教员单</td>
+                                                    <td rowspan="3">查看详情（点击后进入前台订单页面</td>
+                                                    <td rowspan="3">
+                                                        <form>
+                                                        <textarea></textarea>
+                                                        </form>
+                                                    </td>
+                                                    <td rowspan="3">支付诚意金优先安排</td>
+                                                    <td rowspan="3"><a href="">常见问题</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1003666</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <table border="1">
+                                            <tr>
+                                              <th style="width: 100px;" >订单状态/教员要求/编号</th>
+                                              <th  style="width: 80px;">年级科目/查看详情</th>
+                                              <th style="width: 100px;">地址</th>
+                                              <th colspan="2" style="width: 26%;">课酬/信息费</th>
+                                              <th style="width: 210px;">获取订单</th>
+                                              <th style="width: 20%;">备注</th>
+                                            </tr>
+                                            <tr>
+                                                <td>新家教</td>
+                                                <td>初一数学</td>
+                                                <td>地址</td>
+                                                <td rowspan="3">
+                                                    <p>课酬：</p>
+                                                    <p>周课酬：</p>
+                                                    <p>信息费：</p>
+                                                    <p>家长服务费：</p>
+                                                    <p>预付信息费</p>
+                                                    <p>成功后需付信息费：</p>
+                                                </td>
+                                                <td rowspan="3">
+                                                    <p>180元/次</p>
+                                                    <p>360元/周</p>
+                                                    <p>360元</p>
+                                                    <p>50元</p>
+                                                    <p>300元</p>
+                                                    <p>60元</p>
+                                                </td>
+                                                <td>一键预约(闪动)点击后弹窗提示，预约后进入我预约的单</td>
+                                                <td>备注/疑问（弹窗提示我们的联系方式）</td>
+                                            </tr>
+                                            <tr>
+                                                <td>签约教员单/非签约教员单</td>
+                                                <td rowspan="3">查看详情（点击后进入前台订单页面</td>
+                                                <td rowspan="3">
+                                                    <textarea></textarea>
+                                                </td>
+                                                <td rowspan="3">支付诚意金优先安排（2天后或单安排出去后自动退回--除非锁定中）：30元（默认）/50元/100元/200元/300元（闪动）-如没预约，直接点这里了，就是先确认预约并收款</td>
+                                                <td rowspan="1" style="width: 317px;">系统推送订单？（本单为系统推荐单，可以进行预约马上获取，推荐单被接单后，将不再显示在你预约的单中）
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>1003666</td>
+                                                <td><a href="">常见问题</a></td>
+                                            </tr>
+                                        </table>
+                                    </li>
+                                    <li>
+                                        <table border="1">
+                                            <tr>
+                                              <th style="width: 145px;">订单编号/接单时间/查看详情</th>
+                                              <th  colspan="2" >试课时间/试课地点    </th>
+                                              <th style="width: 10%;">电子介绍信</th>
+                                              <th>授课订单（VIP专享）</th>
+                                              <th style="width: 10%;">试课结果填写</th>
+                                              <th colspan="2" style="width: 23%;">课酬/信息费</th>
+                                              <th>申请退款</th>
+                                            </tr>
+                                            <tr>
+                                              <td>1003666</td>
+                                              <td style="width: 80px;">试课时间：必须填写</td>
+                                              <td style="width: 80px;">2017-3-27 上午/下午/晚上</td>
+                                              <td rowspan="3"><a href="">预览</a></td>
+                                              <td style="width: 110px;"  rowspan="3">VIP专享</td>
+                                              <td>试课成功（</td>
+                                              <td rowspan="3" style="width: 102px;">
+                                                <p>课酬:</p>
+                                                <p>周课酬：</p>
+                                                <p>信息费：</p>
+                                                <p>家长服务费：</p>
+                                                <p>已预付信息费</p>
+                                                <p>需补/需退信息费：</p>
+                                                <p>已补/已退信息费：</p>
+                                                <p>已锁定诚意金：</p>
+                                                <p>待退回诚意金：</p>
+                                                <p>本单实际信息费：</p>
+                                              </td>
+                                              <td rowspan="3" style="width: 51px;line-height: 40px;">
+                                                <p>180元/次</p>
+                                                <p>360元/周</p>
+                                                <p>360元</p>
+                                                <p>50元</p>
+                                                <p>300元</p>
+                                                <p>60元</p>
+                                                <p>60元</p>
+                                                <p>200元</p>
+                                                <p>200元</p>
+                                                <p>360元</p>
+                                              </td>
+                                              <td rowspan="3" style="width: 120px;">
+                                                <p><a href="">申请退款</a></p>
+                                                <p><a href="">申请诚意金解锁</a></p>
+                                                <p>申请退款记录 </p>
+                                                <p >申请退款记录</p>
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                                <td>接单时间：17-03-01</td>
+                                                <td rowspan="2">试课地点：必须填写</td>
+                                                <td rowspan="2">
+                                                    <form>
+                                                        <textarea></textarea>
+                                                    </form>
+                                                </td>
 
+                                            </tr>
+                                            <tr>
+                                                <td>查看详情</td>
+                                            </tr>
+                                        </table>
+                                    </li>
+                                    <li>
+                                        <table border="1">
+                                            <tr>
+                                                <th>订单编号/查看详情</th>
+                                                <th>学员基础信息</th>
+                                                <th style="width: 100px;">授课订单（VIP专享）</th>
+                                                <th colspan="2">课酬（VIP专享）   </th>
+                                                <th>状态</th>
+                                                <th style="width: 120px;">每月反馈（根据成功日期后每月1号生成一次，填写日待时间到后开放填写，闪光）</th>
+                                                <th style="width: 100px;">结束课程</th>
+                                                <th style="width: 100px;">电子合同</th>
+                                            </tr>
+                                            <tr>
+                                                <td>1003666</td>
+                                                <td rowspan="2">
+                                                    <p>学员姓名：周同学</p>
+                                                    <p>辅导科目：语文数学</p>
+                                                    <p>学员年级：初一</p>
+                                                    <p>上课时间：</p>
+                                                    <p>每周日下午3小时（不同时间段均可增加）</p>
+                                                    <p style="height: 15px;"> </p>
+                                                    <p><a href="">进行维护</a></p>
+                                                </td>
+                                                <td rowspan="2">VIP专享（如非打开按钮的，只显示这个，不能点击生成）|生成授课订单|查看授课订单</td>
+                                                <td rowspan="2">
+                                                    <p>反馈后可收款订单金额</p>
+                                                    <p>完成反馈等待家长确认给款订单金额</p>
+                                                    <p>累计课酬收入</p>
+                                                    <p>累积已收到课酬</p>
+                                                    <p>未完成的授课订单</p>
+                                                    <p>已过期尚未完成反馈订单金额（请确认是否授课）</p>
+                                                    <p>已锁定诚意金：</p>
+                                                    <p>待退回诚意金：</p>
+                                                </td>
+                                                <td rowspan="2" style="width: 100px; line-height: 16px;">
+                                                    <p>180元</p>
+                                                    <p>360元</p>
+                                                    <p>1080元</p>
+                                                    <p>540元</p>
+                                                    <p>300元</p>
+                                                    <p style="width: 100px; line-height: 29px;">180元</p>
+                                                    <p>0元</p>
+                                                    <p>0元</p>
+                                                </td>
+                                                <td rowspan="2">
+                                                    已成功(授课中)|已成功(授课结束)
+                                                </td>
+                                                <td rowspan="2">
+                                                    2017-3-27 待填写（闪光）已填写 查看 反馈时间
+
+                                                </td>
+                                                <td rowspan="2">
+                                                    <a href="">结束课程</a>
+                                                </td>
+                                                <td rowspan="2">
+                                                    <a href="">查看合同</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td rowspan="2">查看详情（点击后进入前台订单页面）</td>
+                                            </tr>
+                                        </table>
+                                    </li>
+                                </ul>
                         </div>
+                    <style>
+                        #con li{display: none; }
+                        #tit span.select {background: red; color: #ccc;}
+                        #con li.show {display: block;}
+                        th{
+                            text-align: center;
+                        }
+                    </style>
+                    <script>
+                        $('#tit span').click(function() {
+                            var i = $(this).index();//下标第一种写法
+                            $(this).addClass('select').siblings().removeClass('select');
+                            $('#con li').eq(i).show().siblings().hide();
+                        });
+                    </script>
                     </div>
                     <div class="tab-cont  ">
                         <div class="application">

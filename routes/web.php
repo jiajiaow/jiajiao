@@ -81,7 +81,8 @@ Route::get('//navigation.html/{type?}/{key?}','home\teacherinfoController@hot');
 Route::get('/zfsm.html','home\zfsmController@index');
 //学员详细资料
 Route::get('/xsinfo{id?}.html','home\xsinfoController@index');
-
+//教员预约
+Route::get('/Teacheryy.html/{orderid?}','home\TeacheryyController@index');
 
 
 
