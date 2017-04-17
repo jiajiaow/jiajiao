@@ -2,6 +2,7 @@
 @section('title',mb_substr(session('regionname'),0,2))
 @section('style')
 <meta name="csrf-token" content="{{ csrf_token() }}">
+
 @endsection
 @section('content')
 <br><br><br><br>
@@ -576,22 +577,12 @@
  </div></TD>
 </TR>
 <TR >
- <TD height=35 bgcolor="#F7B529"><div align="right" class="Stu_Tea_Title" style='color:#eee;'>推荐地图标记您的位置：</div></TD>
- <TD height="35" bgcolor="#FFFFCC"><div align="left">
-    <script language="JavaScript">
-<!--
-//setMap是ezmarker内部定义的接口，这里可以根据实际需要实现该接口
-function setMap(point,zoom)
-{
-document.getElementById("x").value=point.getLongitude();
-document.getElementById("y").value=point.getLatitude();
-document.getElementById("z").value=zoom;
-}
-var ezmarker = new LTEZMarker("pos");
-LTEvent.addListener(ezmarker,"mark",setMap);//"mark"是标注事件
-ezmarker.setDefaultView("guangzhou",3);
-//-->
- </script>
+ <TD bgcolor="#F7B529"><div align="right" class="Stu_Tea_Title" style='color:#eee;'>推荐地图标记您的位置：</div></TD>
+ <TD height="400" bgcolor="#FFFFCC">
+<iframe id="mapPage" width="100%" height="100%" frameborder=0
+    src="http://apis.map.qq.com/tools/locpicker?search=1&type=1&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&referer=myapp">
+</iframe><div align="left">
+
  </div></TD>
 </TR>
 <TR >

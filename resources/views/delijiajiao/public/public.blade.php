@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="/delijiajiao/css/style.css" onerror="tracker.resErr(this)" />
   <link rel="stylesheet" href="/delijiajiao/css/style1.css" onerror="tracker.resErr(this)" />
   <link rel="stylesheet" href="/delijiajiao/css/common.css" onerror="tracker.resErr(this)" />
+  <link rel="icon" href="/delijiajiao/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/delijiajiao/favicon.ico" type="image/x-icon">
   {{-- <link href="/home/css/style.css" rel="stylesheet" type="text/css" /> --}}
 @section('style')
 
@@ -66,11 +68,11 @@ for(i=0; i <tabList.length; i++)
     <div class="location">
      <div class="breadcrumb">
       <h1><a a href='/' class='primary-logo' ><img alt="广州" src="/delijiajiao/picture/guangzhou.png" class="city-logo" /></a></h1>
-      <span class="listing-slogan">{{ session('regionname') }}</span><span class="listing-slogan1">【高校联盟】【德栗家教】</span>
+      <span class="listing-slogan">{{ session('regionname') }}</span><span class="listing-slogan1">【德栗家教】【高校联盟】</span><a href="/change_city.html">更多城市</a>
      </div>
      <div class="pull-right">
-      <a href="/yuyuelaoshi.html" class="resume-btn">我要找老师</a>
-      <a href="/reg.html" class="post">我要当老师</a>
+      <a href="/yuyuelaoshi.html" class="resume-btn" style="font-size: 20px">我要请老师</a>
+      <a href="/reg.html" class="post" style="font-size: 20px">我要当老师</a>
      </div>
     </div>
    </div>
@@ -79,11 +81,12 @@ for(i=0; i <tabList.length; i++)
    <div class="nav-horizontal-content">
     <ul>
      <li class="vtle"><a href="/" >德栗首页</a></li>
-     <li><a href="/faculty.html" >教员库</a></li>
-     <li><a href="/xueyuan.html" >学员库</a></li>
+     <li><a href="/yuyuelaoshi.html">快速请家教</a></li>
+     <li><a href="/faculty.html" >挑老师</a></li>
      <li><a href="/zfsm.html" >资费说明</a></li>
-     <li><a href="/yuyuelaoshi.html" target="_blank">快速请家教</a></li>
-     {{-- <li><a href="#" target="_blank">家长课堂</a></li> --}}
+     <li><a href="/xueyuan.html" >学员库</a></li>
+    {{-- <li><a href="#" target="_blank">家长课堂</a></li> --}}
+    {{-- <li><a href="#" target="_blank">家长课堂</a></li> --}}
     </ul>
    </div>
   </div>

@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
     <head>
         <meta charset="UTF-8">
         <title>【栗志家教】@yield('title')家教_专业大学生家教全国连锁领导品牌!</title>

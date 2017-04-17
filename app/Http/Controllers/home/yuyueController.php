@@ -72,7 +72,7 @@ class yuyueController extends Controller
         $ucode = $request->input('code');
         $scode = Cookie::get('code');
         if($ucode == $scode){
-            //Cookie::forget('code');
+            Cookie::forget('code');
             return 'y';
         }else{
             return 'n';
