@@ -280,17 +280,17 @@ for(i=0; i <tabList.length; i++)
 
         if(lxr == '')
         {
-            layer.msg('请输入联系人', {icon: 5});
+            layer.msg('请输入联系人', {icon: 3});
             return false;
         }
         if(km == '')
         {
-            layer.msg('请输入科目', {icon: 5});
+            layer.msg('请输入科目', {icon: 3});
             return false;
         }
         if(phone == '')
         {
-            layer.msg('请输入手机号码', {icon: 5});
+            layer.msg('请输入手机号码', {icon: 3});
             return false;
         }
         time(get_code);
@@ -304,7 +304,7 @@ for(i=0; i <tabList.length; i++)
             },
             success:(function(result){
                 if(result == 'y'){
-                    layer.alert('请注意查收短信!',{icon: 6,time:1500});
+                    layer.alert('请注意查收短信!',{icon: 3,time:1500});
                 }
                 //console.log(result);
             }),
@@ -341,22 +341,22 @@ for(i=0; i <tabList.length; i++)
         var yzm = $("#yzm").val();
         if(lxr == '')
         {
-            layer.msg('请输入联系人', {icon: 5});
+            layer.msg('请输入联系人', {icon: 3});
             return false;
         }
         if(km == '')
         {
-            layer.msg('请输入科目', {icon: 5});
+            layer.msg('请输入科目', {icon: 3});
             return false;
         }
         if(phone == '')
         {
-            layer.msg('请输入手机号码', {icon: 5});
+            layer.msg('请输入手机号码', {icon: 3});
             return false;
         }
         if(yzm == '')
         {
-            layer.msg('请输入验证码', {icon: 5});
+            layer.msg('请输入验证码', {icon: 3});
             return false;
         }
         $.ajax({
@@ -372,7 +372,7 @@ for(i=0; i <tabList.length; i++)
                     //$("#tj[type='button']").attr('type','submit');
                     $("#do").submit();
                 }else{
-                    layer.msg('验证码错误', {icon: 5});
+                    layer.msg('验证码错误', {icon: 3});
                 }
                 //console.log(result);
             }),
