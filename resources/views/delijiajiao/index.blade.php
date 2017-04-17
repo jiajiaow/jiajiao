@@ -160,12 +160,12 @@
             @foreach($data as $data)
               <li>
                   <p id="t1">详情</p>
-                   <p id="t2">{{ date("Y-m-d",$data->time) }}</p>
+                   <p id="t2">{{ $data->time }}</p>
                     <p id="t3" style="background-color: #F7B529;"> 新发布 </p>
-                     <p id="t4">暂为填写</p>
-                      <p id="t5">暂为填写</p>
-                       <p id="t6"> 暂为填写 </p>
-                        <p id="t7"> {{ $data->user_name }}</p>
+                     <p id="t4">{{ $data->user_situation }}</p>
+                      <p id="t5">{{ $data->dq}}</p>
+                       <p id="t6"> {{ $data->grade }}{{ $data->subject_id }} </p>
+                        <p id="t7"> {{ mb_substr($data->user_name,0,1) }}学员</p>
               </li>
             @endforeach
           </div>
