@@ -138,6 +138,6 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     //订单
     Route::get('/xsdd','admin\orderController@xsdd');
     //修改订单
-    Route::post('/doorder','admin\orderController@doorder');
+    Route::post('/doorder','admin\orderController@');
 });
 //----------后台END----------//
