@@ -1,4 +1,4 @@
-@extends('delijiajiao.public.public')
+@extends('home.public.public')
 @section('title',mb_substr(session('regionname'),0,2))
 @section('style')
 <meta name="csrf-token" content="{{ csrf_token() }}">

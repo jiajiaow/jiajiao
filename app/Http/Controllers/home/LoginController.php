@@ -94,16 +94,20 @@ class LoginController extends Controller
         //查询教师表信息是否存在
         $laos = \DB::table('jjw_teachers')->where('tc_phone',$phone)->get();
         if(count($laos) == '0'){
-            if($request->cookie('code') == $yzm){
+            if($request->cookie('phone') == $phone){
+                if($request->cookie('code') == $yzm){
                     //插入教师表
                     $inse = \DB::table('jjw_teachers')->insert($data);
 //                    //删除验证码
 //                    $sc = \DB::table('jjw_code')->where('id',$lis->id)->delete();
                     //成功返回
                     return "y";
+                }else{
+                    ////成功返回 n 验证码失效
+                    return "n";
+                }
             }else{
-                ////成功返回 n 验证码失效
-                return "n";
+                return "f";
             }
         }else{
             ////成功返回 ls 教师已经注册
@@ -116,8 +120,9 @@ class LoginController extends Controller
     public function docode(Request $request){
         $phone = $_POST['phone'];
         $zt = $_POST['zt'];
-        $yzm = '1111';
-        Cookie::queue("code", $yzm, 5);
+        $yzm = rand(1000,9999);
+        Cookie::queue("code", $yzm,5);
+        Cookie::queue("phone", $phone,5);
         if(session('Template') == '1'){
             $result=$this->sms->send("$phone","栗志家教","{zt:'{$zt}','code':'{$yzm}'}",'SMS_61850084');
         }else if(session('Template') == '2'){
