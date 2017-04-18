@@ -56,6 +56,23 @@
                     <li>
                         <a href="#">
                             <i class="fa fa fa-bar-chart-o"></i>
+                            <span class="nav-label">虚拟管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+
+                                <a class="J_menuItem" href="/admin/xnxy">虚拟学员</a>
+
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="/admin/xnjy">虚拟教员</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa fa-bar-chart-o"></i>
                             <span class="nav-label">订单管理</span>
                             <span class="fa arrow"></span>
                         </a>
