@@ -130,7 +130,9 @@ function CheckValue()
 			    layer.alert('验证码无效!',{icon: 5,time:2000});
 		}else if(data == 'ls'){
 			    layer.alert('该用户已经注册!',{icon: 5,time:2000});
- 		}
+ 		}else if(data == 'f'){
+			layer.alert('非法请求!',{icon: 5,time:2000});
+		}
 //		data = eval('('+data+')');
 //		if(data.status == 1){
 //			alert(data.msg);
