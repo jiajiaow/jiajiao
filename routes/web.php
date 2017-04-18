@@ -163,5 +163,8 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::get('/xsdd','admin\orderController@xsdd');
     //修改订单
     Route::post('/doorder','admin\orderController@');
+    //虚拟学员
+
+    //虚拟教员
 });
 //----------后台END----------//

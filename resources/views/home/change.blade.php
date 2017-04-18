@@ -24,16 +24,16 @@
         <div class="city-list">
             <dl style="margin-top: 10px;" class="first">
                 <dt>热门城市</dt>
-                <dd><a href="http://www.lizhijiajiao.com/">广州</a></dd>
-                <dd><a href="http://bj.lizhijiajiao.com/">北京</a></dd>
-                <dd><a href="http://tj.lizhijiajiao.com/">天津</a></dd>
-                <dd><a href="http://gz.lizhijiajiao.com/">广州</a></dd>
-                <dd><a href="http://sz.lizhijiajiao.com/">深圳</a></dd>
-                <dd><a href="http://hz.lizhijiajiao.com/">杭州</a></dd>
-                <dd><a href="http://nj.lizhijiajiao.com/">南京</a></dd>
-                <dd><a href="http://wh.lizhijiajiao.com/">武汉</a></dd>
-                <dd><a href="http://xa.lizhijiajiao.com/">西安</a></dd>
-                <dd><a href="http://cd.lizhijiajiao.com/">成都</a></dd>
+                <dd><a href="http://www.delijiajiao.com/">广州</a></dd>
+                <dd><a href="http://bj.delijiajiao.com/">北京</a></dd>
+                <dd><a href="http://tj.delijiajiao.com/">天津</a></dd>
+                <dd><a href="http://gz.delijiajiao.com/">广州</a></dd>
+                <dd><a href="http://sz.delijiajiao.com/">深圳</a></dd>
+                <dd><a href="http://hz.delijiajiao.com/">杭州</a></dd>
+                <dd><a href="http://nj.delijiajiao.com/">南京</a></dd>
+                <dd><a href="http://wh.delijiajiao.com/">武汉</a></dd>
+                <dd><a href="http://xa.delijiajiao.com/">西安</a></dd>
+                <dd><a href="http://cd.delijiajiao.com/">成都</a></dd>
             </dl>
             @foreach($data as $data)
             <dl>
