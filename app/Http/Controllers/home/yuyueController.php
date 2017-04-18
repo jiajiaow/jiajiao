@@ -26,8 +26,8 @@ class yuyueController extends Controller
         if(session('Template') == '2'){
 
             $phone = $request->input('phone');
-            //$code = rand(1000,9999);
-            $code = '1111';
+            $code = rand(1000,9999);
+            //$code = '1111';
             Cookie::queue('code',$code,3);
             Cookie::queue('phone',$phone,3);
             $config = [
@@ -46,8 +46,8 @@ class yuyueController extends Controller
                 return 'y';
         }else{
             $phone = $request->input('phone');
-            //$code = rand(1000,9999);
-            $code = '1111';
+            $code = rand(1000,9999);
+            //$code = '1111';
             Cookie::queue('code',$code,3);
             Cookie::queue('phone',$phone,3);
             $config = [
