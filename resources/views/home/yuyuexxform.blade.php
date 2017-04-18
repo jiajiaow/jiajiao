@@ -1,4 +1,4 @@
-@extends('delijiajiao.public.public')
+@extends('home.public.public')
 @section('title',mb_substr(session('regionname'),0,2))
 @section('style')
 <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -157,15 +157,15 @@
  ；每次课上
    <SELECT name="shi" id="shi" style="width:80px;">
       <option value="" selected>请选择</option>
-      <option value="每周1.5小时">1.5</option>
-      <option value="每周2小时">2 推荐</option>
-      <option value="每周2.5小时">2.5</option>
-      <option value="每周3小时">3</option>
-      <option value="每周4小时">4</option>
-      <option value="每周5小时">5</option>
-      <option value="每周6小时">6</option>
-      <option value="每周7小时">7</option>
-      <option value="每周8小时">8</option>
+      <option value="每次1.5小时">1.5</option>
+      <option value="每次2小时">2 推荐</option>
+      <option value="每次2.5小时">2.5</option>
+      <option value="每次3小时">3</option>
+      <option value="每次4小时">4</option>
+      <option value="每次5小时">5</option>
+      <option value="每次6小时">6</option>
+      <option value="每次7小时">7</option>
+      <option value="每次8小时">8</option>
   </SELECT>
  小时；
  </div></TD>

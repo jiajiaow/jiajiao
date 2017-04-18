@@ -8,19 +8,18 @@
             <dl class="listIndex" attr="terminal_brand_s">
                 <dt>订单状态：</dt>
                 <dd>
-                    <a href="javascript:void(0)" values2="" values1="" attrval="xin">新发布</a>
-                    <a href="javascript:void(0)" values2="" values1="" attrval="yi">预约中</a>
-                    <a href="javascript:void(0)" values2="" values1="" attrval="yiyy">已预约</a>
-                    <a href="javascript:void(0)" values2="" values1="" attrval="cg">已成功</a>
+                    <a href="/xueyuans/x0.html" values2="" values1="" attrval="xin">新发布</a>
+                    <a href="/xueyuans/x1.html" values2="" values1="" attrval="yiyy">已安排</a>
+                    <a href="/xueyuans/x2.html" values2="" values1="" attrval="cg">已完成</a>
                 </dd>
             </dl>
 
             <dl class="listIndex" attr="价格范围">
                 <dt>老师类型：</dt>
                 <dd>
-                    <a href="javascript:void(0)" values2="499" values1="1" attrval="1-499">大学生</a>
-                    <a href="javascript:void(0)" values2="499" values1="1" attrval="1-499">专职老师</a>
-                    <a href="javascript:void(0)" values2="499" values1="1" attrval="1-499">其他老师</a>
+                    <a href="/xueyuans/t大学生.html" values2="499" values1="1" attrval="1-499">大学生</a>
+                    <a href="/xueyuans/t专职老师.html" values2="499" values1="1" attrval="1-499">专职老师</a>
+                    <a href="/xueyuans/t其他.html" values2="499" values1="1" attrval="1-499">其他老师</a>
 
                 </dd>
             </dl>
@@ -28,7 +27,7 @@
                 <dt>所在区域：</dt>
                 <dd>
                     @foreach($quyu as $qy)
-                        <a href="javascript:void(0)" values2="" values1="" attrval="ios">{{ $qy->county_name }}</a>
+                        <a href="/xueyuans/q{{ $qy->id }}.html" values2="" values1="" attrval="ios">{{ $qy->county_name }}</a>
                     @endforeach
                 </dd>
             </dl>
@@ -85,11 +84,11 @@
 
                             @if($li->status == 0)
                          <p id="tc" style="background-color: #ff9900;">  新发布</p>
+                            {{--@elseif($li->status == 1)--}}
+                         {{--<p id="tc" style="background-color: #99cc33;">  预约中 </p>--}}
                             @elseif($li->status == 1)
-                         <p id="tc" style="background-color: #99cc33;">  预约中 </p>
+                         <p id="tc" style="background-color: #3366cc;"> 已安排 </p>
                             @elseif($li->status == 2)
-                         <p id="tc" style="background-color: #3366cc;"> 已预约 </p>
-                            @elseif($li->status == 3)
                          <p id="tc" style="background-color: #cc6699;"> 已成功 </p>
                             @endif
                         <p id="td"> [
@@ -158,6 +157,8 @@
         $(this).hide();
         $(".listIndex a ").removeClass("selected");
     });
+
+
 </script>
 @endsection
 @section('js')

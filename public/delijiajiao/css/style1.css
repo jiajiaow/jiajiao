@@ -235,7 +235,10 @@
 #tta{width:13%;float:right;line-height:90px;text-align:center;color: #000;overflow: hidden;height: 90px;}
 #ttb{width:7%;float:right;line-height:90px;text-align:center;color: #000;overflow: hidden;height: 90px;}
 #ttc{width:42%;float:right;text-align:center;margin: 30px 5px 15px 10px;height:30px;line-height:30px;}
-#ttd{width:40%;float:right;line-height:20px;color: #000;height: 90px;padding-top: 25px;}
+#ttd{
+    width:40%;float:right;line-height:20px;color: #000;height: 90px;padding-top: 25px;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
 #tte{width:20%;height:100%;float:right;text-align:center;color: #000;padding-top:25px; margin: 0px 5px 0px 5px;}
 #ttf{width:10%;float:right;line-height:35px;text-align:center;color: #000;height: 90px;margin: 10px 5px 0px 5px;}
 #ttg{width:7%;float:right;text-align:center;color: #000;height: 60px;margin: 10px 5px 0px 5px;}

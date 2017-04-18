@@ -26,7 +26,7 @@
             <h3><i class="icon-area"></i>热门大学</h3>
             <ul>
                 @foreach($xx as $xx)
-                <li style="width:100px; overflow:hidden; text-overflow:ellipsis;"><a href="/hot.html/学院/{{ $xx->sh_shool }}" target="_blank">{{ $xx->sh_shool }}</a></li>
+                <li style="width:100px; overflow:hidden; text-overflow:ellipsis;"><a href="/hot.html/学院/{{ $xx->school_name }}" target="_blank">{{ $xx->school_name }}</a></li>
                 @endforeach
             </ul>
 
@@ -175,7 +175,16 @@
               <li>
                   <p id="t1"><a href="/xsinfo{{ $data->id }}.html">详情</a></p>
                    <p id="t2">{{ date('Y-m-d',$data->time) }}</p>
-                    <p id="t3" style="background-color: #F7B529;"> 新发布 </p>
+                    {{--<p id="t3" style="background-color: #F7B529;"> 新发布 </p>--}}
+                          @if($data->status == 0)
+                              <p id="t3" style="background-color: #ff9900;">  新发布</p>
+                              {{--@elseif($li->status == 1)--}}
+                              {{--<p id="tc" style="background-color: #99cc33;">  预约中 </p>--}}
+                          @elseif($data->status == 1)
+                              <p id="t3" style="background-color: #3366cc;"> 已安排 </p>
+                          @elseif($data->status == 2)
+                              <p id="t3" style="background-color: #cc6699;"> 已成功 </p>
+                          @endif
                      <p id="t4">{{ $data->user_situation }}</p>
                       <p id="t5">{{ $data->dq}}</p>
                        <p id="t6"> {{ $data->grade }}{{ $data->subject_id }} </p>

@@ -83,6 +83,7 @@ class yuyueController extends Controller
         $user = $request->input('lxr');
         $km = $request->input('km');
         $phone = $request->input('phone');
+        $teacher_id = $request->input('teacher_id');
         $password = substr($phone,7,4);
         $regionid = $request->session()->get('regionid');
         if(session('Template') == '2'){
@@ -90,12 +91,12 @@ class yuyueController extends Controller
                 $re = DB::table('jjw_user')->where('phone',$phone)->first();
                 if($re){
                     $userid = DB::table('jjw_user')->where('phone',$phone)->first();
-                    $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid->id,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid]);
+                    $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid->id,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid,'teacher_id' => $teacher_id]);
 
                     return view('delijiajiao.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
                 }else{
-                    $userid = DB::table('jjw_user')->insertGetId(['name' => $user,'phone' => $phone,'password' => $password,'city_id' => $regionid]);
-                    $orderid = DB::table('jjw_order')->insert(['user_id' => $userid,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid]);
+                    $userid = DB::table('jjw_user')->insertGetId(['name' => $user,'phone' => $phone,'password' => $password,'city_id' => $regionid,'teacher_id' => $teacher_id]);
+                    $orderid = DB::table('jjw_order')->insert(['user_id' => $userid,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid,'teacher_id' => $teacher_id]);
                     return view('home.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
                 }
             }else{
@@ -107,12 +108,12 @@ class yuyueController extends Controller
                 $re = DB::table('jjw_user')->where('phone',$phone)->first();
                 if($re){
                     $userid = DB::table('jjw_user')->where('phone',$phone)->first();
-                    $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid->id,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid]);
+                    $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid->id,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid,'teacher_id' => $teacher_id]);
 
                     return view('delijiajiao.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
                 }else{
-                    $userid = DB::table('jjw_user')->insertGetId(['name' => $user,'phone' => $phone,'password' => $password,'city_id' => $regionid]);
-                    $orderid = DB::table('jjw_order')->insert(['user_id' => $userid,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid]);
+                    $userid = DB::table('jjw_user')->insertGetId(['name' => $user,'phone' => $phone,'password' => $password,'city_id' => $regionid,'teacher_id' => $teacher_id]);
+                    $orderid = DB::table('jjw_order')->insert(['user_id' => $userid,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid,'teacher_id' => $teacher_id]);
                     return view('home.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
                 }
             }else{
