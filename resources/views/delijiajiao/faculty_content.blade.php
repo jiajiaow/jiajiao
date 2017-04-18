@@ -80,14 +80,14 @@
     <!-- 内容开始 -->
   <div class="TabContent">
       <div id="myTab0_Content0">
-          <div style="float: left;margin:5px 0px 10px 5px;"><b style="color: #ff0000;">可授科目：</b>{{ $list->tc_subjects }}</div><br><br>
-          <div style="float: left;margin:5px 0px 10px 5px;"><b style="color: #ff0000;">可授区域：</b>{{ $list->tc_area }}</div><br><br>
-          <div style="float: left;margin:5px 0px 10px 5px;"><b style="color: #ff0000;">可授课时间：</b>{{ $list->tc_sktime }}</div><br><br>
-          <div style="float: left;margin:5px 0px 10px 5px;"><b style="color: #ff0000;">课酬要求：</b>@if($list->tc_salary == null)执行德栗家教收费标准@else{{ $list->tc_salary }}@endif</div>
+          <div style="float: left;margin:5px 0px 15px 5px;"><b style="color: #ff0000;">可授科目：</b>{{ $list->tc_subjects }}</div><br><br>
+          <div style="float: left;margin:5px 0px 0px 5px;"><b style="color: #ff0000;">可授区域：</b>{{ $list->tc_area }}</div><br><br><br>
+          <div style="float: left;margin:5px 0px 15px 5px;"><b style="color: #ff0000;">可授课时间：</b>{{ $list->tc_sktime }}</div><br><br>
+          <div style="float: left;margin:5px 0px 15px 5px;"><b style="color: #ff0000;">课酬要求：</b>@if($list->tc_salary == null)执行德栗家教收费标准@else{{ $list->tc_salary }}@endif</div>
       </div>
        <div id="myTab0_Content1" class="none">
-           <div style="float: left;margin:5px 0px 10px 5px;"><b style="color: #ff0000;">自我评价：</b>{{ $list->tc_comments }}</div><br><br>
-           <div style="float: left;margin:5px 0px 10px 5px;"><b style="color: #ff0000;">所获证书：</b>{{ $list->tc_certificate }}</div><br><br>
+           <div style="float: left;margin:5px 0px 15px 5px;"><b style="color: #ff0000;">自我评价：</b>{{ $list->tc_comments }}</div><br><br>
+           <div style="float: left;margin:5px 0px 15px 5px;"><b style="color: #ff0000;">所获证书：</b>{{ $list->tc_certificate }}</div><br><br>
        </div>
        <div id="myTab0_Content2" class="none">
         <span style="float: left;margin: 15px 5px 15px 5px;"><p style="float: left;padding: 0px 10px;color: #ff0000;">家教经验:</p>{{ $list->tc_case }}</span><br>
