@@ -38,7 +38,7 @@
 								<input type="text" id="uname" name="mobile" placeholder="手机号" maxlength=11>
 								<span></span>
 							</div>
-							
+
 							<div class="yfg" id="hidepassword">
 								<input type="password" id="pw1" name="pw1" placeholder="请设置密码" class="pass" onblur="changepw1pw2() ">
 								{{--<a href="javascript:void(0)" onclick="showpassword()">显示</a>--}}
@@ -55,12 +55,13 @@
 								<input type="button" style="width:156px;background:#F7B529;color:black;cursor: pointer;" onclick="sendMsg()" value="发送验证码" id="djs">
 								<span></span>
 							</div>
-							
+
 							<button type="button" onclick="CheckValue()" style="color:#000">注册</button>
 						</form>
 						<a href="{{ URL('/login.html') }}">已有账号 直接登录</a>
 						<div class="clear"></div>
 					</div>
+
 					<div class="right-code pull-right">
 						<div class="code">
 							<img src="{{ asset('/home/picture/qqqCode.jpg') }}">
@@ -90,8 +91,8 @@
 			</div>
 		</div>
 	</div>
-	
-	<script language=JavaScript> 
+
+	<script language=JavaScript>
 function CheckValue()
 {
 	if($("#uname").val()=="")
@@ -99,7 +100,7 @@ function CheckValue()
 		layer.alert("用户名不能为空！", {icon: 5});
 
 	}
-	
+
  if($("#email").val()=="")
  {
 	 layer.alert("Email不能为空！", {icon: 5});
@@ -207,7 +208,7 @@ function showpassword(){
 }
 
 function hidepassword(){
-	
+
 	$("#hidepassword").show();
 	$("#showpassword").hide();
 }
