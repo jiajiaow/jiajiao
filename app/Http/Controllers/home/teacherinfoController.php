@@ -211,22 +211,21 @@ class teacherinfoController extends Controller
         //教员
          $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->orderBy('tc_reboot', 'desc')->orderBy('id','desc')->paginate(10);
           //dd($list);
-        //学校表市id
-        $xxsid= DB::table('city_info')->where('ci_city','like','%'.substr(session('regionname'),0,6).'%')->first();
         //学校
-        $xx= DB::table('shool_info')->where('sh_city',$xxsid->ci_id)->limit(10)->get();
-      // dd($xy);
+        $xx= DB::table('school_t')->where('city_id',session('regionid'))->limit(10)->get();
+        if(isset($_GET['g'])){
+            $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_sex',$_GET['g'])->orderBy('tc_reboot', 'desc')->orderBy('id','desc')->paginate(10);
+        }
+       //dd($xx);
         return view('delijiajiao.jiaoyuan',['quyu'=>$quyu,'list'=>$list,'xx'=>$xx]);
     }
     //德栗教员库更多 金牌 专职 学员教师
     public function facultys(Request $request,$id){
         $quyu = \DB::table('jjw_position_county')->where('city_id',Session('regionid'))->get();
         //教员
-        $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai',$id)->orderBy('id','desc')->paginate(10);
-        //学校表市id
-        $xxsid= DB::table('city_info')->where('ci_city','like','%'.substr(session('regionname'),0,6).'%')->first();
+        $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai',$id)->orderBy('id','desc')->paginate(10);;
         //学校
-        $xx= DB::table('shool_info')->where('sh_city',$xxsid->ci_id)->limit(10)->get();
+        $xx= DB::table('school_t')->where('city_id',session('regionid'))->limit(10)->get();
         // dd($xy);
         return view('delijiajiao.jiaoyuan',['quyu'=>$quyu,'list'=>$list,'xx'=>$xx]);
     }
@@ -243,12 +242,58 @@ class teacherinfoController extends Controller
 
         }
         //dd($list);
-        //学校表市id
-        $xxsid= DB::table('city_info')->where('ci_city','like','%'.substr(session('regionname'),0,6).'%')->first();
         //学校
-        $xx= DB::table('shool_info')->where('sh_city',$xxsid->ci_id)->limit(10)->get();
+        $xx= DB::table('school_t')->where('city_id',session('regionid'))->limit(10)->get();
         // dd($xy);
         return view('delijiajiao.jiaoyuan',['quyu'=>$quyu,'list'=>$list,'xx'=>$xx]);
 
+    }
+
+//    public function facultyp(Request $request,$y){
+//        dd($y);
+//        检测老师是否存在
+//       var_dump($_POST['key'][0]);
+//        switch (isset($_POST['key'][0]))
+//        {
+//            case isset($_POST['key'][0]['老师性别：']):
+//                $sex = $_POST['key'][0]['老师性别：']=='男'?'1':'0';
+//                $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_sex',$sex)->orderBy('id','desc')->paginate(10);
+//                $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_sex',$sex)->orderBy('id','desc')->get();
+//                echo "<pre>";
+//                var_dump($list);
+//                echo "</pre>";
+//                return $list;
+//                break;
+//        }
+//    }
+
+    public function facultyp(Request $request,$y){
+        //dd($request);
+        $type = substr($y,0,1);
+        $num = substr($y,1,20);
+        //echo $num;
+        //区域
+        $quyu = \DB::table('jjw_position_county')->where('city_id',Session('regionid'))->get();
+        //学院
+        $xx= DB::table('school_t')->where('city_id',session('regionid'))->limit(10)->get();
+        //搜索学院
+        if($type == 'e'){
+            $xy = \DB::table('school_t')->where('city_id',session('regionid'))->where('id',$num)->orderBy('id','desc')->first();
+            $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_school',$xy->school_name)->orderBy('id','desc')->paginate(10);
+            return view('delijiajiao.jiaoyuan',['quyu'=>$quyu,'list'=>$list,'xx'=>$xx]);
+            //科目
+        }else if($type == 'k'){
+            $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_subjects','like','%'.$num.'%')->orderBy('id','desc')->paginate(10);
+            return view('delijiajiao.jiaoyuan',['quyu'=>$quyu,'list'=>$list,'xx'=>$xx]);
+            //男女
+        }else if($type == 'g'){
+            $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_sex',$num)->orderBy('id','desc')->paginate(10);
+            return view('delijiajiao.jiaoyuan',['quyu'=>$quyu,'list'=>$list,'xx'=>$xx]);
+            //区域
+        }else if($type == 'q'){
+            $qu = \DB::table('jjw_position_county')->where('id',$num)->first();
+            $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_area','like','%'.$qu->county_name.'%')->orderBy('id','desc')->paginate(10);
+            return view('delijiajiao.jiaoyuan',['quyu'=>$quyu,'list'=>$list,'xx'=>$xx]);
+        }
     }
 }

@@ -54,6 +54,8 @@ Route::get('/jia.html','home\indexController@jia');
 Route::get('/teacher/detail/{m?}.html','home\teacherinfoController@teacher');
 //学员库
 Route::get('/xueyuan.html','home\xueshenController@xueyuan');
+//筛选学员库
+Route::get('/xueyuans/{y?}.html','home\xueshenController@xueyuans');
 
 //zl预约老师
 Route::get('/yuyuelaoshi.html/{a?}/{b?}/{c?}/{d?}','home\yuyueController@index');
@@ -71,12 +73,16 @@ Route::post('/StudentAdd','home\yuyueController@StudentAdd');
 Route::get('/test','testController@index');
 //德栗教员库
 Route::get('/faculty.html','home\teacherinfoController@faculty');
+//筛选
+Route::get('/facultyp/{y?}.html','home\teacherinfoController@facultyp');
 //更多金牌 专职 学员 教师
 Route::get('/facultys.html/gd/{id?}','home\teacherinfoController@facultys');
 //热门学科 大学 区域
 Route::get('/hot.html/{type?}/{key?}','home\teacherinfoController@hot');
 //导航搜索
-Route::get('//navigation.html/{type?}/{key?}','home\teacherinfoController@hot');
+Route::get('/navigation.html/{type?}/{key?}','home\teacherinfoController@hot');
+//内页搜索
+Route::post('/dokey','home\teacherinfoController@dokey');
 //资费说明
 Route::get('/zfsm.html','home\zfsmController@index');
 //学员详细资料

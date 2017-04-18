@@ -31,7 +31,7 @@
     <p>
       <INPUT id=name3 maxLength=30
   name=name>
-       <span class="o_link_9">如学生家长姓名或学生本人姓名，如"李先生"、"周同学"</span></p>
+       <span class="o_link_9">如"李先生"、"周同学"</span></p>
     </DIV></TD></TR>
 <TR >
  <TD height=35 bgcolor="#F7B529">
@@ -44,7 +44,7 @@
   <DIV align=right style='color:#eee;'>微信：</DIV></TD>
  <TD height="35" bgcolor="#FFFFFF">
   <DIV align=left><INPUT name=qq id="qq" maxLength=50>
-  <span class="o_link_9">找到老师我们将通过微信将老师的简历发送给您，非必填仅网站工作人员可见，请放心填写</span>  </DIV></TD></TR>
+  <span class="o_link_9">我们将通过微信发简历给您，仅网站工作人员可见，请放心填写</span>  </DIV></TD></TR>
 
 
 <TR >

@@ -26,7 +26,7 @@
             <h3><i class="icon-area"></i>热门大学</h3>
             <ul>
                 @foreach($xx as $xx)
-                <li style="width:100px; overflow:hidden; text-overflow:ellipsis;"><a href="/hot.html/学院/{{ $xx->sh_shool }}" target="_blank">{{ $xx->sh_shool }}</a></li>
+                <li style="width:100px; overflow:hidden; text-overflow:ellipsis;"><a href="/hot.html/学院/{{ $xx->school_name }}" target="_blank">{{ $xx->school_name }}</a></li>
                 @endforeach
             </ul>
 
