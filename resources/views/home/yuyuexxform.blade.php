@@ -311,7 +311,6 @@
 </tr>
 <div id="cheng_a" style="width:200px;height:100px;border:1px solid #e4393c;border-radius:5px;display:none;position: absolute;top;0px;right: 0px;">
   <p style='font-size:12px;padding:10px;'>建议您选择具体的可授课时间，我们能为您更精确的匹配老师哦！</p>
-  <a href="" style='display:inline-block;padding-left:20px;'>确定</a>
   <a id='qxx' href="javascript:void(0)"style='display:inline-block;padding-left:80px;text-decoration: underline;'>取消</a>
 </div>
 <tr>
@@ -515,7 +514,7 @@
 </form></div>
 <div id="cheng_show" style="width:200px;height:100px;border:1px solid #e4393c;border-radius:5px;position:absolute;top: 100%;left: 50%;display: none;">
   <p style='font-size:12px;padding:10px;'>你已提交,客服会与你联系,你也可以联系我们!</p>
-  <a href="/lxwm.html" style='display:inline-block;padding-left:20px;'>联系我们</a>
+  <a href="/contact.html" style='display:inline-block;padding-left:20px;'>联系我们</a>
   <a id='qx' href="javascript:void(0)"style='display:inline-block;padding-left:80px;text-decoration: underline;'>取消</a>
 </div>
 
