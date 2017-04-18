@@ -17,21 +17,23 @@
           <div class="info">
             <div class="info-left">
               <p>学员请家教预算：<i>{{ $data->money }}</i></p>
-              <span><i>35</i>人浏览  已有<i>1</i>人申请</span>
+              <span><i>{{ $data->browsenu }}</i>人浏览  已有<i>{{ $nu }}</i>人申请</span>
             </div>
             <div class="info-center" style="float:left;">
               <img src="/home/picture/icon_fx.png" alt="">一键分享
                 <div class="share">
                   <a title="转发至QQ空间" charset="400-03-8" id="s_qq"
-                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=<%=currentPage_url%>" target="_blank">
+                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={{ $url }}" target="_blank">
                       <img  src="/home/picture/ico_qzone.png" />
                   </a>
                   <a title="分享到微信" charset="400-03-19" id="s_pengyou"
-                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?to=pengyou&url=<%=currentPage_url%>&title=%<%=title%>" target="_blank">
+                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?to=pengyou&url={{ $url }}&title="{{ $data->dq }}{{ mb_substr($data->user_name,0,1) }}@if($data->user_sex == '')@elseif($data->user_sex == '0')女生@elseif($data->user_sex == '1')先生
+@else其它@endif请{{ $data->grade }}{{ $data->subject_id }}"家教 target="_blank">
                       <img src="/home/picture/float_1.png"  width="35px" height="35px" />
                   </a>
                   <a title="转发至新浪微博" charset="400-03-10" id="s_sina"
-                      href="http://service.weibo.com/share/share.php?title=静安->静安的苏女士请高一高二英语家&url=http://www.jiajiao114.com/xueyuan/d-84759.html&source=bookmark&appkey=2992571369" target="_blank">
+                      href="http://service.weibo.com/share/share.php?title="{{ $data->dq }}{{ mb_substr($data->user_name,0,1) }}@if($data->user_sex == '')@elseif($data->user_sex == '0')女生@elseif($data->user_sex == '1')先生
+@else其它@endif请{{ $data->grade }}{{ $data->subject_id }}"家教&url={{ $url }}&source=bookmark&appkey=2992571369" target="_blank">
                       <img src="/home/picture/ico_sina.png" />
                   </a>
                   <div class="clear"></div>
