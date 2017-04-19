@@ -78,10 +78,10 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="/admin/xsdd">学生订单</a>
+                                <a class="J_menuItem" href="/admin/xsdd">学员订单</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="/admin/jsdd">教师订单</a>
+                                <a class="J_menuItem" href="/admin/fbdd">发布订单</a>
                             </li>
                         </ul>
                     </li>
@@ -104,6 +104,21 @@
                             {{--<li>--}}
                                 {{--<a class="J_menuItem" href="/admin/sanji">添加三级分类</a>--}}
                             {{--</li>--}}
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa fa-bar-chart-o"></i>
+                            <span class="nav-label">会员管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="/admin/xsdd">学员</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="/admin/jsdd">教员</a>
+                            </li>
                         </ul>
                     </li>
                     <li>
