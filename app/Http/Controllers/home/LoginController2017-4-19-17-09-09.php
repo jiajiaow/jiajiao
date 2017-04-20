@@ -13,10 +13,10 @@ use Flc\Alidayu\App;
 use Flc\Alidayu\Requests\AlibabaAliqinFcSmsNumSend;
 class LoginController extends Controller
 {
-    /*public function __construct(Sms $sms)
+    public function __construct(Sms $sms)
     {
         $this->sms=$sms;
-    }*/
+    }
 
     //教师登录
     public function dologin(Request $request){
@@ -69,21 +69,10 @@ class LoginController extends Controller
     public function outlogin(){
         session()->forget("tc_phone");
         session()->forget("tc_name");
-        session()->forget("st_phone");
-        session()->forget("st_name");
-        if(session('dlzt') == '2'){
-            session()->forget("dlzt");
-            //return redirect('/stlogin.html')->with('msg','尊敬的学员您已退出登录!');
-            return redirect('/')->with('msg','尊敬的学员您已退出登录!');
-        }else{
-            session()->forget("dlzt");
-            // return redirect('/login.html')->with('msg','尊敬的教师您已退出登录!');
-            return redirect('/')->with('msg','尊敬的教员您已退出登录!');
-        }
-        
+        return redirect('/login.html')->with('msg','已退出登录!');
     }
 
-    /*//教师注册
+    //教师注册
     public function doreg(Request $request){
         //var_dump($_POST);
         //地区id
@@ -153,53 +142,10 @@ class LoginController extends Controller
            // $result=$this->sms->send("$phone","德栗家教","{zt:'{$zt}','code':'{$yzm}'}",'');
         }
         return "y";
-    }*/
+    }
 
-    //学生登陆
-    public function dostlogin(Request $request){
-        //判断是否是验证码登录  有code是手机验证码登录
-        if(isset($_POST['code'])){
-            $phone = $_POST['phone'];
-            $yzm = $_POST['code'];
-            $list = \DB::table('jjw_user')->where('phone',$phone)->where('city_id',session('regionid'))->first();
-            //dd($list);
-            if($list != null AND $request->cookie('code') == $yzm){
-                //设置session
-                session(['st_phone' => $list->phone,'st_name'=>$list->name]);
-                //重定向  //判断是德栗还是栗志  1是栗志 2是德栗
-                if(session('Template') =='1'){
-                    return redirect('/stinfo.html');
-                }else if(session('Template') =='2'){
-                    return redirect('/stinfo2.html');
-                }
-
-            }else{
-                //重定向
-                return redirect('/login.html')->with('msg','账号不存在,请重新输入!');
-            }
-        }else{
-            //账号密码登录
-            //dd($_POST);
-            $phone = $_POST['phone'];
-            $pass = $_POST['pwd'];
-            session(['dlzt' => $_POST['dlzt']]);
-            //查询账号密码是否存在
-            $list = \DB::table('jjw_user')->where('phone',$phone)->where('password',$pass)->where('city_id',session('regionid'))->first();
-            //dd($list);
-            if($list != null){
-                //设置session
-                session(['st_phone' => $list->phone,'st_name'=>$list->name]);
-                //重定向  //判断是德栗还是栗志  1是栗志 2是德栗
-                if(session('Template') =='1'){
-                    return redirect('/stinfo.html');
-                }else if(session('Template') =='2'){
-                    return redirect('/stinfo2.html');
-                }
-            }else{
-                //重定向
-                return redirect('/stlogin.html')->with('msg','学员账号不存在,请重新输入!');
-            }
-        }
+    public function gerenzhongx(){
+        echo "个人中心:用户".Session('tc_phone');
     }
 
 }

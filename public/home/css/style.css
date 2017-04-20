@@ -4257,12 +4257,7 @@ textarea{
 }
 
 /*悬浮*/
-.suspend {
-	position: fixed;
-	right: 1px;
-	top:200px;
-	z-index: 9999;
-}
+
 .suspend li {
 	width: 54px;
 	margin-bottom: 10px;
@@ -8723,12 +8718,7 @@ textarea{
 }
 
 /*悬浮*/
-.suspend {
-	position: fixed;
-	right: 1px;
-	top:200px;
-	z-index: 9999;
-}
+
 .suspend li {
 	width: 54px;
 	margin-bottom: 10px;

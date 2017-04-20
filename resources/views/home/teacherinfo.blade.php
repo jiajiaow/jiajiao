@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>个人中心 -栗智</title>
+    <title>个人中心 -德栗</title>
     <link rel="stylesheet" href="{{ asset('/home/css/style.css') }}">
     <script src="{{ asset('/home/js/jquery.min.js') }}"></script>
     <script type="text/javascript">
@@ -57,10 +57,10 @@
                 <ul>
                     <li class=""><a href="">个人资料</a><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>
                     <li class=""><a href="">身份认证</a><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>
-                    <li class=""><a href="http://www.jiajiao114.com/member/">待付款订单</a><i>0</i><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>
+                    {{--<li class=""><a href="http://www.jiajiao114.com/member/">待付款订单</a><i>0</i><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>--}}
                     <li class=""><a href="">申请记录</a><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>
                     <li class=""><a href="">成功记录</a><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>
-                    <li class=""><a href="">申请退款</a><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>
+                    {{--<li class=""><a href="">申请退款</a><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>--}}
                     <li class=""><a href="">投诉中心</a><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>
                     <li class=""><a href="">重置密码</a><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>
                 </ul>
@@ -110,7 +110,7 @@
                                         <h4>上传形象照，更出彩</h4>
                                     </div>
                                     <p style="font-size:18px;">阳光、健康、专业的形象照，增加您的第一印象分，让家长一眼就选定你，马上动手吧。</p>
-                                    <a style="font-size:18px;" href="http://www.jiajiao114.com/member/index.php?d=1">上传形象照</a>
+                                    <a style="font-size:18px;" href="javascript:void(0);">上传形象照</a>
                                 </div>
                                 <div class="section">
                                     <div class="small-tit">
@@ -118,7 +118,7 @@
                                         <h4>简历详尽，突出优势</h4>
                                     </div>
                                     <p style="font-size:18px;">尽量将您的资料填写详细，并突出您的特长和家教相关经验，以方便家长及德栗家教工作人员选择、推荐。好的简历，事半功倍，可以大大增加您的接单率！</p>
-                                    <a style="font-size:18px;" href="http://www.jiajiao114.com/teacher/365360" class="look">简历预览</a><a style="font-size:18px;" class="change" href="http://www.jiajiao114.com/member/index.php?d=1">修改简历</a>
+                                    <a style="font-size:18px;" href="javascript:void(0);" class="look">简历预览</a><a style="font-size:18px;" class="change" href="javascript:void(0);">修改简历</a>
                                 </div>
                                 <div class="section">
                                     <div class="small-tit">
@@ -197,7 +197,7 @@
                                         <h4>薪水要求</h4>
                                         <p>
                                             @if($list->tc_salary == '')
-                                                执行栗志家教收费标准
+                                                执行德栗家教收费标准
                                             @else
                                                 $list->tc_salary
                                             @endif
@@ -209,7 +209,7 @@
                                     <small>（工作时间：<i>9:00-20:30</i>）（预约时，请提供此教员的编号：<i>T{{ $list->id }}</i>）</small>
                                 </div>
                                 <table>
-                                    <caption>老师在栗智的成功家教记录</caption>
+                                    <caption>老师在德栗的成功家教记录</caption>
                                     <thead>
                                     <tr>
                                         <th>订单号</th>
@@ -682,7 +682,7 @@
                                         </div>
                                         <div class="fg">
                                             <label for="">课酬要求：</label>
-                                            <input type="text" name="pay" placeholder="执行栗志家教收费标准" class="imoney" value="">
+                                            <input type="text" name="pay" placeholder="执行德栗家教收费标准" class="imoney" value="">
                                             <a style="color:#e4393c;" href="">查看更多收费标准</a>
                                         </div>
                                         <input type="hidden" name="type" value="1">
@@ -724,7 +724,7 @@
                                 </div>
                                 <div class="hide-box">
                                     <form action="" id="othersave2" enctype= multipart/form-data >
-                                        <div class="tfg">
+                                        <div class="tfg" style="margin-top: 0px;">
                                             <label for="">自我描述：</label><br/>
                                             {{--<a  style="color: #333" href="">查看范例</a>--}}
                                             <textarea name="resume" placeholder="注：写的越详细，家长会觉得你越负责，也越了解你的情况，将增加家长对你的好感，大幅增加成功接单的概率。" class="al"></textarea>
@@ -899,7 +899,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-cont ">
+                    {{--<div class="tab-cont ">
                         <div class="no-payment">
                             <div class="section" id="tit">
                                 <span class="NewInfo_1">新家教单</span>
@@ -1157,11 +1157,11 @@
                             $('#con li').eq(i).show().siblings().hide();
                         });
                     </script>
-                    </div>
+                    </div>--}}
                     <div class="tab-cont  ">
                         <div class="application">
                             <div class="section">
-                                <h3><i></i>的订单申请记录</h3>
+                                <h3><i></i>您的订单申请记录</h3>
                                 <p>如下是您最近申请过的订单，某些申请记录可能因为特殊原因未被展示。</p>
                             </div>
                             <table>
@@ -1183,7 +1183,7 @@
                     <div class="tab-cont ">
                         <div class="succeed">
                             <div class="section">
-                                <h3><i></i>的成功家教记录</h3>
+                                <h3><i></i>您的成功家教记录</h3>
                                 <p>成功记录是您过往在德栗家教接受聘用并持续任教的历史记录，成功记录丰富，学员将会更愿意选择您任教。</p>
                             </div>
                             <table>
@@ -1203,7 +1203,7 @@
                             </table>
                         </div>
                     </div>
-                    <div class="tab-cont ">
+                    {{--<div class="tab-cont ">
                         <div id="ishave" class="succeed" style="display:none">
                             <table>
                                 <caption>收款方信息</caption>
@@ -1400,7 +1400,7 @@
                             </script>
 
                         </div>
-                    </div>
+                    </div>--}}
                     <div class="tab-cont ">
                         <div class="complain">
                             <form action="" method="post">

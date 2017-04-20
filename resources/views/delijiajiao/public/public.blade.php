@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="/delijiajiao/css/common.css" onerror="tracker.resErr(this)" />
   <link rel="icon" href="/delijiajiao/favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="/delijiajiao/favicon.ico" type="image/x-icon">
+     <link rel="stylesheet" type="text/css" href="/delijiajiao/css/swiper.min.css">
      <style>
          #cheng-href{
              color:#a7a7a7;
@@ -29,6 +30,44 @@
              text-align: center;
 
          }
+         .swiper-container {
+             width: 800px;
+             height: 300px;
+
+         }
+         .swiper-slide {
+             text-align: center;
+             font-size: 18px;
+             background: #fff;
+
+             /* Center slide text vertically */
+             display: -webkit-box;
+             display: -ms-flexbox;
+             display: -webkit-flex;
+             display: flex;
+             -webkit-box-pack: center;
+             -ms-flex-pack: center;
+             -webkit-justify-content: center;
+             justify-content: center;
+             -webkit-box-align: center;
+             -ms-flex-align: center;
+             -webkit-align-items: center;
+             align-items: center;
+         }
+         .templinkactive
+         {
+             padding:5px;
+             text-decoration:none;
+             background-color:  #2788DA;
+             color:#ffffff;
+         }
+         .templink
+         {
+             cursor:pointer;
+             padding:5px;
+             text-decoration:none;
+         }
+         table tr{ height:35px;}
      </style>
 
   {{-- <link href="/home/css/style.css" rel="stylesheet" type="text/css" /> --}}
@@ -69,25 +108,42 @@ for(i=0; i <tabList.length; i++)
         {{ session('phone') }}
      </div>
      <ul id="user-tools" class="navbar-nav">
-         @if(session('tc_name') != null or session('tc_phone') != null)
-             <li><arel="nofollow" data-toggle="userAuth" data-type="reg">尊敬的{{ substr(session('tc_name'),0,3) }}教员</a>  </li>
-             <li><a href="/teacherinfo.html" rel="nofollow" data-toggle="userAuth" data-type="reg">教员中心</a></li>
-             <li><a href="/outlogin.html" rel="nofollow" data-toggle="userAuth" data-type="reg">退出</a></li>
+         @if(session('dlzt') == 2 )
+             {{--学员--}}
+             @if(session('st_name') != null or session('st_phone') != null)
+                 <li><arel="nofollow" data-toggle="userAuth" data-type="reg">尊敬的{{ substr(session('st_name'),0,3) }}学员</a>  </li>
+                 <li><a href="/teacherinfo.html" rel="nofollow" data-toggle="userAuth" data-type="reg">教员中心</a></li>
+                 <li><a href="/outlogin.html" rel="nofollow" data-toggle="userAuth" data-type="reg">退出</a></li>
              @else
-             <li><a href="/reg.html" rel="nofollow" data-toggle="userAuth" data-type="reg">教员注册</a></li>
-             <li><a href="/login.html" rel="nofollow" data-toggle="userAuth" data-type="login">教员登录</a></li>
-             <li><a href="#" rel="nofollow" data-toggle="userAuth" data-type="login">学员登录</a></li>
-             <li><a href="/yuyuelaoshi.html" rel="nofollow" data-toggle="userAuth" data-type="login">快速请家教</a></li>
-             {{-- <li><a href="#" target="_blank">请家教帮助</a></li> --}}
+                 <li><a href="/reg.html" rel="nofollow" data-toggle="userAuth" data-type="reg">教员注册</a></li>
+                 <li><a href="/login.html" rel="nofollow" data-toggle="userAuth" data-type="login">教员登录</a></li>
+                 <li><a href="/stlogin.html" rel="nofollow" data-toggle="userAuth" data-type="login">学员登录</a></li>
+                 <li><a href="/yuyuelaoshi.html" rel="nofollow" data-toggle="userAuth" data-type="login">快速请家教</a></li>
+                 {{-- <li><a href="#" target="_blank">请家教帮助</a></li> --}}
+             @endif
+         @else
+             {{--教员--}}
+             @if(session('tc_name') != null or session('tc_phone') != null)
+                 <li><arel="nofollow" data-toggle="userAuth" data-type="reg">尊敬的{{ substr(session('tc_name'),0,3) }}教员</a>  </li>
+                 <li><a href="/teacherinfo.html" rel="nofollow" data-toggle="userAuth" data-type="reg">教员中心</a></li>
+                 <li><a href="/outlogin.html" rel="nofollow" data-toggle="userAuth" data-type="reg">退出</a></li>
+             @else
+                 <li><a href="/reg.html" rel="nofollow" data-toggle="userAuth" data-type="reg">教员注册</a></li>
+                 <li><a href="/login.html" rel="nofollow" data-toggle="userAuth" data-type="login">教员登录</a></li>
+                 <li><a href="/stlogin.html" rel="nofollow" data-toggle="userAuth" data-type="login">学员登录</a></li>
+                 <li><a href="/yuyuelaoshi.html" rel="nofollow" data-toggle="userAuth" data-type="login">快速请家教</a></li>
+                 {{-- <li><a href="#" target="_blank">请家教帮助</a></li> --}}
+             @endif
          @endif
+
      </ul>
     </div>
    </div>
    <div class="header">
     <div class="location">
-     <div class="breadcrumb">
+     <div class="breadcrumb" style="margin-bottom: 0px;background-color: #fff;padding: 0px">
       <h1><a a href='/' class='primary-logo' ><img alt="广州" src="/delijiajiao/picture/guangzhou.png" class="city-logo" /></a></h1>
-      <span class="listing-slogan">{{ session('regionname') }}</span><span class="listing-slogan1">【德栗家教】【高校联盟】</span>{{--<a href="/change_city.html">更多城市</a>--}}
+      <span class="listing-slogan" style="height:40px;">{{ session('regionname') }}</span><span class="listing-slogan1" style="height: 26px;">【德栗家教】【高校联盟】</span>{{--<a href="/change_city.html">更多城市</a>--}}
      </div>
      <div class="pull-right">
       <a href="/yuyuelaoshi.html" class="resume-btn" style="font-size: 16px">请老师</a>
@@ -98,47 +154,19 @@ for(i=0; i <tabList.length; i++)
   </header>
   <div class="nav-horizontal">
    <div class="nav-horizontal-content">
-    <ul>
-     <li class="vtle"><a href="/" >德栗首页</a></li>
-     <li><a href="/yuyuelaoshi.html">快速请家教</a></li>
-     <li><a href="/faculty.html" >挑老师</a></li>
-     <li><a href="/zfsm.html" >资费说明</a></li>
-     <li><a href="/xueyuan.html" >学员库</a></li>
-        <li><a href="">会员中心</a></li>
-        {{--<li><a href="">资源中心</a></li>--}}
-    {{-- <li><a href="#" target="_blank">家长课堂</a></li> --}}
-    {{-- <li><a href="#" target="_blank">家长课堂</a></li> --}}
+    <ul id="weituo">
+     <li id="as1" class="vtle"><a href="/"  id="ad1">德栗首页</a></li>
+     <li id="as2"><a href="/yuyuelaoshi.html" id="ad2">快速请家教</a></li>
+     <li id="as3"><a href="/faculty.html" id="ad3">挑老师</a></li>
+     <li id="as4"><a href="/zfsm.html" id="ad4">资费说明</a></li>
+     <li id="as5"><a href="/xueyuan.html" id="ad5">学员库</a></li>
+        <li id="as6"><a href="" id="ad6">会员中心</a></li>
     </ul>
    </div>
   </div>
   <div class="container">
    <div class="main-box">
-    <div class="nav-vertical" id="dropdown">
-      <ul id="cheng">
-      @foreach($yiji as $yj)
-            <li class="nav-item" style="display:block;overflow: hidden；">
-                <a href="javascript:void(0);" class="nav-item-title">{{ $yj->yiji }}
-                    <i class="icon-arrow-right right"></i>
-                </a>
-                      <span>{{ $yj->introduce }}<br><Br></span>
 
-                <dl>
-                    @foreach($erji as $ej)
-                        @if( $yj->id == $ej->yiji_id )
-                            <dt>{{ $ej->erji }}</dt>
-                            @foreach($sanji as $sj)
-                                @if($ej->id == $sj->erji_id)
-                                    <dd><a href="/navigation.html/学科/{{ $sj->sanji }}">{{ $sj->sanji }}</a></dd>
-                                @endif
-                            @endforeach
-
-                        @endif
-                    @endforeach
-               </dl>
-            </li>
-      @endforeach
-       </ul>
-    </div>
 @section('content')
 
 
@@ -265,6 +293,23 @@ for(i=0; i <tabList.length; i++)
     @endif
 </script>
 <script type="text/javascript" src="https://hztk5.kuaishang.cn/bs/ks.j?cI=125636&fI=79140" charset="utf-8"></script>
+  <script type="text/javascript">
+      var ur = window.location.pathname;
+      //alert(ur);
+            if(ur == '/faculty.html'){
+                $('#as1').removeClass();
+                $('#as3').addClass('vtle');
+            }else if(ur == '/yuyuelaoshi.html'){
+                $('#as1').removeClass();
+                $('#as2').addClass('vtle');
+            }else if(ur == '/zfsm.html'){
+                $('#as1').removeClass();
+                $('#as4').addClass('vtle');
+            }else if(ur == '/xueyuan.html') {
+                $('#as1').removeClass();
+                $('#as5').addClass('vtle');
+            }
+  </script>
 @section('js')
 
 

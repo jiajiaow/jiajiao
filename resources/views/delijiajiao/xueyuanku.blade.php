@@ -101,7 +101,15 @@
                             @endif
                             ]{{  subtext($li->teacher_info,45) }}</p>
                         <p id="te">{{ $li->money==''?'执行德栗家教收费标准':$li->money }}</p>
-                        <p id="tf"> {{ $li->grade }}({{ $li->user_sex=='1'?'男':'女' }})<br>{{ $li->subject_id }} </p>
+                        <p id="tf"> {{ $li->grade }}(
+                            @if($li->user_sex == '1')
+                                男
+                            @elseif($li->user_sex == '2')
+                                女
+                            @elseif($li->user_sex=='3')
+                                男女不限
+                            @endif
+                            )<br>{{ $li->subject_id }} </p>
                         <p id="tg"> {{ substr($li->user_name,0,3) }}学员<br>{{ $li->id }}</p>
                   </li>
                  @endforeach
@@ -109,7 +117,32 @@
           </div>
         </div>
      </div>
-    <div class="acrtp"> {{ $list->links()}}</div>
+        <div class="acrtp">
+            <div class="acrtps">
+                @if ($list->LastPage() > 1)
+                    <a href="{{ $list->Url(1) }}" class="item{{ ($list->CurrentPage() == 1) ? ' disabled' : '' }}">
+                        <i class="icon left arrow"></i>
+                        首页
+                    </a>  <a href="{{ $list->Url($list->last) }}" class="item{{ ($list->CurrentPage() == 1) ? ' disabled' : '' }}">
+                        <i class="icon left arrow"></i>
+                        上一页
+                    </a>  <a href="{{ $list->Url($list->next) }}" class="item{{ ($list->CurrentPage() == 1) ? ' disabled' : '' }}">
+                        <i class="icon left arrow"></i>
+                        下一页
+                    </a>
+                    <!--@for ($i = 1; $i <= $list->LastPage(); $i++)
+                            <a href="{{ $list->Url($i) }}" class="item{{ ($list->CurrentPage() == $i) ? ' active' : '' }}">
+                        {{ $i }}
+                            </a>
+                        @endfor -->
+                    <a href="{{ $list->Url($list->LastPage()) }}" class="item{{ ($list->CurrentPage() == $list->LastPage()) ? ' disabled' : '' }}">
+                        末页
+                        <i class="icon right arrow"></i>
+                    </a>
+                @endif
+                {{--  {{ $list->links()}}--}}
+            </div>
+        </div>
 
 
     <div class="selectNumberScreen">
@@ -167,4 +200,5 @@
         $('#cheng').remove();
         $('#f').remove();
     </script>
+
 @endsection

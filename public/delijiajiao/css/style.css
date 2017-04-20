@@ -390,11 +390,11 @@ ul.search-history .search-history-title {
 }
 .nav-horizontal .nav-horizontal-content>ul>li a:hover {
 	text-decoration:none;
-        background:#FFcc00;
-        color:#000;
-        height:42px;
-        margin-top:2px;
-	line-height:42px;
+        /*background:#FFcc00;*/
+        /*color:#000;*/
+        /*height:42px;*/
+        /*margin-top:2px;*/
+	/*line-height:42px;*/
         text-align:center;
 }
 .nav-horizontal .nav-horizontal-content>ul>li a img {

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>教员登录</title>
+	<title>学员登录</title>
 	<link rel="stylesheet" href="{{ asset('/home/css/login.css') }}">
 	<script type="text/javascript" src= "{{ asset('/home/js/jquery-2.2.3.min.js') }}"></script>
 	<script src="{{ asset('/delijiajiao/js/layer.js') }}"></script>
@@ -28,7 +28,6 @@
 					<div class="clear"></div>
 				</div>
 				<div class="return pull-right">
-					<a href="/stlogin.html">学员登陆</a> | 
 					<a href="/">返回首页</a>
 				</div>
 				<div class="clear"></div>
@@ -62,12 +61,13 @@
 						</div>
 						<div class="line"></div>
 						
-						<form id="validForm" method="post" action="{{ URL('/dologin.html') }}">
+						<form id="validForm" method="post" action="{{ URL('/dostlogin.html') }}">
 							<div class="fg">
 								<label for="">
 									<img src="{{ asset('/home/picture/icon_mail.png') }}">
 								</label>
 								<input  id="uname" type="text" name="phone" placeholder="手机号" maxlength="11" >
+								<input type="hidden" name="dlzt" value="2">
 							</div>
 							
 							<div class="fg">
@@ -80,10 +80,11 @@
 							</div>
 							<button id="deng"  type="submit">登录</button>
 						</form>
-						<form class="z" id="ptForm" method="post" action="{{ URL('/dologin.html') }}">
+						<form class="z" id="ptForm" method="post" action="{{ URL('/dostlogin.html') }}">
 							<div class="fg">
 								<label for=""><img src="{{ asset('/home/picture/icon_mail.png') }}"></label>
 								<input id="zh" type="text" name="phone" placeholder="请输入账号">
+								<input type="hidden" name="dlzt" value="2">
 							</div>
 							<div class="fg">
 								<label for=""><img src="{{ asset('/home/picture/icon_pass.png') }}"></label>
@@ -95,7 +96,7 @@
 						
 			
 						
-						<a style="margin-top: 20px;"  href="{{ URL('/reg.html') }}" class="pull-left">我是老师，立即注册</a>
+						<a style="margin-top: 20px;"  href="{{ URL('/yuyuelaoshi.html') }}" class="pull-left">我是学生，立即注册</a>
 						<a style="margin-top: 20px;" href="" class="pull-right">忘记登录密码</a>
 						<div class="clear"></div>
 					</div>
@@ -108,33 +109,6 @@
 	<div id="footer">
 
 		<div class="foot-bottom"><div class="container">
-		<!--		<ul style="width:100%"><li>友情链接：</li><li><a href="" target="_blank">仓山区</a></li>
-					<li><a href="" target="_blank">鼓楼区</a></li>
-					<li><a href="" target="_blank">晋安区</a></li>
-					<li><a href="" target="_blank">马尾区</a></li>
-					<li><a href="" target="_blank">台江区</a></li>
-					<li><a href="" target="_blank">闵候县</a></li>
-					<li><a href="" target="_blank">长乐市</a></li>
-					<li><a href="" target="_blank">福清市</a></li>
-					<li><a href="" target="_blank">闽清县</a></li>
-					<li><a href="" target="_blank">永泰县 </a></li>
-					<li><a href="" target="_blank">罗源县</a></li>
-					<li><a href="" target="_blank">连江县</a></li>
-					<li><a href="" target="_blank">平谭县  </a></li>
-					<li><a href="" target="_blank">莆田市</a></li>
-					<li><a href="" target="_blank">永德市</a></li>
-					<li><a href="" target="_blank">台江区瀛洲</a></li>
-					<li><a href="" target="_blank">台江区后州</a></li>
-					<li><a href="" target="_blank">台江区义洲</a></li>
-					<li><a href="" target="_blank">台江区新港</a></li>
-					<li><a href="" target="_blank">台江区上海</a></li>
-					<li><a href="" target="_blank">台江区苍霞</a></li>
-					<li><a href="" target="_blank">台江区洋中</a></li>
-					<li><a href="" target="_blank">台江区茶亭</a></li>
-					<li><a href="" target="_blank">台江区鳌峰</a></li>
-					<li><a href="" target="_blank">台江区宁化</a></li>
-					<li><a href="" target="_blank">台江区中州岛</a></li>
--->
 					<div class="clear"></div>
 				</ul>
 					<ul style="font-size:15px;color:#262626 "> Copyright2005－2017广州学求易教育咨询有限公司

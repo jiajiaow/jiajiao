@@ -1,16 +1,52 @@
 @extends('delijiajiao.public.public')
 @section('title',session('regionname') )
 @section('content')
+    <div class="nav-vertical" id="dropdown">
+        <ul id="cheng">
+            @foreach($yiji as $yj)
+                <li class="nav-item" style="display:block;overflow: hidden；">
+                    <a href="javascript:void(0);" class="nav-item-title">{{ $yj->yiji }}
+                        <i class="icon-arrow-right right"></i>
+                    </a>
+                    <span>{{ $yj->introduce }}<br><Br></span>
+
+                    <dl>
+                        @foreach($erji as $ej)
+                            @if( $yj->id == $ej->yiji_id )
+                                <dt>{{ $ej->erji }}</dt>
+                                @foreach($sanji as $sj)
+                                    @if($ej->id == $sj->erji_id)
+                                        <dd><a href="/navigation.html/学科/{{ $sj->sanji }}">{{ $sj->sanji }}</a></dd>
+                                    @endif
+                                @endforeach
+
+                            @endif
+                        @endforeach
+                    </dl>
+                </li>
+            @endforeach
+        </ul>
+    </div>
+
     <div class="center">
      <div class="banner">
       <div class="big-banner">
           <!--广告轮播-->
           <div class="banner-container">
             <div class="banner-main over">
-                <ul class="banner-list">
-                </ul>
-                <ul class="banner-index">
-                </ul>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="/delijiajiao/picture/banner.png"></div>
+                        <div class="swiper-slide"><img src="/delijiajiao/picture/br1.png"></div>
+                        <div class="swiper-slide"><img src="/delijiajiao/picture/br2.png"></div>
+
+                    </div>
+
+                    <div class="swiper-pagination"></div>
+
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
             </div>
         </div>
 
@@ -171,6 +207,14 @@
           <div class="lebt">
           <div class="l"><img src="/delijiajiao/images/icon_title4.png">学员信息</div> <div class="r"><a href="/xueyuan.html">更多</a></div></div>
           <div class="acrt1">
+              <li>
+                  <p id="t2">时间</p>
+                  <p id="t5">状态</p>
+                  <p id="t4">说明</p>
+                  <p id="t3">地区</p>
+                  <p id="t6" style="width:13%;float: right;">类别</p>
+                  <p id="t1" style="width:10%;float: left">学员名</p>
+              </li>
             @foreach($data as $data)
               <li>
                   <p id="t1"><a href="/xsinfo{{ $data->id }}.html">详情</a></p>
@@ -330,4 +374,21 @@
 @endsection
 @section('js')
 <script type="text/javascript" src="/delijiajiao/js/zhen.js"></script>
+<script type="text/javascript" src="/delijiajiao/js/swiper.min.js"></script>
+<!-- 广告轮播 -->
+<script type="text/javascript">
+    @if(session("msg"))
+           layer.alert('{{session("msg")}}',{icon: 5});
+    @endif
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        paginationClickable: true,
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: 2500,
+        autoplayDisableOnInteraction: false
+    });
+</script>
 @endsection

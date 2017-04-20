@@ -32,25 +32,20 @@ Route::get('/stlogin.html',function(){
    // session()->forget("st_name");
     return view('home.stlogin');
 });
-//处理执行教师登录
+////处理执行教师登录
 Route::post('/dologin.html','home\LoginController@dologin');
-//处理执行学员登录
-Route::post('/dostlogin.html','home\LoginController@dostlogin');
 //教师注册
 Route::get('/reg.html',function(){ return view('home.reg');  });
 //处理执行教师注册
-Route::post('/doreg.html','home\regController@doreg');
+Route::post('/doreg.html','home\LoginController@doreg');
 //处理执行发送教师注册验证码
-Route::post('/docode.html','home\regController@docode');
+Route::post('/docode.html','home\LoginController@docode');
 //前台退出登录
 Route::get('/outlogin.html','home\LoginController@outlogin');
-//教员个人中心
+//个人中心
 Route::get('/teacherinfo.html','home\teacherinfoController@index');
-//处理教员个人中心
+//处理个人中心
 Route::post('/doteacherinfo.html','home\teacherinfoController@doteacherinfo');
-//用户个人中心 stinfo栗志  stinfo2德栗
-Route::get('/stinfo.html','home\stinfoController@stinfo');
-Route::get('/stinfo2.html','home\stinfoController@stinfo2');
 //省
 Route::post('/sheng','home\teacherinfoController@sheng');
 //县
@@ -86,8 +81,6 @@ Route::get('/test','testController@index');
 Route::get('/faculty.html','home\teacherinfoController@faculty');
 //筛选
 Route::get('/facultyp/{y?}.html','home\teacherinfoController@facultyp');
-Route::get('/screening/{x?}.html','home\teacherinfoController@ss');
-
 //更多金牌 专职 学员 教师
 Route::get('/facultys.html/gd/{id?}','home\teacherinfoController@facultys');
 //热门学科 大学 区域
@@ -177,12 +170,7 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     //修改订单
     Route::post('/doorder','admin\orderController@index');
     //虚拟学员
-    Route::get('/xnxy','admin\xnController@xnxy');
+    Route::post('/xnxy','admin\xnController@index');
     //虚拟教员
-    Route::get('/xnjy','admin\xnController@xnjy');
-    //发布订单
-    Route::get('/fbdd','admin\fbddController@index');
-    //出来发布订单
-    Route::post('/fbdddo','admin\fbddController@formdo');
 });
 //----------后台END----------//
