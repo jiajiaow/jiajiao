@@ -17,9 +17,10 @@ class indexController extends Controller{
 //            $s = DB::table('jjw_position_city')->where('city_id',session('regionid'))->first();
 //            $x = DB::table('city_info')->where('ci_city','like',mb_substr($s->city_name,0,2).'%')->first();
 //            $xx = DB::table('shool_info')->where('sh_city',$x->ci_id)->limit(8)->get();
-            $xx= DB::table('school_t')->where('city_id',session('regionid'))->limit(6)->get();
-            //热门地区
-            $dq = DB::table('jjw_position_county')->where('city_id',session('regionid'))->limit(6)->get();
+            //热门学校  1为热门,查6条
+            $xx= DB::table('school_t')->where('city_id',session('regionid'))->where('hot',1)->limit(6)->get();
+            //热门地区 1为热门,查6条
+            $dq = DB::table('jjw_position_county')->where('city_id',session('regionid'))->where('hot',1)->limit(6)->get();
             //查询地区金牌教员
             //dd($xx);
             //var_dump($xx['0']->sh_shool);

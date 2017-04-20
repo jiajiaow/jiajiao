@@ -26,8 +26,13 @@
 .index1 li dl{float: left;width: 33.3%;font-size: 16px;color: #333;}
 .index1 li dt{font-weight: bold;margin-bottom: 3px;}
 .index1 li .bottom a.btn{
-    padding: 0px 0px 0px 18px;display: inline-block;height: 30px;line-height: 28px;width:120px;color: #f9b04e;border: 1px solid #f9b04e;background: #fff;border-radius: 20px;margin-top: 10px;transition: .3s;-o-transition: .3s;-moz-transition: .3s;-webkit-transition: .3s;}
-.index1 li .bottom a.btn:hover{padding: 0px 0px 0px 18px;background: #f9b04e;color: #fff;}
+    /*padding: 0px 0px 0px 18px;*/
+    display: inline-block;
+    height: 30px;
+    line-height: 28px;width:120px;color: #f9b04e;border: 1px solid #f9b04e;background: #fff;border-radius: 20px;margin-top: 10px;transition: .3s;-o-transition: .3s;-moz-transition: .3s;-webkit-transition: .3s;}
+.index1 li .bottom a.btn:hover{
+    /*padding: 0px 0px 0px 18px;*/
+    background: #f9b04e;color: #fff;}
 .acrt1{width:970px;border: 1px solid #F7B529;float:right;}
 .acrt1 li{width:960px;height:40px;padding: 0px 5px 0px 5px;border-bottom:1px dashed #0a90a4;border-top: 1px solid transparent;border-right: 1px solid transparent;border-left: 1px solid transparent;}
 #t1{width:5%;float:right;line-height:30px;text-align:center;color: #000;overflow: hidden;height: 30px;}
@@ -38,7 +43,12 @@
 #t6{width:13%;float:right;line-height:30px;text-align:center;color: #000;overflow: hidden;height: 30px;}
 #t7{width:10%;float:right;line-height:30px;text-align:center;color: #000;overflow: hidden;height: 30px;}
 .acrt2{width:970px;height:300px;border: 1px solid #F7B529;float:right;}
-.acrt2 li{width:31%;height:40px;float:right;line-height:40px;color: #000;white-space:nowrap;overflow:hidden;margin: 0px 15px 0px 5px;border-bottom:1px dashed #0a90a4;list-style-type:none;}
+.acrt2 li{width:31%;
+    height:40px;
+    float:right;
+    line-height:40px;
+    color: #000;
+    white-space:nowrap;overflow:hidden;margin: 0px 15px 0px 5px;border-bottom:1px dashed #0a90a4;list-style-type:none;}
 .banner-main{width:800px;height:300px;margin:auto;position:relative;border-radius:25px;overflow:hidden;}
 .banner-main>.banner-index{position:absolute;width:150px;/*height:50px;*//*background-color:#98bf21;*/bottom:15px;right:20px;display:inline-block;}
 .banner-main>.banner-index>li{width:15px;height:15px;background-color:#0FF;float:left;border-radius:50%;margin:0 7px;cursor:pointer;}/*广告轮播的动态生成*/
@@ -73,7 +83,13 @@
 .acrt5 li{width:100%;height:40px;line-height:40px;padding: 0px 5px 0px 5px;list-style-type:none;border-bottom:1px dashed #0a90a4;}
 .acrt5 li span{margin:0px 65px 0px 35px;}
 .acrt5 li p{float:right;width:150px;margin:0px 0px 0px 15px;}
-.nTab{float: left;width:800px;background:#fff;margin-top:15px;margin-right:-10px;}
+.nTab{
+    float: left;
+    width:800px;
+    background:#fff;
+    margin-top:35px;
+    margin-right:-10px;
+}
 .nTab .TabTitle{clear: both;height: 40px;line-height:40px;overflow: hidden;}
 .nTab .TabTitle ul{margin:0;padding:0;}
 .nTab .TabTitle li{float: left;width: 95px;cursor: pointer;padding-top: 1px;padding-right: 0px;padding-left: 0px;padding-bottom: 17px;list-style-type: none;}
@@ -294,7 +310,13 @@
     margin: auto;
 }
 .jynr .l{float: left;width: 370px;height: 406px;border: 1px solid #eee;margin-top: 15px;margin-bottom: 20px;}
-.jynr .l li{float: left;padding-left: 10px;width: 370px;line-height: 30px;height: 30px;border: 1px solid #eee;list-style-type: none;}
+.jynr .l li{
+    float: left;
+    padding-left: 10px;
+    width: 370px;
+    line-height:45px;
+    height:45px;
+    border: 1px solid #eee;list-style-type: none;}
 .jynr .l img{
  background-color:#ccc; 
 -moz-border-radius: 500px; 
@@ -303,7 +325,7 @@ border:5px solid #f7b529;
 width: 150px;
 margin-left: 105px;
 /*padding-bottom: 30px;*/
-margin-bottom: 50px;
+margin-bottom: 20px;
 }
 .jynr .l .jybtnl{
 margin-left: 30px;
@@ -314,6 +336,7 @@ text-align:center;
 font-size: 18px;
 background: #F7B529;
 border: 1px solid #C7C7CD;
+    margin-bottom: 21px;
 }
 .jynr .l .jybtnr{
 margin-right: 30px;
@@ -337,7 +360,7 @@ border: 1px solid #C7C7CD;
 }
 .jynr .l .jybtnh{
 margin-left: 25px;
-margin-top: 162px;
+margin-top:255px;
 width: 300px;
 height: 40px;
 line-height: 40px;
@@ -349,7 +372,7 @@ background: #eee;
 border: 1px solid #C7C7CD;
 }
 .jynr .l a{
- width: 120px;
+ /*width: 120px;*/
  height: 40px;
  font-size: 14px;
 margin: -1px 0px 0px -1px;

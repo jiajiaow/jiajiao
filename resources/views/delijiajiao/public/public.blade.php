@@ -107,7 +107,7 @@ for(i=0; i <tabList.length; i++)
 家教上门联系电话：☎
         {{ session('phone') }}
      </div>
-     <ul id="user-tools" class="navbar-nav">
+     <ul id="user-tools" class="navbar-nav" style="height: 36px">
          @if(session('dlzt') == 2 )
              {{--学员--}}
              @if(session('st_name') != null or session('st_phone') != null)

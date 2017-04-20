@@ -369,9 +369,9 @@ ul.search-history .search-history-title {
 .vtle{
         background:#Ffcc00;
         color:#fff;
-        height:42px;
-        margin-top:2px;
-	line-height:42px;
+        /*height:42px;*/
+        /*margin-top:2px;*/
+	/*line-height:42px;*/
 }
 .nav-horizontal .nav-horizontal-content>ul>li .intro {
 	color:#f46

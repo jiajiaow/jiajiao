@@ -10,7 +10,7 @@
         {{ asset('/delijiajiao/images/logo.png') }}
        @endif
               " />
-      <div class="jybtnl"><div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more">分享老师名片</a></div>
+      <div class="jybtnl"><div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more" >分享老师名片</a></div>
 <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></div>
       <div class="jybtnr"><a href="123.htm" >加入备选老师</a></div>
       <li><span>教师性质：</span>@if($list->tc_type == '--请选择--')@else{{ $list->tc_type }} @endif </li>
@@ -68,7 +68,7 @@
   <div class="nTab">
     <!-- 标题开始 -->
 <div class="TabTitle">
-      <ul id="myTab0">
+      <ul id="myTab0" style="height:43px ">
   <li class="active" onclick="nTabs(this,0);">可授课情况</li>
   <li class="normal" onclick="nTabs(this,1);">个人资料</li>
   <li class="normal" onclick="nTabs(this,2);">家教经验</li>
@@ -79,11 +79,11 @@
     <div style="height: 200px;border:1px solid #F7B529; width: 888px;float: left;">
     <!-- 内容开始 -->
   <div class="TabContent">
-      <div id="myTab0_Content0">
+      <div id="myTab0_Content0" >
           <div style="float: left;margin:5px 0px 15px 5px;text-align: left"><b style="color: #ff0000;">可授科目：</b>{{ $list->tc_subjects }}</div><br><br>
-          <div style="float: left;margin:5px 0px 0px 5px;"><b style="color: #ff0000;">可授区域：</b>{{ $list->tc_area }}</div><br><br><br>
-          <div style="float: left;margin:5px 0px 15px 5px;"><b style="color: #ff0000;">可授课时间：</b>{{ $list->tc_sktime }}</div><br><br>
-          <div style="float: left;margin:5px 0px 15px 5px;"><b style="color: #ff0000;">课酬要求：</b>@if($list->tc_salary == null)执行德栗家教收费标准@else{{ $list->tc_salary }}@endif</div>
+          <div style="float: left;margin:5px 0px 0px 5px;text-align: left"><b style="color: #ff0000;">可授区域：</b>{{ $list->tc_area }}</div><br><br><br>
+          <div style="float: left;margin:5px 0px 15px 5px;text-align: left"><b style="color: #ff0000;">可授课时间：</b>{{ $list->tc_sktime }}</div><br><br>
+          <div style="float: left;margin:5px 0px 15px 5px;text-align: left"><b style="color: #ff0000;">课酬要求：</b>@if($list->tc_salary == null)执行德栗家教收费标准@else{{ $list->tc_salary }}@endif</div>
       </div>
        <div id="myTab0_Content1" class="none">
            <div style="float: left;margin:5px 0px 15px 5px;"><b style="color: #ff0000;">自我评价：</b>{{ $list->tc_comments }}</div><br><br>

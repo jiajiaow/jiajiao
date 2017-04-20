@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <title>热门区域</title>
+    <title>热门大学</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
 
@@ -54,7 +54,8 @@
                         <tr>
                             <th>ID</th>
                             <th>市级ID</th>
-                            <th>区域名称</th>
+                            <th>大学名称</th>
+                            <th>所在区域</th>
                             <th>状态</th>
                             <th>操作</th>
                         </tr>
@@ -64,16 +65,17 @@
                             <tr class="gradeX">
                                 <td class="center">{{ $lis->id }}</td>
                                 <td>{{ $lis->city_id }}</td>
-                                <td>{{ $lis->county_name }}</td>
+                                <td>{{ $lis->school_name }}</td>
+                                <td>{{ $lis->region }}</td>
                                 <td class="center">
                                   {{ $lis->hot=='0'?'不是热门':'热门' }}
                                 </td>
                                 <td class="center">
                                     {{--<a class="glyphicon glyphicon-wrench" href="/admin/bjfz?id="></a>--}}
                                  @if($lis->hot == 1)
-                                        <a href="/admin/do_hot_area/{{ $lis->id }}/0" class="glyphicon glyphicon-ok">取消</a>
+                                        <a href="/admin/do_hot_school/{{ $lis->id }}/0" class="glyphicon glyphicon-ok">取消</a>
                                     @else
-                                        <a href="/admin/do_hot_area/{{ $lis->id }}/1" class="glyphicon glyphicon-remove">设置热门</a>
+                                        <a href="/admin/do_hot_school/{{ $lis->id }}/1" class="glyphicon glyphicon-remove">设置热门</a>
                                     @endif
                                     {{--<a class="glyphicon glyphicon-trash" href="javascript:;" onclick="del(this);">删除</a>--}}
                                 </td>

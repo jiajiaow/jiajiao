@@ -7735,7 +7735,7 @@ textarea{
 	height: 100%;
 	float: left;
 	color: #aaa;
-	width: 200px;
+	width: 100%;
 	padding-left: 6px;
 }
 #register-banner .left-form a {

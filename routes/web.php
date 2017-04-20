@@ -184,5 +184,13 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::get('/fbdd','admin\fbddController@index');
     //出来发布订单
     Route::post('/fbdddo','admin\fbddController@formdo');
+    //热门    大学
+    Route::get('/hot_school','admin\hotController@school');
+    //热门    区域
+    Route::get('/hot_area','admin\hotController@area');
+    //处理热门区域
+    Route::get('/do_hot_area/{id?}/{zt?}','admin\hotController@do_hot_area');
+    //处理热门大学
+    Route::get('/do_hot_school/{id?}/{zt?}','admin\hotController@do_hot_school');
 });
 //----------后台END----------//

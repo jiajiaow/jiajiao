@@ -5,6 +5,7 @@
         <ul id="cheng">
             @foreach($yiji as $yj)
                 <li class="nav-item" style="display:block;overflow: hidden；">
+
                     <a href="javascript:void(0);" class="nav-item-title">{{ $yj->yiji }}
                         <i class="icon-arrow-right right"></i>
                     </a>
@@ -93,7 +94,7 @@
             </ul>
         </div>
     </div>
-        <div class="img_">
+        <div class="img_" >
             <a style="display:block;" href="/yuyuelaoshi.html"><img style="width:970px;float:right;" src="/delijiajiao/images/2.png" alt="" /></a>
         </div>
     </div>
@@ -208,12 +209,13 @@
           <div class="l"><img src="/delijiajiao/images/icon_title4.png">学员信息</div> <div class="r"><a href="/xueyuan.html">更多</a></div></div>
           <div class="acrt1">
               <li>
-                  <p id="t2">时间</p>
-                  <p id="t5">状态</p>
-                  <p id="t4">说明</p>
-                  <p id="t3">地区</p>
-                  <p id="t6" style="width:13%;float: right;">类别</p>
-                  <p id="t1" style="width:10%;float: left">学员名</p>
+                  <p id="t1" style="width: 5%"></p>
+                  <p id="t2" style="float: right;width: 15%">时间</p>
+                  <p id="t3" style="float: right;width: 7%;color: #000;">状态</p>
+                  <p id="t4" style="float: right; width:25%">说明</p>
+                  <p id="t5" style="float: right;width:25%;">地区</p>
+                  <p id="t6" style="width:13%;float:right;">类别</p>
+                  <p id="t7" style="width:10%;float: right">学员名</p>
               </li>
             @foreach($data as $data)
               <li>
@@ -368,9 +370,12 @@
   </div>
   </center>
  <div>--}}
-           <a style="display:block;" href="">
-                <img style="width:980px;float:right;" src="/delijiajiao/images/33.png" alt="" />
-           </a>
+    <div>
+        <a style="display:block;" href="">
+            <img style="width:970px;float:right;margin-top: 10px;" src="/delijiajiao/images/33.png" alt="" />
+        </a>
+    </div>
+
 @endsection
 @section('js')
 <script type="text/javascript" src="/delijiajiao/js/zhen.js"></script>

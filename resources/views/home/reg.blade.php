@@ -40,7 +40,7 @@
 							</div>
 
 							<div class="yfg" id="hidepassword">
-								<input type="password" id="pw1" name="pw1" placeholder="请设置密码" class="pass" onblur="changepw1pw2() ">
+								<input type="password" id="pw1" name="pw1" placeholder="请设置密码" class="pass" onblur="changepw1pw2() " style="background-color: #EEEEEE;">
 								{{--<a href="javascript:void(0)" onclick="showpassword()">显示</a>--}}
 							</div>
 

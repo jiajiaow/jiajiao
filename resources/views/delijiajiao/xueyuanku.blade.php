@@ -1,7 +1,7 @@
 ﻿@extends('delijiajiao.public.public')
 @section('title',session('regionname') )
 @section('content')
-<link rel="stylesheet"  href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"  onerror="tracker.resErr(this)" />
+{{--<link rel="stylesheet"  href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"  onerror="tracker.resErr(this)" />--}}
 <div class="container">
   <div class="main-box">
 	    <div id="selectList" class="screenBox screenBackground">

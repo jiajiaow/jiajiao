@@ -124,6 +124,23 @@
                     <li>
                         <a href="#">
                             <i class="fa fa fa-bar-chart-o"></i>
+                            <span class="nav-label">热门大学,区域</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+
+                                <a class="J_menuItem" href="/admin/hot_area">热门区域列表</a>
+
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="/admin/hot_school">热门大学分站</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa fa-bar-chart-o"></i>
                             <span class="nav-label">统计图表</span>
                             <span class="fa arrow"></span>
                         </a>

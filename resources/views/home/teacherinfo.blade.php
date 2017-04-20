@@ -36,7 +36,7 @@
             <div class="right-info pull-right">
                 <ul>
                     <li>
-                        <a href="" target="_blank">最新家教信息</a>
+                        <a href="xueyuan.html" target="_blank">最新家教信息</a>
                     </li>
                     <li>
                         <a href="" onclick="javascript:location.href=&#39;/teacher/365360.html&#39;" class="look">简历预览</a>
@@ -118,7 +118,8 @@
                                         <h4>简历详尽，突出优势</h4>
                                     </div>
                                     <p style="font-size:18px;">尽量将您的资料填写详细，并突出您的特长和家教相关经验，以方便家长及德栗家教工作人员选择、推荐。好的简历，事半功倍，可以大大增加您的接单率！</p>
-                                    <a style="font-size:18px;" href="javascript:void(0);" class="look">简历预览</a><a style="font-size:18px;" class="change" href="javascript:void(0);">修改简历</a>
+                                    <a style="font-size:18px;" href="javascript:void(0);" class="look">简历预览</a>
+                                    {{--<a style="font-size:18px;" class="change" href="javascript:void(0);">修改简历</a>--}}
                                 </div>
                                 <div class="section">
                                     <div class="small-tit">
@@ -126,7 +127,7 @@
                                         <h4>网上认证，机会更多</h4>
                                     </div>
                                     <p style="font-size:18px;">请您尽快将证件（如身份证、学生证、毕业证、家教资料证或相关的在职证明等）到网站上传进行身份验证，认证的教员我们将优先推荐家教。</p>
-                                    <a style="font-size:18px;" href="http://www.jiajiao114.com/member/index.php?d=2">网上认证</a>
+                                    {{--<a style="font-size:18px;" href="http://www.jiajiao114.com/member/index.php?d=2">网上认证</a>--}}
                                 </div>
                             </div>
                         </small></div><small>
@@ -460,7 +461,7 @@
                                         <option value="4年以上">4年以上</option>
                                     </select>
                                 </div>
-                                <button type="submint">保存</button>
+                                <button type="submint" onclick="alert('保存成功！')">保存</button>
                             </form>
                             <div class="tech-info">
                                 <div class="show-box">
@@ -687,7 +688,7 @@
                                         </div>
                                         <input type="hidden" name="type" value="1">
                                         <button type="reset" class="reset">取消</button>
-                                        <button type="submit" class="tsubmit" onclick="savenodearea()">保存</button>
+                                        <button type="submit" class="tsubmit" onclick="savenodearea();alert('保存成功')">保存</button>
                                         <div class="clear"></div>
                                     </form>
                                     <script>
@@ -705,6 +706,7 @@
                                                 }
                                             })
                                         }
+//                                        alert('保存成功！');
                                     </script>
                                 </div>
                             </div>
@@ -843,7 +845,7 @@
                                             </div>
                                         </div>
                                         <button type="reset" class="reset">取消</button>
-                                        <button type="submit" class="bsubmit" onclick="savenodearea2()">保存</button>
+                                        <button type="submit" class="bsubmit" onclick="savenodearea2();alert('保存成功！')">保存</button>
                                         <div class="clear"></div>
                                     </form>
                                     <script>
