@@ -9,7 +9,7 @@ class fbddController extends Controller
 {
     public function index()
     {
-        return '表单';
+        return view('admin.fbdd');
     }
     public function formdo()
     {

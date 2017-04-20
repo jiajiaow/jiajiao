@@ -142,6 +142,8 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::post('/sheng','admin\AdminController@sheng');
     //市辖县
     Route::post('/xian','admin\AdminController@xian');
+    //区
+    Route::post('/qu','admin\AdminController@qu');
     //编辑分站
     Route::any('/bjfz{id?}','admin\AdminController@bjfz');
     //处理编辑分站
