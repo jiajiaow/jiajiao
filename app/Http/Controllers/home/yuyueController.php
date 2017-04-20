@@ -13,6 +13,7 @@ class yuyueController extends Controller
 {
     public function index(Request $request)
     {
+        //dd();
         if(session('Template') == '2'){
             //dd($request->all());
             return view('delijiajiao.yuyuelaoshi');
@@ -121,6 +122,7 @@ class yuyueController extends Controller
             }
         }
     }
+
     public function yuyuexxform(Request $request)
     {
         $orderid = $request->input('orderid');
@@ -152,5 +154,36 @@ class yuyueController extends Controller
         DB::table('jjw_order')->where('id',$oid)->update(['per_week' => $per,'teacher_info' => $teacher_info,'sk_times' => $sk_times]);
         $request->session()->flash('js', "$('#cheng_show').css('display','block');");
         return view('delijiajiao.yycg');
+    }
+
+    //预约教员
+    public function doyyforms(Request $request){
+        dd($request);
+        $user = $request->input('lxr');
+        $km = $request->input('km');
+        $phone = $request->input('phone');
+        $password = substr($phone,7,4);
+        $regionid = $request->session()->get('regionid');
+        if(session('Template') == '2'){
+            if($phone == Cookie::get('phone')){
+                $re = DB::table('jjw_user')->where('phone',$phone)->first();
+                dd($re);
+                if($re){
+                    $userid = DB::table('jjw_user')->where('phone',$phone)->first();
+                    $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid->id,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid]);
+
+                    return view('delijiajiao.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
+                }else{
+                    $userid = DB::table('jjw_user')->insertGetId(['name' => $user,'phone' => $phone,'password' => $password,'city_id' => $regionid]);
+                    $orderid = DB::table('jjw_order')->insert(['user_id' => $userid,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid]);
+                    return view('home.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
+                }
+            }else{
+                $request->session()->flash('error', "layer.msg('非法请求', {icon: 5});");
+                return back();
+            }
+        }else{
+
+        }
     }
 }

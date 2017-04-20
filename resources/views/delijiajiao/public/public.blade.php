@@ -68,6 +68,14 @@
              text-decoration:none;
          }
          table tr{ height:35px;}
+         #fys{
+             background-color: #fff;
+             border: 1px solid #f7b529;
+             border-radius: 15px;
+             display: inline-block;
+             padding: 2px 14px;
+             margin-top:45px;
+         }
      </style>
 
   {{-- <link href="/home/css/style.css" rel="stylesheet" type="text/css" /> --}}

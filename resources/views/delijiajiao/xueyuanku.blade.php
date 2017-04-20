@@ -1,7 +1,6 @@
 ﻿@extends('delijiajiao.public.public')
 @section('title',session('regionname') )
 @section('content')
-{{--<link rel="stylesheet"  href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"  onerror="tracker.resErr(this)" />--}}
 <div class="container">
   <div class="main-box">
 	    <div id="selectList" class="screenBox screenBackground">
@@ -120,13 +119,13 @@
         <div class="acrtp">
             <div class="acrtps">
                 @if ($list->LastPage() > 1)
-                    <a href="{{ $list->Url(1) }}" class="item{{ ($list->CurrentPage() == 1) ? ' disabled' : '' }}">
+                    <a href="{{ $list->Url(1) }}" id="fys" class="item{{ ($list->CurrentPage() == 1) ? ' disabled' : '' }}">
                         <i class="icon left arrow"></i>
                         首页
-                    </a>  <a href="{{ $list->Url($list->last) }}" class="item{{ ($list->CurrentPage() == 1) ? ' disabled' : '' }}">
+                    </a>  <a href="{{ $list->Url($list->last) }}" id="fys" class="item{{ ($list->CurrentPage() == 1) ? ' disabled' : '' }}">
                         <i class="icon left arrow"></i>
                         上一页
-                    </a>  <a href="{{ $list->Url($list->next) }}" class="item{{ ($list->CurrentPage() == 1) ? ' disabled' : '' }}">
+                    </a>  <a href="{{ $list->Url($list->next) }}" id="fys" class="item{{ ($list->CurrentPage() == 1) ? ' disabled' : '' }}">
                         <i class="icon left arrow"></i>
                         下一页
                     </a>
@@ -135,7 +134,7 @@
                         {{ $i }}
                             </a>
                         @endfor -->
-                    <a href="{{ $list->Url($list->LastPage()) }}" class="item{{ ($list->CurrentPage() == $list->LastPage()) ? ' disabled' : '' }}">
+                    <a href="{{ $list->Url($list->LastPage()) }}" id="fys" class="item{{ ($list->CurrentPage() == $list->LastPage()) ? ' disabled' : '' }}">
                         末页
                         <i class="icon right arrow"></i>
                     </a>

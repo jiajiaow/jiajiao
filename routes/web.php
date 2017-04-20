@@ -81,8 +81,11 @@ Route::any('/yuyuexxform','home\yuyueController@yuyuexxform');
 Route::post('/StudentAdd','home\yuyueController@StudentAdd');
 //测试
 Route::get('/test','testController@index');
+//预约教员
+Route::post('/yuyuexiangxi/yy/{id?}.html','home\yuyueController@doyyforms');
+
 //德栗教员库
-Route::get('/faculty.html','home\teacherinfoController@faculty');
+Route::get('/faculty.html/{a?}/{b?}','home\teacherinfoController@faculty');
 //筛选
 Route::get('/facultyp/{y?}.html','home\teacherinfoController@facultyp');
 Route::get('/screening/{x?}.html','home\teacherinfoController@ss');

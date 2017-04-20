@@ -1155,6 +1155,15 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($dd as $jl)
+                                    <tr>
+                                        <td>{{ $jl->id }}</td>
+                                        <td>{{ $jl->time }}</td>
+                                        <td>{{ $jl->grade }}</td>
+                                        <td>{{ $jl->t_status }}</td>
+                                        <td>{{ $jl->beizhu }}</td>
+                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -1178,6 +1187,18 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($dd as $d)
+                                        @if($d->t_status == '4')
+                                    <tr>
+                                        <td>{{ $d->id }}</td>
+                                        <td>{{ $d->time }}</td>
+                                        <td>{{ $d->grade }}</td>
+                                        <td>{{ $d->user_name }}</td>
+                                        <td>{{ $d->user_phone }}</td>
+                                        <td>{{ $d->t_status }}</td>
+                                    </tr>
+                                        @endif
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

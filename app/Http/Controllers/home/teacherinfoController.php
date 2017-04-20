@@ -25,7 +25,8 @@ class teacherinfoController extends Controller
                 ->join('jjw_position_provice as p', 'c.province_id', '=', 'p.provice_id')
                 ->select('p.provice_name','c.city_name')
                 ->where('t.tc_city_id','=',"$list->tc_city_id")
-                ->get();
+                ->first();
+        //dd($sd);
         //存入session
        // session(['szd' => $sd[0]->provice_name,'szds'=>$sd[0]->city_name]);
         //地区
@@ -41,7 +42,16 @@ class teacherinfoController extends Controller
         $xuexiao = \DB::table('school_t')->where('city_id',session('regionid'))->get();
        //专业类别
         $zhuanye = \DB::table('jjw_major')->get();
-        return view('home.teacherinfo',['list'=>$list,'qu'=>$qu,'km'=>$km,'xuexiao'=>$xuexiao,'zhuanye'=>$zhuanye]);
+        //教员订单
+        $dd = \DB::table('jjw_teachers as t')
+            ->join('jjw_reorder as r', 't.tc_phone', '=', 'r.tc_id')
+            ->join('jjw_order as o', 'o.id', '=', 'r.oid')
+            ->select('o.id','o.time','o.user_name','o.grade','o.user_phone','r.t_status','o.user_situation as beizhu')
+            ->where('t.tc_city_id','=',session('regionid'))
+            ->where('t.tc_phone','=',$phone)
+            ->get();
+        //dd($dd);
+        return view('home.teacherinfo',['list'=>$list,'qu'=>$qu,'km'=>$km,'xuexiao'=>$xuexiao,'zhuanye'=>$zhuanye,'dd'=>$dd]);
     }
 
     //修改教员个人中心
@@ -74,7 +84,7 @@ class teacherinfoController extends Controller
             $_POST['tc_now_lives'] = NULL;
         }
         //echo $_POST['shu'];
-        dd($_POST);
+        //dd($_POST);
 
         if(!empty($file)){
             $ext = $file[0]->getClientOriginalExtension();//获取后缀
@@ -269,26 +279,25 @@ class teacherinfoController extends Controller
 
     //德栗教员库
     public function faculty(Request $request){
-        // $list = \DB::table('jjw_position_city')->where('city_id',Session('regionid'))->first();
+        $list = \DB::table('jjw_position_city')->where('city_id',Session('regionid'))->first();
         //区域
          $quyu = \DB::table('jjw_position_county')->where('city_id',Session('regionid'))->get();
-        //教员
-         $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->orderBy('tc_reboot', 'desc')->orderBy('id','desc')->paginate(10);
-          //dd($list);
         //学校
         $xx= DB::table('school_t')->where('city_id',session('regionid'))->limit(10)->get();
-        if(isset($_GET['g'])){
-            $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_sex',$_GET['g'])->orderBy('tc_reboot', 'desc')->orderBy('id','desc')->paginate(10);
-        }
-       //dd($xx);
+        //教员
+            $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->orderBy('tc_reboot', 'desc')->orderBy('id','desc')->paginate(10);
+
         //自定义分页
         $num=$list->lastPage();
         $nextpage=$num-$list->currentPage() ==0 ? $num : $list->currentPage()+1 ;
+        $shipage=$num-$list->currentPage() ==0 ? $num : $list->currentPage()+10;
         $lastpage=$list->currentPage()-1 <0 ? 1 : $list->currentPage()-1 ;
         $list->next=$nextpage;
         $list->last=$lastpage;
+        $list->shi=$shipage;
 
         return view('delijiajiao.jiaoyuan',['quyu'=>$quyu,'list'=>$list,'xx'=>$xx]);
+
     }
     //德栗教员库更多 金牌 专职 学员教师
     public function facultys(Request $request,$id){
