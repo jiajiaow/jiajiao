@@ -118,7 +118,6 @@ Route::get('/faculty_sfbz.html','home\flootsController@faculty_sfbz');
 
 
 
-
 //----------  后台  ----------//
 //登录视图 方法
 Route::get('/admin/login',function(){ return view('admin.login');  });
@@ -178,6 +177,14 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::get('/xsdd','admin\orderController@xsdd');
     //修改订单
     Route::post('/doorder','admin\orderController@index');
+    //修改订单基础
+    Route::post('/orderjc','admin\orderController@orderjc');
+    //修改用户联系方式
+    Route::post('/orderxgyh','admin\orderController@orderxgyh');
+    //修改订单要求
+    Route::post('/orderyy','admin\orderController@orderyy');
+    //修改订单状态
+    Route::post('/orderzt','admin\orderController@orderzt');
     //虚拟学员
     Route::get('/xnxy','admin\xnController@xnxy');
     //虚拟教员

@@ -17,7 +17,7 @@
                                 <span class="clear">
                                     <span class="block m-t-xs" style="font-size:20px;">
                                         <i class="fa fa-area-chart"></i>
-                                        <strong class="font-bold">hAdmin</strong>
+                                        <strong class="font-bold">后台管理</strong>
                                     </span>
                                 </span>
                             </a>
@@ -37,7 +37,7 @@
                     @if(session('admin_id')==1)
                     <li>
                         <a href="#">
-                            <i class="fa fa fa-bar-chart-o"></i>
+                            <i class="fa fa fa-share-alt"></i>
                             <span class="nav-label">分站管理</span>
                             <span class="fa arrow"></span>
                         </a>
@@ -55,7 +55,7 @@
                     @endif
                     <li>
                         <a href="#">
-                            <i class="fa fa fa-bar-chart-o"></i>
+                            <i class="fa fa fa-users"></i>
                             <span class="nav-label">虚拟管理</span>
                             <span class="fa arrow"></span>
                         </a>
@@ -72,7 +72,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <i class="fa fa fa-bar-chart-o"></i>
+                            <i class="fa fa fa-reorder"></i>
                             <span class="nav-label">订单管理</span>
                             <span class="fa arrow"></span>
                         </a>
@@ -87,7 +87,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <i class="fa fa-desktop"></i>
+                            <i class="fa fa fa-paper-plane"></i>
                             <span class="nav-label">导航管理</span>
                             <span class="fa arrow"></span>
                         </a>
@@ -123,16 +123,11 @@
                     </li>
                     <li>
                         <a href="#">
-                            <i class="fa fa fa-bar-chart-o"></i>
-                            <span class="nav-label">热门大学,区域</span>
+                            <i class="fa fa fa-mortar-board"></i>
+                            <span class="nav-label">热门大学</span>
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
-                            <li>
-
-                                <a class="J_menuItem" href="/admin/hot_area">热门区域列表</a>
-
-                            </li>
                             <li>
                                 <a class="J_menuItem" href="/admin/hot_school">热门大学分站</a>
                             </li>
@@ -140,31 +135,13 @@
                     </li>
                     <li>
                         <a href="#">
-                            <i class="fa fa fa-bar-chart-o"></i>
-                            <span class="nav-label">统计图表</span>
+                            <i class="fa fa fa-institution"></i>
+                            <span class="nav-label">热门区域</span>
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="graph_echarts.html">百度ECharts</a>
-                            </li>
-                            <li>
-                                <a class="J_menuItem" href="graph_flot.html">Flot</a>
-                            </li>
-                            <li>
-                                <a class="J_menuItem" href="graph_morris.html">Morris.js</a>
-                            </li>
-                            <li>
-                                <a class="J_menuItem" href="graph_rickshaw.html">Rickshaw</a>
-                            </li>
-                            <li>
-                                <a class="J_menuItem" href="graph_peity.html">Peity</a>
-                            </li>
-                            <li>
-                                <a class="J_menuItem" href="graph_sparkline.html">Sparkline</a>
-                            </li>
-                            <li>
-                                <a class="J_menuItem" href="graph_metrics.html">图表组合</a>
+                                <a class="J_menuItem" href="/admin/hot_area">热门区域列表</a>
                             </li>
                         </ul>
                     </li>

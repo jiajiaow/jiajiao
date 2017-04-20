@@ -90,7 +90,7 @@ class yuyueController extends Controller
                 $re = DB::table('jjw_user')->where('phone',$phone)->first();
                 if($re){
                     $userid = DB::table('jjw_user')->where('phone',$phone)->first();
-                    $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid->id,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid]);
+                    $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid->u_id,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid]);
 
                     return view('delijiajiao.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
                 }else{
@@ -107,7 +107,7 @@ class yuyueController extends Controller
                 $re = DB::table('jjw_user')->where('phone',$phone)->first();
                 if($re){
                     $userid = DB::table('jjw_user')->where('phone',$phone)->first();
-                    $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid->id,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid]);
+                    $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid->u_id,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid]);
 
                     return view('delijiajiao.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
                 }else{
@@ -137,13 +137,20 @@ class yuyueController extends Controller
         $oid = $request->input('oid');
         //上课的时间
         $per = $request->input('chi').','.$request->input('shi');
+        //家教要求
+        $teacher_info = $request->input('teacher_info');
+        //判断是否是空 如果空给默认数
+        if($teacher_info == ''){
+            $teacher_info = '有责任心，熟悉授课内容，有家教经验优先';
+        }
         //拼接每周上课的具体时间段
         $sk_times = $request->input('sk_times1').$request->input('sk_times2').$request->input('sk_times3').$request->input('sk_times4').$request->input('sk_times5').$request->input('sk_times6').$request->input('sk_times7').$request->input('sk_times8').$request->input('sk_times9').$request->input('sk_times10').$request->input('sk_times11').$request->input('sk_times12').$request->input('sk_times13').$request->input('sk_times14').$request->input('sk_times15').$request->input('sk_times16').$request->input('sk_times17').$request->input('sk_times18').$request->input('sk_times19').$request->input('sk_times20').$request->input('sk_times21').$request->input('sk_times22');
-        $input = $request->except(['oid','fdlx','chi','shi','sk_times1','sk_times2','sk_times3','sk_times4','sk_times5','sk_times6','sk_times7','sk_times8','sk_times9','sk_times10','sk_times11','sk_times12','sk_times13','sk_times14','sk_times15','sk_times16','sk_times17','sk_times18','sk_times19','sk_times20','sk_times21','sk_times22']);
+
+        $input = $request->except(['oid','fdlx','chi','shi','teacher_info','sk_times1','sk_times2','sk_times3','sk_times4','sk_times5','sk_times6','sk_times7','sk_times8','sk_times9','sk_times10','sk_times11','sk_times12','sk_times13','sk_times14','sk_times15','sk_times16','sk_times17','sk_times18','sk_times19','sk_times20','sk_times21','sk_times22']);
         $re = DB::table('jjw_order')->where('id',$oid)->update($input);
 
-        DB::table('jjw_order')->where('id',$oid)->update(['per_week' => $per,'sk_times' => $sk_times]);
+        DB::table('jjw_order')->where('id',$oid)->update(['per_week' => $per,'teacher_info' => $teacher_info,'sk_times' => $sk_times]);
         $request->session()->flash('js', "$('#cheng_show').css('display','block');");
-        return back();
+        return view('delijiajiao.yycg');
     }
 }
