@@ -3,7 +3,6 @@
 @section('content')
     {{--<link rel="stylesheet"  href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"  onerror="tracker.resErr(this)" />--}}
     <link rel="stylesheet" href="/delijiajiao/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/delijiajiao/css/bootstrap.min.css">
     <div class="container">
         <div class="main-box">
             <div class="selectNumberScreen">
@@ -102,7 +101,7 @@
                                 <li>
                                     <p id='tta'> <a href="/yuyuelaoshi.html?{{ $li->id }}">预约|免费试课</a> </p>
                                     <p id='ttb'> <a href="/teacher/detail/{{ $li->id }}.html">查看详情</a></p>
-                                    <p id='ttd'> {{ subtext($li->tc_comments,50) }}</p>
+                                    <p id='ttd'> {{ $li->tc_comments }}</p>
                                     <div id='tte'>{{ $li->tc_school }}
                                         {{ $li->tc_hsam }}
                                         {{ $li->tc_zhuanye }}

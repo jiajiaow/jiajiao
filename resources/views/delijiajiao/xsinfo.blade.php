@@ -102,8 +102,15 @@
                   <h3>需要这样的老师</h3>
                 </div>
                 <ul>
-                  <li>性别：<span>@if($data->user_sex == '0')女@elseif($data->user_sex == '1')男
-@else其它@endif</span></li>
+                  <li>性别：<span>
+                          @if($data->teacher_sex == '1')
+                              男
+                          @elseif($data->teacher_sex == '2')
+                              女
+                          @elseif($data->teacher_sex=='3')
+                              男女不限
+                          @endif
+                      </span></li>
                   <li>课酬： <i>{{ $data->money }}</i></li>
                   <li>教学方式：<span>教员上门</span></li>
                   <li>老师类型：<span>{{ $data->ls_type }}</span></li>

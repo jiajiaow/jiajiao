@@ -11,15 +11,24 @@ use \Cookie;
 class hotController extends Controller
 {
     //热门学校
-    public function school(){
-        $list= DB::table('school_t')->where('city_id',session('regionid'))->get();
+    public function school(Request $request,$m){
+        if($m == '1'){
+            $list= DB::table('school_t')->where('city_id',session('regionid'))->get();
+        }else{
+            $list= DB::table('school_t')->where('city_id',$m)->get();
+        }
         //dd($list);
         return view('admin.hot_school',['list'=>$list]);
     }
     //热门区域
-    public function area(Request $request){
+    public function area(Request $request,$m){
+        //var_dump($m);
         //$list= DB::table('school_t')->where('city_id',session('regionid'))->paginate(10);
-        $list = DB::table('jjw_position_county')->where('city_id',session('regionid'))->get();
+        if($m == '1'){
+            $list = DB::table('jjw_position_county')->where('city_id',session('regionid'))->get();
+        }else{
+            $list = DB::table('jjw_position_county')->where('city_id',$m)->get();
+        }
         //dd($list);
         return view('admin.hot_area',['list'=>$list]);
     }

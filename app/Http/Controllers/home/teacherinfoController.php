@@ -32,19 +32,49 @@ class teacherinfoController extends Controller
         $qu = \DB::table('jjw_position_county')->where('city_id',$list->tc_city_id)->get();
 
         //所在地
-       // $szd = \DB::table('jjw_position_provice')->get();
+        $szd = \DB::table('jjw_position_city')->get();
+        $szd2 = \DB::table('jjw_position_county')->get();
 //        return view('home.teacherinfo',['list'=>$list,'szd'=>$szd,'sd'=>$sd,'qu'=>$qu]);
         //科目
         $km = \DB::table('jjw_sanji')->get();
         //学校
         $xuexiao = \DB::table('school_t')->where('city_id',session('regionid'))->get();
-       // dd($xx);
-        return view('home.teacherinfo',['list'=>$list,'qu'=>$qu,'km'=>$km,'xuexiao'=>$xuexiao]);
+       //专业类别
+        $zhuanye = \DB::table('jjw_major')->get();
+        return view('home.teacherinfo',['list'=>$list,'qu'=>$qu,'km'=>$km,'xuexiao'=>$xuexiao,'zhuanye'=>$zhuanye]);
     }
 
     //修改教员个人中心
     public function doteacherinfo(Request $request){
         $file = $request->file('upfile');
+        if($_POST['teaches'] == ''){
+            $_POST['teaches']=NULL;
+        }
+        if($_POST['tc_jl'] == '0'){
+            $_POST['tc_jl'] == "一年以内";
+        }else if($_POST['tc_jl'] == '5'){
+            $_POST['tc_jl'] == "四年以上";
+        }
+        if(empty($_POST['shu'])){
+            $_POST['shu']=NULL;
+        }
+        if(empty($_POST['han'])){
+            $_POST['han']=NULL;
+        }
+        if(empty($_POST['gaokao'])){
+            $_POST['gaokao']=NULL;
+        }
+        if(empty($_POST['jiguan'])){
+            $_POST['jiguan']=NULL;
+        }
+        if(empty($_POST['szd'])){
+            $_POST['szd']=NULL;
+        }
+        if($_POST['tc_now_lives'] == '--请选择--'){
+            $_POST['tc_now_lives'] = NULL;
+        }
+        //echo $_POST['shu'];
+        dd($_POST);
 
         if(!empty($file)){
             $ext = $file[0]->getClientOriginalExtension();//获取后缀
@@ -56,36 +86,29 @@ class teacherinfoController extends Controller
             // 获取数据
             //dd($request);
             //dd($file);
-            if($_POST['teaches'] == ''){
-                $_POST['teaches']=null;
-            }
-            if($_POST['tc_jl'] == '0'){
-                $_POST['tc_jl'] == "一年以内";
-            }else if($_POST['tc_jl'] == '5'){
-                $_POST['tc_jl'] == "四年以上";
-            }
             $data =[
                 'tc_name'=>$_POST['tc_name'],
                 'tc_qq'=>$_POST['tc_qq'],
                 'tc_wechat'=>$_POST['tc_wechat'],
                 'tc_email'=>$_POST['email'],
                 'tc_phone_bak'=>$_POST['phone_bak'],
-                'tc_now_lives'=>$_POST['sz'],
-                'tc_shu'=>$_POST['sj'],
-                'tc_han'=>$_POST['hj'],
+                'tc_now_lives'=>$_POST['qu'],
+                'tc_shu'=>$_POST['shu'],
+                'tc_han'=>$_POST['han'],
                 'tc_school'=>$_POST['tc_school'],
                 'tc_school_bak'=>$_POST['tc_school_bak'],
                 'tc_sex'=>$_POST['sex'],
                 'tc_nj'=>$_POST['nj'],
                 'tc_class'=>$_POST['tc_class'],
                 'tc_hsam'=>$_POST['tc_hsam'],
-                'tc_hight'=>$_POST['chengshi'],
+                'tc_hight'=>$_POST['gaokao'],
                 'tc_jiguan'=>$_POST['jiguan'],
                 'tc_zhuanye'=>$_POST['zhuanye'],
                 'tc_spl'=>$_POST['tc_spl'],
                 'tc_type'=>$_POST['tc_type'],
                 'tc_jl'=>$_POST['tc_jl'],
-                'tc_citys'=>$_POST['qu'].$_POST['tc_now_lives'],
+                'tc_citys'=>$_POST['szd'],
+                'tc_now_lives'=>$_POST['qu'],
                 'tc_years'=>$_POST['tc_years'],
                 'tc_teaches'=>$_POST['teaches'],
                 'tc_photo'=>$photo,
@@ -98,39 +121,32 @@ class teacherinfoController extends Controller
             }
         }else{
             //dd($request);
-            if($_POST['teaches'] == ''){
-                $_POST['teaches']=null;
-            }
-            if($_POST['tc_jl'] == '0'){
-                $_POST['tc_jl'] == "一年以内";
-            }else if($_POST['tc_jl'] == '5'){
-                $_POST['tc_jl'] == "四年以上";
-            }
             $data =[
                 'tc_name'=>$_POST['tc_name'],
                 'tc_qq'=>$_POST['tc_qq'],
                 'tc_wechat'=>$_POST['tc_wechat'],
                 'tc_email'=>$_POST['email'],
                 'tc_phone_bak'=>$_POST['phone_bak'],
-                'tc_now_lives'=>$_POST['sz'],
-                'tc_shu'=>$_POST['sj'],
-                'tc_han'=>$_POST['hj'],
+                'tc_now_lives'=>$_POST['qu'],
+                'tc_shu'=>$_POST['shu'],
+                'tc_han'=>$_POST['han'],
                 'tc_school'=>$_POST['tc_school'],
                 'tc_school_bak'=>$_POST['tc_school_bak'],
                 'tc_sex'=>$_POST['sex'],
                 'tc_nj'=>$_POST['nj'],
                 'tc_class'=>$_POST['tc_class'],
                 'tc_hsam'=>$_POST['tc_hsam'],
-                'tc_hight'=>$_POST['chengshi'],
+                'tc_hight'=>$_POST['gaokao'],
                 'tc_jiguan'=>$_POST['jiguan'],
                 'tc_zhuanye'=>$_POST['zhuanye'],
                 'tc_spl'=>$_POST['tc_spl'],
                 'tc_type'=>$_POST['tc_type'],
                 'tc_jl'=>$_POST['tc_jl'],
-                'tc_citys'=>$_POST['qu'].$_POST['tc_now_lives'],
+                'tc_citys'=>$_POST['szd'],
+                'tc_now_lives'=>$_POST['qu'].$_POST['tc_now_lives'],
                 'tc_years'=>$_POST['tc_years'],
                 'tc_teaches'=>$_POST['teaches'],
-                'tc_photo'=>'',
+                'tc_photo'=>$_POST['tc_photo'],
             ];
            //dd($data);
             //写入数据库
@@ -189,6 +205,54 @@ class teacherinfoController extends Controller
         $list = \DB::table('jjw_teachers')->where('id',$_POST['tc_id'])->update($data);
         if($list){
             return "y";
+        }
+
+    }
+    //修改案例
+    public function docase(Request $request){
+        $file = $request->file('file');
+        if(!empty($file)){
+            $ext = $file->getClientOriginalExtension();//获取后缀
+            //echo $ext;
+            $filename = time().rand(1000,9999).".".$ext;//新文件名
+            $file->move("home/zs/",$filename);//移动目录
+            $img = "/home/zs/".$filename;//组成路径
+            $data = [
+                'tc_sjkm'=>$_POST['sjkm'],
+                'tc_sjkm2'=>$_POST['sjkm2'],
+                'tc_sjkm3'=>$_POST['sjkm3'],
+                'tc_case'=>$_POST['tc_case'],
+                'tc_case2'=>$_POST['tc_case2'],
+                'tc_case3'=>$_POST['tc_case3'],
+                'tc_casetime'=>$_POST['tc_casetime'],
+                'tc_casetime2'=>$_POST['tc_casetime2'],
+                'tc_casetime3'=>$_POST['tc_casetime3'],
+                'tc_comments'=>$_POST['tc_comments'],
+                'tc_certificate'=>$_POST['zs'],
+                'tc_zsimage'=>$img,
+            ];
+            $list = \DB::table('jjw_teachers')->where('id',$_POST['id'])->update($data);
+            if($list){
+                return "y";
+            }
+        }else{
+            $data = [
+                'tc_sjkm'=>$_POST['sjkm'],
+                'tc_sjkm2'=>$_POST['sjkm2'],
+                'tc_sjkm3'=>$_POST['sjkm3'],
+                'tc_case'=>$_POST['tc_case'],
+                'tc_case2'=>$_POST['tc_case2'],
+                'tc_case3'=>$_POST['tc_case3'],
+                'tc_casetime'=>$_POST['tc_casetime'],
+                'tc_casetime2'=>$_POST['tc_casetime2'],
+                'tc_casetime3'=>$_POST['tc_casetime3'],
+                'tc_comments'=>$_POST['tc_comments'],
+                'tc_certificate'=>$_POST['zs'],
+            ];
+            $list = \DB::table('jjw_teachers')->where('id',$_POST['id'])->update($data);
+            if($list){
+                return "y";
+            }
         }
 
     }

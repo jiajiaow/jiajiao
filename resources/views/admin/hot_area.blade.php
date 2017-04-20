@@ -11,14 +11,14 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
 
-    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
-    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico"> <link href="/admin/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/admin/css/font-awesome.css?v=4.4.0" rel="stylesheet">
 
     <!-- Data Tables -->
-    <link href="css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="/admin/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
 
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="/admin/css/animate.css" rel="stylesheet">
+    <link href="/admin/css/style.css?v=4.1.0" rel="stylesheet">
 
 </head>
 
@@ -47,13 +47,18 @@
                         </a>
                     </div>
                 </div>
-                <div class="ibox-content">
 
+                <div class="ibox-content">
                     <table class="table table-striped table-bordered table-hover dataTables-example">
+
+                            <select id="cid"  name='provice'>
+                                <option value="-1">--请选择--</option>
+                            </select>
+
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>市级ID</th>
+                            {{--<th>市级ID</th>--}}
                             <th>区域名称</th>
                             <th>状态</th>
                             <th>操作</th>
@@ -63,7 +68,7 @@
                         @foreach($list as $lis)
                             <tr class="gradeX">
                                 <td class="center">{{ $lis->id }}</td>
-                                <td>{{ $lis->city_id }}</td>
+{{--                                <td>{{ $lis->city_id }}</td>--}}
                                 <td>{{ $lis->county_name }}</td>
                                 <td class="center">
                                   {{ $lis->hot=='0'?'不是热门':'热门' }}
@@ -90,19 +95,18 @@
 </div>
 
 <!-- 全局js -->
-<script src="js/jquery.min.js?v=2.1.4"></script>
-<script src="js/bootstrap.min.js?v=3.3.6"></script>
-<script src="/admin/js/plugins/layer/layer.min.js"></script>
+<script src="/admin/js/jquery.min.js?v=2.1.4"></script>
+<script src="/admin/js/bootstrap.min.js?v=3.3.6"></script>
 <script src="/admin/js/plugins/layer/layer.min.js"></script>
 
-<script src="js/plugins/jeditable/jquery.jeditable.js"></script>
+<script src="/admin/js/plugins/jeditable/jquery.jeditable.js"></script>
 
 <!-- Data Tables -->
-<script src="js/plugins/dataTables/jquery.dataTables.js"></script>
-<script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
+<script src="/admin/js/plugins/dataTables/jquery.dataTables.js"></script>
+<script src="/admin/js/plugins/dataTables/dataTables.bootstrap.js"></script>
 
 <!-- 自定义js -->
-<script src="js/content.js?v=1.0.0"></script>
+<script src="/admin/js/content.js?v=1.0.0"></script>
 
 
 <!-- Page-Level Scripts -->
@@ -171,6 +175,54 @@
 
         //
     }
+    //省
+    $.ajax({
+        url:'/sheng',				//请求地址
+        type:'post',				//请求方式
+        async:true,					//是否异步
+        success:function(data){		//成功回调函数
+            // console.log(data);
+            for (var i = 0; i < data.length; i++) {
+                $('#cid').append("<option value='"+data[i].provice_id+"'>"+data[i].provice_name+"</option>");
+            };
+        },
+        error:function(){
+            //alert('ajax请求失败');	//失败回调
+        }
+    });
+    //市
+    $("#cid").on('change',function(){
+        $(this).nextAll("select").remove();
+        var ob = $(this);
+        //alert(ob.val());
+        $.ajax({
+            url:'/xian',				//请求地址
+            type:'post',				//请求方式
+            async:true,					//是否异步
+            data:{pid:($(this).val())},	//发送的数据
+
+            success:function(data){		//成功回调函数
+                // console.log(data);
+                if(data.length>0){
+                    var select = $("<select id='city'><option>--请选择--</option></select>")
+                         for (var i = 0; i < data.length; i++) {
+                            $(select).append("<option value='" + data[i].city_id + "' onclick='aa("+data[i].city_id+")'>" + data[i].city_name + "</option>");
+                         }
+                         ;
+                    $('#cid').after(select)
+                    //ob.after(select);
+                }
+            },
+            error:function(){
+                //alert('ajax请求失败');	//失败回调
+            }
+        });
+    });
+    function aa(id){
+        window.location.href ="/admin/hot_area/"+id;
+    }
+    //区
+
 </script>
 
 

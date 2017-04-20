@@ -155,7 +155,7 @@
                                     <span>{{ $list->tc_jiguan }}</span>
                                 </dd>
                                 <dd>
-                                    高中母校：
+                                    学　　校：
                                     <span>{{ $list->tc_hsam }}</span>
                                 </dd>
                                 <dd>
@@ -249,6 +249,7 @@
                                     {{--<input type="hidden" name="from" value="center">--}}
                                     <label for="">姓　　名：</label>
                                     <input type="text" name="tc_name" value="{{ $list->tc_name }}" class="name" maxlength="4"/>
+                                    <input type="hidden" name="tc_photo" value="{{ $list->tc_photo }}"/>
                                     <p></p>
                                 </div>
                                 <div class="fg">
@@ -277,39 +278,41 @@
                                 </div>
                                 <div class="fg">
                                     <label for="" style="font-size:16px">所在城市：</label>
-                                    <select name="suozaidi" id="suozaidi" maxlength="20" style="width:80px;">
-
+                                    <select name="suozaidi" id="cid1" maxlength="20" >
                                         {{--@foreach($szd as $vo)--}}
                                                 {{--<option value="{{ $vo->provice_name }}"  @if($vo->provice_name == {{ $sd[0]->provice_name }}) selected="selected"  @endif>{{ $vo->provice_name }}</option>--}}
                                         {{--@endforeach--}}
                                     </select>
                                     <label for="" class="left" style="font-size:16px"></label>
-                                    <select name="sz" id="shujia" maxlength="20"style="width:79px;">
-                                        <option value="-1">请选择</option><option value="0" selected="selected">北京市</option></select>
+                                   {{-- <select name="sz" id="shujia" maxlength="20"style="width:79px;">
+                                        <option value="-1">请选择</option><option value="0" selected="selected">北京市</option></select>--}}
                                 </div>
                                 <div class="fg">
                                     <label for="" style="font-size:16px">暑假所在城市：</label>
-                                    <select name="shujiaa" id="zxc" maxlength="20" style="width:80px;"><option value="-1">请选择</option>
-
+                                    <select name="shuj" id="cid2" maxlength="20" "></select>
+                                    {{--<select name="shujiaa" id="zxc" maxlength="20" style="width:80px;"><option value="-1">请选择</option>
                                     </select>
                                     <label for="" class="left" style="font-size:16px"></label>
                                     <select name="sj" id="zxcv" maxlength="20"style="width:79px;">
-                                        <option value="-1">请选择</option><option value="0" selected="selected">北京市</option></select>
+                                        <option value="-1">请选择</option><option value="0" selected="selected">北京市</option></select>--}}
                                     <!---->
+                                </div>
+                                <div class="fg">
                                     <label for="" style="font-size:16px">寒假所在城市：</label>
-                                    <select name="hanjia" id="nmb" maxlength="20" style="width:80px;"><option value="-1">请选择</option>
+                                    <select name="hanj" id="cid3" maxlength="20" "></select>
+                                    {{-- <select name="hanjia" id="nmb" maxlength="20" style="width:80px;"><option value="-1">请选择</option>
 
-                                    </select>
-                                    <label for="" class="left" style="font-size:16px"></label>
-                                    <select name="hj" id="nmbb" maxlength="20"style="width:79px;">
-                                        <option value="-1">请选择</option><option value="0" selected="selected">北京市</option></select>
+                                     </select>
+                                     <label for="" class="left" style="font-size:16px"></label>
+                                     <select name="hj" id="nmbb" maxlength="20"style="width:79px;">
+                                         <option value="-1">请选择</option><option value="0" selected="selected">北京市</option></select>--}}
                                 </div>
                                 <div class='fg'>
                                     <!-- 学校是下拉+手动输入-->
                                     <label for="">学　　校：</label>
-                                    <select name="tc_school">
+                                    <select name="tc_school" autocomplete="off">
                                         @foreach($xuexiao as $xx)
-                                        <option value="{{ $xx->school_name }}">{{ $xx->school_name }}</option>
+                                        <option value="{{ $xx->school_name }}" {{ $list->tc_school==$xx->school_name?'selected':'' }}>{{ $xx->school_name }}</option>
                                         @endforeach
                                         <option >如无上述学校请手动输入</option>
                                         <input style="width:300px;" name="tc_school_bak" type="text" value="{{ $list->tc_school_bak }}" placeholder="请手动输入"/>
@@ -333,15 +336,15 @@
                                 <div class='fg'>
                                     <!-- 年级是下拉，后台抓取数据option-->
                                     <label for="">年　　级：</label>
-                                    <select name="nj" id="">
-                                        <option value="大一">大一</option>
-                                        <option value="大二">大二</option>
-                                        <option value="大三">大三</option>
-                                        <option value="大四">大四</option>
-                                        <option value="大五">大五</option>
-                                        <option value="研一">研一</option>
-                                        <option value="研二">研二</option>
-                                        <option value="研三">研三</option>
+                                    <select name="nj" id="" autocomplete="off">
+                                        <option value="大一" {{ $list->tc_nj=='大一'?'selected':'' }}>大一</option>
+                                        <option value="大二" {{ $list->tc_nj=='大二'?'selected':'' }}>大二</option>
+                                        <option value="大三" {{ $list->tc_nj=='大三'?'selected':'' }}>大三</option>
+                                        <option value="大四" {{ $list->tc_nj=='大四'?'selected':'' }}>大四</option>
+                                        <option value="大五" {{ $list->tc_nj=='大五'?'selected':'' }}>大五</option>
+                                        <option value="研一" {{ $list->tc_nj=='研一'?'selected':'' }}>研一</option>
+                                        <option value="研二" {{ $list->tc_nj=='研二'?'selected':'' }}>研二</option>
+                                        <option value="研三" {{ $list->tc_nj=='研三'?'selected':'' }}>研三</option>
                                     </select>
                                     <p></p>
                                 </div>
@@ -353,10 +356,10 @@
                                 </div>
                                 <div class="fg">
                                     <label for="">高中文理：</label>
-                                    <select name="tc_class" id="">
-                                        <option value="理科" {{ $list->tc_class=="理科"?'checked':'' }}>理科</option>
-                                        <option value="文科" {{ $list->tc_class=="文科"?'checked':'' }} >文科</option>
-                                        <option value="未分科"{{ $list->tc_class=="未分科"?'checked':'' }} >未分科</option>
+                                    <select name="tc_class" id="" autocomplete="off">
+                                        <option value="理科" {{ $list->tc_class=="理科"?'selected':'' }}>理科</option>
+                                        <option value="文科" {{ $list->tc_class=="文科"?'selected':'' }} >文科</option>
+                                        <option value="未分科"{{ $list->tc_class=="未分科"?'selected':'' }} >未分科</option>
                                     </select>
                                 </div>
                                 <div class="fg sfg">
@@ -366,12 +369,13 @@
                                 <!--城市-->
                                 <div class="fg">
                                     <label for="" style="font-size:16px">高考所在地：</label>
-                                    <select name="gaokao" id="shengfen" maxlength="20" style="width:80px;"><option value="-1">请选择</option>
+                                    {{--<select name="gaokao" id="shengfen" maxlength="20" style="width:80px;"><option value="-1">请选择</option>
 
                                     </select>
                                     <label for="" class="left" style="font-size:16px"></label>
                                     <select name="chengshi" id="chengshi" maxlength="20"style="width:79px;">
-                                        <option value="-1">请选择</option><option value="0" selected="selected">北京市</option></select>
+                                        <option value="-1">请选择</option><option value="0" selected="selected">北京市</option></select>--}}
+                                    <select name="gk" id="cid4" maxlength="20" ></select>
                                 </div>
                                 <!--	<div class="fg tel">
                                         <label for="">手　　机：</label>
@@ -385,46 +389,20 @@
 
                                 <div class="fg">
                                     <label for="" style="font-size:16px">籍　　贯：</label>
-                                    <select name="jiguans" id="jiguan" maxlength="20" style="width:80px;"><option value="-1">请选择</option>
+                                    <select name="jg" id="cid5" maxlength="20" ></select>
+                                    {{--<select name="jiguans" id="jiguan" maxlength="20" style="width:80px;"><option value="-1">请选择</option>
 
                                     </select>
                                     <label for="" class="left" style="font-size:16px"></label>
                                     <select name="jiguan"  id="jiguana" maxlength="20"style="width:96px;">
-                                        <option value="-1">请选择</option></select>
+                                        <option value="-1">请选择</option></select>--}}
                                 </div>
                                 <div class="fg sfg">
                                     <label for="">专业类别：</label>
-                                    <select name="zhuanye" id="">
-                                        <option >--请选择--</option>
-                                        <option value="数学">数学</option>
-                                        <option value="英语">英语</option>
-                                        <option value="国际学院内设专业（英文授课）">国际学院内设专业（英文授课）</option>
-                                        <option value="物理类">物理类</option>
-                                        <option value="化学类">化学类</option>
-                                        <option value="生物学类">生物学类</option>
-                                        <option value="师范专业（包括教育学）">师范专业（包括教育学）</option>
-                                        <option value="心理学">心理学</option>
-                                        <option value="管理学">管理学</option>
-                                        <option value="经济类">经济类</option>
-                                        <option value="外语系（英语专业以外）">外语系（英语专业以外）</option>
-                                        <option value="建筑类">建筑类</option>
-                                        <option value="法学">法学</option>
-                                        <option value="新闻">新闻</option>
-                                        <option value="中文">中文</option>
-                                        <option value="政治">政治</option>
-                                        <option value="历史">历史</option>
-                                        <option value="地质地理">地质地理</option>
-                                        <option value="医学/药学">医学/药学</option>
-                                        <option value="社会学类">社会学类</option>
-                                        <option value="农林专业">农林专业</option>
-                                        <option value="体育">体育</option>
-                                        <option value="艺术">艺术</option>
-                                        <option value="计算机">计算机</option>
-                                        <option value="电子信息科学">电子信息科学</option>
-                                        <option value="自然类科学">自然类科学</option>
-                                        <option value="其他">其他</option>
-
-
+                                    <select name="zhuanye" id="" autocomplete="off">
+                                       @foreach($zhuanye as $zy)
+                                        <option value="{{ $zy->type_name }}" {{ $zy->type_name==$list->tc_zhuanye?'selected':'' }}>{{ $zy->type_name }}</option>
+                                       @endforeach
                                     </select>
                                     <label for="">具体专业：</label>
                                     <input type="text" name="tc_spl" value="{{ $list->tc_spl }}"/>
@@ -432,10 +410,10 @@
                                 <div class='fg sfg'>
                                     <!-- 后台抓取城市option是区-->
                                     <label for="">目前住所：</label>
-                                    <select class="form-control m-b"  name='qu' maxlength='20' style='width:80px;'>
+                                    <select class="form-control m-b"  name='qu' maxlength='20' autocomplete="off">
                                         <option>--请选择--</option>
                                         @foreach($qu as $q)
-                                        <option value="{{ $q->county_name }}">{{ $q->county_name }}</option>
+                                        <option value="{{ $q->county_name }}" {{ $list->tc_citys==$q->county_name?'selected':'' }}>{{ $q->county_name }}</option>
                                         @endforeach
                                     </select>
                                     <input type="text" name="tc_now_lives" value="" placeholder="可以手动输入"/>
@@ -443,22 +421,22 @@
 
                                 <div class="fg sfg">
                                     <label for="">教员身份：</label>
-                                    <select id="indentity" name="tc_type" aria-invalid="false" class="help-block m-b-none">
+                                    <select id="indentity" name="tc_type" aria-invalid="false" class="help-block m-b-none" autocomplete="off">
                                         <option>--请选择--</option>
-                                        <option value="大学生"{{ $list->tc_type=='大学生'?'checked':'' }}>大学生</option>
-                                        <option value="专职老师" {{ $list->tc_type=='专职老师'?'checked':'' }}>专职老师</option>
-                                        <option value="其他" {{ $list->tc_type=='其他'?'checked':'' }}>其他老师</option>
+                                        <option value="大学生"{{ $list->tc_type=='大学生'?'selected':'' }}>大学生</option>
+                                        <option value="专职老师" {{ $list->tc_type=='专职老师'?'selected':'' }}>专职老师</option>
+                                        <option value="其他" {{ $list->tc_type=='其他'?'selected':'' }}>其他老师</option>
                                     </select>
                                 </div>
                                 <div class='fg sfg'>
                                     <label for="">教　　龄：</label>
-                                    <select name="tc_jl" id="">
-                                        <option value="1年以内">1年以内</option>
-                                        <option value="1年">1年</option>
-                                        <option value="2年">2年</option>
-                                        <option value="3年">3年</option>
-                                        <option value="4年">4年</option>
-                                        <option value="4年以上">4年以上</option>
+                                    <select name="tc_jl" id="" autocomplete="off">
+                                        <option value="1年以内" {{ $list->tc_jl=='1年以内'?'selected':'' }}>1年以内</option>
+                                        <option value="1年" {{ $list->tc_jl=='1年'?'selected':'' }}>1年</option>
+                                        <option value="2年" {{ $list->tc_jl=='2年'?'selected':'' }}>2年</option>
+                                        <option value="3年" {{ $list->tc_jl=='3年'?'selected':'' }}>3年</option>
+                                        <option value="4年" {{ $list->tc_jl=='4年'?'selected':'' }}>4年</option>
+                                        <option value="4年以上" {{ $list->tc_jl=='4年以上'?'selected':'' }}>4年以上</option>
                                     </select>
                                 </div>
                                 <button type="submint" onclick="alert('保存成功！')">保存</button>
@@ -494,7 +472,7 @@
                                             <div class="left pull-left top-left">
                                                 <div class="fg">
                                                     <label for="">教授科目：</label>
-                                                    <select id="FirstJob" name="" onchange="check_chose()">
+                                                    <select id="FirstJob" name="" onchange="check_chose()" autocomplete="off">
                                                         @foreach($yiji as $yj)
                                                         <option value="{{ $yj->id }}" selected="">{{ $yj->yiji }}</option>
                                                         @endforeach
@@ -591,9 +569,9 @@
                                             //授课区域
                                             function addnodes(id){
                                                 var jiu = $("#tc_area").val();
-                                                alert(id);
+                                                //alert(id);
                                                 jiu = jiu + "," + id;
-                                                alert(jiu);
+                                                //alert(jiu);
                                                 //alert(jiu);
                                                 $("#tc_area").val(jiu);
                                                 $("#quyu").html(jiu);
@@ -615,8 +593,8 @@
                                             </label>
                                             <div style="width:500px;" id="">
                                                 @foreach($qu as $quyu)
-                                                    {{--<input name="" onclick="addnodes('{{ $quyu->county_name }}')"  type="checkbox" value="{{ $quyu->county_name }}" style="margin:10px 0px 10px 0px;" />{{ $quyu->county_name }}--}}
-                                                    <input type="checkbox" value="{{ $quyu->county_name }}" style="margin:10px 0px 10px 0px;" />{{ $quyu->county_name }}
+                                                    <input name="" onclick="addnodes('{{ $quyu->county_name }}')"  type="checkbox" value="{{ $quyu->county_name }}" style="margin:10px 0px 10px 0px;" />{{ $quyu->county_name }}
+                                                    {{--<input type="checkbox" value="{{ $quyu->county_name }}" style="margin:10px 0px 10px 0px;" />{{ $quyu->county_name }}--}}
                                                 @endforeach
                                                     <input type="hidden" name="tc_area" id="tc_area" value="">
                                                     <input type="hidden" name="tc_id" id="" value="{{ $list->id }}">
@@ -684,7 +662,7 @@
                                         <div class="fg">
                                             <label for="">课酬要求：</label>
                                             <input type="text" name="pay" placeholder="执行德栗家教收费标准" class="imoney" value="">
-                                            <a style="color:#e4393c;" href="">查看更多收费标准</a>
+                                            <a style="color:#e4393c;" href="/zfsm.html">查看更多收费标准</a>
                                         </div>
                                         <input type="hidden" name="type" value="1">
                                         <button type="reset" class="reset">取消</button>
@@ -729,26 +707,25 @@
                                         <div class="tfg" style="margin-top: 0px;">
                                             <label for="">自我描述：</label><br/>
                                             {{--<a  style="color: #333" href="">查看范例</a>--}}
-                                            <textarea name="resume" placeholder="注：写的越详细，家长会觉得你越负责，也越了解你的情况，将增加家长对你的好感，大幅增加成功接单的概率。" class="al"></textarea>
+                                            <textarea name="tc_comments" placeholder="注：写的越详细，家长会觉得你越负责，也越了解你的情况，将增加家长对你的好感，大幅增加成功接单的概率。" class="al">{{ $list->tc_comments }}</textarea>
                                         </div>
                                         <div class="fg">
                                             <label for="">所获证书：</label>
-                                            <input type="" name="book" placeholder="示例：大学六级英语/雅思8.0分" class="shzs" value="">
-
+                                            <input type="" name="zs" placeholder="示例：大学六级英语/雅思8.0分" class="shzs" value="{{ $list->tc_certificate }}">
                                         </div>
                                         <div>
                                             <label  for="">上传证书：</label>
                                             <div>
                                                 <div>
-                                                    <input type="file" id="up" style="display:none;" accept="image" onchange="return  upTp()" >
+                                                    <input type="file" id="up" name="file" accept="image"  >
+                                                    <input type="hidden" name="id" value="{{ $list->id }}" accept="image"  >
                                                 </div>
-                                                <img src="/home/image/weixinerweima.jpg" alt="" id="src_tp">
-                                                <a href="javascript:void(0)" id='sctp'>点击上传</a>
+                                                {{--<img src="/home/image/weixinerweima.jpg" alt="" id="src_tp">--}}
+                                                {{--<a href="javascript:void(0)" id='sctp'>点击上传</a>--}}
                                             </div>
                                             <br/>
                                             {{--<a  style="color: #333" href="">查看范例</a>--}}
                                         </div>
-
 
                                         <div class="tfg" >
                                             <label for="">家教简历：</label>
@@ -759,22 +736,22 @@
                                                     <div style="float:left;margin-right:10px">
                                                         <span>时间</span>
                                                         <br />
-                                                        <input type="" value="" placeholder="请手动输入时间">
+                                                        <input type="text" name="tc_casetime" value="{{ $list->tc_casetime }}" placeholder="请手动输入时间">
                                                     </div>
 
                                                     <div style="float:left; margin-right:5px;">
                                                         <span>教授科目</span>
                                                         <br />
-                                                        <select name="" id="">
+                                                        <select name="sjkm" id="" autocomplete="off">
                                                             @foreach($km as $k)
-                                                            <option value="{{ $k->sanji }}">{{ $k->sanji }}</option>
+                                                            <option value="{{ $k->sanji }}" {{ $k->sanji==$list->tc_sjkm?'selected':'' }}>{{ $k->sanji }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
                                                     <div style="float:left;">
                                                         <span>教授结果</span>
                                                         <br />
-                                                        <textarea name="" id="" cols="30" rows="10" placeholder="例如：学生成绩从50分左右增加到90分左右。学生和家长都对我的教员非常满意，我也很高兴付出的努力得到了回报。"></textarea>
+                                                        <textarea name="tc_case" id="" cols="30" rows="10" placeholder="例如：学生成绩从50分左右增加到90分左右。学生和家长都对我的教员非常满意，我也很高兴付出的努力得到了回报。">{{ $list->tc_case }}</textarea>
                                                     </div>
 
                                                 </div>
@@ -790,22 +767,22 @@
                                                     <div style="float:left;margin-right:10px">
                                                         <span>时间</span>
                                                         <br />
-                                                        <input type="" value=""/ placeholder="请手动输入时间">
+                                                        <input type="text" name="tc_casetime2" value="{{ $list->tc_casetime2 }}" placeholder="请手动输入时间">
                                                     </div>
 
                                                     <div style="float:left; margin-right:5px;">
                                                         <span>教授科目</span>
                                                         <br />
-                                                        <select name="" id="">
+                                                        <select name="sjkm2" id="" autocomplete="off">
                                                             @foreach($km as $k)
-                                                                <option value="{{ $k->sanji }}">{{ $k->sanji }}</option>
+                                                                <option value="{{ $k->sanji }}" {{ $k->sanji==$list->tc_sjkm2?'selected':'' }}>{{ $k->sanji }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
                                                     <div style="float:left;">
                                                         <span>教授结果</span>
                                                         <br />
-                                                        <textarea name="" id="" cols="30" rows="10" placeholder="例如：学生成绩从50分左右增加到90分左右。学生和家长都对我的教员非常满意，我也很高兴付出的努力得到了回报。"></textarea>
+                                                        <textarea name="tc_case2" id="" cols="30" rows="10" placeholder="例如：学生成绩从50分左右增加到90分左右。学生和家长都对我的教员非常满意，我也很高兴付出的努力得到了回报。">{{ $list->tc_case2 }}</textarea>
                                                     </div>
 
                                                 </div>
@@ -821,22 +798,22 @@
                                                     <div style="float:left;margin-right:10px">
                                                         <span>时间</span>
                                                         <br />
-                                                        <input type="" value="" placeholder="请手动输入时间">
+                                                        <input type="text" name="tc_casetime3" value="{{ $list->tc_casetime3 }}" placeholder="请手动输入时间">
                                                     </div>
 
                                                     <div style="float:left; margin-right:5px;">
                                                         <span>教授科目</span>
                                                         <br />
-                                                        <select name="" id="">
+                                                        <select name="sjkm3" id="" autocomplete="off">
                                                             @foreach($km as $k)
-                                                                <option value="{{ $k->sanji }}">{{ $k->sanji }}</option>
+                                                                <option value="{{ $k->sanji }}" {{ $k->sanji==$list->tc_sjkm3?'selected':'' }}>{{ $k->sanji }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
                                                     <div style="float:left;">
                                                         <span>教授结果</span>
                                                         <br />
-                                                        <textarea name="" id="" cols="30" rows="10" placeholder="例如：学生成绩从50分左右增加到90分左右。学生和家长都对我的教员非常满意，我也很高兴付出的努力得到了回报。"></textarea>
+                                                        <textarea name="tc_case3" id="" cols="30" rows="10" placeholder="例如：学生成绩从50分左右增加到90分左右。学生和家长都对我的教员非常满意，我也很高兴付出的努力得到了回报。">{{ $list->tc_case3 }}</textarea>
                                                     </div>
 
                                                 </div>
@@ -845,14 +822,14 @@
                                             </div>
                                         </div>
                                         <button type="reset" class="reset">取消</button>
-                                        <button type="submit" class="bsubmit" onclick="savenodearea2();alert('保存成功！')">保存</button>
+                                        <button type="submit" class="bsubmit" onclick="upTp();alert('保存成功！')">保存</button>
                                         <div class="clear"></div>
                                     </form>
                                     <script>
                                         function savenodearea2()
                                         {
                                             $.ajax({
-                                                url:'',
+                                                url:'/docase',
                                                 type:"post",
                                                 data:$("#othersave2").serialize(),
                                                 success:function(data)
@@ -1481,31 +1458,7 @@
             </div>
         </div>
     </div>
-    <div class="suspend">
-        <ul>
-            <li>
-                <img src="{{ asset('/home/image/float_1.png') }}" alt="">
-                <div class="wechat hidebox">
-                    <div class="inbox">
-                        <img src="{{ asset('/home/image/code.png') }}" alt="">
-                        <i>【扫一扫】随时请家教</i>
-                    </div>
-                </div>
-            </li>
-            <li><a href="http://wpa.b.qq.com/cgi/wpa.php?ln=2&amp;uin=4006179958" target="_blank"><img src="{{ asset('/home/image/float_2.png') }}" alt=""></a></li>
-            <!-- <li>
-                <img src="/images/float_3.png" alt="">
-                <div class="chat hidebox">
-                    <form action="" >
-                    <input type="text" placeholder="请输入您的手机号">
-                    <button type="submit">立即免费通话</button>
-                </form>
-                </div>
-            </li> -->
-            <li class="scroll-top">
-                <img src={{ asset('/home/image/float_4.png') }}" alt=""></li>
-        </ul>
-    </div>
+
 
     <script src="{{ asset('/home/js/script.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/home/js/cheng.js') }}"></script>
@@ -1538,6 +1491,20 @@
     </script>
     <script type="text/javascript">
         //例：北京市
+            $.ajax({
+                url:'/sheng',              //请求地址
+                type:'post',                //请求方式
+                async:true,                 //是否异步
+                success:function(data){     //成功回调函数
+                    console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                          $('#cid1').append("<option value='"+data[i].provice_id+"'>"+data[i].provice_name+"</option>");
+                    };
+                },
+                error:function(){
+                   // alert('ajax请求失败');  //失败回调
+                }
+            });
         $.ajax({
             url:'/sheng',              //请求地址
             type:'post',                //请求方式
@@ -1545,17 +1512,84 @@
             success:function(data){     //成功回调函数
                 console.log(data);
                 for (var i = 0; i < data.length; i++) {
-                    $('#cid').append("<option value='"+data[i].provice_id+"'>"+data[i].provice_name+"</option>");
+                    $('#cid2').append("<option value='"+data[i].provice_id+"'>"+data[i].provice_name+"</option>");
                 };
             },
             error:function(){
-               // alert('ajax请求失败');  //失败回调
+                // alert('ajax请求失败');  //失败回调
             }
         });
-
+        $.ajax({
+            url:'/sheng',              //请求地址
+            type:'post',                //请求方式
+            async:true,                 //是否异步
+            success:function(data){     //成功回调函数
+                console.log(data);
+                for (var i = 0; i < data.length; i++) {
+                    $('#cid3').append("<option value='"+data[i].provice_id+"'>"+data[i].provice_name+"</option>");
+                };
+            },
+            error:function(){
+                // alert('ajax请求失败');  //失败回调
+            }
+        });
+        $.ajax({
+            url:'/sheng',              //请求地址
+            type:'post',                //请求方式
+            async:true,                 //是否异步
+            success:function(data){     //成功回调函数
+                console.log(data);
+                for (var i = 0; i < data.length; i++) {
+                    $('#cid4').append("<option value='"+data[i].provice_id+"'>"+data[i].provice_name+"</option>");
+                };
+            },
+            error:function(){
+                // alert('ajax请求失败');  //失败回调
+            }
+        });
+        $.ajax({
+            url:'/sheng',              //请求地址
+            type:'post',                //请求方式
+            async:true,                 //是否异步
+            success:function(data){     //成功回调函数
+                console.log(data);
+                for (var i = 0; i < data.length; i++) {
+                    $('#cid5').append("<option value='"+data[i].provice_id+"'>"+data[i].provice_name+"</option>");
+                };
+            },
+            error:function(){
+                // alert('ajax请求失败');  //失败回调
+            }
+        });
+    //-------------------------------------------------------------------
+             //例：北京市 - 市辖区（市辖县）
+            $("#cid1").change(function(){
+                $(this).nextAll("select").remove();
+                var ob = $(this);
+                //alert(ob.val());
+                $.ajax({
+                    url:'/xian',              //请求地址
+                    type:'post',                //请求方式
+                    async:true,                 //是否异步
+                    data:{pid:($(this).val())}, //发送的数据
+                    dataType:'json',            //响应的数据类型
+                    success:function(data){     //成功回调函数
+                        console.log(data);
+                        if(data.length>0){
+                            var select = $("<select id='city1' class='form-control m-b' name='szd' maxlength='20' ><option>--请选择--</option></select>")
+                            for (var i = 0; i < data.length; i++) {
+                                $(select).append("<option value='"+data[i].city_name+"'>"+data[i].city_name+"</option>");
+                            };
+                            ob.after(select);
+                        }
+                    },
+                    error:function(){
+                        //alert('ajax请求失败');  //失败回调
+                    }
+                });
+            });
         //例：北京市 - 市辖区（市辖县）
-
-        $("#cid").change(function(){
+        $("#cid2").change(function(){
             $(this).nextAll("select").remove();
             var ob = $(this);
             //alert(ob.val());
@@ -1568,7 +1602,7 @@
                 success:function(data){     //成功回调函数
                     console.log(data);
                     if(data.length>0){
-                        var select = $("<select id='citys' class='form-control m-b' name='city' maxlength='20' style='width:80px;'><option>--请选择--</option></select>")
+                        var select = $("<select id='city2' class='form-control m-b' name='shu' maxlength='20'><option>--请选择--</option></select>")
                         for (var i = 0; i < data.length; i++) {
                             $(select).append("<option value='"+data[i].city_name+"'>"+data[i].city_name+"</option>");
                         };
@@ -1580,23 +1614,99 @@
                 }
             });
         });
-
-
+        //例：北京市 - 市辖区（市辖县）
+        $("#cid3").change(function(){
+            $(this).nextAll("select").remove();
+            var ob = $(this);
+            //alert(ob.val());
+            $.ajax({
+                url:'/xian',              //请求地址
+                type:'post',                //请求方式
+                async:true,                 //是否异步
+                data:{pid:($(this).val())}, //发送的数据
+                dataType:'json',            //响应的数据类型
+                success:function(data){     //成功回调函数
+                    console.log(data);
+                    if(data.length>0){
+                        var select = $("<select id='city3' class='form-control m-b' name='han' maxlength='20' ><option>--请选择--</option></select>")
+                        for (var i = 0; i < data.length; i++) {
+                            $(select).append("<option value='"+data[i].city_name+"'>"+data[i].city_name+"</option>");
+                        };
+                        ob.after(select);
+                    }
+                },
+                error:function(){
+                    //alert('ajax请求失败');  //失败回调
+                }
+            });
+        });
+        //例：北京市 - 市辖区（市辖县）
+        $("#cid4").change(function(){
+            $(this).nextAll("select").remove();
+            var ob = $(this);
+            //alert(ob.val());
+            $.ajax({
+                url:'/xian',              //请求地址
+                type:'post',                //请求方式
+                async:true,                 //是否异步
+                data:{pid:($(this).val())}, //发送的数据
+                dataType:'json',            //响应的数据类型
+                success:function(data){     //成功回调函数
+                    console.log(data);
+                    if(data.length>0){
+                        var select = $("<select id='city4' class='form-control m-b' name='gaokao' maxlength='20'><option>--请选择--</option></select>")
+                        for (var i = 0; i < data.length; i++) {
+                            $(select).append("<option value='"+data[i].city_name+"'>"+data[i].city_name+"</option>");
+                        };
+                        ob.after(select);
+                    }
+                },
+                error:function(){
+                    //alert('ajax请求失败');  //失败回调
+                }
+            });
+        });
+        //例：北京市 - 市辖区（市辖县）
+        $("#cid5").change(function(){
+            $(this).nextAll("select").remove();
+            var ob = $(this);
+            //alert(ob.val());
+            $.ajax({
+                url:'/xian',              //请求地址
+                type:'post',                //请求方式
+                async:true,                 //是否异步
+                data:{pid:($(this).val())}, //发送的数据
+                dataType:'json',            //响应的数据类型
+                success:function(data){     //成功回调函数
+                    console.log(data);
+                    if(data.length>0){
+                        var select = $("<select id='city5' class='form-control m-b' name='jiguan' maxlength='20' ><option>--请选择--</option></select>")
+                        for (var i = 0; i < data.length; i++) {
+                            $(select).append("<option value='"+data[i].city_name+"'>"+data[i].city_name+"</option>");
+                        };
+                        ob.after(select);
+                    }
+                },
+                error:function(){
+                    //alert('ajax请求失败');  //失败回调
+                }
+            });
+        });
         @if(session("msg"))
              layer.alert('{{session("msg")}}',{icon: 5,time:2000});
         @endif
     </script>
     <script type="text/javascript">
-        $('#sctp').click(function(){
+     /*   $('#sctp').click(function(){
             $('#up').click();
-        });
+        });*/
         function upTp(){
-            var images = $("#up").val();
+           /* var images = $("#up").val();
             if ($.trim(images) == "") {
                 alert("请选择图片！");
                 return;
-            }
-            var actionUrl = "";
+            }*/
+            var actionUrl = "/docase";
 
             $("#othersave2").ajaxSubmit({
 
