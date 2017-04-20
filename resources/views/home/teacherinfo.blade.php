@@ -1160,7 +1160,28 @@
                                         <td>{{ $jl->id }}</td>
                                         <td>{{ $jl->time }}</td>
                                         <td>{{ $jl->grade }}</td>
-                                        <td>{{ $jl->t_status }}</td>
+                                        <td>
+                                            @if($jl->t_status == '1')
+                                                已经预约
+                                            @elseif($jl->t_status == '2')
+                                                已审核
+                                            @elseif($jl->t_status == '3')
+                                                取消预约
+                                            @elseif($jl->t_status == '4')
+                                                已确认
+                                            @elseif($jl->t_status == '5')
+                                                部分合适
+                                            @elseif($jl->t_status == '6')
+                                                试课中
+                                            @elseif($jl->t_status == '7')
+                                                已成功(授课中)
+                                            @elseif($jl->t_status == '8')
+                                                已成功(结束授课)
+                                            @elseif($jl->t_status == '9')
+                                                试课失败
+                                            @endif
+
+                                        </td>
                                         <td>{{ $jl->beizhu }}</td>
                                     </tr>
                                     @endforeach
