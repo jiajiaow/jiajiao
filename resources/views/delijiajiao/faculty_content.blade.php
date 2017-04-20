@@ -14,7 +14,7 @@
 <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></div>
       <div class="jybtnr"><a href="123.htm" >加入备选老师</a></div>
       <li><span>教师性质：</span>@if($list->tc_type == '--请选择--')@else{{ $list->tc_type }} @endif </li>
-              <li style="float: left;"><span>平时所在城市：</span>{{ $list->tc_now_lives }}</li>
+              <li style="float: left;"><span>平时所在城市：</span>{{ $list->tc_citys }}</li>
               <li style="float: left;"><span>暑假所在城市：</span>{{ $list->tc_shu }}</li>
              <li style="float: left;"><span>寒假所在城市：</span>{{ $list->tc_han }}</li>
       <div class="jybtnh">
@@ -36,6 +36,7 @@
            <li><span>年　　级：</span>{{ $list->tc_nj}}</li>
             <li><span>教　　龄：</span>{{ $list->tc_jl }}</li>
             <li><span>联系电话：</span>{{ session('phone') }}</li>
+            <li><span>微　　信：</span>{{ $list->tc_wechat }}</li>
 
               {{--<li><span>联系电话：</span>人大概豆腐干豆腐干反对声赶到事发</li>--}}
   </div>
@@ -91,6 +92,8 @@
        </div>
        <div id="myTab0_Content2" class="none">
         <span style="float: left;margin: 15px 5px 15px 5px;"><p style="float: left;padding: 0px 10px;color: #ff0000;font-weight: 700;font-size: 15px">家教经验:</p>{{ $list->tc_case }}</span><br>
+        {{--<span style="float: left;margin: 15px 5px 15px 5px;"><p style="float: left;padding: 0px 10px;color: #ff0000;font-weight: 700;font-size: 15px">家教经验:</p>{{ $list->tc_case2 }}</span><br>--}}
+        {{--<span style="float: left;margin: 15px 5px 15px 5px;"><p style="float: left;padding: 0px 10px;color: #ff0000;font-weight: 700;font-size: 15px">家教经验:</p>{{ $list->tc_case3 }}</span><br>--}}
        </div>
     </div>
   </div>

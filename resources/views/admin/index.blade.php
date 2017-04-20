@@ -129,7 +129,10 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="/admin/hot_school">热门大学分站</a>
+                                <a class="J_menuItem" href="/admin/hot_area/1">热门区域列表</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="/admin/hot_school/1">热门大学列表</a>
                             </li>
                         </ul>
                     </li>

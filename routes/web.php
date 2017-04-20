@@ -67,7 +67,6 @@ Route::get('/teacher/detail/{m?}.html','home\teacherinfoController@teacher');
 Route::get('/xueyuan.html','home\xueshenController@xueyuan');
 //筛选学员库
 Route::get('/xueyuans/{y?}.html','home\xueshenController@xueyuans');
-
 //zl预约老师
 Route::get('/yuyuelaoshi.html/{a?}/{b?}/{c?}/{d?}','home\yuyueController@index');
 //预约验证码
@@ -112,6 +111,8 @@ Route::get('/copyright.html','home\flootsController@copyright');
 Route::get('/payment_way.html','home\flootsController@payment_way');
 //支付方式
 Route::get('/faculty_sfbz.html','home\flootsController@faculty_sfbz');
+//教员中心案例
+Route::post('/docase','home\teacherinfoController@docase');
 
 
 
@@ -194,9 +195,9 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     //出来发布订单
     Route::post('/fbdddo','admin\fbddController@formdo');
     //热门    大学
-    Route::get('/hot_school','admin\hotController@school');
+    Route::get('/hot_school/{m?}','admin\hotController@school');
     //热门    区域
-    Route::get('/hot_area','admin\hotController@area');
+    Route::any('/hot_area/{m?}','admin\hotController@area');
     //处理热门区域
     Route::get('/do_hot_area/{id?}/{zt?}','admin\hotController@do_hot_area');
     //处理热门大学

@@ -68,6 +68,12 @@ class AdminController extends Controller
         $list = \DB::table('jjw_position_city')->where('province_id',$pid)->get();
         return $list;
     }
+    //区
+    public function qu(Request $reuqest){
+        $cid = $_POST['cid'];
+        $list = \DB::table('jjw_position_county')->where('city_id',$cid)->get();
+        return $list;
+    }
 
      //区
     public function qu(Request $reuqest){

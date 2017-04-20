@@ -176,9 +176,7 @@
             <li><a href="" target="_blank">台江区中州岛</a></li>
 
             <div class="clear"></div></ul><ul style="font-size:15px;color:#262626 "> Copyright2007－2017广州学求易教育咨询有限公司 版权所有 All rights reserved</ul></div></div></div>
-            {{-- <div class="suspend"> --}}
-            {{-- <ul><li><img src="/home/picture/float_1.png" alt=""><div class="wechat hidebox"><div class="inbox"><img src="/home/picture/code.png" alt=""><i>【扫一扫】随时请家教</i></div></div></li><li><a href="http://p.qiao.baidu.com/im/index?siteid=9008098&ucid=20781114&cp=&cr=&cw=" target="_blank"><img src="/home/picture/float_2.png" alt=""></a></li><li class="scroll-top"><img src="/home/picture/float_4.png" alt=""></li></ul> --}}
-    {{-- </div> --}}
+
 </body>
 <script type="text/javascript" src= "/home/js/jquery.min.js"></script>
 <script type="text/javascript" src= "/home/js/superslide.js"></script>
