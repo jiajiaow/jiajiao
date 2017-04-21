@@ -10,8 +10,8 @@
         <div class="education-info">
           <div class="stitle">
             <i><img src="/home/picture/title_left.png" alt=""></i>
-            <h3>{{ $data->dq }}{{ mb_substr($data->user_name,0,1) }}@if($data->user_sex == '')女士|先生@elseif($data->user_sex == '0')女士@elseif($data->user_sex == '1')先生
-@else其它@endif请{{ $data->grade }}{{ $data->subject_id }}家教</h3>
+            <h3>{{ $data->dq }}{{ mb_substr($data->user_name,0,1) }}@if($data->user_sex == '')女士|先生@elseif($data->user_sex == '2')女士@elseif($data->user_sex == '1')先生
+@else女士|先生@endif请{{ $data->grade }}{{ $data->subject_id }}家教</h3>
             <span>{{ date('Y-m-d',$data->time) }}发布</span>
           </div>
           <div class="info">
@@ -83,10 +83,10 @@
                 </div>
                 <ul>
                   <li>订单编号：<span>T{{ $data->id }}</span></li>
-                  <li>联系人：<span>{{ mb_substr($data->user_name,0,1) }}@if($data->user_sex == '')@elseif($data->user_sex == '0')女士@else先生@endif</span></li>
+                  <li>联系人：<span>{{ mb_substr($data->user_name,0,1) }}@if($data->user_sex == '')女士|先生@elseif($data->user_sex == '2')女士@elseif($data->user_sex == '1')先生
+                          @else女士|先生@endif</span></li>
                   <li>求教科目：<span>{{ $data->subject_id }}</span></li>
-                  <li>学员性别：<span>@if($data->user_sex == '')@elseif($data->user_sex == '0')女@elseif($data->user_sex == '1')男
-@else其它@endif</span></li>
+                  <li>学员性别：<span>@if($data->user_sex == '')@elseif($data->user_sex == '2')女@elseif($data->user_sex == '1') 男 @elseif($data->user_sex == '3')男女不限@endif</span></li>
                   <li>学员年级：<span>{{ $data->grade }}</span></li>
                   <li>所在区域：<span>{{ $data->dq }}</span></li>
                   <li>所在位置：<span>{{ $data->xx_dz }}</span></li>
@@ -118,7 +118,7 @@
                 </ul>
               </div>
               <div class="bottom">
-                <a href="/Teacheryy.html?oid={{ $data->id }}" class="btn">申请此订单</a>不是家教德栗家教老师？<a href="/reg.html">免费注册</a>
+                <a href="/Teacheryy.html?oid={{ $data->id }}" class="btn">申请此订单</a>不是德栗家教老师？<a href="/reg.html">免费注册</a>
               </div>
             </div>
             <div class="student-detial-list">
@@ -144,5 +144,6 @@ $(function(){
   $("#dropdown").hide();
 })
 {!! session('ts') !!}
+
 </script>
 @endsection

@@ -44,24 +44,23 @@
 <!-- 选项卡开始 -->
         <div class="cheng_teach-form">
             <h4 style="background:white">预约{{ substr($list->tc_name,0,3) }}教员<i>(编号：T{{ $list->id }})</i></h4>
-		<form action="/yuyuexiangxi.html" method="post" onsubmit="return caozhen(1)">
-                    <div class="cheng_fg">
+		<form action="/yuyuejiaoyuan.html" method="post" onsubmit="return caozhen(1)">
+             <div class="cheng_fg">
 			 <label for="">联系人</label>
              <input type="hidden" name="teacher_id" id="cheng_teacher_id" value="{{ $list->id }}">
              <input type="text" maxlength=10 name='lxr' id="cheng_contact">
-                    </div>
-                    <div class="cheng_fg">
+             </div>
+             <div class="cheng_fg">
 			 <label for ="">联系方式</label>
 			 <input type="text" maxlength=11 id="cheng_mobile" name="phone">
-                    </div>
-                    <div class="cheng_fg">
+              </div>
+              <div class="cheng_fg">
 			 <label for="">科目</label>
 			 <input type="text" maxlength=15 id="zhangqiming" name='km'/>
-                    </div>
+             </div>
             <div class="cheng_fg"style="height: 35px;margin-top: 20px;">
                 <input type="text" style="width:123px;float: left" id="mobile_code" name="mobile_code" placeholder="验证码" class="password">
                 <input type="button" style="width:120px;background:#F7B529;line-height:0;color:black;cursor: pointer;float: right" onclick="sendMsg()" value="发送验证码" id="djs">
-
             </div>
              <button type='submit' >立即预约免费上门授课</button>
 		</form>
@@ -242,5 +241,8 @@
         $('#cheng').remove();
         $('#dropdown').remove();
         $('#f').remove();
+        @if(session("msg"))
+             layer.alert('{{session("error")}}',{icon:6,time:2000});
+        @endif
     </script>
 @endsection

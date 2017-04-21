@@ -51,7 +51,7 @@
                 <div class="ibox-content">
                     <table class="table table-striped table-bordered table-hover dataTables-example">
 
-                            <select id="cid"  name='provice'>
+                            <select id="cid"  name='provice' class="btn btn-default dropdown-toggle">
                                 <option value="-1">--请选择--</option>
                             </select>
 
@@ -87,7 +87,6 @@
                         </tbody>
 
                     </table>
-
                 </div>
             </div>
         </div>
@@ -204,7 +203,7 @@
             success:function(data){		//成功回调函数
                 // console.log(data);
                 if(data.length>0){
-                    var select = $("<select id='city'><option>--请选择--</option></select>")
+                    var select = $("<select id='city' class='btn btn-default dropdown-toggle'><option>--请选择--</option></select>")
                          for (var i = 0; i < data.length; i++) {
                             $(select).append("<option value='" + data[i].city_id + "' onclick='aa("+data[i].city_id+")'>" + data[i].city_name + "</option>");
                          }

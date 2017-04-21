@@ -39,7 +39,7 @@
                         <a href="xueyuan.html" target="_blank">最新家教信息</a>
                     </li>
                     <li>
-                        <a href="" onclick="javascript:location.href=&#39;/teacher/365360.html&#39;" class="look">简历预览</a>
+                        <a  href="/teacher/detail/{{ $list->id }}.html" >简历预览</a>
                     </li>
                     <li class="last">
                         <a href="{{ URL('/outlogin.html') }}"><img src="{{ asset('/home/image/exit.png') }}" alt="退出" title="退出"></a>
@@ -276,6 +276,10 @@
                                     <label for="">备用手机：</label>
                                     <input type="tel" name="phone_bak" value="{{ $list->tc_phone_bak }}"/>
                                 </div>
+                                <div class='fg'>
+                                    <label for="">邀请码：</label>
+                                    <input type="tel" name="tc_yqm" value="{{ $list->tc_yqm }}"/>
+                                </div>
                                 <div class="fg">
                                     <label for="" style="font-size:16px">所在城市：</label>
                                     <select name="suozaidi" id="cid1" maxlength="20" >
@@ -451,7 +455,7 @@
                                         <option value="4年以上" {{ $list->tc_jl=='4年以上'?'selected':'' }}>4年以上</option>
                                     </select>
                                 </div>
-                                <button type="submint">保存</button>
+                                <button type="submint" onclick="AlertInfo()" class="btnSubmit">保存</button>
                             </form>
                             <div class="tech-info">
                                 <div class="show-box">
@@ -680,7 +684,7 @@
                                         </div>
                                         <input type="hidden" name="type" value="1">
                                         <button type="reset" class="reset">取消</button>
-                                        <button type="submit" class="tsubmit" onclick="savenodearea();alert('保存成功')">保存</button>
+                                        <button type="submit" class="tsubmit" onclick="savenodearea();">保存</button>
                                         <div class="clear"></div>
                                     </form>
                                     <script>
@@ -693,7 +697,7 @@
                                                 success:function(data)
                                                 {
                                                     if(data == 'y'){
-                                                        alert('保存成功');
+                                                        layer.alert('保存成功，请继续填写下列教学经验。',{icon:6,time:2000});
                                                     }
                                                 }
                                             })
@@ -887,19 +891,16 @@
                                 <h4>上传身份证照片</h4>
                                 <div class="left pull-left">
                                     <div class="img">
-                                        <img src="{{ asset('/home/image/yz.png') }}" width="248" height="155" alt="">
+                                        <img src="{{ $list->tc_id_photo }}" width="248" height="155" alt="">
                                     </div>
                                     <p>请确保身份证信息和您填写的个人信息一致，图片 限jpg、gif、png格式,200k以内。</p>
-                                    <form action="/upload_iframe.html" method="post" enctype="multipart/form-data" id="sfz">
-                                        <input type="file" class="loca" name="upfile[]" onchange="javascript:$(&#39;#sfz&#39;).submit()" accept="image">
+                                    <form action="/upsfz" method="post" enctype="multipart/form-data" id="sfz">
+                                        <input type="file" class="loca" name="upfile" onchange="javascript:$(&#39;#sfz&#39;).submit()" accept="image">
                                         <input type="hidden" name="phone" value="{{ $list->id }}">
                                         {{--<input type="hidden" name="user_id" value="336038">--}}
-                                        {{--<input type="hidden" name="from" value="center">--}}
+                                        <input type="hidden" name="zt" value="1">
                                         <div class="fg">
                                             <button type="submit" class="uper">上传身份证照片</button>
-
-                                            <button type="submit" >提交</button>
-
                                         </div>
                                     </form>
                                 </div>
@@ -917,17 +918,14 @@
                                 <h4>上传学生证照片</h4>
                                 <div class="left pull-left">
                                     <div class="img">
-                                        <img src="{{ asset('/home/image/yz.png') }}" width="248" height="155" alt="">
+                                        <img src="{{ $list->tc_xszimage }}" width="248" height="155" alt="">
                                     </div>
                                     <p>请确保学生证信息和您填写的个人信息一致，图片 限jpg、gif、png格式,200k以内。</p>
-                                    <form action="/upload_iframe.html" method="post" enctype="multipart/form-data" id="sfz">
-                                        <input type="file" class="loca" name="upfile[]" onchange="javascript:$(&#39;#sfz&#39;).submit()" accept="image">
-                                        <input type="hidden" name="phone" value="{{ $list->id }}">
+                                    <form action="/upxsz" method="post" enctype="multipart/form-data" id="xsz">
+                                        <input type="file" class="loca" name="upfile" onchange="javascript:$(&#39;#xsz&#39;).submit()" accept="image">
+                                        <input type="hidden" name="zt" value="2">
                                         <div class="fg">
                                             <button type="submit" class="uper">上传学生证照片</button>
-
-                                            <button type="submit" >提交</button>
-
                                         </div>
                                     </form>
                                 </div>
@@ -1213,10 +1211,10 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($dd as $jl)
+                                    {{--@foreach($dd as $jl)
                                     <tr>
                                         <td>{{ $jl->id }}</td>
-                                        <td>{{ $jl->time }}</td>
+                                        <td>{{  date("Y-m-d h:i:s",$jl->time) }}</td>
                                         <td>{{ $jl->grade }}</td>
                                         <td>
                                             @if($jl->t_status == '1')
@@ -1242,7 +1240,7 @@
                                         </td>
                                         <td>{{ $jl->beizhu }}</td>
                                     </tr>
-                                    @endforeach
+                                    @endforeach--}}
                                 </tbody>
                             </table>
                         </div>
@@ -1266,18 +1264,18 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($dd as $d)
+                                   {{-- @foreach($dd as $d)
                                         @if($d->t_status == '4')
                                     <tr>
                                         <td>{{ $d->id }}</td>
-                                        <td>{{ $d->time }}</td>
+                                        <td>{{ date("Y-m-d h:i:s",$d->time) }}</td>
                                         <td>{{ $d->grade }}</td>
                                         <td>{{ $d->user_name }}</td>
                                         <td>{{ $d->user_phone }}</td>
                                         <td>{{ $d->t_status }}</td>
                                     </tr>
                                         @endif
-                                    @endforeach
+                                    @endforeach--}}
                                 </tbody>
                             </table>
                         </div>
@@ -1511,16 +1509,24 @@
                             <h3>修改密码</h3>
                             <form action="/doeditpass" method="post" onsubmit="return checkpassword()">
                                 <div class="fg">
+                                    <label for="" style="font-size:13px;">手　　机　　号：</label>
+                                    <input type="text" id="uname" name="phone" placeholder="手机号" maxlength=11>
+                                </div>
+                                <div class="fg">
                                     <label for="" style="font-size:13px;">原　　密　　码：</label>
-                                    <input type="password" name="pass">
+                                    <input type="password" name="pass" placeholder="原密码">
                                 </div>
                                 <div class="fg">
                                     <label for="" style="font-size:13px;">新　　密　　码：</label>
-                                    <input type="password" name="onepass" id="newpassword">
+                                    <input type="password" name="onepass" id="newpassword" placeholder="新密码">
                                 </div>
                                 <div class="fg">
-                                    <label for="" style="font-size:13px;">再次输入新密码：</label>
-                                    <input type="password" name="towpass" id="confirmnewpassword">
+                                    <label for="" style="font-size:13px;" >再次输入新密码：</label>
+                                    <input type="password" name="towpass" id="confirmnewpassword" placeholder="再次输入新密码">
+                                </div>
+                                <div class="fg">
+                                    <input type="button" style="width:100px;background:#F7B529;color:black;cursor: pointer;" onclick="sendMsg()" value="忘记密码" id="djs">
+                                    <input type="text" style="width:210px" id="mobile_code" name="mobile_code" placeholder="验证码" class="password">
                                 </div>
                                 <button type="submit">确认修改</button>
                             </form>
@@ -1562,7 +1568,7 @@
 
     <script src="{{ asset('/home/js/script.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/home/js/cheng.js') }}"></script>
-    <script src="{{ asset('/admin/js/plugins/layer/layer.min.js') }}"></script>
+    <script src="{{ asset('/delijiajiao/js/layer.js') }}"></script>
     <script type="text/javascript">
         function TemporaryMedia() {
             //var image0 = $("input[name='file_temporaryImage']").val();
@@ -1775,9 +1781,74 @@
             });
         }
         function AlertInfo(){
+            var aa = 0
+                $("#form1").find("input").each(function () {
+                    if ($(this).val() == "") {
+                        aa++
+                    }
+                })
+                if(aa == 15){
+                    alert('请完善资料，详细填写，将大幅提高家长选择你的机会，同时信息均完善的同学才会在前台予以显示哟^-^')
+                }
 
-                alert('请完善资料，详细填写，将大幅提高家长选择你的机会，同时信息均完善的同学才会在前台予以显示哟^-^');
         }
+         function sendMsg(){
+             var mobile = $("#uname").val();
+             var code = $("#vcode").val();
+
+             if(mobile == null || mobile == ''){
+                 layer.alert("请输入手机号", {icon: 5});return false;
+             }
+             var re = /^1[34578]\d{9}$/;
+             if (!re.test(mobile)) {
+                 layer.alert("请输入正确手机号",{icon: 5});return false;
+             }
+             //获取验证码
+             getCode();
+             var get_code=$('#djs');
+             time(get_code);
+         }
+         function getCode(){
+             var phone = $("#uname").val();
+             $.ajax({
+                 type:'POST',
+                 url:"{{ URL('/docode.html') }}",
+                 contentType:"application/x-www-form-urlencoded; charset=utf8",
+                 data:{"phone":phone,"zt":'修改密码'},
+                 /*dataType:'JSON',*/
+                 success:(function(result){
+                     if(result == 'y'){
+                         if({{ session('Template') }} == '1'){
+                             layer.alert('已向您的注册手机'+phone+'发送了验证码，请注意查收。',{icon: 4,time:2000});
+                         }else{
+                             layer.alert('已向您的注册手机'+phone+'发送了验证码，请注意查收。',{icon: 3,time:2000});
+                         }
+
+                     }
+                     //console.log(result);
+                 }),
+                 error:(function(result,status){
+                     //console.log(result);
+                     //larye.alert('短信sb!');
+                 })
+
+             });
+         }
+         var wait=60;
+         function time(z,c){
+             if(wait==0){
+                 z.removeAttr('disabled');
+                 z.val('发送验证码');
+                 wait = 60;
+             }else{
+                 z.attr('disabled',"true");
+                 z.val("倒数"+wait+"s");
+                 wait--;
+                 setTimeout(function(){
+                     time(z,c);
+                 },1000)
+             }
+         }
     </script>
 </small>
 </body>

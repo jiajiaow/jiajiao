@@ -44,6 +44,8 @@ Route::post('/doreg.html','home\regController@doreg');
 Route::post('/docode.html','home\regController@docode');
 //前台退出登录
 Route::get('/outlogin.html','home\LoginController@outlogin');
+//修改密码
+Route::post('/doeditpass','home\LoginController@doeditpass');
 //教员个人中心
 Route::get('/teacherinfo.html','home\teacherinfoController@index');
 //处理教员个人中心
@@ -59,6 +61,9 @@ Route::post('/xian','home\teacherinfoController@xian');
 Route::post('/qu','home\teacherinfoController@qu');
 //修改教学授课科目信息
 Route::post('/dokemu.html','home\teacherinfoController@dokemu');
+//上传身份证
+Route::post('/upsfz','home\teacherinfoController@up_sfz_xsz');
+Route::post('/upxsz','home\teacherinfoController@up_sfz_xsz');
 //生成假数据
 Route::get('/jia.html','home\indexController@jia');
 //教师详细
@@ -67,7 +72,7 @@ Route::get('/teacher/detail/{m?}.html','home\teacherinfoController@teacher');
 Route::get('/xueyuan.html','home\xueshenController@xueyuan');
 //筛选学员库
 Route::get('/xueyuans/{y?}.html','home\xueshenController@xueyuans');
-//zl预约老师
+//预约老师
 Route::get('/yuyuelaoshi.html/{a?}/{b?}/{c?}/{d?}','home\yuyueController@index');
 //预约验证码
 Route::post('/register','home\yuyueController@register');
@@ -82,7 +87,7 @@ Route::post('/StudentAdd','home\yuyueController@StudentAdd');
 //测试
 Route::get('/test','testController@index');
 //预约教员
-Route::post('/yuyuexiangxi/yy/{id?}.html','home\yuyueController@doyyforms');
+Route::post('/yuyuejiaoyuan.html','home\yuyueController@yyjy');
 
 //德栗教员库
 Route::get('/faculty.html/{a?}/{b?}','home\teacherinfoController@faculty');

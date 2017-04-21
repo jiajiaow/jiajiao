@@ -369,7 +369,7 @@
   </center>
  <div>--}}
     <div>
-        <a style="display:block;" href="">
+        <a style="display:block;" >
             <img style="width:980px;float:right;margin-top: 10px;" src="/delijiajiao/images/33.png" alt="" />
         </a>
     </div>
