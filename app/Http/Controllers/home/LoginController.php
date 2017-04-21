@@ -29,7 +29,7 @@ class LoginController extends Controller
             if($list != null AND $request->cookie('code') == $yzm){
                 //设置session
                 $inse = \DB::table('jjw_teachers')->where('tc_phone',$phone)->update(['tc_dltimes'=>time()]);
-                session(['tc_phone' => $list->tc_phone,'tc_name'=>$list->tc_name]);
+                session(['tc_phone' => $list->tc_phone,'tc_name'=>$list->tc_name,'tc_id' => $list->id]);
                 //重定向  //判断是德栗还是栗志  1是栗志 2是德栗
                 if(session('Template') =='1'){
                     return redirect('/teacherinfo.html');
@@ -51,7 +51,7 @@ class LoginController extends Controller
             if($list != null){
                 //设置session
                 $inse = \DB::table('jjw_teachers')->where('tc_phone',$phone)->update(['tc_dltimes'=>time()]);
-                session(['tc_phone' => $list->tc_phone,'tc_name'=>$list->tc_name]);
+                session(['tc_phone' => $list->tc_phone,'tc_name'=>$list->tc_name,'tc_id' => $list->id]);
                 //重定向  //判断是德栗还是栗志  1是栗志 2是德栗
                 if(session('Template') =='1'){
                     return redirect('/teacherinfo.html');
@@ -80,7 +80,7 @@ class LoginController extends Controller
             // return redirect('/login.html')->with('msg','尊敬的教师您已退出登录!');
             return redirect('/')->with('msg','尊敬的教员您已退出登录!');
         }
-        
+
     }
 
     /*//教师注册

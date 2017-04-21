@@ -191,14 +191,13 @@
                         <option value="2">已安排</option>
                         <option value="3">已成功(授课中)</option>
                         <option value="4">已成功(授课结束)</option>
-                        <option value="5">待处理</option>
-                        <option value="6">待审核</option>
-                        <option value="7">待退款</option>
-                        <option value="8">关闭生成新单</option>
-                        <option value="9">关闭</option>
+                        <option value="5">待审核</option>
+                        <option value="6">待退款</option>
+                        <option value="7">关闭生成新单</option>
+                        <option value="8">关闭</option>
                     </select>
                 </td>
-                <td>所有应聘人数（10）</td>
+                <td>所有应聘人数（<a href="/admin/orderyyrs/{{ $data->id }}" style="font-size:24px;color: red;">{{ $data->yynum }}</a>）</td>
                 <td>试课时间：<input type="text" ></td>
                 <td>电子合同/合同上传(纸质)</td>
                 <td>本单授课订单</td>

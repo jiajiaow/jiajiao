@@ -189,6 +189,8 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::post('/orderyy','admin\orderController@orderyy');
     //修改订单状态
     Route::post('/orderzt','admin\orderController@orderzt');
+    //预约人数
+    Route::get('/orderyyrs/{id}','admin\orderController@orderyyrs');
     //虚拟学员
     Route::get('/xnxy','admin\xnController@xnxy');
     //虚拟教员
