@@ -14,9 +14,9 @@
 <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></div>
       <div class="jybtnr"><a href="123.htm" >加入备选老师</a></div>
       <li><span>教师性质：</span>@if($list->tc_type == '--请选择--')@else{{ $list->tc_type }} @endif </li>
-              <li style="float: left;"><span>平时所在城市：</span>{{ $list->tc_citys }}</li>
-              <li style="float: left;"><span>暑假所在城市：</span>{{ $list->tc_shu }}</li>
-             <li style="float: left;"><span>寒假所在城市：</span>{{ $list->tc_han }}</li>
+              <li style="float: left;"><span>平时所在城市：</span>{{ $list->tc_citys=='--请选择--'?'':$list->tc_citys }}</li>
+              <li style="float: left;"><span>暑假所在城市：</span>{{ $list->tc_shu=='--请选择--'?'':$list->tc_shu }}</li>
+             <li style="float: left;"><span>寒假所在城市：</span>{{ $list->tc_han=='--请选择--'?'':$list->tc_han }}</li>
       <div class="jybtnh">
           @if($list->tc_jinpai == '2')
               金牌教员
