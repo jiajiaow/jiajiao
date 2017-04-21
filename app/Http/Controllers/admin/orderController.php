@@ -15,7 +15,6 @@ class orderController extends Controller
             ->select('order.*','u.*','jjw_position_city.city_name', 'jjw_position_city.city_id')
             ->orderBy('order.time', 'desc')
             ->paginate(10);
-            //dd($data);
         return view('admin.order',['data' => $data]);
     }
     //订单基础修改
