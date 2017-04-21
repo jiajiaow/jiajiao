@@ -54,13 +54,13 @@
 
 					<div class="form pull-right">
 					<script type="text/javascript"></script>
-					
+
 						<div style="height: 20px;">
 							<span id="z">手机号登录</span>
 							<span id="y">普通登录</span>
 						</div>
 						<div class="line"></div>
-						
+
 						<form id="validForm" method="post" action="{{ URL('/dostlogin.html') }}">
 							<div class="fg">
 								<label for="">
@@ -69,7 +69,7 @@
 								<input  id="uname" type="text" name="phone" placeholder="手机号" maxlength="11" >
 								<input type="hidden" name="dlzt" value="2">
 							</div>
-							
+
 							<div class="fg">
 								<label for="">
 									<img src="{{ asset('/home/picture/icon_pass.png') }}">
@@ -92,10 +92,10 @@
 							</div>
 							<button  type="submit">登录</button>
 						</form>
-						
-						
-			
-						
+
+
+
+
 						<a style="margin-top: 20px;"  href="{{ URL('/yuyuelaoshi.html') }}" class="pull-left">我是学生，立即注册</a>
 						<a style="margin-top: 20px;" href="" class="pull-right">忘记登录密码</a>
 						<div class="clear"></div>
@@ -117,12 +117,10 @@
 				</div>
 				</div>
 				</div>
-				<div class="suspend"><ul><li><img src="/home/picture/float_1.png" alt=""><div class="wechat hidebox"><div class="inbox"><img src="/home/picture/code.png" alt=""><i>【扫一扫】随时请家教</i></div></div></li><li><a href="http://p.qiao.baidu.com/im/index?siteid=9008098&ucid=20781114&cp=&cr=&cw=" target="_blank"><img src="/home/picture/float_2.png" alt=""></a></li><li class="scroll-top"><img src="/home/picture/float_4.png" alt=""></li></ul>
-			</div>
 		</body>
 
 
-
+<script type="text/javascript" src="https://hztk5.kuaishang.cn/bs/ks.j?cI=125636&fI=79140" charset="utf-8"></script>
 <script type="text/javascript" src= "{{ asset('/home/js/script.js') }}"></script>
 <script type="text/javascript" src= "{{ asset('/home/js/jquery.cookie.js') }}"></script>
 <script type="text/javascript" src= "{{ asset('/home/js/superslide.js') }}"></script>
