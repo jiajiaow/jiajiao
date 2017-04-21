@@ -47,7 +47,7 @@
                     <span>QQ:1774932105</span><br>
                     <span>急线:15692003711</span>
 
-                </div
+                </div>
                 </td>
               </tr>
             </tbody></table></td>

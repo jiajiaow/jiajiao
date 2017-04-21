@@ -89,7 +89,7 @@
                                 <p class="ta" > 预约 </p>
                                 <p class="tb" > 查看详情</p>
                                 <p class="tc" >自我描述</p>
-                                <p class="te" >就读丶毕业高校丶专业丶学历</p>
+                                <p class="te" >学校/专业</p>
                                 <p class="tf" >姓名/性别</p>
                                 <p class="tg" > 教员编号</p>
                             </li>
@@ -102,11 +102,9 @@
                                     <p id='ttb'> <a href="/teacher/detail/{{ $li->id }}.html">查看详情</a></p>
                                     <p id='ttd'> {{ $li->tc_comments }}</p>
                                     <div id='tte'>{{ $li->tc_school }}
-                                        {{ $li->tc_hsam }}
                                         {{ $li->tc_zhuanye }}
-                                        {{ $li->tc_jl }}
                                     </div>
-                                    <p id='ttf'>{{ substr($li->tc_name,0,3) }}教员<br />{{ $li->tc_sex=='1'?'男':'女' }}</p>
+                                    <p id='ttf'>{{ substr($li->tc_name,0,3) }}教员/{{ $li->tc_sex=='1'?'男':'女' }}</p>
                                     <p id='ttg'> <br>T{{ $li->id }}</p>
                                 </li>
                             @endforeach

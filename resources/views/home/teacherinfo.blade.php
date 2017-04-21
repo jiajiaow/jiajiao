@@ -118,7 +118,7 @@
                                         <h4>简历详尽，突出优势</h4>
                                     </div>
                                     <p style="font-size:18px;">尽量将您的资料填写详细，并突出您的特长和家教相关经验，以方便家长及德栗家教工作人员选择、推荐。好的简历，事半功倍，可以大大增加您的接单率！</p>
-                                    <a style="font-size:18px;" href="javascript:void(0);" class="look">简历预览</a>
+                                    <a style="font-size:18px;" href="/teacher/detail/{{ $list->id }}.html" >简历预览</a>
                                     {{--<a style="font-size:18px;" class="change" href="javascript:void(0);">修改简历</a>--}}
                                 </div>
                                 <div class="section">
@@ -141,7 +141,7 @@
                                 </small>
                             </div>
                             <dl>
-                                <dt> | {{  $list->tc_sex=='0'?"女":"男" }} | </dt>
+                                <dt> | {{  $list->tc_sex=='2'?"女":"男" }} | </dt>
                                 <dd>
                                     毕业学校：
                                     <span>{{ $list->tc_school }}</span>
@@ -279,9 +279,13 @@
                                 <div class="fg">
                                     <label for="" style="font-size:16px">所在城市：</label>
                                     <select name="suozaidi" id="cid1" maxlength="20" >
+                                        <option >--请选择--</option>
                                         {{--@foreach($szd as $vo)--}}
                                                 {{--<option value="{{ $vo->provice_name }}"  @if($vo->provice_name == {{ $sd[0]->provice_name }}) selected="selected"  @endif>{{ $vo->provice_name }}</option>--}}
                                         {{--@endforeach--}}
+                                    </select>
+                                    <select id='city1' class='form-control m-b' name='szd' maxlength='20' >
+                                        <option >{{ $list->tc_citys==''?'--请选择--':$list->tc_citys }}</option>
                                     </select>
                                     <label for="" class="left" style="font-size:16px"></label>
                                    {{-- <select name="sz" id="shujia" maxlength="20"style="width:79px;">
@@ -289,23 +293,29 @@
                                 </div>
                                 <div class="fg">
                                     <label for="" style="font-size:16px">暑假所在城市：</label>
-                                    <select name="shuj" id="cid2" maxlength="20" "></select>
+                                    <select name="shuj" id="cid2" maxlength="20" ><option>--请选择--</option></select>
                                     {{--<select name="shujiaa" id="zxc" maxlength="20" style="width:80px;"><option value="-1">请选择</option>
                                     </select>
                                     <label for="" class="left" style="font-size:16px"></label>
                                     <select name="sj" id="zxcv" maxlength="20"style="width:79px;">
                                         <option value="-1">请选择</option><option value="0" selected="selected">北京市</option></select>--}}
                                     <!---->
+                                    <select id='city2' class='form-control m-b' name='shu' maxlength='20'>
+                                        <option>{{ $list->tc_shu==''?'--请选择--':$list->tc_shu }}</option>
+                                    </select>
                                 </div>
                                 <div class="fg">
                                     <label for="" style="font-size:16px">寒假所在城市：</label>
-                                    <select name="hanj" id="cid3" maxlength="20" "></select>
+                                    <select name="hanj" id="cid3" maxlength="20"><option>--请选择--</option></select>
                                     {{-- <select name="hanjia" id="nmb" maxlength="20" style="width:80px;"><option value="-1">请选择</option>
 
                                      </select>
                                      <label for="" class="left" style="font-size:16px"></label>
                                      <select name="hj" id="nmbb" maxlength="20"style="width:79px;">
                                          <option value="-1">请选择</option><option value="0" selected="selected">北京市</option></select>--}}
+                                    <select id='city3' class='form-control m-b' name='han' maxlength='20'>
+                                        <option>{{ $list->tc_han==''?'--请选择--':$list->tc_han }}</option>
+                                    </select>
                                 </div>
                                 <div class='fg'>
                                     <!-- 学校是下拉+手动输入-->
@@ -375,7 +385,8 @@
                                     <label for="" class="left" style="font-size:16px"></label>
                                     <select name="chengshi" id="chengshi" maxlength="20"style="width:79px;">
                                         <option value="-1">请选择</option><option value="0" selected="selected">北京市</option></select>--}}
-                                    <select name="gk" id="cid4" maxlength="20" ></select>
+                                    <select name="gk" id="cid4" maxlength="20" ><option>--请选择--</option></select>
+                                    <select id='city4' class='form-control m-b' name='gaokao' maxlength='20'><option>{{ $list->tc_hight==''?'--请选择--':$list->tc_hight }}</option></select>
                                 </div>
                                 <!--	<div class="fg tel">
                                         <label for="">手　　机：</label>
@@ -389,13 +400,14 @@
 
                                 <div class="fg">
                                     <label for="" style="font-size:16px">籍　　贯：</label>
-                                    <select name="jg" id="cid5" maxlength="20" ></select>
+                                    <select name="jg" id="cid5" maxlength="20" ><option>--请选择--</option></select>
                                     {{--<select name="jiguans" id="jiguan" maxlength="20" style="width:80px;"><option value="-1">请选择</option>
 
                                     </select>
                                     <label for="" class="left" style="font-size:16px"></label>
                                     <select name="jiguan"  id="jiguana" maxlength="20"style="width:96px;">
                                         <option value="-1">请选择</option></select>--}}
+                                    <select id='city5' class='form-control m-b' name='jiguan' maxlength='20'><option>{{ $list->tc_jiguan==''?'--请选择--':$list->tc_jiguan }}</option></select>
                                 </div>
                                 <div class="fg sfg">
                                     <label for="">专业类别：</label>
@@ -411,7 +423,7 @@
                                     <!-- 后台抓取城市option是区-->
                                     <label for="">目前住所：</label>
                                     <select class="form-control m-b"  name='qu' maxlength='20' autocomplete="off">
-                                        <option>--请选择--</option>
+
                                         @foreach($qu as $q)
                                         <option value="{{ $q->county_name }}" {{ $list->tc_citys==$q->county_name?'selected':'' }}>{{ $q->county_name }}</option>
                                         @endforeach
@@ -439,7 +451,7 @@
                                         <option value="4年以上" {{ $list->tc_jl=='4年以上'?'selected':'' }}>4年以上</option>
                                     </select>
                                 </div>
-                                <button type="submint" onclick="alert('保存成功！')">保存</button>
+                                <button type="submint">保存</button>
                             </form>
                             <div class="tech-info">
                                 <div class="show-box">
@@ -448,10 +460,10 @@
                                         <a href="" class="edit" id="bj"><img src="{{ asset('/home/image/pen.png') }}">编辑</a>
                                     </div>
                                     <ul class="out">
-                                        <li>授课科目：<span></span></li>
-                                        <li >授课区域：<span id="quyu"></span></li>
-                                        <li>辅导方式：<span></span></li>
-                                        <li>课酬要求：<span></span></li>
+                                        <li>授课科目：<span>{{ $list->tc_subjects }}</span></li>
+                                        <li >授课区域：<span id="quyu">{{ $list->tc_area }}</span></li>
+                                        <li>辅导方式：<span>{{ $list->tc_tutoring }}</span></li>
+                                        <li>课酬要求：<span>{{ $list->tc_salary }}</span></li>
                                         {{--<li>授课时间：<span></span></li>--}}
                                     </ul>
                                     <script type="text/javascript">
@@ -532,6 +544,8 @@
                                         </div>
                                         <input type="hidden" name="tc_subjects" id="first_subject" value="">
                                         <script type="text/javascript">
+
+
                                             function deleteid(id)
                                             {
                                                 var old_id = $("#first_subject").val();
@@ -661,8 +675,8 @@
                                         </div>
                                         <div class="fg">
                                             <label for="">课酬要求：</label>
-                                            <input type="text" name="pay" placeholder="执行德栗家教收费标准" class="imoney" value="">
-                                            <a style="color:#e4393c;" href="/zfsm.html">查看更多收费标准</a>
+                                            <input type="text" name="pay" placeholder="执行德栗家教收费标准" class="imoney" value="{{ $list->tc_salary }}">
+                                            <a style="color:#e4393c;" href="/zfsm.html" >查看更多收费标准</a>
                                         </div>
                                         <input type="hidden" name="type" value="1">
                                         <button type="reset" class="reset">取消</button>
@@ -695,9 +709,9 @@
                                         <a href="" class="edit"><img src="{{ asset('/home/image/pen.png') }}">编辑</a>
                                     </div>
                                     <ul class="out">
-                                        <li>自我描述丶特长展示：<span></span></li>
-                                        <li>所获证书：<span></span></li>
-                                        <li>家教简历：<span></span></li>
+                                        <li>自我描述：<span>{{ subtext($list->tc_comments,10) }}</span></li>
+                                        <li>所获证书：<span>{{ $list->tc_certificate }}</span></li>
+                                        <li>家教简历：<span>{{ subtext($list->tc_case,20) }}</span></li>
 
                                     </ul>
                                     <div class="clear"></div>
@@ -707,7 +721,7 @@
                                         <div class="tfg" style="margin-top: 0px;">
                                             <label for="">自我描述：</label><br/>
                                             {{--<a  style="color: #333" href="">查看范例</a>--}}
-                                            <textarea name="tc_comments" placeholder="注：写的越详细，家长会觉得你越负责，也越了解你的情况，将增加家长对你的好感，大幅增加成功接单的概率。" class="al">{{ $list->tc_comments }}</textarea>
+                                            <textarea name="tc_comments" class="tfg-area" placeholder="注：写的越详细，家长会觉得你越负责，也越了解你的情况，将增加家长对你的好感，大幅增加成功接单的概率。" class="al">{{ $list->tc_comments }}</textarea>
                                         </div>
                                         <div class="fg">
                                             <label for="">所获证书：</label>
@@ -751,7 +765,7 @@
                                                     <div style="float:left;">
                                                         <span>教授结果</span>
                                                         <br />
-                                                        <textarea name="tc_case" id="" cols="30" rows="10" placeholder="例如：学生成绩从50分左右增加到90分左右。学生和家长都对我的教员非常满意，我也很高兴付出的努力得到了回报。">{{ $list->tc_case }}</textarea>
+                                                        <textarea class="tfg-area" name="tc_case" id="" cols="30" rows="10" placeholder="例如：学生成绩从50分左右增加到90分左右。学生和家长都对我的教员非常满意，我也很高兴付出的努力得到了回报。">{{ $list->tc_case }}</textarea>
                                                     </div>
 
                                                 </div>
@@ -782,7 +796,7 @@
                                                     <div style="float:left;">
                                                         <span>教授结果</span>
                                                         <br />
-                                                        <textarea name="tc_case2" id="" cols="30" rows="10" placeholder="例如：学生成绩从50分左右增加到90分左右。学生和家长都对我的教员非常满意，我也很高兴付出的努力得到了回报。">{{ $list->tc_case2 }}</textarea>
+                                                        <textarea class="tfg-area" name="tc_case2" id="" cols="30" rows="10" placeholder="例如：学生成绩从50分左右增加到90分左右。学生和家长都对我的教员非常满意，我也很高兴付出的努力得到了回报。">{{ $list->tc_case2 }}</textarea>
                                                     </div>
 
                                                 </div>
@@ -813,9 +827,31 @@
                                                     <div style="float:left;">
                                                         <span>教授结果</span>
                                                         <br />
-                                                        <textarea name="tc_case3" id="" cols="30" rows="10" placeholder="例如：学生成绩从50分左右增加到90分左右。学生和家长都对我的教员非常满意，我也很高兴付出的努力得到了回报。">{{ $list->tc_case3 }}</textarea>
+                                                        <textarea class="tfg-area" name="tc_case3" id="" cols="30" rows="10" placeholder="例如：学生成绩从50分左右增加到90分左右。学生和家长都对我的教员非常满意，我也很高兴付出的努力得到了回报。">{{ $list->tc_case3 }}</textarea>
                                                     </div>
+                                                        <script>
+                                                            function areaBorder(){
+                                                                var a = $('.hide-box').find('.tfg-area')
+                                                                for(var i=0;i< a.length;i++){
+                                                                    if(a.eq(i).val()==''){
+                                                                        a.eq(i).css('border-color','#ccc')
+                                                                    }else{
+                                                                        a.eq(i).css('border-color','#676767')
+                                                                    }
 
+                                                                }
+
+
+                                                                a.blur(function(){
+                                                                    if($(this).val()==''){
+                                                                        $(this).css('border-color','#ccc')
+                                                                    }else{
+                                                                        $(this).css('border-color','#676767')
+                                                                    }
+                                                                })
+                                                            }
+                                                            areaBorder()
+                                                        </script>
                                                 </div>
 
 
@@ -857,15 +893,13 @@
                                     <form action="/upload_iframe.html" method="post" enctype="multipart/form-data" id="sfz">
                                         <input type="file" class="loca" name="upfile[]" onchange="javascript:$(&#39;#sfz&#39;).submit()" accept="image">
                                         <input type="hidden" name="phone" value="{{ $list->id }}">
-
-
                                         {{--<input type="hidden" name="user_id" value="336038">--}}
                                         {{--<input type="hidden" name="from" value="center">--}}
                                         <div class="fg">
-                                            <button type="submit" class="uper">选择文件</button>
+                                            <button type="submit" class="uper">上传身份证照片</button>
 
                                             <button type="submit" >提交</button>
-                                            <input type="text" >提交
+
                                         </div>
                                     </form>
                                 </div>
@@ -874,6 +908,30 @@
                                         <img src="{{ asset('/home/image/sl_1.png') }}" alt="">
                                     </div>
                                 </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        {{--上传学生证照片--}}
+                        <div class="authentication">
+                            <div class="up-img top-up">
+                                <h4>上传学生证照片</h4>
+                                <div class="left pull-left">
+                                    <div class="img">
+                                        <img src="{{ asset('/home/image/yz.png') }}" width="248" height="155" alt="">
+                                    </div>
+                                    <p>请确保学生证信息和您填写的个人信息一致，图片 限jpg、gif、png格式,200k以内。</p>
+                                    <form action="/upload_iframe.html" method="post" enctype="multipart/form-data" id="sfz">
+                                        <input type="file" class="loca" name="upfile[]" onchange="javascript:$(&#39;#sfz&#39;).submit()" accept="image">
+                                        <input type="hidden" name="phone" value="{{ $list->id }}">
+                                        <div class="fg">
+                                            <button type="submit" class="uper">上传学生证照片</button>
+
+                                            <button type="submit" >提交</button>
+
+                                        </div>
+                                    </form>
+                                </div>
+                                {{--上传学生在照片结束--}}
                                 <div class="clear"></div>
                             </div>
                         </div>
@@ -1541,72 +1599,21 @@
                     console.log(data);
                     for (var i = 0; i < data.length; i++) {
                           $('#cid1').append("<option value='"+data[i].provice_id+"'>"+data[i].provice_name+"</option>");
+                        $('#cid2').append("<option value='"+data[i].provice_id+"'>"+data[i].provice_name+"</option>");
+                        $('#cid3').append("<option value='"+data[i].provice_id+"'>"+data[i].provice_name+"</option>");
+                        $('#cid4').append("<option value='"+data[i].provice_id+"'>"+data[i].provice_name+"</option>");
+                        $('#cid5').append("<option value='"+data[i].provice_id+"'>"+data[i].provice_name+"</option>");
                     };
                 },
                 error:function(){
                    // alert('ajax请求失败');  //失败回调
                 }
             });
-        $.ajax({
-            url:'/sheng',              //请求地址
-            type:'post',                //请求方式
-            async:true,                 //是否异步
-            success:function(data){     //成功回调函数
-                console.log(data);
-                for (var i = 0; i < data.length; i++) {
-                    $('#cid2').append("<option value='"+data[i].provice_id+"'>"+data[i].provice_name+"</option>");
-                };
-            },
-            error:function(){
-                // alert('ajax请求失败');  //失败回调
-            }
-        });
-        $.ajax({
-            url:'/sheng',              //请求地址
-            type:'post',                //请求方式
-            async:true,                 //是否异步
-            success:function(data){     //成功回调函数
-                console.log(data);
-                for (var i = 0; i < data.length; i++) {
-                    $('#cid3').append("<option value='"+data[i].provice_id+"'>"+data[i].provice_name+"</option>");
-                };
-            },
-            error:function(){
-                // alert('ajax请求失败');  //失败回调
-            }
-        });
-        $.ajax({
-            url:'/sheng',              //请求地址
-            type:'post',                //请求方式
-            async:true,                 //是否异步
-            success:function(data){     //成功回调函数
-                console.log(data);
-                for (var i = 0; i < data.length; i++) {
-                    $('#cid4').append("<option value='"+data[i].provice_id+"'>"+data[i].provice_name+"</option>");
-                };
-            },
-            error:function(){
-                // alert('ajax请求失败');  //失败回调
-            }
-        });
-        $.ajax({
-            url:'/sheng',              //请求地址
-            type:'post',                //请求方式
-            async:true,                 //是否异步
-            success:function(data){     //成功回调函数
-                console.log(data);
-                for (var i = 0; i < data.length; i++) {
-                    $('#cid5').append("<option value='"+data[i].provice_id+"'>"+data[i].provice_name+"</option>");
-                };
-            },
-            error:function(){
-                // alert('ajax请求失败');  //失败回调
-            }
-        });
+
     //-------------------------------------------------------------------
-             //例：北京市 - 市辖区（市辖县）
+             //例：北京市 - 市辖区（市辖县）所在城市
             $("#cid1").change(function(){
-                $(this).nextAll("select").remove();
+                $("#city1 option").remove();
                 var ob = $(this);
                 //alert(ob.val());
                 $.ajax({
@@ -1616,13 +1623,14 @@
                     data:{pid:($(this).val())}, //发送的数据
                     dataType:'json',            //响应的数据类型
                     success:function(data){     //成功回调函数
-                        console.log(data);
+                       // console.log(data);
                         if(data.length>0){
-                            var select = $("<select id='city1' class='form-control m-b' name='szd' maxlength='20' ><option>--请选择--</option></select>")
+                            //var select = $("<select id='city1' class='form-control m-b' name='szd' maxlength='20' ><option>--请选择--</option></select>")
                             for (var i = 0; i < data.length; i++) {
-                                $(select).append("<option value='"+data[i].city_name+"'>"+data[i].city_name+"</option>");
+                                $("#city1").append("<option value='"+data[i].city_name+"'>"+data[i].city_name+"</option>");
                             };
-                            ob.after(select);
+                            //ob.after(select);
+
                         }
                     },
                     error:function(){
@@ -1630,9 +1638,10 @@
                     }
                 });
             });
-        //例：北京市 - 市辖区（市辖县）
+        //例：北京市 - 市辖区（市辖县） 暑假
         $("#cid2").change(function(){
-            $(this).nextAll("select").remove();
+            $("#city2 option").remove();
+           // $(this).nextAll("select").remove();
             var ob = $(this);
             //alert(ob.val());
             $.ajax({
@@ -1644,11 +1653,11 @@
                 success:function(data){     //成功回调函数
                     console.log(data);
                     if(data.length>0){
-                        var select = $("<select id='city2' class='form-control m-b' name='shu' maxlength='20'><option>--请选择--</option></select>")
+                        //var select = $("<select id='city2' class='form-control m-b' name='shu' maxlength='20'><option>--请选择--</option></select>")
                         for (var i = 0; i < data.length; i++) {
-                            $(select).append("<option value='"+data[i].city_name+"'>"+data[i].city_name+"</option>");
+                            $('#city2').append("<option value='"+data[i].city_name+"'>"+data[i].city_name+"</option>");
                         };
-                        ob.after(select);
+                       // ob.after(select);
                     }
                 },
                 error:function(){
@@ -1656,9 +1665,10 @@
                 }
             });
         });
-        //例：北京市 - 市辖区（市辖县）
+        //例：北京市 - 市辖区（市辖县） 寒假
         $("#cid3").change(function(){
-            $(this).nextAll("select").remove();
+            $("#city3 option").remove();
+           // $(this).nextAll("select").remove();
             var ob = $(this);
             //alert(ob.val());
             $.ajax({
@@ -1670,11 +1680,11 @@
                 success:function(data){     //成功回调函数
                     console.log(data);
                     if(data.length>0){
-                        var select = $("<select id='city3' class='form-control m-b' name='han' maxlength='20' ><option>--请选择--</option></select>")
+                       // var select = $("<select id='city3' class='form-control m-b' name='han' maxlength='20' ><option>--请选择--</option></select>")
                         for (var i = 0; i < data.length; i++) {
-                            $(select).append("<option value='"+data[i].city_name+"'>"+data[i].city_name+"</option>");
+                            $('#city3').append("<option value='"+data[i].city_name+"'>"+data[i].city_name+"</option>");
                         };
-                        ob.after(select);
+                       // ob.after(select);
                     }
                 },
                 error:function(){
@@ -1684,7 +1694,8 @@
         });
         //例：北京市 - 市辖区（市辖县）
         $("#cid4").change(function(){
-            $(this).nextAll("select").remove();
+            $("#city4 option").remove();
+            //$(this).nextAll("select").remove();
             var ob = $(this);
             //alert(ob.val());
             $.ajax({
@@ -1696,11 +1707,11 @@
                 success:function(data){     //成功回调函数
                     console.log(data);
                     if(data.length>0){
-                        var select = $("<select id='city4' class='form-control m-b' name='gaokao' maxlength='20'><option>--请选择--</option></select>")
+                        //var select = $("<select id='city4' class='form-control m-b' name='gaokao' maxlength='20'><option>--请选择--</option></select>")
                         for (var i = 0; i < data.length; i++) {
-                            $(select).append("<option value='"+data[i].city_name+"'>"+data[i].city_name+"</option>");
+                            $('#city4').append("<option value='"+data[i].city_name+"'>"+data[i].city_name+"</option>");
                         };
-                        ob.after(select);
+                       // ob.after(select);
                     }
                 },
                 error:function(){
@@ -1710,7 +1721,8 @@
         });
         //例：北京市 - 市辖区（市辖县）
         $("#cid5").change(function(){
-            $(this).nextAll("select").remove();
+            $("#city5 option").remove();
+           // $(this).nextAll("select").remove();
             var ob = $(this);
             //alert(ob.val());
             $.ajax({
@@ -1722,11 +1734,11 @@
                 success:function(data){     //成功回调函数
                     console.log(data);
                     if(data.length>0){
-                        var select = $("<select id='city5' class='form-control m-b' name='jiguan' maxlength='20' ><option>--请选择--</option></select>")
+                       // var select = $("<select id='city5' class='form-control m-b' name='jiguan' maxlength='20' ><option>--请选择--</option></select>")
                         for (var i = 0; i < data.length; i++) {
-                            $(select).append("<option value='"+data[i].city_name+"'>"+data[i].city_name+"</option>");
+                            $('#city5').append("<option value='"+data[i].city_name+"'>"+data[i].city_name+"</option>");
                         };
-                        ob.after(select);
+                      //  ob.after(select);
                     }
                 },
                 error:function(){
@@ -1735,7 +1747,7 @@
             });
         });
         @if(session("msg"))
-             layer.alert('{{session("msg")}}',{icon: 5,time:2000});
+             layer.alert('{{session("msg")}}',{icon:6,time:2000});
         @endif
     </script>
     <script type="text/javascript">
@@ -1762,8 +1774,11 @@
                 async: true
             });
         }
-    </script>
+        function AlertInfo(){
 
+                alert('请完善资料，详细填写，将大幅提高家长选择你的机会，同时信息均完善的同学才会在前台予以显示哟^-^');
+        }
+    </script>
 </small>
 </body>
 </html>

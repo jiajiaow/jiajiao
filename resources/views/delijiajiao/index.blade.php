@@ -37,14 +37,12 @@
             <div class="banner-main over">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="/delijiajiao/picture/banner.png"></div>
-                        <div class="swiper-slide"><img src="/delijiajiao/picture/br1.png"></div>
-                        <div class="swiper-slide"><img src="/delijiajiao/picture/br2.png"></div>
+                        <div class="swiper-slide"><img src="/delijiajiao/picture/banner_1.png"></div>
+                        <div class="swiper-slide"><img src="/delijiajiao/picture/banner_2.png"></div>
+                        <div class="swiper-slide"><img src="/delijiajiao/picture/banner_4.png"></div>
 
                     </div>
-
                     <div class="swiper-pagination"></div>
-
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
                 </div>
@@ -53,9 +51,9 @@
 
       </div>
       <div class="small-banner">
-       <a target="_blank" href="/yuyuelaoshi.html" class="a_d_s_hidden_link adsense-image-link"><img class="a_d_s_img" src="/delijiajiao/picture/b1.png" /></a>
-       <a target="_blank" href="/faculty.html" class="a_d_s_hidden_link adsense-image-link"><img class="a_d_s_img" src="/delijiajiao/picture/b2.png" /></a>
-       <a target="_blank" href="/reg.html" class="a_d_s_hidden_link adsense-image-link"><img class="a_d_s_img" src="/delijiajiao/picture/b3.png" /></a>
+       <a target="_blank" href="/yuyuelaoshi.html" class="a_d_s_hidden_link adsense-image-link"><img class="a_d_s_img" src="/delijiajiao/picture/yysm.png" /></a>
+       <a target="_blank" href="/faculty.html" class="a_d_s_hidden_link adsense-image-link"><img class="a_d_s_img" src="/delijiajiao/picture/wmjy.png" /></a>
+       <a target="_blank" href="/reg.html" class="a_d_s_hidden_link adsense-image-link"><img class="a_d_s_img" src="/delijiajiao/picture/jyzc.png" /></a>
       </div>
      </div>
     <div class="meta-box">
@@ -70,7 +68,7 @@
         </div>
         <div class="meta-area meta-block">
             <h3><i class="icon-welfares"></i>热门学科</h3>
-            <ul>
+            <ul style="    margin-top: 9px;">
                 {{--@foreach($xueke as $xk)--}}
                 {{--<li><a href="/facult.html">{{ $xk->sanji }}</a></li>--}}
                 {{--@endforeach--}}
@@ -95,7 +93,7 @@
         </div>
     </div>
         <div class="img_" >
-            <a style="display:block;" href="/yuyuelaoshi.html"><img style="width:970px;float:right;" src="/delijiajiao/images/2.png" alt="" /></a>
+            <a style="display:block;" href="/yuyuelaoshi.html"><img style="width:980px;float:right;" src="/delijiajiao/picture/2.png" alt="" /></a>
         </div>
     </div>
 
@@ -104,7 +102,7 @@
    <div class="index1">
           <div class="lebt">
           <div class="l">
-            <img src="/delijiajiao/images/icon_title1.png">金牌教员</div> <div class="r"><a href="/facultys.html/gd/2" >更多</a></div></div>
+            <img src="/delijiajiao/picture/s_1.png">金牌教员</div> <div class="r"><a href="/facultys.html/gd/2" >更多</a></div></div>
                 <div class="acrt">
                 @foreach($jinpai as $jp)
                     <li class="kuan">
@@ -137,7 +135,7 @@
       <div class="index1">
         <div class="lebt">
             <div class="l">
-                <img src="/delijiajiao/images/icon_title2.png">学生教员</div>
+                <img src="/delijiajiao/images/s_2.png">学生教员</div>
             <div class="r"><a href="/facultys.html/gd/0">更多</a></div>
         </div>
             <div class="acrt">
@@ -169,7 +167,7 @@
       </div>
       <div class="index1">
           <div class="lebt">
-            <div class="l"><img src="/delijiajiao/images/icon_title3.png">专职教员</div>
+            <div class="l"><img src="/delijiajiao/images/s_3.png">专职教员</div>
             <div class="r"><a href="/facultys.html/gd/1">更多</a></div>
           </div>
           <div class="acrt">
@@ -201,12 +199,12 @@
       </div>
       <div>
            <a style="display:block;" href="/yuyuelaoshi.html">
-                <img style="width:970px;float:right;" src="/delijiajiao/images/2.png" alt="" />
+                <img style="width:980px;float:right;" src="/delijiajiao/picture/2.png" alt="" />
            </a>
       </div>
       <div class="index1">
           <div class="lebt">
-          <div class="l"><img src="/delijiajiao/images/icon_title4.png">学员信息</div> <div class="r"><a href="/xueyuan.html">更多</a></div></div>
+          <div class="l"><img src="/delijiajiao/images/s_4.png">学员信息</div> <div class="r"><a href="/xueyuan.html">更多</a></div></div>
           <div class="acrt1">
               <li>
                   <p id="t1" style="width: 5%"></p>
@@ -372,7 +370,7 @@
  <div>--}}
     <div>
         <a style="display:block;" href="">
-            <img style="width:970px;float:right;margin-top: 10px;" src="/delijiajiao/images/33.png" alt="" />
+            <img style="width:980px;float:right;margin-top: 10px;" src="/delijiajiao/images/33.png" alt="" />
         </a>
     </div>
 
@@ -396,4 +394,31 @@
         autoplayDisableOnInteraction: false
     });
 </script>
+<style type="text/css">
+    .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+        bottom: 10px;
+        left: 38%;
+        width: 30%;
+    }
+    .swiper-pagination-bullet{
+        background: #fff;
+    }
+    .swiper-pagination-bullet-active{
+        background: #fff;
+        opacity: 0.4;
+    }
+
+    .index1 .lebt .l img{
+        margin-right: 15px;
+    }
+    .center .meta-box .meta-area ul>li {
+        width: 10%;
+        text-align: center;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+
+</style>
 @endsection

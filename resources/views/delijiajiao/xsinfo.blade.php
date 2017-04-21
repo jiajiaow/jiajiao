@@ -92,7 +92,7 @@
                   <li>所在位置：<span>{{ $data->xx_dz }}</span></li>
                   <li>学员概况：<span>{{ $data->user_situation }}</span></li>
                   <li>授课次数：<span>{{ $data->per_week }}</span></li>
-                  <li>可授课时间：<span>{{ $data->sk_times }}</span></li>
+                  <li>可授课时间：<span>{{ $data->sk_times}}</span></li>
                 </ul>
               </div>
               <div class="sinfo">

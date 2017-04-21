@@ -9172,7 +9172,7 @@ div.line{
 	width: 23%;
 	background: #f60;
 	height: 2px;
-	position: absolute;
+	/*position: absolute;*/
 	top:102px;
 	left: 40%;
 }
