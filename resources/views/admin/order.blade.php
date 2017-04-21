@@ -24,13 +24,17 @@
 </head>
 
 <body class="gray-bg">
+@foreach($data as $data)
     <div class="wrapper wrapper-content animated fadeInRight" style="overflow: scroll;">
-    @foreach($data as $data)
+
        <table border="1">
+       <thead>
+        <h1>订单号:{{ $data->id }}</h1>
+       </thead>
        <form action="/admin/orderjc" method="post">
        {{ csrf_field() }}
        <input type="hidden" name="id" value="{{ $data->id }}"/>
-            <tr>
+            <tr style="background: #fff">
                 <th>城市订单安排方式</th>
                 <td>{{ $data->city_name }}</td>
                 <td>
@@ -88,7 +92,7 @@
             <form action="/admin/orderxgyh" method="post">
             {{ csrf_field() }}
             <input type="hidden" name="id" value="{{ $data->id }}"/>
-            <tr>
+            <tr style="background: #e7eaec">
                 <th>联系方式</th>
                 <td>{{ $data->user_name }}</td>
                 <td>{{ $data->user_phone }}</td>
@@ -105,7 +109,7 @@
             {{ csrf_field() }}
             <input type="hidden" name="u_id" value="{{ $data->u_id }}"/>
             <input type="hidden" name="o_id" value="{{ $data->id }}"/>
-            <tr>
+            <tr style="background: #fff">
                 <th>客户信息</th>
                 <td>
                     电话1:<input type="text" name="user_phone1" value="{{ $data->phone }}"/>
@@ -151,7 +155,7 @@
                 <td><input type="submit" value="提交修改"/></td>
             </tr>
             </form>
-            <tr>
+            <tr style="background: #fff">
                 <th>财务部分</th>
                 <td>预约总收费：<input type="text" name="money"></td>
                 <td>预计信息费:<input type="text" name="money1"></td>
@@ -178,7 +182,7 @@
             <form action="/admin/orderzt" method="post">
             {{ csrf_field() }}
             <input type="hidden" name="id" value="{{ $data->id }}"/>
-            <tr>
+            <tr style="background: #fff">
                 <th>订单状态</th>
                 <td><p>接单教员编号<input type="text" name="teacher_id" value="{{ $data->teacher_id }}" /></p>修改状态
                     <select name="ht_status">
@@ -210,10 +214,10 @@
                 </div>
             </div>
         </div>
-        @endforeach
+
 
     </div>
-
+@endforeach
     <!-- 全局js -->
     <script src="js/jquery.min.js?v=2.1.4"></script>
     <script src="js/bootstrap.min.js?v=3.3.6"></script>
@@ -273,6 +277,19 @@
         th,td{
             text-align: center;
         }
+/*        tr:nth-child(2n+2){
+            background: #e7eaec;
+        }*/
+        tr:nth-child(odd)
+            {
+            background:#fff;
+            }
+        tr:nth-child(even)
+            {
+            background:#e7eaec;
+            }
+
+
     </style>
 
 
