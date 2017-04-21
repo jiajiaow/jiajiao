@@ -56,9 +56,10 @@ class teacherinfoController extends Controller
 
     //修改教员个人中心
     public function doteacherinfo(Request $request){
+        //dd($_POST);
         $file = $request->file('upfile');
         if($_POST['teaches'] == ''){
-            $_POST['teaches']=NULL;
+            $_POST['teaches']='';
         }
         if($_POST['tc_jl'] == '0'){
             $_POST['tc_jl'] == "一年以内";
@@ -66,23 +67,23 @@ class teacherinfoController extends Controller
             $_POST['tc_jl'] == "四年以上";
         }
         if(empty($_POST['shu'])){
-            $_POST['shu']=NULL;
+            $_POST['shu']='';
         }
         if(empty($_POST['han'])){
-            $_POST['han']=NULL;
+            $_POST['han']='';
         }
         if(empty($_POST['gaokao'])){
-            $_POST['gaokao']=NULL;
+            $_POST['gaokao']='';
         }
         if(empty($_POST['jiguan'])){
-            $_POST['jiguan']=NULL;
+            $_POST['jiguan']='';
         }
         if(empty($_POST['szd'])){
-            $_POST['szd']=NULL;
+            $_POST['szd']='';
         }
-        if($_POST['tc_now_lives'] == '--请选择--'){
-            $_POST['tc_now_lives'] = NULL;
-        }
+       /* if($_POST['tc_now_lives'] == '--请选择--'){
+            $_POST['tc_now_lives'] = '';
+        }*/
         //echo $_POST['shu'];
         //dd($_POST);
 
@@ -125,9 +126,9 @@ class teacherinfoController extends Controller
             ];
            // dd($data);
             //写入数据库
-            $list = \DB::table('jjw_teachers')->where('tc_phone',$_POST['tc_phone'])->update($data);
+            $list = \DB::table('jjw_teachers')->where('tc_phone',session('tc_phone'))->update($data);
           if($list){
-               return redirect('/teacherinfo.html');
+               return redirect('/teacherinfo.html')->with('msg','保存成功!');
             }
         }else{
             //dd($request);
@@ -160,9 +161,11 @@ class teacherinfoController extends Controller
             ];
            //dd($data);
             //写入数据库
-            $list = \DB::table('jjw_teachers')->where('tc_phone',$_POST['tc_phone'])->update($data);
+            $list = \DB::table('jjw_teachers')->where('tc_phone',session('tc_phone'))->update($data);
             if($list){
-                return redirect('/teacherinfo.html');
+                return redirect('/teacherinfo.html')->with('msg','保存成功!');;
+            }else{
+                return redirect('/teacherinfo.html')->with('msg','保存成功!');;
             }
         }
 

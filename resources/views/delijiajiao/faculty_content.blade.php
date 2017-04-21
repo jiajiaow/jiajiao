@@ -31,12 +31,13 @@
       <li><span>学　　校：</span>{{ $list->tc_school }}</li>
        <li><span>专业类别：</span>@if($list->tc_zhuanye == '--请选择--')@else{{ $list->tc_zhuanye }} @endif</li>
         <li><span>具体专业：</span>{{ $list->tc_spl }}</li>
-         <li><span>性　　别：</span>{{ $list->tc_sex='1'?'男':'女' }}</li>
+         <li><span>性　　别：</span>{{ $list->tc_sex=='1'?'男':'女' }}</li>
           <li><span>籍　　贯：</span>{{ $list->tc_jiguan }}</li>
            <li><span>年　　级：</span>{{ $list->tc_nj}}</li>
             <li><span>教　　龄：</span>{{ $list->tc_jl }}</li>
+            <li><span>微　　信：</span>156-9200-3711</li>
             <li><span>联系电话：</span>{{ session('phone') }}</li>
-            <li><span>微　　信：</span>{{ $list->tc_wechat }}</li>
+
 
               {{--<li><span>联系电话：</span>人大概豆腐干豆腐干反对声赶到事发</li>--}}
   </div>
@@ -81,17 +82,17 @@
     <!-- 内容开始 -->
   <div class="TabContent">
       <div id="myTab0_Content0" >
-          <div style="float: left;margin:5px 0px 15px 5px;text-align: left"><b style="color: #ff0000;">可授科目：</b>{{ $list->tc_subjects }}</div><br><br>
+          <div style="float: left;margin:5px 0px 0px 5px;text-align: left"><b style="color: #ff0000;">可授科目：</b>{{ $list->tc_subjects }}</div><br><br>
           <div style="float: left;margin:5px 0px 0px 5px;text-align: left"><b style="color: #ff0000;">可授区域：</b>{{ $list->tc_area }}</div><br><br><br>
-          <div style="float: left;margin:5px 0px 15px 5px;text-align: left"><b style="color: #ff0000;">可授课时间：</b>{{ $list->tc_sktime }}</div><br><br>
+          <div style="float: left;margin:5px 0px 0px 5px;text-align: left"><b style="color: #ff0000;">可授课时间：</b>{{ $list->tc_sktime }}</div><br><br>
           <div style="float: left;margin:5px 0px 15px 5px;text-align: left"><b style="color: #ff0000;">课酬要求：</b>@if($list->tc_salary == null)执行德栗家教收费标准@else{{ $list->tc_salary }}@endif</div>
       </div>
        <div id="myTab0_Content1" class="none">
-           <div style="float: left;margin:5px 0px 15px 5px;"><b style="color: #ff0000;">自我评价：</b>{{ $list->tc_comments }}</div><br><br>
+           <div style="float: left;margin:5px 0px 0px 5px; text-align: left"><b style="color: #ff0000;">自我评价：</b>{{ $list->tc_comments }}</div><br><br>
            <div style="float: left;margin:5px 0px 15px 5px;"><b style="color: #ff0000;">所获证书：</b>{{ $list->tc_certificate }}</div><br><br>
        </div>
        <div id="myTab0_Content2" class="none">
-        <span style="float: left;margin: 15px 5px 15px 5px;"><p style="float: left;padding: 0px 10px;color: #ff0000;font-weight: 700;font-size: 15px">家教经验:</p>{{ $list->tc_case }}</span><br>
+        <span style="float: left;margin: 5px 0px 0px 5px;"><p style="float: left;padding: 0px 0px;color: #ff0000;font-weight: 700;font-size: 15px">家教经验:</p>{{ $list->tc_case }}</span><br>
         {{--<span style="float: left;margin: 15px 5px 15px 5px;"><p style="float: left;padding: 0px 10px;color: #ff0000;font-weight: 700;font-size: 15px">家教经验:</p>{{ $list->tc_case2 }}</span><br>--}}
         {{--<span style="float: left;margin: 15px 5px 15px 5px;"><p style="float: left;padding: 0px 10px;color: #ff0000;font-weight: 700;font-size: 15px">家教经验:</p>{{ $list->tc_case3 }}</span><br>--}}
        </div>
