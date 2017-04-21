@@ -22,8 +22,8 @@ Route::get('/mobile/login','home\indexController@login');
 Route::get('/yz','YzController@index');
 //登录
 Route::get('/login.html',function(){
-    session()->forget("tc_phone");
-    session()->forget("tc_name");
+   // session()->forget("tc_phone");
+    //session()->forget("tc_name");
     return view('home.login');
 });
 //登录

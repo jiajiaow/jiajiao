@@ -46,17 +46,20 @@ class LoginController extends Controller
             $phone = $_POST['phone'];
             $pass = md5($_POST['pwd']);
             //查询账号密码是否存在
-            $list = \DB::table('jjw_teachers')->where('tc_phone',$phone)->where('tc_pass',$pass)->where('tc_city_id',session('regionid'))->first();
-            //dd($list);
+            $list = \DB::table('jjw_teachers')->where('tc_phone',$phone)->where('tc_city_id',session('regionid'))->first();
             if($list != null){
-                //设置session
-                $inse = \DB::table('jjw_teachers')->where('tc_phone',$phone)->update(['tc_dltimes'=>time()]);
-                session(['tc_phone' => $list->tc_phone,'tc_name'=>$list->tc_name]);
-                //重定向  //判断是德栗还是栗志  1是栗志 2是德栗
-                if(session('Template') =='1'){
-                    return redirect('/teacherinfo.html');
-                }else if(session('Template') =='2'){
-                    return redirect('/teacherinfo.html');
+                if($list->tc_pass != $pass){
+                    return redirect('/login.html')->with('msg','密码错误,请重新输入!');
+                }else{
+                    //设置session
+                    $inse = \DB::table('jjw_teachers')->where('tc_phone',$phone)->update(['tc_dltimes'=>time()]);
+                    session(['tc_phone' => $list->tc_phone,'tc_name'=>$list->tc_name]);
+                    //重定向  //判断是德栗还是栗志  1是栗志 2是德栗
+                    if(session('Template') =='1'){
+                        return redirect('/teacherinfo.html');
+                    }else if(session('Template') =='2'){
+                        return redirect('/teacherinfo.html');
+                    }
                 }
             }else{
                 //重定向
@@ -157,6 +160,7 @@ class LoginController extends Controller
 
     //学生登陆
     public function dostlogin(Request $request){
+        //dd($_POST);
         //判断是否是验证码登录  有code是手机验证码登录
         if(isset($_POST['code'])){
             $phone = $_POST['phone'];
@@ -172,7 +176,6 @@ class LoginController extends Controller
                 }else if(session('Template') =='2'){
                     return redirect('/stinfo2.html');
                 }
-
             }else{
                 //重定向
                 return redirect('/login.html')->with('msg','账号不存在,请重新输入!');
@@ -184,20 +187,24 @@ class LoginController extends Controller
             $pass = $_POST['pwd'];
             session(['dlzt' => $_POST['dlzt']]);
             //查询账号密码是否存在
-            $list = \DB::table('jjw_user')->where('phone',$phone)->where('password',$pass)->where('city_id',session('regionid'))->first();
+            $list = \DB::table('jjw_user')->where('phone',$phone)->where('city_id',session('regionid'))->first();
             //dd($list);
             if($list != null){
-                //设置session
-                session(['st_phone' => $list->phone,'st_name'=>$list->name]);
-                //重定向  //判断是德栗还是栗志  1是栗志 2是德栗
-                if(session('Template') =='1'){
-                    return redirect('/stinfo.html');
-                }else if(session('Template') =='2'){
-                    return redirect('/stinfo2.html');
+                if($list->password != $pass) {
+                    return redirect('/stlogin.html')->with('msg','密码错误,请重新输入!');
+                }else{
+                    //设置session
+                    session(['st_phone' => $list->phone, 'st_name' => $list->name]);
+                    //重定向  //判断是德栗还是栗志  1是栗志 2是德栗
+                    if (session('Template') == '1') {
+                        return redirect('/stinfo.html');
+                    } else if (session('Template') == '2') {
+                        return redirect('/stinfo2.html');
+                    }
                 }
             }else{
                 //重定向
-                return redirect('/stlogin.html')->with('msg','学员账号不存在,请重新输入!');
+                return redirect('/stlogin.html')->with('msg','账号不存,请重新输入!');
             }
         }
     }
