@@ -506,6 +506,8 @@ class teacherinfoController extends Controller
             $list->next=$nextpage; $list->last=$lastpage;
 
             return view('delijiajiao.jiaoyuan',['quyu'=>$quyu,'list'=>$list,'xx'=>$xx]);
+        }else if($type == 'b'){
+            dd($request);
         }
     }
 

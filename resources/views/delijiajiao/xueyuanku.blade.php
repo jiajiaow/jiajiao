@@ -69,7 +69,7 @@
                   <p class="ta" > 查看详情 </p>
                    <p class="tb" > 发布时间</p>
                     <p class="tc" >学员状态</p>
-                     <p class="td" >教员性别/要求</p>
+                     <p class="td" >教员性别/要求/预约人数</p>
                       <p class="te" >课酬</p>
                        <p class="tf" >年级性别/科目</p>
                         <p class="tg" > 学员姓名/编号</p>
@@ -88,7 +88,7 @@
                             @elseif($li->status == 1)
                          <p id="tc" style="background-color: #3366cc;"> 已安排 </p>
                             @elseif($li->status == 2)
-                         <p id="tc" style="background-color: #cc6699;"> 已成功 </p>
+                         <p id="tc" style="background-color: #cc6699;"> 已完成 </p>
                             @endif
                         <p id="td"> [
                             @if($li->teacher_sex == '1')
@@ -98,7 +98,7 @@
                             @elseif($li->teacher_sex=='3')
                                 男女不限
                             @endif
-                            ]{{  subtext($li->teacher_info,45) }}</p>
+                            ]{{  subtext($li->teacher_info,45) }}[{{ $li->yynum }}]</p>
                         <p id="te">{{ $li->money==''?'执行德栗家教收费标准':$li->money }}</p>
                         <p id="tf"> {{ $li->grade }}(
                             @if($li->user_sex == '1')

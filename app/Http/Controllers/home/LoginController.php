@@ -210,27 +210,28 @@ class LoginController extends Controller
     //修改密码
     public function doeditpass(Request $request){
         //判断验证码
+       // dd($_POST);
        if($_POST['mobile_code']) {
            //判断输入过来的手机是否是发送验证码的手机
            if ($request->cookie('phone') == $_POST['phone']) {
                //判断验证码
                if ($request->cookie('code') == $_POST['mobile_code']) {
-                   $pass = MD5($_POST['pass']);
-                   $list = \DB::table('jjw_teachers')->where('tc_phone', session('tc_phone'))->first();
+                   $pass = MD5($_POST['onepass']);
+                 /*  $list = \DB::table('jjw_teachers')->where('tc_phone', session('tc_phone'))->first();
                    if ($list->tc_pass != $pass) {
                        // echo "原密码错误";die;
                        return back()->with('msg', '原密码错误,请重新输入!');
-                   } else {
+                   } else {*/
                        // echo "原密码正确";
-                       if ($_POST['onepass'] == $_POST['towpass']) {
+                     //  if ($_POST['onepass'] == $_POST['towpass']) {
                            //echo "修改密码";
-                           $list = \DB::table('jjw_teachers')->where('tc_phone', session('tc_phone'))->update(['tc_pass' => md5($_POST['onepass'])]);
+                           $list = \DB::table('jjw_teachers')->where('tc_phone', session('tc_phone'))->update(['tc_pass' => $pass]);
                            return back()->with('msg', '密码修改成功!');
-                       } else {
+                      // } else {
                            // echo "二次密码不一致";die;
-                           return back()->with('msg', '二次新密码不一致,请重新输入!');
-                       }
-                   }
+                         //  return back()->with('msg', '二次新密码不一致,请重新输入!');
+                      // }
+                  // }
                } else {
                    return back()->with('msg', '验证码错误,请重新输入!');
                }
