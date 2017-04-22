@@ -36,6 +36,9 @@
 			<div class="right-info pull-right">
 				<ul>
 					<li>
+						<a href="/">返回首页</a>
+					</li>
+					<li>
 						<a href="xueyuan.html" target="_blank">最新家教信息</a>
 					</li>
 					<li>
@@ -896,7 +899,7 @@
 									</div>
 									<p>请确保身份证信息和您填写的个人信息一致，图片 限jpg、gif、png格式,200k以内。</p>
 									<form action="/upsfz" method="post" enctype="multipart/form-data" id="sfz">
-										<input type="file" class="loca" name="upfile" onchange="javascript:$(&#39;#sfz;&#39;).submit()" accept="image">
+										<input type="file" class="loca" name="upfile" onchange="javascript:$(&#39;#sfz&#39;).submit()" accept="image">
 										<input type="hidden" name="phone" value="{{ $list->id }}">
 										{{--<input type="hidden" name="user_id" value="336038">--}}
 										<input type="hidden" name="zt" value="1">

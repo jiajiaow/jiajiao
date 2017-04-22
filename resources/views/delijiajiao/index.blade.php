@@ -131,7 +131,7 @@
                             @else
                                 <span>其他</span>
                             @endif
-                            <div class="clear">{{ date('Y-m-d h:i:s',$jp->tc_dltimes) }}</div>
+                            <div class="clear">{{--{{ date('Y-m-d h:i:s',$jp->tc_dltimes) }}--}}</div>
                             <a href="/yuyuelaoshi.html" class="btn">预约免费试课</a>
                         </div>
                     </li>
