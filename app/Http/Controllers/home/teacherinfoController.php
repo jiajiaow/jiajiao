@@ -255,8 +255,8 @@ class teacherinfoController extends Controller
        // dd($_POST['teach_mode']);
         if(session('Template') == '2') {
             if ($_POST['teach_mode'] != null) {
-                $tc_tutorings = implode(" ", $_POST['teach_mode']);
-                $noe = false;
+                $tc_tutoring = implode(" ", $_POST['teach_mode']);
+                /*$noe = false;
                 for ($i = 0; $i < strlen($tc_tutorings); $i++) { //遍历整个字符串
                     if ($noe && $tc_tutorings[$i] == ' ') {
                         $tc_tutorings[$i] = ','; //如果当前这个空格之前出现了不是空格的字符
@@ -264,15 +264,15 @@ class teacherinfoController extends Controller
                         $noe = true; //当前这个字符不是空格，定义下 $noe 变量
                         $tc_tutoring = $tc_tutorings;
                     }
-                }
+                }*/
             } else {
                 $_POST['teach_mode'] = '';
             }
 
             //判断是否等于空
             if ($_POST['time'] != null) {
-                $tc_sktimes = implode(" ", $_POST['time']);
-                $noe = false;
+                $tc_sktime = implode(" ", $_POST['time']);
+                /*$noe = false;
                 for ($i = 0; $i < strlen($tc_sktimes); $i++) { //遍历整个字符串
                     if ($noe && $tc_sktimes[$i] == ' ') {
                         $tc_sktimes[$i] = ','; //如果当前这个空格之前出现了不是空格的字符
@@ -280,7 +280,7 @@ class teacherinfoController extends Controller
                         $noe = true; //当前这个字符不是空格，定义下 $noe 变量
                         $tc_sktime = $tc_sktimes;
                     }
-                }
+                }*/
             } else {
                 $_POST['time'] = '';
             }
@@ -356,7 +356,6 @@ class teacherinfoController extends Controller
     //栗志-德栗教师详细
     public function teacher(Request $request,$m){
             $list = \DB::table('jjw_teachers')->where('id', $m)->first();
-        dd($list);
             //判断是栗志还是德栗
             if (session('Template') == '1') {
                 return view('home.teacher', ['list' => $list]);

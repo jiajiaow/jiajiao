@@ -62,12 +62,13 @@
 						</div>
 						<div class="line"></div>
 
-						<form id="validForm" method="post" action="{{ URL('/dologin.html') }}" class="z" >
+						<form id="validForm" method="post" action="{{ URL('/dostlogin.html') }}" class="z" >
 							<div class="fg">
 								<label for="">
 									<img src="{{ asset('/home/picture/icon_mail.png') }}">
 								</label>
 								<input  id="uname" type="text" name="phone" placeholder="手机号" maxlength="11" >
+								<input type="hidden" name="dlzt" value="2">
 							</div>
 
 							<div class="fg">
@@ -80,10 +81,11 @@
 							</div>
 							<button id="deng"  type="submit">登录</button>
 						</form>
-						<form  id="ptForm" method="post" action="{{ URL('/dologin.html') }}">
+						<form  id="ptForm" method="post" action="{{ URL('/dostlogin.html') }}">
 							<div class="fg">
 								<label for=""><img src="{{ asset('/home/picture/icon_mail.png') }}"></label>
 								<input id="zh" type="text" name="phone" placeholder="请输入账号">
+								<input type="hidden" name="dlzt" value="2">
 							</div>
 							<div class="fg">
 								<label for=""><img src="{{ asset('/home/picture/icon_pass.png') }}"></label>

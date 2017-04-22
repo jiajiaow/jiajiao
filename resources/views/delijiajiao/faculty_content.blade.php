@@ -84,7 +84,7 @@
       <div id="myTab0_Content0" >
           <div style="float: left;margin:5px 0px 0px 5px;text-align: left"><b style="color: #ff0000;">可授科目：</b>{{ $list->tc_subjects }}</div><br><br>
           <div style="float: left;margin:5px 0px 0px 5px;text-align: left"><b style="color: #ff0000;">可授区域：</b>{{ $list->tc_area }}</div><br><br><br>
-          <div style="float: left;margin:5px 0px 0px 5px;text-align: left"><b style="color: #ff0000;">可授课时间：</b>{{ $list->tc_sktime }}</div><br><br>
+          <div class="DivJoin" style="float: left;margin:5px 0px 0px 5px;text-align: left"><b style="color: #ff0000;">可授课时间：</b>{{ $list->tc_sktime }}</div><br><br>
           <div style="float: left;margin:5px 0px 15px 5px;text-align: left"><b style="color: #ff0000;">课酬要求：</b>@if($list->tc_salary == null)执行德栗家教收费标准@else{{ $list->tc_salary }}@endif</div>
       </div>
        <div id="myTab0_Content1" class="none">
@@ -101,8 +101,12 @@
   <!-- 选项卡结束 -->
   </center>
 </div>
-    </div>
+    </div>--
    <script type="text/javascript">
+
+      var JoDiv =  $('.DivJoin').text()
+     var str= JoDiv.split(' ')
+      $('.DivJoin').text(str)
          $(function(){
 
           var navH = $("#cheng").offset().top;

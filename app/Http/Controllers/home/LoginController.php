@@ -169,7 +169,7 @@ class LoginController extends Controller
                 //设置session
                 session(['st_phone' => $list->phone,'st_name'=>$list->name]);
                 //重定向  //判断是德栗还是栗志  1是栗志 2是德栗
-                if(session('Template') =='1'){
+                if(session('Template') =='2'){
                     return redirect('/stinfo.html');
                 }else if(session('Template') =='2'){
                     return redirect('/stinfo2.html');
@@ -189,7 +189,7 @@ class LoginController extends Controller
             //dd($list);
             if($list != null){
                 if($list->password != $pass) {
-                    return redirect('/stlogin.html')->with('msg','密码错误,请重新输入!');
+                    return redirect('/login.html')->with('msg','密码错误,请重新输入!');
                 }else{
                     //设置session
                     session(['st_phone' => $list->phone, 'st_name' => $list->name]);
@@ -202,7 +202,7 @@ class LoginController extends Controller
                 }
             }else{
                 //重定向
-                return redirect('/stlogin.html')->with('msg','账号不存,请重新输入!');
+                return redirect('/login.html')->with('msg','账号不存,请重新输入!');
             }
         }
     }
