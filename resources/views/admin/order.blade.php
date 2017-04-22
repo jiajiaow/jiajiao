@@ -121,7 +121,7 @@
                 <td>QQ:<input type="text" name="qq" value="{{ $data->qq }}"/></td>
                 <td><input type="text" name="grade" value="{{ $data->grade }}"/></td>
                 <td><input type="text" name="wlk" value="{{ $data->wlk }}"/></td>
-                <td><input type="text" name="user_sex" value="{{ $data->user_sex }}"/>(0=女|1=男|3男女不限)</td>
+                <td><input type="text" name="user_sex" value="{{ $data->user_sex }}"/>(1=女|2=男|3男女不限)</td>
                 <td><input type="text" name="dq" value="{{ $data->dq }}"/></td>
                 <td><input type="text" name="xx_dz" value="{{ $data->xx_dz }}"/></td>
                 <td><input type="submit" value="提交修改"/></td>
