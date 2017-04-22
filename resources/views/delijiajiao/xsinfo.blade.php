@@ -9,6 +9,7 @@
       <div class="container">
         <div class="education-info">
           <div class="stitle">
+
             <i><img src="/home/picture/title_left.png" alt=""></i>
             <h3>{{ $data->dq }}{{ $data->user_name }}请{{ $data->grade }}{{ $data->subject_id }}家教</h3>
             <span>{{ date('Y-m-d',$data->time) }}发布</span>
