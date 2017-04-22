@@ -112,6 +112,7 @@
             <tr style="background: #fff">
                 <th>客户信息</th>
                 <td>
+
                     电话1:<input type="text" name="user_phone1" value="{{ $data->phone }}"/>
                     电话2:<input type="text" name="user_phone2" value="{{ $data->phone2 }}"/>
                     电话3:<input type="text" name="user_phone3" value="{{ $data->phone3 }}"/>
