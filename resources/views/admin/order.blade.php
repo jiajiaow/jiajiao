@@ -186,8 +186,8 @@
                 <th>订单状态</th>
                 <td><p>接单教员编号<input type="text" name="teacher_id" value="{{ $data->teacher_id }}" /></p>修改状态
                     <select name="ht_status">
-                        <option value="0">新家教</option>
-                        <option value="1">待处理</option>
+                        <option value="0" @if($data->ht_status == '0') selected='selected' @endif>新家教</option>
+                        <option value="1" >待处理</option>
                         <option value="2">已安排</option>
                         <option value="3">已成功(授课中)</option>
                         <option value="4">已成功(授课结束)</option>
