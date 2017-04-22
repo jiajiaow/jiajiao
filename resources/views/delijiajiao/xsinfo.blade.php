@@ -83,8 +83,7 @@
                 </div>
                 <ul>
                   <li>订单编号：<span>T{{ $data->id }}</span></li>
-                  <li>联系人：<span>{{ mb_substr($data->user_name,0,1) }}@if($data->user_sex == '')女士|先生@elseif($data->user_sex == '2')女士@elseif($data->user_sex == '1')先生
-                          @else女士|先生@endif</span></li>
+                  <li>联系人：<span>{{ $data->user_name }}</span></li>
                   <li>求教科目：<span>{{ $data->subject_id }}</span></li>
                   <li>学员性别：<span>@if($data->user_sex == '')@elseif($data->user_sex == '2')女@elseif($data->user_sex == '1') 男 @elseif($data->user_sex == '3')男女不限@endif</span></li>
                   <li>学员年级：<span>{{ $data->grade }}</span></li>
