@@ -120,7 +120,7 @@
                 <td>QQ:<input type="text" name="qq" value="{{ $data->qq }}"/></td>
                 <td><input type="text" name="grade" value="{{ $data->grade }}"/></td>
                 <td><input type="text" name="wlk" value="{{ $data->wlk }}"/></td>
-                <td><input type="text" name="user_sex" value="{{ $data->user_sex }}"/>(0=女|1=男)</td>
+                <td><input type="text" name="user_sex" value="{{ $data->user_sex }}"/>(0=女|1=男|3男女不限)</td>
                 <td><input type="text" name="dq" value="{{ $data->dq }}"/></td>
                 <td><input type="text" name="xx_dz" value="{{ $data->xx_dz }}"/></td>
                 <td><input type="submit" value="提交修改"/></td>
@@ -140,9 +140,9 @@
                 <td>对教员要求：<textarea name="teacher_info">{{ $data->teacher_info }}</textarea></td>
                 <td>选择教员性别:
                 <select name="teacher_sex">
-                    <option value="男" @if($data->teacher_sex == '男') selected="selected" @endif>男</option>
-                    <option value="女" @if($data->teacher_sex == '女') selected="selected" @endif>女</option>
-                    <option value="男女不限" @if($data->teacher_sex == '男女不限') selected="selected" @endif>男女不限</option>
+                    <option value="1" @if($data->teacher_sex == '1') selected="selected" @endif>男</option>
+                    <option value="2" @if($data->teacher_sex == '2') selected="selected" @endif>女</option>
+                    <option value="3" @if($data->teacher_sex == '3') selected="selected" @endif>男女不限</option>
                 </select></td>
                 <td>对教员性质：<select name="ls_type">
                                     <option value="大学生家教" @if($data->ls_type == '大学生家教') selected="selected" @endif>大学生家教</option>
