@@ -30,7 +30,6 @@ class LoginController extends Controller
                 //设置session
                 $inse = \DB::table('jjw_teachers')->where('tc_phone',$phone)->update(['tc_dltimes'=>time()]);
                 session(['tc_phone' => $list->tc_phone,'tc_name'=>$list->tc_name,'tc_id' => $list->id]);
-
                 //重定向  //判断是德栗还是栗志  1是栗志 2是德栗
                 if(session('Template') =='1'){
                     return redirect('/teacherinfo.html');
@@ -53,7 +52,7 @@ class LoginController extends Controller
                 }else{
                     //设置session
                     $inse = \DB::table('jjw_teachers')->where('tc_phone',$phone)->update(['tc_dltimes'=>time()]);
-                    session(['tc_phone' => $list->tc_phone,'tc_name'=>$list->tc_name]);
+                    session(['tc_phone' => $list->tc_phone,'tc_name'=>$list->tc_name,'tc_id' => $list->id]);
                     //重定向  //判断是德栗还是栗志  1是栗志 2是德栗
                     if(session('Template') =='1'){
                         return redirect('/teacherinfo.html');

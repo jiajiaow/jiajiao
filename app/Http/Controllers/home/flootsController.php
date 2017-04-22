@@ -26,4 +26,8 @@ class flootsController extends Controller
     public function faculty_sfbz(){
         return view('delijiajiao.faculty_sfbz');
     }
+    //预约订单
+    public function yydd(){
+        return view('delijiajiao.yydd');
+    }
 }

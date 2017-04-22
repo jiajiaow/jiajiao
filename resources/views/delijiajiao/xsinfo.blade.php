@@ -25,10 +25,10 @@
                         href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={{ $url }}" target="_blank">
                       <img  src="/home/picture/ico_qzone.png" />
                   </a>
-                  <a title="分享到微信" charset="400-03-19" id="s_pengyou"
+                  <a title="分享到朋友圈" charset="400-03-19" id="s_pengyou"
                         href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?to=pengyou&url={{ $url }}&title="{{ $data->dq }}{{ mb_substr($data->user_name,0,1) }}@if($data->user_sex == '')@elseif($data->user_sex == '0')女士@elseif($data->user_sex == '1')先生
 @else其它@endif请{{ $data->grade }}{{ $data->subject_id }}"家教 target="_blank">
-                      <img src="/home/picture/float_1.png"  width="35px" height="35px" />
+                      <img src="/home/picture/pyq.png"  width="35px" height="35px" />
                   </a>
                   <a title="转发至新浪微博" charset="400-03-10" id="s_sina"
                       href="http://service.weibo.com/share/share.php?title="{{ $data->dq }}{{ mb_substr($data->user_name,0,1) }}@if($data->user_sex == '')@elseif($data->user_sex == '0')女士@elseif($data->user_sex == '1')先生

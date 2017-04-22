@@ -165,13 +165,11 @@
 	$(window).load(function(){
 		sChange();
 		$("#banner").css("min-height",$(".dropdown").height());
-		$("#login-banner .right-form").css("top",($("#login-banner").height() - $(".right-form").height()) * 0.44 + "px");
 		$("#register-banner .left-form").css("top",($("#register-banner").height() - $(".left-form").height()) * 0.44 + "px");
 		$("#pcontent .right-cont").css("min-height",$(window).height() + "px");
 	})
 	$(window).resize(function(){
 		$("#banner").css("min-height",$(".dropdown").height());
-		$("#login-banner .right-form").css("top",($("#login-banner").height() - $(".right-form").height()) * 0.44 + "px");
 		$("#register-banner .left-form").css("top",($("#register-banner").height() - $(".left-form").height()) / 2 + "px");
 	})		
 	$(".suspend .scroll-top").click(function(){
