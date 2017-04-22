@@ -33,6 +33,7 @@ class orderController extends Controller
     //订单用户修改
     public function orderxgyh(Request $request)
     {
+        //dd($request->all());
         $u_id = $request->input('u_id');
         $o_id = $request->input('o_id');
         $phone = $request->input('user_phone1');
