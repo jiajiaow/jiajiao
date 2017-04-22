@@ -187,14 +187,14 @@
                 <td><p>接单教员编号<input type="text" name="teacher_id" value="{{ $data->teacher_id }}" /></p>修改状态
                     <select name="ht_status">
                         <option value="0" @if($data->ht_status == '0') selected='selected' @endif>新家教</option>
-                        <option value="1" >待处理</option>
-                        <option value="2">已安排</option>
-                        <option value="3">已成功(授课中)</option>
-                        <option value="4">已成功(授课结束)</option>
-                        <option value="5">待审核</option>
-                        <option value="6">待退款</option>
-                        <option value="7">关闭生成新单</option>
-                        <option value="8">关闭</option>
+                        <option value="1" @if($data->ht_status == '1') selected='selected' @endif>待处理</option>
+                        <option value="2" @if($data->ht_status == '2') selected='selected' @endif>已安排</option>
+                        <option value="3" @if($data->ht_status == '3') selected='selected' @endif>已成功(授课中)</option>
+                        <option value="4" @if($data->ht_status == '4') selected='selected' @endif>已成功(授课结束)</option>
+                        <option value="5" @if($data->ht_status == '5') selected='selected' @endif>待审核</option>
+                        <option value="6" @if($data->ht_status == '6') selected='selected' @endif>待退款</option>
+                        <option value="7" @if($data->ht_status == '7') selected='selected' @endif>关闭生成新单</option>
+                        <option value="8" @if($data->ht_status == '8') selected='selected' @endif>关闭</option>
                     </select>
                 </td>
                 <td>所有应聘人数（<a href="/admin/orderyyrs/{{ $data->id }}" style="font-size:24px;color: red;">{{ $data->yynum }}</a>）</td>
