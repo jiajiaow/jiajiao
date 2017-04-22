@@ -50,6 +50,7 @@ textarea{
 	margin: 0 auto;
 	height: 100%;
 }
+
 #header {
 	width: 100%;
 	min-width: 1200px;
@@ -9069,39 +9070,74 @@ input #getsms{
 	float:right;
 
 }
-#z{
-	float: left;
-	margin-right: 20px;
-	width: 120px;
-	display: block;
-	cursor: pointer;
-	/*border-radius: 4px;*/
-	padding: 5px 10px 0;
-	padding-bottom: 15px;
-	padding-left: 17px;
-	font-size: 16px;
-	border-bottom: 1px solid #e7e7e7;
+.container{
 	position: relative;
 }
-#y{
-	float: left;
-	width: 120px;
-	display: block;
+.left-code{
+	position: absolute;
+	bottom: 97px;
+	left: 180px;
+	padding: 14px;
+	background: #e2e2e2;
+	opacity: 0.9;
+	z-index: 1;
+}
+.code {
+	width: 100px;
+	display: inline-block;
+	text-align: center;
+}
+#footer .foot-bottom {
+	color: #a7a7a7;
+	font-size: 12px;
+	text-align: center;
+	padding: 15px 0;
+	background: #717171;
+}
+#login-banner .right-form {
+	width: auto;
+	position: absolute;
+	right: 135px;
+	top: 89.16px;
+}
+#login-banner .form, #register-banner .form {
+	padding: 25px;
+	background: #fff;
+	width: 303px;
+	opacity: 0.8;
+}
+#z {
+	width: 100px;
+	display: inline-block;
 	cursor: pointer;
-	/*border-radius: 4px;*/
-	padding: 5px 10px;
-	font-size: 16px;
-	padding: 5px 10px 0;
-	padding-bottom: 15px;
-	padding-left: 28px;
+	font-size: 14px;
 	border-bottom: 1px solid #e7e7e7;
-	margin-left: 20px;
+	position: relative;
+	margin: 0 17px;
+	text-align: center;
+	padding-bottom: 6%;
+}
+#y {
+	width: 100px;
+	display: inline-block;
+	font-size: 14px;
+	border-bottom: 1px solid #e7e7e7;
+	padding-bottom: 6%;
+	text-align: center;
+}
+#login-banner .form .fg, #register-banner .form .fg {
+	margin-top: 20px;
+	border: 1px solid #bbb;
+	height: 45px;
+	line-height: 43px;
+	padding-left: 8px;
+	position: relative;
 }
 div.line{
-	width: 23%;
+	width: 33%;
 	background: #f60;
 	height: 2px;
 	position: absolute;
-	top:65px;
-	left: 40%;
+	top:58px;
+	left: 13%;
 }

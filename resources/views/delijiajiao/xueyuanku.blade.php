@@ -69,7 +69,7 @@
                   <p class="ta" > 查看详情 </p>
                    <p class="tb" > 发布时间</p>
                     <p class="tc" >学员状态</p>
-                     <p class="td" >教员性别/要求/预约人数</p>
+                     <p class="td" >教员性别/要求</p>
                       <p class="te" >课酬</p>
                        <p class="tf" >年级性别/科目</p>
                         <p class="tg" > 学员姓名/编号</p>

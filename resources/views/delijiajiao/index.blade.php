@@ -3,14 +3,20 @@
 @section('content')
     <div class="nav-vertical" id="dropdown">
         <ul id="cheng">
+            <li style="width: 200px;text-align: center;height: 40px;line-height: 40px;border: 1px solid #F7B529;">全部课程分类</li>
+            <?php $num = 0;?>
             @foreach($yiji as $yj)
-                <li class="nav-item" style="display:block;overflow: hidden；">
-
+                <?php $num++;?>
+                <li class="nav-item" style="display:block;overflow: hidden;">
+                    @if($num < 7)
+                    <i class="menu-item-icon">
+                        <img src="/delijiajiao/picture/item_icon_{{ $num }}.png" alt="" width="100%">
+                    </i>
+                    @endif
                     <a href="javascript:void(0);" class="nav-item-title">{{ $yj->yiji }}
                         <i class="icon-arrow-right right"></i>
                     </a>
                     <span>{{ $yj->introduce }}<br><Br></span>
-
                     <dl>
                         @foreach($erji as $ej)
                             @if( $yj->id == $ej->yiji_id )
@@ -85,7 +91,7 @@
         </div>
         <div class="meta-salary-filter meta-block">
             <h3><i class="icon-salary"></i>热门区域</h3>
-            <ul>
+            <ul style="margin-top: 7px;">
             @foreach($dq as $dq)
                 <li><a href="/hot.html/区域/{{ $dq->county_name }}" target="_blank">{{ $dq->county_name }}</a></li>
             @endforeach
@@ -106,26 +112,26 @@
                 <div class="acrt">
                 @foreach($jinpai as $jp)
                     <li class="kuan">
-                        <div class="top">
-                            <img src="/delijiajiao/images/logo.png" width="110" height="110">
+                        <div class="top"  onmouseover="this.style.cursor='pointer'" onclick="location.href='/teacher/detail/{{ $jp->id }}.html'">
+                            <img src="/delijiajiao/images/logo.png" width="110" height="110" >
                             <i>{{ mb_substr($jp->tc_name,0,1) }}教员</i>
                             <span>
                                 <img src="/delijiajiao/picture/icon_imperial.png">
                             </span>
                             <div class="hover">
-                                <p>{{ subtext($jp->tc_comments,40) }}</p>
-                                <a href="javascript:void(0)" onclick="location.href='/teacher/detail/{{ $jp->id }}.html'" class="look">查看 ></a>
+                                <p >{{ subtext($jp->tc_comments,40) }}</p>
+                                <a href="javascript:void(0)"  class="look">查看 ></a>
                             </div>
                         </div>
                         <div class="bottom">
-                            <a href="">{{ $jp->tc_school }}</a>
+                            <a href="/facultys.html/gd/2">{{ $jp->tc_school }}</a>
 
                             <br/>@if($jp->tc_zhuanye)
                                 <span>{{ $jp->tc_zhuanye }}</span>
                             @else
                                 <span>其他</span>
                             @endif
-                            <div class="clear"></div>
+                            <div class="clear">{{ date('Y-m-d h:i:s',$jp->tc_dltimes) }}</div>
                             <a href="/yuyuelaoshi.html" class="btn">预约免费试课</a>
                         </div>
                     </li>
@@ -141,7 +147,7 @@
             <div class="acrt">
             @foreach($xueshen as $xs)
             <li class="kuan">
-                <div class="top">
+                <div class="top" onmouseover="this.style.cursor='pointer'" onclick="location.href='/teacher/detail/{{ $xs->id }}.html'">
                     <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
                     <i>{{ mb_substr($xs->tc_name,0,1) }}教员</i>
                     <div class="hover">
@@ -173,7 +179,7 @@
           <div class="acrt">
             @foreach($zhuanzhi as $zhuanzhi)
             <li class="kuan">
-                <div class="top">
+                <div class="top" onmouseover="this.style.cursor='pointer'" onclick="location.href='/teacher/detail/207692.html'">
                     <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
                     <i>{{ mb_substr($zhuanzhi->tc_name,0,1) }}教员</i>
                     <div class="hover">
@@ -412,12 +418,12 @@
         margin-right: 15px;
     }
     .center .meta-box .meta-area ul>li {
-        width: 10%;
-        text-align: center;
+        width: 21%;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
     }
+
 
 
 </style>

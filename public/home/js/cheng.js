@@ -2,18 +2,35 @@ $(document).ready(function(){
 	//登陆时的切换
 	$('#y').click(function(e){
 		e.preventDefault();
-		$("div.line").css('left','70%');
+		//$("div.line").animate({left:"52%"});
+		$('div.line').animate({left:"13%"});
+
 		$('#ptForm').show()
 					.siblings('#validForm').hide();
 	});
-	$('#z').click(function(e){		
+	$('#z').click(function(e){
 		e.preventDefault();
-		$('div.line').css('left','40%');
+		$("div.line").animate({left:"52%"});
+
+		//$('div.line').animate({left:"13%"});
 		$('#validForm').show()
 					   .siblings('#ptForm').hide();
 	});
+	$('#yy').click(function(e){
+		e.preventDefault();
+		$('div.line').animate({left:"13%"});
+		$('#ptForms').show()
+			.siblings('#validForms').hide();
+	});
+	$('#zz').click(function(e){
+		e.preventDefault();
+		$("div.line").animate({left:"52%"});
+
+		$('#validForms').show()
+			.siblings('#ptForms').hide();
+	});
 	$('#getsms').click(function(){
-		
+
 		getCode();
 		var get_code=$('#getsms');
 		time(get_code);

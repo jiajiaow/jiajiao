@@ -1,6 +1,7 @@
 ﻿@extends('delijiajiao.public.public')
 @section('title',session('regionname') )
 @section('content')
+    <div style="margin-top: 10px;">预约免费试课教员：T{{ $list->id }} {{ substr($list->tc_name,0,3) }}教员</div>
 <div class="container">
     <div id="sxc" class="jynr">
   <div class="l">

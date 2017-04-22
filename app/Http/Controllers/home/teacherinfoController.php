@@ -21,21 +21,20 @@ class teacherinfoController extends Controller
                 return redirect('/login.html')->with('msg', '请您先登录!');
             }
             //锁定城市
-            $sd = \DB::table('jjw_teachers as t')
+            /*$sd = \DB::table('jjw_teachers as t')
                 ->join('jjw_position_city as c', 't.tc_city_id', '=', 'c.city_id')
                 ->join('jjw_position_provice as p', 'c.province_id', '=', 'p.provice_id')
                 ->select('p.provice_name', 'c.city_name')
                 ->where('t.tc_city_id', '=', "$list->tc_city_id")
-                ->first();
+                ->first();*/
             //dd($sd);
-            //存入session
-            // session(['szd' => $sd[0]->provice_name,'szds'=>$sd[0]->city_name]);
+
             //地区
             $qu = \DB::table('jjw_position_county')->where('city_id', $list->tc_city_id)->get();
 
             //所在地
-            $szd = \DB::table('jjw_position_city')->get();
-            $szd2 = \DB::table('jjw_position_county')->get();
+           // $szd = \DB::table('jjw_position_city')->get();
+           // $szd2 = \DB::table('jjw_position_county')->get();
             //        return view('home.teacherinfo',['list'=>$list,'szd'=>$szd,'sd'=>$sd,'qu'=>$qu]);
             //科目
             $km = \DB::table('jjw_sanji')->get();
@@ -51,7 +50,7 @@ class teacherinfoController extends Controller
                 ->where('t.tc_city_id', '=', session('regionid'))
                 ->where('t.tc_phone', '=', $phone)
                 ->get();*/
-            //dd($dd);
+           // dd($list);
             return view('home.teacherinfo', ['list' => $list, 'qu' => $qu, 'km' => $km, 'xuexiao' => $xuexiao, 'zhuanye' => $zhuanye]);
            // return view('home.teacherinfo', ['list' => $list, 'qu' => $qu, 'km' => $km, 'xuexiao' => $xuexiao, 'zhuanye' => $zhuanye, 'dd' => $dd]);
         }
@@ -179,52 +178,55 @@ class teacherinfoController extends Controller
     public function up_sfz_xsz(Request $request){
         $file = $request->file('upfile');
         //zt  状态 == 1 是身份证 否则是 学生证
-        if($_POST['zt'] == '1'){
-            if(!empty($file)){
-                $ext = $file->getClientOriginalExtension();//获取后缀
-                if($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg'){
-                    return back()->with('msg','上传格式错误,请重新选择!');
-                }else{
-                    //限制上传图片大小 200000  | 200k
-                    if(filesize($file) < '215000'){
-                        $filename = session('tc_phone').'-'.time().rand(1000,9999).".".$ext;//新文件名 联系人手机号码+时间戳+随机4位数
-                        $file->move("delijiajiao/sfz_image/",$filename);//移动目录
-                        $sfz = "/delijiajiao/sfz_image/".$filename;//组成路径
-                        $list = \DB::table('jjw_teachers')->where('tc_phone',session('tc_phone'))->where('tc_city_id',session('regionid'))->update(['tc_id_photo'=>$sfz]);
-                        if($list){
-                            return back()->with('msg','身份证上传成功!');
+        if(session('Template') == '2') {
+            if ($_POST['zt'] == '1') {
+                if (!empty($file)) {
+                    $ext = $file->getClientOriginalExtension();//获取后缀
+                    if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
+                        return back()->with('msg', '上传格式错误,请重新选择!');
+                    } else {
+                        //限制上传图片大小 200000  | 200k
+                        if (filesize($file) < '215000') {
+                            $filename = session('tc_phone') . '-' . time() . rand(1000, 9999) . "." . $ext;//新文件名 联系人手机号码+时间戳+随机4位数
+                            $file->move("delijiajiao/sfz_image/", $filename);//移动目录
+                            $sfz = "/delijiajiao/sfz_image/" . $filename;//组成路径
+                            $list = \DB::table('jjw_teachers')->where('tc_phone', session('tc_phone'))->where('tc_city_id', session('regionid'))->update(['tc_id_photo' => $sfz]);
+                            if ($list) {
+                                return back()->with('msg', '身份证上传成功!');
+                            }
+                        } else {
+                            return back()->with('msg', '照片大小超过200k!');
                         }
-                    }else{
-                        return back()->with('msg','照片大小超过200k!');
                     }
+                } else {
+                    return back()->with('msg', '请选择要上传的身份证照片!');
                 }
-            }else{
-                return back()->with('msg','请选择要上传的身份证照片!');
+            } else {
+                if (!empty($file)) {
+                    $ext = $file->getClientOriginalExtension();//获取后缀
+                    if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
+                        return back()->with('msg', '上传格式错误,请重新选择!');
+                    } else {
+                        //限制上传图片大小 200000  | 200k
+                        if (filesize($file) < '215000') {
+                            $filename = session('tc_phone') . '-' . time() . rand(1000, 9999) . "." . $ext;//新文件名 联系人手机号码+时间戳+随机4位数
+                            $file->move("delijiajiao/xsz_image/", $filename);//移动目录
+                            $xsz = "/delijiajiao/xsz_image/" . $filename;//组成路径
+                            $list = \DB::table('jjw_teachers')->where('tc_phone', session('tc_phone'))->where('tc_city_id', session('regionid'))->update(['tc_xszimage' => $xsz]);
+                            if ($list) {
+                                return back()->with('msg', '学生证上传成功!');
+                            }
+                        } else {
+                            return back()->with('msg', '照片大小超过200k!');
+                        }
+                    }
+                } else {
+                    return back()->with('msg', '请选择要上传的学生证照片!');
+                }
             }
         }else{
-            if(!empty($file)){
-                $ext = $file->getClientOriginalExtension();//获取后缀
-                if($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg'){
-                    return back()->with('msg','上传格式错误,请重新选择!');
-                }else{
-                    //限制上传图片大小 200000  | 200k
-                    if(filesize($file) < '215000'){
-                        $filename = session('tc_phone').'-'.time().rand(1000,9999).".".$ext;//新文件名 联系人手机号码+时间戳+随机4位数
-                        $file->move("delijiajiao/xsz_image/",$filename);//移动目录
-                        $xsz = "/delijiajiao/xsz_image/".$filename;//组成路径
-                        $list = \DB::table('jjw_teachers')->where('tc_phone',session('tc_phone'))->where('tc_city_id',session('regionid'))->update(['tc_xszimage'=>$xsz]);
-                        if($list){
-                            return back()->with('msg','学生证上传成功!');
-                        }
-                    }else{
-                        return back()->with('msg','照片大小超过200k!');
-                    }
-                }
-            }else{
-                return back()->with('msg','请选择要上传的学生证照片!');
-            }
+            //栗志
         }
-
     }
 
     //例子：北京市 湖南省
@@ -251,175 +253,189 @@ class teacherinfoController extends Controller
     //修改授课科目
     public function dokemu(Request $request){
        // dd($_POST['teach_mode']);
-        if($_POST['teach_mode'] != null){
-            $tc_tutorings = implode(" ",$_POST['teach_mode']);
-            $noe = false;
-            for ($i = 0; $i < strlen($tc_tutorings); $i++) { //遍历整个字符串
-                if ($noe && $tc_tutorings[$i] == ' ') {
-                    $tc_tutorings[$i] = ','; //如果当前这个空格之前出现了不是空格的字符
-                } elseif ($tc_tutorings[$i] != ' '){
-                    $noe = true; //当前这个字符不是空格，定义下 $noe 变量
-                    $tc_tutoring = $tc_tutorings;
+        if(session('Template') == '2') {
+            if ($_POST['teach_mode'] != null) {
+                $tc_tutorings = implode(" ", $_POST['teach_mode']);
+                $noe = false;
+                for ($i = 0; $i < strlen($tc_tutorings); $i++) { //遍历整个字符串
+                    if ($noe && $tc_tutorings[$i] == ' ') {
+                        $tc_tutorings[$i] = ','; //如果当前这个空格之前出现了不是空格的字符
+                    } elseif ($tc_tutorings[$i] != ' ') {
+                        $noe = true; //当前这个字符不是空格，定义下 $noe 变量
+                        $tc_tutoring = $tc_tutorings;
+                    }
                 }
+            } else {
+                $_POST['teach_mode'] = '';
+            }
+
+            //判断是否等于空
+            if ($_POST['time'] != null) {
+                $tc_sktimes = implode(" ", $_POST['time']);
+                $noe = false;
+                for ($i = 0; $i < strlen($tc_sktimes); $i++) { //遍历整个字符串
+                    if ($noe && $tc_sktimes[$i] == ' ') {
+                        $tc_sktimes[$i] = ','; //如果当前这个空格之前出现了不是空格的字符
+                    } elseif ($tc_sktimes[$i] != ' ') {
+                        $noe = true; //当前这个字符不是空格，定义下 $noe 变量
+                        $tc_sktime = $tc_sktimes;
+                    }
+                }
+            } else {
+                $_POST['time'] = '';
+            }
+            //die;
+            // dd($tc_sktime);
+            $data = [
+                'tc_area' => $_POST['tc_area'],
+                'tc_salary' => $_POST['pay'],
+                'tc_subjects' => $_POST['tc_subjects'],
+                'tc_tutoring' => $tc_tutoring,
+                'tc_sktime' => $tc_sktime,
+            ];
+            //dd($data);
+            $list = \DB::table('jjw_teachers')->where('id', $_POST['tc_id'])->update($data);
+            if ($list) {
+                return "y";
             }
         }else{
-            $_POST['teach_mode'] = '';
+            //栗志
         }
-
-        //判断是否等于空
-        if($_POST['time'] != null){
-            $tc_sktimes = implode(" ",$_POST['time']);
-            $noe = false;
-            for ($i = 0; $i < strlen($tc_sktimes); $i++) { //遍历整个字符串
-                if ($noe && $tc_sktimes[$i] == ' ') {
-                    $tc_sktimes[$i] = ','; //如果当前这个空格之前出现了不是空格的字符
-                } elseif ($tc_sktimes[$i] != ' '){
-                    $noe = true; //当前这个字符不是空格，定义下 $noe 变量
-                    $tc_sktime = $tc_sktimes;
-                }
-            }
-        }else{
-            $_POST['time'] ='';
-        }
-        //die;
-       // dd($tc_sktime);
-        $data = [
-            'tc_area'=>$_POST['tc_area'],
-            'tc_salary'=>$_POST['pay'],
-            'tc_subjects'=>$_POST['tc_subjects'],
-            'tc_tutoring'=>$tc_tutoring,
-            'tc_sktime'=>$tc_sktime,
-        ];
-        //dd($data);
-        $list = \DB::table('jjw_teachers')->where('id',$_POST['tc_id'])->update($data);
-        if($list){
-            return "y";
-        }
-
     }
     //修改案例
     public function docase(Request $request){
-        $file = $request->file('file');
-        if(!empty($file)){
-            $ext = $file->getClientOriginalExtension();//获取后缀
-            //echo $ext;
-            $filename = time().rand(1000,9999).".".$ext;//新文件名
-            $file->move("home/zs/",$filename);//移动目录
-            $img = "/home/zs/".$filename;//组成路径
-            $data = [
-                'tc_sjkm'=>$_POST['sjkm'],
-                'tc_sjkm2'=>$_POST['sjkm2'],
-                'tc_sjkm3'=>$_POST['sjkm3'],
-                'tc_case'=>$_POST['tc_case'],
-                'tc_case2'=>$_POST['tc_case2'],
-                'tc_case3'=>$_POST['tc_case3'],
-                'tc_casetime'=>$_POST['tc_casetime'],
-                'tc_casetime2'=>$_POST['tc_casetime2'],
-                'tc_casetime3'=>$_POST['tc_casetime3'],
-                'tc_comments'=>$_POST['tc_comments'],
-                'tc_certificate'=>$_POST['zs'],
-                'tc_zsimage'=>$img,
-            ];
-            $list = \DB::table('jjw_teachers')->where('id',$_POST['id'])->update($data);
-            if($list){
-                return "y";
+        if(session('Template') == '2') {
+            $file = $request->file('file');
+            if (!empty($file)) {
+                $ext = $file->getClientOriginalExtension();//获取后缀
+                //echo $ext;
+                $filename = time() . rand(1000, 9999) . "." . $ext;//新文件名
+                $file->move("home/zs/", $filename);//移动目录
+                $img = "/home/zs/" . $filename;//组成路径
+                $data = [
+                    'tc_sjkm' => $_POST['sjkm'],
+                    'tc_sjkm2' => $_POST['sjkm2'],
+                    'tc_sjkm3' => $_POST['sjkm3'],
+                    'tc_case' => $_POST['tc_case'],
+                    'tc_case2' => $_POST['tc_case2'],
+                    'tc_case3' => $_POST['tc_case3'],
+                    'tc_casetime' => $_POST['tc_casetime'],
+                    'tc_casetime2' => $_POST['tc_casetime2'],
+                    'tc_casetime3' => $_POST['tc_casetime3'],
+                    'tc_comments' => $_POST['tc_comments'],
+                    'tc_certificate' => $_POST['zs'],
+                    'tc_zsimage' => $img,
+                ];
+                $list = \DB::table('jjw_teachers')->where('id', $_POST['id'])->update($data);
+                if ($list) {
+                    return "y";
+                }
+            } else {
+                $data = [
+                    'tc_sjkm' => $_POST['sjkm'],
+                    'tc_sjkm2' => $_POST['sjkm2'],
+                    'tc_sjkm3' => $_POST['sjkm3'],
+                    'tc_case' => $_POST['tc_case'],
+                    'tc_case2' => $_POST['tc_case2'],
+                    'tc_case3' => $_POST['tc_case3'],
+                    'tc_casetime' => $_POST['tc_casetime'],
+                    'tc_casetime2' => $_POST['tc_casetime2'],
+                    'tc_casetime3' => $_POST['tc_casetime3'],
+                    'tc_comments' => $_POST['tc_comments'],
+                    'tc_certificate' => $_POST['zs'],
+                ];
+                $list = \DB::table('jjw_teachers')->where('id', $_POST['id'])->update($data);
+                if ($list) {
+                    return "y";
+                }
             }
         }else{
-            $data = [
-                'tc_sjkm'=>$_POST['sjkm'],
-                'tc_sjkm2'=>$_POST['sjkm2'],
-                'tc_sjkm3'=>$_POST['sjkm3'],
-                'tc_case'=>$_POST['tc_case'],
-                'tc_case2'=>$_POST['tc_case2'],
-                'tc_case3'=>$_POST['tc_case3'],
-                'tc_casetime'=>$_POST['tc_casetime'],
-                'tc_casetime2'=>$_POST['tc_casetime2'],
-                'tc_casetime3'=>$_POST['tc_casetime3'],
-                'tc_comments'=>$_POST['tc_comments'],
-                'tc_certificate'=>$_POST['zs'],
-            ];
-            $list = \DB::table('jjw_teachers')->where('id',$_POST['id'])->update($data);
-            if($list){
-                return "y";
-            }
+            //栗志
         }
-
     }
     //栗志-德栗教师详细
     public function teacher(Request $request,$m){
-        $list = \DB::table('jjw_teachers')->where('id',$m)->first();
-        //判断是栗志还是德栗
-        if(session('Template') =='1') {
-            return view('home.teacher', ['list' => $list]);
-        }else if(session('Template') =='2'){
-            return view('delijiajiao.faculty_content',['list'=>$list]);
-        }
+            $list = \DB::table('jjw_teachers')->where('id', $m)->first();
+        dd($list);
+            //判断是栗志还是德栗
+            if (session('Template') == '1') {
+                return view('home.teacher', ['list' => $list]);
+            } else if (session('Template') == '2') {
+                return view('delijiajiao.faculty_content', ['list' => $list]);
+            }
     }
 
     //德栗教员库
     public function faculty(Request $request){
-        $list = \DB::table('jjw_position_city')->where('city_id',Session('regionid'))->first();
-        //区域
-         $quyu = \DB::table('jjw_position_county')->where('city_id',Session('regionid'))->get();
-        //学校
-        $xx= DB::table('school_t')->where('city_id',session('regionid'))->limit(10)->get();
-        //教员
-            $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->orderBy('tc_reboot', 'desc')->orderBy('id','desc')->paginate(10);
+        if(session('Template') == '2') {
+            $list = \DB::table('jjw_position_city')->where('city_id', Session('regionid'))->first();
+            //区域
+            $quyu = \DB::table('jjw_position_county')->where('city_id', Session('regionid'))->get();
+            //学校
+            $xx = DB::table('school_t')->where('city_id', session('regionid'))->limit(10)->get();
+            //教员
+            $list = \DB::table('jjw_teachers')->where('tc_city_id', session('regionid'))->orderBy('tc_reboot', 'desc')->orderBy('id', 'desc')->paginate(10);
 
-        //自定义分页
-        $num=$list->lastPage();
-        $nextpage=$num-$list->currentPage() ==0 ? $num : $list->currentPage()+1 ;
-        $shipage=$num-$list->currentPage() ==0 ? $num : $list->currentPage()+10;
-        $lastpage=$list->currentPage()-1 <0 ? 1 : $list->currentPage()-1 ;
-        $list->next=$nextpage;
-        $list->last=$lastpage;
-        $list->shi=$shipage;
-
-        return view('delijiajiao.jiaoyuan',['quyu'=>$quyu,'list'=>$list,'xx'=>$xx]);
+            //自定义分页
+            $num = $list->lastPage();
+            $nextpage = $num - $list->currentPage() == 0 ? $num : $list->currentPage() + 1;
+            $shipage = $num - $list->currentPage() == 0 ? $num : $list->currentPage() + 10;
+            $lastpage = $list->currentPage() - 1 < 0 ? 1 : $list->currentPage() - 1;
+            $list->next = $nextpage; $list->last = $lastpage; $list->shi = $shipage;
+            return view('delijiajiao.jiaoyuan', ['quyu' => $quyu, 'list' => $list, 'xx' => $xx]);
+        }else{
+            //栗志
+        }
 
     }
     //德栗教员库更多 金牌 专职 学员教师
     public function facultys(Request $request,$id){
-        $quyu = \DB::table('jjw_position_county')->where('city_id',Session('regionid'))->get();
-        //教员
-        $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai',$id)->orderBy('id','desc')->paginate(10);;
-        //学校
-        $xx= DB::table('school_t')->where('city_id',session('regionid'))->limit(10)->get();
-        // dd($xy);
-        //自定义分页
-        $num=$list->lastPage();
-        $nextpage=$num-$list->currentPage() ==0 ? $num : $list->currentPage()+1 ;
-        $lastpage=$list->currentPage()-1 <0 ? 1 : $list->currentPage()-1 ;
-        $list->next=$nextpage;
-        $list->last=$lastpage;
-
-        return view('delijiajiao.jiaoyuan',['quyu'=>$quyu,'list'=>$list,'xx'=>$xx]);
+        if(session('Template') == '2') {
+            $quyu = \DB::table('jjw_position_county')->where('city_id', Session('regionid'))->get();
+            //教员
+            $list = \DB::table('jjw_teachers')->where('tc_city_id', session('regionid'))->where('tc_jinpai', $id)->orderBy('id', 'desc')->paginate(10);;
+            //学校
+            $xx = DB::table('school_t')->where('city_id', session('regionid'))->limit(10)->get();
+            // dd($xy);
+            //自定义分页
+            $num = $list->lastPage();
+            $nextpage = $num - $list->currentPage() == 0 ? $num : $list->currentPage() + 1;
+            $lastpage = $list->currentPage() - 1 < 0 ? 1 : $list->currentPage() - 1;
+            $list->next = $nextpage;
+            $list->last = $lastpage;
+            return view('delijiajiao.jiaoyuan', ['quyu' => $quyu, 'list' => $list, 'xx' => $xx]);
+        }else{
+            //栗志
+        }
     }
     //热门
     public function hot(Request $reuqest,$type,$key){
-        $quyu = \DB::table('jjw_position_county')->where('city_id',Session('regionid'))->get();
-        //教员
-        if($type=="学科"){
-            $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_subjects','like','%'.$key.'%')->orderBy('id','desc')->paginate(10);
-        }else if($type=="区域"){
-            $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_area','like','%'.$key.'%')->orderBy('id','desc')->orderBy('tc_reg_date','desc')->paginate(10);
-        }else if($type=="学院"){
-            $list = \DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_school','like','%'.$key.'%')->orderBy('id','desc')->paginate(10);
+        if(session('Template') == '2') {
+            $quyu = \DB::table('jjw_position_county')->where('city_id', Session('regionid'))->get();
+            //教员
+            if ($type == "学科") {
+                $list = \DB::table('jjw_teachers')->where('tc_city_id', session('regionid'))->where('tc_subjects', 'like', '%' . $key . '%')->orderBy('id', 'desc')->paginate(10);
+            } else if ($type == "区域") {
+                $list = \DB::table('jjw_teachers')->where('tc_city_id', session('regionid'))->where('tc_area', 'like', '%' . $key . '%')->orderBy('id', 'desc')->orderBy('tc_reg_date', 'desc')->paginate(10);
+            } else if ($type == "学院") {
+                $list = \DB::table('jjw_teachers')->where('tc_city_id', session('regionid'))->where('tc_school', 'like', '%' . $key . '%')->orderBy('id', 'desc')->paginate(10);
 
+            }
+            //自定义分页
+            $num = $list->lastPage();
+            $nextpage = $num - $list->currentPage() == 0 ? $num : $list->currentPage() + 1;
+            $lastpage = $list->currentPage() - 1 < 0 ? 1 : $list->currentPage() - 1;
+            $list->next = $nextpage;
+            $list->last = $lastpage;
+
+            //dd($list);
+            //学校
+            $xx = DB::table('school_t')->where('city_id', session('regionid'))->limit(10)->get();
+            // dd($xy);
+            return view('delijiajiao.jiaoyuan', ['quyu' => $quyu, 'list' => $list, 'xx' => $xx]);
+        }else{
+                //栗志
         }
-        //自定义分页
-        $num=$list->lastPage();
-        $nextpage=$num-$list->currentPage() ==0 ? $num : $list->currentPage()+1 ;
-        $lastpage=$list->currentPage()-1 <0 ? 1 : $list->currentPage()-1 ;
-        $list->next=$nextpage;
-        $list->last=$lastpage;
-
-        //dd($list);
-        //学校
-        $xx= DB::table('school_t')->where('city_id',session('regionid'))->limit(10)->get();
-        // dd($xy);
-        return view('delijiajiao.jiaoyuan',['quyu'=>$quyu,'list'=>$list,'xx'=>$xx]);
-
     }
 
 //    public function facultyp(Request $request,$y){
@@ -457,8 +473,7 @@ class teacherinfoController extends Controller
             $num=$list->lastPage();
             $nextpage=$num-$list->currentPage() ==0 ? $num : $list->currentPage()+1 ;
             $lastpage=$list->currentPage()-1 <0 ? 1 : $list->currentPage()-1 ;
-            $list->next=$nextpage;
-            $list->last=$lastpage;
+            $list->next=$nextpage; $list->last=$lastpage;
 
             return view('delijiajiao.jiaoyuan',['quyu'=>$quyu,'list'=>$list,'xx'=>$xx]);
             //科目
@@ -468,8 +483,7 @@ class teacherinfoController extends Controller
             $num=$list->lastPage();
             $nextpage=$num-$list->currentPage() ==0 ? $num : $list->currentPage()+1 ;
             $lastpage=$list->currentPage()-1 <0 ? 1 : $list->currentPage()-1 ;
-            $list->next=$nextpage;
-            $list->last=$lastpage;
+            $list->next=$nextpage; $list->last=$lastpage;
 
             return view('delijiajiao.jiaoyuan',['quyu'=>$quyu,'list'=>$list,'xx'=>$xx]);
             //男女
@@ -479,8 +493,7 @@ class teacherinfoController extends Controller
             $num=$list->lastPage();
             $nextpage=$num-$list->currentPage() ==0 ? $num : $list->currentPage()+1 ;
             $lastpage=$list->currentPage()-1 <0 ? 1 : $list->currentPage()-1 ;
-            $list->next=$nextpage;
-            $list->last=$lastpage;
+            $list->next=$nextpage;$list->last=$lastpage;
 
             return view('delijiajiao.jiaoyuan',['quyu'=>$quyu,'list'=>$list,'xx'=>$xx]);
             //区域
@@ -491,8 +504,7 @@ class teacherinfoController extends Controller
             $num=$list->lastPage();
             $nextpage=$num-$list->currentPage() ==0 ? $num : $list->currentPage()+1 ;
             $lastpage=$list->currentPage()-1 <0 ? 1 : $list->currentPage()-1 ;
-            $list->next=$nextpage;
-            $list->last=$lastpage;
+            $list->next=$nextpage; $list->last=$lastpage;
 
             return view('delijiajiao.jiaoyuan',['quyu'=>$quyu,'list'=>$list,'xx'=>$xx]);
         }

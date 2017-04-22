@@ -199,7 +199,7 @@ for(i=0; i <tabList.length; i++)
               <div class="line"></div>
               <div class="b3">
                   <li>我是老师</li>
-                  <li><a href="" target="_blank" rel="nofollow">预约订单流程</a></li>
+                  <li><a href="/yydd.html" target="_blank" rel="nofollow">预约订单流程</a></li>
                   <li><a href="/faculty_sfbz.html" target="_blank" rel="nofollow">教员收费标准</a></li>
                   <li><a href="/payment_way.html" target="_blank">支付方式</a></li>
               </div>

@@ -361,7 +361,7 @@ ul.search-history .search-history-title {
 }
 .nav-horizontal .nav-horizontal-content>ul>li {
 	font-weight:700;
-        width:150px;
+        width:200px;
 	float:left;
         color:#fff;
         text-align:center;
@@ -406,17 +406,17 @@ ul.search-history .search-history-title {
 	float:left;
 	color:#666;
 	margin-bottom:20px;
-	margin-right:20px
+	margin-right:20px;
+	margin-top: 15px;
 }
 .nav-vertical ul {
 	position:relative;
 	display:block;
         border:1px solid #F7B529;
 }
-.nav-vertical ul li.nav-item {
-	width:200px;
-    border:1px solid #F7B529;
-	height:70px;
+
+li.nav-item span {
+	margin-left: 10px;
 }
 .nav-vertical ul li.nav-item:hover {
 	height:70px;
@@ -433,15 +433,32 @@ ul.search-history .search-history-title {
 .nav-vertical ul li.nav-item a:focus {
 	color:#666
 }
+.nav-vertical ul li.nav-item {
+	width: 200px;
+	border: 1px solid #F7B529;
+	height: 70px;
+	/* position: relative; */
+}
 .nav-vertical ul li.nav-item .nav-item-title {
-	width:200px;
-	font-size:14px;
-	background-color:#Ffff;
-	text-decoration:none;
-	padding:0 10px 0 20px;
-	display:block;
-	position:relative;
-	overflow:hidden
+	font-size: 14px;
+	text-decoration: none;
+	padding: 0 10px;
+	position: relative;
+	overflow: hidden;
+	vertical-align: middle;
+	line-height: 35px;
+	display: initial;
+}
+.menu-item-icon {
+	width: 24px;
+	height: 30px;
+	display: inline-block;
+	margin-left: 16px;
+}
+
+li.nav-item span {
+	display: block;
+	margin-left: 16px;
 }
 .nav-vertical ul li.nav-item .nav-item-title .right {
 	position:absolute;
@@ -1002,7 +1019,6 @@ ul.search-history .search-history-title {
 }
 .center .meta-box .meta-area ul>li {
 	width:25%;
-	text-align: center;
 	white-space:nowrap;
 	text-overflow:ellipsis;
 	overflow:hidden
