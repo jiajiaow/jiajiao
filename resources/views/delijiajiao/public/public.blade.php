@@ -124,8 +124,7 @@ for(i=0; i <tabList.length; i++)
                  <li><a href="/outlogin.html" rel="nofollow" data-toggle="userAuth" data-type="reg">退出</a></li>
              @else
                  <li><a href="/reg.html" rel="nofollow" data-toggle="userAuth" data-type="reg">教员注册</a></li>
-                 <li><a href="/login.html" rel="nofollow" data-toggle="userAuth" data-type="login">教员登录</a></li>
-                 <li><a href="/stlogin.html" rel="nofollow" data-toggle="userAuth" data-type="login">学员登录</a></li>
+                 <li><a href="/login.html" rel="nofollow" data-toggle="userAuth" data-type="login">立即登陆</a></li>
                  <li><a href="/yuyuelaoshi.html" rel="nofollow" data-toggle="userAuth" data-type="login">快速请家教</a></li>
                  {{-- <li><a href="#" target="_blank">请家教帮助</a></li> --}}
              @endif
@@ -137,8 +136,8 @@ for(i=0; i <tabList.length; i++)
                  <li><a href="/outlogin.html" rel="nofollow" data-toggle="userAuth" data-type="reg">退出</a></li>
              @else
                  <li><a href="/reg.html" rel="nofollow" data-toggle="userAuth" data-type="reg">教员注册</a></li>
-                 <li><a href="/login.html" rel="nofollow" data-toggle="userAuth" data-type="login">教员登录</a></li>
-                 <li><a href="/stlogin.html" rel="nofollow" data-toggle="userAuth" data-type="login">学员登录</a></li>
+                 <li><a href="/login.html" rel="nofollow" data-toggle="userAuth" data-type="login">立即登录</a></li>
+                 {{--<li><a href="/stlogin.html" rel="nofollow" data-toggle="userAuth" data-type="login">学员登录</a></li>--}}
                  <li><a href="/yuyuelaoshi.html" rel="nofollow" data-toggle="userAuth" data-type="login">快速请家教</a></li>
                  {{-- <li><a href="#" target="_blank">请家教帮助</a></li> --}}
              @endif
@@ -245,11 +244,7 @@ for(i=0; i <tabList.length; i++)
       </ul>
   </div>--}}
   <div class="banquanxinxi">
-
-          © 2005－2017德栗家教   |   粤ICP备16062097号 关键词：家教,一对一家教,广州家教网</div>
-
-
-
+          © 2005－2017德栗家教   |   <a href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action">粤ICP备16062097号-4</a> 关键词：家教,一对一家教,广州家教网</div>
   </div>
   <script type="text/javascript">
       $(function(){

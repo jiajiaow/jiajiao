@@ -158,7 +158,7 @@ class yuyueController extends Controller
 
     //预约教员
     public function yyjy(Request $request){
-       // dd($request);
+        //dd($request);
         $user = $request->input('lxr');
         $km = $request->input('km');
         $phone = $request->input('phone');
@@ -166,20 +166,20 @@ class yuyueController extends Controller
         $teacher_id = $request->input('teacher_id');
         $regionid = $request->session()->get('regionid');
         if(session('Template') == '2'){
-            if($phone == Session('tc_phone')){
+            if($phone == Cookie::get('phone')){
                 $re = DB::table('jjw_user')->where('phone',$phone)->first();
-                //dd($re);
+               // dd($re);
                 //判断是否存在
                 if($re){
+                    //dd($re);
                     $userid = DB::table('jjw_user')->where('phone',$phone)->first();
-
                     //添加 预约信息
                     $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid->u_id,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid]);
-
                     $reorderid = DB::table('jjw_reorder')->insertGetId(['u_id' => $userid->u_id,'oid' => $orderid,'tc_id'=>$teacher_id ]);
                    // dd($reorderid);
                     return view('delijiajiao.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
                 }else{
+                    //dd($re);
                     //不存在 注册账号
                     $userid = DB::table('jjw_user')->insertGetId(['name' => $user,'phone' => $phone,'password' => $password,'city_id' => $regionid]);
                     //添加 预约信息

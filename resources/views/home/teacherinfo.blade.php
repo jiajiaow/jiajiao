@@ -641,35 +641,35 @@
 												<tr>
 													<td>上午</td>
 													<td><input type="checkbox" id="all" name="" />全选</td>
-													<td><input class="X" type="checkbox" name="time[]" value="上午周一"/>周一</td>
-													<td><input class="X" type="checkbox" name="time[]" value="上午周二"/>周二</td>
-													<td><input class="X" type="checkbox" name="time[]" value="上午周三"/>周三</td>
-													<td><input class="X" type="checkbox" name="time[]" value="上午周四"/>周四</td>
-													<td><input class="X" type="checkbox" name="time[]" value="上午周五"/>周五</td>
-													<td><input class="X" type="checkbox" name="time[]" value="上午周六"/>周六</td>
-													<td><input class="X" type="checkbox" name="time[]" value="上午周日"/>周日</td>
+													<td><input class="X" type="checkbox" name="time[]" value="周一上午"/>周一</td>
+													<td><input class="X" type="checkbox" name="time[]" value="周二上午"/>周二</td>
+													<td><input class="X" type="checkbox" name="time[]" value="周三上午"/>周三</td>
+													<td><input class="X" type="checkbox" name="time[]" value="周四上午"/>周四</td>
+													<td><input class="X" type="checkbox" name="time[]" value="周五上午"/>周五</td>
+													<td><input class="X" type="checkbox" name="time[]" value="周六上午"/>周六</td>
+													<td><input class="X" type="checkbox" name="time[]" value="周日上午"/>周日</td>
 												</tr>
 												<tr>
 													<td>下午</td>
 													<td><input type="checkbox" onclick="cheng(this.checked)"/>全选</td>
-													<td><input class="x" type="checkbox" name="time[]" value="下午周一"/>周一</td>
-													<td><input class="x" type="checkbox" name="time[]" value="下午周二"/>周二</td>
-													<td><input class="x" type="checkbox" name="time[]" value="下午周三"/>周三</td>
-													<td><input class="x" type="checkbox" name="time[]" value="下午周四"/>周四</td>
-													<td><input class="x" type="checkbox" name="time[]" value="下午周五"/>周五</td>
-													<td><input class="x" type="checkbox" name="time[]" value="下午周六"/>周六</td>
-													<td><input class="x" type="checkbox" name="time[]" value="下午周日"/>周日</td>
+													<td><input class="x" type="checkbox" name="time[]" value="周一下午"/>周一</td>
+													<td><input class="x" type="checkbox" name="time[]" value="周二下午"/>周二</td>
+													<td><input class="x" type="checkbox" name="time[]" value="周三下午"/>周三</td>
+													<td><input class="x" type="checkbox" name="time[]" value="周四下午"/>周四</td>
+													<td><input class="x" type="checkbox" name="time[]" value="周五下午"/>周五</td>
+													<td><input class="x" type="checkbox" name="time[]" value="周六下午"/>周六</td>
+													<td><input class="x" type="checkbox" name="time[]" value="周日下午"/>周日</td>
 												</tr>
 												<tr>
 													<td>晚上</td>
 													<td><input type="checkbox" id="li" />全选</td>
-													<td><input class='li' type="checkbox" name="time[]" value="晚上周一" />周一</td>
-													<td><input class='li' type="checkbox" name="time[]" value="晚上周二" />周二</td>
-													<td><input class='li' type="checkbox" name="time[]" value="晚上周三" />周三</td>
-													<td><input class='li' type="checkbox" name="time[]" value="晚上周四" />周四</td>
-													<td><input class='li' type="checkbox" name="time[]" value="晚上周五" />周五</td>
-													<td><input class='li' type="checkbox" name="time[]" value="晚上周六" />周六</td>
-													<td><input class='li' type="checkbox" name="time[]" value="晚上周日" />周日</td>
+													<td><input class='li' type="checkbox" name="time[]" value="周一晚上" />周一</td>
+													<td><input class='li' type="checkbox" name="time[]" value="周二晚上" />周二</td>
+													<td><input class='li' type="checkbox" name="time[]" value="周三晚上" />周三</td>
+													<td><input class='li' type="checkbox" name="time[]" value="周四晚上" />周四</td>
+													<td><input class='li' type="checkbox" name="time[]" value="周五晚上" />周五</td>
+													<td><input class='li' type="checkbox" name="time[]" value="周六晚上" />周六</td>
+													<td><input class='li' type="checkbox" name="time[]" value="周日晚上" />周日</td>
 
 												</tr>
 											</table>
@@ -1511,23 +1511,23 @@
 					<div class="tab-cont ">
 						<div class="resetting">
 							<h3>修改密码</h3>
-							<form action="/doeditpass" method="post" onsubmit="return checkpassword()">
+							<form action="/doeditpass" method="post" >
 								<div class="fg">
 									<label for="" style="font-size:13px;">手　　机　　号：</label>
 									<input type="text" id="uname" name="phone" placeholder="手机号" maxlength=11>
 								</div>
-								<div class="fg">
+								{{--<div class="fg">
 									<label for="" style="font-size:13px;">原　　密　　码：</label>
 									<input type="password" name="pass" placeholder="原密码">
-								</div>
+								</div>--}}
 								<div class="fg">
 									<label for="" style="font-size:13px;">新　　密　　码：</label>
 									<input type="password" name="onepass" id="newpassword" placeholder="新密码">
 								</div>
-								<div class="fg">
+							{{--	<div class="fg">
 									<label for="" style="font-size:13px;" >再次输入新密码：</label>
 									<input type="password" name="towpass" id="confirmnewpassword" placeholder="再次输入新密码">
-								</div>
+								</div>--}}
 								<div class="fg">
 									<input type="button" style="width:100px;background:#F7B529;color:black;cursor: pointer;" onclick="sendMsg()" value="忘记密码" id="djs">
 									<input type="text" style="width:210px" id="mobile_code" name="mobile_code" placeholder="验证码" class="password">

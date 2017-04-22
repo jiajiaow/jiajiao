@@ -15,6 +15,7 @@ class xueshenController extends Controller
         $quyu = \DB::table('jjw_position_county')->where('city_id',Session('regionid'))->get();
         //学员
         $list = \DB::table('jjw_order')->where('city_id',session('regionid'))->orderBy('id','desc')->paginate(10);
+       // dd($list);
         //自定义分页
         $num=$list->lastPage();
         $nextpage=$num-$list->currentPage() ==0 ? $num : $list->currentPage()+1 ;

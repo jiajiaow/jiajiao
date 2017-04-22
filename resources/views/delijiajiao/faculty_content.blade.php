@@ -246,8 +246,8 @@
         $('#cheng').remove();
         $('#dropdown').remove();
         $('#f').remove();
-        @if(session("msg"))
-             layer.alert('{{session("error")}}',{icon:6,time:2000});
+        @if(session("error"))
+             {{session("error") }}
         @endif
     </script>
 @endsection

@@ -124,7 +124,7 @@
                             </div>
                         </div>
                         <div class="bottom">
-                            <a href="/facultys.html/gd/2">{{ $jp->tc_school }}</a>
+                            <a href="/hot.html/学院/{{ $jp->tc_school }}">{{ $jp->tc_school }}</a>
 
                             <br/>@if($jp->tc_zhuanye)
                                 <span>{{ $jp->tc_zhuanye }}</span>
@@ -156,7 +156,7 @@
                     </div>
                 </div>
                 <div class="bottom">
-                    <a href="">{{ $xs->tc_school }}</a>
+                    <a href="/hot.html/学院/{{ $xs->tc_school }}">{{ $xs->tc_school }}</a>
 
                     <br/>
                     @if($xs->tc_zhuanye)
@@ -188,7 +188,7 @@
                     </div>
                 </div>
                 <div class="bottom">
-                    <a href="">{{ $zhuanzhi->tc_school }}</a>
+                    <a href="/hot.html/学院/{{ $zhuanzhi->tc_school }}">{{ $zhuanzhi->tc_school }}</a>
 
                     <br/>
                     @if($zhuanzhi->tc_zhuanye)
@@ -233,7 +233,7 @@
                           @elseif($data->status == 1)
                               <p id="t3" style="background-color: #3366cc;"> 已安排 </p>
                           @elseif($data->status == 2)
-                              <p id="t3" style="background-color: #cc6699;"> 已成功 </p>
+                              <p id="t3" style="background-color: #cc6699;"> 已完成 </p>
                           @endif
                      <p id="t4">{{ $data->teacher_info }}</p>
                       <p id="t5">{{ $data->dq}}</p>
@@ -387,7 +387,12 @@
 <!-- 广告轮播 -->
 <script type="text/javascript">
     @if(session("msg"))
-           layer.alert('{{session("msg")}}',{icon: 5});
+        if({{ session('Template') }} == '1'){
+            layer.alert('{{session("msg")}}!',{icon: 4,time:2000});
+        }else{
+            layer.alert('{{session("msg")}}!',{icon: 3,time:2000});
+        }
+
     @endif
     var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
@@ -423,7 +428,10 @@
         text-overflow: ellipsis;
         overflow: hidden;
     }
-
+.menu-item-icon img{
+    width: 100%;
+    height: 100%;
+}
 
 
 </style>
