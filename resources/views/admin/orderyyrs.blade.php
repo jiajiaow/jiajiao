@@ -28,7 +28,7 @@
             <div class="col-sm-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5 onclick="self.location=document.referrer;">返回</h5>
+                        <a href="/admin/xsdd"><h5 onclick="self.location=document.referrer;">返回</h5></a>
                     </div>
                     <div class="ibox-content">
 
@@ -68,7 +68,7 @@
                                     <td>
                                         <form action="/admin/orderxgjyzt" method="post">
                                             {{ csrf_field() }}
-                                            <input type="hidden" name="oid" value="{{ $data->id }}"/>
+                                            <input type="hidden" name="oid" value="{{ $data->oid }}"/>
                                             <input type="hidden" name="tc_id" value="{{ $data->tc_id }}"/>
                                                 <select name="ht_t_status">
                                                     <option value="1" @if($data->ht_t_status == '1') selected='selected' @endif >已预约</option>

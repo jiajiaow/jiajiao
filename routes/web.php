@@ -117,10 +117,13 @@ Route::get('/company.html','home\flootsController@company');
 Route::get('/copyright.html','home\flootsController@copyright');
 //支付方式
 Route::get('/payment_way.html','home\flootsController@payment_way');
-//支付方式
+//教员收费标准
 Route::get('/faculty_sfbz.html','home\flootsController@faculty_sfbz');
+//预约订单流程
+Route::get('/yydd.html','home\flootsController@yydd');
 //教员中心案例
 Route::post('/docase','home\teacherinfoController@docase');
+
 
 
 

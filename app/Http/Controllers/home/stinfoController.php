@@ -9,7 +9,7 @@ class stinfoController extends Controller
 {
 	//栗志
     public function stinfo(){
-    	echo "栗志家教学员个人中心";
+    	echo "栗志家教学员个人中心 <a href='/outlogin.html'>退出</a>";
     }
 
     //德栗
