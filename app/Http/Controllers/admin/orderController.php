@@ -64,6 +64,86 @@ class orderController extends Controller
                     //dd($data);
         return view('admin.orderyyrs',['data' => $data]);
     }
+    //选择教员
+    public function orderxzjy(Request $request,$id)
+    {
+        return $id;
+    }
+    //修改教员订单状态
+    public function orderxgjyzt(Request $request)
+    {
+        $oid = $request->input('oid');
+        $tc_id = $request->input('tc_id');
+        $ht_t_status = $request->input('ht_t_status');
+        //dd($tc_id,$oid,$ht_t_status);
+        if($ht_t_status == '7'){//试课中
+            //修改选择的状态
+            DB::table('jjw_reorder')->where('oid',$oid)->where('tc_id',$tc_id)->update(['ht_t_status' => $ht_t_status]);
+            //修改前台教员状态
+            DB::table('jjw_reorder')->where('oid',$oid)->where('tc_id',$tc_id)->update(['qt_t_status' => '4']);
+            //后台订单状态
+            DB::table('jjw_order')->where('id',$oid)->update(['ht_status' => '2']);
+            //修改前台订单订单显示
+            DB::table('jjw_order')->where('id',$oid)->update(['status' => '1']);
+        }else if($ht_t_status == '8'){//已成功(授课中)
+            //修改选择的状态
+            DB::table('jjw_reorder')->where('oid',$oid)->where('tc_id',$tc_id)->update(['ht_t_status' => $ht_t_status]);
+            //修改前台教员状态
+            DB::table('jjw_reorder')->where('oid',$oid)->where('tc_id',$tc_id)->update(['qt_t_status' => '6']);
+            //后台订单状态
+            DB::table('jjw_order')->where('id',$oid)->update(['ht_status' => '3']);
+            //修改前台订单订单显示
+            DB::table('jjw_order')->where('id',$oid)->update(['status' => '2']);
+        }else if($ht_t_status == '9'){//已成功(结束授课)
+            //修改选择的状态
+            DB::table('jjw_reorder')->where('oid',$oid)->where('tc_id',$tc_id)->update(['ht_t_status' => $ht_t_status]);
+            //修改前台教员状态
+            DB::table('jjw_reorder')->where('oid',$oid)->where('tc_id',$tc_id)->update(['qt_t_status' => '7']);
+            //后台订单状态
+            DB::table('jjw_order')->where('id',$oid)->update(['ht_status' => '4']);
+            //修改前台订单订单显示
+            DB::table('jjw_order')->where('id',$oid)->update(['status' => '2']);
+        }else if($ht_t_status == '10'){//试课失败
+            //修改选择的状态
+            DB::table('jjw_reorder')->where('oid',$oid)->where('tc_id',$tc_id)->update(['ht_t_status' => $ht_t_status]);
+            //修改前台教员状态
+            DB::table('jjw_reorder')->where('oid',$oid)->where('tc_id',$tc_id)->update(['qt_t_status' => '8']);
+            //后台订单状态
+            DB::table('jjw_order')->where('id',$oid)->update(['ht_status' => '8']);
+            //修改前台订单订单状态
+            DB::table('jjw_order')->where('id',$oid)->update(['status' => '2']);
+        }else if($ht_t_status == '1'){//已预约
+            //修改选择的状态
+            DB::table('jjw_reorder')->where('oid',$oid)->where('tc_id',$tc_id)->update(['ht_t_status' => $ht_t_status]);
+            //修改前台教员状态
+            DB::table('jjw_reorder')->where('oid',$oid)->where('tc_id',$tc_id)->update(['qt_t_status' => '1']);
+
+        }else if($ht_t_status == '4'){//取消预约
+            //修改选择的状态
+            DB::table('jjw_reorder')->where('oid',$oid)->where('tc_id',$tc_id)->update(['ht_t_status' => $ht_t_status]);
+            //修改前台教员状态
+            DB::table('jjw_reorder')->where('oid',$oid)->where('tc_id',$tc_id)->update(['qt_t_status' => '3']);
+
+        }else if($ht_t_status == '5'){//已确认
+            //修改选择的状态
+            DB::table('jjw_reorder')->where('oid',$oid)->where('tc_id',$tc_id)->update(['ht_t_status' => $ht_t_status]);
+            //修改前台教员状态
+            DB::table('jjw_reorder')->where('oid',$oid)->where('tc_id',$tc_id)->update(['qt_t_status' => '1']);
+
+        }else if($ht_t_status == '3'){//已审核
+            //修改选择的状态
+            DB::table('jjw_reorder')->where('oid',$oid)->where('tc_id',$tc_id)->update(['ht_t_status' => $ht_t_status]);
+            //修改前台教员状态 <!-- 不清楚修改什么 -->
+            DB::table('jjw_reorder')->where('oid',$oid)->where('tc_id',$tc_id)->update(['qt_t_status' => '1']);
+
+        }else if($ht_t_status == '6'){// 部分合适
+            //修改选择的状态
+            DB::table('jjw_reorder')->where('oid',$oid)->where('tc_id',$tc_id)->update(['ht_t_status' => $ht_t_status]);
+            //修改前台教员状态
+            DB::table('jjw_reorder')->where('oid',$oid)->where('tc_id',$tc_id)->update(['qt_t_status' => '1']);
+        }
+        return back();
+    }
     //修改订单状态
     public function orderzt(Request $request)
     {

@@ -197,6 +197,10 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::post('/orderyy','admin\orderController@orderyy');
     //修改订单状态
     Route::post('/orderzt','admin\orderController@orderzt');
+    //选择教员
+    Route::get('/orderxzjy/{id}','admin\orderController@orderxzjy');
+    //修改教员订单状态
+    Route::post('/orderxgjyzt','admin\orderController@orderxgjyzt');
     //预约人数
     Route::get('/orderyyrs/{id}','admin\orderController@orderyyrs');
     //虚拟学员

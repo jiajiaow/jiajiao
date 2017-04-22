@@ -66,17 +66,24 @@
                                     <td>自我描述：{{ $data->tc_comments }}</td>
                                     <td>个人备注:   </td>
                                     <td>
-                                        <select name="ht_status">
-                                            <option value="0">新家教</option>
-                                            <option value="1">待处理</option>
-                                            <option value="2">已安排</option>
-                                            <option value="3">已成功(授课中)</option>
-                                            <option value="4">已成功(授课结束)</option>
-                                            <option value="5">待审核</option>
-                                            <option value="6">待退款</option>
-                                            <option value="7">关闭生成新单</option>
-                                            <option value="8">关闭</option>
-                                        </select>
+                                        <form action="/admin/orderxgjyzt" method="post">
+                                            {{ csrf_field() }}
+                                            <input type="hidden" name="oid" value="{{ $data->id }}"/>
+                                            <input type="hidden" name="tc_id" value="{{ $data->tc_id }}"/>
+                                                <select name="ht_t_status">
+                                                    <option value="1" @if($data->ht_t_status == '1') selected='selected' @endif >已预约</option>
+                                                    <!-- <option value="2">待处理</option> -->
+                                                    <option value="3" @if($data->ht_t_status == '3') selected='selected' @endif>已审核</option>
+                                                    <option value="4" @if($data->ht_t_status == '4') selected='selected' @endif>取消预约</option>
+                                                    <option value="5" @if($data->ht_t_status == '5') selected='selected' @endif>已确认</option>
+                                                    <option value="6" @if($data->ht_t_status == '6') selected='selected' @endif>部分合适</option>
+                                                    <option value="7" @if($data->ht_t_status == '7') selected='selected' @endif>试课中</option>
+                                                    <option value="8" @if($data->ht_t_status == '8') selected='selected' @endif>已成功(授课中)</option>
+                                                    <option value="9" @if($data->ht_t_status == '9') selected='selected' @endif>已成功(结束授课)</option>
+                                                    <option value="10" @if($data->ht_t_status == '10') selected='selected' @endif>试课失败</option>
+                                                </select>
+                                            <input type="submit" value="修改"/>
+                                        </form>
                                     </td>
                                     <td><a target="_blank" href="/teacher/detail/{{ $data->tc_id }}.html">查看简历</a></td>
                                 </tr>
