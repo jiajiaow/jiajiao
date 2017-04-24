@@ -194,10 +194,10 @@ class LoginController extends Controller
                     //设置session
                     session(['st_phone' => $list->phone, 'st_name' => $list->name]);
                     //重定向  //判断是德栗还是栗志  1是栗志 2是德栗
-                    if (session('Template') == '1') {
+                    if (session('Template') == '2') {
                         return redirect('/stinfo.html');
                     } else if (session('Template') == '2') {
-                        return redirect('/stinfo2.html');
+                        return redirect('/stinfo.html');
                     }
                 }
             }else{

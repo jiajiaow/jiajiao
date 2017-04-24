@@ -52,7 +52,10 @@ Route::get('/teacherinfo.html','home\teacherinfoController@index');
 Route::post('/doteacherinfo.html','home\teacherinfoController@doteacherinfo');
 //用户个人中心 stinfo栗志  stinfo2德栗
 Route::get('/stinfo.html','home\stinfoController@stinfo');
-Route::get('/stinfo2.html','home\stinfoController@stinfo2');
+//学员订单
+Route::get('/xy_order.html','home\stinfoController@xy_order');
+//教员订单
+Route::get('/tc_order.html','home\tcinfoController@tc_order');
 //省
 Route::post('/sheng','home\teacherinfoController@sheng');
 //县

@@ -372,9 +372,9 @@ class teacherinfoController extends Controller
             $quyu = \DB::table('jjw_position_county')->where('city_id', Session('regionid'))->get();
             //学校
             $xx = DB::table('school_t')->where('city_id', session('regionid'))->limit(10)->get();
-            //教员
-            $list = \DB::table('jjw_teachers')->where('tc_city_id', session('regionid'))->orderBy('tc_reboot', 'desc')->orderBy('id', 'desc')->paginate(10);
-
+            //教员  名字 自我描述 不能为空
+            $list = \DB::table('jjw_teachers')->where('tc_city_id', session('regionid'))->orderBy('tc_reboot', 'desc')->orderBy('id', 'desc')->where('tc_name','!=','')->where('tc_comments','!=','')->paginate(10);
+           // dd($list);
             //自定义分页
             $num = $list->lastPage();
             $nextpage = $num - $list->currentPage() == 0 ? $num : $list->currentPage() + 1;

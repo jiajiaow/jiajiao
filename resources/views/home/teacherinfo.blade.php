@@ -66,6 +66,7 @@
 					{{--<li class=""><a href="">申请退款</a><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>--}}
 					<li class=""><a href="">投诉中心</a><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>
 					<li class=""><a href="">重置密码</a><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>
+					<div class="aa"><a href="/tc_order.html">我的订单</a></div>
 				</ul>
 			</div>
 			<div class="right-cont pull-right" style="min-height: 661px;">
@@ -1853,5 +1854,14 @@
 		 }
 	</script>
 </small>
+<style>
+	#pcontent .left-nav div {
+		border-right: 1px solid #d9d6d6;
+		border-bottom: 1px solid #d9d6d6;
+		height: 60px;
+		line-height: 59px;
+		position: relative;
+	}
+</style>
 </body>
 </html>
