@@ -17,7 +17,7 @@
           <div class="info">
             <div class="info-left">
               <p>学员请家教预算：<i>{{ $data->money }}</i></p>
-              <span><i>{{ $data->browsenu }}</i>人浏览  已有<i>{{ $nu }}</i>人申请</span>
+              <span><i>{{ $data->browsenu }}</i>人浏览  已有<i>{{ $data->yynum }}</i>人申请</span>
             </div>
             <div class="info-center" style="float:left;">
               <img src="/home/picture/icon_fx.png" alt="">一键分享
