@@ -28,7 +28,6 @@
              width:100px;
            line-height: 50px;
              text-align: center;
-
          }
          .swiper-container {
              width: 800px;

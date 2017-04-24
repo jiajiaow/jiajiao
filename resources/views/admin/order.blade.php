@@ -159,10 +159,10 @@
             <tr style="background: #fff">
                 <th>财务部分</th>
                 <td>预约总收费：<input type="text" name="money"></td>
-                <td>预计信息费:<input type="text" name="money1"></td>
-                <td>家长服务费:<input type="text" name="money1"></td>
-                <td>周薪酬:<input type="text" name="money1"></td>
-                <td>实际总收款   :<input type="text" name="money1"></td>
+                <td>预计信息费:<input type="text" name="order_xxf"></td>
+                <td>家长服务费:<input type="text" name="order_jzfy"></td>
+                <td>周薪酬:<input type="text" name="order_zkc"></td>
+                <td>实际总收款:<span></span></td>
                 <td>收费差额:<input type="" name="money1"></td>
                 <td>收支流水<button>增加按钮</button><input type="text">
                 <input type="text">
