@@ -25,13 +25,13 @@ class indexController extends Controller{
             //dd($xx);
             //var_dump($xx['0']->sh_shool);
             //dd(session('regionid'));
-            $jinpai = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai','2')->orderBy('tc_dltimes','DESC')->limit(5)->get();
+            $jinpai = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai','2')->where('tc_sort','1')->orderBy('tc_dltimes','DESC')->limit(5)->get();
             //dd($jinpai);
             //查询学生教员
-            $xueshen = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai','0')->orderBy('tc_dltimes','DESC')->limit(5)->get();
+            $xueshen = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai','0')->where('tc_sort','1')->orderBy('tc_dltimes','DESC')->limit(5)->get();
             //查询专职教员
             //dd($xueshen);
-            $zhuanzhi = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai','1')->orderBy('tc_dltimes','DESC')->limit(5)->get();
+            $zhuanzhi = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_jinpai','1')->where('tc_sort','1')->orderBy('tc_dltimes','DESC')->limit(5)->get();
             //最新学生订单
             $data = DB::table('jjw_order')->where('city_id',session('regionid'))->limit(6)->orderBy('time', 'DESC')->orderBy('id', 'DESC')->get();
             //热门学科

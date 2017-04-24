@@ -120,7 +120,7 @@ for(i=0; i <tabList.length; i++)
              {{--学员--}}
              @if(session('st_name') != null or session('st_phone') != null)
                  <li><arel="nofollow" data-toggle="userAuth" data-type="reg">尊敬的{{ substr(session('st_name'),0,3) }}学员</a>  </li>
-                 <li><a href="/teacherinfo.html" rel="nofollow" data-toggle="userAuth" data-type="reg">教员中心</a></li>
+                 <li><a href="/stinfo.html" rel="nofollow" data-toggle="userAuth" data-type="reg">学员中心</a></li>
                  <li><a href="/outlogin.html" rel="nofollow" data-toggle="userAuth" data-type="reg">退出</a></li>
              @else
                  <li><a href="/reg.html" rel="nofollow" data-toggle="userAuth" data-type="reg">教员注册</a></li>
