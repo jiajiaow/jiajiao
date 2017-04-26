@@ -77,6 +77,8 @@ Route::get('/xueyuan.html','home\xueshenController@xueyuan');
 Route::get('/xueyuans/{y?}.html','home\xueshenController@xueyuans');
 //预约老师
 Route::get('/yuyuelaoshi.html/{a?}/{b?}/{c?}/{d?}','home\yuyueController@index');
+//预约老师
+//Route::get('/yuyuelaoshis.html/{a?}/{b?}/{c?}/{d?}','home\yuyueController@index');
 //预约验证码
 Route::post('/register','home\yuyueController@register');
 //查询验证码
