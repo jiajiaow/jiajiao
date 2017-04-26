@@ -126,9 +126,13 @@ Route::get('/faculty_sfbz.html','home\flootsController@faculty_sfbz');
 Route::get('/yydd.html','home\flootsController@yydd');
 //教员中心案例
 Route::post('/docase','home\teacherinfoController@docase');
-
-
-
+//wechatpay
+Route::post('/wechatpay','payController@wechatpay');
+//alipay
+Route::post('/alipay','payController@alipay');
+//回调
+Route::any('/callback','payController@callback');
+//支付完成
 
 
 

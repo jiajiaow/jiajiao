@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class payContriller extends Controller
 {
+    //自定义方法
     public function httpclient($url,$data)
     {
         $ch = curl_init();
@@ -19,6 +20,7 @@ class payContriller extends Controller
         curl_close($ch);
         return $content;
     }
+    //回调函数
     public function callback()
     {
         date_default_timezone_set('PRC');
@@ -34,6 +36,7 @@ class payContriller extends Controller
             DB::table('jj_bespeakorder')->where('pay_id',$oid)->update(['pay' => 1]);
         }
     }
+    //支付宝
     public function alipay(Request $request)
     {
         //本地订单id
@@ -71,8 +74,11 @@ class payContriller extends Controller
          }
          return view('jiajiao.alipay.Alipay',['json' => $json]);
      }
-    public function wx(Request $request)
+     //微信pay
+    public function wechatpay(Request $request)
     {
+        $url = session('_previous');
+        dd($url);
         $id = $request->input('order_id');
         $price = $request->input('chi')*$request->input('shi')*$request->input('price');
 
