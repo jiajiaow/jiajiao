@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-class payContriller extends Controller
+use DB;
+class payController extends Controller
 {
     //自定义方法
     public function httpclient($url,$data)
@@ -23,6 +23,7 @@ class payContriller extends Controller
     //回调函数
     public function callback()
     {
+
         date_default_timezone_set('PRC');
         error_reporting(0);
         set_time_limit(0);
@@ -33,7 +34,7 @@ class payContriller extends Controller
         $sign = $_POST['sign'];//安全验证
         $signs = md5($oid.$token);
         if($signs == $sign){
-            DB::table('jj_bespeakorder')->where('pay_id',$oid)->update(['pay' => 1]);
+            DB::table('jjw_order')->where('pay_id',$oid)->update(['pay' => 1]);
         }
     }
     //支付宝
@@ -62,7 +63,7 @@ class payContriller extends Controller
          if($ary['mod'] == 'pay'){
              $json = json_decode($content,true);
              $oid = $json['data']['out_trade_no'];//返回的订单号,可存在自己的数据库中
-            DB::table('jj_bespeakorder')->where('id',$id)->update(['pay_id' => $oid]);
+            DB::table('jjw_order')->where('id',$id)->update(['pay_id' => $oid]);
              if($json['data']['sign'] == ''){
                  echo $json['data'];
                  exit();
@@ -77,8 +78,8 @@ class payContriller extends Controller
      //微信pay
     public function wechatpay(Request $request)
     {
-        $url = session('_previous');
-        dd($url);
+        //$url = session('_previous');
+        //dd($url);
         $id = $request->input('order_id');
         $price = $request->input('chi')*$request->input('shi')*$request->input('price');
 
@@ -100,7 +101,7 @@ class payContriller extends Controller
              $json = json_decode($content,true);
              $oid = $json['data']['oid'];//返回的订单号,可存在自己的数据库中
              if($json['data']['img'] != ''){
-                DB::table('jj_bespeakorder')->where('id',$id)->update(['pay_id' => $oid]);
+                DB::table('jjw_order')->where('id',$id)->update(['pay_id' => $oid]);
                 return view('jiajiao.wx.wx',['img' => $json['data']['img']]);
              }else{
                  echo $json['data'];

@@ -94,8 +94,8 @@
 							<button  type="submit">登录</button>
 						</form>
 						<div style="text-align: right;margin-top: 25px;font-size: 12px;">
-							<a style="margin-top: 20px;font-size: 12px;margin-right: 15px;color: #000;"  href="{{ URL('/reg.html') }}">学员注册</a>
-							<a style="margin-top: 20px;font-size: 12px;color: #000;" href="" >忘记密码</a>
+							{{--<a style="margin-top: 20px;font-size: 12px;margin-right: 15px;color: #000;"  href="{{ URL('/reg.html') }}">学员注册</a>--}}
+							{{--<a style="margin-top: 20px;font-size: 12px;color: #000;" href="" >忘记密码</a>--}}
 						</div>
 
 						<div class="clear"></div>
@@ -123,7 +123,7 @@
 									<img src="{{ asset('/home/picture/icon_pass.png') }}">
 								</label>
 								<input id="mobile" type="tel"  style='width:46%' name="code" placeholder="验证码">
-								<input style="width: 108px;cursor: pointer;background-color: #F7B529" id="getsms" type="button" value="获取验证码"/>
+								<input style="width: 108px;cursor: pointer;background-color: #F7B529" id="getsmsS" type="button" value="获取验证码"/>
 
 							</div>
 							<button id="deng"  type="submit">登录</button>
@@ -141,7 +141,7 @@
 						</form>
 						<div style="text-align: right;margin-top: 25px;font-size: 12px;">
 							<a style="margin-top: 20px;font-size: 12px;margin-right: 15px;color: #000;"  href="{{ URL('/reg.html') }}">教员注册</a>
-							<a style="margin-top: 20px;font-size: 12px;color: #000;" href="" >忘记密码</a>
+							{{--<a style="margin-top: 20px;font-size: 12px;color: #000;" href="" >忘记密码</a>--}}
 						</div>
 
 						<div class="clear"></div>

@@ -1,15 +1,37 @@
 <?php
+/**
+ |                             _ooOoo_
+ |                            o8888888o
+ |                            88" . "88
+ |                            (| -_- |)
+ |                            O\  =  /O
+ |                         ____/`---'\____
+ |                       .'  \\|     |//  `.
+ |                      /  \\|||  :  |||//  \
+ |                     /  _||||| -:- |||||-  \
+ |                     |   | \\\  -  /// |   |
+ |                     | \_|  ''\---/''  |   |
+ |                     \  .-\__  `-`  ___/-. /
+ |                   ___`. .'  /--.--\  `. . __
+ |                ."" '<  `.___\_<|>_/___.'  >'"".
+ |               | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+ |               \  \ `-.   \_ __\ /__ _/   .-` /  /
+ |          ======`-.____`-.___\_____/___.-`____.-'======
+ |                             `=---='
+ |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ |                     佛祖保佑          永无BUG
+ |
+ |
+ |--------------------------------------------------------------------------
+ | Web Routes
+ |--------------------------------------------------------------------------
+ |
+ | This file is where you may define all of the routes that are handled
+ | by your application. Just tell Laravel the URIs it should respond
+ | to using a Closure or controller method. Build something great!
+ |
+  **/
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 //首页
 Route::get('/','home\indexController@index');
@@ -77,6 +99,8 @@ Route::get('/xueyuan.html','home\xueshenController@xueyuan');
 Route::get('/xueyuans/{y?}.html','home\xueshenController@xueyuans');
 //预约老师
 Route::get('/yuyuelaoshi.html/{a?}/{b?}/{c?}/{d?}','home\yuyueController@index');
+//预约老师
+//Route::get('/yuyuelaoshis.html/{a?}/{b?}/{c?}/{d?}','home\yuyueController@index');
 //预约验证码
 Route::post('/register','home\yuyueController@register');
 //查询验证码

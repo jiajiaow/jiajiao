@@ -162,8 +162,8 @@
                 <td>预计信息费:<input type="text" name="order_xxf"></td>
                 <td>家长服务费:<input type="text" name="order_jzfy"></td>
                 <td>周薪酬:<input type="text" name="order_zkc"></td>
-                <td>实际总收款:<span></span></td>
-                <td>收费差额:<input type="" name="money1"></td>
+                <td>实际总收款:<span>430</span></td>
+                <td>收费差额:30</td>
                 <td>收支流水<button>增加按钮</button><input type="text">
                 <input type="text">
                 <input type="text">
@@ -185,7 +185,7 @@
             <input type="hidden" name="id" value="{{ $data->id }}"/>
             <tr style="background: #fff">
                 <th>订单状态</th>
-                <td><p>接单教员编号<input type="text" name="teacher_id" value="{{ $data->teacher_id }}" /></p>修改状态
+                <td>修改状态
                     <select name="ht_status">
                         <option value="0" @if($data->ht_status == '0') selected='selected' @endif>新家教</option>
                         <option value="1" @if($data->ht_status == '1') selected='selected' @endif>待处理</option>
@@ -207,7 +207,10 @@
                 <td>试课地点：<input type="text" ></td>
                 <td><a href="">前台查看此家教</a></td>
                 <td><a href="">设置vip</a>/<a href="">解除vip</a></td>
-                <td><button>信息发布模板</button></td>
+                <td>
+                    <input type="submit" value="提交"/>
+                    <button>信息发布模板</button>
+                </td>
             </tr>
             </form>
         </table>
