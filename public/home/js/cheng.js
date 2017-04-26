@@ -36,6 +36,13 @@ $(document).ready(function(){
 		time(get_code);
 		
 	});
+	$('#getsmsS').click(function(){
+
+		getCode();
+		var get_code=$('#getsmsS');
+		time(get_code);
+
+	});
 	
 
 });
