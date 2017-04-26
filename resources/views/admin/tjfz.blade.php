@@ -72,6 +72,90 @@
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
+                                <label class="col-sm-2 control-label">家长费用</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="fz_jzxxf" placeholder="请输入费用：如(30)" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">签约教员定金</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="fz_qyjyfy" placeholder="请输入费用：如(30)" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">信息费百分比1</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="bfb1" placeholder="请输入百分比：1 0.9 0.8" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">信息费百分比2</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="bfb2" placeholder="请输入百分比：1 0.9 0.8" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">信息费百分比3</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="bfb3" placeholder="请输入百分比：1 0.9 0.8" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">信息费百分比4</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="bfb4" placeholder="请输入百分比：1 0.9 0.8" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">信息费百分比5</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="bfb5" placeholder="请输入百分比：1 0.9 0.8" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">信息费百分比6</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="bfb6" placeholder="请输入百分比：1 0.9 0.8" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">信息费百分比7</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="bfb7" placeholder="请输入百分比：1 0.9 0.8" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">是否开起辅导内容</label>
+
+                                <div class="col-sm-10">
+                                    <label class="checkbox-inline i-checks">
+                                        <input type="radio" name="fz_vip" value="1">是</label>
+                                    <label class="checkbox-inline i-checks">
+                                        <input type="radio" name="fz_vip" value="2" checked="checked">否</label>
+                                    <label class="checkbox-inline i-checks">
+                                        <input type="radio" name="fz_vip" value="2">审核开起</label>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">微信二维码</label>
+                                <div class="col-sm-10">
+                                    <input type="file" name="fz_wx" >
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">QQ二维码</label>
+                                <div class="col-sm-10">
+                                    <input type="file" name="fz_qq" >
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
                                 <label class="col-sm-2 control-label">分站地区</label>
 
                                 <div class="col-sm-10">
