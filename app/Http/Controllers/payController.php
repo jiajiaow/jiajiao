@@ -121,9 +121,9 @@ class payController extends Controller
      }
      public function wechatpayquery(Request $request)
      {
-        $oid = $request->input('oid');
+        $oid = $request->input('pay_id');
         $re = DB::table('jjw_order')->where('pay_id',$oid)->first();
-        dd($re);
+        //dd($re);
         if($re->pay == '1'){
             return 'ok';
         }else{
