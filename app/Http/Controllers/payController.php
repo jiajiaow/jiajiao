@@ -56,10 +56,11 @@ class payController extends Controller
             'oid'=>null,//模式为list的时候使用,用来指定查询某个订单的信息
             'title'=>'家教网费用',//商品名称
             //'price'=> $price.'00',//商品价格,请填写整数,以分为单位,例:1元,就填写100
-            'price'=> $price.'00',//商品价格,请填写整数,以分为单位,例:1元,就填写100
+            'price'=> $price*100,//商品价格,请填写整数,以分为单位,例:1元,就填写100
             'curl'=>'http://www.delijiajiao.com/callback',//回调地址,用户支付成功后服务器会POST请求到这个地址,携带订单数据
             'furl'=>'http://www.delijiajiao.com/PaymentSuccess'//支付成功后跳转的地址
         );
+        //dd($ary);
          $content = $this->httpclient('http://api.btjson.com/alipay',$ary);
          if($ary['mod'] == 'pay'){
              $json = json_decode($content,true);
@@ -95,7 +96,7 @@ class payController extends Controller
             'index'=>1,//模式为list的时候使用,用来指定订单当前页,订单信息每页显示10条
             'oid'=>null,//模式为list的时候使用,用来指定查询某个订单的信息
             'title'=>'家教网费用',//商品名称
-            'price'=> $price.'00',//商品价格,请填写整数,以分为单位,例:1元,就填写100
+            'price'=> $price*100,//商品价格,请填写整数,以分为单位,例:1元,就填写100
             'curl'=>'http://www.delijiajiao.com/callback'//回调地址,用户支付成功后服务器会POST请求到这个地址,携带订单数据
         );
          $content = $this->httpclient('http://api.btjson.com/weixinpay',$ary);

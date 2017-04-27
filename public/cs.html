@@ -1,7 +1,15 @@
 <html>
+支付宝<br>
     <form method="post" action="/alipay">
+    订单号<input type="text" name="order_id"/>
+    钱<input type="text" name="money"/>
+    <input type="submit"/>
+    </form>
+    <br><br>
+微信<br>
+    <form method="post" action="/wechatpay">
     <input type="text" name="order_id"/>
-    <input type="text" name="money "/>
+    <input type="text" name="money"/>
     <input type="submit"/>
     </form>
 </html>
