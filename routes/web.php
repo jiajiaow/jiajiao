@@ -189,7 +189,11 @@ Route::post('/wechatpay','payController@wechatpay');
 Route::post('/alipay','payController@alipay');
 //回调
 Route::any('/callback','payController@callback');
-//支付完成
+//支付完成页面
+Route::get('/PaymentSuccess','payController@PaymentSuccess');
+
+//微信支付查
+Route::post('/wechatpayquery','payController@wechatpayquery');
 
 
 

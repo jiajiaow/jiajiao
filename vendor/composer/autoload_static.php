@@ -287,6 +287,13 @@ class ComposerStaticInit89c7234f6a61cd51e7529d918765dc61
                 0 => __DIR__ . '/..' . '/toplan/filter-manager/src',
             ),
         ),
+        'S' => 
+        array (
+            'SimpleSoftwareIO\\QrCode\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/simplesoftwareio/simple-qrcode/src',
+            ),
+        ),
         'P' => 
         array (
             'Prophecy\\' => 
@@ -321,6 +328,13 @@ class ComposerStaticInit89c7234f6a61cd51e7529d918765dc61
             'Doctrine\\Common\\Inflector\\' => 
             array (
                 0 => __DIR__ . '/..' . '/doctrine/inflector/lib',
+            ),
+        ),
+        'B' => 
+        array (
+            'BaconQrCode' => 
+            array (
+                0 => __DIR__ . '/..' . '/bacon/bacon-qr-code/src',
             ),
         ),
     );

@@ -179,7 +179,8 @@ return [
 
         iscms\Alisms\AlidayuServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-        'Stevenyangecho\UEditor\UEditorServiceProvider'
+        'Stevenyangecho\UEditor\UEditorServiceProvider',
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class
 
     ],
 
@@ -230,6 +231,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
     ],
 
 ];

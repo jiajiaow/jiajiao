@@ -312,6 +312,9 @@ for(i=0; i <tabList.length; i++)
                 $('#as5').addClass('vtle');
             }
   </script>
+  <script>
+  console.log(str)
+  </script>
 @section('js')
 
 
