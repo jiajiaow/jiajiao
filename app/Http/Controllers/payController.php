@@ -29,22 +29,27 @@ class payController extends Controller
         set_time_limit(0);
 
         $token = '4343c0b465d0478e89a3265c6941585c';//填写用户TOKEN
+
         $code = $_POST['code'];//支付结果状态码
         $oid = $_POST['oid'];//订单号
         $sign = $_POST['sign'];//安全验证
         $signs = md5($oid.$token);
         if($signs == $sign){
             DB::table('jjw_order')->where('pay_id',$oid)->update(['pay' => '1']);
+            DB::table('jjw_reorder')->where('pay_id',$oid)->update(['pay_zt' => '1','qt_t_status'=>'6','ht_t_status'=>'8']);
         }
     }
     //支付宝
     public function alipay(Request $request)
     {
+        //rid
+        $rid = $request->input('rid') ==''?'':$request->input('rid');
+        //dd($rid);
         //本地订单id
         $id = $request->input('order_id');
         //钱
         $price = $request->input('money');
-        //
+
         date_default_timezone_set('PRC');
         error_reporting(0);
         set_time_limit(0);
@@ -66,7 +71,12 @@ class payController extends Controller
              $json = json_decode($content,true);
              //dd($json);
              $oid = $json['data']['out_trade_no'];//返回的订单号,可存在自己的数据库中
-             DB::table('jjw_order')->where('id',$id)->update(['pay_id' => $oid]);
+             //信息费支付修改订单
+             if($rid != ''){
+                 DB::table('jjw_reorder')->where('id',$rid)->where('oid',$id)->update(['pay_id' => $oid]);
+             }
+             DB::table('jjw_reorder')->where('id',$id)->update(['pay_id' => $oid]);
+             //DB::table('jjw_reorder')->where('id',$id)->update(['pay_id' => $oid]);
              if($json['data']['sign'] == ''){
                  echo $json['data'];
                  exit();
@@ -83,6 +93,7 @@ class payController extends Controller
     {
         //$url = session('_previous');
         //dd($url);
+        dd($request);
         $id = $request->input('order_id');
         $price = $request->input('money');
 

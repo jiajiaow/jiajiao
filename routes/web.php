@@ -79,7 +79,12 @@ Route::get('/xy_order.html','home\stinfoController@xy_order');
 //财务中心
 Route::get('/xy_financial.html','home\stinfoController@st_financial');
 //充值
-Route::get('/top_up.html','home\paysController@top_up');
+Route::get('/tc_top_up.html','home\paysController@top_up');
+//信息费
+Route::post('/xxf.html','home\paysController@xxf');
+//诚意金
+Route::post('/cyj.html','home\paysController@cyj');
+
 //教员订单
 Route::get('/tc_order.html','home\tcinfoController@tc_order');
 //财务中心

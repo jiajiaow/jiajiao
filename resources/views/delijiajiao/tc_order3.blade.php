@@ -83,31 +83,67 @@
 							<div class="left">地址</div>
 							<div class="right">{{ $yqxs->xx_dz }}</div>
 						</div>
-						<div class="bk1">
+						<div class="bk1"><?php $q = $yqxs->o_ts*$yqxs->o_xs*$yqxs->money ?>
 							<div class="left1">课酬/信息费</div>
 							<div class="right1">
 								<div class="pm zqm">
 									<div class="left">
-										课酬：{{ $yqxs->money }}元/次
+										课酬：{{ $yqxs->money*$yqxs->o_xs }}元/次
 									</div>
 									<div class="right">
-										家长服务费：50元
+										家长服务费：{{$yqxs->fz_jzxxf}}元
 									</div>
 								</div>
 								<div class="pm">
 									<div class="left">
-										周课酬：360元/周
+										周课酬：{{ $q }}元/周
 									</div>
 									<div class="right">
-										预付信息费：360元
+										预付信息费：
+										@if($yqxs->o_ts == '1')
+											{{ $q*$yqxs->bfb1>300?'300':$q*$yqxs->bfb1 }}
+										@elseif($yqxs->o_ts == '2')
+											{{ $q*$yqxs->bfb2>300?'300':$q*$yqxs->bfb2 }}
+										@elseif($yqxs->o_ts == '3')
+											{{ $q*$yqxs->bfb3>300?'300':$q*$yqxs->bfb3 }}
+										@elseif($yqxs->o_ts == '4')
+											{{ $q*$yqxs->bfb4>300?'300':$q*$yqxs->bfb4 }}
+										@elseif($yqxs->o_ts == '5')
+											{{ $q*$yqxs->bfb5>300?'300':$q*$yqxs->bfb5 }}
+										@elseif($yqxs->o_ts == '6')
+											{{ $q*$yqxs->bfb6>300?'300':$q*$yqxs->bfb6 }}
+										@elseif($yqxs->o_ts == '7')
+											{{ $q*$yqxs->bfb7>300?'300':$q*$yqxs->bfb7 }}
+										@endif元
 									</div>
 								</div>
 								<div class="pm zqm">
 									<div class="left">
-										信息费：360元
+										信息费：@if($yqxs->o_ts == '1'){{ $q*$yqxs->bfb1 }}@elseif($yqxs->o_ts == '2'){{ $q*$yqxs->bfb2 }}@elseif($yqxs->o_ts == '3'){{ $q*$yqxs->bfb3 }}@elseif($yqxs->o_ts == '4'){{ $q*$yqxs->bfb4 }}@elseif($yqxs->o_ts == '5'){{ $q*$yqxs->bfb5 }}@elseif($yqxs->o_ts == '6'){{ $q*$yqxs->bfb6 }}@elseif($yqxs->o_ts == '7'){{ $q*$yqxs->bfb7 }}@endif元
 									</div>
 									<div class="right">
-										成功后需付信息费：60元
+										成功后需付信息费：@if($yqxs->o_ts == '1')
+											{{ $q*$yqxs->bfb1 - ($q*$yqxs->bfb1>300?'300':$q*$yqxs->bfb1) }}
+										@elseif($yqxs->o_ts == '2')
+											{{ $q*$yqxs->bfb2 - ($q*$yqxs->bfb2>300?'300':$q*$yqxs->bfb2) }}
+											{{-- {{ $q*$yqxs->bfb2>300?'300':$q*$yqxs->bfb2 }}--}}
+										@elseif($yqxs->o_ts == '3')
+											{{ $q*$yqxs->bfb3 - ($q*$yqxs->bfb3>300?'300':$q*$yqxs->bfb3) }}
+											{{-- {{ $q*$yqxs->bfb3>300?'300':$q*$yqxs->bfb3 }}--}}
+										@elseif($yqxs->o_ts == '4')
+											{{ $q*$yqxs->bfb4 - ($q*$yqxs->bfb4>300?'300':$q*$yqxs->bfb4) }}
+											{{--{{ $q*$yqxs->bfb4>300?'300':$q*$yqxs->bfb4 }}--}}
+										@elseif($yqxs->o_ts == '5')
+											{{ $q*$yqxs->bfb5 - ($q*$yqxs->bfb5>300?'300':$q*$yqxs->bfb5) }}
+											{{--{{ $q*$yqxs->bfb5>300?'300':$q*$yqxs->bfb5 }}--}}
+										@elseif($yqxs->o_ts == '6')
+											{{ $q*$yqxs->bfb6 - ($q*$yqxs->bfb6>300?'300':$q*$yqxs->bfb6) }}
+											{{--{{ $q*$yqxs->bfb6>300?'300':$q*$yqxs->bfb6 }}--}}
+										@elseif($yqxs->o_ts == '7')
+											{{ $q*$yqxs->bfb7 - ($q*$yqxs->bfb7>300?'300':$q*$yqxs->bfb7) }}
+											{{--{{ $q*$yqxs->bfb7>300?'300':$q*$yqxs->bfb7 }}--}}
+										@endif
+										元
 									</div>
 								</div>
 							</div>

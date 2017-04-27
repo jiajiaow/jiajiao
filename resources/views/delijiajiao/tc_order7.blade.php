@@ -149,31 +149,28 @@
 						<div class="right1">
 							<div class="pm">
 								<div class="left">
-									课酬：{{ $skjss->money }}元/次
+									学员姓名：{{ $skjss->user_name }}
 								</div>
 								<div class="right">
-									需补/需退信息费：50元
+									辅导科目：{{ $skjss->subject_id }}
 								</div>
 							</div>
 							<div class="pm zqm">
 								<div class="left">
-									周课酬：360元/周
-								</div>
-								<div class="right">
-									已退信息费：360元
+									学员年级：{{ $skjss->grade }}
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="bk">
 						<div class="left">接单时间</div>
-						<div class="right">2017.4.23</div>
+						<div class="right">2017-4-23</div>
 					</div>
 					<div class="bk zqm">
-						<div class="left">试课时间</div>
-						<div class="right">2017-10-08</div>
+						<div class="left">结束时间</div>
+						<div class="right" >2017-10-08</div>
 					</div>
-					<div class="bk5" style="height: 200px;line-height: 200px;">
+					{{--<div class="bk5" style="height: 200px;line-height: 200px;">
 						<div class="left1">课酬/信息费</div>
 						<div class="right1">
 							<div class="pm">
@@ -210,14 +207,14 @@
 							</div>
 
 						</div>
-					</div>
-					<div class="bk">
+					</div>--}}
+					{{--<div class="bk">
 						<div class="left">接单时间</div>
 						<div class="right">2017.4.23</div>
-					</div>
+					</div>--}}
 					<div class="bk2">
-						<a style="margin-left: 160px;margin-right: 160px;" href="" target="_blank"><font color="#000">每月反馈</font></a>|
-						<a style="margin-left: 160px;margin-right: 160px;" href="" target="_blank"><font color="#FF0000">结束课程</font></a>
+						<a style="margin-left: 160px;margin-right: 160px;"><font color="#dadada">每月反馈</font></a>|
+						<a style="margin-left: 160px;margin-right: 160px;"><font color="#dadada">结束课程</font></a>
 					</div>
 				</div>
 				@endforeach

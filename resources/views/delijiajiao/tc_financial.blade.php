@@ -124,9 +124,9 @@
 				<div class="cai_top">
 					<div class="cai-one">
 						<h5>账户余额</h5>
-						<span class='span-one'>5656</span>
+						<span class='span-one'>{{ $list->tc_money }}</span>
 						<br/>
-						<a class="a_one" href="/top_up.html">充值</a>
+						<a class="a_one" href="/tc_top_up.html">充值</a>
 						<a class="a_two" href="">提现</a>
 					</div>
 					<div class="cai-two">
@@ -141,19 +141,19 @@
 								<i class='bj-one'></i>
 								
 								<p class="bj-two">未支付课酬总额</p>
-								<p class='bj-three'>1980</p>
+								<p class='bj-three'>0.00</p>
 							</div>
 							<div>
 								<i class='bj-one1'></i>
 								
 								<p class="bj-two">已提现金额</p>
-								<p class='bj-three'>1980</p>
+								<p class='bj-three'>0.00</p>
 							</div>
 							<div>
 								<i class='bj-one2'></i>
 								
 								<p class="bj-two">正在提现金额</p>
-								<p class='bj-three'>1980</p>
+								<p class='bj-three'>0.00</p>
 							</div>
 						</div>
 						<!-- 清楚浮动 -->
@@ -167,21 +167,21 @@
 							<div class="cai-mid-one">
 								<div>
 									<label>支付宝:</label>
-									<span>5201314</span>
+									<span>{{ $list->tc_pay_zfb }}</span>
 								</div>
 								<div>
 									<label>微信:</label>
-									<span>wechat</span>
+									<span>{{ $list->tc_wechat }}</span>
 								</div>
 							</div>
 							<div class="cai-mid-two">
 								<div>
 									<label>开户银行:</label>
-									<span>中国邮政</span>
+									<span>{{ $list->tc_pay_yh }}</span>
 								</div>
 								<div>
 									<label>开户账号:</label>
-									<span>888888888888888888888</span>
+									<span>{{ $list->tc_yh_account }}</span>
 								</div>
 							</div>
 						</div>

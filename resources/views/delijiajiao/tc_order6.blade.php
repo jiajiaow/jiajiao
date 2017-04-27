@@ -145,75 +145,65 @@
 						<div class="right">{{ $sskzs->id }}<a href="/xsinfo{{ $sskzs->id }}.html" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
 					</div>
 					<div class="bk4" style="height: 100px;line-height: 100px;">
-						<div class="left1">课酬/信息费</div>
+						<div class="left1">学员基础信息</div>
 						<div class="right1">
 							<div class="pm">
 								<div class="left">
-									课酬：{{ $sskzs->money }}元/次
+									学员姓名：{{ $sskzs->user_name }}
 								</div>
 								<div class="right">
-									需补/需退信息费：50元
+									辅导科目：{{ $sskzs->subject_id }}
 								</div>
 							</div>
 							<div class="pm zqm">
 								<div class="left">
-									周课酬：360元/周
-								</div>
-								<div class="right">
-									已退信息费：360元
+									学员年级：{{ $sskzs->grade }}
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="bk">
-						<div class="left">接单时间</div>
-						<div class="right">2017.4.23</div>
+						<div class="left">上课时间</div>
+						<div class="right"><button style="height: 40px; margin-top: 5px;line-height: 35px;float: right;" class="timeShow">选择时间</button></div>
 					</div>
 					<div class="bk zqm">
-						<div class="left">试课时间</div>
-						<div class="right">2017-10-08</div>
+						<div class="left">授课订单</div>
+						<div class="right">VIP专项</div>
 					</div>
-					<div class="bk5" style="height: 200px;line-height: 200px;">
-						<div class="left1">课酬/信息费</div>
+					<div class="bk6" style="height: 150px;line-height: 150px;">
+						<div class="left1">授课金额</div>
 						<div class="right1">
 							<div class="pm">
 								<div class="left">
-									课酬：180元/次
+									反馈后可收款：180元/次
 								</div>
 								<div class="right">
-									需补/需退信息费：50元
+									未完成的订单：0元
 								</div>
 							</div>
 							<div class="pm zqm">
 								<div class="left">
-									周课酬：360元/周
+									完成反馈待收：360元/周
 								</div>
 								<div class="right">
-									已退信息费：360元
+									已过期未反馈订单：360元
 								</div>
 							</div>
 							<div class="pm">
 								<div class="left">
-									信息费：360元
+									累计课酬收入：360元
 								</div>
 								<div class="right">
-									已锁定诚意金：60元
-								</div>
-							</div>
-							<div class="pm zqm">
-								<div class="left">
-									信息费：360元
-								</div>
-								<div class="right">
-									已锁定诚意金：60元
+									累计已收到课酬：60元
 								</div>
 							</div>
 
 						</div>
 					</div>
+
 					<div class="bk">
-						<div class="left">接单时间</div>
-						<div class="right">2017.4.23</div>
+						<div class="left">介绍信/合同</div>
+						<div class="right">（查看电子介绍/合同）</div>
 					</div>
 					<div class="bk2">
 						<a style="margin-left: 160px;margin-right: 160px;" href="" target="_blank"><font color="#000">每月反馈</font></a>|
@@ -223,7 +213,7 @@
 									<input type="hidden" name="rid" value="{{ $sskzs->rid }}">
 									<input type="hidden" name="tc_id" value="{{ $sskzs->tc_id }}">
 									<input type="hidden" name="zt" value="1">
-									<button type="submit">结束课程</button>
+									<button type="submit" style="height: 40px;line-height:30px;margin-top: 10px;">结束课程</button>
 								</form>
 							</font></a>
 					</div>
@@ -251,7 +241,122 @@
 	    Copyright　2005-2017　广州学求易教育咨询有限公司　版权所有　<a style="color: #ccc;" href="http://www.miitbeian.gov.cn/" target="_blank">粤ＩＰＣ备：16062097号</a>
 	</div>
 	</footer>
-	<script type="text/javascript" src='js/jquery-2.2.3.min.js'></script>
+	<div class="fc" style="display: none;"></div>
+	<div class="fc_content" style="display: none;">
+
+		<table style="margin: 0 auto;margin-top: 36px;">
+			<tbody class="sure_gou">
+			<tr>
+				<td>
+					<p>周一</p>
+					<input value="周一上午" name="sk_times1" type="checkbox">上午
+					<input value="周一下午" name="sk_times2" type="checkbox">下午
+					<input value="周一晚上" name="sk_times3" type="checkbox">晚上
+				</td>
+				<td>
+					<p>周二</p>
+					<input value="周二上午" name="sk_times4" type="checkbox">上午
+					<input value="周二下午" name="sk_times5" type="checkbox">下午
+					<input value="周二晚上" name="sk_times6" type="checkbox">晚上
+				</td>
+				<td>
+					<p>周三</p>
+					<input value="周三上午" name="sk_times7" type="checkbox">上午
+					<input value="周三下午" name="sk_times8" type="checkbox">下午
+					<input value="周三晚上" name="sk_times9" type="checkbox">晚上
+				</td>
+				<td>
+					<p>周四</p>
+					<input value="周四上午" name="sk_times10" type="checkbox">上午
+					<input value="周四下午" name="sk_times11" type="checkbox">下午
+					<input value="周四晚上" name="sk_times12" type="checkbox">晚上
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>周五</p>
+					<input value="周五上午" name="sk_times13" type="checkbox">上午
+					<input value="周五下午" name="sk_times14" type="checkbox">下午
+					<input value="周五晚上" name="sk_times15" type="checkbox">晚上
+				</td>
+				<td>
+					<p>周六</p>
+					<input value="周六上午" name="sk_times16" type="checkbox">上午
+					<input value="周六下午" name="sk_times17" type="checkbox">下午
+					<input value="周六晚上" name="sk_times18" type="checkbox">晚上
+				</td>
+				<td>
+					<p>周日</p>
+					<input value="周日上午" name="sk_times19" type="checkbox">上午
+					<input value="周日下午" name="sk_times20" type="checkbox">下午
+					<input value="周日晚上" name="sk_times21" type="checkbox">晚上
+				</td>
+				<td>
+					<button class="sure_btn">确定</button>
+				</td>
+			</tr>
+			</tbody></table>
+	</div>
+	<style>
+		.fc {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.41);
+			top: 0;
+			left: 0;
+		}
+		.fc_content {
+			width: 650px;
+			height: 190px;
+			position: fixed;
+			background: #fff;
+			left: 50%;
+			top: 50%;
+			margin-left: -325px;
+			margin-top: -95px;
+		}
+		.licbox input {
+			width: 26px;
+			height: 21px;
+			vertical-align: bottom;
+		}
+		.licbox p{
+			text-align: center;
+		}
+		td{
+			border: 1px solid #c1c1c1;
+			padding: 10px;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript" src='new/js/jquery-2.2.3.min.js'></script>
 	<script type="text/javascript" src='js/script_cheng.js'></script>
+	<script>
+		$(function(){
+			$('#beginTime').date();
+			$('#endTime').date({theme:"datetime"});
+		});
+		$('.timeShow').click(function(){
+			$('.fc').show(500)
+			$('.fc_content').show(500)
+		})
+		$('.fc').click(function(){
+			$('.fc').hide(500)
+			$('.fc_content').hide(500)
+		})
+		$('.sure_btn').click(function(){
+			$('.fc').hide(500)
+			$('.fc_content').hide(500)
+			var a = $('.sure_gou').find('input')
+			for(var i=0;i< a.length;i++){
+				if(a[i].checked==true){
+					var b =a[i].
+					$('.block_time').html()
+				}
+			}
+
+		})
+	</script>
 </body>
 </html>

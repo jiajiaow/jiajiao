@@ -364,6 +364,11 @@
 										<option value="研一" {{ $list->tc_nj=='研一'?'selected':'' }}>研一</option>
 										<option value="研二" {{ $list->tc_nj=='研二'?'selected':'' }}>研二</option>
 										<option value="研三" {{ $list->tc_nj=='研三'?'selected':'' }}>研三</option>
+										<option value="本科毕业" {{ $list->tc_nj=='本科毕业'?'selected':'' }}>本科毕业</option>
+										<option value="研究生毕业" {{ $list->tc_nj=='研究生毕业'?'selected':'' }}>研究生毕业</option>
+										<option value="博士在读" {{ $list->tc_nj=='博士在读'?'selected':'' }}>博士在读</option>
+										<option value="博士毕业" {{ $list->tc_nj=='博士毕业'?'selected':'' }}>博士毕业</option>
+										<option value="专职老师" {{ $list->tc_nj=='专职老师'?'selected':'' }}专职老师</option>
 									</select>
 									<p></p>
 								</div>

@@ -495,6 +495,13 @@ tr.t_last td{
 .zqm_yuyuejy .right .bk5 .right1 .pm{height: 50px;line-height: 50px;width: 568px;border-top: 1px solid #e1e1e1;border-right: 1px solid #e1e1e1;}
 .zqm_yuyuejy .right .bk5 .right1 .pm .left{padding-left: 50px;width:50%;border-right: 1px solid #e1e1e1;}
 .zqm_yuyuejy .right .bk5 .right1 .pm .right{padding-left: 50px;width:50%;}
+/*****************************************/
+.zqm_yuyuejy .right .bk6{width: 805px;height: 150px;}
+.zqm_yuyuejy .right .bk6 .left1{float: left;width: 237px;height: 150px;line-height: 150px;border-right: 1px solid #e1e1e1;border-top: 1px solid #e1e1e1;border-left: 1px solid #e1e1e1;text-align: center;color: #ccc;font-size: 16px;}
+.zqm_yuyuejy .right .bk6 .right1{float: left;width: 560px;height: 100px;color: #000;font-size: 18px;}
+.zqm_yuyuejy .right .bk6 .right1 .pm{height: 50px;line-height: 50px;width: 568px;border-top: 1px solid #e1e1e1;border-right: 1px solid #e1e1e1;}
+.zqm_yuyuejy .right .bk6 .right1 .pm .left{padding-left: 50px;width:50%;border-right: 1px solid #e1e1e1;}
+.zqm_yuyuejy .right .bk6 .right1 .pm .right{padding-left: 50px;width:50%;}
 
 /*学员中心财务中心的样式*/
 div.cai_top{

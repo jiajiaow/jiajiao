@@ -144,7 +144,7 @@
 						<div class="left">订单编号</div>
 						<div class="right">{{ $sskjss->id }}<a href="/xsinfo{{ $sskjss->id }}.html" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
 					</div>
-					<div class="bk">
+					{{--<div class="bk">
 						<div class="left">接单时间</div>
 						<div class="right"></div>
 					</div>
@@ -155,68 +155,74 @@
 					<div class="bk">
 						<div class="left">试课地点</div>
 						<div class="right">
-							{{--<form action="">
+							--}}{{--<form action="">
 								<input name="" type="text" style="height: 29px;" />
 								<input type="submit" style="font-size: 12px;height: 50px;"/>
-							</form>--}}
+							</form>--}}{{--
 						{{ $sskjss->radd }}</div>
-					</div>
+					</div>--}}
 					{{--<div class="bk">
 						<div class="left">试课结果填写</div>
 						<div class="right"><a href=""><font color="#FF0000">试课成功</font></a>　　　　<a href=""><font color="#FF0000">试课不成功</font></a></div>
 					</div>--}}
-					<div class="bk">
+					{{--<div class="bk">
 						<div class="left">介绍信/合同</div>
 						<div class="right"><a href=""><font color="#FF0000">查看电子介绍信/合同</font></a></div>
-					</div>
-					<div class="bk3" style="height: 250px;line-height: 250px;">
-						<div class="left1">课酬/信息费</div>
+					</div>--}}
+					<div class="bk4" style="height: 100px;line-height: 100px;">
+						<div class="left1">课酬/信息费</div><?php $q =  $sskjss->o_ts* $sskjss->o_xs* $sskjss->money ?>
 						<div class="right1">
 							<div class="pm zqm">
 								<div class="left">
-									课酬：{{ $sskjss->money }}元/次
+									已预付信息费：
+									@if($sskjss->o_ts == '1')
+										{{ $q*$sskjss->bfb1>300?'300':$q*$sskjss->bfb1 }}
+									@elseif($sskjss->o_ts == '2')
+										{{ $q*$sskjss->bfb2>300?'300':$q*$sskjss->bfb2 }}
+									@elseif($sskjss->o_ts == '3')
+										{{ $q*$sskjss->bfb3>300?'300':$q*$sskjss->bfb3 }}
+									@elseif($sskjss->o_ts == '4')
+										{{ $q*$sskjss->bfb4>300?'300':$q*$sskjss->bfb4 }}
+									@elseif($sskjss->o_ts == '5')
+										{{ $q*$sskjss->bfb5>300?'300':$q*$sskjss->bfb5 }}
+									@elseif($sskjss->o_ts == '6')
+										{{ $q*$sskjss->bfb6>300?'300':$q*$sskjss->bfb6 }}
+									@elseif($sskjss->o_ts == '7')
+										{{ $q*$sskjss->bfb7>300?'300':$q*$sskjss->bfb7 }}
+									@endif元
 								</div>
 								<div class="right">
-									需补/需退信息费：50元
+									需补/需退信息费：@if($sskjss->o_ts == '1')
+										{{$sskjss->money*$sskjss->o_xs-($q*$sskjss->bfb1>300?'300':$q*$sskjss->bfb1) }}
+									@elseif($sskjss->o_ts == '2')
+										{{ $sskjss->money*$sskjss->o_xs-($q*$sskjss->bfb2>300?'300':$q*$sskjss->bfb2) }}
+									@elseif($sskjss->o_ts == '3')
+										{{ $sskjss->money*$sskjss->o_xs-($q*$sskjss->bfb3>300?'300':$q*$sskjss->bfb3) }}
+									@elseif($sskjss->o_ts == '4')
+										{{ $sskjss->money*$sskjss->o_xs-($q*$sskjss->bfb4>300?'300':$q*$sskjss->bfb4) }}
+									@elseif($sskjss->o_ts == '5')
+										{{ $sskjss->money*$sskjss->o_xs-($q*$sskjss->bfb5>300?'300':$q*$sskjss->bfb5) }}
+									@elseif($sskjss->o_ts == '6')
+										{{ $sskjss->money*$sskjss->o_xs-($q*$sskjss->bfb6>300?'300':$q*$sskjss->bfb6) }}
+									@elseif($sskjss->o_ts == '7')
+										{{ $sskjss->money*$sskjss->o_xs-($q*$sskjss->bfb7>300?'300':$q*$sskjss->bfb7) }}
+									@endif元
 								</div>
 							</div>
 							<div class="pm">
 								<div class="left">
-									周课酬：360元/周
+									本单实际信息费：{{ $sskjss->money*$sskjss->o_xs }}元/周
 								</div>
 								<div class="right">
-									已退信息费：360元
+									已退信息费：0元
 								</div>
 							</div>
-							<div class="pm zqm">
-								<div class="left">
-									信息费：360元
-								</div>
-								<div class="right">
-									已锁定诚意金：60元
-								</div>
-							</div>
-							<div class="pm zqm">
-								<div class="left">
-									家长服务费：360元
-								</div>
-								<div class="right">
-									待退回诚意金：60元
-								</div>
-							</div>
-							<div class="pm">
-								<div class="left">
-									已预付信息费：360元
-								</div>
-								<div class="right">
-									本单实际信息费：60元
-								</div>
-							</div>
+
 						</div>
 					</div>
 					<div class="bk2">
 						<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#000">申请退款</font></a>|
-						<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#000">申请诚意金解锁</font></a>|
+						<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#000">信息费支付</font></a>|
 						<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#FF0000">收付款记录</font></a>
 					</div>
 				</div>

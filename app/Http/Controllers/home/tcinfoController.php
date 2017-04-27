@@ -20,15 +20,20 @@ class tcinfoController extends Controller
     }
     //我预约的单之安排中
     public function tc_order1(){
+        if (session('tc_name')== null || session('tc_phone') == null) {
+            return redirect('/login.html')->with('msg', '请您先登录!');
+        }
         //安排中
         $yap = \DB::table('jjw_order as o')
+            ->join('jjw_position_city as pc', 'pc.city_id', '=', 'o.city_id')
             ->join('jjw_reorder as r', 'r.oid', '=', 'o.id')
             ->join('jjw_teachers as t', 't.id', '=', 'r.tc_id')
             ->where('o.city_id', session('regionid'))
             ->where('r.tc_id', session('tc_id'))
             ->where('r.qt_t_status', '1')
-            ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.ht_t_status','r.id as rid','r.add as radd')
+            ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.ht_t_status','r.id as rid','r.add as radd','pc.fz_jzxxf','pc.city_name','pc.fz_vip','pc.fz_qyjyfy','pc.bfb1','pc.bfb2','pc.bfb3','pc.bfb4','pc.bfb5','pc.bfb6','pc.bfb7')
             ->paginate(2);
+        //dd($yap);
             $num = $yap->lastPage();
             $nextpage = $num - $yap->currentPage() == 0 ? $num : $yap->currentPage() + 1;
             $shipage = $num - $yap->currentPage() == 0 ? $num : $yap->currentPage() + 10;
@@ -41,12 +46,13 @@ class tcinfoController extends Controller
     public function tc_order2(){
         //未选中
         $wxz = \DB::table('jjw_order as o')
+            ->join('jjw_position_city as pc', 'pc.city_id', '=', 'o.city_id')
             ->join('jjw_reorder as r', 'r.oid', '=', 'o.id')
             ->join('jjw_teachers as t', 't.id', '=', 'r.tc_id')
             ->where('o.city_id', session('regionid'))
             ->where('r.tc_id', session('tc_id'))
             ->where('r.qt_t_status', '2')
-            ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.id as rid','r.add as radd')
+            ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.ht_t_status','r.id as rid','r.add as radd','pc.fz_jzxxf','pc.city_name','pc.fz_vip','pc.fz_qyjyfy','pc.bfb1','pc.bfb2','pc.bfb3','pc.bfb4','pc.bfb5','pc.bfb6','pc.bfb7')
             ->paginate(2);
         $num = $wxz->lastPage();
         $nextpage = $num - $wxz->currentPage() == 0 ? $num : $wxz->currentPage() + 1;
@@ -59,12 +65,13 @@ class tcinfoController extends Controller
     public function tc_order3(){
         //已取消
         $yqx = \DB::table('jjw_order as o')
+            ->join('jjw_position_city as pc', 'pc.city_id', '=', 'o.city_id')
             ->join('jjw_reorder as r', 'r.oid', '=', 'o.id')
             ->join('jjw_teachers as t', 't.id', '=', 'r.tc_id')
             ->where('o.city_id', session('regionid'))
             ->where('r.tc_id', session('tc_id'))
             ->where('r.qt_t_status', '3')
-            ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.id as rid','r.add as radd')
+            ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.ht_t_status','r.id as rid','r.add as radd','pc.fz_jzxxf','pc.city_name','pc.fz_vip','pc.fz_qyjyfy','pc.bfb1','pc.bfb2','pc.bfb3','pc.bfb4','pc.bfb5','pc.bfb6','pc.bfb7')
             ->paginate(2);
         $num = $yqx->lastPage();
         $nextpage = $num - $yqx->currentPage() == 0 ? $num : $yqx->currentPage() + 1;
@@ -77,12 +84,13 @@ class tcinfoController extends Controller
     public function tc_order4(){
         //试课中
         $skz = \DB::table('jjw_order as o')
+            ->join('jjw_position_city as pc', 'pc.city_id', '=', 'o.city_id')
             ->join('jjw_reorder as r', 'r.oid', '=', 'o.id')
             ->join('jjw_teachers as t', 't.id', '=', 'r.tc_id')
             ->where('o.city_id', session('regionid'))
             ->where('r.tc_id', session('tc_id'))
             ->where('r.qt_t_status', '4')
-            ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.id as rid','r.add as radd')
+            ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.ht_t_status','r.id as rid','r.add as radd','pc.fz_jzxxf','pc.city_name','pc.fz_vip','pc.fz_qyjyfy','pc.bfb1','pc.bfb2','pc.bfb3','pc.bfb4','pc.bfb5','pc.bfb6','pc.bfb7')
             ->paginate(2);
         $num = $skz->lastPage();
         $nextpage = $num - $skz->currentPage() == 0 ? $num : $skz->currentPage() + 1;
@@ -95,12 +103,13 @@ class tcinfoController extends Controller
     public function tc_order5(){
         //试课结束
         $sskjs = \DB::table('jjw_order as o')
+            ->join('jjw_position_city as pc', 'pc.city_id', '=', 'o.city_id')
             ->join('jjw_reorder as r', 'r.oid', '=', 'o.id')
             ->join('jjw_teachers as t', 't.id', '=', 'r.tc_id')
             ->where('o.city_id', session('regionid'))
             ->where('r.tc_id', session('tc_id'))
             ->where('r.qt_t_status', '8')
-            ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.id as rid','r.add as radd')
+            ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.ht_t_status','r.id as rid','r.add as radd','pc.fz_jzxxf','pc.city_name','pc.fz_vip','pc.fz_qyjyfy','pc.bfb1','pc.bfb2','pc.bfb3','pc.bfb4','pc.bfb5','pc.bfb6','pc.bfb7')
             ->paginate(2);
         $num = $sskjs->lastPage();
         $nextpage = $num - $sskjs->currentPage() == 0 ? $num : $sskjs->currentPage() + 1;
@@ -112,12 +121,13 @@ class tcinfoController extends Controller
     public function tc_order6(){
         //授课中
             $sskz = \DB::table('jjw_order as o')
+                ->join('jjw_position_city as pc', 'pc.city_id', '=', 'o.city_id')
                 ->join('jjw_reorder as r', 'r.oid', '=', 'o.id')
                 ->join('jjw_teachers as t', 't.id', '=', 'r.tc_id')
                 ->where('o.city_id', session('regionid'))
                 ->where('r.tc_id', session('tc_id'))
                 ->where('r.qt_t_status', '6')
-                ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.id as rid','r.add as radd')
+                ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.ht_t_status','r.id as rid','r.add as radd','pc.fz_jzxxf','pc.city_name','pc.fz_vip','pc.fz_qyjyfy','pc.bfb1','pc.bfb2','pc.bfb3','pc.bfb4','pc.bfb5','pc.bfb6','pc.bfb7')
                 ->paginate(2);
                 $num = $sskz->lastPage();
                 $nextpage = $num - $sskz->currentPage() == 0 ? $num : $sskz->currentPage() + 1;
@@ -129,12 +139,13 @@ class tcinfoController extends Controller
     public function tc_order7(){
         //授课结束
         $skjs = \DB::table('jjw_order as o')
+            ->join('jjw_position_city as pc', 'pc.city_id', '=', 'o.city_id')
             ->join('jjw_reorder as r', 'r.oid', '=', 'o.id')
             ->join('jjw_teachers as t', 't.id', '=', 'r.tc_id')
             ->where('o.city_id', session('regionid'))
             ->where('r.tc_id', session('tc_id'))
             ->where('r.qt_t_status', '7')
-            ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.id as rid','r.add as radd')
+            ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.ht_t_status','r.id as rid','r.add as radd','pc.fz_jzxxf','pc.city_name','pc.fz_vip','pc.fz_qyjyfy','pc.bfb1','pc.bfb2','pc.bfb3','pc.bfb4','pc.bfb5','pc.bfb6','pc.bfb7')
             ->paginate(2);
         $num = $skjs->lastPage();
         $nextpage = $num - $skjs->currentPage() == 0 ? $num : $skjs->currentPage() + 1;
@@ -278,7 +289,9 @@ class tcinfoController extends Controller
 
     //财务
     public function tc_financial(){
-        return view('delijiajiao.tc_financial');
+        $list = DB::table('jjw_teachers')->where('id',session('tc_id'))->where('tc_city_id',session('regionid'))->first();
+        //dd($list);
+        return view('delijiajiao.tc_financial',['list'=>$list]);
     }
 
     //试课地址
