@@ -115,7 +115,7 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success:(function(result){
-                if(result == 'y'){
+                if(result == 'ok'){
                   window.location.href="<?php echo $_SERVER['SERVER_NAME'];?>/PaymentSuccess";
                   return;
                 }
