@@ -132,9 +132,6 @@
             </form>
             </td>
             <td>
-            <form action="/admin/orderyy" method="post">
-            {{ csrf_field() }}
-            <input type="hidden" name="id" value="{{ $data->id }}"/>
                 <div>
                     <p style="width: 324px;">辅导科目:<input type="text" value="{{$data->subject_id}}" name="subject_id">
                     <br>是否需要专业辅导:
@@ -143,10 +140,10 @@
                             <option value="否" @if($data->tc_Signing == '否') selected = "selected" @endif>否</option>
                         </select>
                     </p>
-                    <p>辅导类型:<select name="fdlx" >
-                        <option value="授课教学">授课教学</option>
-                        <option value="作业辅导">作业辅导</option>
-                        <option value="讲解疑难">讲解疑难</option>
+                    <p>辅导类型:<select>
+                        <option value="">授课教学</option>
+                        <option value="">作业辅导</option>
+                        <option value="">讲解疑难</option>
                     </select>
                         接单教员：
                     </p>
@@ -155,11 +152,11 @@
                     <p>学员描述:<input type="text" name="user_situation" value="{{ $data->user_situation }}" style="width:220px;"></p>
                     <p>教员要求:<input type="text" name="teacher_info" value="{{ $data->teacher_info }}" style="width:220px;"></p>
                     <p>家长单价:<input type="text" name="money" value="{{ $data->money }}"></p>
-                    <p>教员单价:<p>{{ $data->money }}</p>
+                    <p>教员单价:<input type="text" name="money" value="{{ $data->money }}"></p>
                     <p>每周天数:<input type="text" name="o_ts" value="{{ $data->o_ts }}"></p>
                     <p>每周小时:<input type="text" name="o_xs" value="{{ $data->o_xs }}"></p>
                     <p>家长收费:@if($data->tc_Signing == '否'){{ $data->money*$data->o_xs }}@else 0 @endif</p>
-                    <p>教员课酬:<input type="text" value="{{ $data->money }}" ></p>
+                    <p>教员课酬:<input type="text" value="" name="money"></p>
                     <p>性别要求:
                     <select name="teacher_sex">
                         <option value="1" @if($data->teacher_sex == '1') selected="selected" @endif>男</option>
@@ -175,17 +172,16 @@
                     <p><input type="submit" name="" value="修改"></p>
 
                 </div>
-            </form>
             </td>
             <td>
                 <div><?php $q = $data->o_ts*$data->o_xs*$data->money ?>
-                    <p>周薪酬:<input type="text" value="{{ $q }}" name="order_zkc"></p>
+                    <p>周薪酬:<input type="text" value="@if($data->o_ts == '1'){{ $q*$data->bfb1 }}@elseif($data->o_ts == '2'){{ $q*$data->bfb2 }}@elseif($data->o_ts == '3'){{ $q*$data->bfb3 }}@elseif($data->o_ts == '4'){{ $q*$data->bfb4 }}@elseif($data->o_ts == '5'){{ $q*$data->bfb5 }}@elseif($data->o_ts == '6'){{ $q*$data->bfb6 }}@elseif($data->o_ts == '7'){{ $q*$data->bfb7 }}@endif" name="order_zkc"></p>
                     <p>月薪酬:<input type="text" value="@if($data->o_ts == '1'){{ $q*4 }}@elseif($data->o_ts == '2'){{ $q*4 }}@elseif($data->o_ts == '3'){{ $q*4 }}@elseif($data->o_ts == '4'){{ $q*4 }}@elseif($data->o_ts == '5'){{ $q*4 }}@elseif($data->o_ts == '6'){{ $q*4 }}@elseif($data->o_ts == '7'){{ $q*4 }}@endif" name="order_ykc"></p>
                     <p>预计总费用:<input type="text" value="@if($data->o_ts == '1'){{ $q*$data->bfb1+$data->fz_jzxxf }}@elseif($data->o_ts == '2'){{ $q*$data->bfb2+$data->fz_jzxxf }}@elseif($data->o_ts == '3'){{ $q*$data->bfb3+$data->fz_jzxxf }}@elseif($data->o_ts == '4'){{ $q*$data->bfb4+$data->fz_jzxxf }}@elseif($data->o_ts == '5'){{ $q*$data->bfb5+$data->fz_jzxxf }}@elseif($data->o_ts == '6'){{ $q*$data->bfb6+$data->fz_jzxxf }}@elseif($data->o_ts == '7'){{ $q*$data->bfb7+$data->fz_jzxxf }}@endif"name="money" style="width: 60px;"></p>
                     <p>预计信息费:<input type="text" name="order_xxf" value="@if($data->o_ts == '1'){{ $q*$data->bfb1 }}@elseif($data->o_ts == '2'){{ $q*$data->bfb2 }}@elseif($data->o_ts == '3'){{ $q*$data->bfb3 }}@elseif($data->o_ts == '4'){{ $q*$data->bfb4 }}@elseif($data->o_ts == '5'){{ $q*$data->bfb5 }}@elseif($data->o_ts == '6'){{ $q*$data->bfb6 }}@elseif($data->o_ts == '7'){{ $q*$data->bfb7 }}@endif"style="width: 60px;"></p>
                     <p>家长服务费:<input type="text" value="{{$data->fz_jzxxf}}" name="order_jzfy" style="width: 60px;"></p>
-                    <p>实际收款总额:<input type="text" name="sjsk" style="width:40px;"></p>
-                    <p>收费差额:<input type="text" name="sfc" style="width:70px;"></p>
+                    <p>实际收款总额:<input type="text" name="" style="width:40px;"></p>
+                    <p>收费差额:<input type="text" name="money1" style="width:70px;"></p>
                     <p ><button class="showBtn" onclick='seeId({{ $data->user_id }})'>新增收支</button></p>
                     <p><input type="submit" name="" value="修改"></p>
 
@@ -245,11 +241,16 @@
 
         </tr>
 </table>
+
     <div class="fc" style="display: none;"></div>
     <div class="showFc" style="display: none;" >
     <form action="/admin/jzorder">
         <div style="width:70%; margin:0 auto; margin-top: 25px;" >
-    <input name="user_id" value=""/>
+    <input class='USID' type="text" name="user_id" value=""/>
+    <script>
+    window.usid = {{ $data->user_id }}
+        $('.USID').val(usid)
+    </script>
             <p>客户类型：
                 <select name="" id="">
                     <option>家长</option>
@@ -303,9 +304,7 @@
     </div>
     </div>
 <hr>
-<script>
-    window.usid = {{ $data->user_id }}
-</script>
+
 @endforeach
 
     <!-- 全局js -->
@@ -329,7 +328,7 @@
 
         $(document).ready(function () {
             $('.dataTables-example').dataTable();
-        alert(usid)
+
             /* Init DataTables */
             var oTable = $('#editable').dataTable();
 
@@ -353,7 +352,7 @@
 
         });
         function seeId(id){
-            alert(id)
+
         }
         function fnClickAddRow() {
             $('#editable').dataTable().fnAddData([
