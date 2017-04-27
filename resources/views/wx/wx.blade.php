@@ -110,7 +110,7 @@
             type:'POST',
             url:"/wechatpayquery",
             contentType:"application/x-www-form-urlencoded; charset=utf8",
-            data:{"pay_id":{{ $oid }}},
+            data:{"pay_id":'{{ $oid }}'},
             headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
