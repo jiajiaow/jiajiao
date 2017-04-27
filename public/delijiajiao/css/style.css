@@ -360,16 +360,17 @@ ul.search-history .search-history-title {
 	clear:both
 }
 .nav-horizontal .nav-horizontal-content>ul>li {
-	font-weight:700;
+		font-weight:700;
         width:200px;
-	float:left;
+		float:left;
+		height: 46px;
         color:#fff;
         text-align:center;
 }
 .vtle{
         background:#Ffcc00;
         color:#fff;
-        /*height:42px;*/
+        height:46px;
         /*margin-top:2px;*/
 	/*line-height:42px;*/
 }
@@ -515,7 +516,7 @@ li.nav-item span {
 }
 .subCategory-gongzuo-page ul li.nav-item .nav-item-title {
 	/* height:70px; */
-	 line-height:35px; 
+	 line-height:35px;
 
 }
 .subCategory-gongzuo-page ul li.nav-item .nav-item-title .right {
@@ -874,7 +875,7 @@ li.nav-item span {
         padding:1px 6px 1px 6px;
 	border-bottom:1px solid #e5e5e5;
         border-left:1px solid #e5e5e5;
-        border-right:1px solid #e5e5e5;  
+        border-right:1px solid #e5e5e5;
 }
 .category-posts-list ul li:first-child {
 	border-top:none
@@ -1090,7 +1091,7 @@ body.subCategory-gongzuo-page .resume-btn {
 }
 .navbar{
 	margin-left:10px;
-	
+
 }
 div>.img{
 	width:980px;
@@ -1102,14 +1103,14 @@ div.img_{
 .lebt span{
 	line-height:40px;
 	font-size:16px;
-	
+
 }
 .lebt a{
 	position:relative;
 	margin-left:72px;
 }
 .lebt a:hover{
-	 text-decoration:none; 
+	 text-decoration:none;
 }
 .lebt i.active{
 	background:url('../images/z.png') no-repeat;

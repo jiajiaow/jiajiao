@@ -28,12 +28,12 @@
                   </a>
                   <a title="分享到朋友圈" charset="400-03-19" id="s_pengyou"
                         href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?to=pengyou&url={{ $url }}&title="{{ $data->dq }}{{ mb_substr($data->user_name,0,1) }}@if($data->user_sex == '')@elseif($data->user_sex == '0')女士@elseif($data->user_sex == '1')先生
-@else其它@endif请{{ $data->grade }}{{ $data->subject_id }}"家教 target="_blank">
+@else其它@endif请{{ $data->grade }}{{ $data->subject_id }}家教" target="_blank">
                       <img src="/home/picture/pyq.png"  width="35px" height="35px" />
                   </a>
                   <a title="转发至新浪微博" charset="400-03-10" id="s_sina"
                       href="http://service.weibo.com/share/share.php?title="{{ $data->dq }}{{ mb_substr($data->user_name,0,1) }}@if($data->user_sex == '')@elseif($data->user_sex == '0')女士@elseif($data->user_sex == '1')先生
-@else其它@endif请{{ $data->grade }}{{ $data->subject_id }}"家教&url={{ $url }}&source=bookmark&appkey=2992571369" target="_blank">
+@else其它@endif请{{ $data->grade }}{{ $data->subject_id }}家教&url={{ $url }}&source=bookmark&appkey=2992571369" target="_blank">
                       <img src="/home/picture/ico_sina.png" />
                   </a>
                   <div class="clear"></div>
@@ -90,7 +90,7 @@
                   <li>所在区域：<span>{{ $data->dq }}</span></li>
                   <li>所在位置：<span>{{ $data->xx_dz }}</span></li>
                   <li>学员概况：<span>{{ $data->user_situation }}</span></li>
-                  <li>授课次数：<span>{{ $data->per_week }}</span></li>
+                  <li>授课次数：<span>@if($data->per_week == ',')每周{{ $data->o_ts }}次,每次{{ $data->o_xs }}小时@else{{ $data->per_week }} @endif</span></li>
                   <li>可授课时间：<span>{{ $data->sk_times}}</span></li>
                 </ul>
               </div>

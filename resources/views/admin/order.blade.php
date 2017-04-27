@@ -212,7 +212,7 @@
             </td>
             <td>
                 <div>
-                    <p><a href="/admin/orderyyrs/{{ $data->id }}" style="font-size:24px;color: red;">{{ $data->yynum }}</a>|<a href="">生成信息模板</a></p>
+                    <p><a href="/admin/orderyyrs/{{ $data->id }}" style="font-size:24px;color: red;">{{ $data->yynum }}</a>|<a target="_blank" href="/xxfb.php?oid={{ $data->id }}&title=@if(session('Template') == '2' || '4')德栗家教@else栗志家教@endif&q={{ $data->money*$data->o_xs }}&nj={{ $data->grade }}&dq={{ $data->dq }}">生成信息模板</a></p>
                     <p>状态:
                     <select name="ht_status">
                         <option value="0" @if($data->ht_status == '0') selected='selected' @endif>新家教</option>
@@ -329,7 +329,6 @@
 
         $(document).ready(function () {
             $('.dataTables-example').dataTable();
-        alert(usid)
             /* Init DataTables */
             var oTable = $('#editable').dataTable();
 
