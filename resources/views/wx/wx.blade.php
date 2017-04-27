@@ -116,7 +116,7 @@
             },
             success:(function(result){
                 if(result == 'ok'){
-                  window.location.href="<?php echo $_SERVER['SERVER_NAME'];?>/PaymentSuccess";
+                  window.location.href="/PaymentSuccess";
                   return;
                 }
                 //console.log(result);
