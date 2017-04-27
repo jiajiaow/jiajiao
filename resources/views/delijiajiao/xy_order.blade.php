@@ -28,7 +28,7 @@
 				</li>
 				<li>
 					<i class='cheng_five'></i>
-					<span>财务中心</span>
+					<span><a href="/xy_financial.html">财务中心</a></span>
 				</li>
 				<li>
 					<i class='cheng_six'></i>

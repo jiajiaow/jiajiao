@@ -66,7 +66,7 @@
 					{{--<li class=""><a href="">申请退款</a><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>--}}
 					<li class=""><a href="">投诉中心</a><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>
 					<li class=""><a href="">重置密码</a><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>
-					<div class="aa"><a href="/tc_order.html">我的订单</a></div>
+					<div class="aa"><a href="/tc_order1.html">我的订单</a></div>
 				</ul>
 			</div>
 			<div class="right-cont pull-right" style="min-height: 661px;">

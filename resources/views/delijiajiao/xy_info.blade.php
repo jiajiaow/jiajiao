@@ -28,7 +28,7 @@
 				</li>
 				<li>
 					<i class='cheng_five'></i>
-					<span>财务中心</span>
+					<span><a href="/xy_financial.html">财务中心</a></span>
 				</li>
 				<li>
 					<i class='cheng_six'></i>
@@ -45,30 +45,33 @@
 			<div class="cheng_1body" style="width:954px;">
                             <div class="zqm_xy">
                                 <div class="a1">请完善您的个人资料，方便为你匹配合适的教员</div>
-                                <div class="a2"><p>张女士</p><span>您好，欢迎您来到个人中心</span></div> 
+                                <div class="a2"><p>{{ $user->name }}</p><span>您好，欢迎您来到个人中心</span></div>
                                 <div class="zqm_a1">
-                                    <form action="form_action.asp" method="get">
+                                    <form action="" method="post">
                                     <div class="yh"> <label>帐　　号</label>
-                                    <input type="text" name="fname" placeholder="您的帐号" value="" /></div>
+                                    <input type="text" name="fname" placeholder="您的帐号" value="{{ $user->phone }}" /></div>
                                     <div class="div5"></div>
                                     <div class="yh"> <label>密　　码</label>
                                     <input type="text" name="lname" placeholder="您的密码" value="" /><div class="an"><a href="" target="_blank">修改密码</a></div></div>
                                     <div class="div5"></div>
                                     <div class="yh"><label>联系电话</label>
-                                    <input type="text" name="fname" placeholder="请输入联系人电话" value=""/></div>
+                                    <input type="text" name="fname" placeholder="请输入联系人电话" value="{{ $user->phone }}"/></div>
                                     <div class="div5"></div>
                                     <div class="yh"><label>备用电话１</label>
-                                    <input type="text" name="lname" placeholder="备用电话" value="" /><div class="txt">点击编辑备用电话，也将收到教学信息</div></div>
+                                    <input type="text" name="lname" placeholder="备用电话" value="{{ $user->phone2 }}" /><div class="txt">点击编辑备用电话，也将收到教学信息</div></div>
                                     <div class="div5"></div>
                                     <div class="yh"><label>备用电话２</label>
-                                    <input type="text" name="lname" placeholder="备用电话" value="" /><div class="txt">点击编辑备用电话，也将收到教学信息</div></div>
+                                    <input type="text" name="lname" placeholder="备用电话" value="{{ $user->phone3 }}" /><div class="txt">点击编辑备用电话，也将收到教学信息</div></div>
                                     <div class="div5"></div>
                                     <div class="yh"><label>等　　级</label>
                                     <input type="text" name="fname" /><div class="txt"><img src="/new/images/logo.png" width="25" height="25" /><a href="" target="_blank">点击查看等级情况</a></div></div>
                                     <div class="div5"></div>
                                     <div class="yh"><label>积　　分</label>
                                     <input type="text" name="lname" /><div class="txt"><img src="/new/images/logo.png" width="25" height="25" /><a href="" target="_blank">点击进入积分商城兑换物品</a></div></div>
+                                        <input type="submit" value="提交">
+                                    </form>
                                     <hr>
+                                    <form action="" method="post">
                                     <div class="yh"><label>学生姓名</label>
                                     <input type="text" name="fname" placeholder="请输入学生姓名" value="" /></div> 
                                     <div class="div5"></div>
@@ -99,7 +102,10 @@
                                     <OPTION value="其它年级">其它年级</OPTION>
                                     <OPTION value="成人">成人</OPTION>
                                     </SELECT>
+                                        <input type="submit" value="提交">
                                     <hr>
+                                    </form>
+                                    <form action=""method="post">
                                      <div class="yh"><label>学生姓名1</label>
                                     <input type="text" name="fname" placeholder="请输入学生姓名" value="" /></div> 
                                     <div class="div5"></div>
@@ -130,7 +136,11 @@
                                     <OPTION value="其它年级">其它年级</OPTION>
                                     <OPTION value="成人">成人</OPTION>
                                     </SELECT>
+                                        <input type="submit" value="提交">
                                      <hr>
+
+                                    </form>
+                                    <form action="" method="post">
                                      <div class="yh"><label>学生姓名2</label>
                                     <input type="text" name="fname" placeholder="请输入学生姓名" value="" /></div> 
                                     <div class="div5"></div>
@@ -161,14 +171,16 @@
                                     <OPTION value="其它年级">其它年级</OPTION>
                                     <OPTION value="成人">成人</OPTION>
                                     </SELECT>
+                                        <input type="submit" value="提交">
                                     <div class="div40"></div>
-                                    <button type="button">保存资料</button>　　　　　编辑学员信息/增加学员/备用电话等...
+                                    {{--<button type="button">保存资料</button>　　　　　编辑学员信息/增加学员/备用电话等...--}}
+                                        {{--<input type="submit" value="">--}}
                                     </form>
                                 </div> 
                             </div>
 			</div>
 		<!-- nav 结束 -->
-          </div>
+</div>
 @endsection
 @section('js')
 

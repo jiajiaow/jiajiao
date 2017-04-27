@@ -417,7 +417,7 @@
         //创建 --分-- 列表
         function createSECOND_UL() {
             var str = "<li>&nbsp;</li>";
-            str += "<li>上午</li><li>下午</li>";
+            str += "<li>上午</li><li>下午</li><li>晚上</li>";
             return str + "<li>&nbsp;</li>";
         }
     }

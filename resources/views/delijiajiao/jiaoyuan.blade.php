@@ -98,7 +98,7 @@
                         <div class='acrtt3'>
                             @foreach($list as $li)
                                 <li>
-                                    <p id='tta'> <a href="/yuyuelaoshi.html?{{ $li->id }}">预约|免费试课</a> </p>
+                                    <p id='tta'> <a href="/yuyuelaoshis.html?tc={{ $li->id }}">预约|免费试课</a> </p>
                                     <p id='ttb'> <a href="/teacher/detail/{{ $li->id }}.html">查看详情</a></p>
                                     <p id='ttd'> {{ $li->tc_comments }}</p>
                                     <div id='tte'>{{ $li->tc_school }}

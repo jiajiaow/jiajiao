@@ -80,8 +80,14 @@ class stinfoController extends Controller
         }
     }
 
-    //
-    public function stinfo2(){
-    	echo "德栗家教学员个人中心 <a href='/outlogin.html'>退出</a>";
+    public function st_financial(){
+        if (session('Template') == '2') {
+            //$user = \DB::table('jjw_user')->where('city_id',session('regionid'))->where('phone',session('st_phone'))->first();
+            return view('delijiajiao.xy_financial');
+           // return view('delijiajiao.xy_financial',['user'=>$user]);
+        }else{
+           echo "栗志";
+        }
     }
+
 }

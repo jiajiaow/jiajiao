@@ -8,11 +8,11 @@
 		}
 	});
 	// 主体部分的滑动banner
-	$('.c_bannar').on('mouseover','span',function(){
-		if(!$(this).hasClass('cheng_item')){
-			$(this).addClass('cheng_item')
-				   .siblings('span').removeClass('cheng_item');
-		};
-	});
+	//$('.c_bannar').on('mouseover','span',function(){
+	//	if(!$(this).hasClass('cheng_item')){
+	//		$(this).addClass('cheng_item')
+	//			   .siblings('span').removeClass('cheng_item');
+	//	};
+	//});
 
 

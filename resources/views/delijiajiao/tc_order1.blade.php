@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+ <meta name="renderer" content="webkit">
+  <title>教员个人中心订单</title>
+  <link rel="stylesheet" type="text/css" href="/new/css/cheng_css.css">
+	 <link rel="stylesheet" href="/admin/css/bootstrap.min.css">
+
+  <style type="text/css">
+	body,p,h1,h2,h3,h4,h5,h6,ul,li{
+		margin:0;
+		padding:0;
+		list-style:none;
+		color:#333;
+	}
+	body{
+		font-family:"Microsoft yahei";
+		font-size:12px;
+		background-color: #fdfdfd;
+	/*	margin:0;
+		padding:0;*/
+	}
+	div{
+		display:block;
+	}
+	#header{
+		width:100%;
+		height:100px;
+		background-color: #FACC40;
+	}
+	.cheng_header{
+		margin:auto;
+		width: 1200px;
+		height: 100px;
+		/*background-color: #e4393c;*/
+	}
+	.lf{
+		float: left ;
+	}
+	.rt{
+		float: right ;
+	}
+	a{
+		text-decoration:none;
+	}
+	a:hover{
+		text-decoration:none;
+	}
+
+  </style>
+ </head>
+<body>
+	<header>
+		<div id="header">
+			<div class="cheng_header">
+				<div style="width:246px;height:100px;" class="lf">
+					<div class="lf img-div">
+						<img class="img-size" src="/new/images/logo.png">
+					</div>
+					<div class="a-div rt">
+						<a href="/" class="lf wenzi">德栗家教</a>
+						<div class="cheng_line"></div>
+						<a href="" class="lf wenzi">个人中心</a>
+					</div>
+				</div>
+				<div class="rt" style="width:270px;float:right;height:100px;">
+					<div class="xingxi">
+                        <a href="/xueyuan.html" class="lf wenzi">最新学员信息</a>
+                        <div class="cheng_line"></div>
+                        <a href="/" class="lf wenzi">返回首页</a>
+                        <div class="cheng_line"></div>
+                        <a href="outlogin.html"><div class="glyphicon glyphicon-off tubiao"></div></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- 主体部分 -->
+	<div id="zhen_container">
+	<!-- 侧导航 -->
+<div class="cheng_nav">
+	<ul class="bian_nav">
+		<li>
+			<i class='cheng_one'></i>
+			<span><a>个人信息</a></span>
+		</li>
+		<li class="cheng_active">
+			<i class='cheng_two'></i>
+			<span><a href="/tc_order1.html"></a>订单管理</span>
+		</li>
+		<li>
+			<i class='cheng_three'></i>
+			<span>授课订单管理</span>
+		</li>
+		<li>
+			<i class='cheng_four'></i>
+			<span>成绩管理</span>
+		</li>
+		<li>
+			<i class='cheng_five'></i>
+			<span><a href="/tc_financial.html">财务中心</a></span>
+		</li>
+		<li>
+			<i class='cheng_six'></i>
+			<span>积分商城</span>
+		</li>
+		<li>
+			<i class='cheng_seven'></i>
+			<span>沟通中心</span>
+		</li>
+	</ul>
+</div>
+		<!-- 侧导航结束 -->
+		<!--nav 开始 -->
+<div class="cheng_body" style="width:954px;">
+<div>
+<!-- 中间部分的上 -->
+<div class='j_toubu'>
+	<img src="/new/images/dindan.png">
+	<span>教员新订单</span>
+</div>
+<!-- 中间部分的中 -->
+<div class="j_zj">
+<div class="j_zj">
+<iframe id="mainFrame" name="mainFrame" scrolling="no" src="{{ URL('tc_page.html') }}" frameborder="0" style="padding: 0px; width: 100%; height: 370px;"></iframe>
+</div>
+</div>
+		<!-- 中间部分的下 -->
+		<div class="c_bannar" style="margin-top:58px;">
+            <a href="/tc_order1.html"><span class='cheng_item'><font color="#000">我预约的单</font></span></a>
+            <a href="/tc_order4.html"><span><font color="#000">我已接的单</font></span></a>
+            <a href="/tc_order6.html"><span><font color="#000">成功的单</font></span></a>
+		</div>
+		<!--  -->
+		<div class="zqm_yuyuejy">
+			<div class="left">
+                <a href="/tc_order1.html"><div class="cb">安<br/>排<br/>中</div></a>
+                <a href="/tc_order2.html"><div class="cbv">未<br/>选<br/>中</div></a>
+                <a href="/tc_order3.html"><div class="cbv" style="font-size:14px;">取<br/>消<br/>预<br/>约</div></a>
+			</div>
+
+            @foreach($yap as $yaps)
+                <div class="right">
+                    <div class="bk zqm">
+                        <div class="left">订单编号</div>
+                        <div class="right">{{ $yaps->id }}<a href="/xsinfo{{ $yaps->id }}.html" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
+                    </div>
+                    <div class="bk">
+                        <div class="left">订单类型</div>
+                        <div class="right">{{ $yaps->tc_Signing =='是'?'签约订单':'普通订单' }}</div>
+                    </div>
+                    <div class="bk zqm">
+                        <div class="left">年级科目</div>
+                        <div class="right">{{ $yaps->subject_id }}</div>
+                    </div>
+                    <div class="bk" style="display: flex;">
+                        <div class="left">地址</div>
+                        <div class="right">{{ $yaps->xx_dz }}</div>
+                    </div>
+                    <div class="bk1">
+                        <div class="left1">课酬/信息费</div>
+                        <div class="right1">
+                            <div class="pm zqm">
+                                <div class="left">
+                                    课酬：{{ $yaps->money }}元/次
+                                </div>
+                                <div class="right">
+                                    家长服务费：50元
+                                </div>
+                            </div>
+                            <div class="pm">
+                                <div class="left">
+                                    周课酬：360元/周
+                                </div>
+                                <div class="right">
+                                    预付信息费：360元
+                                </div>
+                            </div>
+                            <div class="pm zqm">
+                                <div class="left">
+                                    信息费：360元
+                                </div>
+                                <div class="right">
+                                    成功后需付信息费：60元
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bk">
+                        <div class="left">备注</div>
+                        <div class="right">
+                            <a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">沟通咨询/疑问</font></a>
+                            @if($yaps->yy_zt =='')
+                                <a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000"></font></a>
+                            @else
+                                <a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">{{ $yaps->yy_zt }}</font></a>
+                            @endif
+                            <a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">常见问题</font></a>
+                        </div>
+                    </div>
+                    <div class="bk2">
+                        <a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#000">
+                                <form action="/tc_qxorder.html" method="post" style="display: inline-block;">
+                                    <input type="hidden" name="oid" value="{{ $yaps->id }}">
+                                    <input type="hidden" name="tc_id" value="{{ $yaps->tc_id }}">
+                                    <button type="submit" style="border: none;height: 30px;line-height: 30px;border-radius: 2px;background: #fff0;">取消预约</button>
+                                </form>
+                        </a>|</font>
+                        <a style="margin-left: 60px;margin-right: 60px;" href="javascript:;" onclick="cyjs()"><font color="#000">支付诚意金优先获取订单</font></a>|
+                        @if($yaps->ht_t_status =='3')
+                            <a style="margin-left: 60px;margin-right: 60px;" href="javascript:;" onclick="qr()"><font color="#FF0000">确认获取订单</font></a>
+                        @else
+                            <a style="margin-left: 60px;margin-right: 60px;" ><font color="#dadada">确认获取订单</font></a>
+                        @endif
+                    </div>
+                </div>
+            @endforeach
+		</div>
+            <div class="c_yejiao" style="">
+                @if($yap->num > 0)
+                <a href="{{ $yap->Url($yap->LastPage()) }}">末页</a>
+                <a href="{{ $yap->Url($yap->next) }}">下一页</a>
+                <a href="{{ $yap->Url($yap->last) }}">上一页</a>
+                <a href="{{ $yap->Url(1) }}">首页</a>
+                {{--<label>页数:1/2</label>--}}
+                @endif
+            </div>
+		</div>
+
+		<!-- 中间部分的尾部 -->
+		<!--  -->
+	</div>
+</div>
+<!-- nav 结束 -->
+	</div>
+	<!-- 清楚浮动影响高度为0 这个很重要-->
+	<div id="fudong">
+
+	</div>
+	<footer>
+		<div class="footer">
+	    Copyright　2005-2017　广州学求易教育咨询有限公司　版权所有　<a style="color: #ccc;" href="http://www.miitbeian.gov.cn/" target="_blank">粤ＩＰＣ备：16062097号</a>
+	</div>
+	</footer>
+	<script type="text/javascript" src='/new/js/jquery-2.2.3.min.js'></script>
+	<script type="text/javascript" src='/new/js/script_cheng.js'></script>
+    <script type="text/javascript" src="{{ asset('/layer/layer.js') }}"></script>
+</body>
+    <script>
+        function cyjs(){
+            layer.confirm('如你确认本单各方面均合适，支付诚意金（一般为50元，你也可根据意愿程度进行修改），我方将优先安排。如本单未选中你，锁定的诚意金将实时退回你的账户余额（2天为限，如我们仍未能在已预约教员中挑选出学员满意的教员，诚意金也将退回），诚意金随时可进行提现，提现金额将于24小时内收到。如挑选你接单，但你因个人原因无法接单，将对我方和家长及学员均造成不良影响，诚意金将无法退回。', {
+                btn: ['确定','取消'] //按钮
+            }, function(){
+                window.location.href='top_up.html';
+            }, function(){
+                layer.msg('也可以这样', {
+                    time: 20000, //20s后自动关闭
+                    btn: ['明白了', '知道了']
+                });
+            });
+        }
+        //确认获取
+        function qr(){
+            layer.confirm('恭喜！！你成为众多预约教员中通过审核的教员之一，首位支付信息费的教员将成功接单，获取家长的联系方式。如已有教员支付，则本订单状态将自动更改为已安排，无法再安排其他已审核教员。未能成功接单的教员请在下次通过审核时第一时间支付信息费。温馨提示：先预约的教员将获得优先审核权，请及时关注并预约家教订单哦！', {
+                btn: ['重要','奇葩'] //按钮
+            }, function(){
+                layer.msg('的确很重要', {icon: 1});
+            }, function(){
+                layer.msg('也可以这样', {
+                    time: 20000, //20s后自动关闭
+                    btn: ['明白了', '知道了']
+                });
+            });
+        }
+    </script>
+</html>

@@ -194,13 +194,13 @@
 										<a href="#" class="pignose-tab-btn">安排中</a>
 										<div class="pignose-tab-container" >
 
-											<div>
-												<div class="zqm_yuyuejy">
+											<div class="clear">
+												<div class="zqm_yuyuejy clear">
 													@foreach($yap as $yaps)
 													<div class="right">
 														<div class="bk zqm">
 															<div class="left">订单编号</div>
-															<div class="right">{{ $yaps->id }}<a href="" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
+															<div class="right">{{ $yaps->id }}<a href="/xsinfo{{ $yaps->id }}.html" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
 														</div>
 														<div class="bk">
 															<div class="left">订单类型</div>
@@ -210,7 +210,7 @@
 															<div class="left">年级科目</div>
 															<div class="right">{{ $yaps->subject_id }}</div>
 														</div>
-														<div class="bk">
+														<div class="bk" style="display: flex;">
 															<div class="left">地址</div>
 															<div class="right">{{ $yaps->xx_dz }}</div>
 														</div>
@@ -247,34 +247,60 @@
 															<div class="left">备注</div>
 															<div class="right">
 																<a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">沟通咨询/疑问</font></a>
-																<a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">系统推荐订单？</font></a>
+                                                                @if($yaps->yy_zt =='')
+                                                                    <a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">系统推荐订单？</font></a>
+                                                                @else
+                                                                    <a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">{{ $yaps->yy_zt }}</font></a>
+                                                                @endif
 																<a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">常见问题</font></a>
 															</div>
 														</div>
 														<div class="bk2">
-															<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#000">取消预约</font></a>|
-															<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#000">支付诚意金优先获取订单</font></a>|
-															<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#FF0000">确认获取订单</font></a>
+															<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#000">
+																	<form action="/tc_qxorder.html" method="post" style="display: inline-block;">
+                                                                     <input type="hidden" name="oid" value="{{ $yaps->id }}">
+																		<input type="hidden" name="tc_id" value="{{ $yaps->tc_id }}">
+																		<button type="submit" style="border: none;height: 30px;line-height: 30px;border-radius: 2px;background: #fff0;">取消预约</button>
+																	</form>
+                                                            </a>|</font>
+															<a style="margin-left: 60px;margin-right: 60px;" href="javascript:;" onclick="cyj()"><font color="#000">支付诚意金优先获取订单</font></a>|
+                                                                @if($yaps->ht_t_status =='3')
+                                                                <a style="margin-left: 60px;margin-right: 60px;" href="javascript:;" onclick="qr()"><font color="#FF0000">确认获取订单</font></a>
+                                                                @else
+                                                                <a style="margin-left: 60px;margin-right: 60px;" ><font color="#dadada">确认获取订单</font></a>
+                                                                @endif
 														</div>
 													</div>
 													@endforeach
+
 												</div>
-												{{ $yap->links()}}
 											</div>
+
+                                            <p class="c_yejiao" style="">
+                                                {{--@if($yap->num > 0) --}}
+                                                <a href="{{ $yap->Url($yap->LastPage()) }}">末页</a>
+                                                <a href="{{ $yap->Url($yap->next) }}">下一页</a>
+                                                <a href="{{ $yap->Url($yap->last) }}">上一页</a>
+                                                <a href="{{ $yap->Url(1) }}">首页</a>
+                                                {{--<label>页数:1/2</label>--}}
+                                                {{--@endif--}}
+                                            </p>
+
 										</div>
+
 									</li>
+
 
 									<li class="pignose-tab-list active">
 										<a href="#" class="pignose-tab-btn active">未选中</a>
 										<div class="pignose-tab-container active">
-
-											<div>
-												<div class="zqm_yuyuejy">
+											<div class="clear">
+												<div class="zqm_yuyuejy clear">
 													@foreach($wxz as $wxzs)
 													<div class="right">
 														<div class="bk zqm">
 															<div class="left">订单编号</div>
-															<div class="right">{{ $wxzs->id }}<a href="" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
+															<div class="right">{{ $wxzs->id }}<a href="/xsinfo{{ $wxzs->id }}.html" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
 														</div>
 														<div class="bk">
 															<div class="left">订单类型</div>
@@ -321,32 +347,51 @@
 															<div class="left">备注</div>
 															<div class="right">
 																<a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">沟通咨询/疑问</font></a>
-																<a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">系统推荐订单？</font></a>
+                                                                @if($wxzs->yy_zt =='')
+                                                                    <a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">系统推荐订单？</font></a>
+                                                                @else
+                                                                    <a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">{{ $wxzs->yy_zt }}</font></a>
+                                                                @endif
 																<a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">常见问题</font></a>
 															</div>
 														</div>
 														<div class="bk2">
-															<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#000">取消预约</font></a>|
+															<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#000">
+																	<form action="/tc_qxorder.html" method="post" style="display: inline-block  ">
+																		<input type="hidden" name="oid" value="{{ $wxzs->id }}">
+																		<input type="hidden" name="tc_id" value="{{ $wxzs->tc_id }}">
+																		<button type="submit" style="border: none;height: 30px;line-height: 30px;border-radius: 2px;background: #fff0;">取消预约</button>
+																	</form></a></font>
+																</font></a>|
 															<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#000">支付诚意金优先获取订单</font></a>|
-															<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#FF0000">确认获取订单</font></a>
+															<a style="margin-left: 60px;margin-right: 60px;"  target="_blank"><font color="#dadada">确认获取订单</font></a>
 														</div>
 													</div>
 													@endforeach
 												</div>
-												{{ $wxz->links()}}
 											</div>
+                                                <p class="c_yejiao">
+                                                    {{--                                            @if($wxz->num > 0)--}}
+                                                    <a href="{{ $wxz->Url($wxz->LastPage()) }}">末页</a>
+                                                    <a href="{{ $wxz->Url($wxz->next) }}">下一页</a>
+                                                    <a href="{{ $wxz->Url($wxz->last) }}">上一页</a>
+                                                    <a href="{{ $wxz->Url(1) }}">首页</a>
+                                                    {{--<label>页数:1/2</label>--}}
+                                                    {{--@endif--}}
+                                                </p>
 										</div>
+
 									</li>
 									<li class="pignose-tab-list">
 										<a href="#" class="pignose-tab-btn last-btn">取消预约</a>
 										<div class="pignose-tab-container">
-											<div>
-												<div class="zqm_yuyuejy">
+											<div class="clear">
+												<div class="zqm_yuyuejy clear">
 													@foreach($yqx as $yqxs)
 													<div class="right">
 														<div class="bk zqm">
 															<div class="left">订单编号</div>
-															<div class="right">{{ $yqxs->id }}<a href="" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
+															<div class="right">{{ $yqxs->id }}<a href="/xsinfo{{ $yqxs->id }}.html" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
 														</div>
 														<div class="bk">
 															<div class="left">订单类型</div>
@@ -392,22 +437,35 @@
 														<div class="bk">
 															<div class="left">备注</div>
 															<div class="right">
-																<a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">沟通咨询/疑问</font></a>
-																<a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">系统推荐订单？</font></a>
-																<a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">常见问题</font></a>
+																	<a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">沟通咨询/疑问</font></a>
+                                                                    @if($yqxs->yy_zt =='')
+                                                                        <a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">系统推荐订单？</font></a>
+                                                                    @else
+                                                                    <a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">{{ $yqxs->yy_zt }}</font></a>
+                                                                    @endif
+																	<a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">常见问题</font></a>
 															</div>
 														</div>
 														<div class="bk2">
-															<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#000">取消预约</font></a>|
-															<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#000">支付诚意金优先获取订单</font></a>|
-															<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#FF0000">确认获取订单</font></a>
+															<a style="margin-left: 60px;margin-right: 60px;" target="_blank"><font color="#000">取消预约</font></a>|
+															<a style="margin-left: 60px;margin-right: 60px;" target="_blank"><font color="#000">支付诚意金优先获取订单</font></a>|
+															<a style="margin-left: 60px;margin-right: 60px;" target="_blank"><font color="#dadada">确认获取订单</font></a>
 														</div>
 													</div>
 													@endforeach
 												</div>
-												{{ $yqx->links()}}
 											</div>
+                                            <p class="c_yejiao">
+                                                {{--                                            @if($yqx->num > 0)--}}
+                                                <a href="{{ $yqx->Url($yqx->LastPage()) }}">末页</a>
+                                                <a href="{{ $yqx->Url($yqx->next) }}">下一页</a>
+                                                <a href="{{ $yqx->Url($yqx->last) }}">上一页</a>
+                                                <a href="{{ $yqx->Url(1) }}">首页</a>
+                                                {{--<label>页数:1/2</label>--}}
+                                                {{--@endif--}}
+                                            </p>
 										</div>
+
 									</li>
 								</ul>
 							</div>
@@ -421,12 +479,12 @@
 									<li class="pignose-tab-list">
 										<a href="#" class="pignose-tab-btn">试课中</a>
 										<div class="pignose-tab-container">
-											<div class="zqm_yuyuejy">
+											<div class="zqm_yuyuejy clear">
 												@foreach($skz as $skzs)
 												<div class="right">
 													<div class="bk zqm">
 														<div class="left">订单编号</div>
-														<div class="right">{{ $skzs->id }}<a href="" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
+														<div class="right">{{ $skzs->id }}<a href="/xsinfo{{ $skzs->id }}.html" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
 													</div>
 													<div class="bk">
 														<div class="left">接单时间</div>
@@ -521,18 +579,27 @@
 												</div>
 												@endforeach
 											</div>
-											{{ $yqx->links()}}
+                                            <div class="c_yejiao">
+                                                {{--                                            @if($skz->num > 0)--}}
+                                                <a href="{{ $skz->Url($skz->LastPage()) }}">末页</a>
+                                                <a href="{{ $skz->Url($skz->next) }}">下一页</a>
+                                                <a href="{{ $skz->Url($skz->last) }}">上一页</a>
+                                                <a href="{{ $skz->Url(1) }}">首页</a>
+                                                {{--<label>页数:1/2</label>--}}
+                                                {{--@endif--}}
+                                            </div>
 										</div>
+
 									</li>
 									<li class="pignose-tab-list active">
 										<a href="#" class="pignose-tab-btn active">试课失败</a>
 										<div class="pignose-tab-container active">
-											<div class="zqm_yuyuejy">
+											<div class="zqm_yuyuejy clear">
 												@foreach($sskjs as $sskjss)
 												<div class="right">
 													<div class="bk zqm">
 														<div class="left">订单编号</div>
-														<div class="right">{{ $sskjss->id }}<a href="" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
+														<div class="right">{{ $sskjss->id }}<a href="/xsinfo{{ $sskjss->id }}.html" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
 													</div>
 													<div class="bk">
 														<div class="left">接单时间</div>
@@ -611,8 +678,17 @@
 												</div>
 												@endforeach
 											</div>
-											{{ $sskjs->links()}}
+                                            <div class="c_yejiao">
+                                                {{--                                            @if($sskjs->num > 0)--}}
+                                                <a href="{{ $sskjs->Url($sskjs->LastPage()) }}">末页</a>
+                                                <a href="{{ $sskjs->Url($sskjs->next) }}">下一页</a>
+                                                <a href="{{ $sskjs->Url($sskjs->last) }}">上一页</a>
+                                                <a href="{{ $sskjs->Url(1) }}">首页</a>
+                                                {{--<label>页数:1/2</label>--}}
+                                                {{--@endif--}}
+                                            </div>
 										</div>
+
 									</li>
 
 								</ul>
@@ -627,12 +703,12 @@
 									<li class="pignose-tab-list">
 										<a href="#" class="pignose-tab-btn">授课中</a>
 										<div class="pignose-tab-container">
-											<div class="zqm_yuyuejy">
+											<div class="zqm_yuyuejy clear">
 												@foreach($sskz as $sskzs)
 												<div class="right">
 													<div class="bk zqm">
 														<div class="left">订单编号</div>
-														<div class="right">{{ $sskzs->id }}<a href="" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
+														<div class="right">{{ $sskzs->id }}<a href="/xsinfo{{ $sskzs->id }}.html" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
 													</div>
 													<div class="bk4" style="height: 100px;line-height: 100px;">
 														<div class="left1">课酬/信息费</div>
@@ -712,18 +788,27 @@
 												</div>
 												@endforeach
 											</div>
-											{{ $sskz->links()}}
+                                            <div class="c_yejiao">
+                                                {{--                                            @if($sskz->num > 0)--}}
+                                                <a href="{{ $sskz->Url($sskz->LastPage()) }}">末页</a>
+                                                <a href="{{ $sskz->Url($sskz->next) }}">下一页</a>
+                                                <a href="{{ $sskz->Url($sskz->last) }}">上一页</a>
+                                                <a href="{{ $sskz->Url(1) }}">首页</a>
+                                                {{--<label>页数:1/2</label>--}}
+                                                {{--@endif--}}
+                                            </div>
 										</div>
+
 									</li>
 									<li class="pignose-tab-list">
 										<a href="#" class="pignose-tab-btn">授课结束</a>
 										<div class="pignose-tab-container">
-											<div class="zqm_yuyuejy">
+											<div class="zqm_yuyuejy clear">
 												@foreach($skjs as $skjss)
 												<div class="right">
 													<div class="bk zqm">
 														<div class="left">订单编号</div>
-														<div class="right">{{ $skjss->id }}<a href="" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
+														<div class="right">{{ $skjss->id }}<a href="/xsinfo{{ $skjss->id }}.html" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
 													</div>
 													<div class="bk4" style="height: 100px;line-height: 100px;">
 														<div class="left1">课酬/信息费</div>
@@ -803,15 +888,25 @@
 												</div>
 												@endforeach
 											</div>
-											{{ $skjs->links()}}
+
 										</div>
 									</li>
 								</ul>
+
 							</div>
 						</div>
 					</li>
 				</ul>
 			</div>
+            <div class="c_yejiao">
+                @if($skjs->num > 0)
+                    <a href="{{ $skjs->Url($skjs->LastPage()) }}">末页</a>
+                    <a href="{{ $skjs->Url($skjs->next) }}">下一页</a>
+                    <a href="{{ $skjs->Url($skjs->last) }}">上一页</a>
+                    <a href="{{ $skjs->Url(1) }}">首页</a>
+                  {{--<label>页数:1/2</label>--}}
+                @endif
+            </div>
 		</div>
 
 	</div>
@@ -833,7 +928,35 @@
 <script type="text/javascript" src='/new/js/script_cheng.js'></script>
 <script type="text/javascript" src="/new/js/pignose.tab.min.js"></script>
 <script type="text/javascript" src="/new/js/date.js"></script>
-
+<script src="{{ asset('/delijiajiao/js/layer.js') }}"></script>
+<script type="text/javascript" >
+	//确认获取订单
+	function qr(){
+		layer.confirm('　　恭喜！！你成为众多预约教员中通过审核的教员之一，首位支付信息费的教员将成功接单，获取家长的联系方式。如已有教员支付，则本订单状态将自动更改为已安排，无法再安排其他已审核教员。未能成功接单的教员请在下次通过审核时第一时间支付信息费。温馨提示：先预约的教员将获得优先审核权，请及时关注并预约家教订单哦！', {
+			btn: ['确定','取消'] //按钮
+		}, function(){
+			layer.msg('的确很重要', {icon: 1});
+		}, function(){
+			layer.msg('也可以这样', {
+				time: 20000, //20s后自动关闭
+				btn: ['明白了', '知道了']
+			});
+		});
+	}
+	//诚意金
+	function cyj(){
+		layer.confirm('如你确认本单各方面均合适，支付诚意金（一般为50元，你也可根据意愿程度进行修改），我方将优先安排。如本单未选中你，锁定的诚意金将实时退回你的账户余额（2天为限，如我们仍未能在已预约教员中挑选出学员满意的教员，诚意金也将退回），诚意金随时可进行提现，提现金额将于24小时内收到。如挑选你接单，但你因个人原因无法接单，将对我方和家长及学员均造成不良影响，诚意金将无法退回。', {
+			btn: ['重要','奇葩'] //按钮
+		}, function(){
+			layer.msg('的确很重要', {icon: 1});
+		}, function(){
+			layer.msg('也可以这样', {
+				time: 20000, //20s后自动关闭
+				btn: ['明白了', '知道了']
+			});
+		});
+	}
+</script>
 <script>
 	$(function() {
 
@@ -895,6 +1018,18 @@
 		margin-right: 36px;
 		border-bottom: 1px solid #FACC40;
 	}
+    .zqm_yuyuejy .right .bk {
+        width: 805px;
+        height: 50px;
+        border: 1px solid #e1e1e1;
+        border-bottom: none;
+        line-height: 50px;
+        display: flex;;
+    }
+    .clear{
+        zoom:1;
+    }
+    .clear:after{content:"";display:block;height:0;clear:both;visibility:hidden;}
 
 </style>
 </body>
