@@ -123,7 +123,7 @@ class payController extends Controller
      {
         $oid = $request->input('oid');
         $re = DB::table('jjw_order')->where('pay_id',$oid)->first();
-        //dd($re);
+        dd($re);
         if($re->pay == '1'){
             return 'ok';
         }else{
