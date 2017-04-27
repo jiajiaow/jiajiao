@@ -25,167 +25,195 @@
 
 <body class="gray-bg">
 @foreach($data as $data)
-    <div class="wrapper wrapper-content animated fadeInRight" style="overflow: scroll;">
-
-       <table border="1">
-       <thead>
-        <h1>订单号:{{ $data->id }}</h1>
-       </thead>
-       <form action="/admin/orderjc" method="post">
-       {{ csrf_field() }}
-       <input type="hidden" name="id" value="{{ $data->id }}"/>
-            <tr style="background: #fff">
-                <th>城市订单安排方式</th>
-                <td>{{ $data->city_name }}</td>
-                <td>
-                    <select name="ddzt" style="border:0;width: 100%; ">
-                        <option value="正常" >正常(默认)</option>
-                        <option value="协助" >协助</option>
-                        <option value="求助单" >求助单</option>
-                        <option value="特别关注" >特别关注</option>
-                    </select>
-                </td>
-                <td>
-                    <select name="jqzt" style="border:0;width: 100%; ">
-                        <option value="学期中" >学期中</option>
-                        <option value="暑假单" >暑假单</option>
-                        <option value="寒假单" >寒假单</option>
-                    </select>
-                </td>
-                <td>
-                    <select name="wzly" style="border:0;width: 100%; ">
-                        <option value="栗志" >栗志</option>
-                        <option value="德栗" >德栗</option>
-                        <option value="思敏" >思敏</option>
-                        <option value="教员介绍" >教员介绍</option>
-                        <option value="老家长" >老家长</option>
-                    </select>
-                </td>
-                <td>
-                   <select name="khly" style="border:0;width: 100%; ">
-                        <option value="58">58</option>
-                        <option value="58老客户">58老客户</option>
-                        <option value="360">360</option>
-                        <option value="360老客户">360老客户</option>
-                    </select>
-                </td>
-                <td>
-                    <select name="ap" style="border:0;width: 100%; ">
-                        <option value="系统安排（默认）">系统安排（默认）</option>
-                        <option value="人工安排">人工安排</option>
-                        <option value="满足条件">满足条件</option>
-                    </select>
-                </td>
-                <td>
-                    是否签约教员：
-                    <select name="tc_Signing" style="border:0;width: 100%; ">
-                        <option value="是">是</option>
-                        <option value="否">否</option>
-                    </select>
-                </td>
-                <td >
-                    <p>空</p>
-                </td>
-                <td><input type="submit" value="修改" name=""></td>
-            </tr>
+<table border="1">
+        <tr align="center">
+            <th>订单类型</th>
+            <th>用户信息</th>
+            <th>联系方式</th>
+            <th>需改需求信息</th>
+            <th>财务部分</th>
+            <th>管理员备注</th>
+            <th>订单状态</th>
+        </tr>
+        <tr valign="top" align="center">
+            <td>
+            <form action="/admin/orderjc" method="post">
+           {{ csrf_field() }}
+           <input type="hidden" name="id" value="{{ $data->id }}"/>
+                <div>
+                    <p>城市:{{ $data->city_name }}</p>
+                    <p>签约:
+                        <select name="tc_Signing">
+                            <option value="是" @if($data->tc_Signing == '是') selected = "selected" @endif>是</option>
+                            <option value="否" @if($data->tc_Signing == '否') selected = "selected" @endif>否</option>
+                        </select>
+                    </p>
+                    <p>入口:
+                        <select name="wzly">
+                            <option value="栗志" >栗志</option>
+                            <option value="德栗" >德栗</option>
+                            <option value="思敏" >思敏</option>
+                            <option value="教员介绍" >教员介绍</option>
+                            <option value="老家长" >老家长</option>
+                        </select>
+                    </p>
+                    <p>客户:
+                        <select name="khly">
+                            <option value="栗志" >栗志</option>
+                            <option value="德栗" >德栗</option>
+                            <option value="思敏" >思敏</option>
+                            <option value="教员介绍" >教员介绍</option>
+                            <option value="老家长" >老家长</option>
+                        </select>
+                    </p>
+                    <p>状态:
+                        <select name="ddzt" >
+                            <option value="正常" >正常(默认)</option>
+                            <option value="协助" >协助</option>
+                            <option value="求助单" >求助单</option>
+                            <option value="特别关注" >特别关注</option>
+                        </select>
+                    </p>
+                    <p>学期:
+                        <select name="jqzt" >
+                            <option value="学期中" >学期中</option>
+                            <option value="暑假单" >暑假单</option>
+                            <option value="寒假单" >寒假单</option>
+                        </select>
+                    </p>
+                    <p>安排:
+                        <select name="ap" >
+                            <option value="系统安排（默认）">系统安排（默认）</option>
+                            <option value="人工安排">人工安排</option>
+                            <option value="满足条件">满足条件</option>
+                        </select>
+                    </p>
+                    <p><a href="">有限条件项目</a></p>
+                    <p><input type="submit" name="" value="修改"></p>
+                </div>
+                </form>
+            </td>
+            <td>
+            <form action="/admin/orderxgyh" method="post">
+            <input type="hidden" name="id" value="{{ $data->id }}"/>
+            {{ csrf_field() }}
+                <div>
+                    <p>编号:{{ $data->user_id }}</p>
+                    <p>姓名:<input name="user_name" value="{{ $data->user_name }}"/></p>
+                    <p>时间:{{ date('Y-m-d H:i:s',$data->time) }}</p>
+                    <p>学员等级:</p>
+                    <p style="position:relative; height: 20px;">
+                        <span style="float: left">本单备注:</span>
+                    </p>
+                    <p>
+                        <textarea class="bj_msg_A" style="display: block" name='yhbz'>{{ $data->yhbz }}</textarea>
+                    </p>
+                    <p><input type="submit" value="修改"></p>
+                </div>
             </form>
+            </td>
+            <td>
             <form action="/admin/orderxgyh" method="post">
             {{ csrf_field() }}
             <input type="hidden" name="id" value="{{ $data->id }}"/>
-            <tr style="background: #e7eaec">
-                <th>联系方式</th>
-                <td>{{ $data->user_name }}</td>
-                <td>{{ $data->user_phone }}</td>
-                <td>{{ date('Y-m-d h:i:s',$data->time) }}</td>
-                <td>新家长/老家长</td>
-                <td>家长等级</td>
-                <td>
-                    备注<textarea name="yhbz">{{ $data->yhbz }}</textarea>
-                </td>
-                <td><input type="submit" value="提交修改"/></td>
-            </tr>
-            </form>
-            <form action="/admin/orderxgyh" method="post">
-            {{ csrf_field() }}
-            <input type="hidden" name="u_id" value="{{ $data->u_id }}"/>
-            <input type="hidden" name="o_id" value="{{ $data->id }}"/>
-            <tr style="background: #fff">
-                <th>客户信息</th>
-                <td>
+                <div>
+                    <p>电话:{{ $data->user_phone }}></p>
+                    <p>微信:<input type="text" name="wx" value="{{ $data->wx }}"></p>
+                    <p>QQ:<input type="text" name="qq" value="{{ $data->qq }}"></p>
+                    <p>年级:<input type="text" name="grade" value="{{ $data->grade }}"></p>
+                    <p>文理科:<input type="text" name="wlk" value="{{ $data->wlk }}"></p>
+                    <p>区域:<input type="text" name="dq" value="{{ $data->dq }}"></p>
+                    <p>地址:<input type="text" name="xx_dz" value="{{ $data->xx_dz }}"></p>
+                    <p>备用电话:<input type="text" name="user_byphone" value="{{ $data->user_byphone }}"></p>
+                    <p>学员性别:<br>(1=男|2=女|3男女不限)<input type="text" name="user_sex" value="{{ $data->user_sex }}"/></p>
+                    <p><input type="submit" name="" value="修改"></p>
 
-                    电话1:<input type="text" name="user_phone1" value="{{ $data->phone }}"/>
-                    电话2:<input type="text" name="user_phone2" value="{{ $data->phone2 }}"/>
-                    电话3:<input type="text" name="user_phone3" value="{{ $data->phone3 }}"/>
-                </td>
-                <td>微信:<input type="text" name="wx" value="{{ $data->wx }}"/></td>
-                <td>QQ:<input type="text" name="qq" value="{{ $data->qq }}"/></td>
-                <td><input type="text" name="grade" value="{{ $data->grade }}"/></td>
-                <td><input type="text" name="wlk" value="{{ $data->wlk }}"/></td>
-                <td><input type="text" name="user_sex" value="{{ $data->user_sex }}"/>(1=男|2=女|3男女不限)</td>
-                <td><input type="text" name="dq" value="{{ $data->dq }}"/></td>
-                <td><input type="text" name="xx_dz" value="{{ $data->xx_dz }}"/></td>
-                <td><input type="submit" value="提交修改"/></td>
-            </tr>
+                </div>
             </form>
+            </td>
+            <td>
             <form action="/admin/orderyy" method="post">
             {{ csrf_field() }}
             <input type="hidden" name="id" value="{{ $data->id }}"/>
-            <tr>
-                <th>修改需求信息</th>
-                <td>辅导科目<input type="text" name="subject_id" value="{{ $data->subject_id }}"></td>
-                <td>是否需要我们专业辅导 <select name="tc_Signing" ><option value="是" @if($data->tc_Signing == '是') selected="selected" @endif>是</option><option @if($data->tc_Signing == '否') selected="selected" @endif value="否" >否</option></select>
-                </td>
-                <td>时间安排:<input type="text" name="per_week" value="{{ $data->per_week }}"/></td>
-                <td>可授课时间：<textarea name="sk_times">{{ $data->sk_times}}</textarea></td>
-                <td>学员情况描述：<textarea  name="user_situation" >{{ $data->user_situation }}</textarea></td>
-                <td>对教员要求：<textarea name="teacher_info">{{ $data->teacher_info }}</textarea></td>
-                <td>选择教员性别:
-                <select name="teacher_sex">
-                    <option value="1" @if($data->teacher_sex == '1') selected="selected" @endif>男</option>
-                    <option value="2" @if($data->teacher_sex == '2') selected="selected" @endif>女</option>
-                    <option value="3" @if($data->teacher_sex == '3') selected="selected" @endif>男女不限</option>
-                </select></td>
-                <td>对教员性质：<select name="ls_type">
+                <div>
+                    <p style="width: 324px;">辅导科目:<input type="text" value="{{$data->subject_id}}" name="subject_id">
+                    <br>是否需要专业辅导:
+                        <select name="tc_Signing">
+                            <option value="是" @if($data->tc_Signing == '是') selected = "selected" @endif>是</option>
+                            <option value="否" @if($data->tc_Signing == '否') selected = "selected" @endif>否</option>
+                        </select>
+                    </p>
+                    <p>辅导类型:<select name="fdlx" >
+                        <option value="授课教学">授课教学</option>
+                        <option value="作业辅导">作业辅导</option>
+                        <option value="讲解疑难">讲解疑难</option>
+                    </select>
+                        接单教员：
+                    </p>
+                    <p>时间安排:<input type="text" name="per_week" value="{{ $data->per_week }}" style="width:220px;"></p>
+                    <p>授课时间:<input type="text" name="sk_times" value="{{ $data->sk_times }}" style="width:220px;"></p>
+                    <p>学员描述:<input type="text" name="user_situation" value="{{ $data->user_situation }}" style="width:220px;"></p>
+                    <p>教员要求:<input type="text" name="teacher_info" value="{{ $data->teacher_info }}" style="width:220px;"></p>
+                    <p>家长单价:<input type="text" name="money" value="{{ $data->money }}"></p>
+                    <p>教员单价:<p>{{ $data->money }}</p>
+                    <p>每周天数:<input type="text" name="o_ts" value="{{ $data->o_ts }}"></p>
+                    <p>每周小时:<input type="text" name="o_xs" value="{{ $data->o_xs }}"></p>
+                    <p>家长收费:@if($data->tc_Signing == '否'){{ $data->money*$data->o_xs }}@else 0 @endif</p>
+                    <p>教员课酬:<input type="text" value="{{ $data->money }}" ></p>
+                    <p>性别要求:
+                    <select name="teacher_sex">
+                        <option value="1" @if($data->teacher_sex == '1') selected="selected" @endif>男</option>
+                        <option value="2" @if($data->teacher_sex == '2') selected="selected" @endif>女</option>
+                        <option value="3" @if($data->teacher_sex == '3') selected="selected" @endif>男女不限</option>
+                    </select>
+                    性质要求:<select name="ls_type">
                                     <option value="大学生家教" @if($data->ls_type == '大学生家教') selected="selected" @endif>大学生家教</option>
                                     <option value="专职老师" @if($data->ls_type == '专职老师') selected="selected" @endif>专职老师</option>
                                     <option value="大学生专职老师均可" @if($data->ls_type == '大学生专职老师均可') selected="selected" @endif>大学生专职老师均可</option>
-                                </select></td>
-                <td>支付给老师的报酬:<input type="text" name="money" value="{{ $data->money }}" /></td>
-                <!--<td>家长支付给我们的报酬<select><option value="23"></option><option value="21"></option></select></td>-->
-                <td>接单教员编号<input type="teacher_id" name="teacher_id" value="{{ $data->teacher_id }}"/></td>
-                <td><input type="submit" value="提交修改"/></td>
-            </tr>
+                                </select>
+                    </p>
+                    <p><input type="submit" name="" value="修改"></p>
+
+                </div>
             </form>
-            <tr style="background: #fff">
-                <th>财务部分</th>
-                <td>预约总收费：<input type="text" name="money"></td>
-                <td>预计信息费:<input type="text" name="order_xxf"></td>
-                <td>家长服务费:<input type="text" name="order_jzfy"></td>
-                <td>周薪酬:<input type="text" name="order_zkc"></td>
-                <td>实际总收款:<span></span></td>
-                <td>收费差额:<input type="" name="money1"></td>
-                <td>收支流水<button>增加按钮</button><input type="text">
-                <input type="text">
-                <input type="text">
-                <input type="text">
-                <input type="text"></td>
-                <td><button>修改</button></td>
-            </tr>
-            <tr>
-                <th>管理员备注</th>
-                <td>前台生成</td>
-                <td>ip地址：25,232,432,643</td>
-                <td> <a href="">关联新单:123123</a> </td>
-                <td><a href="">关联老单:123123</a> </td>
-                <td><textarea name="beizuh"></textarea></td>
-                <td><button>新增备注</button></td>
-            </tr>
-            <form action="/admin/orderzt" method="post">
-            {{ csrf_field() }}
-            <input type="hidden" name="id" value="{{ $data->id }}"/>
-            <tr style="background: #fff">
-                <th>订单状态</th>
-                <td><p>接单教员编号<input type="text" name="teacher_id" value="{{ $data->teacher_id }}" /></p>修改状态
+            </td>
+            <td>
+                <div><?php $q = $data->o_ts*$data->o_xs*$data->money ?>
+                    <p>周薪酬:<input type="text" value="{{ $q }}" name="order_zkc"></p>
+                    <p>月薪酬:<input type="text" value="@if($data->o_ts == '1'){{ $q*4 }}@elseif($data->o_ts == '2'){{ $q*4 }}@elseif($data->o_ts == '3'){{ $q*4 }}@elseif($data->o_ts == '4'){{ $q*4 }}@elseif($data->o_ts == '5'){{ $q*4 }}@elseif($data->o_ts == '6'){{ $q*4 }}@elseif($data->o_ts == '7'){{ $q*4 }}@endif" name="order_ykc"></p>
+                    <p>预计总费用:<input type="text" value="@if($data->o_ts == '1'){{ $q*$data->bfb1+$data->fz_jzxxf }}@elseif($data->o_ts == '2'){{ $q*$data->bfb2+$data->fz_jzxxf }}@elseif($data->o_ts == '3'){{ $q*$data->bfb3+$data->fz_jzxxf }}@elseif($data->o_ts == '4'){{ $q*$data->bfb4+$data->fz_jzxxf }}@elseif($data->o_ts == '5'){{ $q*$data->bfb5+$data->fz_jzxxf }}@elseif($data->o_ts == '6'){{ $q*$data->bfb6+$data->fz_jzxxf }}@elseif($data->o_ts == '7'){{ $q*$data->bfb7+$data->fz_jzxxf }}@endif"name="money" style="width: 60px;"></p>
+                    <p>预计信息费:<input type="text" name="order_xxf" value="@if($data->o_ts == '1'){{ $q*$data->bfb1 }}@elseif($data->o_ts == '2'){{ $q*$data->bfb2 }}@elseif($data->o_ts == '3'){{ $q*$data->bfb3 }}@elseif($data->o_ts == '4'){{ $q*$data->bfb4 }}@elseif($data->o_ts == '5'){{ $q*$data->bfb5 }}@elseif($data->o_ts == '6'){{ $q*$data->bfb6 }}@elseif($data->o_ts == '7'){{ $q*$data->bfb7 }}@endif"style="width: 60px;"></p>
+                    <p>家长服务费:<input type="text" value="{{$data->fz_jzxxf}}" name="order_jzfy" style="width: 60px;"></p>
+                    <p>实际收款总额:<input type="text" name="sjsk" style="width:40px;"></p>
+                    <p>收费差额:<input type="text" name="sfc" style="width:70px;"></p>
+                    <p ><button class="showBtn" onclick='seeId({{ $data->user_id }})'>新增收支</button></p>
+                    <p><input type="submit" name="" value="修改"></p>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    <p>前台生成</p>
+                    <p>ip地址:广州</p>
+                    <p>关联新单:<input type="text" name=""></p>
+                    <p>关联老单:<input type="text" name=""></p>
+                    <p>关联原单:<input type="text" name=""></p>
+                    <p style="position:relative; height: 20px;">
+                        <span style="float: left">本单备注:</span>
+                        <span style="float: right" class="bj_btn">编辑</span>
+                    </p>
+                    <p>
+                        <textarea class="bj_msg" style="display: block"  name='ddbz'>
+                        </textarea>
+                    </p>
+                    <p><input type="submit" name="" value="修改"></p>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    <p><a href="/admin/orderyyrs/{{ $data->id }}" style="font-size:24px;color: red;">{{ $data->yynum }}</a>|<a href="">生成信息模板</a></p>
+                    <p>状态:
                     <select name="ht_status">
                         <option value="0" @if($data->ht_status == '0') selected='selected' @endif>新家教</option>
                         <option value="1" @if($data->ht_status == '1') selected='selected' @endif>待处理</option>
@@ -197,27 +225,89 @@
                         <option value="7" @if($data->ht_status == '7') selected='selected' @endif>关闭生成新单</option>
                         <option value="8" @if($data->ht_status == '8') selected='selected' @endif>关闭</option>
                     </select>
-                </td>
-                <td>所有应聘人数（<a href="/admin/orderyyrs/{{ $data->id }}" style="font-size:24px;color: red;">{{ $data->yynum }}</a>）</td>
-                <td>试课时间：<input type="text" ></td>
-                <td>电子合同/合同上传(纸质)</td>
-                <td>本单授课订单</td>
-                <td>状态变化情况与时间</td>
-                <td><a href="">当前显示</a>/<a href="">当前屏蔽</a> |<a href="">删除（扔入垃圾箱，可恢复</a> )</td>
-                <td>试课地点：<input type="text" ></td>
-                <td><a href="">前台查看此家教</a></td>
-                <td><a href="">设置vip</a>/<a href="">解除vip</a></td>
-                <td><button>信息发布模板</button></td>
-            </tr>
-            </form>
-        </table>
+                        <button>查看</button>
+                    </p>
+                    <p>试课时间:<input type="" name=""></p>
+                    <p>试课地点:<input type="" name=""></p>
+                    <p><a href="">电子合同</a>|<a href="">本单授课订单</a></p>
+                    <p><a href="">前台查看次家教</a><button class="VIP" >设置为vip</button></p>
+                    <p>
+                        <a href="">显示</a>|
+                        <a href="">屏蔽</a>|
+                        <a href="">非置顶</a>|
+                        <a href="">推送</a>|
+                        <a href="">删除</a>
+                    </p>
+                    <p><button >本单收支流水</button></p>
+
                 </div>
+            </td>
+
+        </tr>
+</table>
+    <div class="fc" style="display: none;"></div>
+    <div class="showFc" style="display: none;" >
+    <form action="/admin/jzorder">
+        <div style="width:70%; margin:0 auto; margin-top: 25px;" >
+    <input name="user_id" value=""/>
+            <p>客户类型：
+                <select name="" id="">
+                    <option>家长</option>
+                    <option>家教</option>
+                    <option>机构</option>
+                    <option>对方协助</option>
+                    <option>我方协助</option>
+                </select>
+            </p>
+            <p>名字:<input type="" name=""  style="border:1px solid #a2a2a2;"></p>
+            <p>收支方式
+                <select>
+                    <option value="">收款</option>
+                    <option value="">付款</option>
+                </select>
+            </p>
+            <p>收支款金额：<input type="text" name="" style="border:1px solid #a2a2a2;"></p>
+
+            <p></p>
+            <div class="DD_name">
+
+                <p>付款方式:
+                    <select>
+                        <option value="">支付宝</option>
+                        <option value="">微信</option>
+                        <option value="">淘宝</option>
+                        <option value="">银行卡</option>
+                        <option value="">小程序</option>
+                    </select>
+                </p>
+                <p>我方名字:<input type="text" name=""></p>
+                <p>我方账号：<input type="text" name=""></p>
+                <p>付款方式:
+                    <select>
+                        <option value="">支付宝</option>
+                        <option value="">微信</option>
+                        <option value="">淘宝</option>
+                        <option value="">银行卡</option>
+                        <option value="">小程序</option>
+                    </select>
+                </p>
+                <p>对方名字:<input type="text" name=""></p>
+                <p>对方账号：<input type="text" name=""></p>
             </div>
-        </div>
 
-
+            <p><span style="    display: inherit;">备注：</span><textarea name="" id="" ></textarea></p>
+            <P>订单号<input type="text" name=""></P>
+            <p>时间<input type="text" name="time" style="border:1px solid #a2a2a2; width:200px; " placeholder="时间格式:2017-5-1  12:30"></p>
+            <p style="padding: 10px;"><input type="submit" name="" value="确定" style="width: 121px;height:32px;"></p>
+        </form>
     </div>
+    </div>
+<hr>
+<script>
+    window.usid = {{ $data->user_id }}
+</script>
 @endforeach
+
     <!-- 全局js -->
     <script src="js/jquery.min.js?v=2.1.4"></script>
     <script src="js/bootstrap.min.js?v=3.3.6"></script>
@@ -236,9 +326,10 @@
 
     <!-- Page-Level Scripts -->
     <script>
+
         $(document).ready(function () {
             $('.dataTables-example').dataTable();
-
+        alert(usid)
             /* Init DataTables */
             var oTable = $('#editable').dataTable();
 
@@ -261,7 +352,9 @@
 
 
         });
-
+        function seeId(id){
+            alert(id)
+        }
         function fnClickAddRow() {
             $('#editable').dataTable().fnAddData([
                 "Custom row",
@@ -271,6 +364,57 @@
                 "New row"]);
 
         }
+                $('.showBtn').click(function(){
+            $('.fc').show(500)
+            $('.showFc').show(500)
+
+        })
+        $('.fc').click(function(){
+            $('.fc').hide(500)
+            $('.showFc').hide(500)
+        })
+
+    $('.bj_btn').click(function(){
+        var bjmsg = $('.bj_msg').css('display')
+        if(bjmsg =='none'){
+
+            $('.bj_msg').show()
+            $('.bj_msgS').hide()
+
+            var a = $('.bj_msg_A').val()
+            $('.bj_msgS_B').text(a)
+        }else{
+            $('.bj_msg').hide()
+            $('.bj_msgS').show()
+
+        }
+
+    })
+    $('.bj_btn_S').click(function(){
+        var bjmsg = $('.bj_msg_A').css('display')
+        if(bjmsg =='none'){
+            $('.bj_msg_A').show()
+            $('.bj_msgS_B').hide()
+            var b = $('.bj_msg').val()
+            $('.bj_msgS').text(b)
+
+        }else{
+            $('.bj_msg_A').hide()
+            $('.bj_msgS_B').show()
+
+        }
+
+    })
+
+    $('.VIP').click(function(){
+
+        if($(this).html() == '设置为vip'){
+            $(this).html('解除vip')
+        }else{
+            $(this).html('设置为vip')
+        }
+    })
+
     </script>
 
     <style type="text/css">
@@ -289,9 +433,28 @@
             background:#e7eaec;
             }
 
-
+        .fc{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.86);
+            top: 0;
+            left: 0;
+        }
+        .showFc {
+            position: fixed;
+            width: 800px;
+            height: 500px;
+            background-color: #fff;
+            left: 50%;
+            top: 50%;
+            margin-left: -400px;
+            margin-top: -225px;
+        }
     </style>
+    <script type="text/javascript">
 
+    </script>
 
 </body>
 

@@ -94,6 +94,7 @@ class Controller extends BaseController
             if($zy == 'lizhijiajiao'){
                 $re = DB::table('jjw_position_city')->where('prefix',$qz)->first();
                 //模板
+
                 session(['Template' => '1']);
                 //地区id
                 session(['regionid' => $re->city_id]);

@@ -13,13 +13,12 @@ class orderController extends Controller
         $data = DB::table('jjw_order as order')
             ->join('jjw_position_city', 'jjw_position_city.city_id', '=', 'order.city_id')
             ->join('jjw_user as u','u.u_id','=','order.user_id')
-            ->select('order.*','u.*','jjw_position_city.city_name', 'jjw_position_city.city_id')
+            ->select('order.*','u.*','jjw_position_city.fz_jzxxf','jjw_position_city.city_name','jjw_position_city.fz_vip','jjw_position_city.fz_qyjyfy','jjw_position_city.bfb1','jjw_position_city.bfb2','jjw_position_city.bfb3','jjw_position_city.bfb4','jjw_position_city.bfb5','jjw_position_city.bfb6','jjw_position_city.bfb7')
             ->where('user_reboot','1')
             ->orderBy('order.time', 'desc')
             ->paginate(10);
             //dd($data);
         return view('admin.order',['data' => $data]);
-
     }
     //订单基础修改
     public function orderjc(Request $request)
@@ -34,20 +33,23 @@ class orderController extends Controller
     public function orderxgyh(Request $request)
     {
         //dd($request->all());
-        $u_id = $request->input('u_id');
-        $o_id = $request->input('o_id');
-        $phone = $request->input('user_phone1');
-        $phone2 = $request->input('user_phone2');
-        $phone3 = $request->input('user_phone3');
-        DB::table('jjw_user')->where('u_id',$u_id)->update(['phone' => $phone,'phone2' => $phone2,'phone3' => $phone3]);
-        $all = $request->all();
-        $all = $request->except('_token','o_id','u_id','user_phone1','user_phone2','user_phone3');
+        //$u_id = $request->input('u_id');
+        $o_id = $request->input('id');
+        // $phone = $request->input('user_phone1');
+        // $phone2 = $request->input('user_phone2');
+        // $phone3 = $request->input('user_phone3');
+        // DB::table('jjw_user')->where('u_id',$u_id)->update(['phone' => $phone,'phone2' => $phone2,'phone3' => $phone3]);
+        //$all = $request->all();
+        $all = $request->except('_token');
+        //dd($all,$o_id);
         DB::table('jjw_order')->where('id',$o_id)->update($all);
+        //dd($a);
         return back();
     }
     //修改订单要求
     public function orderyy(Request $request)
     {
+        //dd($request->all());
         $id = $request->input('id');
         $all = $request->all();
         $all = $request->except('_token');
