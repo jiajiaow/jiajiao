@@ -115,7 +115,8 @@
 								<label for="">
 									<img src="{{ asset('/home/picture/icon_mail.png') }}">
 								</label>
-								<input  id="uname" type="text" name="phone" placeholder="手机号" maxlength="11" >
+								<input  id="uname2" type="text" name="phone" placeholder="手机号" maxlength="11" >
+								<input  id="zts" type="hidden"  value="2">
 							</div>
 
 							<div class="fg">
@@ -325,7 +326,25 @@
 				console.log(result);
 			}
 		});
-
+	}
+	function getCodes(){
+		var phone=$('#uname2').val();
+		$.ajax({
+			type:"POST",
+			url:"/docode.html",
+			data:{"phone":phone,"zt":'登录'},
+			contentType: "application/x-www-form-urlencoded; charset=utf8",
+			success:function(result){
+				if({{ session('Template') }} == '1'){
+					layer.alert('请注意查收短信!',{icon: 4,time:2000});
+				}else{
+					layer.alert('请注意查收短信!',{icon: 3,time:2000});
+				}
+			},
+			error:function(result,status){
+				console.log(result);
+			}
+		});
 	}
 </script>
 </html>
