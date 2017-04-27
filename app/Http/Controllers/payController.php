@@ -21,7 +21,7 @@ class payController extends Controller
         return $content;
     }
     //回调函数
-    public function callback()
+    public function callback(Request $request)
     {
 
         date_default_timezone_set('PRC');
