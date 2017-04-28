@@ -263,7 +263,7 @@
 								</div>
 								<div class="right">
 									需补/需退信息费：
-									@if($skzs->o_ts == '1')
+									{{--@if($skzs->o_ts == '1')
 										{{$skzs->money*$skzs->o_xs-($q*$skzs->bfb1>300?'300':$q*$skzs->bfb1) }}
 									@elseif($skzs->o_ts == '2')
 										{{ $skzs->money*$skzs->o_xs-($q*$skzs->bfb2>300?'300':$q*$skzs->bfb2) }}
@@ -277,7 +277,8 @@
 										{{ $skzs->money*$skzs->o_xs-($q*$skzs->bfb6>300?'300':$q*$skzs->bfb6) }}
 									@elseif($skzs->o_ts == '7')
 										{{ $skzs->money*$skzs->o_xs-($q*$skzs->bfb7>300?'300':$q*$skzs->bfb7) }}
-									@endif元
+									@endif元--}}
+									{{ $skzs->money*$skzs->o_xs-$skzs->xxf }}
 								</div>
 							</div>
 							<div class="pm">
