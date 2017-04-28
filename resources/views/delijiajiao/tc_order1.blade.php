@@ -221,35 +221,38 @@
                         </div>
                     </div>
                     <div class="bk2">
-                        <a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#000">
+                        <a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank">
                                 <form action="/tc_qxorder.html" method="post" style="display: inline-block;">
                                     <input type="hidden" name="oid" value="{{ $yaps->id }}">
                                     <input type="hidden" name="tc_id" value="{{ $yaps->tc_id }}">
                                     <button type="submit" style="border: none;height: 30px;line-height: 30px;border-radius: 2px;background: #fff0;">取消预约</button>
                                 </form>
-                        </a>|</font>
-                        <a style="margin-left: 60px;margin-right: 60px;" href="javascript:;" onclick="cyjs()"><font color="#000">
-                                <form action="/cyj.html" method="post" id="cyj">
-                                    <a style="margin-left: 60px;margin-right: 60px;" href="javascript:;" onclick="cyj({{ $yaps->id }})"><font color="#FF0000">
+                        </a>|
+                        <a style=";" href="javascript:;" onclick="cyjs()">
+                                <form action="/cyj.html" method="post" id="cyj" style="display: inline-block;">
+                                    <a style="" href="javascript:;" onclick="cyj({{ $yaps->id }})">
                                             <input type="hidden" name="order_id" value="{{ $yaps->id }}">
                                             <input type="hidden" name="rid" value="{{ $yaps->rid }}">
                                             <input type="hidden" name="xxf" value="@if($yaps->o_ts == '1'){{ $q*$yaps->bfb1>300?'300':$q*$yaps->bfb1 }}@elseif($yaps->o_ts == '2'){{ $q*$yaps->bfb2>300?'300':$q*$yaps->bfb2 }}@elseif($yaps->o_ts == '3'){{ $q*$yaps->bfb3>300?'300':$q*$yaps->bfb3 }}@elseif($yaps->o_ts == '4'){{ $q*$yaps->bfb4>300?'300':$q*$yaps->bfb4 }}@elseif($yaps->o_ts == '5'){{ $q*$yaps->bfb5>300?'300':$q*$yaps->bfb5 }}@elseif($yaps->o_ts == '6'){{ $q*$yaps->bfb6>300?'300':$q*$yaps->bfb6 }}@elseif($yaps->o_ts == '7'){{ $q*$yaps->bfb7>300?'300':$q*$yaps->bfb7 }}@endif">
                                                 支付诚意金优先获取订单
-                                    </font></a>|
+                                    </a>|
                                 </form>
-                        @if($yaps->ht_t_status =='3')
-                            <form action="/xxf.html" method="post" id="xxf">
-                                     <a style="margin-left: 60px;margin-right: 60px;" href="javascript:;" onclick="qr({{ $yaps->id }})"><font color="#FF0000">
-                                        <input type="hidden" name="order_id" value="{{ $yaps->id }}">
-                                        <input type="hidden" name="rid" value="{{ $yaps->rid }}">
-                                        <input type="hidden" name="xxf" value="@if($yaps->o_ts == '1'){{ $q*$yaps->bfb1>300?'300':$q*$yaps->bfb1 }}@elseif($yaps->o_ts == '2'){{ $q*$yaps->bfb2>300?'300':$q*$yaps->bfb2 }}@elseif($yaps->o_ts == '3'){{ $q*$yaps->bfb3>300?'300':$q*$yaps->bfb3 }}@elseif($yaps->o_ts == '4'){{ $q*$yaps->bfb4>300?'300':$q*$yaps->bfb4 }}@elseif($yaps->o_ts == '5'){{ $q*$yaps->bfb5>300?'300':$q*$yaps->bfb5 }}@elseif($yaps->o_ts == '6'){{ $q*$yaps->bfb6>300?'300':$q*$yaps->bfb6 }}@elseif($yaps->o_ts == '7'){{ $q*$yaps->bfb7>300?'300':$q*$yaps->bfb7 }}@endif">
-                                             {{--<input type="hidden" name="xxf" value="0.01">--}}
-                                             确定获取订单
-                                </font></a>
-                            </form>
-                        @else
-                            <a style="margin-left: 60px;margin-right: 60px;" ><font color="#dadada">确认获取订单</font></a>
-                        @endif
+                          </a>
+                        <a>
+                            @if($yaps->ht_t_status =='3')
+                                <form action="/xxf.html" method="post" id="xxf" style="display: inline-block;">
+                                         <a style="margin-left: 60px;margin-right: 60px;" href="javascript:;" onclick="qr({{ $yaps->id }})">
+                                            <input type="hidden" name="order_id" value="{{ $yaps->id }}">
+                                            <input type="hidden" name="rid" value="{{ $yaps->rid }}">
+                                            <input type="hidden" name="xxf" value="@if($yaps->o_ts == '1'){{ $q*$yaps->bfb1>300?'300':$q*$yaps->bfb1 }}@elseif($yaps->o_ts == '2'){{ $q*$yaps->bfb2>300?'300':$q*$yaps->bfb2 }}@elseif($yaps->o_ts == '3'){{ $q*$yaps->bfb3>300?'300':$q*$yaps->bfb3 }}@elseif($yaps->o_ts == '4'){{ $q*$yaps->bfb4>300?'300':$q*$yaps->bfb4 }}@elseif($yaps->o_ts == '5'){{ $q*$yaps->bfb5>300?'300':$q*$yaps->bfb5 }}@elseif($yaps->o_ts == '6'){{ $q*$yaps->bfb6>300?'300':$q*$yaps->bfb6 }}@elseif($yaps->o_ts == '7'){{ $q*$yaps->bfb7>300?'300':$q*$yaps->bfb7 }}@endif">
+                                                 {{--<input type="hidden" name="xxf" value="0.01">--}}
+                                                 确定获取订单
+                                        </a>
+                                </form>
+                            @else
+                                <a style="margin-left: 60px;margin-right: 60px;" >确认获取订单</a>
+                            @endif
+                        </a>
                     </div>
                 </div>
             @endforeach

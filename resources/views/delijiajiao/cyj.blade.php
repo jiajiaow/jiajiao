@@ -84,7 +84,7 @@
 	<!-- 主体部分 -->
 	<div id="zhen_container">
 		<!--支付界面 -->
-		<form action="" method="">
+		<form action="" method="post" id="cyj">
 		<div class="zfjm">
 			<div class="zfjm-c">
 				<!-- 第一部分 -->
@@ -117,14 +117,18 @@
 							<p style="font-size:16px;padding-left:65px;">如订单已安排，未选中您，诚意金立即退回，最迟2天即可全额退回。</p>
 						</div>
 						<div class="d-h" id='caozz'>
-							<input type="hidden" name="cjy" vlaue="1">
+							<input type="hidden" name="cyj" vlaue="1">
+							<input readonly="readonly" type="hidden" class="d-jine" name="order_id" value="{{ $data['order_id'] }}">
+							<input readonly="readonly" type="hidden" class="d-jine" name="cyj" value="1">
+							<input readonly="readonly" type="hidden" class="d-jine" name="r_id" value="{{ $data['rid'] }}">
 							<select class="d-jine" name="money">
-								<option vlaue="50">50元</option>
-								<option vlaue="30">30元</option>
-								<option vlaue="80">80元</option>
-								<option vlaue="100">100元</option>
-								<option vlaue="200">200元</option>
-								<option vlaue="300">300元</option>
+								<option value="0.01">0.01元</option>
+								<option value="50">50元</option>
+								<option value="30">30元</option>
+								<option value="80">80元</option>
+								<option value="100">100元</option>
+								<option value="200">200元</option>
+								<option value="300">300元</option>
 							</select>
 						</div>
 					</div>
@@ -156,7 +160,7 @@
 					</div>
 					<div class="jiaoshenme">
 						<div style="height:50px;margin-top:35px;">
-							<div id="bao" class="zfb zfb1">
+							<div id="bao" class="zfb zfb1 ac_tive">
 								<img src="/new/images/zhifubao.png">
 								<!-- 支付宝是跳转 -->
 								<span id='tiaozhuan'>支付宝支付</span>
@@ -174,7 +178,7 @@
 					<span class='cz-2'>德栗家教</span>
 					<label class="cz-3" style="margin-bottom:0px;">应付：</label>
 					<span id='bn' class='cz-4'>￥000</span>
-					<input class="cz-5" type="submit" value="立即支付">
+					<input class="cz-5" type="submit" value="立即支付" onclick="zf()">
 				</div>
 			</div>
 		</div>
@@ -222,9 +226,9 @@
 				   .siblings('#wei').css('border','1px solid #BEBEBE')
 		})
 		// 支付宝的跳转链接
-		$('#tiaozhuan').click(function(){
+		/*$('#tiaozhuan').click(function(){
 			window.location.href=''
-		})
+		})*/
 		$('#xx').click(function(){
 			$('#xxx').css('display','block')
 					 .siblings('#cyy').css('display','none')
@@ -240,14 +244,39 @@
 					 .siblings('#cyy').css('display','none')
 					 .siblings('#xxx').css('display','none')
 		})
-		$('#i-jinge').blur(function(){
-			let zhi = $(this).val();
+		$(document).on('change','.d-jinge',function(){
+			var zhi = $('.d-jinge  option:selected').val()
 			console.log(zhi);
 			$('#cnm').text('费用'+zhi+'元');
 			$('#cnmm').text('费用'+zhi+'元');
 			$('#cnmmm').text('费用'+zhi+'元');
 			$('#bn').text('￥'+zhi+'元');
 		})
+		$(".d-jine").change(function(){
+			var zhi = $('.d-jine  option:selected').val()
+			$('#cnm').text('费用'+zhi);
+			$('#cnmm').text('费用'+zhi);
+			$('#cnmmm').text('费用'+zhi);
+			$('#bn').text('￥'+zhi);
+		});
+		$('#wei').click(function(){
+			$('#wei').addClass('ac_tive')
+			$('#bao').removeClass('ac_tive')
+		})
+		$('#bao').click(function(){
+			$('#bao').addClass('ac_tive')
+			$('#wei').removeClass('ac_tive')
+		})
+		function zf(){
+			//alert($('.ac_tive span').text());
+			if($('.ac_tive span').text() == '支付宝支付'){
+				var path = "/alipay";
+				$('#cyj').attr("action", path).submit();
+			}else{
+				var path = "/wechatpay";
+				$('#cyj').attr("action", path).submit();
+			}
+		}
 	</script>
 </body>
 </html>

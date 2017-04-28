@@ -20,7 +20,7 @@ class tcinfoController extends Controller
     }
     //我预约的单之安排中
     public function tc_order1(){
-        if (session('tc_name')== null || session('tc_phone') == null) {
+        if (session('tc_phone') == null) {
             return redirect('/login.html')->with('msg', '请您先登录!');
         }
         //安排中

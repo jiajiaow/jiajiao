@@ -37,13 +37,17 @@ class payController extends Controller
         if($signs == $sign){
             DB::table('jjw_order')->where('pay_id',$oid)->update(['pay' => '1']);
             DB::table('jjw_reorder')->where('pay_id',$oid)->update(['pay_zt' => '1','qt_t_status'=>'4','ht_t_status'=>'7','jd_times'=>time()]);
+            DB::table('jjw_reorder')->where('pay_id',$oid)->update(['pay_zt' => '1','qt_t_status'=>'4','ht_t_status'=>'7','jd_times'=>time()]);
         }
     }
     //支付宝
     public function alipay(Request $request)
     {
-        //rid
+        //dd($request);
+        //信息费rid
         $rid = $request->input('rid') ==''?'':$request->input('rid');
+        //诚意金r_id
+        $r_id = $request->input('r_id') ==''?'':$request->input('r_id');
         //dd($rid);
         //本地订单id
         $id = $request->input('order_id');
@@ -75,6 +79,11 @@ class payController extends Controller
              if($rid != ''){
                  DB::table('jjw_reorder')->where('id',$rid)->where('oid',$id)->update(['pay_id' => $oid,'xxf'=>$price]);
              }
+             //诚意金
+             if($r_id != ''){
+                 DB::table('jjw_reorder')->where('id',$r_id)->where('oid',$id)->update(['pay_id' => $oid,'cyj'=>$price]);
+             }
+
              DB::table('jjw_reorder')->where('id',$id)->update(['pay_id' => $oid]);
              //DB::table('jjw_reorder')->where('id',$id)->update(['pay_id' => $oid]);
              if($json['data']['sign'] == ''){
