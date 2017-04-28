@@ -81,6 +81,10 @@
                                 <a class="J_menuItem" href="/admin/xsdd">学员订单</a>
                             </li>
                             <li>
+                                <a class="J_menuItem" href="/admin/htjyk">教员库</a>
+                            </li>
+
+                            <li>
                                 <a class="J_menuItem" href="/admin/fbdd">发布订单</a>
                             </li>
                         </ul>

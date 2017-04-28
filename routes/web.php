@@ -292,5 +292,7 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::get('/do_hot_area/{id?}/{zt?}','admin\hotController@do_hot_area');
     //处理热门大学
     Route::get('/do_hot_school/{id?}/{zt?}','admin\hotController@do_hot_school');
+    //教员库
+    Route::any('/htjyk','admin\htjykController@index');
 });
 //----------后台END----------//
