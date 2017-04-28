@@ -90,7 +90,7 @@ class tcinfoController extends Controller
             ->where('o.city_id', session('regionid'))
             ->where('r.tc_id', session('tc_id'))
             ->where('r.qt_t_status', '4')
-            ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.ht_t_status','r.id as rid','r.add as radd','pc.fz_jzxxf','pc.city_name','pc.fz_vip','pc.fz_qyjyfy','pc.bfb1','pc.bfb2','pc.bfb3','pc.bfb4','pc.bfb5','pc.bfb6','pc.bfb7')
+            ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.jd_times','r.ht_t_status','r.id as rid','r.add as radd','pc.fz_jzxxf','pc.city_name','pc.fz_vip','pc.fz_qyjyfy','pc.bfb1','pc.bfb2','pc.bfb3','pc.bfb4','pc.bfb5','pc.bfb6','pc.bfb7')
             ->paginate(2);
         $num = $skz->lastPage();
         $nextpage = $num - $skz->currentPage() == 0 ? $num : $skz->currentPage() + 1;

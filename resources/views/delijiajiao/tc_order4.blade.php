@@ -149,8 +149,8 @@
 						<div class="right">{{ $skzs->id }}<a href="/xsinfo{{ $skzs->id }}.html" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
 					</div>
 					<div class="bk">
-						<div class="left">接单时间</div>
-						<div class="right"></div>
+						<div class="left">接单时间</div><?php date_default_timezone_set('Asia/Shanghai'); ?>
+						<div class="right">{{ date("Y-m-d h:i:s",$skzs->jd_times) }}</div>
 					</div>
 					<div class="bk zqm">
 						<div class="left">试课时间</div>

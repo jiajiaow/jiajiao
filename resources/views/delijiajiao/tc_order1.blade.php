@@ -228,14 +228,22 @@
                                     <button type="submit" style="border: none;height: 30px;line-height: 30px;border-radius: 2px;background: #fff0;">取消预约</button>
                                 </form>
                         </a>|</font>
-                        <a style="margin-left: 60px;margin-right: 60px;" href="javascript:;" onclick="cyjs()"><font color="#000">支付诚意金优先获取订单</font></a>|
+                        <a style="margin-left: 60px;margin-right: 60px;" href="javascript:;" onclick="cyjs()"><font color="#000">
+                                <form action="/cyj.html" method="post" id="cyj">
+                                    <a style="margin-left: 60px;margin-right: 60px;" href="javascript:;" onclick="cyj({{ $yaps->id }})"><font color="#FF0000">
+                                            <input type="hidden" name="order_id" value="{{ $yaps->id }}">
+                                            <input type="hidden" name="rid" value="{{ $yaps->rid }}">
+                                            <input type="hidden" name="xxf" value="@if($yaps->o_ts == '1'){{ $q*$yaps->bfb1>300?'300':$q*$yaps->bfb1 }}@elseif($yaps->o_ts == '2'){{ $q*$yaps->bfb2>300?'300':$q*$yaps->bfb2 }}@elseif($yaps->o_ts == '3'){{ $q*$yaps->bfb3>300?'300':$q*$yaps->bfb3 }}@elseif($yaps->o_ts == '4'){{ $q*$yaps->bfb4>300?'300':$q*$yaps->bfb4 }}@elseif($yaps->o_ts == '5'){{ $q*$yaps->bfb5>300?'300':$q*$yaps->bfb5 }}@elseif($yaps->o_ts == '6'){{ $q*$yaps->bfb6>300?'300':$q*$yaps->bfb6 }}@elseif($yaps->o_ts == '7'){{ $q*$yaps->bfb7>300?'300':$q*$yaps->bfb7 }}@endif">
+                                                支付诚意金优先获取订单
+                                    </font></a>|
+                                </form>
                         @if($yaps->ht_t_status =='3')
                             <form action="/xxf.html" method="post" id="xxf">
                                      <a style="margin-left: 60px;margin-right: 60px;" href="javascript:;" onclick="qr({{ $yaps->id }})"><font color="#FF0000">
                                         <input type="hidden" name="order_id" value="{{ $yaps->id }}">
                                         <input type="hidden" name="rid" value="{{ $yaps->rid }}">
-                                        {{--<input type="hidden" name="xxf" value="@if($yaps->o_ts == '1'){{ $q*$yaps->bfb1>300?'300':$q*$yaps->bfb1 }}@elseif($yaps->o_ts == '2'){{ $q*$yaps->bfb2>300?'300':$q*$yaps->bfb2 }}@elseif($yaps->o_ts == '3'){{ $q*$yaps->bfb3>300?'300':$q*$yaps->bfb3 }}@elseif($yaps->o_ts == '4'){{ $q*$yaps->bfb4>300?'300':$q*$yaps->bfb4 }}@elseif($yaps->o_ts == '5'){{ $q*$yaps->bfb5>300?'300':$q*$yaps->bfb5 }}@elseif($yaps->o_ts == '6'){{ $q*$yaps->bfb6>300?'300':$q*$yaps->bfb6 }}@elseif($yaps->o_ts == '7'){{ $q*$yaps->bfb7>300?'300':$q*$yaps->bfb7 }}@endif">--}}
-                                             <input type="hidden" name="xxf" value="0.01">
+                                        <input type="hidden" name="xxf" value="@if($yaps->o_ts == '1'){{ $q*$yaps->bfb1>300?'300':$q*$yaps->bfb1 }}@elseif($yaps->o_ts == '2'){{ $q*$yaps->bfb2>300?'300':$q*$yaps->bfb2 }}@elseif($yaps->o_ts == '3'){{ $q*$yaps->bfb3>300?'300':$q*$yaps->bfb3 }}@elseif($yaps->o_ts == '4'){{ $q*$yaps->bfb4>300?'300':$q*$yaps->bfb4 }}@elseif($yaps->o_ts == '5'){{ $q*$yaps->bfb5>300?'300':$q*$yaps->bfb5 }}@elseif($yaps->o_ts == '6'){{ $q*$yaps->bfb6>300?'300':$q*$yaps->bfb6 }}@elseif($yaps->o_ts == '7'){{ $q*$yaps->bfb7>300?'300':$q*$yaps->bfb7 }}@endif">
+                                             {{--<input type="hidden" name="xxf" value="0.01">--}}
                                              确定获取订单
                                 </font></a>
                             </form>
@@ -277,22 +285,19 @@
     <script type="text/javascript" src="{{ asset('/layer/layer.js') }}"></script>
 </body>
     <script>
-        function cyjs(){
+        function cyj(){
             layer.confirm('如你确认本单各方面均合适，支付诚意金（一般为50元，你也可根据意愿程度进行修改），我方将优先安排。如本单未选中你，锁定的诚意金将实时退回你的账户余额（2天为限，如我们仍未能在已预约教员中挑选出学员满意的教员，诚意金也将退回），诚意金随时可进行提现，提现金额将于24小时内收到。如挑选你接单，但你因个人原因无法接单，将对我方和家长及学员均造成不良影响，诚意金将无法退回。', {
                 btn: ['确定','取消'] //按钮
             }, function(){
-                window.location.href='top_up.html';
+                document.getElementById("cyj").submit();
             }, function(){
-                layer.msg('也可以这样', {
-                    time: 20000, //20s后自动关闭
-                    btn: ['明白了', '知道了']
-                });
+
             });
         }
         //确认获取
         function qr(oid){
             layer.confirm('恭喜！！你成为众多预约教员中通过审核的教员之一，首位支付信息费的教员将成功接单，获取家长的联系方式。如已有教员支付，则本订单状态将自动更改为已安排，无法再安排其他已审核教员。未能成功接单的教员请在下次通过审核时第一时间支付信息费。温馨提示：先预约的教员将获得优先审核权，请及时关注并预约家教订单哦！', {
-                btn: ['重要','奇葩'] //按钮
+                btn: ['确定','取消'] //按钮
             }, function(){
                /* var money = $('#yff').html();
                 $.post("/tc_top_ups.html",{'oid':oid,'money':money},function(result){
@@ -300,10 +305,7 @@
                 });*/
                 document.getElementById("xxf").submit();
             }, function(){
-                layer.msg('也可以这样', {
-                    time: 20000, //20s后自动关闭
-                    btn: ['明白了', '知道了']
-                });
+
             });
         }
     </script>

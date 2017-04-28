@@ -36,7 +36,7 @@ class payController extends Controller
         $signs = md5($oid.$token);
         if($signs == $sign){
             DB::table('jjw_order')->where('pay_id',$oid)->update(['pay' => '1']);
-            DB::table('jjw_reorder')->where('pay_id',$oid)->update(['pay_zt' => '1','qt_t_status'=>'4','ht_t_status'=>'7']);
+            DB::table('jjw_reorder')->where('pay_id',$oid)->update(['pay_zt' => '1','qt_t_status'=>'4','ht_t_status'=>'7','jd_times'=>time()]);
         }
     }
     //支付宝
@@ -91,6 +91,8 @@ class payController extends Controller
      //微信pay
     public function wechatpay(Request $request)
     {
+        //rid
+        $rid = $request->input('rid') ==''?'':$request->input('rid');
         //$url = session('_previous');
         //dd($url);
         dd($request);
@@ -115,6 +117,10 @@ class payController extends Controller
              $json = json_decode($content,true);
              //dd($json);
              $oid = $json['data']['oid'];//返回的订单号,可存在自己的数据库中
+             //信息费支付修改订单
+             if($rid != ''){
+                 DB::table('jjw_reorder')->where('id',$rid)->where('oid',$id)->update(['pay_id' => $oid,'xxf'=>$price]);
+             }
              if($json['data']['url'] != ''){
                 DB::table('jjw_order')->where('id',$id)->update(['pay_id' => $oid]);
                 return view('wx.wx',['url' => $json['data']['url'],'price' => $price,'stime' => $json['stime'],'oid' => $json['data']['oid']]);
