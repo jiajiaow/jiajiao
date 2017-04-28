@@ -76,6 +76,7 @@
                 </div>
             </td>
             <td>
+
                 <div>
                     <p>所获证书:<input type="text" name="" value="{{ $re->tc_certificate }}"></p>
                     <p>自我描述:</p>

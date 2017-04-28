@@ -8,6 +8,9 @@
 	 <link rel="stylesheet" href="/admin/css/bootstrap.min.css">
 	 <link rel="stylesheet" href="/new/css/date.css">
      <link rel="stylesheet" href="/new/css/jedate.css">
+     <script type="text/javascript" src='/new/js/jquery-2.2.3.min.js'></script>
+
+     <script type="text/javascript" src='/new/js/jedate.js'></script>
 
 
      <style type="text/css">
@@ -206,7 +209,7 @@
 																   "class="tj_Btn">修改</button>
                             </form>
                         </div>
-                        <script>
+                        <script type="text/javascript">
                             jeDate({
                                 dateCell:"#dateinfo",
                                 format:"YYYY年MM月DD日 hh:mm:ss",
@@ -243,23 +246,8 @@
 						<div class="left">试课结果填写</div>
 						<div class="right">
 							<div style="height: 40px;">
-									{{--<form action="/tc_skcg.html" method="post" style="display: inline-block;">
-										<input type="hidden" name="oid" value="{{ $skzs->id }}">
-										<input type="hidden" name="rid" value="{{ $skzs->rid }}">
-										<input type="hidden" name="tc_id" value="{{ $skzs->tc_id }}">
-										<input type="hidden" name="zt" value="1">
-										<button type="button" style="height: 40px; line-height:30px;margin-top: 5px;">--}}
                                             <a onclick="skcg()">试课成功</a>
-                                            {{--</button>
-                                        </form>--}}
-
-									{{--<form action="/tc_skcg.html" method="post" style="display: inline-block;">--}}
-										{{--<input type="hidden" name="oid" value="{{ $skzs->id }}">--}}
-										{{--<input type="hidden" name="rid" value="{{ $skzs->rid }}">--}}
-										{{--<input type="hidden" name="tc_id" value="{{ $skzs->tc_id }}">--}}
-										{{--<input type="hidden" name="zt" value="2">--}}
-										<button type="button" style="height: 40px; line-height:30px;margin-top: 5px;" class="timeShow">试课不成功</button>
-									{{--</form>--}}
+										<a class="timeShow">试课不成功</a>
 								</div></div>
 					</div>
 					<div class="bk">
@@ -320,7 +308,7 @@
 							<div class="pm">
 								<div class="left">
 									已预付信息费：
-									@if($skzs->o_ts == '1')
+									{{--@if($skzs->o_ts == '1')
 										{{ $q*$skzs->bfb1>300?'300':$q*$skzs->bfb1 }}
 									@elseif($skzs->o_ts == '2')
 										{{ $q*$skzs->bfb2>300?'300':$q*$skzs->bfb2 }}
@@ -334,7 +322,8 @@
 										{{ $q*$skzs->bfb6>300?'300':$q*$skzs->bfb6 }}
 									@elseif($skzs->o_ts == '7')
 										{{ $q*$skzs->bfb7>300?'300':$q*$skzs->bfb7 }}
-									@endif元
+									@endif元--}}
+                                    {{ $skzs->xxf }}
 								</div>
 								<div class="right">
 									本单实际信息费：{{ $skzs->money*$skzs->o_xs }}元
@@ -473,10 +462,8 @@
 	    Copyright　2005-2017　广州学求易教育咨询有限公司　版权所有　<a style="color: #ccc;" href="http://www.miitbeian.gov.cn/" target="_blank">粤ＩＰＣ备：16062097号</a>
 	</div>
 	</footer>
-	<script type="text/javascript" src='/new/js/jquery-2.2.3.min.js'></script>
 	<script type="text/javascript" src='/new/js/script_cheng.js'></script>
 	<script type="text/javascript" src='/new/js/date.js'></script>
-    <script type="text/javascript" src='/new/js/jedate.js'></script>
     <script type="text/javascript" src='/layer/layer.js'></script>
 
     <script>

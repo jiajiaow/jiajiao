@@ -256,8 +256,9 @@
                     </div>
                 </div>
             @endforeach
-		</div>
-            <div class="c_yejiao" style="">
+        </div>
+          <div class="zqm_div5"></div>
+            <div class="c_yejiao" style="width:950px;">
                 @if($yap->num > 0)
                 <a href="{{ $yap->Url($yap->LastPage()) }}">末页</a>
                 <a href="{{ $yap->Url($yap->next) }}">下一页</a>
@@ -266,7 +267,7 @@
                 {{--<label>页数:1/2</label>--}}
                 @endif
             </div>
-		</div>
+</div>
 
 		<!-- 中间部分的尾部 -->
 		<!--  -->

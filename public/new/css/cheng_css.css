@@ -181,6 +181,7 @@ div.cheng_1body {
 }
 /*以上公共区域*/
 /*以下个人商城-个人信息css张启明编写*/
+.zqm_div5{width: 954px;height: 40px;}
 .zqm_sc{margin: 30px 0px 30px 30px;}
 .zqm_sc .zqm_yh{height: 30px;line-height: 30px;color: #ccc;}
 .zqm_sc .zqm_xx{width: 900px;height: 34px;margin-bottom: 20px;}
@@ -419,6 +420,7 @@ tr.t_last td{
 .c_yejiao{
 	/*border: 1px solid #98bf21;*/
 	height:60px;
+	width:954px;
 }
 .c_yejiao label{
 	color:#979797; 
