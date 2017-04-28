@@ -24,64 +24,64 @@
                 <div>
                     <p>编号：{{ $re->id }}</p>
                     <p>注册入口：<input type="text" name=""></p>
-                    <p>注册时间：{{ date('Y-m-d h:i:s',$re->tc_reg_date) }}</p>
+                    <p>注册时间：{{ $re->tc_reg_date }}</p>
                     <p>最近登录：{{ date('Y-m-d h:i:s',$re->tc_dltimes) }}</p>
-                    <p>平时城市：<input type="checkbox" name=""></p>
-                    <p>暑假城市：<input type="checkbox" name=""></p>
-                    <p>寒假城市：<input type="checkbox" name=""></p>
+                    <p>平时城市：<input type="text" name="" value="{{ $re->tc_citys }}"></p>
+                    <p>暑假城市：<input type="text" name="" value="{{ $re->tc_shu }}"></p>
+                    <p>寒假城市：<input type="text" name="" value="{{ $re->tc_han }}"></p>
                 </div>
             </td>
             <td style="width: 100px;">
                 <div>
-                    <p>姓名：<input type="text" name=""></p>
-                    <p>籍贯：<input type="text" name=""></p>
-                    <p>性别：<input type="text" name=""></p>
-                    <p>教员性质：<input type="text" name=""></p>
-                    <p>教员等级：<input type="text" name=""></p>
-                    <p>教员类型：<input type="text" name=""></p>
+                    <p>姓名：<input type="text" value="{{ $re->tc_name }}"></p>
+                    <p>籍贯：<input type="text" value="{{ $re->tc_jiguan }}"></p>
+                    <p>性别：<input type="text" value="{{ $re->tc_sex=='1'?'男':'女' }}"></p>
+                    <p>教员性质：<input type="text" name="" value=""></p>
+                    <p>教员等级：<input type="text" name="" value=""></p>
+                    <p>教员类型：<input type="text" name="" value="{{ $re->tc_type }}"></p>
                     <p>
                         <select>
                             <option>签约教员</option>
-                            <option>1</option>
+                            <option></option>
                             <option>1</option>
                             <option>1</option>
                         </select>
                             <input type="submit" name="" value="修改">
                     </p>
                     <p>
-                        教授科目<textarea  type="text" name=""  class="showBtn"></textarea>
+                        教授科目<textarea  type="text" name=""  class="showBtn">{{ $re->tc_subjects }}</textarea>
                     </p>
                 </div>
             </td>
             <td>
                 <div>
-                    <p>学校：<input type="text" name=""></p>
-                    <p>年级：<input type="text" name=""></p>
-                    <p>专业：<input type="text" name=""></p>
-                    <p>类别：<input type="text" name=""></p>
-                    <p>教龄：<input type="text" name=""></p>
-                    <p>文理科：<input type="text" name=""></p>
-                    <p>高科省份：<input type="text" name=""></p>
+                    <p>学校：<input type="text" name="" value="{{ $re->tc_school }}"></p>
+                    <p>年级：<input type="text" name="" value="{{ $re->tc_nj }}"></p>
+                    <p>专业：<input type="text" name="" value="{{ $re->tc_zhuanye }}"></p>
+                    <p>类别：<input type="text" name="" value="{{ $re->tc_type }}"></p>
+                    <p>教龄：<input type="text" name="" value="{{ $re->tc_jl }}"></p>
+                    <p>文理科：<input type="text" name="" value="{{ $re->tc_class }}"></p>
+                    <p>高考省份：<input type="text" name="" value="{{ $re->tc_hight }}"></p>
                 </div>
             </td>
             <td>
                 <div>
-                    <p>电话：<input type="text" name=""></p>
-                    <p>邮箱：<input type="text" name=""></p>
-                    <p>微信：<input type="text" name=""></p>
-                    <p>QQ：<input type="text" name=""></p>
-                    <p>备用电话：<input type="text" name=""></p>
-                    <p><a href="">个人基础评分：</a><input type="text" name=""></p>
+                    <p>电话：<input type="text" name="" value="{{ $re->tc_phone }}"></p>
+                    <p>邮箱：<input type="text" name="" value="{{ $re->tc_email }}"></p>
+                    <p>微信：<input type="text" name="" value="{{ $re->tc_wechat }}"></p>
+                    <p>QQ：<input type="text" name="" value="{{ $re->tc_qq }}"></p>
+                    <p>备用电话：<input type="text" name="" value="{{ $re->tc_phone_bak }}"></p>
+                    <p><a href="">个人基础评分：</a><input type="text" name="" value=""></p>
                     <p><button>QQ交谈</button></p>
                 </div>
             </td>
             <td>
                 <div>
-                    <p>所获证书:<input type="text" name=""></p>
+                    <p>所获证书:<input type="text" name="" value="{{ $re->tc_certificate }}"></p>
                     <p>自我描述:</p>
-                    <p><textarea></textarea></p>
+                    <p><textarea>{{ $re->tc_comments }}</textarea></p>
                     <p>家教简历：</p>
-                    <p><textarea></textarea></p>
+                    <p><textarea>{{ $re->tc_case }}</textarea></p>
                 </div>
             </td>
             <td>

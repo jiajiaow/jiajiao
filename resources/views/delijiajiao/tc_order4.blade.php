@@ -8,7 +8,7 @@
 	 <link rel="stylesheet" href="/admin/css/bootstrap.min.css">
 	 <link rel="stylesheet" href="/new/css/date.css">
      <link rel="stylesheet" href="/new/css/jedate.css">
-     <script type="text/javascript" src='/new/js/jedate.js'></script>
+
 
      <style type="text/css">
 	body,p,h1,h2,h3,h4,h5,h6,ul,li{
@@ -50,6 +50,32 @@
 	a:hover{
 		text-decoration:none;
 	}
+    li{
+        list-style: none;
+        padding: 10px 0;
+    }
+    .fc {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.41);
+        top: 0;
+        left: 0;
+    }
+    .fc_content {
+        width: 400px;
+        height: 500px;
+        position: fixed;
+        background: #fff;
+        left: 50%;
+        top: 50%;
+        margin-left: -200px;
+        margin-top: -250px;
+    }
+    .seeMar{
+        float: right;
+        margin-right:100px;
+    }
 
   </style>
  </head>
@@ -154,13 +180,31 @@
 					</div>
 					<div class="bk zqm">
 						<div class="left">试课时间</div>
-						<div class="right datep"><input class="datainp" id="dateinfo" placeholder="请选择" readonly="" type="text">
-                            <select name="" id="">
-                                <option value="">上午</option>
-                                <option value="">下午</option>
-                                <option value="">晚上</option>
-                            </select>
-                            <div id="jedatebox" class="jedatebox" style="z-index: 999; display: none; left: 50px; top: 1px;"></div>
+
+						<div class="right datep">
+                        <span style="font-size: 12px;">{{ $skzs->sk_times }}</span>
+                            <form action="/sktimes.html" method="post" style="display: inline-block">
+                                <input class="datainp" id="dateinfo" name="sj" placeholder="请选择" readonly="" type="text">
+                                <input type="hidden" name="oid" value="{{ $skzs->id }}">
+                                <input type="hidden" name="rid" value="{{ $skzs->rid }}">
+                                <input type="hidden" name="tc_id" value="{{ $skzs->tc_id }}">
+                                <select name="sjs" id="">
+                                    <option value="上午">上午</option>
+                                    <option value="下午">下午</option>
+                                    <option value="晚上">晚上</option>
+                                </select>
+                                <div id="jedatebox" class="jedatebox" style="z-index: 999; display: none; left: 50px; top: 1px;"></div>
+                                <button type="submit" style="
+																      height: 40px;
+																      width: 88px;
+																      display: inline-block;
+																      margin-top: 5px;
+																      position: relative;
+																      line-height: 5px;
+																      float: right;
+																      font-size: 18px;
+																   "class="tj_Btn">修改</button>
+                            </form>
                         </div>
                         <script>
                             jeDate({
@@ -191,7 +235,7 @@
 																      font-size: 18px;
 																   "
 																	  class="tj_Btn"}
-																>提交</button>
+																>修改</button>
 							</form>
 						</div>
 					</div>
@@ -199,21 +243,23 @@
 						<div class="left">试课结果填写</div>
 						<div class="right">
 							<div style="height: 40px;">
-									<form action="/tc_skcg.html" method="post" style="display: inline-block;">
+									{{--<form action="/tc_skcg.html" method="post" style="display: inline-block;">
 										<input type="hidden" name="oid" value="{{ $skzs->id }}">
 										<input type="hidden" name="rid" value="{{ $skzs->rid }}">
 										<input type="hidden" name="tc_id" value="{{ $skzs->tc_id }}">
 										<input type="hidden" name="zt" value="1">
-										<button type="submit" style="height: 40px; line-height:30px;margin-top: 5px;">试课成功</button>
-									</form>
+										<button type="button" style="height: 40px; line-height:30px;margin-top: 5px;">--}}
+                                            <a onclick="skcg()">试课成功</a>
+                                            {{--</button>
+                                        </form>--}}
 
-									<form action="/tc_skcg.html" method="post" style="display: inline-block;">
-										<input type="hidden" name="oid" value="{{ $skzs->id }}">
-										<input type="hidden" name="rid" value="{{ $skzs->rid }}">
-										<input type="hidden" name="tc_id" value="{{ $skzs->tc_id }}">
-										<input type="hidden" name="zt" value="2">
-										<button type="submit" style="height: 40px; line-height:30px;margin-top: 5px;">试课不成功</button>
-									</form>
+									{{--<form action="/tc_skcg.html" method="post" style="display: inline-block;">--}}
+										{{--<input type="hidden" name="oid" value="{{ $skzs->id }}">--}}
+										{{--<input type="hidden" name="rid" value="{{ $skzs->rid }}">--}}
+										{{--<input type="hidden" name="tc_id" value="{{ $skzs->tc_id }}">--}}
+										{{--<input type="hidden" name="zt" value="2">--}}
+										<button type="button" style="height: 40px; line-height:30px;margin-top: 5px;" class="timeShow">试课不成功</button>
+									{{--</form>--}}
 								</div></div>
 					</div>
 					<div class="bk">
@@ -297,7 +343,7 @@
 						</div>
 					</div>
 					<div class="bk2">
-						<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#000">申请退款</font></a>|
+						<span style="margin-left: 60px;margin-right: 60px;"  class="timeShow" target="_blank"><font color="#000">申请退款</font></span>|
 						<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#000">支付信息费</font></a>|
 						<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#FF0000">收付款记录</font></a>
 					</div>
@@ -305,6 +351,82 @@
 				@endforeach
 		<!--  -->
 	</div>
+    <div class="fc" style="display: none;"></div>
+    <div class="fc_content" style="display: none;">
+      <form method="post" action="/sqtk.html">
+          <input type="hidden" name="oid" value="{{ $skzs->id }}">
+          <input type="hidden" name="rid" value="{{ $skzs->rid }}">
+          <input type="hidden" name="tc_id" value="{{ $skzs->tc_id }}">
+        <div>
+            <ul >
+                <li><p><input name="Fruit" type="radio" value="1" />试课成功<span class="seeMar">应退信息费</span></p></li>
+                <li><p>周薪酬减少<span class="seeMar"><input type="text" name="kc"></span></p></li>
+                <li><input name="Fruit" type="radio" value="2" />试课不成功</li>
+                <li><p>申请信息费退款<span class="seeMar"><input type="" name=""></span></p></li>
+                <li>是否试课
+                    <select id="ok_no" name="xxftk">
+                        <option value="已试课">已试课</option>
+                        <option value="尚未试课">尚未试课</option>
+                    </select>
+                </li>
+                <li>不成功类型
+                    <select id="renyuan" name="nocglx">
+                        <option value="家长原因">家长原因</option>
+                        <option value="教员原因">教员原因</option>
+                    </select>
+                </li>
+                <li>
+                    <p>原因
+                        <select id="no_xueyuan" style="display:none; width:360px;" name="yuanyin" >
+                            <option value="家长已经找到老师了">家长已经找到老师了</option>
+                            <option value="家长还是选择了去上辅导班（未试课）">家长还是选择了去上辅导班（未试课）</option>
+                            <option value="家长临时不要而未能试课">家长临时不要而未能试课</option>
+                            <option value="家长的要求与订单不符，经协调不合适未去试课">家长的要求与订单不符，经协调不合适未去试课</option>
+                            <option value="家长/学生因为课程的变动不试课">家长/学生因为课程的变动不试课</option>
+                            <option value="学员暂时不接受家教未能试课">学员暂时不接受家教未能试课</option>
+                            <option value="家长一个星期后未联系">家长一个星期后未联系上</option>
+                            <option value="家长一个星期后还无法确认试课时间">家长一个星期后还无法确认试课时间</option>
+                            <option value="家长想换个性别（男/女）的老师（未试课）">家长想换个性别（男/女）的老师（未试课）</option>
+                            <option value="家长想换个更好学校或者更合适专业的老师（未试课）">家长想换个更好学校或者更合适专业的老师（未试课）</option>
+                            <option value="家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）">家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）</option>
+                        </select>
+                        <select id="ok_xueyuan" style="display:none;width:360px;" name="yuanyin">
+                            <option value="学员暂时不太适应家教试课不成功">学员暂时不太适应家教试课不成功</option>
+                            <option value="家长还是选择了去上辅导班（已试课）">家长还是选择了去上辅导班（已试课）</option>
+                            <option value="家长试课后想换个更好学校或者更合适专业的老师（已试课）">家长试课后想换个更好学校或者更合适专业的老师（已试课）</option>
+                            <option value="家长想换个专职老师/或者原来是专职老师，想试试大学生（已试课）">家长想换个专职老师/或者原来是专职老师，想试试大学生（已试课）</option>
+                            <option value="家长试课后家长想换个性别（男/女）的老师（已试课）">家长试课后家长想换个性别（男/女）的老师（已试课）</option>
+                        </select>
+                        <select id="no_jiaoyuan" style="display:none;width:360px;" name="yuanyin">
+                            <option value="教员个人原因去不了试课">教员个人原因去不了试课</option>
+                            <option value="学员的要求较高，教员无法胜任">学员的要求较高，教员无法胜任</option>
+                        </select>
+
+                        <select id="ok_jiaoyuan" style="display:none;width:360px;" name="yuanyin">
+                            <option value="教员个人原因以后没法上课">教员个人原因以后没法上课</option>
+                            <option value="教员迟到、上课时玩手机、一直在提钱、态度不好">教员迟到、上课时玩手机、一直在提钱、态度不好</option>
+                            <option value="教员不认真备课和准备，对孩子不负责">教员不认真备课和准备，对孩子不负责</option>
+                            <option value="教员能力有限，带不了孩子">教员能力有限，带不了孩子</option>
+                            <option value="教员试课后家长不满意（除以上项目以外的）">教员试课后家长不满意（除以上项目以外的）</option>
+                        </select>
+                    </p>
+
+
+                </li>
+                <li>
+                    <span style="vertical-align: top" name="bz">备注</span>
+                    <input style="margin: 0px; width: 334px; height: 68px;" name="bz"/>
+                </li>
+                <li>
+                    <p><input name="Fruit" type="radio" value="" />已锁定诚意金<span class="seeMar">{{ $skzs->cyj }}</span></p>
+                </li>
+                <li>
+                    <p><button style="margin-left: 110px;" type="submit" >申请退款</button><span class="seeMar"><button>申请诚意金解锁</button></span></p>
+                </li>
+            </ul>
+        </div>
+      </form>
+    </div>
 	<div class="c_yejiao">
 	@if($skz->num > 0)
 	<a href="{{ $skz->Url($skz->LastPage()) }}">末页</a>
@@ -321,93 +443,29 @@
 	<div id="fudong"></div>
 
 	<div id="datePlugin"></div>
-    <div class="fc" style="display: none;"></div>
-    <div class="fc_content" style="display: none;">
 
-        <table style="margin: 0 auto;margin-top: 36px;">
-            <tbody class="sure_gou">
-            <tr>
-                <td>
-                    <p>周一</p>
-                    <input value="周一上午" name="sk_times1" type="checkbox">上午
-                    <input value="周一下午" name="sk_times2" type="checkbox">下午
-                    <input value="周一晚上" name="sk_times3" type="checkbox">晚上
-                </td>
-                <td>
-                    <p>周二</p>
-                    <input value="周二上午" name="sk_times4" type="checkbox">上午
-                    <input value="周二下午" name="sk_times5" type="checkbox">下午
-                    <input value="周二晚上" name="sk_times6" type="checkbox">晚上
-                </td>
-                <td>
-                    <p>周三</p>
-                    <input value="周三上午" name="sk_times7" type="checkbox">上午
-                    <input value="周三下午" name="sk_times8" type="checkbox">下午
-                    <input value="周三晚上" name="sk_times9" type="checkbox">晚上
-                </td>
-                <td>
-                    <p>周四</p>
-                    <input value="周四上午" name="sk_times10" type="checkbox">上午
-                    <input value="周四下午" name="sk_times11" type="checkbox">下午
-                    <input value="周四晚上" name="sk_times12" type="checkbox">晚上
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p>周五</p>
-                    <input value="周五上午" name="sk_times13" type="checkbox">上午
-                    <input value="周五下午" name="sk_times14" type="checkbox">下午
-                    <input value="周五晚上" name="sk_times15" type="checkbox">晚上
-                </td>
-                <td>
-                    <p>周六</p>
-                    <input value="周六上午" name="sk_times16" type="checkbox">上午
-                    <input value="周六下午" name="sk_times17" type="checkbox">下午
-                    <input value="周六晚上" name="sk_times18" type="checkbox">晚上
-                </td>
-                <td>
-                    <p>周日</p>
-                    <input value="周日上午" name="sk_times19" type="checkbox">上午
-                    <input value="周日下午" name="sk_times20" type="checkbox">下午
-                    <input value="周日晚上" name="sk_times21" type="checkbox">晚上
-                </td>
-                <td>
-                    <button class="sure_btn">确定</button>
-                </td>
-            </tr>
-            </tbody></table>
-    </div>
     <style>
         .fc {
             position: fixed;
             width: 100%;
             height: 100%;
-            background: #00000080;
+            background: rgba(0, 0, 0, 0.41);
             top: 0;
             left: 0;
         }
         .fc_content {
-            width: 650px;
-            height: 190px;
+            width: 400px;
+            height: 500px;
             position: fixed;
             background: #fff;
             left: 50%;
             top: 50%;
-            margin-left: -325px;
-            margin-top: -95px;
+            margin-left: -200px;
+            margin-top: -250px;
         }
-        .licbox input {
-            width: 26px;
-            height: 21px;
-            vertical-align: bottom;
-        }
-        .licbox p{
-            text-align: center;
-        }
-        td{
-            border: 1px solid #c1c1c1;
-            padding: 10px;
-            text-align: center;
+        .seeMar{
+            float: right;
+            margin-right:100px;
         }
     </style>
 	<footer>
@@ -418,6 +476,8 @@
 	<script type="text/javascript" src='/new/js/jquery-2.2.3.min.js'></script>
 	<script type="text/javascript" src='/new/js/script_cheng.js'></script>
 	<script type="text/javascript" src='/new/js/date.js'></script>
+    <script type="text/javascript" src='/new/js/jedate.js'></script>
+    <script type="text/javascript" src='/layer/layer.js'></script>
 
     <script>
 		$(function(){
@@ -446,7 +506,96 @@
 
         })
 
+        $('#ok_no').change(function(){
+            var ok_no = $('#ok_no option:selected').val()
+            var renyuan =$('#renyuan option:selected').val()
+            if(renyuan == '家长原因' & ok_no == '已试课'){
+                $('#ok_xueyuan').show()
+                $('#ok_jiaoyuan').hide()
+                $('#no_jiaoyuan').hide()
+                $('#no_xueyuan').hide()
+            }
+            if(renyuan == '家长原因' & ok_no == '尚未试课'){
+                $('#ok_xueyuan').hide()
+                $('#ok_jiaoyuan').hide()
+                $('#no_jiaoyuan').hide()
+                $('#no_xueyuan').show()
+            }
+            if(renyuan == '教员原因' & ok_no == '已试课'){
+                $('#ok_xueyuan').hide()
+                $('#ok_jiaoyuan').show()
+                $('#no_jiaoyuan').hide()
+                $('#no_xueyuan').hide()
+            }
+            if(renyuan == '教员原因' & ok_no == '尚未试课'){
+                $('#ok_xueyuan').hide()
+                $('#ok_jiaoyuan').hide()
+                $('#no_jiaoyuan').show()
+                $('#no_xueyuan').hide()
+            }
+        })
+        $('#renyuan').change(function(){
+            var ok_no = $('#ok_no option:selected').val()
+            var renyuan =$('#renyuan option:selected').val()
+            if(renyuan == '家长原因' & ok_no == '已试课'){
+                $('#ok_xueyuan').show()
+                $('#ok_jiaoyuan').hide()
+                $('#no_jiaoyuan').hide()
+                $('#no_xueyuan').hide()
+            }
+            if(renyuan == '家长原因' & ok_no == '尚未试课'){
+                $('#ok_xueyuan').hide()
+                $('#ok_jiaoyuan').hide()
+                $('#no_jiaoyuan').hide()
+                $('#no_xueyuan').show()
+            }
+            if(renyuan == '教员原因' & ok_no == '已试课'){
+                $('#ok_xueyuan').hide()
+                $('#ok_jiaoyuan').show()
+                $('#no_jiaoyuan').hide()
+                $('#no_xueyuan').hide()
+            }
+            if(renyuan == '教员原因' & ok_no == '尚未试课'){
+                $('#ok_xueyuan').hide()
+                $('#ok_jiaoyuan').hide()
+                $('#no_jiaoyuan').show()
+                $('#no_xueyuan').hide()
+            }
+        })
 
+        $('.timeShow').click(function(){
+            $('.fc').show(500)
+            $('.fc_content').show(500)
+        })
+        $('.fc').click(function(){
+            $('.fc').hide(500)
+            $('.fc_content').hide(500)
+        })
+        $('.sure_btn').click(function(){
+            $('.fc').hide(500)
+            $('.fc_content').hide(500)
+            var a = $('.sure_gou').find('input')
+            for(var i=0;i< a.length;i++){
+                if(a[i].checked==true){
+                    var b =a[i].
+                    $('.block_time').html()
+                }
+            }
+
+        })
+        @if(session("msg"))
+            layer.alert('{{session("msg")}}',{icon: 6});
+        @endif
+
+        function skcg(){
+            layer.confirm('请联系我们。', {
+                btn: ['确定','取消'] //按钮
+            }, function(){
+                window.location.href='/contact.html';
+            }, function(){
+
+            });
+        }
 	</script>
 </body>
 </html>

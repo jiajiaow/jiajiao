@@ -90,7 +90,7 @@ class tcinfoController extends Controller
             ->where('o.city_id', session('regionid'))
             ->where('r.tc_id', session('tc_id'))
             ->where('r.qt_t_status', '4')
-            ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.jd_times','r.ht_t_status','r.id as rid','r.add as radd','pc.fz_jzxxf','pc.city_name','pc.fz_vip','pc.fz_qyjyfy','pc.bfb1','pc.bfb2','pc.bfb3','pc.bfb4','pc.bfb5','pc.bfb6','pc.bfb7')
+            ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.jd_times','r.ht_t_status','r.sk_times','r.cyj','r.id as rid','r.add as radd','pc.fz_jzxxf','pc.city_name','pc.fz_vip','pc.fz_qyjyfy','pc.bfb1','pc.bfb2','pc.bfb3','pc.bfb4','pc.bfb5','pc.bfb6','pc.bfb7')
             ->paginate(2);
         $num = $skz->lastPage();
         $nextpage = $num - $skz->currentPage() == 0 ? $num : $skz->currentPage() + 1;
@@ -316,5 +316,40 @@ class tcinfoController extends Controller
     public function tc_jskc(){
         $list = DB::table('jjw_reorder')->where('id',$_POST['rid'])->where('oid',$_POST['oid'])->where('tc_id',$_POST['tc_id'])->update(['qt_t_status'=>'7','ht_t_status'=>'9']);
         return back();
+    }
+
+    //试课时间
+    public function tc_sktimes(){
+        $data = $_POST['sj'].$_POST['sjs'];
+       // dd($_POST);
+        $list = DB::table('jjw_reorder')->where('id',$_POST['rid'])->where('oid',$_POST['oid'])->where('tc_id',$_POST['tc_id'])->update(['sk_times'=>$data]);
+        return back();
+    }
+
+    //申请退款
+    public function tc_sqtk(Request $request){
+        if($_POST['Fruit'] =='1'){
+            $all = $request->except('xxftk','nocglx','yuanyin','bz');
+            $list = DB::table('jjw_reorder')->where('id',$_POST['rid'])->where('oid',$_POST['oid'])->where('tc_id',$_POST['tc_id'])->update( [
+                    'sk_zt'=>$all['Fruit'],
+                    'kcjs'=>$all['kc'],
+                    'xxftk'=>null,
+                    'nocglx'=>null,
+                    'yuanyin'=>null,
+                    'bz'=>null,
+                ]);
+            return back()->with('msg','申请成功!');
+        }else{
+            $all = $request->except('kc');
+            $list = DB::table('jjw_reorder')->where('id',$_POST['rid'])->where('oid',$_POST['oid'])->where('tc_id',$_POST['tc_id'])->update([
+                            'sk_zt'=>$all['Fruit'],
+                            'xxftk'=>$all['xxftk'],
+                            'nocglx'=>$all['nocglx'],
+                            'yuanyin'=>$all['yuanyin'],
+                            'bz'=>$all['bz'],
+                             'kcjs'=>null,
+            ]);
+            return back()->with('msg','申请成功!');
+        }
     }
 }
