@@ -80,7 +80,7 @@ class payController extends Controller
              }
              //诚意金
              if($r_id != ''){
-                 DB::table('jjw_reorder')->where('id',$r_id)->where('oid',$id)->update(['pay_id' => $oid,'cyj'=>$price]);
+                 DB::table('jjw_reorder')->where('id',$r_id)->where('oid',$id)->update(['cyj_pay_id' => $oid,'cyj'=>$price]);
              }
 
              DB::table('jjw_reorder')->where('id',$id)->update(['pay_id' => $oid]);
