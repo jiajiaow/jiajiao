@@ -98,6 +98,10 @@ Route::post('/tc_skadd.html','home\tcinfoController@tc_skadd');
 Route::post('/tc_skcg.html','home\tcinfoController@tc_skcg');
 //结束课程
 Route::post('/tc_jskc.html','home\tcinfoController@tc_jskc');
+//试课时间
+Route::post('/sktimes.html','home\tcinfoController@tc_sktimes');
+//申请退款
+Route::post('/sqtk.html','home\tcinfoController@tc_sqtk');
 
 //tc_order加元订单详情分页
 Route::get('/tc_page.html','home\tcinfoController@tc_page');
