@@ -98,7 +98,7 @@
             <input type="hidden" name="id" value="{{ $data->id }}"/>
             {{ csrf_field() }}
                 <div>
-                    <p>编号:{{ $data->user_id }}</p>
+                    <p>编号:{{ $data->id }}</p>
                     <p>姓名:<input name="user_name" value="{{ $data->user_name }}"/></p>
                     <p>时间:{{ date('Y-m-d H:i:s',$data->time) }}</p>
                     <p>学员等级:</p>
@@ -117,7 +117,7 @@
             {{ csrf_field() }}
             <input type="hidden" name="id" value="{{ $data->id }}"/>
                 <div>
-                    <p>电话:{{ $data->user_phone }}></p>
+                    <p>电话:{{ $data->user_phone }}</p>
                     <p>微信:<input type="text" name="wx" value="{{ $data->wx }}"></p>
                     <p>QQ:<input type="text" name="qq" value="{{ $data->qq }}"></p>
                     <p>年级:<input type="text" name="grade" value="{{ $data->grade }}"></p>
