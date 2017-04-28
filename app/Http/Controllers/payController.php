@@ -39,7 +39,7 @@ class payController extends Controller
             //信息费状态 支付修改为成功 试课中
             DB::table('jjw_reorder')->where('pay_id',$oid)->update(['pay_zt' => '1','qt_t_status'=>'4','ht_t_status'=>'7','jd_times'=>time()]);
             //诚意金状态 支付修改为支付成功
-            DB::table('jjw_reorder')->where('cyj_pay_id',$oid)->update(['cyj_pay_zt' => '1']);
+            DB::table('jjw_reorder')->where('cyj_pay_id',$oid)->update(['cyj_pay_zt' => '1','ht_t_status'=>'5']);
         }
     }
     //支付宝
@@ -128,11 +128,12 @@ class payController extends Controller
              $json = json_decode($content,true);
              //dd($json);
              $oid = $json['data']['oid'];//返回的订单号,可存在自己的数据库中
-             //信息费支付修改订单
-             if($rid != ''){
-                 DB::table('jjw_reorder')->where('id',$rid)->where('oid',$id)->update(['pay_id' => $oid,'xxf'=>$price]);
-             }
+
              if($json['data']['url'] != ''){
+                 //信息费支付修改订单
+                 if($rid != ''){
+                     DB::table('jjw_reorder')->where('id',$rid)->where('oid',$id)->update(['pay_id' => $oid,'xxf'=>$price]);
+                 }
                 DB::table('jjw_order')->where('id',$id)->update(['pay_id' => $oid]);
                 return view('wx.wx',['url' => $json['data']['url'],'price' => $price,'stime' => $json['stime'],'oid' => $json['data']['oid']]);
              }else{

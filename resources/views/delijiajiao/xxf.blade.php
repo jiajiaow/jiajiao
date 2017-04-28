@@ -140,7 +140,7 @@
 					<input type="checkbox" id='df'checked=checked name="xuanzhong" style="margin:0;width:16px;">
 					<label>使用余额</label>
 					<span style='color:#B0B3B4;'>(可用余额元)</span>
-					<span id='cnmm' style='float:right;width:135px;color:red'>支付：000元</span>
+					<span id='cnmm' style='float:right;width:135px;color:red'>支付：0元</span>
 				</div>
 				<!-- 第四部分 -->
 				<div class="ddh-three">
