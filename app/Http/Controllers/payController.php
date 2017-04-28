@@ -104,7 +104,7 @@ class payController extends Controller
         $rid = $request->input('rid') ==''?'':$request->input('rid');
         //$url = session('_previous');
         //dd($url);
-        dd($request);
+        //dd($request);
         $id = $request->input('order_id');
         $price = $request->input('money');
 
