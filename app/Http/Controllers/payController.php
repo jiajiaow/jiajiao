@@ -36,7 +36,10 @@ class payController extends Controller
         $signs = md5($oid.$token);
         if($signs == $sign){
             DB::table('jjw_order')->where('pay_id',$oid)->update(['pay' => '1']);
+            //信息费状态 支付修改为成功 试课中
             DB::table('jjw_reorder')->where('pay_id',$oid)->update(['pay_zt' => '1','qt_t_status'=>'4','ht_t_status'=>'7','jd_times'=>time()]);
+            //诚意金状态 支付修改为支付成功
+            DB::table('jjw_reorder')->where('cyj_pay_id',$oid)->update(['cyj_pay_zt' => '1']);
         }
     }
     //支付宝
