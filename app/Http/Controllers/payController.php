@@ -37,7 +37,6 @@ class payController extends Controller
         if($signs == $sign){
             DB::table('jjw_order')->where('pay_id',$oid)->update(['pay' => '1']);
             DB::table('jjw_reorder')->where('pay_id',$oid)->update(['pay_zt' => '1','qt_t_status'=>'4','ht_t_status'=>'7','jd_times'=>time()]);
-            DB::table('jjw_reorder')->where('pay_id',$oid)->update(['pay_zt' => '1','qt_t_status'=>'4','ht_t_status'=>'7','jd_times'=>time()]);
         }
     }
     //支付宝
