@@ -36,7 +36,7 @@ class payController extends Controller
         $signs = md5($oid.$token);
         if($signs == $sign){
             DB::table('jjw_order')->where('pay_id',$oid)->update(['pay' => '1']);
-            DB::table('jjw_reorder')->where('pay_id',$oid)->update(['pay_zt' => '1','qt_t_status'=>'6','ht_t_status'=>'8']);
+            DB::table('jjw_reorder')->where('pay_id',$oid)->update(['pay_zt' => '1','qt_t_status'=>'4','ht_t_status'=>'7']);
         }
     }
     //支付宝
@@ -73,7 +73,7 @@ class payController extends Controller
              $oid = $json['data']['out_trade_no'];//返回的订单号,可存在自己的数据库中
              //信息费支付修改订单
              if($rid != ''){
-                 DB::table('jjw_reorder')->where('id',$rid)->where('oid',$id)->update(['pay_id' => $oid]);
+                 DB::table('jjw_reorder')->where('id',$rid)->where('oid',$id)->update(['pay_id' => $oid,'xxf'=>$price]);
              }
              DB::table('jjw_reorder')->where('id',$id)->update(['pay_id' => $oid]);
              //DB::table('jjw_reorder')->where('id',$id)->update(['pay_id' => $oid]);
