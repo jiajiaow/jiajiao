@@ -149,6 +149,27 @@
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa fa-mortar-board"></i>
+                            <span class="nav-label">文章中心</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="/admin/tjwzdh">文章导航</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="/admin/wzdhlb">导航列表</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="/admin/hot_area/1">文章列表</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="/admin/fbwz">发布文章</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="line dk"></li>
                     <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
                         <span class="ng-scope">分类</span>
