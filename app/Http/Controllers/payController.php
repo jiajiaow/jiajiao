@@ -94,7 +94,7 @@ class payController extends Controller
              }
              //余额充值
              if($_POST['cz'] != ''){
-                 //DB::table('tc_cz')->insert(['tc_id'=>session('tc_id'),'tc_money'=>$price,'tc_cz_dd'=>$oid,'tc_cz_type'=>'支付宝','tc_cz_times'=>date('Y-m-d h:i:s',time())]);
+                 // DB::table('tc_cz')->insert(['tc_id'=>session('tc_id'),'tc_money'=>$price,'tc_cz_dd'=>$oid,'tc_cz_type'=>'支付宝','tc_cz_times'=>date('Y-m-d h:i:s',time())]);
              }
 
              DB::table('jjw_reorder')->where('id',$id)->update(['pay_id' => $oid]);
