@@ -3,7 +3,7 @@
  <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" charset='utf-8'/>
   <meta name="applicable-device" content="pc" />
-  <title>【德栗家教】{{ session('regionname') }}家教专业大学生家教全国连锁领导品牌!</title>
+  <title>@yield('title')【德栗家教】{{ session('regionname') }}家教专业大学生家教全国连锁领导品牌!</title>
   <meta name="description" content="专业大学生一对一上门家教，专业大学生家教全国连锁领导品牌。免费上门试课热线：{{ session('phone') }}。业务覆盖全国200多个城市，汇集数十万名大学生、专职老师在内的各类优秀教员，竭诚为广大学员提供最专业、最值得信赖的一对一上门家教辅导。免费上门试课热线：{{ session('phone') }}" />
   <meta name="keywords" content="德栗家教,{{ session('regionname') }}家教,{{ session('regionname') }}家教网,{{ session('regionname') }}大学生家教,{{ session('regionname') }}家教,{{ session('regionname') }}家教网,辅导,补习,一对一" />
   <script src="/delijiajiao/js/jquery-1.7.2.min.js"></script>
@@ -231,7 +231,12 @@ for(i=0; i <tabList.length; i++)
      <li id="as3"><a href="/faculty.html" id="ad3">挑老师</a></li>
      <li id="as4"><a href="/zfsm.html" id="ad4">资费说明</a></li>
      <li id="as5"><a href="/xueyuan.html" id="ad5">学员库</a></li>
-        <li id="as6"><a href="" id="ad6">会员中心</a></li>
+     <li id="as6"><a href="" id="ad6">会员中心</a></li>
+
+     <li id="as7"><a href="/Articlecenter.html" id="ad7">文章中心</a></li>
+
+
+
     </ul>
    </div>
   </div>

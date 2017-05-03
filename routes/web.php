@@ -209,9 +209,18 @@ Route::post('/wechatpayquery','payController@wechatpayquery');
 
 
 
+<<<<<<< HEAD
+//文章中心
+Route::get('/Articlecenter.html','home\ArticleController@Articlecenter');
+//文章列表
+Route::get('/Articlecenter{id?}.html','home\ArticleController@wzlist');
+//文章内容
+Route::get('/Articlecontent{id?}.html','home\ArticleController@Articlecontent');
+=======
 
 
 
+>>>>>>> b487350c843b326c146b759865c1a7f113431e30
 //----------  后台  ----------//
 //登录视图 方法
 Route::get('/admin/login',function(){ return view('admin.login');  });
@@ -303,5 +312,18 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::get('/do_hot_school/{id?}/{zt?}','admin\hotController@do_hot_school');
     //教员库
     Route::any('/htjyk','admin\htjykController@index');
+    //添加文章导航
+    Route::get('/tjwzdh','admin\ArticleController@index');
+    //处理添加文章导航
+    Route::post('/tjwzdhdo','admin\ArticleController@tjwzdhdo');
+    //文章导航列表
+    Route::get('/wzdhlb','admin\ArticleController@wzdhlb');
+    //修改文章导航处理
+    Route::post('/xgdhdo','admin\ArticleController@xgdhdo');
+
+    //发布文章
+    Route::get('/fbwz','admin\ArticleController@fbwz');
+    //添加文章DO
+    Route::post('/tjwzdo','admin\ArticleController@tjwzdo');
 });
 //----------后台END----------//
