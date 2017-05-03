@@ -33,7 +33,7 @@ class payController extends Controller
         $code = $_POST['code'];//支付结果状态码
         $oid = $_POST['oid'];//订单号
         $sign = $_POST['sign'];//安全验证
-        $price = $_POST['price'];
+        $price = $_POST['price']; //
         $signs = md5($oid.$token);
         if($signs == $sign){
             DB::table('jjw_order')->where('pay_id',$oid)->update(['pay' => '1']);
