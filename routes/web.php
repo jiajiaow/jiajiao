@@ -119,6 +119,9 @@ Route::get('/tc_order5.html','home\tcinfoController@tc_order5');
 Route::get('/tc_order6.html','home\tcinfoController@tc_order6');
 //授结束
 Route::get('/tc_order7.html','home\tcinfoController@tc_order7');
+//合同
+Route::get('/hetong/{id?}.html','home\tcinfoController@hetong');
+Route::post('/dohetong','home\tcinfoController@dohetong');
 
 //省
 Route::post('/sheng','home\teacherinfoController@sheng');
@@ -206,12 +209,18 @@ Route::post('/wechatpayquery','payController@wechatpayquery');
 
 
 
+<<<<<<< HEAD
 //文章中心
 Route::get('/Articlecenter.html','home\ArticleController@Articlecenter');
 //文章列表
 Route::get('/Articlecenter{id?}.html','home\ArticleController@wzlist');
 //文章内容
 Route::get('/Articlecontent{id?}.html','home\ArticleController@Articlecontent');
+=======
+
+
+
+>>>>>>> b487350c843b326c146b759865c1a7f113431e30
 //----------  后台  ----------//
 //登录视图 方法
 Route::get('/admin/login',function(){ return view('admin.login');  });

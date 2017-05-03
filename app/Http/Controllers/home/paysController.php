@@ -9,12 +9,14 @@ class paysController extends Controller
 {
     //充值
     public function top_up(){
-        return view('delijiajiao.tc_top_up');
+
+        return view('delijiajiao.chonzhi');
     }
 
     //信息费
     public function xxf(Request $request){
         $data = $request->all();
+       // dd($data);
         return view('delijiajiao.xxf',['data'=>$data]);
     }
 
@@ -23,6 +25,7 @@ class paysController extends Controller
         $data = $request->all();
         return view('delijiajiao.cyj',['data'=>$data]);
     }
+
     public function top_ups(Request $request){
         $data = $request->all();
         return view('delijiajiao.tc_top_ups',['data'=>$data]);

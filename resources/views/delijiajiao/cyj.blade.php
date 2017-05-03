@@ -195,6 +195,7 @@
         </div>	
         
 	</footer>
+
 	<script type="text/javascript" src='/new/js/jquery-2.2.3.min.js'></script>
 	<script type="text/javascript" src='/new/js/script_cheng.js'></script>
 	<script type="text/javascript" src='/new/js/bootstrap.js'></script>

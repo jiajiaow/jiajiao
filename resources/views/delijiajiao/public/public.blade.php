@@ -75,6 +75,53 @@
              padding: 2px 14px;
              margin-top:45px;
          }
+         #icon-top{
+             position:relative;
+         }
+         #icon{
+             cursor:pointer;
+             display:inline-block;
+             width:20px;
+             height:10px;
+             background:url(/delijiajiao/picture/icon_dorn.png) 0px 0px no-repeat;
+         }
+         #icon1{
+             cursor:pointer;
+             display:inline-block;
+             width:20px;
+             height:10px;
+             background:url(/delijiajiao/picture/icon_dorn2.png) 0px 0px no-repeat;
+         }
+         .more-city{
+             position:absolute;
+             width:260px;
+             height:85px;
+             left:500px;
+             top:66px;
+             border:1px solid #EEEEEE;
+             background-color:#fff;
+             z-index: 999;
+         }
+         .more-city>ul>li{
+             float:left;
+             height:30px;
+             width:48px;
+             line-height:35px;
+             text-align:center;
+         }
+         .more-city>ul>li a{
+             text-decoration:none;
+             display:inline-block;
+             width:48px;
+             line-height:30px;
+             height:30px;
+             margin-left:10px;
+
+         }
+         .more-city>ul>li a:hover{
+             background-color:#f7b529;
+             color:#eee;
+         }
      </style>
 
   {{-- <link href="/home/css/style.css" rel="stylesheet" type="text/css" /> --}}
@@ -147,9 +194,27 @@ for(i=0; i <tabList.length; i++)
    </div>
    <div class="header">
     <div class="location">
-     <div class="breadcrumb" style="margin-bottom: 0px;background-color: #fff;padding: 0px">
+     <div class="breadcrumb" style="margin-bottom: 0px;background-color: #fff;padding: 0px" id="icon-top">
       <h1><a a href='/' class='primary-logo' ><img alt="广州" src="/delijiajiao/picture/guangzhou.png" class="city-logo" /></a></h1>
-      <span class="listing-slogan" style="height:40px;">{{ session('regionname') }}</span><span class="listing-slogan1" style="height: 26px;">【德栗家教】【高校联盟】</span>{{--<a href="/change_city.html">更多城市</a>--}}
+      <span class="listing-slogan" style="height:40px;">{{ session('regionname') }}</span>
+         <span class="listing-slogan1" style="height: 26px;">【德栗家教】【高校联盟】</span>{{--<a href="/change_city.html">更多城市</a>--}}
+         <span>更多城市</span>
+         <i id='icon'></i>
+         <i id='icon1' style='display:none'></i>
+         <div class='more-city' style="display:none;">
+             <ul style='height:110px;'>
+                 <li><a href="http://sz.delijiajiao.com">长沙</a></li>
+                 <li><a href="">南京</a></li>
+                 <li><a href="">武汉</a></li>
+                 <li><a href="">珠海</a></li>
+                 <li><a href="">广州</a></li>
+                 <li><a href="">福州</a></li>
+                 <li><a href="">南昌</a></li>
+                 <li><a href="">成都</a></li>
+                 <li><a href="">西宁</a></li>
+                 <li><a href="">南宁</a></li>
+             </ul>
+         </div>
      </div>
      <div class="pull-right">
       <a href="/yuyuelaoshi.html" class="resume-btn" style="font-size: 16px">请老师</a>
@@ -250,6 +315,17 @@ for(i=0; i <tabList.length; i++)
   <div class="banquanxinxi">
           © 2005－2017德栗家教   |   <a href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action">粤ICP备16062097号-4</a> 关键词：家教,一对一家教,广州家教网</div>
   </div>
+  <script>
+      $('#icon').mouseover(function(){
+          $('.more-city').css('display','block')
+      })
+      $('.more-city').mouseover(function(){
+          $(this).css('display','block')
+      })
+      $('.more-city').mouseout(function(){
+          $(this).css('display','none')
+      })
+  </script>
   <script type="text/javascript">
       $(function(){
 

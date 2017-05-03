@@ -990,7 +990,10 @@ div.zfb{
 	padding-left: 20px;
 	float: left;
 	cursor: pointer;
-	border:1px solid #FACC40;
+	border: 1px solid #C9C5C5;
+}
+div.ac_tive{
+	border:1px solid #FACC40 ;
 }
 .zfb1{
 	margin-left: 60px;

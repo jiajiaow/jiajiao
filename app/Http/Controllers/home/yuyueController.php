@@ -178,7 +178,7 @@ class yuyueController extends Controller
                     $userid = DB::table('jjw_user')->where('phone',$phone)->first();
                     //dd($userid);
                     //添加 预约信息
-                    $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid->u_id,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid,'yynum'=>'1']);
+                    $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid->u_id,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid,'yynum'=>'1','ap'=>'学员主动预约']);
                     $reorderid = DB::table('jjw_reorder')->insertGetId(['u_id' => $userid->u_id,'oid' => $orderid,'tc_id'=>$teacher_id,'yy_zt'=>'学员主动预约']);
                     //dd($reorderid);
                     return view('delijiajiao.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
@@ -188,7 +188,7 @@ class yuyueController extends Controller
                     $userid = DB::table('jjw_user')->insertGetId(['name' => $user,'phone' => $phone,'password' => $password,'city_id' => $regionid]);
                     //添加 预约信息
                    // dd($userid);
-                    $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid,'yynum'=>'1']);
+                    $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid,'yynum'=>'1','ap'=>'学员主动预约']);
                     $reorderid = DB::table('jjw_reorder')->insertGetId(['u_id' => $userid,'oid' => $orderid,'tc_id'=>$teacher_id,'yy_zt'=>'学员主动预约']);
                     return view('home.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
                 }
