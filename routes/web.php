@@ -209,18 +209,13 @@ Route::post('/wechatpayquery','payController@wechatpayquery');
 
 
 
-<<<<<<< HEAD
 //文章中心
 Route::get('/Articlecenter.html','home\ArticleController@Articlecenter');
 //文章列表
 Route::get('/Articlecenter{id?}.html','home\ArticleController@wzlist');
 //文章内容
 Route::get('/Articlecontent{id?}.html','home\ArticleController@Articlecontent');
-=======
 
-
-
->>>>>>> b487350c843b326c146b759865c1a7f113431e30
 //----------  后台  ----------//
 //登录视图 方法
 Route::get('/admin/login',function(){ return view('admin.login');  });
