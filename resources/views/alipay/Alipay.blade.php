@@ -23,6 +23,7 @@
 <input type="hidden" name="payment_type" value="<?=$json['data']['payment_type']?>" />
 <input type="hidden" name="return_url" value="<?=$json['data']['return_url']?>" />
 <input type="hidden" name="extra_common_param" value="<?=$json['data']['extra_common_param']?>" />
+<input type="hidden" name="price" value="<?=$price?>" />
 </form>
 </body>
 </html>
