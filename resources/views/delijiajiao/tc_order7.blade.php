@@ -162,15 +162,15 @@
 							</div>
 						</div>
 					</div>
-					<!-- <div class="bk">
+					<div class="bk">
 						<div class="left">接单时间</div>
 						<div class="right">2017-4-23</div>
 					</div>
 					<div class="bk zqm">
 						<div class="left">结束时间</div>
 						<div class="right" >2017-10-08</div>
-					</div> -->
-					{{--<div class="bk5" style="height: 200px;line-height: 200px;">
+					</div>
+					<div class="bk5" style="height: 200px;line-height: 200px;">
 						<div class="left1">课酬/信息费</div>
 						<div class="right1">
 							<div class="pm">
@@ -207,11 +207,11 @@
 							</div>
 
 						</div>
-					</div>--}}
-					<!-- <div class="bk">
+					</div>
+					<div class="bk">
 						<div class="left">接单时间</div>
 						<div class="right">2017.4.23</div>
-					</div> -->
+					</div>
 					<div class="bk2">
 						<a style="margin-left: 160px;margin-right: 160px;"><font color="#dadada">每月反馈</font></a>|
 						<a style="margin-left: 160px;margin-right: 160px;"><font color="#dadada">结束课程</font></a>

@@ -84,8 +84,8 @@
 					<div class="bk">
 						<div class="left">地址</div>
 						<div class="right">{{ $wxzs->xx_dz }}</div>
-					</div><?php $q = $wxzs->o_ts*$wxzs->o_xs*$wxzs->money ?>
-					<!-- <div class="bk1">
+					</div>
+					<div class="bk1"><?php $q = $wxzs->o_ts*$wxzs->o_xs*$wxzs->money ?>
 						<div class="left1">课酬/信息费</div>
 						<div class="right1">
 							<div class="pm zqm">
@@ -149,8 +149,8 @@
 								</div>
 							</div>
 						</div>
-					</div> -->
-					<!-- <div class="bk">
+					</div>
+					<div class="bk">
 						<div class="left">备注</div>
 						<div class="right">
 							<a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">沟通咨询/疑问</font></a>
@@ -161,8 +161,8 @@
 							@endif
 							<a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">常见问题</font></a>
 						</div>
-					</div> -->
-					<!-- <div class="bk2">
+					</div>
+					<div class="bk2">
 						<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#000">
 								<form action="/tc_qxorder.html" method="post" style="display: inline-block  ">
 									<input type="hidden" name="oid" value="{{ $wxzs->id }}">
@@ -172,7 +172,7 @@
 						</font></a>|
 						<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#000">支付诚意金优先获取订单</font></a>|
 						<a style="margin-left: 60px;margin-right: 60px;"  target="_blank"><font color="#dadada">确认获取订单</font></a>
-					</div> -->
+					</div>
 				</div>
 			@endforeach
 	</div>

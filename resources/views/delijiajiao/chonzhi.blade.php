@@ -84,20 +84,20 @@
 	<!-- 主体部分 -->
 	<div id="zhen_container">
 		<!--支付界面 -->
-		<form action="" method="post" id="cyj">
+		<form action="" method="post" id="cz">
 		<div class="zfjm">
 			<div class="zfjm-c">
 				<!-- 第一部分 -->
 				<div class="ddh">
-					<span>订单号：{{ $data['order_id'] }}</span>
+					<span>订单号：5201314</span>
 				</div>
 				<!-- 第二部分 -->
 				<div class="ddh-one">
 					<div class='d-h'>
 						<label>类别：</label>
-						<!-- <span id='xx'>信息费</span> -->
-						<span id='cy' class='d-active'>诚意金</span>
-						<!-- <span id='cz' >充值</span> -->
+<!-- 						<span id='xx'>信息费</span>
+						<span id='cy'>诚意金</span> -->
+						<span id='cz' class='d-active'>充值</span>
 					</div>
 					<!--  -->
 <!-- 					<div id="xxx" style="display:none">
@@ -112,60 +112,52 @@
 						</div>
 					</div> -->
 					<!--  -->
-					<div id="cyy" style="display:block">
+<!-- 					<div id="cyy" style="display:none">
 						<div>
 							<p style="font-size:16px;padding-left:65px;">如订单已安排，未选中您，诚意金立即退回，最迟2天即可全额退回。</p>
 						</div>
 						<div class="d-h" id='caozz'>
-							<input type="hidden" name="cyj" vlaue="1">
-							<input readonly="readonly" type="hidden" class="d-jine" name="order_id" value="{{ $data['order_id'] }}">
-							<input readonly="readonly" type="hidden" class="d-jine" name="cyj" value="1">
-							<input readonly="readonly" type="hidden" class="d-jine" name="r_id" value="{{ $data['rid'] }}">
-							<select class="d-jine" name="money">
-								<option value="0.01">0.01元</option>
-								<option value="50">50元</option>
-								<option value="30">30元</option>
-								<option value="80">80元</option>
-								<option value="100">100元</option>
-								<option value="200">200元</option>
-								<option value="300">300元</option>
+							<select class="d-jine">
+								<option></option>
+								<option></option>
 							</select>
 						</div>
-					</div>
+					</div> -->
 					<!-- 充值的DIV -->
-<!-- 					<div id="czz">
+					<div id="czz">
 						<div>
 							<p style="font-size:16px;padding-left:65px;">充值金额冲入个人账户，随时可以提现。24小时内到账。</p>
 						</div>
 						<div class="d-h" id='caozz'>
 							<label>金额：</label>
-							<input id='i-jinge' class="d-jine" type="text" name=''v-model='licheng' placeholder=' 请输入充值金额' maxlength="8">
-							<span id='cnm'>费用：000元</span>
+							<input id='i-jinge' class="d-jine" type="text" name="money" v-model='licheng' placeholder=' 请输入充值金额' maxlength="8">
+							<input class="d-jine" type="hidden" name='cz' value=='1'>
+							<span id='cnm'>费用：0元</span>
 						</div>
-					</div> -->
+					</div>
 				</div>
 				<!-- 第三部分 -->
-				<div class="ddh-two">
+				{{--<div class="ddh-two">
 					<input type="checkbox" id='df'checked=checked name="xuanzhong" style="margin:0;width:16px;">
 					<label>使用余额</label>
 					<span style='color:#B0B3B4;'>(可用余额元)</span>
 					<span id='cnmm' style='float:right;width:135px;color:red'>支付：000元</span>
-				</div>
+				</div>--}}
 				<!-- 第四部分 -->
 				<div class="ddh-three">
 					<div class="ddh-two1">
 						<input type="checkbox" id="fd" name='duoxuan'style="margin:0;width:16px;" >
 						<label>使用其他支付方式</label>
-						<span id='cnmmm' style='float:right;width:135px;color:red;font-size:16px;'>支付：000元</span>
+						<span id='cnmmm' style='float:right;width:135px;color:red;font-size:16px;'>支付：0元</span>
 					</div>
 					<div class="jiaoshenme">
 						<div style="height:50px;margin-top:35px;">
-							<div id="bao" class="zfb zfb1 ac_tive">
+							<div id="bao" class="zfb zfb1">
 								<img src="/new/images/zhifubao.png">
 								<!-- 支付宝是跳转 -->
 								<span id='tiaozhuan'>支付宝支付</span>
 							</div>
-							<div id="wei" class="zfb" style="border:1px solid #BEBEBE;">
+							<div id="wei" class="zfb" >
 								<img src="/new/images/wechat1.png">
 								<span>微信支付</span>
 							</div>	
@@ -177,7 +169,7 @@
 					<label class="cz-1" style="margin-bottom:0px;">交易对象：</label>
 					<span class='cz-2'>德栗家教</span>
 					<label class="cz-3" style="margin-bottom:0px;">应付：</label>
-					<span id='bn' class='cz-4'>￥000</span>
+					<span id='bn' class='cz-4'>￥0</span>
 					<input class="cz-5" type="submit" value="立即支付" onclick="zf()">
 				</div>
 			</div>
@@ -195,7 +187,6 @@
         </div>	
         
 	</footer>
-
 	<script type="text/javascript" src='/new/js/jquery-2.2.3.min.js'></script>
 	<script type="text/javascript" src='/new/js/script_cheng.js'></script>
 	<script type="text/javascript" src='/new/js/bootstrap.js'></script>
@@ -218,14 +209,14 @@
 			$(this).attr('checked','ture');
 			$('#fd').removeAttr('checked',false)	
 		})
-		$('#wei').click(function(){
-			$(this).css('border','1px solid #FACC40')
-				   .siblings('#bao').css('border','1px solid #BEBEBE')
-		})
-		$('#bao').click(function(){
-			$(this).css('border','1px solid #FACC40')
-				   .siblings('#wei').css('border','1px solid #BEBEBE')
-		})
+//		$('#wei').click(function(){
+//			$(this).css('border','1px solid #FACC40')
+//				   .siblings('#bao').css('border','1px solid #BEBEBE')
+//		})
+//		$('#bao').click(function(){
+//			$(this).css('border','1px solid #FACC40')
+//				   .siblings('#wei').css('border','1px solid #BEBEBE')
+//		})
 		// 支付宝的跳转链接
 		/*$('#tiaozhuan').click(function(){
 			window.location.href=''
@@ -245,21 +236,14 @@
 					 .siblings('#cyy').css('display','none')
 					 .siblings('#xxx').css('display','none')
 		})
-		$(document).on('change','.d-jinge',function(){
-			var zhi = $('.d-jinge  option:selected').val()
+		$('#i-jinge').blur(function(){
+			let zhi = $(this).val();
 			console.log(zhi);
 			$('#cnm').text('费用'+zhi+'元');
 			$('#cnmm').text('费用'+zhi+'元');
 			$('#cnmmm').text('费用'+zhi+'元');
 			$('#bn').text('￥'+zhi+'元');
 		})
-		$(".d-jine").change(function(){
-			var zhi = $('.d-jine  option:selected').val()
-			$('#cnm').text('费用'+zhi);
-			$('#cnmm').text('费用'+zhi);
-			$('#cnmmm').text('费用'+zhi);
-			$('#bn').text('￥'+zhi);
-		});
 		$('#wei').click(function(){
 			$('#wei').addClass('ac_tive')
 			$('#bao').removeClass('ac_tive')
@@ -269,13 +253,12 @@
 			$('#wei').removeClass('ac_tive')
 		})
 		function zf(){
-			//alert($('.ac_tive span').text());
 			if($('.ac_tive span').text() == '支付宝支付'){
 				var path = "/alipay";
-				$('#cyj').attr("action", path).submit();
+				$('#cz').attr("action", path).submit();
 			}else{
 				var path = "/wechatpay";
-				$('#cyj').attr("action", path).submit();
+				$('#cz').attr("action", path).submit();
 			}
 		}
 	</script>
