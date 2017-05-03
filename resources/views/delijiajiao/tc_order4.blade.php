@@ -223,7 +223,6 @@
                             <div class="left">试课地点</div>
                             <div class="right">
                                 <form action="/tc_skadd.html" method="post">
-                                    <input type="hidden" name="oid" value="{{ $skzs->id }}">
                                     <input type="hidden" name="rid" value="{{ $skzs->rid }}">
                                     <input type="hidden" name="tc_id" value="{{ $skzs->tc_id }}">
                                     <input name="add" id="jy_adres" type="text" style="width: 82%;height: 29px;border: none;"  value="{{ $skzs->radd }}"/>
@@ -246,13 +245,17 @@
                             <div class="left">试课结果填写</div>
                             <div class="right">
                                 <div style="height: 40px;">
-                                    <a onclick="skcg()">试课成功</a>
-                                    <a class="timeShow">试课不成功</a>
+                                    @if($skzs->jy_qz == '1' && $skzs-> xy_qz)
+                                        <a>试课成功</a>
+                                    @else
+                                        <a onclick="skcg()">试课成功</a>
+                                        <a class="timeShow">试课不成功</a>
+                                    @endif
                                 </div></div>
                         </div>
                         <div class="bk">
                             <div class="left">介绍信/合同</div>
-                            <div class="right"><a href=""><font color="#FF0000">查看电子介绍信/合同</font></a></div>
+                            <div class="right"><a href="/hetong/{{ $skzs->id }}.html"><font color="#FF0000">查看电子介绍信/合同</font></a></div>
                         </div>
                         <div class="bk5" style="height: 200px;line-height: 200px;"><?php $q = $skzs->o_ts*$skzs->o_xs*$skzs->money ?>
                             <div class="left1">课酬/信息费</div>
@@ -278,7 +281,7 @@
                                         @elseif($skzs->o_ts == '7')
                                             {{ $skzs->money*$skzs->o_xs-($q*$skzs->bfb7>300?'300':$q*$skzs->bfb7) }}
                                         @endif元--}}
-                                        {{ $skzs->money*$skzs->o_xs-$skzs->xxf }}
+                                        <span class="xbxxf" id="{{ $skzs->id }}">{{ $skzs->money*$skzs->o_xs-$skzs->xxf }}</span>
                                     </div>
                                 </div>
                                 <div class="pm">
@@ -334,7 +337,7 @@
                         </div>
                         <div class="bk2">
                             <span style="margin-left: 60px;margin-right: 60px;"  class="timeShow" target="_blank"><font color="#000">申请退款</font></span>|
-                            <a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#000">支付信息费</font></a>|
+                            <a style="margin-left: 60px;margin-right: 60px;" onclick="zf(this,{{ $skzs->id }},{{ $skzs->rid }})" class="xxf_btn"><font color="#000">支付信息费</font></a>|
                             <a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#FF0000">收付款记录</font></a>
                         </div>
                     </div>
@@ -346,6 +349,7 @@
                 <form method="post" action="/sqtk.html">
                     <input type="hidden" name="oid" value="{{ $skzs->id }}">
                     <input type="hidden" name="rid" value="{{ $skzs->rid }}">
+                    <input type="hidden" name="tc_id" value="{{ $skzs->tc_id }}">
                     <input type="hidden" name="tc_id" value="{{ $skzs->tc_id }}">
                     <div>
                         <ul >
@@ -427,6 +431,12 @@
                 @endif
             </div>
         </div>
+        <form action="" method="post" id="zf">
+            <input type="hidden" id="m" name ="xxf" value="">
+            <input type="hidden" id="i" name ="order_id" value="">
+            <input type="hidden" id="r" name ="rid" value="">
+            <input type="hidden" id="b" name ="b" value="b">
+        </form>
     </div></div>
 <!-- 清楚浮动影响高度为0 这个很重要-->
 <div id="jedatebox" class="jedatebox" style="z-index: 999;"></div>
@@ -583,6 +593,29 @@
         }, function(){
 
         });
+    }
+    $('.xxf_btn').click(function(){
+        if($('.xbxxf').text() <=0){
+            alert('1')
+            return
+        }
+        $.get('/','')
+    })
+    $('.xbxxf').click(function(){
+
+    })
+
+    function zf(obj,id,rid){
+        var money = $('#'+id).html();
+        if(money < 0){
+            alert('需退款!');
+            return false;
+        }
+        $('#m').val(money);
+        $('#i').val(id);
+        $('#r').val(rid);
+        var path = "xxf.html";
+        $('#zf').attr("action", path).submit();
     }
 </script>
 </body>

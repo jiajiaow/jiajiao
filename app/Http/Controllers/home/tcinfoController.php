@@ -155,7 +155,7 @@ class tcinfoController extends Controller
         return view('delijiajiao.tc_order7',['skjs'=>$skjs]);
     }
     //教员订单
-    public function tc_order(){
+    /*public function tc_order(){
         if (session('Template') == '2') {
             if (session('tc_phone') == '') {
                 return redirect('/')->with('msg', '请您先登录!');
@@ -276,7 +276,7 @@ class tcinfoController extends Controller
         } else {
             echo "栗志";
         }
-    }
+    }*/
 
     //教员取消订单
     public function tc_qxorder(){
@@ -350,6 +350,32 @@ class tcinfoController extends Controller
                              'kcjs'=>null,
             ]);
             return back()->with('msg','申请成功!');
+        }
+    }
+
+    public function hetong($id){
+      // $list = DB::table('jjw_order')->where('id',$id)->first();
+        //
+        $list = \DB::table('jjw_order as o')
+            ->join('jjw_reorder as r', 'r.oid', '=', 'o.id')
+            ->join('jjw_teachers as t', 't.id', '=', 'r.tc_id')
+            ->where('t.id',session('tc_id'))
+            ->where('o.id',$id)
+            ->select('o.*','r.yy_zt','r.ht_t_status','r.id as rid','r.add as radd','t.tc_phone','t.tc_name','r.jd_times')
+            ->first();
+        //dd($list);
+        return view('delijiajiao.hetong',['list'=>$list]);
+    }
+
+    public function dohetong(Request $request){
+        //dd($_POST);
+        $data = $request->except('id');
+       // dd($data);
+        $list = DB::table('jjw_order')->where('id',$request->id)->update($data);
+        if($list){
+            return redirect('/tc_order4.html');
+        }else{
+            return redirect('/tc_order4.html');
         }
     }
 }

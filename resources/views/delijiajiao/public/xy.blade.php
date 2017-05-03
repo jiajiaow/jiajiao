@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>学员个人中心</title>
     <link rel="stylesheet" type="text/css" href="/new/css/cheng_css.css">
-    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/new/css/bootstrap.css">
     <script type="text/javascript" src='/new/js/jquery-2.2.3.min.js'></script>
     <script src="/admin/js/bootstrap.min.js"></script>
 

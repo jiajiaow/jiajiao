@@ -212,11 +212,9 @@
                         <div class="left">备注</div>
                         <div class="right">
                             <a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">沟通咨询/疑问</font></a>
-                            @if($yaps->yy_zt =='')
-                                <a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000"></font></a>
-                            @else
-                                <a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">{{ $yaps->yy_zt }}</font></a>
-                            @endif
+
+                                <a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">{{ $yaps->ap }}</font></a>
+
                             <a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">常见问题</font></a>
                         </div>
                     </div>

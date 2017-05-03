@@ -119,6 +119,9 @@ Route::get('/tc_order5.html','home\tcinfoController@tc_order5');
 Route::get('/tc_order6.html','home\tcinfoController@tc_order6');
 //授结束
 Route::get('/tc_order7.html','home\tcinfoController@tc_order7');
+//合同
+Route::get('/hetong/{id?}.html','home\tcinfoController@hetong');
+Route::post('/dohetong','home\tcinfoController@dohetong');
 
 //省
 Route::post('/sheng','home\teacherinfoController@sheng');
@@ -203,6 +206,8 @@ Route::get('/PaymentSuccess','payController@PaymentSuccess');
 
 //微信支付查
 Route::post('/wechatpayquery','payController@wechatpayquery');
+
+
 
 
 

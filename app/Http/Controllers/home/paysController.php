@@ -16,6 +16,7 @@ class paysController extends Controller
     //信息费
     public function xxf(Request $request){
         $data = $request->all();
+       // dd($data);
         return view('delijiajiao.xxf',['data'=>$data]);
     }
 
