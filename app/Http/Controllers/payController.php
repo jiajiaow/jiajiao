@@ -75,7 +75,7 @@ class payController extends Controller
          $content = $this->httpclient('http://api.btjson.com/alipay',$ary);
          if($ary['mod'] == 'pay'){
              $json = json_decode($content,true);
-             //dd($json);
+             dd($json);
              $oid = $json['data']['out_trade_no'];//返回的订单号,可存在自己的数据库中
              //信息费支付修改订单
              if($rid != ''){

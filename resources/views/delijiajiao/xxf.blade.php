@@ -109,7 +109,9 @@
 							<input readonly="readonly" class="d-jine" id="money" name="money" value="{{ $data['xxf'] }}">元
 							<input readonly="readonly" type="hidden" class="d-jine" name="rid" value="{{ $data['rid'] }}">
 							<input readonly="readonly" type="hidden" class="d-jine" name="order_id" value="{{ $data['order_id'] }}">
-							<input readonly="readonly" type="hidden" class="d-jine" name="b" value="{{ $data['b']==''?'':$data['b'] }}">
+							@if(!empty($data['b']))
+							<input readonly="readonly" type="hidden" class="d-jine" name="b" value="{{ $data['b'] }}">
+							@endif
 						</div>
 					</div>
 					<!--  -->
