@@ -33,15 +33,15 @@ class payController extends Controller
         $code = $_POST['code'];//支付结果状态码
         $oid = $_POST['oid'];//订单号
         $sign = $_POST['sign'];//安全验证
-        $price = $_POST['price']; //
         $signs = md5($oid.$token);
         if($signs == $sign){
             DB::table('jjw_order')->where('pay_id',$oid)->update(['pay' => '1']);
             //信息费状态 支付修改为成功 试课中
-            DB::table('jjw_reorder')->where('pay_id',$oid)->update(['pay_zt' => '1','qt_t_status'=>'4','ht_t_status'=>'7','jd_times'=>time(),'xxf'=>$price]);
+            DB::table('jjw_reorder')->where('pay_id',$oid)->update(['pay_zt' => 1,'qt_t_status'=>'4','ht_t_status'=>'7','jd_times'=>time()]);
             //诚意金状态 支付修改为支付成功
-            DB::table('jjw_reorder')->where('cyj_pay_id',$oid)->update(['cyj_pay_zt' =>1,'ht_t_status'=>'5','cyj'=>$price]);
+            DB::table('jjw_reorder')->where('cyj_pay_id',$oid)->update(['cyj_pay_zt' =>1,'ht_t_status'=>'5']);
             //充值
+
         }
     }
     //支付宝
@@ -82,19 +82,19 @@ class payController extends Controller
              //信息费支付修改订单
              if($_POST['b'] == ''){
                  if($rid != ''){
-                     DB::table('jjw_reorder')->where('id',$rid)->where('oid',$id)->update(['pay_id' => $oid]);
+                     DB::table('jjw_reorder')->where('id',$rid)->where('oid',$id)->update(['pay_id' => $oid,'xxf'=>$price]);
                  }
-                 //需补信息费
              }else if($_POST['b'] == 'b'){
-
+                 $yue = DB::table('jjw_reorder')->where('id',$rid)->get();
+                 dd($yue);
              }
              //诚意金
              if($r_id != ''){
-                 DB::table('jjw_reorder')->where('id',$r_id)->where('oid',$id)->update(['cyj_pay_id' => $oid]);
+                 DB::table('jjw_reorder')->where('id',$r_id)->where('oid',$id)->update(['cyj_pay_id' => $oid,'cyj'=>$price]);
              }
              //余额充值
              if($_POST['cz'] != ''){
-                 // DB::table('tc_cz')->insert(['tc_id'=>session('tc_id'),'tc_money'=>$price,'tc_cz_dd'=>$oid,'tc_cz_type'=>'支付宝','tc_cz_times'=>date('Y-m-d h:i:s',time())]);
+                 //DB::table('tc_cz')->insert(['tc_id'=>session('tc_id'),'tc_money'=>$price,'tc_cz_dd'=>$oid,'tc_cz_type'=>'支付宝','tc_cz_times'=>date('Y-m-d h:i:s',time())]);
              }
 
              DB::table('jjw_reorder')->where('id',$id)->update(['pay_id' => $oid]);
