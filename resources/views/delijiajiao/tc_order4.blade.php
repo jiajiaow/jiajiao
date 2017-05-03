@@ -249,12 +249,12 @@
                                             <a onclick="skcg()">试课成功</a>
 										<a class="timeShow">试课不成功</a>
 								</div></div>
-					</div>
-					<div class="bk">
+					</div><?php $q = $skzs->o_ts*$skzs->o_xs*$skzs->money ?>
+					<!-- <div class="bk">
 						<div class="left">介绍信/合同</div>
 						<div class="right"><a href=""><font color="#FF0000">查看电子介绍信/合同</font></a></div>
 					</div>
-					<div class="bk5" style="height: 200px;line-height: 200px;"><?php $q = $skzs->o_ts*$skzs->o_xs*$skzs->money ?>
+					<div class="bk5" style="height: 200px;line-height: 200px;">
 						<div class="left1">课酬/信息费</div>
 						<div class="right1">
 							<div class="pm zqm">
@@ -301,7 +301,7 @@
 								</div>--}}
 							</div>
 							{{--<div class="pm zqm">
-
+					
 								<div class="right">
 									待退回诚意金：60元
 								</div>
@@ -309,7 +309,7 @@
 							<div class="pm">
 								<div class="left">
 									已预付信息费：
-									{{--@if($skzs->o_ts == '1')
+									@if($skzs->o_ts == '1')
 										{{ $q*$skzs->bfb1>300?'300':$q*$skzs->bfb1 }}
 									@elseif($skzs->o_ts == '2')
 										{{ $q*$skzs->bfb2>300?'300':$q*$skzs->bfb2 }}
@@ -323,20 +323,20 @@
 										{{ $q*$skzs->bfb6>300?'300':$q*$skzs->bfb6 }}
 									@elseif($skzs->o_ts == '7')
 										{{ $q*$skzs->bfb7>300?'300':$q*$skzs->bfb7 }}
-									@endif元--}}
-                                    {{ $skzs->xxf }}
+									@endif元
+					                                    {{ $skzs->xxf }}
 								</div>
 								<div class="right">
 									本单实际信息费：{{ $skzs->money*$skzs->o_xs }}元
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="bk2">
+					</div> -->
+					<!-- <div class="bk2">
 						<span style="margin-left: 60px;margin-right: 60px;"  class="timeShow" target="_blank"><font color="#000">申请退款</font></span>|
 						<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#000">支付信息费</font></a>|
 						<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#FF0000">收付款记录</font></a>
-					</div>
+					</div> -->
 				</div>
 				@endforeach
 		<!--  -->
@@ -344,9 +344,7 @@
     <div class="fc" style="display: none;"></div>
     <div class="fc_content" style="display: none;">
       <form method="post" action="/sqtk.html">
-          <input type="hidden" name="oid" value="{{ $skzs->id }}">
-          <input type="hidden" name="rid" value="{{ $skzs->rid }}">
-          <input type="hidden" name="tc_id" value="{{ $skzs->tc_id }}">
+          
         <div>
             <ul >
                 <li><p><input name="Fruit" type="radio" value="1" />试课成功<span class="seeMar">应退信息费</span></p></li>
@@ -408,7 +406,7 @@
                     <input style="margin: 0px; width: 334px; height: 68px;" name="bz"/>
                 </li>
                 <li>
-                    <p><input name="Fruit" type="radio" value="" />已锁定诚意金<span class="seeMar">{{ $skzs->cyj }}</span></p>
+                    <p><input name="Fruit" type="radio" value="" />已锁定诚意金<span class="seeMar"></span></p>
                 </li>
                 <li>
                     <p><button style="margin-left: 110px;" type="submit" >申请退款</button><span class="seeMar"><button>申请诚意金解锁</button></span></p>

@@ -157,8 +157,8 @@
                     <div class="bk" style="display: flex;">
                         <div class="left">地址</div>
                         <div class="right">{{ $yaps->xx_dz }}</div>
-                    </div>
-                    <div class="bk1"><?php $q = $yaps->o_ts*$yaps->o_xs*$yaps->money ?>
+                    </div><?php $q = $yaps->o_ts*$yaps->o_xs*$yaps->money ?>
+                    <!-- <div class="bk1">
                         <div class="left1">课酬/信息费</div>
                         <div class="right1">
                             <div class="pm zqm">
@@ -253,7 +253,7 @@
                                 <a style="margin-left: 60px;margin-right: 60px;" >确认获取订单</a>
                             @endif
                         </a>
-                    </div>
+                    </div> -->
                 </div>
             @endforeach
         </div>

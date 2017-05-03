@@ -162,7 +162,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="bk">
+					<!-- <div class="bk">
 						<div class="left">上课时间</div>
 						<div class="right"><button style="height: 40px; margin-top: 5px;line-height: 35px;float: right;" class="timeShow">选择时间</button></div>
 					</div>
@@ -216,7 +216,7 @@
 									<button type="submit" style="height: 40px;line-height:30px;margin-top: 10px;">结束课程</button>
 								</form>
 							</font></a>
-					</div>
+					</div>-->
 				</div>
 				@endforeach
 		<!--  -->

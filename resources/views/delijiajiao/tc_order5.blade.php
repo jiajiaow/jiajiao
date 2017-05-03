@@ -138,39 +138,39 @@
 				<a href="/tc_order4.html"><div class="cbv" style="font-size: 14px;">试<br/>课<br/>中</div></a>
 				<a href="/tc_order5.html"><div class="cb" style="font-size: 14px;">试<br/>课<br/>失<br/>败</div></a>
 			</div>
-			@foreach($sskjs as $sskjss)
+			@foreach($sskjs as $sskjss)<?php $q =  $sskjss->o_ts* $sskjss->o_xs* $sskjss->money ?>
 				<div class="right">
 					<div class="bk zqm">
 						<div class="left">订单编号</div>
 						<div class="right">{{ $sskjss->id }}<a href="/xsinfo{{ $sskjss->id }}.html" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
 					</div>
-					{{--<div class="bk">
+					<div class="bk">
 						<div class="left">接单时间</div>
-						<div class="right"></div>
+						<div class="right">{{ $sskjss->jd_times }}</div>
 					</div>
 					<div class="bk zqm">
 						<div class="left">试课时间</div>
-						<div class="right"></div>
+						<div class="right">{{ $sskjss->sk_times }}</div>
 					</div>
-					<div class="bk">
+					<!--<div class="bk">
 						<div class="left">试课地点</div>
 						<div class="right">
-							--}}{{--<form action="">
+							<form action="">
 								<input name="" type="text" style="height: 29px;" />
 								<input type="submit" style="font-size: 12px;height: 50px;"/>
-							</form>--}}{{--
+							</form>
 						{{ $sskjss->radd }}</div>
-					</div>--}}
-					{{--<div class="bk">
+					</div>
+					<div class="bk">
 						<div class="left">试课结果填写</div>
 						<div class="right"><a href=""><font color="#FF0000">试课成功</font></a>　　　　<a href=""><font color="#FF0000">试课不成功</font></a></div>
-					</div>--}}
-					{{--<div class="bk">
+					</div>
+					<div class="bk">
 						<div class="left">介绍信/合同</div>
 						<div class="right"><a href=""><font color="#FF0000">查看电子介绍信/合同</font></a></div>
-					</div>--}}
+					</div>
 					<div class="bk4" style="height: 100px;line-height: 100px;">
-						<div class="left1">课酬/信息费</div><?php $q =  $sskjss->o_ts* $sskjss->o_xs* $sskjss->money ?>
+						<div class="left1">课酬/信息费</div>
 						<div class="right1">
 							<div class="pm zqm">
 								<div class="left">
@@ -217,14 +217,14 @@
 									已退信息费：0元
 								</div>
 							</div>
-
+					
 						</div>
-					</div>
-					<div class="bk2">
+					</div> -->
+					<!-- <div class="bk2">
 						<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#000">申请退款</font></a>|
 						<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#000">信息费支付</font></a>|
 						<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#FF0000">收付款记录</font></a>
-					</div>
+					</div> -->
 				</div>
 				@endforeach
 		<!--  -->
