@@ -39,9 +39,9 @@ class payController extends Controller
             //支付状态
             DB::table('jjw_mpay')->where('m_pay_id',$oid)->update(['m_type' =>'1']);
             //信息费状态 支付修改为成功 试课中
-            DB::table('jjw_reorder')->where('pay_id',$oid)->update(['pay_zt' => '1','qt_t_status'=>'4','ht_t_status'=>'7','jd_times'=>time()]);
+            DB::table('jjw_reorder')->where('pay_id',$oid)->update(['qt_t_status'=>'4','ht_t_status'=>'7','jd_times'=>time(),'pay_zt' =>'1']);
             //剩余信息费
-            DB::table('jjw_reorder')->where('pay_id',$oid)->update(['pay_zt2' => '1','qt_t_status'=>'6','ht_t_status'=>'9']);
+            DB::table('jjw_reorder')->where('pay_id2',$oid)->update(['pay_zt2' => '1']);
             //诚意金状态 支付修改为支付成功
             DB::table('jjw_reorder')->where('cyj_pay_id',$oid)->update(['cyj_pay_zt' =>'1','ht_t_status'=>'5']);
             //充值

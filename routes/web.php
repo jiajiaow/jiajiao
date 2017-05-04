@@ -211,18 +211,13 @@ Route::get('/PaymentSuccess','payController@PaymentSuccess');
 //微信支付查
 Route::post('/wechatpayquery','payController@wechatpayquery');
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> d23c9689b4f7807c19af740585a360893a7d171f
 //文章中心
 Route::get('/Articlecenter.html','home\ArticleController@Articlecenter');
 //文章列表
 Route::get('/Articlecenter{id?}.html','home\ArticleController@wzlist');
 //文章内容
 Route::get('/Articlecontent{id?}.html','home\ArticleController@Articlecontent');
-=======
+
 
 //----------  后台  ----------//
 //登录视图 方法

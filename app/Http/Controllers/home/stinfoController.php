@@ -117,6 +117,9 @@ class stinfoController extends Controller
             \DB::table('jjw_reorder')->where('oid',$_POST['id'])->where('tc_id',$list->t_id)->update(['qt_t_status'=>'6','ht_t_status'=>'8',]);
             \DB::table('jjw_order')->where('id',$_POST['id'])->update(['xy_qz'=>'1']);
             return redirect('/xy_order.html');
+        }else{
+            \DB::table('jjw_order')->where('id',$_POST['id'])->update(['xy_qz'=>'1']);
+            return redirect('/xy_order.html');
         }
 
     }
