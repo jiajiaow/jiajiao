@@ -84,6 +84,7 @@
                                 </td>
                             </tr>
                         @endforeach
+                        <a href="" id="dj"></a>
                         </tbody>
 
                     </table>
@@ -221,7 +222,10 @@
         });
     });
     function aa(id){
-        window.location.href ="/admin/hot_school/"+id;
+       // window.location.href ="/admin/hot_school/"+id;
+        var path = "/admin/hot_school/"+id;
+        $('#dj').attr("href", path);
+        document.getElementById('dj').click();
     }
     //区
 </script>
