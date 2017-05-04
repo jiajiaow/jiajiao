@@ -245,8 +245,8 @@
                             <div class="left">试课结果填写</div>
                             <div class="right">
                                 <div style="height: 40px;">
-                                    @if($skzs->jy_qz == '1' && $skzs-> xy_qz)
-                                        <a>试课成功</a>
+                                    @if($skzs->jy_qz == '1' && $skzs-> xy_qz =='1')
+                                        <a class="cg" id="cg{{ $skzs->id }}">试课成功</a>
                                     @else
                                         <a onclick="skcg()">试课成功</a>
                                         <a class="timeShow">试课不成功</a>
@@ -281,7 +281,7 @@
                                         @elseif($skzs->o_ts == '7')
                                             {{ $skzs->money*$skzs->o_xs-($q*$skzs->bfb7>300?'300':$q*$skzs->bfb7) }}
                                         @endif元--}}
-                                        <span class="xbxxf" id="{{ $skzs->id }}">{{ $skzs->money*$skzs->o_xs-$skzs->xxf }}</span>
+                                        <span class="xbxxf" id="{{ $skzs->id }}">{{ $skzs->money*$skzs->o_xs-($skzs->xxf+$skzs->xxf2) }}</span>元
                                     </div>
                                 </div>
                                 <div class="pm">
@@ -327,7 +327,7 @@
                                         @elseif($skzs->o_ts == '7')
                                             {{ $q*$skzs->bfb7>300?'300':$q*$skzs->bfb7 }}
                                         @endif元--}}
-                                        {{ $skzs->xxf }}
+                                        {{ $skzs->xxf+$skzs->xxf2 }}
                                     </div>
                                     <div class="right">
                                         本单实际信息费：{{ $skzs->money*$skzs->o_xs }}元
@@ -336,7 +336,7 @@
                             </div>
                         </div>
                         <div class="bk2">
-                            <span style="margin-left: 60px;margin-right: 60px;"  class="timeShow" target="_blank"><font color="#000">申请退款</font></span>|
+                            <span style="margin-left: 60px;margin-right: 60px;"  onclick="timeShow({{ $skzs->id }},{{ $skzs->rid }},{{ $skzs->tc_id }})" target="_blank"><font color="#000">申请退款</font></span>|
                             <a style="margin-left: 60px;margin-right: 60px;" onclick="zf(this,{{ $skzs->id }},{{ $skzs->rid }})" class="xxf_btn"><font color="#000">支付信息费</font></a>|
                             <a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#FF0000">收付款记录</font></a>
                         </div>
@@ -346,11 +346,11 @@
             </div>
             <div class="fc" style="display: none;"></div>
             <div class="fc_content" style="display: none;">
+
                 <form method="post" action="/sqtk.html">
-                    <input type="hidden" name="oid" value="{{ $skzs->id }}">
-                    <input type="hidden" name="rid" value="{{ $skzs->rid }}">
-                    <input type="hidden" name="tc_id" value="{{ $skzs->tc_id }}">
-                    <input type="hidden" name="tc_id" value="{{ $skzs->tc_id }}">
+                    <input type="hidden" name="oid" id="oid" value="">
+                    <input type="hidden" name="rid" id="rid" value="">
+                    <input type="hidden" name="tc_id" id="tc_id" value="">
                     <div>
                         <ul >
                             <li><p><input name="Fruit" type="radio" value="1" />试课成功<span class="seeMar">应退信息费</span></p></li>
@@ -412,7 +412,7 @@
                                 <input style="margin: 0px; width: 334px; height: 68px;" name="bz"/>
                             </li>
                             <li>
-                                <p><input name="Fruit" type="radio" value="" />已锁定诚意金<span class="seeMar">{{ $skzs->cyj }}</span></p>
+                                <p><input name="Fruit" type="radio" value="" />已锁定诚意金<span class="seeMar"></span></p>
                             </li>
                             <li>
                                 <p><button style="margin-left: 110px;" type="submit" >申请退款</button><span class="seeMar"><button>申请诚意金解锁</button></span></p>
@@ -420,6 +420,7 @@
                         </ul>
                     </div>
                 </form>
+
             </div>
             <div class="c_yejiao">
                 @if($skz->num > 0)
@@ -483,10 +484,13 @@
         $('#endTime').date({theme:"datetime"});
 
     });
-    $('.timeShow').click(function(){
+    function timeShow(id,rid,tc_id){
         $('.fc').show(500)
         $('.fc_content').show(500)
-    })
+        $('#oid').val(id);
+        $('#rid').val(rid)
+        $('#tc_id').val(tc_id)
+    }
     $('.fc').click(function(){
         $('.fc').hide(500)
         $('.fc_content').hide(500)
@@ -595,9 +599,9 @@
         });
     }
     $('.xxf_btn').click(function(){
-        if($('.xbxxf').text() <=0){
-            alert('1')
-            return
+        if($('.xbxxf').text() <0){
+            //alert('1')
+            return false;
         }
         $.get('/','')
     })
@@ -608,15 +612,25 @@
     function zf(obj,id,rid){
         var money = $('#'+id).html();
         if(money < 0){
-            alert('需退款!');
+            //alert('需退款!');
             return false;
         }
+//        if($('#cg'+id).html() !='试课成功'){
+//            alert('学员未确定试课');
+//            return false
+//        }else{
+//            alert('试课成功并且不需要补钱');
+//        }
         $('#m').val(money);
         $('#i').val(id);
         $('#r').val(rid);
         var path = "xxf.html";
         $('#zf').attr("action", path).submit();
     }
+    var cg = $('.cg').html()
+    var xbxxf = $('.xbxxf')
+
+    console.log(xbxxf.length)
 </script>
 </body>
 </html>
