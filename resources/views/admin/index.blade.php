@@ -128,7 +128,7 @@
                     <li>
                         <a href="#">
                             <i class="fa fa fa-mortar-board"></i>
-                            <span class="nav-label">热门大学</span>
+                            <span class="nav-label">热门区域</span>
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
@@ -140,7 +140,7 @@
                     <li>
                         <a href="#">
                             <i class="fa fa fa-institution"></i>
-                            <span class="nav-label">热门区域</span>
+                            <span class="nav-label">热门大学</span>
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
