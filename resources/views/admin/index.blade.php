@@ -163,7 +163,7 @@
                                 <a class="J_menuItem" href="/admin/wzdhlb">导航列表</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="/admin/hot_area/1">文章列表</a>
+                                <a class="J_menuItem" href="/admin/wzlb">文章列表</a>
                             </li>
                             <li>
                                 <a class="J_menuItem" href="/admin/fbwz">发布文章</a>

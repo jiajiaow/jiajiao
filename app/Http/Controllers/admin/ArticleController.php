@@ -48,9 +48,64 @@ class ArticleController extends Controller
     }
     public function tjwzdo(Request $request)
     {
+        if($request->input('ar_title') == null){
+            return back()->with('zt','请输入标题');
+        }else if($request->input('ar_time') == null){
+            return back()->with('zt','请输入时间');
+        }else if($request->input('ar_pid') == null){
+            return back()->with('zt','请选择分类');
+        }else if($request->input('ar_jj') == null){
+            return back()->with('zt','请输入简介');
+        }else if($request->input('ar_content') == null){
+            return back()->with('zt','请输入文章内容');
+        }
         $data = $request->all();
         $data = $request->except('_token');
-        DB::table('jjw_Articlelist')->insert($data);
+        $re = DB::table('jjw_Articlelist')->insert($data);
+        if($re){
+            return redirect('/admin/wzlb');
+        }else{
+            return back();
+        }
+    }
+    public function wzlb(Request $request)
+    {
+        $data = DB::table('jjw_Articlelist')
+                    ->join('jjw_Navigation', 'jjw_Articlelist.ar_pid', '=', 'jjw_Navigation.dh_id')
+                    ->select('jjw_Articlelist.*', 'jjw_Navigation.dh_Navigationbar')
+                    ->orderBy('ar_time','desc')
+                    ->orderBy('ar_status','desc')
+                    ->get();
+                    //dd($data);
+        return view('admin.wzlb',['data' => $data]);
+    }
+    public function wzde($id)
+    {
+        $re = DB::table('jjw_Articlelist')->where('ar_id',$id)->delete();
+        return back();
+    }
+    public function modify($id)
+    {
+        $re = DB::table('jjw_Articlelist')->where('ar_id',$id)->first();
+        $data = DB::table('jjw_Navigation')->orderBy('dh_status','desc')->get();
+        return view('admin.wzxg',['re' => $re,'data' => $data]);
+    }
+    public function wzxgdo(Request $request)
+    {
+        if($request->input('ar_title') == null){
+            return back()->with('zt','请输入标题');
+        }else if($request->input('ar_time') == null){
+            return back()->with('zt','请输入时间');
+        }else if($request->input('ar_pid') == null){
+            return back()->with('zt','请选择分类');
+        }else if($request->input('ar_jj') == null){
+            return back()->with('zt','请输入简介');
+        }else if($request->input('ar_content') == null){
+            return back()->with('zt','请输入文章内容');
+        }
+        $data = $request->all();
+        $data = $request->except('_token');
+        DB::table('jjw_Articlelist')->where('ar_id',$data['ar_id'])->update($data);
         return back();
     }
 }
