@@ -87,10 +87,10 @@ class payController extends Controller
                      DB::table('jjw_reorder')->where('id',$rid)->where('oid',$id)->update(['pay_id' => $oid,'xxf'=>$price]);
                  }
              }else if($_POST['b'] == 'b'){
-                 $yue = DB::table('jjw_reorder')->where('id',$rid)->first();
-                 $money = $yue->xxf + $price;
+                // $yue = DB::table('jjw_reorder')->where('id',$rid)->first();
+                // $money = $yue->xxf + $price;
                 // dd($money);
-                 DB::table('jjw_reorder')->where('id',$rid)->where('oid',$id)->update(['pay_id2' => $oid,'xxf'=>$money]);
+                 DB::table('jjw_reorder')->where('id',$rid)->where('oid',$id)->update(['pay_id2' => $oid,'xxf2'=>$price]);
              }
              //诚意金
              if($r_id != ''){
