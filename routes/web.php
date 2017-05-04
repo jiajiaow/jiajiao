@@ -208,19 +208,13 @@ Route::get('/PaymentSuccess','payController@PaymentSuccess');
 Route::post('/wechatpayquery','payController@wechatpayquery');
 
 
-
-<<<<<<< HEAD
 //文章中心
 Route::get('/Articlecenter.html','home\ArticleController@Articlecenter');
 //文章列表
 Route::get('/Articlecenter{id?}.html','home\ArticleController@wzlist');
 //文章内容
 Route::get('/Articlecontent{id?}.html','home\ArticleController@Articlecontent');
-=======
 
-
-
->>>>>>> b487350c843b326c146b759865c1a7f113431e30
 //----------  后台  ----------//
 //登录视图 方法
 Route::get('/admin/login',function(){ return view('admin.login');  });
@@ -325,5 +319,13 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::get('/fbwz','admin\ArticleController@fbwz');
     //添加文章DO
     Route::post('/tjwzdo','admin\ArticleController@tjwzdo');
+    //文章列表
+    Route::get('/wzlb','admin\ArticleController@wzlb');
+    //文章删除
+    Route::get('/wzde/{id?}','admin\ArticleController@wzde');
+    //文章修改
+    Route::get('/wzmodify{id?}','admin\ArticleController@modify');
+    //文章编辑修改
+    Route::post('/wzxgdo','admin\ArticleController@wzxgdo');
 });
 //----------后台END----------//

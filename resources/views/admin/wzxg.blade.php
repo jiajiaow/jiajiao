@@ -30,12 +30,13 @@
                         <h5>添加文章</h5>
                     </div>
                     <div class="ibox-content">
-                        <form method="post" action="{{ asset('/admin/tjwzdo') }}" class="form-horizontal" enctype="multipart/form-data">
+                        <form method="post" action="{{ asset('/admin/wzxgdo') }}" class="form-horizontal" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                        <input name="ar_id" type="hidden" value="{{ $re->ar_id }}"/>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">文章标题</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="ar_title" placeholder="" class="form-control">
+                                    <input type="text" name="ar_title" placeholder="" value="{{ $re->ar_title }}" class="form-control">
                                 </div>
                             </div>
                             {{--  --}}
@@ -43,7 +44,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">时间</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="ar_time" value="{{ date('Y-m-d h:i:s',time()) }}">
+                                    <input type="text" name="ar_time" value="{{ $re->ar_time }}">
                                 </div>
                             </div>
                             {{--  --}}
@@ -53,7 +54,7 @@
                                 <div class="col-sm-10">
                                     <select name="ar_pid">
                                     @foreach($data as $data)
-                                        <option value="{{ $data->dh_id }}">{{ $data->dh_Navigationbar }}</option>
+                                        <option value="{{ $data->dh_id }}" @if($re->ar_pid == $data->dh_id) checked="checked" @endif>{{ $data->dh_Navigationbar }}</option>
                                     @endforeach
                                     </select>
                                 </div>
@@ -61,8 +62,8 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">是否置顶</label>
                                 <div class="col-sm-10">
-                                    否<input type="radio" name="ar_status" value="0" checked="checked">
-                                    顶<input type="radio" name="ar_status" value="1">
+                                    否<input type="radio" name="ar_status" value="0" @if($re->ar_status == '0') checked="checked" @endif>
+                                    顶<input type="radio" name="ar_status" value="1" @if($re->ar_status == '1') checked="checked" @endif>
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
@@ -70,7 +71,7 @@
                                 <label class="col-sm-2 control-label">文章简介</label>
 
                                 <div class="col-sm-10">
-                                    <input type="text" name="ar_jj" placeholder="请输入文章简介" class="form-control" >
+                                    <input type="text" name="ar_jj" value="{{ $re->ar_jj }}" placeholder="请输入文章简介" class="form-control" >
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
@@ -79,7 +80,7 @@
 
                                 <div class="col-sm-10">
                                 <!-- 加载编辑器的容器 -->
-                                <script id="container" name="ar_content" type="text/plain"></script>
+                                <script id="container" name="ar_content" type="text/plain">{!! $re->ar_content !!}</script>
 
                                 <!-- 实例化编辑器 -->
                                 <script type="text/javascript">

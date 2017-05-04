@@ -85,7 +85,6 @@
           @if($li->ar_status == '1')
             　　<img src="/delijiajiao/images/zd.png" alt="">
           @endif
-          <p>111</p>
           <span>{{ $li->ar_time }}</span>
         </div>
         @endforeach
