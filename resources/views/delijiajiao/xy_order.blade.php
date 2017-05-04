@@ -113,7 +113,7 @@
 								</div>
 								<div class="cz shen">
 									<label>电子介绍信/合同：</label>
-									<p><a style='color:red'href="">点击查看</a></p>
+									<p><a style='color:red'href="/xy_hetong/{{ $dsks->id }}.html">点击查看</a></p>
 								</div>
 								<div class="cz">
 									<label>试课时间：</label>

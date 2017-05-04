@@ -5,7 +5,7 @@
 	<title>Document</title>
 </head>
 <body>
-	<form method="post" action="/dohetong">
+	<form method="post" action="/doxy_hetong">
 		<div class="wrap">
 			<div class="content-top">
 				<img src="/new/images/TT.png" style="position: absolute;width: 136px;left: 45%;top: 72%;">
@@ -23,8 +23,8 @@
 				<p><span>乙方（德栗）</span>：<span style="width: 72px; display: inline-block;">德栗家教</span>    联系电话：400-8080-740  微信号：delijiajiao</p>
 				<p><span>丙方（教员）</span>：<span style="width: 72px; display: inline-block;">{{ $list->tc_name }}</span>  联系电话：{{ $list->tc_phone }}</p>
 				<p>德栗家教（官方网站：www.delijiajiao.com）安排我方教员自动抓取上门为甲方进行家教辅导。甲乙丙各方在合法公正、平等自愿的基础上,经过充分的友好协商达成如下协议:</p>
-				<p>一、乙方教员自动抓取为甲方提供每周<input type="text" name="o_ts" value="{{ $list->o_ts }}" class="inwidth">次，每次<input type="text" name="o_xs" value="{{ $list->o_xs }}"  class="inwidth">小时的家教辅导；约定授课周期为<input type="text" name="o_yue" value="{{ $list->o_yue }}" class="inwidth">月。</p>
-				<p>二、甲方按课时付给乙方<input type="text" name="money" value="{{ $list->money }}" class="inwidth">元／时，按每周结算。课程反馈是上课内容中非常重要的一环，有利于家长学员更清晰的了解上课内容，以及根据学员情况针对性的确定下次课程的内容，所以如丙方未完成课程反馈，甲方暂时无须支付。</p>
+				<p>一、乙方教员自动抓取为甲方提供每周<input type="text"  value="{{ $list->o_ts }}" class="inwidth">次，每次<input type="text"  value="{{ $list->o_xs }}"  class="inwidth">小时的家教辅导；约定授课周期为<input type="text"  value="{{ $list->o_yue }}" class="inwidth">月。</p>
+				<p>二、甲方按课时付给乙方<input type="text" value="{{ $list->money }}" class="inwidth">元／时，按每周结算。课程反馈是上课内容中非常重要的一环，有利于家长学员更清晰的了解上课内容，以及根据学员情况针对性的确定下次课程的内容，所以如丙方未完成课程反馈，甲方暂时无须支付。</p>
 				<p>三、双方义务权利</p>
 				<p>甲方：</p>
 				<p>1．有权获取每次上课内容的课程反馈，如丙方未完成课程反馈，甲方暂时无须支付课酬。</p>
@@ -38,9 +38,9 @@
 				<p>3．丙方需认真授课、努力提高教学水平，守时诚信、文明礼貌，不得出现任何危害甲方利益、乙方利益及品牌形象的行为。</p>
 				<p>家教服务期间，若出现任何疑问或者另需请家教老师，请及时与德栗家教联系，400-8080-740，www.delijiajiao.com。</p>
 				<p>本协议自签订之日起生效，自丙方结束授课之日起且甲方结清价款后自动失效。</p>
-				<input type="hidden" name="jy_qz" value="1">
+				<input type="hidden" name="xy_qz" value="1">
 				<input type="hidden" name="id" value="{{ $list->id }}">
-				<p>　<span class="text_1">@if($list->jy_qz == '1') 甲方已签认 @else甲方（签字）@endif</span>：<span class="btn btn_1">签认按钮</span> <span class="text_2">乙方签字</span>：<span class=" btn_2">已签认</span>  <span class="text_3">@if($list->jy_qz == '1') 丙方已签认 @else丙方（签字）@endif</span>：<button class="btn btn_3">签认按钮</button></p>
+				<p>　<span class="text_1">@if($list->jy_qz == '1') 甲方已签认 @else甲方（签字）@endif</span>：<button class="btn btn_1">签认按钮</button> <span class="text_2">乙方签字</span>：<span class=" btn_2">已签认</span>  <span class="text_3">@if($list->jy_qz == '1') 丙方已签认 @else丙方（签字）@endif</span>：<span class="btn btn_3">签认按钮</span></p>
 				<p style="text-align: right">(自动生成日期)</p>
 			</div>
 		</div>

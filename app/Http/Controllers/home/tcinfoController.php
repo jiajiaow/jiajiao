@@ -44,6 +44,9 @@ class tcinfoController extends Controller
 
     //未选中
     public function tc_order2(){
+        if (session('tc_phone') == null) {
+            return redirect('/login.html')->with('msg', '请您先登录!');
+        }
         //未选中
         $wxz = \DB::table('jjw_order as o')
             ->join('jjw_position_city as pc', 'pc.city_id', '=', 'o.city_id')
@@ -63,6 +66,9 @@ class tcinfoController extends Controller
     }
     //取消预约
     public function tc_order3(){
+        if (session('tc_phone') == null) {
+            return redirect('/login.html')->with('msg', '请您先登录!');
+        }
         //已取消
         $yqx = \DB::table('jjw_order as o')
             ->join('jjw_position_city as pc', 'pc.city_id', '=', 'o.city_id')
@@ -82,6 +88,9 @@ class tcinfoController extends Controller
     }
 
     public function tc_order4(){
+        if (session('tc_phone') == null) {
+            return redirect('/login.html')->with('msg', '请您先登录!');
+        }
         //试课中
         $skz = \DB::table('jjw_order as o')
             ->join('jjw_position_city as pc', 'pc.city_id', '=', 'o.city_id')
@@ -90,7 +99,9 @@ class tcinfoController extends Controller
             ->where('o.city_id', session('regionid'))
             ->where('r.tc_id', session('tc_id'))
             ->where('r.qt_t_status', '4')
-            ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.xxf','r.jd_times','r.ht_t_status','r.sk_times','r.cyj','r.id as rid','r.add as radd','pc.fz_jzxxf','pc.city_name','pc.fz_vip','pc.fz_qyjyfy','pc.bfb1','pc.bfb2','pc.bfb3','pc.bfb4','pc.bfb5','pc.bfb6','pc.bfb7')
+            //->where('o.jy_qz', '0')
+            ->where('o.xy_qz', '0')
+            ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.xxf','r.xxf2','r.jd_times','r.ht_t_status','r.sk_times','r.cyj','r.id as rid','r.add as radd','pc.fz_jzxxf','pc.city_name','pc.fz_vip','pc.fz_qyjyfy','pc.bfb1','pc.bfb2','pc.bfb3','pc.bfb4','pc.bfb5','pc.bfb6','pc.bfb7')
             ->paginate(2);
         $num = $skz->lastPage();
         $nextpage = $num - $skz->currentPage() == 0 ? $num : $skz->currentPage() + 1;
@@ -101,6 +112,9 @@ class tcinfoController extends Controller
         return view('delijiajiao.tc_order4',['skz'=>$skz]);
     }
     public function tc_order5(){
+        if (session('tc_phone') == null) {
+            return redirect('/login.html')->with('msg', '请您先登录!');
+        }
         //试课结束
         $sskjs = \DB::table('jjw_order as o')
             ->join('jjw_position_city as pc', 'pc.city_id', '=', 'o.city_id')
@@ -119,6 +133,9 @@ class tcinfoController extends Controller
         return view('delijiajiao.tc_order5',['sskjs'=>$sskjs]);
     }
     public function tc_order6(){
+        if (session('tc_phone') == null) {
+            return redirect('/login.html')->with('msg', '请您先登录!');
+        }
         //授课中
             $sskz = \DB::table('jjw_order as o')
                 ->join('jjw_position_city as pc', 'pc.city_id', '=', 'o.city_id')
@@ -127,8 +144,11 @@ class tcinfoController extends Controller
                 ->where('o.city_id', session('regionid'))
                 ->where('r.tc_id', session('tc_id'))
                 ->where('r.qt_t_status', '6')
+//                ->where('o.jy_qz', '1')
+                ->where('o.xy_qz', '1')
                 ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.ht_t_status','r.id as rid','r.add as radd','pc.fz_jzxxf','pc.city_name','pc.fz_vip','pc.fz_qyjyfy','pc.bfb1','pc.bfb2','pc.bfb3','pc.bfb4','pc.bfb5','pc.bfb6','pc.bfb7')
                 ->paginate(2);
+        //dd($sskz);
                 $num = $sskz->lastPage();
                 $nextpage = $num - $sskz->currentPage() == 0 ? $num : $sskz->currentPage() + 1;
                 $shipage = $num - $sskz->currentPage() == 0 ? $num : $sskz->currentPage() + 10;
@@ -137,6 +157,9 @@ class tcinfoController extends Controller
          return view('delijiajiao.tc_order6',['sskz'=>$sskz]);
     }
     public function tc_order7(){
+        if (session('tc_phone') == null) {
+            return redirect('/login.html')->with('msg', '请您先登录!');
+        }
         //授课结束
         $skjs = \DB::table('jjw_order as o')
             ->join('jjw_position_city as pc', 'pc.city_id', '=', 'o.city_id')
@@ -145,7 +168,7 @@ class tcinfoController extends Controller
             ->where('o.city_id', session('regionid'))
             ->where('r.tc_id', session('tc_id'))
             ->where('r.qt_t_status', '7')
-            ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.ht_t_status','r.id as rid','r.add as radd','pc.fz_jzxxf','pc.city_name','pc.fz_vip','pc.fz_qyjyfy','pc.bfb1','pc.bfb2','pc.bfb3','pc.bfb4','pc.bfb5','pc.bfb6','pc.bfb7')
+            ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.ht_t_status','r.jd_times','r.id as rid','r.add as radd','pc.fz_jzxxf','pc.city_name','pc.fz_vip','pc.fz_qyjyfy','pc.bfb1','pc.bfb2','pc.bfb3','pc.bfb4','pc.bfb5','pc.bfb6','pc.bfb7')
             ->paginate(2);
         $num = $skjs->lastPage();
         $nextpage = $num - $skjs->currentPage() == 0 ? $num : $skjs->currentPage() + 1;
@@ -328,6 +351,7 @@ class tcinfoController extends Controller
 
     //申请退款
     public function tc_sqtk(Request $request){
+        //dd($_POST);
         if($_POST['Fruit'] =='1'){
             $all = $request->except('xxftk','nocglx','yuanyin','bz');
             $list = DB::table('jjw_reorder')->where('id',$_POST['rid'])->where('oid',$_POST['oid'])->where('tc_id',$_POST['tc_id'])->update( [
@@ -352,7 +376,7 @@ class tcinfoController extends Controller
             return back()->with('msg','申请成功!');
         }
     }
-
+    //教员合同
     public function hetong($id){
       // $list = DB::table('jjw_order')->where('id',$id)->first();
         //
@@ -366,7 +390,7 @@ class tcinfoController extends Controller
         //dd($list);
         return view('delijiajiao.hetong',['list'=>$list]);
     }
-
+    //执行合同修改
     public function dohetong(Request $request){
         //dd($_POST);
         $data = $request->except('id');

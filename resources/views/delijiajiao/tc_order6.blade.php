@@ -166,7 +166,7 @@
 							<div class="left">上课时间</div>
 							<div class="right"><button style="height: 40px; margin-top: 5px;line-height: 35px;float: right;" class="timeShow">选择时间</button></div>
 						</div>
-						<div class="bk zqm">
+						{{--<div class="bk zqm">
 							<div class="left">授课订单</div>
 							<div class="right">VIP专项</div>
 						</div>
@@ -199,7 +199,7 @@
 								</div>
 
 							</div>
-						</div>
+						</div>--}}
 
 						<div class="bk">
 							<div class="left">介绍信/合同</div>
