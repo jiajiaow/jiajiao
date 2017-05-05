@@ -203,7 +203,7 @@ for(i=0; i <tabList.length; i++)
          <i id='icon1' style='display:none'></i>
          <div class='more-city' style="display:none;">
              <ul style='height:110px;'>
-                 <li><a href="http://sz.delijiajiao.com">长沙</a></li>
+                 <li><a href="http://ch.delijiajiao.com">长沙</a></li>
                  <li><a href="">南京</a></li>
                  <li><a href="">武汉</a></li>
                  <li><a href="">珠海</a></li>
@@ -233,7 +233,7 @@ for(i=0; i <tabList.length; i++)
      <li id="as5"><a href="/xueyuan.html" id="ad5">学员库</a></li>
      <li id="as6"><a href="" id="ad6">会员中心</a></li>
 
-     <li id="as7"><a href="/Articlecenter.html" id="ad7">文章中心</a></li>
+     <li id="as7"><a href="/Articlecenter1.html" id="ad7">文章中心</a></li>
 
 
 

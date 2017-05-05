@@ -1,6 +1,7 @@
 @extends('delijiajiao.public.public')
 @section('title','文章中心')
 @section('style')
+ <link href="/admin/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/delijiajiao/css/cheng_css.css">
   <link rel="stylesheet" href="/delijiajiao/css/bootstrap.css">
   <style type="text/css">
@@ -91,14 +92,15 @@
       @endif
   </div>
   <div class="c_yejiao">
-    <a href="">末页</a>
-    <a href="">下一页</a>
-    <a href="">上一页</a>
-    <a href="">首页</a>
-    <label>页数:1/2</label>
+    <a href="{{ $list->Url($list->LastPage()) }}">末页</a>
+    <a href="{{ $list->Url($list->next) }}">下一页</a>
+    <a href="{{ $list->Url($list->last) }}">上一页</a>
+    <a href="{{ $list->Url(1) }}">首页</a>
+    <label>页数:{{ $list->dqy }}/{{ $list->LastPage() }}</label>
   </div>
+
   </section>
- <script type="text/javascript" src='js/jquery-2.2.3.min.js'></script>
+ <script type="text/javascript" src='/delijiajiao/js/jquery-2.2.3.min.js'></script>
  <script>
    let item = $('.wz-nr');
    for (var i=0;i<item.length;i++){

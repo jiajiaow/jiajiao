@@ -1,15 +1,15 @@
 <html>
 支付宝<br>
-    <form method="post" action="/alipay">
-    订单号<input type="text" name="order_id"/>
-    钱<input type="text" name="money"/>
+    <form method="post" action="/refund">
+    订单号<input type="text" name="oid"/>
+    <input type="text" value="alipay" name="ms"/>
     <input type="submit"/>
     </form>
     <br><br>
 微信<br>
-    <form method="post" action="/wechatpay">
-    <input type="text" name="order_id"/>
-    <input type="text" name="money"/>
+    <form method="post" action="/refund">
+    订单号<input type="text" name="oid"/>
+    <input type="text" value="weixinpay" name="ms"/>
     <input type="submit"/>
     </form>
 </html>
