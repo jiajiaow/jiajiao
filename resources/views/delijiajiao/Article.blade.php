@@ -91,6 +91,7 @@
         @endforeach
       @endif
   </div>
+  <div id='fudong'></div>
   <div class="c_yejiao">
     <a href="{{ $list->Url($list->LastPage()) }}">末页</a>
     <a href="{{ $list->Url($list->next) }}">下一页</a>
