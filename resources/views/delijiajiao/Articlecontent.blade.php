@@ -63,7 +63,7 @@
         <a href="">资源中心</a>
         <i>></i>
         <a href="">物理资源</a> -->
-        <a href="/Articlecenter" style="float: right;color: #333;">返回文章列表</a>
+        <a onclick="window.history.back();" style="float: right;color: #333;">返回文章列表</a>
       </div>
       <div class="wz-two">
         <h1>{{ $data->ar_title }}</h1>
