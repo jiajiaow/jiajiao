@@ -28,7 +28,10 @@ class ArticleController extends Controller
     }
     public function Articlecontent($id)
     {
+        //dd(session('regionid'));
+        $fz = DB::table('jjw_position_city')->where('city_id',session('regionid'))->first();
+        //dd($fz);
         $data = DB::table('jjw_Articlelist')->where('ar_id',$id)->first();
-        return view('delijiajiao.Articlecontent',['data' => $data]);
+        return view('delijiajiao.Articlecontent',['data' => $data,'fz' => $fz ]);
     }
 }

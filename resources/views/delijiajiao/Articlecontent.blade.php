@@ -68,9 +68,9 @@
       <div class="wz-two">
         <h1>{{ $data->ar_title }}</h1>
         <span>{{ $data->ar_time }}</span>
-        <div style="padding: 0;font-size: 16px;margin-bottom: 10px;margin-top: 5px;">抬头</div>
+        <div style="padding: 0;font-size: 16px;margin-bottom: 10px;margin-top: 5px;">{{ $fz->fz_hade }}</div>
           {!! $data->ar_content !!}
-        <div style="padding:0;font-size: 16px;margin-top: 10px;">抬尾</div>
+        <div style="padding:0;font-size: 16px;margin-top: 10px;">{{ $fz->fz_footer }}</div>
       </div>
   </div>
   <div id="fudong"></div>
