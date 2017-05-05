@@ -214,7 +214,9 @@ Route::get('/Articlecenter.html','home\ArticleController@Articlecenter');
 Route::get('/Articlecenter{id?}.html','home\ArticleController@wzlist');
 //文章内容
 Route::get('/Articlecontent{id?}.html','home\ArticleController@Articlecontent');
-
+//退款
+Route::post('/refund','home\refundController@index');
+//end退款
 //----------  后台  ----------//
 //登录视图 方法
 Route::get('/admin/login',function(){ return view('admin.login');  });
