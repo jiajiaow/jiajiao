@@ -145,7 +145,7 @@ class tcinfoController extends Controller
                 ->where('r.tc_id', session('tc_id'))
                 ->where('r.qt_t_status', '6')
 //                ->where('o.jy_qz', '1')
-                ->where('o.xy_qz', '1')
+               // ->where('o.xy_qz', '1')
                 ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.ht_t_status','r.id as rid','r.add as radd','pc.fz_jzxxf','pc.city_name','pc.fz_vip','pc.fz_qyjyfy','pc.bfb1','pc.bfb2','pc.bfb3','pc.bfb4','pc.bfb5','pc.bfb6','pc.bfb7')
                 ->paginate(2);
         //dd($sskz);
@@ -337,7 +337,29 @@ class tcinfoController extends Controller
 
     //结束课程
     public function tc_jskc(){
-        $list = DB::table('jjw_reorder')->where('id',$_POST['rid'])->where('oid',$_POST['oid'])->where('tc_id',$_POST['tc_id'])->update(['qt_t_status'=>'7','ht_t_status'=>'9']);
+        //dd($_POST);
+        if($_POST['xxftk'] == ''){
+            $list = DB::table('jjw_reorder')->where('id',$_POST['rid'])->where('oid',$_POST['oid'])->update([
+                'qt_t_status'=>'7'
+                ,'ht_t_status'=>'9',
+                 'nocglx'=>$_POST['nocglx'],
+                'yuanyin'=>$_POST['yuanyin'],
+                'xxftk'=>null,
+                'yskc'=>$_POST['yskc'],
+                'ht_jstimes'=>$_POST['ht_jstimes'],
+                'tk_times'=>time(),
+            ]);
+        }else{
+            $list = DB::table('jjw_reorder')->where('id',$_POST['rid'])->where('oid',$_POST['oid'])->update([
+                'nocglx'=>$_POST['nocglx'],
+                'yuanyin'=>$_POST['yuanyin'],
+                'xxftk'=>$_POST['xxftk'],
+                'yskc'=>$_POST['yskc'],
+                'ht_jstimes'=>$_POST['ht_jstimes'],
+                'tk_type'=>'2',
+                'tk_times'=>time(),
+            ]);
+        }
         return back();
     }
 
@@ -361,6 +383,9 @@ class tcinfoController extends Controller
                     'nocglx'=>null,
                     'yuanyin'=>null,
                     'bz'=>null,
+                    'yskc'=>null,
+                    'sfsk'=>null,
+                    'tk_times'=>null,
                 ]);
             return back()->with('msg','申请成功!');
         }else{
@@ -368,10 +393,14 @@ class tcinfoController extends Controller
             $list = DB::table('jjw_reorder')->where('id',$_POST['rid'])->where('oid',$_POST['oid'])->where('tc_id',$_POST['tc_id'])->update([
                             'sk_zt'=>$all['Fruit'],
                             'xxftk'=>$all['xxftk'],
+                            'yskc'=>$all['yskc'],
                             'nocglx'=>$all['nocglx'],
                             'yuanyin'=>$all['yuanyin'],
                             'bz'=>$all['bz'],
                              'kcjs'=>null,
+                             'tk_type'=>'1',
+                            'tk_times'=>time(),
+                            'sfsk'=>$all['sfsk'],
             ]);
             return back()->with('msg','申请成功!');
         }
@@ -396,10 +425,24 @@ class tcinfoController extends Controller
         $data = $request->except('id');
        // dd($data);
         $list = DB::table('jjw_order')->where('id',$request->id)->update($data);
+        $list = DB::table('jjw_reorder')->where('oid',$request->id)->update(['tk_type'=>'3']);
         if($list){
             return redirect('/tc_order4.html');
         }else{
             return redirect('/tc_order4.html');
         }
+    }
+
+    //审查订单
+    public function dosc(){
+        $list = \DB::table('jjw_reorder')->where('oid',$_POST['oid'])->where('tc_id',$_POST['tc_id'])->update(['qt_t_status'=>'6','ht_t_status'=>'8',]);
+        if($list){
+            return "y";
+        }
+    }
+    //自定授课成功订单
+    public function doscs(){
+        $list = \DB::table('jjw_reorder')->where('oid',$_POST['oid'])->where('id',$_POST['id'])->update(['qt_t_status'=>'6','ht_t_status'=>'8',]);
+        var_dump($_POST);
     }
 }

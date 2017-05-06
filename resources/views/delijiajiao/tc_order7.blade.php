@@ -217,6 +217,7 @@
 			
 		<!--  -->
 	</div>
+	<div id="fudong"></div>
 	<div class="c_yejiao">
 		@if($skjs->num > 0)
 			<a href="{{ $skjs->Url($skjs->LastPage()) }}">末页</a>

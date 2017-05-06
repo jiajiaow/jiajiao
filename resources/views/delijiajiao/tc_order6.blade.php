@@ -207,20 +207,76 @@
 						</div>
 						<div class="bk2">
 							<a style="margin-left: 160px;margin-right: 160px;" href="" target="_blank"><font color="#000">每月反馈</font></a>|
-							<a style="margin-left: 160px;margin-right: 160px;" href="" target="_blank"><font color="#FF0000">
-									<form action="/tc_jskc.html" method="post" style="display: inline-block;">
+							<a style="margin-left: 160px;margin-right: 160px;" ><font color="#FF0000">
+									{{--<form action="/tc_jskc.html" method="post" style="display: inline-block;">--}}
 										<input type="hidden" name="oid" value="{{ $sskzs->id }}">
 										<input type="hidden" name="rid" value="{{ $sskzs->rid }}">
 										<input type="hidden" name="tc_id" value="{{ $sskzs->tc_id }}">
 										<input type="hidden" name="zt" value="1">
-										<button type="submit" style="height: 40px;line-height:30px;margin-top: 10px;">结束课程</button>
-									</form>
+										<span onclick="jskc({{ $sskzs->id }},{{ $sskzs->rid }})" style="height: 40px;line-height:30px;margin-top: 10px;">结束课程</span>
+									{{--</form>--}}
 								</font></a>
 						</div>
 					</div>
+
+                        <div class="fc" id="fc{{ $sskzs->id }}" style="display: none;"></div>
+                        <div class="fc_contentS" id="fc_contentS{{ $sskzs->id }}" style="display: none;">
+                            <form method="post" action="tc_jskc.html">
+                                <input type="hidden" name="oid" value="{{ $sskzs->id }}">
+                                <input type="hidden" name="rid" value="{{ $sskzs->rid }}">
+                                <div style="padding: 14px 30px;">
+                                    <ul >
+                                        <li><h4>合同结束</h4></li>
+                                        <li>结束时间 <input type="text" name="ht_jstimes" placeholder="格式: 2017-8-8">
+                                        </li>
+                                        <li>结束类型
+                                            <select id="renyuan" name="nocglx">
+                                                <option value="家长原因">家长原因</option>
+                                                <option value="教员原因">教员原因</option>
+                                            </select>
+                                        </li>
+                                        <li>
+                                            <p>原因
+                                                <select id="ok_xueyuan" style="width:360px;" name="yuanyin">
+                                                    <option value="家长另外找了更好的老师">家长另外找了更好的老师</option>
+                                                    <option value="家长找了专职老师">家长找了专职老师</option>
+                                                    <option value="家长觉得成绩没有明显提升">家长觉得成绩没有明显提升</option>
+                                                    <option value="家长/学生因为时间的变动无法继续上课">家长/学生因为时间的变动无法继续上课</option>
+                                                    <option value="学员暂时不太适应家教">学员暂时不太适应家教</option>
+                                                    <option value="家长还是选择了去上辅导班">家长还是选择了去上辅导班</option>
+                                                    <option value="合同期满">合同期满</option>
+                                                </select>
+                                                <select id="ok_jiaoyuan" style="display:none;width:360px;">
+                                                    <option value="教员未能勤勉尽责，无法按时保质完成我方家教要求">教员未能勤勉尽责，无法按时保质完成我方家教要求</option>
+                                                    <option value="教员个人原因以后没法上课">教员个人原因以后没法上课</option>
+                                                    <option value="教员迟到、上课时玩手机、一直在提钱、态度不好">教员迟到、上课时玩手机、一直在提钱、态度不好</option>
+                                                    <option value="教员不认真备课和准备，对孩子不负责">教员不认真备课和准备，对孩子不负责</option>
+                                                    <option value="教员能力有限，带不了孩子">教员能力有限，带不了孩子</option>
+                                                    <option value="教员性格和孩子不是很合得来，孩子不喜欢">教员性格和孩子不是很合得来，孩子不喜欢</option>
+                                                </select>
+                                            </p>
+
+
+                                        </li>
+                                        <li>
+                                            <p>申请信息费退款<input type="text" name="xxftk" style="width:55px;margin-left:10px;"> 已收课酬 <input  style="width:55px; margin-left:10px;" type="text" name="yskc" ></p>
+                                        </li>
+                                        <li>
+                                            <span style="vertical-align: top">备注</span>
+                                            <input style="margin: 0px; width: 334px; height: 68px;"/>
+                                        </li>
+                                        <li>
+                                            <p><button style="margin-left: 15%;padding: 4px 28px;margin-right: 23%;" class="sure_btn">确定</button> <button style="padding: 4px 28px;" class="sure_btn" type="reset">取消</button></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </form>
+                        </div>
+
 					@endforeach
 							<!--  -->
 			</div>
+			<div id="fudong"></div>
 			<div class="c_yejiao">
 				@if($sskz->num > 0)
 					<a href="{{ $sskz->Url($sskz->LastPage()) }}">末页</a>
@@ -316,6 +372,19 @@
 		margin-left: -325px;
 		margin-top: -95px;
 	}
+    .fc_contentS {
+        width: 480px;
+        height: 390px;
+        position: fixed;
+        background: #fff;
+        left: 50%;
+        top: 50%;
+        margin-left: -240px;
+        margin-top: -175px;
+    }
+    .fc_contentS li{
+        padding: 10px 0;
+    }
 	.licbox input {
 		width: 26px;
 		height: 21px;
@@ -348,15 +417,23 @@
 	$('.sure_btn').click(function(){
 		$('.fc').hide(500)
 		$('.fc_content').hide(500)
+		var c = [];
 		var a = $('.sure_gou').find('input')
 		for(var i=0;i< a.length;i++){
-			if(a[i].checked==true){
-				var b =a[i].
-				$('.block_time').html()
+			if(a[i].checked == true){
+				var b = a.eq(i).val()
+				c.push(b)
 			}
 		}
-
+		c.toString()
 	})
+	//结束订单
+	function jskc(oid,id){
+//		alert(oid);
+//		alert(id);
+        $('#fc'+oid).show(500)
+        $('#fc_contentS'+oid).show(500)
+	}
 </script>
 </body>
 </html>

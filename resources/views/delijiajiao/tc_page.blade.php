@@ -78,7 +78,7 @@
 			<td>{{ $l->user_name }}</td>
 			<td>{{ $l->subject_id }}</td>
 			<td style="color:red">@if($l->money =='面议') 面议 @else {{ $l->money }}/1小时@endif</td>
-			<td><a href="/xsinfo{{ $l->id }}.html">订单详情</a></td>
+			<td><a href="/xsinfo{{ $l->id }}.html" target="_blank">订单详情</a></td>
 		</tr>
 	@endforeach
 	</tbody>

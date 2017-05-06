@@ -170,6 +170,27 @@
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa fa-institution"></i>
+                            <span class="nav-label">教员个人中心订单退款</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="/admin/skbcg">试课不成功</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="/admin/tqjskc">提前结束课程</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="/admin/cgjskc">成功减少课酬</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="/admin/cyjjs">诚意金解锁</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="line dk"></li>
                     <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
                         <span class="ng-scope">分类</span>
