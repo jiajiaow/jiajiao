@@ -122,10 +122,15 @@ Route::get('/tc_order7.html','home\tcinfoController@tc_order7');
 //教员合同
 Route::get('/hetong/{id?}.html','home\tcinfoController@hetong');
 Route::post('/dohetong','home\tcinfoController@dohetong');
+//订单审核
+Route::post('/dosc.html','home\tcinfoController@dosc');
+//试课成功的订单
+Route::post('/doscs.html','home\tcinfoController@doscs');
 //学员合同
 Route::get('/xy_hetong/{id?}.html','home\stinfoController@xy_hetong');
 //执行
 Route::post('/doxy_hetong','home\stinfoController@doxy_hetong');
+
 
 //省
 Route::post('/sheng','home\teacherinfoController@sheng');
@@ -211,12 +216,14 @@ Route::get('/PaymentSuccess','payController@PaymentSuccess');
 //微信支付查
 Route::post('/wechatpayquery','payController@wechatpayquery');
 
+
 //文章中心
 Route::get('/Articlecenter.html','home\ArticleController@Articlecenter');
 //文章列表
 Route::get('/Articlecenter{id?}.html','home\ArticleController@wzlist');
 //文章内容
 Route::get('/Articlecontent{id?}.html','home\ArticleController@Articlecontent');
+
 
 //退款
 Route::post('/refund','home\refundController@index');
@@ -337,6 +344,7 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     //文章编辑修改
     Route::post('/wzxgdo','admin\ArticleController@wzxgdo');
 
+<<<<<<< HEAD
     //添加友情链接
     Route::get('/tjyqlj','admin\yqljController@tjyqlj');
     //处理添加友情链接
@@ -349,5 +357,15 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::get('/bjyqlj/{id}','admin\yqljController@bjyqlj');
     //处理编辑
     Route::post('/bjyqljdo','admin\yqljController@bjyqljdo');
+=======
+    //教员试课不成功订单退款
+    Route::get('/skbcg','admin\jytkController@skbcg');
+    //提前结束课程
+    Route::get('/tqjskc','admin\jytkController@tqjskc');
+    //成功减少课酬
+    Route::get('/cgjskc','admin\jytkController@cgjskc');
+    //诚意金解锁
+    Route::get('/cyjjs','admin\jytkController@cyjjs');
+>>>>>>> 2200734c45592c31b2a17a08cdba82a332a150df
 });
 //----------后台END----------//

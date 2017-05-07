@@ -138,6 +138,7 @@ class yuyueController extends Controller
     }
     public function StudentAdd(Request $request)
     {
+        //dd($request);
         //订单id
         $oid = $request->input('oid');
         //上课的时间
@@ -152,6 +153,10 @@ class yuyueController extends Controller
         $sk_times = $request->input('sk_times1').$request->input('sk_times2').$request->input('sk_times3').$request->input('sk_times4').$request->input('sk_times5').$request->input('sk_times6').$request->input('sk_times7').$request->input('sk_times8').$request->input('sk_times9').$request->input('sk_times10').$request->input('sk_times11').$request->input('sk_times12').$request->input('sk_times13').$request->input('sk_times14').$request->input('sk_times15').$request->input('sk_times16').$request->input('sk_times17').$request->input('sk_times18').$request->input('sk_times19').$request->input('sk_times20').$request->input('sk_times21').$request->input('sk_times22');
 
         $input = $request->except(['oid','fdlx','chi','shi','teacher_info','sk_times1','sk_times2','sk_times3','sk_times4','sk_times5','sk_times6','sk_times7','sk_times8','sk_times9','sk_times10','sk_times11','sk_times12','sk_times13','sk_times14','sk_times15','sk_times16','sk_times17','sk_times18','sk_times19','sk_times20','sk_times21','sk_times22']);
+        $input['o_ts2'] = $request->input('o_ts');
+        $input['o_xs2'] = $request->input('o_xs');
+        $input['money2'] = $request->input('money');
+        //dd($input);
         $re = DB::table('jjw_order')->where('id',$oid)->update($input);
 
         DB::table('jjw_order')->where('id',$oid)->update(['per_week' => $per,'teacher_info' => $teacher_info,'sk_times' => $sk_times]);
@@ -179,7 +184,7 @@ class yuyueController extends Controller
                     //dd($userid);
                     //添加 预约信息
                     $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid->u_id,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid,'yynum'=>'1','ap'=>'学员主动预约']);
-                    $reorderid = DB::table('jjw_reorder')->insertGetId(['u_id' => $userid->u_id,'oid' => $orderid,'tc_id'=>$teacher_id,'yy_zt'=>'学员主动预约']);
+                    $reorderid = DB::table('jjw_reorder')->insertGetId(['u_id' => $userid->u_id,'oid' => $orderid,'tc_id'=>$teacher_id,'yy_zt'=>'学员主动预约','ht_t_status'=>'3']);
                     //dd($reorderid);
                     return view('delijiajiao.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
                 }else{
@@ -189,7 +194,7 @@ class yuyueController extends Controller
                     //添加 预约信息
                    // dd($userid);
                     $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid,'yynum'=>'1','ap'=>'学员主动预约']);
-                    $reorderid = DB::table('jjw_reorder')->insertGetId(['u_id' => $userid,'oid' => $orderid,'tc_id'=>$teacher_id,'yy_zt'=>'学员主动预约']);
+                    $reorderid = DB::table('jjw_reorder')->insertGetId(['u_id' => $userid,'oid' => $orderid,'tc_id'=>$teacher_id,'yy_zt'=>'学员主动预约','ht_t_status'=>'3']);
                     return view('home.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
                 }
             }else{

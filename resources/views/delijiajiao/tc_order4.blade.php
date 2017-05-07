@@ -75,10 +75,7 @@
             margin-left: -200px;
             margin-top: -250px;
         }
-        .seeMar{
-            float: right;
-            margin-right:100px;
-        }
+
 
     </style>
 </head>
@@ -166,13 +163,13 @@
                 <a href="/tc_order6.html"><span><font color="#000">成功的单</font></span></a>
             </div>
             <!--  -->
-            <div class="zqm_yuyuejy">
+            <div class="zqm_yuyuejy clear">
                 <div class="left">
                     <a href="/tc_order4.html"><div class="cb"  style="font-size:14px;">试<br/>课<br/>中</div></a>
                     <a href="/tc_order5.html"><div class="cbv" style="font-size:14px;">试<br/>课<br/>失<br/>败</div></a>
                 </div>
                 @foreach($skz as $skzs)
-                    <div class="right">
+                    <div class="right dd_length clear">
                         <div class="bk zqm">
                             <div class="left">订单编号</div>
                             <div class="right">{{ $skzs->id }}<a href="/xsinfo{{ $skzs->id }}.html" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
@@ -188,8 +185,8 @@
                                 <span style="font-size: 12px;">{{ $skzs->sk_times }}</span>
                                 <form action="/sktimes.html" method="post" style="display: inline-block">
                                     <input class="datainp" id="dateinfo" name="sj" placeholder="请选择" readonly="" type="text">
-                                    <input type="hidden" name="oid" value="{{ $skzs->id }}">
-                                    <input type="hidden" name="rid" value="{{ $skzs->rid }}">
+                                    <input type="hidden" name="oid" id="o" value="{{ $skzs->id }}">
+                                    <input type="hidden" name="rid" id="r" value="{{ $skzs->rid }}">
                                     <input type="hidden" name="tc_id" value="{{ $skzs->tc_id }}">
                                     <select name="sjs" id="">
                                         <option value="上午">上午</option>
@@ -244,12 +241,12 @@
                         <div class="bk">
                             <div class="left">试课结果填写</div>
                             <div class="right">
-                                <div style="height: 40px;">
+                                <div style="height: 40px;" class="yesno">
                                     @if($skzs->jy_qz == '1' && $skzs-> xy_qz =='1')
                                         <a class="cg" id="cg{{ $skzs->id }}">试课成功</a>
                                     @else
-                                        <a onclick="skcg()">试课成功</a>
-                                        <a class="timeShow">试课不成功</a>
+                                        <a onclick="skcgs()"  href="/hetong/{{ $skzs->id }}.html">试课成功</a>
+                                        <a onclick="timeShow({{ $skzs->id }},{{ $skzs->rid }},{{ $skzs->tc_id }})">试课不成功</a>
                                     @endif
                                 </div></div>
                         </div>
@@ -338,91 +335,97 @@
                         <div class="bk2">
                             <span style="margin-left: 60px;margin-right: 60px;"  onclick="timeShow({{ $skzs->id }},{{ $skzs->rid }},{{ $skzs->tc_id }})" target="_blank"><font color="#000">申请退款</font></span>|
                             <a style="margin-left: 60px;margin-right: 60px;" onclick="zf(this,{{ $skzs->id }},{{ $skzs->rid }})" class="xxf_btn"><font color="#000">支付信息费</font></a>|
-                            <a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#FF0000">收付款记录</font></a>
+                            <a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#FF0000">收付款记录</font></a>|
+                            <a style="margin-left:30px;margin-right: 30px;" href="javascript:;" onclick="sc({{ $skzs->id }},{{ $skzs->money*$skzs->o_xs-($skzs->xxf+$skzs->xxf2) }},{{ $skzs->jy_qz }},{{ $skzs->xy_qz }},{{ $skzs->tc_id }})"><font color="#FF0000">审查订单</font></a>
                         </div>
+                    </div>
+                    <div class="fc" id="fc{{ $skzs->id }}" style="display: none;"></div>
+                    <div class="fc_content" id="fc_content{{ $skzs->id }}" style="display: none;">
+                        <form method="post" action="/sqtk.html">
+                            <input type="hidden" name="oid" id="oid{{ $skzs->id }}" value="">
+                            <input type="hidden" name="rid" id="rid{{ $skzs->id }}" value="">
+                            <input type="hidden" name="tc_id" id="tc_id{{ $skzs->id }}" value="">
+                            <div style="padding: 10px 32px;">
+                                <ul >
+                                    <li><p><input name="Fruit" type="radio" value="1" />试课成功<span class="seeMar">应退信息费</span></p></li>
+                                    <li><p>周薪酬减少<span class="seeMar"><input type="text" name="kc"></span></p></li>
+                                    <li><input name="Fruit" type="radio" value="2" />试课不成功</li>
+                                    <li>
+                                        <p>申请信息费退款<span class="seeMar">
+                                                <input type="" name="xxftk" style="width:55px">
+                                                </span>
+                                           已收课酬 <input  style="width:55px; margin-left:10px;" type="text" name="yskc" >
+                                        </p>
+                                    </li>
+                                    <li>是否试课
+                                        <select id="ok_no" name="sfsk">
+                                            <option value="已试课">已试课</option>
+                                            <option value="尚未试课">尚未试课</option>
+                                        </select>
+                                    </li>
+                                    <li>不成功类型
+                                        <select id="renyuan" name="nocglx">
+                                            <option value="家长原因">家长原因</option>
+                                            <option value="教员原因">教员原因</option>
+                                        </select>
+                                    </li>
+                                    <li>
+                                        <p>原因
+                                            <select id="no_xueyuan" style="display:none; width:360px;" name="yuanyin" >
+                                                <option value="家长已经找到老师了">家长已经找到老师了</option>
+                                                <option value="家长还是选择了去上辅导班（未试课）">家长还是选择了去上辅导班（未试课）</option>
+                                                <option value="家长临时不要而未能试课">家长临时不要而未能试课</option>
+                                                <option value="家长的要求与订单不符，经协调不合适未去试课">家长的要求与订单不符，经协调不合适未去试课</option>
+                                                <option value="家长/学生因为课程的变动不试课">家长/学生因为课程的变动不试课</option>
+                                                <option value="学员暂时不接受家教未能试课">学员暂时不接受家教未能试课</option>
+                                                <option value="家长一个星期后未联系">家长一个星期后未联系上</option>
+                                                <option value="家长一个星期后还无法确认试课时间">家长一个星期后还无法确认试课时间</option>
+                                                <option value="家长想换个性别（男/女）的老师（未试课）">家长想换个性别（男/女）的老师（未试课）</option>
+                                                <option value="家长想换个更好学校或者更合适专业的老师（未试课）">家长想换个更好学校或者更合适专业的老师（未试课）</option>
+                                                <option value="家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）">家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）</option>
+                                            </select>
+                                            <select id="ok_xueyuan" style="display:none;width:360px;" name="yuanyin">
+                                                <option value="学员暂时不太适应家教试课不成功">学员暂时不太适应家教试课不成功</option>
+                                                <option value="家长还是选择了去上辅导班（已试课）">家长还是选择了去上辅导班（已试课）</option>
+                                                <option value="家长试课后想换个更好学校或者更合适专业的老师（已试课）">家长试课后想换个更好学校或者更合适专业的老师（已试课）</option>
+                                                <option value="家长想换个专职老师/或者原来是专职老师，想试试大学生（已试课）">家长想换个专职老师/或者原来是专职老师，想试试大学生（已试课）</option>
+                                                <option value="家长试课后家长想换个性别（男/女）的老师（已试课）">家长试课后家长想换个性别（男/女）的老师（已试课）</option>
+                                            </select>
+                                            <select id="no_jiaoyuan" style="display:none;width:360px;" name="yuanyin">
+                                                <option value="教员个人原因去不了试课">教员个人原因去不了试课</option>
+                                                <option value="学员的要求较高，教员无法胜任">学员的要求较高，教员无法胜任</option>
+                                            </select>
+
+                                            <select id="ok_jiaoyuan" style="display:none;width:360px;" name="yuanyin">
+                                                <option value="教员个人原因以后没法上课">教员个人原因以后没法上课</option>
+                                                <option value="教员迟到、上课时玩手机、一直在提钱、态度不好">教员迟到、上课时玩手机、一直在提钱、态度不好</option>
+                                                <option value="教员不认真备课和准备，对孩子不负责">教员不认真备课和准备，对孩子不负责</option>
+                                                <option value="教员能力有限，带不了孩子">教员能力有限，带不了孩子</option>
+                                                <option value="教员试课后家长不满意（除以上项目以外的）">教员试课后家长不满意（除以上项目以外的）</option>
+                                            </select>
+                                        </p>
+
+
+                                    </li>
+                                    <li>
+                                        <span style="vertical-align: top" name="bz">备注</span>
+                                        <input style="margin: 0px; width: 334px; height: 68px;" name="bz"/>
+                                    </li>
+                                    {{--<li>--}}
+                                        {{--<p><input name="Fruit" type="radio" value="" />已锁定诚意金<span class="seeMar"></span></p>--}}
+                                    {{--</li>--}}
+                                    <li>
+                                        <p><button style="margin-left: 110px;" type="submit" >申请退款</button><span class="seeMar">{{--<button>申请诚意金解锁</button>--}}</span><span><button style="padding: 0 13px;"  class="qxBtn">取消</button></span></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </form>
                     </div>
                     @endforeach
                             <!--  -->
             </div>
-            <div class="fc" style="display: none;"></div>
-            <div class="fc_content" style="display: none;">
-
-                <form method="post" action="/sqtk.html">
-                    <input type="hidden" name="oid" id="oid" value="">
-                    <input type="hidden" name="rid" id="rid" value="">
-                    <input type="hidden" name="tc_id" id="tc_id" value="">
-                    <div>
-                        <ul >
-                            <li><p><input name="Fruit" type="radio" value="1" />试课成功<span class="seeMar">应退信息费</span></p></li>
-                            <li><p>周薪酬减少<span class="seeMar"><input type="text" name="kc"></span></p></li>
-                            <li><input name="Fruit" type="radio" value="2" />试课不成功</li>
-                            <li><p>申请信息费退款<span class="seeMar"><input type="" name=""></span></p></li>
-                            <li>是否试课
-                                <select id="ok_no" name="xxftk">
-                                    <option value="已试课">已试课</option>
-                                    <option value="尚未试课">尚未试课</option>
-                                </select>
-                            </li>
-                            <li>不成功类型
-                                <select id="renyuan" name="nocglx">
-                                    <option value="家长原因">家长原因</option>
-                                    <option value="教员原因">教员原因</option>
-                                </select>
-                            </li>
-                            <li>
-                                <p>原因
-                                    <select id="no_xueyuan" style="display:none; width:360px;" name="yuanyin" >
-                                        <option value="家长已经找到老师了">家长已经找到老师了</option>
-                                        <option value="家长还是选择了去上辅导班（未试课）">家长还是选择了去上辅导班（未试课）</option>
-                                        <option value="家长临时不要而未能试课">家长临时不要而未能试课</option>
-                                        <option value="家长的要求与订单不符，经协调不合适未去试课">家长的要求与订单不符，经协调不合适未去试课</option>
-                                        <option value="家长/学生因为课程的变动不试课">家长/学生因为课程的变动不试课</option>
-                                        <option value="学员暂时不接受家教未能试课">学员暂时不接受家教未能试课</option>
-                                        <option value="家长一个星期后未联系">家长一个星期后未联系上</option>
-                                        <option value="家长一个星期后还无法确认试课时间">家长一个星期后还无法确认试课时间</option>
-                                        <option value="家长想换个性别（男/女）的老师（未试课）">家长想换个性别（男/女）的老师（未试课）</option>
-                                        <option value="家长想换个更好学校或者更合适专业的老师（未试课）">家长想换个更好学校或者更合适专业的老师（未试课）</option>
-                                        <option value="家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）">家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）</option>
-                                    </select>
-                                    <select id="ok_xueyuan" style="display:none;width:360px;" name="yuanyin">
-                                        <option value="学员暂时不太适应家教试课不成功">学员暂时不太适应家教试课不成功</option>
-                                        <option value="家长还是选择了去上辅导班（已试课）">家长还是选择了去上辅导班（已试课）</option>
-                                        <option value="家长试课后想换个更好学校或者更合适专业的老师（已试课）">家长试课后想换个更好学校或者更合适专业的老师（已试课）</option>
-                                        <option value="家长想换个专职老师/或者原来是专职老师，想试试大学生（已试课）">家长想换个专职老师/或者原来是专职老师，想试试大学生（已试课）</option>
-                                        <option value="家长试课后家长想换个性别（男/女）的老师（已试课）">家长试课后家长想换个性别（男/女）的老师（已试课）</option>
-                                    </select>
-                                    <select id="no_jiaoyuan" style="display:none;width:360px;" name="yuanyin">
-                                        <option value="教员个人原因去不了试课">教员个人原因去不了试课</option>
-                                        <option value="学员的要求较高，教员无法胜任">学员的要求较高，教员无法胜任</option>
-                                    </select>
-
-                                    <select id="ok_jiaoyuan" style="display:none;width:360px;" name="yuanyin">
-                                        <option value="教员个人原因以后没法上课">教员个人原因以后没法上课</option>
-                                        <option value="教员迟到、上课时玩手机、一直在提钱、态度不好">教员迟到、上课时玩手机、一直在提钱、态度不好</option>
-                                        <option value="教员不认真备课和准备，对孩子不负责">教员不认真备课和准备，对孩子不负责</option>
-                                        <option value="教员能力有限，带不了孩子">教员能力有限，带不了孩子</option>
-                                        <option value="教员试课后家长不满意（除以上项目以外的）">教员试课后家长不满意（除以上项目以外的）</option>
-                                    </select>
-                                </p>
-
-
-                            </li>
-                            <li>
-                                <span style="vertical-align: top" name="bz">备注</span>
-                                <input style="margin: 0px; width: 334px; height: 68px;" name="bz"/>
-                            </li>
-                            <li>
-                                <p><input name="Fruit" type="radio" value="" />已锁定诚意金<span class="seeMar"></span></p>
-                            </li>
-                            <li>
-                                <p><button style="margin-left: 110px;" type="submit" >申请退款</button><span class="seeMar"><button>申请诚意金解锁</button></span></p>
-                            </li>
-                        </ul>
-                    </div>
-                </form>
-
-            </div>
-            <div class="c_yejiao">
+            <div id="fudong"></div>
+            <div class="c_yejiao" style="width: 954px;">
                 @if($skz->num > 0)
                     <a href="{{ $skz->Url($skz->LastPage()) }}">末页</a>
                     <a href="{{ $skz->Url($skz->next) }}">下一页</a>
@@ -455,18 +458,18 @@
         left: 0;
     }
     .fc_content {
-        width: 400px;
+        width: 470px;
         height: 500px;
         position: fixed;
         background: #fff;
         left: 50%;
         top: 50%;
-        margin-left: -200px;
+        margin-left: -235px;
         margin-top: -250px;
+        padding-bottom: 14px;
     }
     .seeMar{
-        float: right;
-        margin-right:100px;
+        margin: 0 27px;
     }
 </style>
 <footer>
@@ -479,17 +482,56 @@
 <script type="text/javascript" src='/layer/layer.js'></script>
 
 <script>
+    //审查订单
+    function sc(oid,money,jy_qz,xy_qz,tc_id){
+       // alert(oid);
+        //alert(money);
+        //alert(jy_qz);
+       // alert(xy_qz);
+        if(money > 0){
+            layer.alert('尊敬的教员,您需补交剩余信息费!',{icon: 3});
+            return false;
+        }else if(jy_qz == '0'){
+            layer.alert('尊敬的教员,您稍未确认合同!',{icon: 3});
+            return false;
+        }else if(xy_qz == '0'){
+            layer.alert('尊敬的教员,学员稍未确认合同!',{icon: 3});
+            return false;
+        }else if(jy_qz == '1' && xy_qz == '1' && money == '0'){
+            layer.alert('尊敬的教员,您已经成功签约订单!',{icon: 3});
+            $.ajax({
+                type:'POST',
+                url:"{{ URL('/dosc.html') }}",
+                contentType:"application/x-www-form-urlencoded; charset=utf8",
+                data:{"oid":oid,"tc_id":tc_id},
+                /*dataType:'JSON',*/
+                success:(function(result){
+                    if(result == 'y'){
+                        location.reload();
+                    }
+                }),
+                error:(function(result,status){
+                    larye.alert('sb!');
+                })
+
+            });
+
+        }
+    }
     $(function(){
         $('#beginTime').date();
         $('#endTime').date({theme:"datetime"});
 
     });
     function timeShow(id,rid,tc_id){
-        $('.fc').show(500)
-        $('.fc_content').show(500)
-        $('#oid').val(id);
-        $('#rid').val(rid)
-        $('#tc_id').val(tc_id)
+//        alert(id);
+//        alert(rid);
+//        alert(tc_id);
+        $('#fc'+id).show(500)
+        $('#fc_content'+id).show(500)
+        $('#oid'+id).val(id);
+        $('#rid'+id).val(rid)
+        $('#tc_id'+id).val(tc_id)
     }
     $('.fc').click(function(){
         $('.fc').hide(500)
@@ -628,9 +670,43 @@
         $('#zf').attr("action", path).submit();
     }
     var cg = $('.cg').html()
-    var xbxxf = $('.xbxxf')
 
-    console.log(xbxxf.length)
+
+
+    function skbcg(id){
+        $('#fc'+id).show(500)
+        $('#fc_content'+id).show(500)
+    }
+
+    var bkzqm = $('.dd_length')
+    for(var i = 0;i<bkzqm.length;i++){
+//        $.trim console.log( bkzqm.eq(i).find(".yesno").text())
+//        console.log( bkzqm.eq(i).find(".xbxxf").text())
+      var a  =  $.trim(bkzqm.eq(i).find(".yesno").text())
+        bkzqm.eq(i).find(".xbxxf").text()
+        bkzqm.eq(i).find("#o").val()
+        bkzqm.eq(i).find("#r").val()
+        if(a == '试课成功' && bkzqm.eq(i).find(".xbxxf").text() == '0'){
+            bkzqm.eq(i).find("#o").val()
+            bkzqm.eq(i).find("#r").val()
+            $.ajax({
+                type:'POST',
+                url:"{{ URL('/doscs.html') }}",
+                contentType:"application/x-www-form-urlencoded; charset=utf8",
+                data:{"oid":bkzqm.eq(i).find("#o").val(),"id":bkzqm.eq(i).find("#r").val()},
+                /*dataType:'JSON',*/
+                success:(function(result){
+                    location.reload();
+                }),
+                error:(function(result,status){
+                    larye.alert('sb!');
+                })
+
+            });
+        }
+    }
+
+
 </script>
 </body>
 </html>

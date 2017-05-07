@@ -167,6 +167,7 @@ class payController extends Controller
      }
      public function PaymentSuccess()
      {
+
         return view('PaymentSuccess.PaymentSuccess');
      }
      public function wechatpayquery(Request $request)

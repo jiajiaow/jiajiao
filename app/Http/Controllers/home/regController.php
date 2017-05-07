@@ -85,7 +85,7 @@ class regController extends Controller
                 ->setSmsFreeSignName('德栗家教')
                 ->setSmsTemplateCode('SMS_62215171');
             $resp = $client->execute($req);
-
+            
            // $result=$this->sms->send("$phone","德栗家教","{zt:'{$zt}','code':'{$yzm}'}",'');
         }
         return "y";

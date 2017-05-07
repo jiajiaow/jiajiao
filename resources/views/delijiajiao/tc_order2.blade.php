@@ -176,6 +176,7 @@
 				</div>
 			@endforeach
 	</div>
+	<div id="fudong"></div>
 	<div class="c_yejiao">
 		@if($wxz->num > 0)
 		<a href="{{ $wxz->Url($wxz->LastPage()) }}">末页</a>

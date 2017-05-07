@@ -377,8 +377,8 @@ div.j_toubu img{
 div.j_zj{
 	border: 1px solid #E1E1E1;
 	height: 305px;
-	margin-left: 36px;
-	margin-right: 36px;
+	margin-left: 0px;
+	margin-right: 0px;
 	background-color: #FBFBFB;
 
 }
@@ -464,7 +464,7 @@ tr.t_last td{
 .zqm_yuyuejy .left{float: left;width: 70px;}
 .zqm_yuyuejy .left .cb{width: 70px;height: 100px;border: 1px solid #e1e1e1;border-radius: 10px 0px 0px 10px;text-align: center;font-size: 18px;padding-top: 10px;color: #000;}
 .zqm_yuyuejy .left .cbv{width: 70px;height: 100px;text-align: center;font-size: 18px;padding-top: 10px;color: #ccc;}
-.zqm_yuyuejy .right{float: left;width: 810px;}
+.zqm_yuyuejy .right{float: right;width: 810px;}
 .zqm{background:#fbfbfb;}
 .zqm_yuyuejy .right .bk{width: 805px;height: 50px;border: 1px solid #e1e1e1;border-bottom: none;line-height: 50px;display: flex;}
 .zqm_yuyuejy .right .bk .left{float: left;width: 236px;border-right: 1px solid #e1e1e1;text-align: center;color: #ccc;font-size: 16px;}

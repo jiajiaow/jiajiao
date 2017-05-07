@@ -256,6 +256,7 @@
             @endforeach
         </div>
           <div class="zqm_div5"></div>
+             <div id="fudong"></div>
             <div class="c_yejiao" style="width:950px;">
                 @if($yap->num > 0)
                 <a href="{{ $yap->Url($yap->LastPage()) }}">末页</a>

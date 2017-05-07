@@ -104,7 +104,7 @@ class stinfoController extends Controller
     public function doxy_hetong(){
 
         //$list = DB::table('jjw_order')->where('id',$_POST['id'])->get();
-        $list = \DB::table('jjw_order as o')
+       /* $list = \DB::table('jjw_order as o')
             ->join('jjw_reorder as r', 'r.oid', '=', 'o.id')
             ->join('jjw_teachers as t', 't.id', '=', 'r.tc_id')
             ->where('o.id',$_POST['id'])
@@ -114,13 +114,10 @@ class stinfoController extends Controller
         //需要补需要退
         $a = $list->money*$list->o_xs-($list->xxf+$list->xxf2);
         if($a == '0'){
-            \DB::table('jjw_reorder')->where('oid',$_POST['id'])->where('tc_id',$list->t_id)->update(['qt_t_status'=>'6','ht_t_status'=>'8',]);
+            \DB::table('jjw_reorder')->where('oid',$_POST['id'])->where('tc_id',$list->t_id)->update(['qt_t_status'=>'6','ht_t_status'=>'8',]);*/
             \DB::table('jjw_order')->where('id',$_POST['id'])->update(['xy_qz'=>'1']);
             return redirect('/xy_order.html');
-        }else{
-            \DB::table('jjw_order')->where('id',$_POST['id'])->update(['xy_qz'=>'1']);
-            return redirect('/xy_order.html');
-        }
+//        }
 
     }
 }
