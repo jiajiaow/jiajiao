@@ -275,28 +275,10 @@ for(i=0; i <tabList.length; i++)
   </footer>
 <div style="min-height: 50px;">
       <ul id="cheng-href" style="margin: auto;width: 1200px;">
-          <li>
-              <a href="">友情链接</a>
-          </li>
-          <li>
-              <a href="">新浪新闻</a>
-          </li>
-          <li>
-              <a href="">网易云音乐</a>
-          </li>
-          <li>
-              <a href="">腾讯新闻</a>
-          </li>
-          <li>
-              <a href="">百度</a>
-          </li>
-             <li>
-                 <a href="">360</a>
-             </li>
       </ul>
       <div id="fudong"></div>
   </div>
-  
+
   <div class="banquanxinxi">
           © 2005－2017德栗家教   |   <a href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action">粤ICP备16062097号-4</a> 关键词：家教,一对一家教,广州家教网</div>
   </div>
