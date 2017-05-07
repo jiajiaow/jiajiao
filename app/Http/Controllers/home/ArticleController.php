@@ -17,7 +17,7 @@ class ArticleController extends Controller
     {
         $data = DB::table('jjw_navigation')->orderBy('dh_status','desc')->get();
         //dd($data);
-        $list = DB::table('jjw_Articlelist')->where('ar_pid',$id)->orderBy('ar_status','desc')->paginate(10);
+        $list = DB::table('jjw_articlelist')->where('ar_pid',$id)->orderBy('ar_status','desc')->paginate(10);
         //dd($list);
         $num = $list->lastPage();
         $nextpage = $num - $list->currentPage() == 0 ? $num : $list->currentPage() + 1;
@@ -31,7 +31,7 @@ class ArticleController extends Controller
         //dd(session('regionid'));
         $fz = DB::table('jjw_position_city')->where('city_id',session('regionid'))->first();
         //dd($fz);
-        $data = DB::table('jjw_Articlelist')->where('ar_id',$id)->first();
+        $data = DB::table('jjw_articlelist')->where('ar_id',$id)->first();
         return view('delijiajiao.Articlecontent',['data' => $data,'fz' => $fz ]);
     }
 }
