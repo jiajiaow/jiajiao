@@ -310,7 +310,6 @@ for(i=0; i <tabList.length; i++)
               }
           })
       })
-
   </script>
   <script type="text/javascript" src="/delijiajiao/js/layer.js"></script>
    <script type="text/javascript">
