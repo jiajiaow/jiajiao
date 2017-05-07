@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <title>提前结束课程</title>
+    <title>试课不成功</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
 
@@ -28,7 +28,7 @@
             <div class="col-sm-12" style="width:3500px;">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>提前结束课程 <small>分类，查找</small></h5>
+                        <h5>试课不成功 <small>分类，查找</small></h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -79,24 +79,25 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach($list as $l)
+                            <?php $__currentLoopData = $list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $l): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr class="gradeX">
-                                    <td>{{ $l->rid }}</td>
-                                    <td>{{ $l->city_name }}</td>
-                                    <td>{{ date('Y-m-d h:i:s',$l->tk_times) }}</td>
-                                    <td>提前结束课程</td>
-                                    <td>{{ $l->id }}</td>
+                                    <td><?php echo e($l->rid); ?></td>
+                                    <td><?php echo e($l->city_name); ?></td>
+                                    <td><?php echo e(date('Y-m-d h:i:s',$l->tk_times)); ?></td>
+                                    <td>试课不成功</td>
+                                    <td><?php echo e($l->id); ?></td>
                                     <td></td>
-                                    <td>T{{ $l->t_id }}
+                                    <td>T<?php echo e($l->t_id); ?>
+
                                     </td>
-                                    <td>{{ $l->tc_name }}</td>
-                                    <td>{{ $l->sfsk }}|{{ $l->nocglx }}|{{ $l->yuanyin }}</td>
-                                    <td>T{{ $l->id }}</td>
-                                    <td>{{ $l->user_name }}</td>
-                                    <td>{{ $l->user_phone }}</td>
-                                    <td>{{ $l->yskc }}</td>
-                                    <td>{{ $l->xxf+$l->xxf2 }}</td>
-                                    <td>{{ $l->xxftk }}元</td>
+                                    <td><?php echo e($l->tc_name); ?></td>
+                                    <td><?php echo e($l->sfsk); ?>|<?php echo e($l->nocglx); ?>|<?php echo e($l->yuanyin); ?></td>
+                                    <td>T<?php echo e($l->id); ?></td>
+                                    <td><?php echo e($l->user_name); ?></td>
+                                    <td><?php echo e($l->user_phone); ?></td>
+                                    <td><?php echo e($l->yskc); ?></td>
+                                    <td>系统抓取</td>
+                                    <td><?php echo e($l->xxftk); ?>元</td>
                                     <td>
                                         家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）
                                     </td>
@@ -118,7 +119,7 @@
                                     <td>自动获取</td>
                                     <td><a href="">查看图片</a></td>
                                 </tr>
-                             @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
                         </table>
 

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <title>提前结束课程</title>
+    <title>成功减少课酬</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
 
@@ -79,24 +79,23 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach($list as $l)
                                 <tr class="gradeX">
-                                    <td>{{ $l->rid }}</td>
-                                    <td>{{ $l->city_name }}</td>
-                                    <td>{{ date('Y-m-d h:i:s',$l->tk_times) }}</td>
-                                    <td>提前结束课程</td>
-                                    <td>{{ $l->id }}</td>
-                                    <td></td>
-                                    <td>T{{ $l->t_id }}
+                                    <td>123456</td>
+                                    <td>广州</td>
+                                    <td>17-4-28|11:06</td>
+                                    <td>成功减少课酬</td>
+                                    <td>1111111111</td>
+                                    <td>1111111111</td>
+                                    <td>T456789
                                     </td>
-                                    <td>{{ $l->tc_name }}</td>
-                                    <td>{{ $l->sfsk }}|{{ $l->nocglx }}|{{ $l->yuanyin }}</td>
-                                    <td>T{{ $l->id }}</td>
-                                    <td>{{ $l->user_name }}</td>
-                                    <td>{{ $l->user_phone }}</td>
-                                    <td>{{ $l->yskc }}</td>
-                                    <td>{{ $l->xxf+$l->xxf2 }}</td>
-                                    <td>{{ $l->xxftk }}元</td>
+                                    <td>张启明</td>
+                                    <td>已试课|家长原因|家长想换个专职老师/或者原来是专职老师，想试试大学生</td>
+                                    <td>T456789</td>
+                                    <td>张启明</td>
+                                    <td>18174401431</td>
+                                    <td>教员填写</td>
+                                    <td>系统抓取</td>
+                                    <td>300元</td>
                                     <td>
                                         家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）
                                     </td>
@@ -118,7 +117,44 @@
                                     <td>自动获取</td>
                                     <td><a href="">查看图片</a></td>
                                 </tr>
-                             @endforeach
+                                <tr class="gradeX">
+                                    <td>1234567</td>
+                                    <td>广州2</td>
+                                    <td>17-4-28|11:06</td>
+                                    <td>成功减少课酬</td>
+                                    <td>1111111111</td>
+                                    <td>1111111111</td>
+                                    <td>T456789
+                                    </td>
+                                    <td>张启明</td>
+                                    <td>已试课|家长原因|家长想换个专职老师/或者原来是专职老师，想试试大学生</td>
+                                    <td>T456789</td>
+                                    <td>张启明</td>
+                                    <td>18174401431</td>
+                                    <td>教员填写</td>
+                                    <td>系统抓取</td>
+                                    <td>300元</td>
+                                    <td>
+                                        家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）
+                                    </td>
+                                    <td>无显示</td>
+                                    <td>无显示</td>
+                                    <td>
+                                        <select name="" id="">
+                                            <option value=""></option>
+                                        </select>
+                                    </td>
+                                    <td>17-4-28|11:06</td>
+                                    <td>
+                                        <select name="" id="">
+                                            <option value=""></option>
+                                        </select>
+                                    </td>
+                                    <td>17-4-28|11:06</td>
+                                    <td><a href="">查看备注</a></td>
+                                    <td>自动获取</td>
+                                    <td><a href="">查看图片</a></td>
+                                </tr>
                             </tbody>
                         </table>
 

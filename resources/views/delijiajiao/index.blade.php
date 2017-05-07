@@ -110,7 +110,8 @@
           <div class="l">
             <img src="/delijiajiao/picture/s_1.png">金牌教员</div> <div class="r"><a href="/facultys.html/gd/2" >更多</a></div></div>
                 <div class="acrt">
-                @foreach($jinpai as $jp)
+                @foreach($jy as $jp)
+                  @if($jp->tc_jinpai == 2)
                     <li class="kuan">
                         <div class="top"  onmouseover="this.style.cursor='pointer'" onclick="location.href='/teacher/detail/{{ $jp->id }}.html'">
                             <img src="/delijiajiao/images/logo.png" width="110" height="110" >
@@ -135,6 +136,7 @@
                             <a href="/yuyuelaoshi.html" class="btn">预约免费试课</a>
                         </div>
                     </li>
+                  @endif
                 @endforeach
                 </div>
       </div>
@@ -145,29 +147,31 @@
             <div class="r"><a href="/facultys.html/gd/0">更多</a></div>
         </div>
             <div class="acrt">
-            @foreach($xueshen as $xs)
-            <li class="kuan">
-                <div class="top" onmouseover="this.style.cursor='pointer'" onclick="location.href='/teacher/detail/{{ $xs->id }}.html'">
-                    <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
-                    <i>{{ mb_substr($xs->tc_name,0,1) }}教员</i>
-                    <div class="hover">
-                        <p>{{subtext( $xs->tc_comments,40) }}</p>
-                        <a href="javascript:void(0)" class="look" onclick="location.href='/teacher/detail/{{ $xs->id }}.html'" >查看 ></a>
+            @foreach($jy as $xs)
+              @if($xs->tc_jinpai == 0)
+                <li class="kuan">
+                    <div class="top" onmouseover="this.style.cursor='pointer'" onclick="location.href='/teacher/detail/{{ $xs->id }}.html'">
+                        <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
+                        <i>{{ mb_substr($xs->tc_name,0,1) }}教员</i>
+                        <div class="hover">
+                            <p>{{subtext( $xs->tc_comments,40) }}</p>
+                            <a href="javascript:void(0)" class="look" onclick="location.href='/teacher/detail/{{ $xs->id }}.html'" >查看 ></a>
+                        </div>
                     </div>
-                </div>
-                <div class="bottom">
-                    <a href="/hot.html/学院/{{ $xs->tc_school }}">{{ $xs->tc_school }}</a>
+                    <div class="bottom">
+                        <a href="/hot.html/学院/{{ $xs->tc_school }}">{{ $xs->tc_school }}</a>
 
-                    <br/>
-                    @if($xs->tc_zhuanye)
-                        <span>{{ $xs->tc_zhuanye }}</span>
-                    @else
-                        <span>其他</span>
-                    @endif
-                    <div class="clear"></div>
-                    <a href="/yuyuelaoshi.html" class="btn">预约免费试课</a>
-                </div>
-            </li>
+                        <br/>
+                        @if($xs->tc_zhuanye)
+                            <span>{{ $xs->tc_zhuanye }}</span>
+                        @else
+                            <span>其他</span>
+                        @endif
+                        <div class="clear"></div>
+                        <a href="/yuyuelaoshi.html" class="btn">预约免费试课</a>
+                    </div>
+                </li>
+              @endif
             @endforeach
             </div>
       </div>
@@ -177,29 +181,31 @@
             <div class="r"><a href="/facultys.html/gd/1">更多</a></div>
           </div>
           <div class="acrt">
-            @foreach($zhuanzhi as $zhuanzhi)
-            <li class="kuan">
-                <div class="top" onmouseover="this.style.cursor='pointer'" onclick="location.href='/teacher/detail/207692.html'">
-                    <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
-                    <i>{{ mb_substr($zhuanzhi->tc_name,0,1) }}教员</i>
-                    <div class="hover">
-                        <p>{{ subtext($zhuanzhi->tc_comments,40) }}</p>
-                        <a href="javascript:void(0)" class="look" onclick="location.href='/teacher/detail/{{ $zhuanzhi->id }}.html'">查看 ></a>
+            @foreach($jy as $zhuanzhi)
+              @if($zhuanzhi->tc_jinpai == 1)
+                <li class="kuan">
+                    <div class="top" onmouseover="this.style.cursor='pointer'" onclick="location.href='/teacher/detail/207692.html'">
+                        <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
+                        <i>{{ mb_substr($zhuanzhi->tc_name,0,1) }}教员</i>
+                        <div class="hover">
+                            <p>{{ subtext($zhuanzhi->tc_comments,40) }}</p>
+                            <a href="javascript:void(0)" class="look" onclick="location.href='/teacher/detail/{{ $zhuanzhi->id }}.html'">查看 ></a>
+                        </div>
                     </div>
-                </div>
-                <div class="bottom">
-                    <a href="/hot.html/学院/{{ $zhuanzhi->tc_school }}">{{ $zhuanzhi->tc_school }}</a>
+                    <div class="bottom">
+                        <a href="/hot.html/学院/{{ $zhuanzhi->tc_school }}">{{ $zhuanzhi->tc_school }}</a>
 
-                    <br/>
-                    @if($zhuanzhi->tc_zhuanye)
-                        <span>{{ $zhuanzhi->tc_zhuanye }}</span>
-                    @else
-                        <span>其他</span>
-                    @endif
-                    <div class="clear"></div>
-                    <a href="/yuyuelaoshi.html" class="btn">预约免费试课</a>
-                </div>
-            </li>
+                        <br/>
+                        @if($zhuanzhi->tc_zhuanye)
+                            <span>{{ $zhuanzhi->tc_zhuanye }}</span>
+                        @else
+                            <span>其他</span>
+                        @endif
+                        <div class="clear"></div>
+                        <a href="/yuyuelaoshi.html" class="btn">预约免费试课</a>
+                    </div>
+                </li>
+              @endif
             @endforeach
           </div>
       </div>

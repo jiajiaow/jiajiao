@@ -152,7 +152,7 @@
             <!-- 中间部分的中 -->
             <div class="j_zj">
                 <div class="j_zj">
-                    <iframe id="mainFrame" name="mainFrame" scrolling="no" src="{{ URL('tc_page.html') }}" frameborder="0" style="padding: 0px; width: 100%; height: 370px;"></iframe>
+                    <iframe id="mainFrame" name="mainFrame" scrolling="no" src="<?php echo e(URL('tc_page.html')); ?>" frameborder="0" style="padding: 0px; width: 100%; height: 370px;"></iframe>
                 </div>
             </div>
 
@@ -168,26 +168,26 @@
                     <a href="/tc_order4.html"><div class="cb"  style="font-size:14px;">试<br/>课<br/>中</div></a>
                     <a href="/tc_order5.html"><div class="cbv" style="font-size:14px;">试<br/>课<br/>失<br/>败</div></a>
                 </div>
-                @foreach($skz as $skzs)
+                <?php $__currentLoopData = $skz; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $skzs): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="right dd_length clear">
                         <div class="bk zqm">
                             <div class="left">订单编号</div>
-                            <div class="right">{{ $skzs->id }}<a href="/xsinfo{{ $skzs->id }}.html" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
+                            <div class="right"><?php echo e($skzs->id); ?><a href="/xsinfo<?php echo e($skzs->id); ?>.html" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
                         </div>
                         <div class="bk">
                             <div class="left">接单时间</div><?php date_default_timezone_set('Asia/Shanghai'); ?>
-                            <div class="right">{{ date("Y-m-d h:i:s",$skzs->jd_times) }}</div>
+                            <div class="right"><?php echo e(date("Y-m-d h:i:s",$skzs->jd_times)); ?></div>
                         </div>
                         <div class="bk zqm">
                             <div class="left">试课时间</div>
 
                             <div class="right datep">
-                                <span style="font-size: 12px;">{{ $skzs->sk_times }}</span>
+                                <span style="font-size: 12px;"><?php echo e($skzs->sk_times); ?></span>
                                 <form action="/sktimes.html" method="post" style="display: inline-block">
                                     <input class="datainp" id="dateinfo" name="sj" placeholder="请选择" readonly="" type="text">
-                                    <input type="hidden" name="oid" id="o" value="{{ $skzs->id }}">
-                                    <input type="hidden" name="rid" id="r" value="{{ $skzs->rid }}">
-                                    <input type="hidden" name="tc_id" value="{{ $skzs->tc_id }}">
+                                    <input type="hidden" name="oid" id="o" value="<?php echo e($skzs->id); ?>">
+                                    <input type="hidden" name="rid" id="r" value="<?php echo e($skzs->rid); ?>">
+                                    <input type="hidden" name="tc_id" value="<?php echo e($skzs->tc_id); ?>">
                                     <select name="sjs" id="">
                                         <option value="上午">上午</option>
                                         <option value="下午">下午</option>
@@ -220,9 +220,9 @@
                             <div class="left">试课地点</div>
                             <div class="right">
                                 <form action="/tc_skadd.html" method="post">
-                                    <input type="hidden" name="rid" value="{{ $skzs->rid }}">
-                                    <input type="hidden" name="tc_id" value="{{ $skzs->tc_id }}">
-                                    <input name="add" id="jy_adres" type="text" style="width: 82%;height: 29px;border: none;"  value="{{ $skzs->radd }}"/>
+                                    <input type="hidden" name="rid" value="<?php echo e($skzs->rid); ?>">
+                                    <input type="hidden" name="tc_id" value="<?php echo e($skzs->tc_id); ?>">
+                                    <input name="add" id="jy_adres" type="text" style="width: 82%;height: 29px;border: none;"  value="<?php echo e($skzs->radd); ?>"/>
                                     <button type="submit" style="
 																      height: 40px;
 																      width: 88px;
@@ -242,48 +242,34 @@
                             <div class="left">试课结果填写</div>
                             <div class="right">
                                 <div style="height: 40px;" class="yesno">
-                                    @if($skzs->jy_qz == '1' && $skzs-> xy_qz =='1')
-                                        <a class="cg" id="cg{{ $skzs->id }}">试课成功</a>
-                                    @else
-                                        <a onclick="skcgs()"  href="/hetong/{{ $skzs->id }}.html">试课成功</a>
-                                        <a onclick="timeShow({{ $skzs->id }},{{ $skzs->rid }},{{ $skzs->tc_id }})">试课不成功</a>
-                                    @endif
+                                    <?php if($skzs->jy_qz == '1' && $skzs-> xy_qz =='1'): ?>
+                                        <a class="cg" id="cg<?php echo e($skzs->id); ?>">试课成功</a>
+                                    <?php else: ?>
+                                        <a onclick="skcgs()"  href="/hetong/<?php echo e($skzs->id); ?>.html">试课成功</a>
+                                        <a onclick="timeShow(<?php echo e($skzs->id); ?>,<?php echo e($skzs->rid); ?>,<?php echo e($skzs->tc_id); ?>)">试课不成功</a>
+                                    <?php endif; ?>
                                 </div></div>
                         </div>
                         <div class="bk">
                             <div class="left">介绍信/合同</div>
-                            <div class="right"><a href="/hetong/{{ $skzs->id }}.html"><font color="#FF0000">查看电子介绍信/合同</font></a></div>
+                            <div class="right"><a href="/hetong/<?php echo e($skzs->id); ?>.html"><font color="#FF0000">查看电子介绍信/合同</font></a></div>
                         </div>
                         <div class="bk5" style="height: 200px;line-height: 200px;"><?php $q = $skzs->o_ts*$skzs->o_xs*$skzs->money ?>
                             <div class="left1">课酬/信息费</div>
                             <div class="right1">
                                 <div class="pm zqm">
                                     <div class="left">
-                                        课酬：{{ $skzs->money*$skzs->o_xs }}元/次
+                                        课酬：<?php echo e($skzs->money*$skzs->o_xs); ?>元/次
                                     </div>
                                     <div class="right">
                                         需补/需退信息费：
-                                        {{--@if($skzs->o_ts == '1')
-                                            {{$skzs->money*$skzs->o_xs-($q*$skzs->bfb1>300?'300':$q*$skzs->bfb1) }}
-                                        @elseif($skzs->o_ts == '2')
-                                            {{ $skzs->money*$skzs->o_xs-($q*$skzs->bfb2>300?'300':$q*$skzs->bfb2) }}
-                                        @elseif($skzs->o_ts == '3')
-                                            {{ $skzs->money*$skzs->o_xs-($q*$skzs->bfb3>300?'300':$q*$skzs->bfb3) }}
-                                        @elseif($skzs->o_ts == '4')
-                                            {{ $skzs->money*$skzs->o_xs-($q*$skzs->bfb4>300?'300':$q*$skzs->bfb4) }}
-                                        @elseif($skzs->o_ts == '5')
-                                            {{ $skzs->money*$skzs->o_xs-($q*$skzs->bfb5>300?'300':$q*$skzs->bfb5) }}
-                                        @elseif($skzs->o_ts == '6')
-                                            {{ $skzs->money*$skzs->o_xs-($q*$skzs->bfb6>300?'300':$q*$skzs->bfb6) }}
-                                        @elseif($skzs->o_ts == '7')
-                                            {{ $skzs->money*$skzs->o_xs-($q*$skzs->bfb7>300?'300':$q*$skzs->bfb7) }}
-                                        @endif元--}}
-                                        <span class="xbxxf" id="{{ $skzs->id }}">{{ $skzs->money*$skzs->o_xs-($skzs->xxf+$skzs->xxf2) }}</span>元
+                                        
+                                        <span class="xbxxf" id="<?php echo e($skzs->id); ?>"><?php echo e($skzs->money*$skzs->o_xs-($skzs->xxf+$skzs->xxf2)); ?></span>元
                                     </div>
                                 </div>
                                 <div class="pm">
                                     <div class="left">
-                                        周课酬：{{ $q }}元/周
+                                        周课酬：<?php echo e($q); ?>元/周
                                     </div>
                                     <div class="right">
                                         已退信息费：0元
@@ -291,64 +277,44 @@
                                 </div>
                                 <div class="pm zqm">
                                     <div class="left">
-                                        信息费：@if($skzs->o_ts == '1'){{ $q*$skzs->bfb1 }}@elseif($skzs->o_ts == '2'){{ $q*$skzs->bfb2 }}@elseif($skzs->o_ts == '3'){{ $q*$skzs->bfb3 }}@elseif($skzs->o_ts == '4'){{ $q*$skzs->bfb4 }}@elseif($skzs->o_ts == '5'){{ $q*$skzs->bfb5 }}@elseif($skzs->o_ts == '6'){{ $q*$skzs->bfb6 }}@elseif($skzs->o_ts == '7'){{ $q*$skzs->bfb7 }}@endif元
+                                        信息费：<?php if($skzs->o_ts == '1'): ?><?php echo e($q*$skzs->bfb1); ?><?php elseif($skzs->o_ts == '2'): ?><?php echo e($q*$skzs->bfb2); ?><?php elseif($skzs->o_ts == '3'): ?><?php echo e($q*$skzs->bfb3); ?><?php elseif($skzs->o_ts == '4'): ?><?php echo e($q*$skzs->bfb4); ?><?php elseif($skzs->o_ts == '5'): ?><?php echo e($q*$skzs->bfb5); ?><?php elseif($skzs->o_ts == '6'): ?><?php echo e($q*$skzs->bfb6); ?><?php elseif($skzs->o_ts == '7'): ?><?php echo e($q*$skzs->bfb7); ?><?php endif; ?>元
                                     </div>
                                     <div class="left">
-                                        家长服务费：{{$skzs->fz_jzxxf}}元
+                                        家长服务费：<?php echo e($skzs->fz_jzxxf); ?>元
                                     </div>
-                                    {{--<div class="right">
-                                        已锁定诚意金：60元
-                                    </div>--}}
+                                    
                                 </div>
-                                {{--<div class="pm zqm">
-
-                                    <div class="right">
-                                        待退回诚意金：60元
-                                    </div>
-                                </div>--}}
+                                
                                 <div class="pm">
                                     <div class="left">
                                         已预付信息费：
-                                        {{--@if($skzs->o_ts == '1')
-                                            {{ $q*$skzs->bfb1>300?'300':$q*$skzs->bfb1 }}
-                                        @elseif($skzs->o_ts == '2')
-                                            {{ $q*$skzs->bfb2>300?'300':$q*$skzs->bfb2 }}
-                                        @elseif($skzs->o_ts == '3')
-                                            {{ $q*$skzs->bfb3>300?'300':$q*$skzs->bfb3 }}
-                                        @elseif($skzs->o_ts == '4')
-                                            {{ $q*$skzs->bfb4>300?'300':$q*$skzs->bfb4 }}
-                                        @elseif($skzs->o_ts == '5')
-                                            {{ $q*$skzs->bfb5>300?'300':$q*$skzs->bfb5 }}
-                                        @elseif($skzs->o_ts == '6')
-                                            {{ $q*$skzs->bfb6>300?'300':$q*$skzs->bfb6 }}
-                                        @elseif($skzs->o_ts == '7')
-                                            {{ $q*$skzs->bfb7>300?'300':$q*$skzs->bfb7 }}
-                                        @endif元--}}
-                                        {{ $skzs->xxf+$skzs->xxf2 }}
+                                        
+                                        <?php echo e($skzs->xxf+$skzs->xxf2); ?>
+
                                     </div>
                                     <div class="right">
-                                        本单实际信息费：{{ $skzs->money*$skzs->o_xs }}元
+                                        本单实际信息费：<?php echo e($skzs->money*$skzs->o_xs); ?>元
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="bk2">
-                            <span style="margin-left: 60px;margin-right: 60px;"  onclick="timeShow({{ $skzs->id }},{{ $skzs->rid }},{{ $skzs->tc_id }})" target="_blank"><font color="#000">申请退款</font></span>|
-                            <a style="margin-left: 60px;margin-right: 60px;" onclick="zf(this,{{ $skzs->id }},{{ $skzs->rid }})" class="xxf_btn"><font color="#000">支付信息费</font></a>|
+                            <span style="margin-left: 60px;margin-right: 60px;"  onclick="timeShow(<?php echo e($skzs->id); ?>,<?php echo e($skzs->rid); ?>,<?php echo e($skzs->tc_id); ?>)" target="_blank"><font color="#000">申请退款</font></span>|
+                            <a style="margin-left: 60px;margin-right: 60px;" onclick="zf(this,<?php echo e($skzs->id); ?>,<?php echo e($skzs->rid); ?>)" class="xxf_btn"><font color="#000">支付信息费</font></a>|
                             <a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#FF0000">收付款记录</font></a>|
-                            <a style="margin-left:30px;margin-right: 30px;" href="javascript:;" onclick="sc({{ $skzs->id }},{{ $skzs->money*$skzs->o_xs-($skzs->xxf+$skzs->xxf2) }},{{ $skzs->jy_qz }},{{ $skzs->xy_qz }},{{ $skzs->tc_id }})"><font color="#FF0000">审查订单</font></a>
+                            <a style="margin-left:30px;margin-right: 30px;" href="javascript:;" onclick="sc(<?php echo e($skzs->id); ?>,<?php echo e($skzs->money*$skzs->o_xs-($skzs->xxf+$skzs->xxf2)); ?>,<?php echo e($skzs->jy_qz); ?>,<?php echo e($skzs->xy_qz); ?>,<?php echo e($skzs->tc_id); ?>)"><font color="#FF0000">审查订单</font></a>
                         </div>
                     </div>
-                    <div class="fc" id="fc{{ $skzs->id }}" style="display: none;"></div>
-                    <div class="fc_content" id="fc_content{{ $skzs->id }}" style="display: none;">
+                    <div class="fc" id="fc<?php echo e($skzs->id); ?>" style="display: none;"></div>
+                    <div class="fc_content" id="fc_content<?php echo e($skzs->id); ?>" style="display: none;">
                         <form method="post" action="/sqtk.html">
-                            <input type="hidden" name="oid" id="oid{{ $skzs->id }}" value="">
-                            <input type="hidden" name="rid" id="rid{{ $skzs->id }}" value="">
-                            <input type="hidden" name="tc_id" id="tc_id{{ $skzs->id }}" value="">
+                            <input type="hidden" name="oid" id="oid<?php echo e($skzs->id); ?>" value="">
+                            <input type="hidden" name="rid" id="rid<?php echo e($skzs->id); ?>" value="">
+                            <input type="hidden" name="tc_id" id="tc_id<?php echo e($skzs->id); ?>" value="">
                             <div style="padding: 10px 32px;">
                                 <ul >
                                     <li><p><input name="Fruit" type="radio" value="1" />试课成功</p></li>
-                                    <li><p>周薪酬减少　{{ $skzs->money2*$skzs->o_xs2*$skzs->o_ts2-$skzs->money*$skzs->o_xs*$skzs->o_ts }}<span class="seeMar"><!--<input type="text" name="kc">--></span>申请信息费退款　{{ ($skzs->money*$skzs->o_xs-($skzs->xxf+$skzs->xxf2))*-1 }}</p></li>
+                                    <li><p>周薪酬减少　<?php echo e($skzs->money2*$skzs->o_xs2*$skzs->o_ts2-$skzs->money*$skzs->o_xs*$skzs->o_ts); ?><span class="seeMar"><!--<input type="text" name="kc">--></span>申请信息费退款　<?php echo e(($skzs->money*$skzs->o_xs-($skzs->xxf+$skzs->xxf2))*-1); ?></p></li>
                                     <li><input name="Fruit" type="radio" value="2" />试课不成功</li>
                                     <li>
                                         <p>申请信息费退款<span class="seeMar">
@@ -411,28 +377,28 @@
                                         <span style="vertical-align: top" name="bz">备注</span>
                                         <input style="margin: 0px; width: 334px; height: 68px;" name="bz"/>
                                     </li>
-                                    {{--<li>--}}
-                                        {{--<p><input name="Fruit" type="radio" value="" />已锁定诚意金<span class="seeMar"></span></p>--}}
-                                    {{--</li>--}}
+                                    
+                                        
+                                    
                                     <li>
-                                        <p>@if($skzs->jy_qz =='1')<button style="margin-left: 110px;" type="submit" >申请退款</button>@else<span style="margin-left: 110px;" onclick="layer.alert('请您先确认合同!')" >申请退款</span>@endif<span class="seeMar">{{--<button>申请诚意金解锁</button>--}}</span><span><button style="padding: 0 13px;"  class="qxBtn">取消</button></span></p>
+                                        <p><?php if($skzs->jy_qz =='1'): ?><button style="margin-left: 110px;" type="submit" >申请退款</button><?php else: ?><span style="margin-left: 110px;" onclick="layer.alert('请您先确认合同!')" >申请退款</span><?php endif; ?><span class="seeMar"></span><span><button style="padding: 0 13px;"  class="qxBtn">取消</button></span></p>
                                     </li>
                                 </ul>
                             </div>
                         </form>
                     </div>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             <!--  -->
             </div>
             <div id="fudong"></div>
             <div class="c_yejiao" style="width: 954px;">
-                @if($skz->num > 0)
-                    <a href="{{ $skz->Url($skz->LastPage()) }}">末页</a>
-                    <a href="{{ $skz->Url($skz->next) }}">下一页</a>
-                    <a href="{{ $skz->Url($skz->last) }}">上一页</a>
-                    <a href="{{ $skz->Url(1) }}">首页</a>
-                    {{--<label>页数:1/2</label>--}}
-                @endif
+                <?php if($skz->num > 0): ?>
+                    <a href="<?php echo e($skz->Url($skz->LastPage())); ?>">末页</a>
+                    <a href="<?php echo e($skz->Url($skz->next)); ?>">下一页</a>
+                    <a href="<?php echo e($skz->Url($skz->last)); ?>">上一页</a>
+                    <a href="<?php echo e($skz->Url(1)); ?>">首页</a>
+                    
+                <?php endif; ?>
             </div>
         </div>
         <form action="" method="post" id="zf">
@@ -501,7 +467,7 @@
             layer.alert('尊敬的教员,您已经成功签约订单!',{icon: 3});
             $.ajax({
                 type:'POST',
-                url:"{{ URL('/dosc.html') }}",
+                url:"<?php echo e(URL('/dosc.html')); ?>",
                 contentType:"application/x-www-form-urlencoded; charset=utf8",
                 data:{"oid":oid,"tc_id":tc_id},
                 /*dataType:'JSON',*/
@@ -627,9 +593,9 @@
         }
 
     })
-    @if(session("msg"))
-        layer.alert('{{session("msg")}}',{icon: 6});
-    @endif
+    <?php if(session("msg")): ?>
+        layer.alert('<?php echo e(session("msg")); ?>',{icon: 6});
+    <?php endif; ?>
 
     function skcg(){
         layer.confirm('请联系我们。', {
@@ -691,7 +657,7 @@
             bkzqm.eq(i).find("#r").val()
             $.ajax({
                 type:'POST',
-                url:"{{ URL('/doscs.html') }}",
+                url:"<?php echo e(URL('/doscs.html')); ?>",
                 contentType:"application/x-www-form-urlencoded; charset=utf8",
                 data:{"oid":bkzqm.eq(i).find("#o").val(),"id":bkzqm.eq(i).find("#r").val()},
                 /*dataType:'JSON',*/

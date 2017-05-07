@@ -337,7 +337,7 @@ class tcinfoController extends Controller
 
     //结束课程
     public function tc_jskc(){
-        //dd($_POST);
+        $_POST['yskc']==''?$_POST['yskc']=null: $_POST['yskc'];
         if($_POST['xxftk'] == ''){
             $list = DB::table('jjw_reorder')->where('id',$_POST['rid'])->where('oid',$_POST['oid'])->update([
                 'qt_t_status'=>'7'
@@ -375,6 +375,7 @@ class tcinfoController extends Controller
     public function tc_sqtk(Request $request){
         //dd($_POST);
         if($_POST['Fruit'] =='1'){
+            dd($_POST);
             $all = $request->except('xxftk','nocglx','yuanyin','bz');
             $list = DB::table('jjw_reorder')->where('id',$_POST['rid'])->where('oid',$_POST['oid'])->where('tc_id',$_POST['tc_id'])->update( [
                     'sk_zt'=>$all['Fruit'],
@@ -443,6 +444,6 @@ class tcinfoController extends Controller
     //自定授课成功订单
     public function doscs(){
         $list = \DB::table('jjw_reorder')->where('oid',$_POST['oid'])->where('id',$_POST['id'])->update(['qt_t_status'=>'6','ht_t_status'=>'8',]);
-        var_dump($_POST);
+        //var_dump($_POST);
     }
 }

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <title>提前结束课程</title>
+    <title>虚拟教员列表</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
 
@@ -25,10 +25,10 @@
 <body class="gray-bg">
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
-            <div class="col-sm-12" style="width:3500px;">
+            <div class="col-sm-12" style='position: relative;'>
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>提前结束课程 <small>分类，查找</small></h5>
+                        <h5>虚拟学员</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -48,83 +48,37 @@
                         </div>
                     </div>
                     <div class="ibox-content">
+
                         <table class="table table-striped table-bordered table-hover dataTables-example">
                             <thead>
                                 <tr>
-                                    <th>退款编号</th>
                                     <th>城市</th>
-                                    <th>提交时间</th>
-                                    <th>退款性质</th>
-                                    <th>订单号</th>
-                                    <th>授课订单号</th>
-                                    <th>教员编号</th>
-                                    <th>教员姓名</th>
-                                    <th>退款原因</th>
-                                    <th>学员编号</th>
-                                    <th>学员姓名</th>
-                                    <th>学员电话</th>
-                                    <th>已收课酬</th>
-                                    <th>应退金额</th>
-                                    <th>申请金额</th>
-                                    <th>回访反馈</th>
-                                    <th>是否换人</th>
-                                    <th>新单单号</th>
-                                    <th>处理结果</th>
-                                    <th>审核时间</th>
-                                    <th>主管审核</th>
-                                    <th>主管审核时间</th>
-                                    <th>退款备注</th>
-                                    <th>退款状态</th>
-                                    <th>退款图片</th>
+                                    <th>编号</th>
+                                    <th>时间</th>
+                                    <th>姓名</th>
+                                    <th>学校</th>
+                                    <th>查看详情</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach($list as $l)
+                            <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $re): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr class="gradeX">
-                                    <td>{{ $l->rid }}</td>
-                                    <td>{{ $l->city_name }}</td>
-                                    <td>{{ date('Y-m-d h:i:s',$l->tk_times) }}</td>
-                                    <td>提前结束课程</td>
-                                    <td>{{ $l->id }}</td>
-                                    <td></td>
-                                    <td>T{{ $l->t_id }}
-                                    </td>
-                                    <td>{{ $l->tc_name }}</td>
-                                    <td>{{ $l->sfsk }}|{{ $l->nocglx }}|{{ $l->yuanyin }}</td>
-                                    <td>T{{ $l->id }}</td>
-                                    <td>{{ $l->user_name }}</td>
-                                    <td>{{ $l->user_phone }}</td>
-                                    <td>{{ $l->yskc }}</td>
-                                    <td>{{ $l->xxf+$l->xxf2 }}</td>
-                                    <td>{{ $l->xxftk }}元</td>
-                                    <td>
-                                        家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）
-                                    </td>
-                                    <td>无显示</td>
-                                    <td>无显示</td>
-                                    <td>
-                                        <select name="" id="">
-                                            <option value=""></option>
-                                        </select>
-                                    </td>
-                                    <td>17-4-28|11:06</td>
-                                    <td>
-                                        <select name="" id="">
-                                            <option value=""></option>
-                                        </select>
-                                    </td>
-                                    <td>17-4-28|11:06</td>
-                                    <td><a href="">查看备注</a></td>
-                                    <td>自动获取</td>
-                                    <td><a href="">查看图片</a></td>
+                                    <td><?php echo e($re->city_name); ?></td>
+                                    <td><?php echo e($re->id); ?></td>
+                                    <td><?php echo e(date('Y-m-d h:i:s',$re->tc_dltimes)); ?></td>
+                                    <td><?php echo e($re->tc_name); ?></td>
+                                    <td class="center"><?php echo e($re->tc_school); ?></td>
+                                    <td class="center"><a target="_blank" href="<?php echo e(asset('/teacher/detail')); ?>/<?php echo e($re->id); ?>.html">点击查询详细</a></td>
                                 </tr>
-                             @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
+
                         </table>
 
                     </div>
                 </div>
             </div>
+            <div style="float: right;position:absolute;right: 0px;bottom: 0px;margin-bottom: 30px"><?php echo e($data->links()); ?></div>
         </div>
 
     </div>
@@ -184,9 +138,10 @@
         }
     </script>
 
-    
-    
+
+
 
 </body>
 
 </html>
+

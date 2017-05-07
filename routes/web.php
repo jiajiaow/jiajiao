@@ -344,7 +344,6 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     //文章编辑修改
     Route::post('/wzxgdo','admin\ArticleController@wzxgdo');
 
-<<<<<<< HEAD
     //添加友情链接
     Route::get('/tjyqlj','admin\yqljController@tjyqlj');
     //处理添加友情链接
@@ -357,7 +356,6 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::get('/bjyqlj/{id}','admin\yqljController@bjyqlj');
     //处理编辑
     Route::post('/bjyqljdo','admin\yqljController@bjyqljdo');
-=======
     //教员试课不成功订单退款
     Route::get('/skbcg','admin\jytkController@skbcg');
     //提前结束课程
@@ -366,6 +364,5 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::get('/cgjskc','admin\jytkController@cgjskc');
     //诚意金解锁
     Route::get('/cyjjs','admin\jytkController@cyjjs');
->>>>>>> 2200734c45592c31b2a17a08cdba82a332a150df
 });
 //----------后台END----------//
