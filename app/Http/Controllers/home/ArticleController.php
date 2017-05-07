@@ -9,13 +9,13 @@ class ArticleController extends Controller
 {
     public function Articlecenter()
     {
-        $data = DB::table('jjw_Navigation')->orderBy('dh_status','desc')->get();
+        $data = DB::table('jjw_navigation')->orderBy('dh_status','desc')->get();
         //dd($data);
         return view('delijiajiao.Article',['data' => $data,'list' => null]);
     }
     public function wzlist(Request $request,$id)
     {
-        $data = DB::table('jjw_Navigation')->orderBy('dh_status','desc')->get();
+        $data = DB::table('jjw_navigation')->orderBy('dh_status','desc')->get();
         //dd($data);
         $list = DB::table('jjw_Articlelist')->where('ar_pid',$id)->orderBy('ar_status','desc')->paginate(10);
         //dd($list);
