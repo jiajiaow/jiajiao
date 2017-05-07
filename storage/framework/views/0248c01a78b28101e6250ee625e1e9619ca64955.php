@@ -1,9 +1,7 @@
-@extends('layout.admin')
+<?php $__env->startSection('my-css'); ?>
+<?php $__env->stopSection(); ?>
 
-@section('my-css')
-@endsection
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div id="wrapper">
         <!--左侧导航开始-->
         <nav class="navbar-default navbar-static-side" role="navigation">
@@ -34,7 +32,7 @@
                             <span class="nav-label">主页</span>
                         </a>
                     </li>
-                    @if(session('admin_id')==1)
+                    <?php if(session('admin_id')==1): ?>
                     <li>
                         <a href="#">
                             <i class="fa fa fa-share-alt"></i>
@@ -52,7 +50,7 @@
                             </li>
                         </ul>
                     </li>
-                    @endif
+                    <?php endif; ?>
                     <li>
                         <a href="#">
                             <i class="fa fa fa-users"></i>
@@ -99,15 +97,15 @@
                             <li>
                                 <a class="J_menuItem" href="/admin/daohang">导航分类列表</a>
                             </li>
-                            {{--<li>--}}
-                                {{--<a class="J_menuItem" href="/admin/yiji">添加一级分类</a>--}}
-                            {{--</li>--}}
-                            {{--<li>--}}
-                                {{--<a class="J_menuItem" href="/admin/erji">添加二级分类</a>--}}
-                            {{--</li>--}}
-                            {{--<li>--}}
-                                {{--<a class="J_menuItem" href="/admin/sanji">添加三级分类</a>--}}
-                            {{--</li>--}}
+                            
+                                
+                            
+                            
+                                
+                            
+                            
+                                
+                            
                         </ul>
                     </li>
                     <li>
@@ -460,7 +458,7 @@
                         </form>
                     </div>
                     <ul class="nav navbar-top-links navbar-right">
-                        尊敬的 <strong> {{ Session('name') }}！ </strong>
+                        尊敬的 <strong> <?php echo e(Session('name')); ?>！ </strong>
                         <a class="glyphicon glyphicon-off" href="/admin/out" aria-hidden="true">退出</a>
                         </form>
                         <li class="dropdown">
@@ -542,14 +540,16 @@
                 </nav>
             </div>
             <div class="row J_mainContent" id="content-main">
-                <iframe id="J_iframe" width="100%" height="100%" src="{{ URL('/admin/indexi') }}" frameborder="0" data-id="indexi" seamless></iframe>
+                <iframe id="J_iframe" width="100%" height="100%" src="<?php echo e(URL('/admin/indexi')); ?>" frameborder="0" data-id="indexi" seamless></iframe>
             </div>
         </div>
         <!--右侧部分结束-->
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
-@section('my-js')
-@endsection
+<?php $__env->startSection('my-js'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layout.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

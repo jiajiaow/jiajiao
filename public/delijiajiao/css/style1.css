@@ -510,7 +510,7 @@ margin: -1px 0px 0px -1px;
 .yqlj{width: 1200px;height: 100%;margin: auto;}
 .yqlj li{width:80px;height: 25px;float: left;list-style-type: none;}
 .banquanxinxi{
-    width: 1200px;
+   /* width: 1200px;*/
     /*margin: 15px 15px;*/
 
     margin-top: 20px;

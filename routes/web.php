@@ -220,6 +220,9 @@ Route::get('/Articlecontent{id?}.html','home\ArticleController@Articlecontent');
 
 //退款
 Route::post('/refund','home\refundController@index');
+
+//友情链接
+Route::any('/yqlj','home\yqljController@yqlj');
 //end退款
 //----------  后台  ----------//
 //登录视图 方法
@@ -333,5 +336,18 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::get('/wzmodify{id?}','admin\ArticleController@modify');
     //文章编辑修改
     Route::post('/wzxgdo','admin\ArticleController@wzxgdo');
+
+    //添加友情链接
+    Route::get('/tjyqlj','admin\yqljController@tjyqlj');
+    //处理添加友情链接
+    Route::post('/tjyqljdo','admin\yqljController@tjyqljdo');
+    //友情链接列表
+    Route::get('/yqljlb','admin\yqljController@yqljlb');
+    //删除友情链接
+    Route::get('/yqljsc/{id}','admin\yqljController@yqljsc');
+    //编辑
+    Route::get('/bjyqlj/{id}','admin\yqljController@bjyqlj');
+    //处理编辑
+    Route::post('/bjyqljdo','admin\yqljController@bjyqljdo');
 });
 //----------后台END----------//

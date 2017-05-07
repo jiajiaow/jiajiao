@@ -3,9 +3,9 @@
  <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" charset='utf-8'/>
   <meta name="applicable-device" content="pc" />
-  <title>@yield('title')【德栗家教】{{ session('regionname') }}家教专业大学生家教全国连锁领导品牌!</title>
-  <meta name="description" content="专业大学生一对一上门家教，专业大学生家教全国连锁领导品牌。免费上门试课热线：{{ session('phone') }}。业务覆盖全国200多个城市，汇集数十万名大学生、专职老师在内的各类优秀教员，竭诚为广大学员提供最专业、最值得信赖的一对一上门家教辅导。免费上门试课热线：{{ session('phone') }}" />
-  <meta name="keywords" content="德栗家教,{{ session('regionname') }}家教,{{ session('regionname') }}家教网,{{ session('regionname') }}大学生家教,{{ session('regionname') }}家教,{{ session('regionname') }}家教网,辅导,补习,一对一" />
+  <title><?php echo $__env->yieldContent('title'); ?>【德栗家教】<?php echo e(session('regionname')); ?>家教专业大学生家教全国连锁领导品牌!</title>
+  <meta name="description" content="专业大学生一对一上门家教，专业大学生家教全国连锁领导品牌。免费上门试课热线：<?php echo e(session('phone')); ?>。业务覆盖全国200多个城市，汇集数十万名大学生、专职老师在内的各类优秀教员，竭诚为广大学员提供最专业、最值得信赖的一对一上门家教辅导。免费上门试课热线：<?php echo e(session('phone')); ?>" />
+  <meta name="keywords" content="德栗家教,<?php echo e(session('regionname')); ?>家教,<?php echo e(session('regionname')); ?>家教网,<?php echo e(session('regionname')); ?>大学生家教,<?php echo e(session('regionname')); ?>家教,<?php echo e(session('regionname')); ?>家教网,辅导,补习,一对一" />
   <script src="/delijiajiao/js/jquery-1.7.2.min.js"></script>
   <link rel="stylesheet" href="/delijiajiao/css/index.css" onerror="tracker.resErr(this)" />
   <link rel="stylesheet" href="/delijiajiao/css/style.css" onerror="tracker.resErr(this)" />
@@ -124,10 +124,10 @@
          }
      </style>
 
-  {{-- <link href="/home/css/style.css" rel="stylesheet" type="text/css" /> --}}
-@section('style')
+  
+<?php $__env->startSection('style'); ?>
 
-@show
+<?php echo $__env->yieldSection(); ?>
 <script type="text/javascript">
 function nTabs(thisObj,Num){
 if(thisObj.className == "active")return;
@@ -159,35 +159,36 @@ for(i=0; i <tabList.length; i++)
     <div class="toolbar">
      <div class="toolbar-link">
 家教上门联系电话：☎
-        {{ session('phone') }}
+        <?php echo e(session('phone')); ?>
+
      </div>
      <ul id="user-tools" class="navbar-nav" style="height: 36px">
-         @if(session('dlzt') == 2 )
-             {{--学员--}}
-             @if(session('st_name') != null or session('st_phone') != null)
-                 <li><arel="nofollow" data-toggle="userAuth" data-type="reg">尊敬的{{ substr(session('st_name'),0,3) }}学员</a>  </li>
+         <?php if(session('dlzt') == 2 ): ?>
+             
+             <?php if(session('st_name') != null or session('st_phone') != null): ?>
+                 <li><arel="nofollow" data-toggle="userAuth" data-type="reg">尊敬的<?php echo e(substr(session('st_name'),0,3)); ?>学员</a>  </li>
                  <li><a href="/stinfo.html" rel="nofollow" data-toggle="userAuth" data-type="reg">学员中心</a></li>
                  <li><a href="/outlogin.html" rel="nofollow" data-toggle="userAuth" data-type="reg">退出</a></li>
-             @else
+             <?php else: ?>
                  <li><a href="/reg.html" rel="nofollow" data-toggle="userAuth" data-type="reg">教员注册</a></li>
                  <li><a href="/login.html" rel="nofollow" data-toggle="userAuth" data-type="login">立即登陆</a></li>
                  <li><a href="/yuyuelaoshi.html" rel="nofollow" data-toggle="userAuth" data-type="login">快速请家教</a></li>
-                 {{-- <li><a href="#" target="_blank">请家教帮助</a></li> --}}
-             @endif
-         @else
-             {{--教员--}}
-             @if(session('tc_name') != null or session('tc_phone') != null)
-                 <li><arel="nofollow" data-toggle="userAuth" data-type="reg">尊敬的{{ substr(session('tc_name'),0,3) }}教员</a>  </li>
+                 
+             <?php endif; ?>
+         <?php else: ?>
+             
+             <?php if(session('tc_name') != null or session('tc_phone') != null): ?>
+                 <li><arel="nofollow" data-toggle="userAuth" data-type="reg">尊敬的<?php echo e(substr(session('tc_name'),0,3)); ?>教员</a>  </li>
                  <li><a href="/teacherinfo.html" rel="nofollow" data-toggle="userAuth" data-type="reg">教员中心</a></li>
                  <li><a href="/outlogin.html" rel="nofollow" data-toggle="userAuth" data-type="reg">退出</a></li>
-             @else
+             <?php else: ?>
                  <li><a href="/reg.html" rel="nofollow" data-toggle="userAuth" data-type="reg">教员注册</a></li>
                  <li><a href="/login.html" rel="nofollow" data-toggle="userAuth" data-type="login">立即登录</a></li>
-                 {{--<li><a href="/stlogin.html" rel="nofollow" data-toggle="userAuth" data-type="login">学员登录</a></li>--}}
+                 
                  <li><a href="/yuyuelaoshi.html" rel="nofollow" data-toggle="userAuth" data-type="login">快速请家教</a></li>
-                 {{-- <li><a href="#" target="_blank">请家教帮助</a></li> --}}
-             @endif
-         @endif
+                 
+             <?php endif; ?>
+         <?php endif; ?>
 
      </ul>
     </div>
@@ -196,7 +197,7 @@ for(i=0; i <tabList.length; i++)
     <div class="location">
      <div class="breadcrumb" style="margin-bottom: 0px;background-color: #fff;padding: 0px" id="icon-top">
       <h1><a a href='/' class='primary-logo' ><img alt="广州" src="/delijiajiao/picture/guangzhou.png" class="city-logo" /></a></h1>
-      <span class="listing-slogan" style="height:40px;">{{ session('regionname') }}</span>
+      <span class="listing-slogan" style="height:40px;"><?php echo e(session('regionname')); ?></span>
          <span class="listing-slogan1" style="height: 26px;">【德栗家教】【高校联盟】</span><a href="/change_city.html">更多城市</a>
      </div>
      <div class="pull-right">
@@ -226,10 +227,10 @@ for(i=0; i <tabList.length; i++)
   <div class="container">
    <div class="main-box">
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 
-@show
+<?php echo $__env->yieldSection(); ?>
   </div>
 </div>
 
@@ -356,9 +357,10 @@ for(i=0; i <tabList.length; i++)
         $(this).addClass('active')
                 .siblings().removeClass('active')
     })
-    @if (session('error'))
-    {{ session('error') }}
-    @endif
+    <?php if(session('error')): ?>
+    <?php echo e(session('error')); ?>
+
+    <?php endif; ?>
 </script>
 <!-- <script type="text/javascript" src="https://hztk5.kuaishang.cn/bs/ks.j?cI=125636&fI=79140" charset="utf-8"></script> -->
   <script type="text/javascript">
@@ -379,9 +381,9 @@ for(i=0; i <tabList.length; i++)
             }
   </script>
   <script>  </script>
-@section('js')
+<?php $__env->startSection('js'); ?>
 
 
-@show
+<?php echo $__env->yieldSection(); ?>
  </body>
 </html>

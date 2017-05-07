@@ -435,4 +435,45 @@
 
 
 </style>
+
+  
+<script>
+  $.ajax({
+      type:'POST',
+      url:"/yqlj",
+      dataType:"json",
+      contentType:"application/x-www-form-urlencoded; charset=utf8",
+      headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      success:(function(result){
+          
+          console.log(result)
+          // let html='';
+          // $.each(result,function(){
+          //   html += `<li><a href="link_a"></a></li>`
+
+          // })
+          // $('#cheng-href').html(html)
+
+         var yqli = '';
+          for(var i =0;i<result.length;i++){
+            
+            
+            yqli += '<li>'
+              +'<a href="'+result[i].link_a+'">'+result[i].link_name+'</a>'
+              +'</li>';
+              $('#cheng-href').html(yqli) 
+        }
+      }),
+      error:(function(result,status){
+          //console.log(result);
+          //
+          larye.alert('系统错误请联系管理员!');
+      })
+
+  });
+</script>
+
+
 @endsection
