@@ -104,7 +104,7 @@
 				</li>
 				<li  class="cheng_active">
 					<i class='cheng_five'></i>
-					<span><a href="/xy_financial.html">财务中心</a></span>
+					<span><a href="/tc_financial.html">财务中心</a></span>
 				</li>
 				<li>
 					<i class='cheng_six'></i>

@@ -263,22 +263,41 @@
                                     </div>
                                     <div class="right">
                                         需补/需退信息费：
-                                        {{--@if($skzs->o_ts == '1')
-                                            {{$skzs->money*$skzs->o_xs-($q*$skzs->bfb1>300?'300':$q*$skzs->bfb1) }}
-                                        @elseif($skzs->o_ts == '2')
-                                            {{ $skzs->money*$skzs->o_xs-($q*$skzs->bfb2>300?'300':$q*$skzs->bfb2) }}
-                                        @elseif($skzs->o_ts == '3')
-                                            {{ $skzs->money*$skzs->o_xs-($q*$skzs->bfb3>300?'300':$q*$skzs->bfb3) }}
-                                        @elseif($skzs->o_ts == '4')
-                                            {{ $skzs->money*$skzs->o_xs-($q*$skzs->bfb4>300?'300':$q*$skzs->bfb4) }}
-                                        @elseif($skzs->o_ts == '5')
-                                            {{ $skzs->money*$skzs->o_xs-($q*$skzs->bfb5>300?'300':$q*$skzs->bfb5) }}
-                                        @elseif($skzs->o_ts == '6')
-                                            {{ $skzs->money*$skzs->o_xs-($q*$skzs->bfb6>300?'300':$q*$skzs->bfb6) }}
-                                        @elseif($skzs->o_ts == '7')
-                                            {{ $skzs->money*$skzs->o_xs-($q*$skzs->bfb7>300?'300':$q*$skzs->bfb7) }}
-                                        @endif元--}}
-                                        <span class="xbxxf" id="{{ $skzs->id }}">{{ $skzs->money*$skzs->o_xs-($skzs->xxf+$skzs->xxf2) }}</span>元
+                                        <span class="xbxxf" id="{{ $skzs->id }}">
+                                            @if($skzs->pay_zt2 == '1')
+                                                @if($skzs->o_ts == '1')
+                                                    {{  round(($q*$skzs->bfb1-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) }}
+                                                @elseif($skzs->o_ts == '2')
+                                                    {{  round(($q*$skzs->bfb2-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) }}
+                                                @elseif($skzs->o_ts == '3')
+                                                    {{  round(($q*$skzs->bfb3-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) }}
+                                                @elseif($skzs->o_ts == '4')
+                                                    {{  round(($q*$skzs->bfb4-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) }}
+                                                @elseif($skzs->o_ts == '5')
+                                                    {{  round(($q*$skzs->bfb5-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) }}
+                                                @elseif($skzs->o_ts == '6')
+                                                    {{  round(($q*$skzs->bfb6-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) }}
+                                                @elseif($skzs->o_ts == '7')
+                                                    {{  round(($q*$skzs->bfb7-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) }}
+                                                @endif
+                                            @else
+                                                @if($skzs->o_ts == '1')
+                                                    {{ round(($q*$skzs->bfb1-($skzs->xxf))+$skzs->ytxxf) }}
+                                                @elseif($skzs->o_ts == '2')
+                                                    {{ round(($q*$skzs->bfb2-($skzs->xxf))+$skzs->ytxxf) }}
+                                                @elseif($skzs->o_ts == '3')
+                                                    {{ round(($q*$skzs->bfb3-($skzs->xxf))+$skzs->ytxxf) }}
+                                                @elseif($skzs->o_ts == '4')
+                                                    {{ round(($q*$skzs->bfb4-($skzs->xxf))+$skzs->ytxxf) }}
+                                                @elseif($skzs->o_ts == '5')
+                                                    {{ round(($q*$skzs->bfb5-($skzs->xxf))+$skzs->ytxxf) }}
+                                                @elseif($skzs->o_ts == '6')
+                                                    {{ round(($q*$skzs->bfb6-($skzs->xxf))+$skzs->ytxxf) }}
+                                                @elseif($skzs->o_ts == '7')
+                                                    {{ round(($q*$skzs->bfb7-($skzs->xxf))+$skzs->ytxxf) }}
+                                                @endif
+                                            @endif
+                                        </span>元
                                     </div>
                                 </div>
                                 <div class="pm">
@@ -286,7 +305,7 @@
                                         周课酬：{{ $q }}元/周
                                     </div>
                                     <div class="right">
-                                        已退信息费：0元
+                                        已退信息费：{{ $skzs->ytxxf }}元
                                     </div>
                                 </div>
                                 <div class="pm zqm">
@@ -324,10 +343,14 @@
                                         @elseif($skzs->o_ts == '7')
                                             {{ $q*$skzs->bfb7>300?'300':$q*$skzs->bfb7 }}
                                         @endif元--}}
-                                        {{ $skzs->xxf+$skzs->xxf2 }}
+                                        @if($skzs->pay_zt2 == '1')
+                                        {{ $skzs->xxf+$skzs->xxf2 }}元
+                                        @else
+                                            {{ $skzs->xxf }}元
+                                        @endif
                                     </div>
                                     <div class="right">
-                                        本单实际信息费：{{ $skzs->money*$skzs->o_xs }}元
+                                        本单实际信息费：@if($skzs->o_ts == '1'){{ $q*$skzs->bfb1 }}@elseif($skzs->o_ts == '2'){{ $q*$skzs->bfb2 }}@elseif($skzs->o_ts == '3'){{ $q*$skzs->bfb3 }}@elseif($skzs->o_ts == '4'){{ $q*$skzs->bfb4 }}@elseif($skzs->o_ts == '5'){{ $q*$skzs->bfb5 }}@elseif($skzs->o_ts == '6'){{ $q*$skzs->bfb6 }}@elseif($skzs->o_ts == '7'){{ $q*$skzs->bfb7 }}@endif元
                                     </div>
                                 </div>
                             </div>
@@ -348,7 +371,101 @@
                             <div style="padding: 10px 32px;">
                                 <ul >
                                     <li><p><input name="Fruit" type="radio" value="1" />试课成功</p></li>
-                                    <li><p>周薪酬减少　{{ $skzs->money2*$skzs->o_xs2*$skzs->o_ts2-$skzs->money*$skzs->o_xs*$skzs->o_ts }}<span class="seeMar"><!--<input type="text" name="kc">--></span>申请信息费退款　{{ ($skzs->money*$skzs->o_xs-($skzs->xxf+$skzs->xxf2))*-1 }}</p></li>
+                                    <li><p>周薪酬减少　
+                                            {{ $skzs->money2*$skzs->o_xs2*$skzs->o_ts2-$skzs->money*$skzs->o_xs*$skzs->o_ts }}
+                                            <span class="seeMar"><!--<input type="text" name="kc">--></span>申请信息费退款　
+                                            @if($skzs->pay_zt2 == '1')
+                                                @if($skzs->o_ts == '1')
+                                                    @if(round(($q*$skzs->bfb1-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) <= 0)
+                                                        {{ round(($q*$skzs->bfb1-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf)*-1 }}
+                                                    @else
+                                                        0元
+                                                    @endif
+                                                @elseif($skzs->o_ts == '2')
+                                                    @if(round(($q*$skzs->bfb2-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) <= 0)
+                                                        {{ round(($q*$skzs->bfb2-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf)*-1 }}
+                                                    @else
+                                                        0元
+                                                    @endif
+                                                @elseif($skzs->o_ts == '3')
+                                                    @if(round(($q*$skzs->bfb3-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) <= 0)
+                                                        {{ round(($q*$skzs->bfb3-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf)*-1 }}
+                                                    @else
+                                                        0元
+                                                    @endif
+                                                @elseif($skzs->o_ts == '4')
+                                                    @if(round(($q*$skzs->bfb4-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) <= 0)
+                                                        {{ round(($q*$skzs->bfb4-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf)*-1 }}
+                                                    @else
+                                                        0元
+                                                    @endif
+                                                @elseif($skzs->o_ts == '5')
+                                                    @if(round(($q*$skzs->bfb5-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) <= 0)
+                                                        {{ round(($q*$skzs->bfb5-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf)*-1 }}
+                                                    @else
+                                                        0元
+                                                    @endif
+                                                @elseif($skzs->o_ts == '6')
+                                                    @if(round(($q*$skzs->bfb6-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) <= 0)
+                                                        {{ round(($q*$skzs->bfb6-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf)*-1 }}
+                                                    @else
+                                                        0元
+                                                    @endif
+                                                @elseif($skzs->o_ts == '7')
+                                                    @if(round(($q*$skzs->bfb7-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) <= 0)
+                                                        {{ round(($q*$skzs->bfb7-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf)*-1 }}
+                                                    @else
+                                                        0元
+                                                    @endif
+                                                @endif
+                                            @else
+                                                @if($skzs->o_ts == '1')
+                                                    @if(round(($q*$skzs->bfb1-($skzs->xxf))+$skzs->ytxxf) <= 0)
+                                                        {{ round(($q*$skzs->bfb1-($skzs->xxf))+$skzs->ytxxf)*-1 }}
+                                                    @else
+                                                        0元
+                                                    @endif
+                                                @elseif($skzs->o_ts == '2')
+                                                    @if(round(($q*$skzs->bfb2-($skzs->xxf))+$skzs->ytxxf) <= 0)
+                                                        {{ round(($q*$skzs->bfb2-($skzs->xxf))+$skzs->ytxxf)*-1 }}
+                                                    @else
+                                                        0元
+                                                    @endif
+                                                @elseif($skzs->o_ts == '3')
+                                                    @if(round(($q*$skzs->bfb3-($skzs->xxf))+$skzs->ytxxf) <= 0)
+                                                        {{ round(($q*$skzs->bfb3-($skzs->xxf))+$skzs->ytxxf)*-1 }}
+                                                    @else
+                                                        0元
+                                                    @endif
+                                                @elseif($skzs->o_ts == '4')
+                                                    @if(round(($q*$skzs->bfb4-($skzs->xxf))+$skzs->ytxxf) <= 0)
+                                                        {{ round(($q*$skzs->bfb4-($skzs->xxf))+$skzs->ytxxf)*-1 }}
+                                                    @else
+                                                        0元
+                                                    @endif
+                                                @elseif($skzs->o_ts == '5')
+                                                    @if(round(($q*$skzs->bfb5-($skzs->xxf))+$skzs->ytxxf) <= 0)
+                                                        {{ round(($q*$skzs->bfb5-($skzs->xxf))+$skzs->ytxxf)*-1 }}
+                                                    @else
+                                                        0元
+                                                    @endif
+                                                @elseif($skzs->o_ts == '6')
+                                                    @if(round(($q*$skzs->bfb6-($skzs->xxf))+$skzs->ytxxf) <= 0)
+                                                        {{ round(($q*$skzs->bfb6-($skzs->xxf))+$skzs->ytxxf)*-1 }}
+                                                    @else
+                                                        0元
+                                                    @endif
+                                                @elseif($skzs->o_ts == '7')
+                                                    @if(round(($q*$skzs->bfb7-($skzs->xxf))+$skzs->ytxxf) <= 0)
+                                                        {{ round(($q*$skzs->bfb7-($skzs->xxf))+$skzs->ytxxf)*-1 }}
+                                                    @else
+                                                        0元
+                                                    @endif
+                                                @endif
+
+                                            @endif
+                                        </p>
+                                    </li>
                                     <li><input name="Fruit" type="radio" value="2" />试课不成功</li>
                                     <li>
                                         <p>申请信息费退款<span class="seeMar">
@@ -415,7 +532,13 @@
                                         {{--<p><input name="Fruit" type="radio" value="" />已锁定诚意金<span class="seeMar"></span></p>--}}
                                     {{--</li>--}}
                                     <li>
-                                        <p>@if($skzs->jy_qz =='1')<button style="margin-left: 110px;" type="submit" >申请退款</button>@else<span style="margin-left: 110px;" onclick="layer.alert('请您先确认合同!')" >申请退款</span>@endif<span class="seeMar">{{--<button>申请诚意金解锁</button>--}}</span><span><button style="padding: 0 13px;"  class="qxBtn">取消</button></span></p>
+                                        <p>
+                                            @if($skzs->jy_qz =='1')
+                                                    <button style="margin-left: 110px;" type="submit" >申请退款</button>
+                                            @else
+                                                <button style="margin-left: 110px;" type="submit" >申请退款</button>
+
+                                            @endif<span class="seeMar">{{--<button>申请诚意金解锁</button>--}}</span><span><span style="padding: 0 13px;"  class="qxBtn">取消</span></span></p>
                                     </li>
                                 </ul>
                             </div>
@@ -438,7 +561,7 @@
         <form action="" method="post" id="zf">
             <input type="hidden" id="m" name ="xxf" value="">
             <input type="hidden" id="i" name ="order_id" value="">
-            <input type="hidden" id="r" name ="rid" value="">
+            <input type="hidden" id="z" name ="rid" value="">
             <input type="hidden" id="b" name ="b" value="b">
         </form>
     </div></div>
@@ -652,7 +775,9 @@
     })
 
     function zf(obj,id,rid){
+        //alert(rid);
         var money = $('#'+id).html();
+        //alert(Math.round(money));
         if(money < 0){
             //alert('需退款!');
             return false;
@@ -665,7 +790,7 @@
 //        }
         $('#m').val(money);
         $('#i').val(id);
-        $('#r').val(rid);
+        $('#z').val(rid);
         var path = "xxf.html";
         $('#zf').attr("action", path).submit();
     }

@@ -364,5 +364,7 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::get('/cgjskc','admin\jytkController@cgjskc');
     //诚意金解锁
     Route::get('/cyjjs','admin\jytkController@cyjjs');
+    //admin/tdye.html  退款到后台
+    Route::post('/tdye.html','admin\jytkController@tdye');
 });
 //----------后台END----------//

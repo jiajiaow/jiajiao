@@ -79,82 +79,362 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            @foreach($list as $l)
+                                <?php $q = $l->o_ts*$l->o_xs*$l->money ?>
                                 <tr class="gradeX">
-                                    <td>123456</td>
-                                    <td>广州</td>
-                                    <td>17-4-28|11:06</td>
+                                    <td>{{ $l->jl_id }}</td>
+                                    <td>{{ $l->city_name }}</td>
+                                    <td>{{ date('Y-m-d h:i:s',$l->tk_times) }}</td>
                                     <td>成功减少课酬</td>
-                                    <td>1111111111</td>
-                                    <td>1111111111</td>
-                                    <td>T456789
+                                    <td>{{ $l->id }}</td>
+                                    <td></td>
+                                    <td>T{{ $l->t_id }}
                                     </td>
-                                    <td>张启明</td>
-                                    <td>已试课|家长原因|家长想换个专职老师/或者原来是专职老师，想试试大学生</td>
-                                    <td>T456789</td>
-                                    <td>张启明</td>
-                                    <td>18174401431</td>
-                                    <td>教员填写</td>
-                                    <td>系统抓取</td>
-                                    <td>300元</td>
+                                    <td>{{ $l->tc_name }}</td>
+                                    <td>原:每周{{ $l->o_ts2 }}次| 每次{{ $l->o_xs2 }}小时| {{ $l->money2 }}元/小时<br>
+                                        改为:每周{{ $l->o_ts }}次| 每次{{ $l->o_xs }}小时| {{ $l->money }}元/小时<br>
+                                        周课酬减少:{{ ($l->money2*$l->o_xs2*$l->o_ts2)-($l->money*$l->o_xs*$l->o_ts) }}
+                                    </td>
+                                    <td>T{{ $l->id }}</td>
+                                    <td>{{ $l->user_name }}</td>
+                                    <td>{{ $l->user_phone }}</td>
+                                    <td>{{ $l->yskc }}</td>
                                     <td>
-                                        家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）
+                                        @if($l->pay_zt2 == '1')
+                                            @if($l->o_ts == '1')
+                                                @if(round(($q*$l->bfb1-($l->xxf+$l->xxf2))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb1-($l->xxf+$l->xxf2))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '2')
+                                                @if(round(($q*$l->bfb2-($l->xxf+$l->xxf2))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb2-($l->xxf+$l->xxf2))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '3')
+                                                @if(round(($q*$l->bfb3-($l->xxf+$l->xxf2))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb3-($l->xxf+$l->xxf2))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '4')
+                                                @if(round(($q*$l->bfb4-($l->xxf+$l->xxf2))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb4-($l->xxf+$l->xxf2))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '5')
+                                                @if(round(($q*$l->bfb5-($l->xxf+$l->xxf2))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb5-($l->xxf+$l->xxf2))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '6')
+                                                @if(round(($q*$l->bfb6-($l->xxf+$l->xxf2))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb6-($l->xxf+$l->xxf2))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '7')
+                                                @if(round(($q*$l->bfb7-($l->xxf+$l->xxf2))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb7-($l->xxf+$l->xxf2))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @endif
+                                        @else
+                                            @if($l->o_ts == '1')
+                                                @if(round(($q*$l->bfb1-($l->xxf))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb1-($l->xxf))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '2')
+                                                @if(round(($q*$l->bfb2-($l->xxf))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb2-($l->xxf))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '3')
+                                                @if(round(($q*$l->bfb3-($l->xxf))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb3-($l->xxf))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '4')
+                                                @if(round(($q*$l->bfb4-($l->xxf))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb4-($l->xxf))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '5')
+                                                @if(round(($q*$l->bfb5-($l->xxf))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb5-($l->xxf))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '6')
+                                                @if(round(($q*$l->bfb6-($l->xxf))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb6-($l->xxf))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '7')
+                                                @if(round(($q*$l->bfb7-($l->xxf))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb7-($l->xxf))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @endif
+                                        @endif元
+                                    </td>
+                                    <td>
+                                        @if($l->pay_zt2 == '1')
+                                            @if($l->o_ts == '1')
+                                                @if(round(($q*$l->bfb1-($l->xxf+$l->xxf2))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb1-($l->xxf+$l->xxf2))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '2')
+                                                @if(round(($q*$l->bfb2-($l->xxf+$l->xxf2))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb2-($l->xxf+$l->xxf2))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '3')
+                                                @if(round(($q*$l->bfb3-($l->xxf+$l->xxf2))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb3-($l->xxf+$l->xxf2))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '4')
+                                                @if(round(($q*$l->bfb4-($l->xxf+$l->xxf2))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb4-($l->xxf+$l->xxf2))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '5')
+                                                @if(round(($q*$l->bfb5-($l->xxf+$l->xxf2))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb5-($l->xxf+$l->xxf2))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '6')
+                                                @if(round(($q*$l->bfb6-($l->xxf+$l->xxf2))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb6-($l->xxf+$l->xxf2))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '7')
+                                                @if(round(($q*$l->bfb7-($l->xxf+$l->xxf2))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb7-($l->xxf+$l->xxf2))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @endif
+                                        @else
+                                            @if($l->o_ts == '1')
+                                                @if(round(($q*$l->bfb1-($l->xxf))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb1-($l->xxf))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '2')
+                                                @if(round(($q*$l->bfb2-($l->xxf))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb2-($l->xxf))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '3')
+                                                @if(round(($q*$l->bfb3-($l->xxf))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb3-($l->xxf))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '4')
+                                                @if(round(($q*$l->bfb4-($l->xxf))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb4-($l->xxf))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '5')
+                                                @if(round(($q*$l->bfb5-($l->xxf))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb5-($l->xxf))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '6')
+                                                @if(round(($q*$l->bfb6-($l->xxf))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb6-($l->xxf))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '7')
+                                                @if(round(($q*$l->bfb7-($l->xxf))+$l->ytxxf) <= 0)
+                                                    {{ round(($q*$l->bfb7-($l->xxf))+$l->ytxxf)*-1 }}
+                                                @else
+                                                    0元
+                                                @endif
+                                            @endif
+                                        @endif元
+                                            <input type="hidden" id="money{{ $l->jl_id }}" value="
+                                            @if($l->pay_zt2 == '1')
+                                            @if($l->o_ts == '1')
+                                            @if(round(($q*$l->bfb1-($l->xxf+$l->xxf2))+$l->ytxxf) <= 0)
+                                            {{ round(($q*$l->bfb1-($l->xxf+$l->xxf2))+$l->ytxxf)*-1 }}
+                                            @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '2')
+                                            @if(round(($q*$l->bfb2-($l->xxf+$l->xxf2))+$l->ytxxf) <= 0)
+                                            {{ round(($q*$l->bfb2-($l->xxf+$l->xxf2))+$l->ytxxf)*-1 }}
+                                            @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '3')
+                                            @if(round(($q*$l->bfb3-($l->xxf+$l->xxf2))+$l->ytxxf) <= 0)
+                                            {{ round(($q*$l->bfb3-($l->xxf+$l->xxf2))+$l->ytxxf)*-1 }}
+                                            @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '4')
+                                            @if(round(($q*$l->bfb4-($l->xxf+$l->xxf2))+$l->ytxxf) <= 0)
+                                            {{ round(($q*$l->bfb4-($l->xxf+$l->xxf2))+$l->ytxxf)*-1 }}
+                                            @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '5')
+                                            @if(round(($q*$l->bfb5-($l->xxf+$l->xxf2))+$l->ytxxf) <= 0)
+                                            {{ round(($q*$l->bfb5-($l->xxf+$l->xxf2))+$l->ytxxf)*-1 }}
+                                            @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '6')
+                                            @if(round(($q*$l->bfb6-($l->xxf+$l->xxf2))+$l->ytxxf) <= 0)
+                                            {{ round(($q*$l->bfb6-($l->xxf+$l->xxf2))+$l->ytxxf)*-1 }}
+                                            @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '7')
+                                            @if(round(($q*$l->bfb7-($l->xxf+$l->xxf2))+$l->ytxxf) <= 0)
+                                            {{ round(($q*$l->bfb7-($l->xxf+$l->xxf2))+$l->ytxxf)*-1 }}
+                                            @else
+                                                    0元
+                                                @endif
+                                            @endif
+                                            @else
+                                            @if($l->o_ts == '1')
+                                            @if(round(($q*$l->bfb1-($l->xxf))+$l->ytxxf) <= 0)
+                                            {{ round(($q*$l->bfb1-($l->xxf))+$l->ytxxf)*-1 }}
+                                            @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '2')
+                                            @if(round(($q*$l->bfb2-($l->xxf))+$l->ytxxf) <= 0)
+                                            {{ round(($q*$l->bfb2-($l->xxf))+$l->ytxxf)*-1 }}
+                                            @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '3')
+                                            @if(round(($q*$l->bfb3-($l->xxf))+$l->ytxxf) <= 0)
+                                            {{ round(($q*$l->bfb3-($l->xxf))+$l->ytxxf)*-1 }}
+                                            @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '4')
+                                            @if(round(($q*$l->bfb4-($l->xxf))+$l->ytxxf) <= 0)
+                                            {{ round(($q*$l->bfb4-($l->xxf))+$l->ytxxf)*-1 }}
+                                            @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '5')
+                                            @if(round(($q*$l->bfb5-($l->xxf))+$l->ytxxf) <= 0)
+                                            {{ round(($q*$l->bfb5-($l->xxf))+$l->ytxxf)*-1 }}
+                                            @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '6')
+                                            @if(round(($q*$l->bfb6-($l->xxf))+$l->ytxxf) <= 0)
+                                            {{ round(($q*$l->bfb6-($l->xxf))+$l->ytxxf)*-1 }}
+                                            @else
+                                                    0元
+                                                @endif
+                                            @elseif($l->o_ts == '7')
+                                            @if(round(($q*$l->bfb7-($l->xxf))+$l->ytxxf) <= 0)
+                                            {{ round(($q*$l->bfb7-($l->xxf))+$l->ytxxf)*-1 }}
+                                            @else
+                                                    0元
+                                                @endif
+                                            @endif
+                                            @endif" >
+                                    </td>
+                                    <td>
+
                                     </td>
                                     <td>无显示</td>
                                     <td>无显示</td>
                                     <td>
-                                        <select name="" id="">
-                                            <option value=""></option>
+                                        @if($l->ht_zgsh == '4'|| $l->ht_zgsh == null)
+                                        <select name="" id="" onclick="shenhe( {{ $l->jl_id }} )">
+                                            <option value="">请选择</option>
+                                            <option value="1" {{ $l->ht_cljg == '1'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},1,1)">审核通过</option>
+                                            <option value="2" {{ $l->ht_cljg == '2'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},1,2)">教员原因不退</option>
+                                            <option value="3" {{ $l->ht_cljg == '3'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},1,3)">关闭退款</option>
                                         </select>
+                                        @else
+                                            @if($l->ht_zgsh == '1')
+                                                审核通过
+                                            @elseif($l->ht_zgsh == '2')
+                                                拒绝退款
+                                            @elseif($l->ht_zgsh == '3')
+                                                关闭退款
+                                            @endif
+                                        @endif
                                     </td>
                                     <td>17-4-28|11:06</td>
                                     <td>
-                                        <select name="" id="">
-                                            <option value=""></option>
-                                        </select>
+                                        @if($l->ht_zgsh == '4'|| $l->ht_zgsh == null)
+                                            <select name="" id="jc{{ $l->jl_id }}" disabled="true">
+                                                <option value="" {{ $l->ht_zgsh == ''?'selected':'' }} >请选择</option>
+                                                <option value="1" {{ $l->ht_zgsh == '1'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},2,1)">审核通过</option>
+                                                <option value="2" {{ $l->ht_zgsh == '2'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},2,2)">拒绝退款</option>
+                                                <option value="3" {{ $l->ht_zgsh == '3'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},2,3)">关闭退款</option>
+                                                <option value="4" {{ $l->ht_zgsh == '4'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},2,4)">待处理</option>
+                                            </select>
+                                        @else
+                                            @if($l->ht_zgsh == '1')
+                                                审核通过
+                                            @elseif($l->ht_zgsh == '2')
+                                                拒绝退款
+                                            @elseif($l->ht_zgsh == '3')
+                                                关闭退款
+                                            @elseif($l->ht_zgsh == '4')
+                                                待处理
+                                            @endif
+                                        @endif
                                     </td>
                                     <td>17-4-28|11:06</td>
                                     <td><a href="">查看备注</a></td>
-                                    <td>自动获取</td>
+                                    <td>
+                                        @if($l->ht_zgsh == '1')
+                                        通过
+                                        @elseif($l->ht_zgsh == '2')
+                                        拒绝退款
+                                        @elseif($l->ht_zgsh == '3')
+                                        关闭
+                                        @elseif($l->ht_zgsh == '4')
+                                        待处理
+                                        @elseif($l->ht_zgsh == NULL)
+                                            正常
+                                        @endif
+                                      </td>
                                     <td><a href="">查看图片</a></td>
                                 </tr>
-                                <tr class="gradeX">
-                                    <td>1234567</td>
-                                    <td>广州2</td>
-                                    <td>17-4-28|11:06</td>
-                                    <td>成功减少课酬</td>
-                                    <td>1111111111</td>
-                                    <td>1111111111</td>
-                                    <td>T456789
-                                    </td>
-                                    <td>张启明</td>
-                                    <td>已试课|家长原因|家长想换个专职老师/或者原来是专职老师，想试试大学生</td>
-                                    <td>T456789</td>
-                                    <td>张启明</td>
-                                    <td>18174401431</td>
-                                    <td>教员填写</td>
-                                    <td>系统抓取</td>
-                                    <td>300元</td>
-                                    <td>
-                                        家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）
-                                    </td>
-                                    <td>无显示</td>
-                                    <td>无显示</td>
-                                    <td>
-                                        <select name="" id="">
-                                            <option value=""></option>
-                                        </select>
-                                    </td>
-                                    <td>17-4-28|11:06</td>
-                                    <td>
-                                        <select name="" id="">
-                                            <option value=""></option>
-                                        </select>
-                                    </td>
-                                    <td>17-4-28|11:06</td>
-                                    <td><a href="">查看备注</a></td>
-                                    <td>自动获取</td>
-                                    <td><a href="">查看图片</a></td>
-                                </tr>
+                            @endforeach
+
                             </tbody>
                         </table>
 
@@ -217,6 +497,33 @@
                 "New row",
                 "New row"]);
 
+        }
+        function shenhe(id){
+            $(this).change(function(){
+                $('#jc'+id).attr('disabled',false)
+            })
+        }
+
+        //ajax 1为处理结果 2为主管审核
+        function ajaxsh(obj,id,tid,rid,zt,edit){
+          //  alert(id);
+            //alert(rid);
+            var money = $('#money'+id).val();
+            // alert(money);
+            $.ajax({
+                type:'POST',
+                url:"{{ URL('/admin/tdye.html') }}",
+                contentType:"application/x-www-form-urlencoded; charset=utf8",
+                data:{"id":id,"tid":tid,'rid':rid,'zt':zt,'m':money,'edit':edit,'pd':'cgjskc'},
+                /*dataType:'JSON',*/
+                success:(function(result){
+                    location.reload();
+                }),
+                error:(function(result,status){
+                   // larye.alert('sb!');
+                })
+
+            });
         }
     </script>
 
