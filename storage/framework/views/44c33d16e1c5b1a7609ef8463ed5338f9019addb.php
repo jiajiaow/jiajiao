@@ -263,8 +263,55 @@
                                     </div>
                                     <div class="right">
                                         需补/需退信息费：
-                                        
-                                        <span class="xbxxf" id="<?php echo e($skzs->id); ?>"><?php echo e($skzs->money*$skzs->o_xs-($skzs->xxf+$skzs->xxf2)); ?></span>元
+                                        <span class="xbxxf" id="<?php echo e($skzs->id); ?>">
+                                            <?php if($skzs->pay_zt2 == '1'): ?>
+                                                <?php if($skzs->o_ts == '1'): ?>
+                                                    <?php echo e(round(($q*$skzs->bfb1-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf)); ?>
+
+                                                <?php elseif($skzs->o_ts == '2'): ?>
+                                                    <?php echo e(round(($q*$skzs->bfb2-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf)); ?>
+
+                                                <?php elseif($skzs->o_ts == '3'): ?>
+                                                    <?php echo e(round(($q*$skzs->bfb3-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf)); ?>
+
+                                                <?php elseif($skzs->o_ts == '4'): ?>
+                                                    <?php echo e(round(($q*$skzs->bfb4-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf)); ?>
+
+                                                <?php elseif($skzs->o_ts == '5'): ?>
+                                                    <?php echo e(round(($q*$skzs->bfb5-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf)); ?>
+
+                                                <?php elseif($skzs->o_ts == '6'): ?>
+                                                    <?php echo e(round(($q*$skzs->bfb6-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf)); ?>
+
+                                                <?php elseif($skzs->o_ts == '7'): ?>
+                                                    <?php echo e(round(($q*$skzs->bfb7-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf)); ?>
+
+                                                <?php endif; ?>
+                                            <?php else: ?>
+                                                <?php if($skzs->o_ts == '1'): ?>
+                                                    <?php echo e(round(($q*$skzs->bfb1-($skzs->xxf))+$skzs->ytxxf)); ?>
+
+                                                <?php elseif($skzs->o_ts == '2'): ?>
+                                                    <?php echo e(round(($q*$skzs->bfb2-($skzs->xxf))+$skzs->ytxxf)); ?>
+
+                                                <?php elseif($skzs->o_ts == '3'): ?>
+                                                    <?php echo e(round(($q*$skzs->bfb3-($skzs->xxf))+$skzs->ytxxf)); ?>
+
+                                                <?php elseif($skzs->o_ts == '4'): ?>
+                                                    <?php echo e(round(($q*$skzs->bfb4-($skzs->xxf))+$skzs->ytxxf)); ?>
+
+                                                <?php elseif($skzs->o_ts == '5'): ?>
+                                                    <?php echo e(round(($q*$skzs->bfb5-($skzs->xxf))+$skzs->ytxxf)); ?>
+
+                                                <?php elseif($skzs->o_ts == '6'): ?>
+                                                    <?php echo e(round(($q*$skzs->bfb6-($skzs->xxf))+$skzs->ytxxf)); ?>
+
+                                                <?php elseif($skzs->o_ts == '7'): ?>
+                                                    <?php echo e(round(($q*$skzs->bfb7-($skzs->xxf))+$skzs->ytxxf)); ?>
+
+                                                <?php endif; ?>
+                                            <?php endif; ?>
+                                        </span>元
                                     </div>
                                 </div>
                                 <div class="pm">
@@ -272,7 +319,7 @@
                                         周课酬：<?php echo e($q); ?>元/周
                                     </div>
                                     <div class="right">
-                                        已退信息费：0元
+                                        已退信息费：<?php echo e($skzs->ytxxf); ?>元
                                     </div>
                                 </div>
                                 <div class="pm zqm">
@@ -289,11 +336,14 @@
                                     <div class="left">
                                         已预付信息费：
                                         
-                                        <?php echo e($skzs->xxf+$skzs->xxf2); ?>
-
+                                        <?php if($skzs->pay_zt2 == '1'): ?>
+                                        <?php echo e($skzs->xxf+$skzs->xxf2); ?>元
+                                        <?php else: ?>
+                                            <?php echo e($skzs->xxf); ?>元
+                                        <?php endif; ?>
                                     </div>
                                     <div class="right">
-                                        本单实际信息费：<?php echo e($skzs->money*$skzs->o_xs); ?>元
+                                        本单实际信息费：<?php if($skzs->o_ts == '1'): ?><?php echo e($q*$skzs->bfb1); ?><?php elseif($skzs->o_ts == '2'): ?><?php echo e($q*$skzs->bfb2); ?><?php elseif($skzs->o_ts == '3'): ?><?php echo e($q*$skzs->bfb3); ?><?php elseif($skzs->o_ts == '4'): ?><?php echo e($q*$skzs->bfb4); ?><?php elseif($skzs->o_ts == '5'): ?><?php echo e($q*$skzs->bfb5); ?><?php elseif($skzs->o_ts == '6'): ?><?php echo e($q*$skzs->bfb6); ?><?php elseif($skzs->o_ts == '7'): ?><?php echo e($q*$skzs->bfb7); ?><?php endif; ?>元
                                     </div>
                                 </div>
                             </div>
@@ -314,7 +364,116 @@
                             <div style="padding: 10px 32px;">
                                 <ul >
                                     <li><p><input name="Fruit" type="radio" value="1" />试课成功</p></li>
-                                    <li><p>周薪酬减少　<?php echo e($skzs->money2*$skzs->o_xs2*$skzs->o_ts2-$skzs->money*$skzs->o_xs*$skzs->o_ts); ?><span class="seeMar"><!--<input type="text" name="kc">--></span>申请信息费退款　<?php echo e(($skzs->money*$skzs->o_xs-($skzs->xxf+$skzs->xxf2))*-1); ?></p></li>
+                                    <li><p>周薪酬减少　
+                                            <?php echo e($skzs->money2*$skzs->o_xs2*$skzs->o_ts2-$skzs->money*$skzs->o_xs*$skzs->o_ts); ?>
+
+                                            <span class="seeMar"><!--<input type="text" name="kc">--></span>申请信息费退款　
+                                            <?php if($skzs->pay_zt2 == '1'): ?>
+                                                <?php if($skzs->o_ts == '1'): ?>
+                                                    <?php if(round(($q*$skzs->bfb1-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) <= 0): ?>
+                                                        <?php echo e(round(($q*$skzs->bfb1-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf)*-1); ?>
+
+                                                    <?php else: ?>
+                                                        0元
+                                                    <?php endif; ?>
+                                                <?php elseif($skzs->o_ts == '2'): ?>
+                                                    <?php if(round(($q*$skzs->bfb2-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) <= 0): ?>
+                                                        <?php echo e(round(($q*$skzs->bfb2-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf)*-1); ?>
+
+                                                    <?php else: ?>
+                                                        0元
+                                                    <?php endif; ?>
+                                                <?php elseif($skzs->o_ts == '3'): ?>
+                                                    <?php if(round(($q*$skzs->bfb3-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) <= 0): ?>
+                                                        <?php echo e(round(($q*$skzs->bfb3-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf)*-1); ?>
+
+                                                    <?php else: ?>
+                                                        0元
+                                                    <?php endif; ?>
+                                                <?php elseif($skzs->o_ts == '4'): ?>
+                                                    <?php if(round(($q*$skzs->bfb4-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) <= 0): ?>
+                                                        <?php echo e(round(($q*$skzs->bfb4-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf)*-1); ?>
+
+                                                    <?php else: ?>
+                                                        0元
+                                                    <?php endif; ?>
+                                                <?php elseif($skzs->o_ts == '5'): ?>
+                                                    <?php if(round(($q*$skzs->bfb5-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) <= 0): ?>
+                                                        <?php echo e(round(($q*$skzs->bfb5-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf)*-1); ?>
+
+                                                    <?php else: ?>
+                                                        0元
+                                                    <?php endif; ?>
+                                                <?php elseif($skzs->o_ts == '6'): ?>
+                                                    <?php if(round(($q*$skzs->bfb6-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) <= 0): ?>
+                                                        <?php echo e(round(($q*$skzs->bfb6-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf)*-1); ?>
+
+                                                    <?php else: ?>
+                                                        0元
+                                                    <?php endif; ?>
+                                                <?php elseif($skzs->o_ts == '7'): ?>
+                                                    <?php if(round(($q*$skzs->bfb7-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) <= 0): ?>
+                                                        <?php echo e(round(($q*$skzs->bfb7-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf)*-1); ?>
+
+                                                    <?php else: ?>
+                                                        0元
+                                                    <?php endif; ?>
+                                                <?php endif; ?>
+                                            <?php else: ?>
+                                                <?php if($skzs->o_ts == '1'): ?>
+                                                    <?php if(round(($q*$skzs->bfb1-($skzs->xxf))+$skzs->ytxxf) <= 0): ?>
+                                                        <?php echo e(round(($q*$skzs->bfb1-($skzs->xxf))+$skzs->ytxxf)*-1); ?>
+
+                                                    <?php else: ?>
+                                                        0元
+                                                    <?php endif; ?>
+                                                <?php elseif($skzs->o_ts == '2'): ?>
+                                                    <?php if(round(($q*$skzs->bfb2-($skzs->xxf))+$skzs->ytxxf) <= 0): ?>
+                                                        <?php echo e(round(($q*$skzs->bfb2-($skzs->xxf))+$skzs->ytxxf)*-1); ?>
+
+                                                    <?php else: ?>
+                                                        0元
+                                                    <?php endif; ?>
+                                                <?php elseif($skzs->o_ts == '3'): ?>
+                                                    <?php if(round(($q*$skzs->bfb3-($skzs->xxf))+$skzs->ytxxf) <= 0): ?>
+                                                        <?php echo e(round(($q*$skzs->bfb3-($skzs->xxf))+$skzs->ytxxf)*-1); ?>
+
+                                                    <?php else: ?>
+                                                        0元
+                                                    <?php endif; ?>
+                                                <?php elseif($skzs->o_ts == '4'): ?>
+                                                    <?php if(round(($q*$skzs->bfb4-($skzs->xxf))+$skzs->ytxxf) <= 0): ?>
+                                                        <?php echo e(round(($q*$skzs->bfb4-($skzs->xxf))+$skzs->ytxxf)*-1); ?>
+
+                                                    <?php else: ?>
+                                                        0元
+                                                    <?php endif; ?>
+                                                <?php elseif($skzs->o_ts == '5'): ?>
+                                                    <?php if(round(($q*$skzs->bfb5-($skzs->xxf))+$skzs->ytxxf) <= 0): ?>
+                                                        <?php echo e(round(($q*$skzs->bfb5-($skzs->xxf))+$skzs->ytxxf)*-1); ?>
+
+                                                    <?php else: ?>
+                                                        0元
+                                                    <?php endif; ?>
+                                                <?php elseif($skzs->o_ts == '6'): ?>
+                                                    <?php if(round(($q*$skzs->bfb6-($skzs->xxf))+$skzs->ytxxf) <= 0): ?>
+                                                        <?php echo e(round(($q*$skzs->bfb6-($skzs->xxf))+$skzs->ytxxf)*-1); ?>
+
+                                                    <?php else: ?>
+                                                        0元
+                                                    <?php endif; ?>
+                                                <?php elseif($skzs->o_ts == '7'): ?>
+                                                    <?php if(round(($q*$skzs->bfb7-($skzs->xxf))+$skzs->ytxxf) <= 0): ?>
+                                                        <?php echo e(round(($q*$skzs->bfb7-($skzs->xxf))+$skzs->ytxxf)*-1); ?>
+
+                                                    <?php else: ?>
+                                                        0元
+                                                    <?php endif; ?>
+                                                <?php endif; ?>
+
+                                            <?php endif; ?>
+                                        </p>
+                                    </li>
                                     <li><input name="Fruit" type="radio" value="2" />试课不成功</li>
                                     <li>
                                         <p>申请信息费退款<span class="seeMar">
@@ -381,7 +540,13 @@
                                         
                                     
                                     <li>
-                                        <p><?php if($skzs->jy_qz =='1'): ?><button style="margin-left: 110px;" type="submit" >申请退款</button><?php else: ?><span style="margin-left: 110px;" onclick="layer.alert('请您先确认合同!')" >申请退款</span><?php endif; ?><span class="seeMar"></span><span><button style="padding: 0 13px;"  class="qxBtn">取消</button></span></p>
+                                        <p>
+                                            <?php if($skzs->jy_qz =='1'): ?>
+                                                    <button style="margin-left: 110px;" type="submit" >申请退款</button>
+                                            <?php else: ?>
+                                                <button style="margin-left: 110px;" type="submit" >申请退款</button>
+
+                                            <?php endif; ?><span class="seeMar"></span><span><span style="padding: 0 13px;"  class="qxBtn">取消</span></span></p>
                                     </li>
                                 </ul>
                             </div>
@@ -404,7 +569,7 @@
         <form action="" method="post" id="zf">
             <input type="hidden" id="m" name ="xxf" value="">
             <input type="hidden" id="i" name ="order_id" value="">
-            <input type="hidden" id="r" name ="rid" value="">
+            <input type="hidden" id="z" name ="rid" value="">
             <input type="hidden" id="b" name ="b" value="b">
         </form>
     </div></div>
@@ -618,7 +783,9 @@
     })
 
     function zf(obj,id,rid){
+        //alert(rid);
         var money = $('#'+id).html();
+        //alert(Math.round(money));
         if(money < 0){
             //alert('需退款!');
             return false;
@@ -631,7 +798,7 @@
 //        }
         $('#m').val(money);
         $('#i').val(id);
-        $('#r').val(rid);
+        $('#z').val(rid);
         var path = "xxf.html";
         $('#zf').attr("action", path).submit();
     }

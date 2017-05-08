@@ -64,7 +64,7 @@
                                     <th>学员姓名</th>
                                     <th>学员电话</th>
                                     <th>已收课酬</th>
-                                    <th>应退金额</th>
+                                    <th>应退最大金额</th>
                                     <th>申请金额</th>
                                     <th>回访反馈</th>
                                     <th>是否换人</th>
@@ -80,8 +80,9 @@
                             </thead>
                             <tbody>
                             @foreach($list as $l)
+                                <?php $q = $l->o_ts*$l->o_xs*$l->money ?>
                                 <tr class="gradeX">
-                                    <td>{{ $l->rid }}</td>
+                                    <td>{{ $l->jl_id }}</td>
                                     <td>{{ $l->city_name }}</td>
                                     <td>{{ date('Y-m-d h:i:s',$l->tk_times) }}</td>
                                     <td>试课不成功</td>
@@ -95,27 +96,74 @@
                                     <td>{{ $l->user_name }}</td>
                                     <td>{{ $l->user_phone }}</td>
                                     <td>{{ $l->yskc }}</td>
-                                    <td>系统抓取</td>
-                                    <td>{{ $l->xxftk }}元</td>
+                                    <td>@if($l->pay_zt2 == '1')
+                                            {{ $l->xxf+$l->xxf2 }}元
+                                        @else
+                                            {{ $l->xxf }}元
+                                        @endif
+                                    </td>
+                                    <td>
+                                        {{$l->xxftk}}
+                                        <input type="hidden" id="money{{ $l->jl_id }}" value="{{$l->xxftk}}" >
+                                    </td>
                                     <td>
                                         家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）
                                     </td>
                                     <td>无显示</td>
                                     <td>无显示</td>
                                     <td>
-                                        <select name="" id="">
-                                            <option value=""></option>
-                                        </select>
+                                        @if($l->ht_zgsh == '4'|| $l->ht_zgsh == null)
+                                            <select name="" id="" onclick="shenhe( {{ $l->jl_id }} )">
+                                                <option value="">请选择</option>
+                                                <option value="1" {{ $l->ht_cljg == '1'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},1,1)">审核通过</option>
+                                                <option value="2" {{ $l->ht_cljg == '2'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},1,2)">教员原因不退</option>
+                                                <option value="3" {{ $l->ht_cljg == '3'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},1,3)">关闭退款</option>
+                                            </select>
+                                        @else
+                                            @if($l->ht_zgsh == '1')
+                                                审核通过
+                                            @elseif($l->ht_zgsh == '2')
+                                                拒绝退款
+                                            @elseif($l->ht_zgsh == '3')
+                                                关闭退款
+                                            @endif
+                                        @endif
                                     </td>
                                     <td>17-4-28|11:06</td>
                                     <td>
-                                        <select name="" id="">
-                                            <option value=""></option>
-                                        </select>
+                                        @if($l->ht_zgsh == '4'|| $l->ht_zgsh == null)
+                                            <select name="" id="jc{{ $l->jl_id }}" disabled="true">
+                                                <option value="" {{ $l->ht_zgsh == ''?'selected':'' }} >请选择</option>
+                                                <option value="1" {{ $l->ht_zgsh == '1'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},2,1)">审核通过</option>
+                                                <option value="2" {{ $l->ht_zgsh == '2'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},2,2)">拒绝退款</option>
+                                                <option value="3" {{ $l->ht_zgsh == '3'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},2,3)">关闭退款</option>
+                                                <option value="4" {{ $l->ht_zgsh == '4'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},2,4)">待处理</option>
+                                            </select>
+                                        @else
+                                            @if($l->ht_zgsh == '1')
+                                                审核通过
+                                            @elseif($l->ht_zgsh == '2')
+                                                拒绝退款
+                                            @elseif($l->ht_zgsh == '3')
+                                                关闭退款
+                                            @elseif($l->ht_zgsh == '4')
+                                                待处理
+                                            @endif
+                                        @endif
                                     </td>
                                     <td>17-4-28|11:06</td>
                                     <td><a href="">查看备注</a></td>
-                                    <td>自动获取</td>
+                                    <td>@if($l->ht_zgsh == '1')
+                                            通过
+                                        @elseif($l->ht_zgsh == '2')
+                                            拒绝退款
+                                        @elseif($l->ht_zgsh == '3')
+                                            关闭
+                                        @elseif($l->ht_zgsh == '4')
+                                            待处理
+                                        @elseif($l->ht_zgsh == NULL)
+                                            正常
+                                        @endif</td>
                                     <td><a href="">查看图片</a></td>
                                 </tr>
                             @endforeach
@@ -181,6 +229,32 @@
                 "New row",
                 "New row"]);
 
+        }
+        function shenhe(id){
+            $(this).change(function(){
+                $('#jc'+id).attr('disabled',false)
+            })
+        }
+        //ajax 1为处理结果 2为主管审核
+        function ajaxsh(obj,id,tid,rid,zt,edit){
+            //  alert(id);
+            //alert(rid);
+            var money = $('#money'+id).val();
+            // alert(money);
+            $.ajax({
+                type:'POST',
+                url:"{{ URL('/admin/tdye.html') }}",
+                contentType:"application/x-www-form-urlencoded; charset=utf8",
+                data:{"id":id,"tid":tid,'rid':rid,'zt':zt,'m':money,'edit':edit,'pd':'skbcg'},
+                /*dataType:'JSON',*/
+                success:(function(result){
+                    location.reload();
+                }),
+                error:(function(result,status){
+                    // larye.alert('sb!');
+                })
+
+            });
         }
     </script>
 

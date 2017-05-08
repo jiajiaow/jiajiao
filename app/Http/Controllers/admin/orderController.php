@@ -13,7 +13,8 @@ class orderController extends Controller
         $data = DB::table('jjw_order as order')
             ->join('jjw_position_city', 'jjw_position_city.city_id', '=', 'order.city_id')
             ->join('jjw_user as u','u.u_id','=','order.user_id')
-            ->select('order.*','u.*','jjw_position_city.fz_jzxxf','jjw_position_city.city_name','jjw_position_city.fz_vip','jjw_position_city.fz_qyjyfy','jjw_position_city.bfb1','jjw_position_city.bfb2','jjw_position_city.bfb3','jjw_position_city.bfb4','jjw_position_city.bfb5','jjw_position_city.bfb6','jjw_position_city.bfb7')
+            ->join('jjw_reorder as r','r.oid','=','order.id')
+            ->select('order.*','u.*','r.add','r.sk_times as rsk_times','jjw_position_city.fz_jzxxf','jjw_position_city.city_name','jjw_position_city.fz_vip','jjw_position_city.fz_qyjyfy','jjw_position_city.bfb1','jjw_position_city.bfb2','jjw_position_city.bfb3','jjw_position_city.bfb4','jjw_position_city.bfb5','jjw_position_city.bfb6','jjw_position_city.bfb7')
             ->where('user_reboot','1')
             ->orderBy('order.time', 'desc')
             ->paginate(10);

@@ -167,6 +167,20 @@
                                 <a class="J_menuItem" href="/admin/fbwz">发布文章</a>
                             </li>
                         </ul>
+                    </li>                    <li>
+                        <a href="#">
+                            <i class="fa fa fa-mortar-board"></i>
+                            <span class="nav-label">友情链接</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="/admin/tjyqlj">添加友情链接</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="/admin/yqljlb">友情链接列表</a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="#">

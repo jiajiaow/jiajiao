@@ -96,27 +96,71 @@
                                     <td><?php echo e($l->user_name); ?></td>
                                     <td><?php echo e($l->user_phone); ?></td>
                                     <td><?php echo e($l->yskc); ?></td>
-                                    <td><?php echo e($l->xxf+$l->xxf2); ?></td>
-                                    <td><?php echo e($l->xxftk); ?>元</td>
+                                    <td><?php if($l->pay_zt2 == '1'): ?>
+                                            <?php echo e($l->xxf+$l->xxf2); ?>元
+                                        <?php else: ?>
+                                            <?php echo e($l->xxf); ?>元
+                                    <?php endif; ?>
+                                    </td>
+                                    <td><?php echo e($l->xxftk); ?>元<input type="hidden" id="money<?php echo e($l->jl_id); ?>" value="<?php echo e($l->xxftk); ?>" ></td>
                                     <td>
                                         家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）
                                     </td>
                                     <td>无显示</td>
                                     <td>无显示</td>
                                     <td>
-                                        <select name="" id="">
-                                            <option value=""></option>
-                                        </select>
+                                        <?php if($l->ht_zgsh == '4'|| $l->ht_zgsh == null): ?>
+                                            <select name="" id="" onclick="shenhe( <?php echo e($l->jl_id); ?> )">
+                                                <option value="">请选择</option>
+                                                <option value="1" <?php echo e($l->ht_cljg == '1'?'selected':''); ?> onclick="ajaxsh(this,<?php echo e($l->jl_id); ?>,<?php echo e($l->t_id); ?>,<?php echo e($l->rid); ?>,1,1)">审核通过</option>
+                                                <option value="2" <?php echo e($l->ht_cljg == '2'?'selected':''); ?> onclick="ajaxsh(this,<?php echo e($l->jl_id); ?>,<?php echo e($l->t_id); ?>,<?php echo e($l->rid); ?>,1,2)">教员原因不退</option>
+                                                <option value="3" <?php echo e($l->ht_cljg == '3'?'selected':''); ?> onclick="ajaxsh(this,<?php echo e($l->jl_id); ?>,<?php echo e($l->t_id); ?>,<?php echo e($l->rid); ?>,1,3)">关闭退款</option>
+                                            </select>
+                                        <?php else: ?>
+                                            <?php if($l->ht_zgsh == '1'): ?>
+                                                审核通过
+                                            <?php elseif($l->ht_zgsh == '2'): ?>
+                                                拒绝退款
+                                            <?php elseif($l->ht_zgsh == '3'): ?>
+                                                关闭退款
+                                            <?php endif; ?>
+                                        <?php endif; ?>
                                     </td>
                                     <td>17-4-28|11:06</td>
                                     <td>
-                                        <select name="" id="">
-                                            <option value=""></option>
-                                        </select>
+                                        <?php if($l->ht_zgsh == '4'|| $l->ht_zgsh == null): ?>
+                                            <select name="" id="jc<?php echo e($l->jl_id); ?>" disabled="true">
+                                                <option value="" <?php echo e($l->ht_zgsh == ''?'selected':''); ?> >请选择</option>
+                                                <option value="1" <?php echo e($l->ht_zgsh == '1'?'selected':''); ?> onclick="ajaxsh(this,<?php echo e($l->jl_id); ?>,<?php echo e($l->t_id); ?>,<?php echo e($l->rid); ?>,2,1)">审核通过</option>
+                                                <option value="2" <?php echo e($l->ht_zgsh == '2'?'selected':''); ?> onclick="ajaxsh(this,<?php echo e($l->jl_id); ?>,<?php echo e($l->t_id); ?>,<?php echo e($l->rid); ?>,2,2)">拒绝退款</option>
+                                                <option value="3" <?php echo e($l->ht_zgsh == '3'?'selected':''); ?> onclick="ajaxsh(this,<?php echo e($l->jl_id); ?>,<?php echo e($l->t_id); ?>,<?php echo e($l->rid); ?>,2,3)">关闭退款</option>
+                                                <option value="4" <?php echo e($l->ht_zgsh == '4'?'selected':''); ?> onclick="ajaxsh(this,<?php echo e($l->jl_id); ?>,<?php echo e($l->t_id); ?>,<?php echo e($l->rid); ?>,2,4)">待处理</option>
+                                            </select>
+                                        <?php else: ?>
+                                            <?php if($l->ht_zgsh == '1'): ?>
+                                                审核通过
+                                            <?php elseif($l->ht_zgsh == '2'): ?>
+                                                拒绝退款
+                                            <?php elseif($l->ht_zgsh == '3'): ?>
+                                                关闭退款
+                                            <?php elseif($l->ht_zgsh == '4'): ?>
+                                                待处理
+                                            <?php endif; ?>
+                                        <?php endif; ?>
                                     </td>
                                     <td>17-4-28|11:06</td>
                                     <td><a href="">查看备注</a></td>
-                                    <td>自动获取</td>
+                                    <td><?php if($l->ht_zgsh == '1'): ?>
+                                            通过
+                                        <?php elseif($l->ht_zgsh == '2'): ?>
+                                            拒绝退款
+                                        <?php elseif($l->ht_zgsh == '3'): ?>
+                                            关闭
+                                        <?php elseif($l->ht_zgsh == '4'): ?>
+                                            待处理
+                                        <?php elseif($l->ht_zgsh == NULL): ?>
+                                            正常
+                                        <?php endif; ?></td>
                                     <td><a href="">查看图片</a></td>
                                 </tr>
                              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -182,6 +226,34 @@
                 "New row",
                 "New row"]);
 
+        }
+
+        function shenhe(id){
+            $(this).change(function(){
+                $('#jc'+id).attr('disabled',false)
+            })
+        }
+
+        //ajax 1为处理结果 2为主管审核
+        function ajaxsh(obj,id,tid,rid,zt,edit){
+            //  alert(id);
+            //alert(rid);
+            var money = $('#money'+id).val();
+            // alert(money);
+            $.ajax({
+                type:'POST',
+                url:"<?php echo e(URL('/admin/tdye.html')); ?>",
+                contentType:"application/x-www-form-urlencoded; charset=utf8",
+                data:{"id":id,"tid":tid,'rid':rid,'zt':zt,'m':money,'edit':edit,'pd':'tqjskc'},
+                /*dataType:'JSON',*/
+                success:(function(result){
+                    location.reload();
+                }),
+                error:(function(result,status){
+                    // larye.alert('sb!');
+                })
+
+            });
         }
     </script>
 

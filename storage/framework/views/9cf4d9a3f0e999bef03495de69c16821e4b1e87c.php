@@ -137,9 +137,37 @@
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
+                                <label class="col-sm-2 control-label">文章头</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="fz_hade" >
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">文章尾</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="fz_footer" >
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
                                 <label class="col-sm-2 control-label">微信二维码</label>
                                 <div class="col-sm-10">
                                     <input type="file" name="fz_wx" >
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">qq号</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="fz_qqhao" >
+                                </div>
+                            </div>
+                                                        <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">微信号</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="fz_wxhao" >
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>

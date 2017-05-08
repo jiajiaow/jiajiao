@@ -17,7 +17,7 @@ class ArticleController extends Controller
     {
         $all = $request->all();
         $all = $request->except('_token');
-        $re = DB::table('jjw_Navigation')->insert($all);
+        $re = DB::table('jjw_navigation')->insert($all);
         if($re){
             return back();
         }else{
@@ -27,7 +27,7 @@ class ArticleController extends Controller
     //文章列表
     public function wzdhlb(Request $request)
     {
-        $data = DB::table('jjw_Navigation')->orderBy('dh_status','desc')->get();
+        $data = DB::table('jjw_navigation')->orderBy('dh_status','desc')->get();
         return view('admin.wzdhlb',['data' => $data]);
     }
     //修改文章导航处理
@@ -36,14 +36,14 @@ class ArticleController extends Controller
         $data = $request->all();
         //dd($data);
         $data = $request->except('_token');
-        DB::table('jjw_Navigation')->where('dh_id',$data['dh_id'])->update($data);
+        DB::table('jjw_navigation')->where('dh_id',$data['dh_id'])->update($data);
         return back();
     }
 
     //发布文章
     public function fbwz()
     {
-        $data = DB::table('jjw_Navigation')->orderBy('dh_status','desc')->get();
+        $data = DB::table('jjw_navigation')->orderBy('dh_status','desc')->get();
         return view('admin.fbwz',['data' => $data]);
     }
     public function tjwzdo(Request $request)
@@ -61,7 +61,7 @@ class ArticleController extends Controller
         }
         $data = $request->all();
         $data = $request->except('_token');
-        $re = DB::table('jjw_Articlelist')->insert($data);
+        $re = DB::table('jjw_articlelist')->insert($data);
         if($re){
             return redirect('/admin/wzlb');
         }else{
@@ -70,9 +70,9 @@ class ArticleController extends Controller
     }
     public function wzlb(Request $request)
     {
-        $data = DB::table('jjw_Articlelist')
-                    ->join('jjw_Navigation', 'jjw_Articlelist.ar_pid', '=', 'jjw_Navigation.dh_id')
-                    ->select('jjw_Articlelist.*', 'jjw_Navigation.dh_Navigationbar')
+        $data = DB::table('jjw_articlelist')
+                    ->join('jjw_navigation', 'jjw_articlelist.ar_pid', '=', 'jjw_navigation.dh_id')
+                    ->select('jjw_articlelist.*', 'jjw_navigation.dh_Navigationbar')
                     ->orderBy('ar_time','desc')
                     ->orderBy('ar_status','desc')
                     ->get();
@@ -81,13 +81,13 @@ class ArticleController extends Controller
     }
     public function wzde($id)
     {
-        $re = DB::table('jjw_Articlelist')->where('ar_id',$id)->delete();
+        $re = DB::table('jjw_articlelist')->where('ar_id',$id)->delete();
         return back();
     }
     public function modify($id)
     {
-        $re = DB::table('jjw_Articlelist')->where('ar_id',$id)->first();
-        $data = DB::table('jjw_Navigation')->orderBy('dh_status','desc')->get();
+        $re = DB::table('jjw_articlelist')->where('ar_id',$id)->first();
+        $data = DB::table('jjw_navigation')->orderBy('dh_status','desc')->get();
         return view('admin.wzxg',['re' => $re,'data' => $data]);
     }
     public function wzxgdo(Request $request)
@@ -105,7 +105,7 @@ class ArticleController extends Controller
         }
         $data = $request->all();
         $data = $request->except('_token');
-        DB::table('jjw_Articlelist')->where('ar_id',$data['ar_id'])->update($data);
+        DB::table('jjw_articlelist')->where('ar_id',$data['ar_id'])->update($data);
         return back();
     }
 }

@@ -147,7 +147,7 @@
 						
 						
 						
-						<div class="bk4" style="height: 100px;line-height: 100px;">
+						<!--<div class="bk4" style="height: 100px;line-height: 100px;">
 							<div class="left1">课酬/信息费</div><?php $q =  $sskjss->o_ts* $sskjss->o_xs* $sskjss->money ?>
 							<div class="right1">
 								<div class="pm zqm">
@@ -211,12 +211,12 @@
 								</div>
 
 							</div>
-						</div>
-						<div class="bk2">
+						</div>-->
+						<!--<div class="bk2">
 							<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#000">申请退款</font></a>|
 							<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#000">信息费支付</font></a>|
 							<a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#FF0000">收付款记录</font></a>
-						</div>
+						</div>-->
 					</div>
 					<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 							<!--  -->
