@@ -15,10 +15,12 @@ class Controller extends BaseController
         {
         //获取当前域名
         $url = $_SERVER['SERVER_NAME'];
+	//dd($request->url());
         $x = explode(".",$url);
         $qz = $x[0];
         $zy = $x[1];
         $hz = $x[2];
+	//dd($qz,$zy,$hz);
         if($qz == 'www'){
             $zlpc = substr($_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"],0,20);
             $zlurl = substr($_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"],0,27);

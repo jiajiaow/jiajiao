@@ -11,7 +11,8 @@ class AdminController extends Controller
 {
     //
     public function index(Request $request){
-        return view('admin.index');
+	dd($_SERVER);
+	return view('admin.index');
     }
 
     public function indexi(Request $request){
