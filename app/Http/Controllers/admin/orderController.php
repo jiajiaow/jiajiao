@@ -18,7 +18,7 @@ class orderController extends Controller
             ->where('user_reboot','1')
             ->orderBy('order.id', 'desc')
             ->paginate(10);
-            dd($data);
+           // dd($data);
         return view('admin.order',['data' => $data]);
     }
     //订单基础修改
