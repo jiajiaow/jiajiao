@@ -144,7 +144,7 @@
                 <div class="right">
                     <div class="bk zqm">
                         <div class="left">订单编号</div>
-                        <div class="right"><?php echo e($yaps->id); ?><a href="/xsinfo<?php echo e($yaps->id); ?>.html" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
+                        <div class="right"><span class="home_id"><?php echo e($yaps->id); ?></span><a href="/xsinfo<?php echo e($yaps->id); ?>.html" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
                     </div>
                     <div class="bk">
                         <div class="left">订单类型</div>
@@ -233,19 +233,19 @@
                                     <button type="submit" style="border: none;height: 30px;line-height: 30px;border-radius: 2px;background: #fff0;">取消预约</button>
                                 </form>
                         </a>|
-                        <a style=";" href="javascript:;" onclick="cyjs()">
-                                <form action="/cyj.html" method="post" id="cyj" style="display: inline-block;">
+                        <a style=";" href="javascript:;" onclick="cyjs(<?php echo e($yaps->id); ?>)">
+                                <form action="/cyj.html" method="post" id="cyj<?php echo e($yaps->id); ?>" style="display: inline-block;">
                                     <a style="" href="javascript:;" onclick="cyj(<?php echo e($yaps->id); ?>)">
-                                            <input type="hidden" name="order_id" value="<?php echo e($yaps->id); ?>">
-                                            <input type="hidden" name="rid" value="<?php echo e($yaps->rid); ?>">
-                                            <input type="hidden" name="xxf" value="<?php if($yaps->o_ts == '1'): ?><?php echo e($q*$yaps->bfb1>300?'300':$q*$yaps->bfb1); ?><?php elseif($yaps->o_ts == '2'): ?><?php echo e($q*$yaps->bfb2>300?'300':$q*$yaps->bfb2); ?><?php elseif($yaps->o_ts == '3'): ?><?php echo e($q*$yaps->bfb3>300?'300':$q*$yaps->bfb3); ?><?php elseif($yaps->o_ts == '4'): ?><?php echo e($q*$yaps->bfb4>300?'300':$q*$yaps->bfb4); ?><?php elseif($yaps->o_ts == '5'): ?><?php echo e($q*$yaps->bfb5>300?'300':$q*$yaps->bfb5); ?><?php elseif($yaps->o_ts == '6'): ?><?php echo e($q*$yaps->bfb6>300?'300':$q*$yaps->bfb6); ?><?php elseif($yaps->o_ts == '7'): ?><?php echo e($q*$yaps->bfb7>300?'300':$q*$yaps->bfb7); ?><?php endif; ?>">
+                                            <input type="hidden" name="order_id2" value="<?php echo e($yaps->id); ?>">
+                                            <input type="hidden" name="rid2" value="<?php echo e($yaps->rid); ?>">
+                                            <input type="hidden" name="cyj2" value="">
                                                 支付诚意金优先获取订单
                                     </a>|
                                 </form>
                           </a>
                         <a>
                             <?php if($yaps->ht_t_status =='3'): ?>
-                                <form action="/xxf.html" method="post" id="xxf" style="display: inline-block;">
+                                <form action="/xxf.html" method="post" id="xxf<?php echo e($yaps->id); ?>" style="display: inline-block;">
                                          <a style="margin-left: 60px;margin-right: 60px;" href="javascript:;" onclick="qr(<?php echo e($yaps->id); ?>)">
                                             <input type="hidden" name="order_id" value="<?php echo e($yaps->id); ?>">
                                             <input type="hidden" name="rid" value="<?php echo e($yaps->rid); ?>">
@@ -295,11 +295,11 @@
     <script type="text/javascript" src="<?php echo e(asset('/layer/layer.js')); ?>"></script>
 </body>
     <script>
-        function cyj(){
+        function cyj(oid){
             layer.confirm('如你确认本单各方面均合适，支付诚意金（一般为50元，你也可根据意愿程度进行修改），我方将优先安排。如本单未选中你，锁定的诚意金将实时退回你的账户余额（2天为限，如我们仍未能在已预约教员中挑选出学员满意的教员，诚意金也将退回），诚意金随时可进行提现，提现金额将于24小时内收到。如挑选你接单，但你因个人原因无法接单，将对我方和家长及学员均造成不良影响，诚意金将无法退回。', {
                 btn: ['确定','取消'] //按钮
             }, function(){
-                document.getElementById("cyj").submit();
+                document.getElementById("cyj"+oid).submit();
             }, function(){
 
             });
@@ -313,7 +313,7 @@
                 $.post("/tc_top_ups.html",{'oid':oid,'money':money},function(result){
                     window.location.href='/tc_top_ups.html';
                 });*/
-                document.getElementById("xxf").submit();
+                document.getElementById("xxf"+oid).submit();
             }, function(){
 
             });

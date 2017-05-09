@@ -16,11 +16,6 @@ class orderController extends Controller
             ->select('order.*','jjw_position_city.fz_jzxxf','jjw_position_city.city_name','jjw_position_city.fz_vip','jjw_position_city.fz_qyjyfy','jjw_position_city.bfb1','jjw_position_city.bfb2','jjw_position_city.bfb3','jjw_position_city.bfb4','jjw_position_city.bfb5','jjw_position_city.bfb6','jjw_position_city.bfb7')
             ->orderBy('id','desc')
             ->paginate(10);
-<<<<<<< HEAD
-           // dd($data);
-=======
-            //dd($data);
->>>>>>> 7f6267ddaa22a7e294568a7054d9c8997a028b49
         return view('admin.order',['data' => $data]);
     }
     //订单基础修改

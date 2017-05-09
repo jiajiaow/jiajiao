@@ -105,7 +105,7 @@
 
    </div>
 
-   <div class="index1">
+   <div class="index1" style="height:335px;overflow: hidden">
           <div class="lebt">
           <div class="l">
             <img src="/delijiajiao/picture/s_1.png">金牌教员</div> <div class="r"><a href="/facultys.html/gd/2" >更多</a></div></div>
@@ -114,7 +114,7 @@
                   <?php if($jp->tc_jinpai == 2): ?>
                     <li class="kuan">
                         <div class="top"  onmouseover="this.style.cursor='pointer'" onclick="location.href='/teacher/detail/<?php echo e($jp->id); ?>.html'">
-                            <img src="/delijiajiao/images/logo.png" width="110" height="110" >
+                            <img src="<?php echo e($jp->tc_photo==''?'/delijiajiao/images/logo.png':$jp->tc_photo); ?>" width="110" height="110" >
                             <i><?php echo e(mb_substr($jp->tc_name,0,1)); ?>教员</i>
                             <span>
                                 <img src="/delijiajiao/picture/icon_imperial.png">
@@ -151,7 +151,7 @@
               <?php if($xs->tc_jinpai == 0): ?>
                 <li class="kuan">
                     <div class="top" onmouseover="this.style.cursor='pointer'" onclick="location.href='/teacher/detail/<?php echo e($xs->id); ?>.html'">
-                        <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
+                        <img src="<?php echo e($xs->tc_photo==''?'/delijiajiao/images/logo.png':$xs->tc_photo); ?>" alt="魏玲" width="110" height="110">
                         <i><?php echo e(mb_substr($xs->tc_name,0,1)); ?>教员</i>
                         <div class="hover">
                             <p><?php echo e(subtext( $xs->tc_comments,40)); ?></p>
@@ -185,7 +185,7 @@
               <?php if($zhuanzhi->tc_jinpai == 1): ?>
                 <li class="kuan">
                     <div class="top" onmouseover="this.style.cursor='pointer'" onclick="location.href='/teacher/detail/207692.html'">
-                        <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
+                        <img src="<?php echo e($zhuanzhi->tc_photo==''?'/delijiajiao/images/logo.png':$zhuanzhi->tc_photo); ?>" alt="魏玲" width="110" height="110">
                         <i><?php echo e(mb_substr($zhuanzhi->tc_name,0,1)); ?>教员</i>
                         <div class="hover">
                             <p><?php echo e(subtext($zhuanzhi->tc_comments,40)); ?></p>
