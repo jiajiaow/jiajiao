@@ -156,7 +156,7 @@ class yuyueController extends Controller
         $input['o_ts2'] = $request->input('o_ts');
         $input['o_xs2'] = $request->input('o_xs');
         $input['money2'] = $request->input('money');
-        //dd($input);
+        dd($input);
         $re = DB::table('jjw_order')->where('id',$oid)->update($input);
 
         DB::table('jjw_order')->where('id',$oid)->update(['per_week' => $per,'teacher_info' => $teacher_info,'sk_times' => $sk_times]);

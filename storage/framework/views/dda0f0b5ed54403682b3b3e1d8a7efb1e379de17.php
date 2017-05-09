@@ -85,6 +85,7 @@
                                 </td>
                             </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <a href="1" id="dj"> </a>
                         </tbody>
 
                     </table>
@@ -97,12 +98,12 @@
 <!-- 全局js -->
 <script src="/admin/js/jquery.min.js?v=2.1.4"></script>
 <script src="/admin/js/bootstrap.min.js?v=3.3.6"></script>
-<script src="/admin/js/plugins/layer/layer.min.js"></script>
+
 
 <script src="/admin/js/plugins/jeditable/jquery.jeditable.js"></script>
 
 <!-- Data Tables -->
-<script src="/admin/js/plugins/dataTables/jquery.dataTables.js"></script>
+
 <script src="/admin/js/plugins/dataTables/dataTables.bootstrap.js"></script>
 
 <!-- 自定义js -->
@@ -219,7 +220,13 @@
         });
     });
     function aa(id){
-        window.location.href ="/admin/hot_area/"+id;
+       // alert(id);
+        var path = "/admin/hot_area/"+id;
+        $('#dj').attr("href", path);
+        document.getElementById('dj').click();
+//        $('#dj').click()
+//        $().arrt();
+       // window.location.href ="/admin/hot_area/"+id;
     }
     //区
 

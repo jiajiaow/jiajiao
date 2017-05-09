@@ -166,6 +166,7 @@ Route::any('/yuyuexxform','home\yuyueController@yuyuexxform');
 //提交
 Route::post('/StudentAdd','home\yuyueController@StudentAdd');
 //测试
+
 Route::get('/test','testController@index');
 //预约教员
 Route::post('/yuyuejiaoyuan.html','home\yuyueController@yyjy');
@@ -310,7 +311,7 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::get('/xnjy','admin\xnController@xnjy');
     //发布订单
     Route::get('/fbdd','admin\fbddController@index');
-    //出来发布订单
+    //处理发布订单
     Route::post('/fbdddo','admin\fbddController@formdo');
     //热门    大学
     Route::get('/hot_school/{m?}','admin\hotController@school');

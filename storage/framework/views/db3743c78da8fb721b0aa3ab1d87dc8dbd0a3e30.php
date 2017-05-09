@@ -110,7 +110,8 @@
           <div class="l">
             <img src="/delijiajiao/picture/s_1.png">金牌教员</div> <div class="r"><a href="/facultys.html/gd/2" >更多</a></div></div>
                 <div class="acrt">
-                <?php $__currentLoopData = $jinpai; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $jp): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php $__currentLoopData = $jy; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $jp): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                  <?php if($jp->tc_jinpai == 2): ?>
                     <li class="kuan">
                         <div class="top"  onmouseover="this.style.cursor='pointer'" onclick="location.href='/teacher/detail/<?php echo e($jp->id); ?>.html'">
                             <img src="/delijiajiao/images/logo.png" width="110" height="110" >
@@ -135,6 +136,7 @@
                             <a href="/yuyuelaoshi.html" class="btn">预约免费试课</a>
                         </div>
                     </li>
+                  <?php endif; ?>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
       </div>
@@ -145,29 +147,31 @@
             <div class="r"><a href="/facultys.html/gd/0">更多</a></div>
         </div>
             <div class="acrt">
-            <?php $__currentLoopData = $xueshen; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $xs): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <li class="kuan">
-                <div class="top" onmouseover="this.style.cursor='pointer'" onclick="location.href='/teacher/detail/<?php echo e($xs->id); ?>.html'">
-                    <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
-                    <i><?php echo e(mb_substr($xs->tc_name,0,1)); ?>教员</i>
-                    <div class="hover">
-                        <p><?php echo e(subtext( $xs->tc_comments,40)); ?></p>
-                        <a href="javascript:void(0)" class="look" onclick="location.href='/teacher/detail/<?php echo e($xs->id); ?>.html'" >查看 ></a>
+            <?php $__currentLoopData = $jy; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $xs): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <?php if($xs->tc_jinpai == 0): ?>
+                <li class="kuan">
+                    <div class="top" onmouseover="this.style.cursor='pointer'" onclick="location.href='/teacher/detail/<?php echo e($xs->id); ?>.html'">
+                        <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
+                        <i><?php echo e(mb_substr($xs->tc_name,0,1)); ?>教员</i>
+                        <div class="hover">
+                            <p><?php echo e(subtext( $xs->tc_comments,40)); ?></p>
+                            <a href="javascript:void(0)" class="look" onclick="location.href='/teacher/detail/<?php echo e($xs->id); ?>.html'" >查看 ></a>
+                        </div>
                     </div>
-                </div>
-                <div class="bottom">
-                    <a href="/hot.html/学院/<?php echo e($xs->tc_school); ?>"><?php echo e($xs->tc_school); ?></a>
+                    <div class="bottom">
+                        <a href="/hot.html/学院/<?php echo e($xs->tc_school); ?>"><?php echo e($xs->tc_school); ?></a>
 
-                    <br/>
-                    <?php if($xs->tc_zhuanye): ?>
-                        <span><?php echo e($xs->tc_zhuanye); ?></span>
-                    <?php else: ?>
-                        <span>其他</span>
-                    <?php endif; ?>
-                    <div class="clear"></div>
-                    <a href="/yuyuelaoshi.html" class="btn">预约免费试课</a>
-                </div>
-            </li>
+                        <br/>
+                        <?php if($xs->tc_zhuanye): ?>
+                            <span><?php echo e($xs->tc_zhuanye); ?></span>
+                        <?php else: ?>
+                            <span>其他</span>
+                        <?php endif; ?>
+                        <div class="clear"></div>
+                        <a href="/yuyuelaoshi.html" class="btn">预约免费试课</a>
+                    </div>
+                </li>
+              <?php endif; ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
       </div>
@@ -177,29 +181,31 @@
             <div class="r"><a href="/facultys.html/gd/1">更多</a></div>
           </div>
           <div class="acrt">
-            <?php $__currentLoopData = $zhuanzhi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $zhuanzhi): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <li class="kuan">
-                <div class="top" onmouseover="this.style.cursor='pointer'" onclick="location.href='/teacher/detail/207692.html'">
-                    <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
-                    <i><?php echo e(mb_substr($zhuanzhi->tc_name,0,1)); ?>教员</i>
-                    <div class="hover">
-                        <p><?php echo e(subtext($zhuanzhi->tc_comments,40)); ?></p>
-                        <a href="javascript:void(0)" class="look" onclick="location.href='/teacher/detail/<?php echo e($zhuanzhi->id); ?>.html'">查看 ></a>
+            <?php $__currentLoopData = $jy; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $zhuanzhi): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <?php if($zhuanzhi->tc_jinpai == 1): ?>
+                <li class="kuan">
+                    <div class="top" onmouseover="this.style.cursor='pointer'" onclick="location.href='/teacher/detail/207692.html'">
+                        <img src="/delijiajiao/images/logo.png" alt="魏玲" width="110" height="110">
+                        <i><?php echo e(mb_substr($zhuanzhi->tc_name,0,1)); ?>教员</i>
+                        <div class="hover">
+                            <p><?php echo e(subtext($zhuanzhi->tc_comments,40)); ?></p>
+                            <a href="javascript:void(0)" class="look" onclick="location.href='/teacher/detail/<?php echo e($zhuanzhi->id); ?>.html'">查看 ></a>
+                        </div>
                     </div>
-                </div>
-                <div class="bottom">
-                    <a href="/hot.html/学院/<?php echo e($zhuanzhi->tc_school); ?>"><?php echo e($zhuanzhi->tc_school); ?></a>
+                    <div class="bottom">
+                        <a href="/hot.html/学院/<?php echo e($zhuanzhi->tc_school); ?>"><?php echo e($zhuanzhi->tc_school); ?></a>
 
-                    <br/>
-                    <?php if($zhuanzhi->tc_zhuanye): ?>
-                        <span><?php echo e($zhuanzhi->tc_zhuanye); ?></span>
-                    <?php else: ?>
-                        <span>其他</span>
-                    <?php endif; ?>
-                    <div class="clear"></div>
-                    <a href="/yuyuelaoshi.html" class="btn">预约免费试课</a>
-                </div>
-            </li>
+                        <br/>
+                        <?php if($zhuanzhi->tc_zhuanye): ?>
+                            <span><?php echo e($zhuanzhi->tc_zhuanye); ?></span>
+                        <?php else: ?>
+                            <span>其他</span>
+                        <?php endif; ?>
+                        <div class="clear"></div>
+                        <a href="/yuyuelaoshi.html" class="btn">预约免费试课</a>
+                    </div>
+                </li>
+              <?php endif; ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </div>
       </div>
@@ -305,6 +311,47 @@
 
 
 </style>
+
+  
+<script>
+  $.ajax({
+      type:'POST',
+      url:"/yqlj",
+      dataType:"json",
+      contentType:"application/x-www-form-urlencoded; charset=utf8",
+      headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      success:(function(result){
+          
+          console.log(result)
+          // let html='';
+          // $.each(result,function(){
+          //   html += `<li><a href="link_a"></a></li>`
+
+          // })
+          // $('#cheng-href').html(html)
+
+         var yqli = '';
+          for(var i =0;i<result.length;i++){
+            
+            
+            yqli += '<li>'
+              +'<a href="'+result[i].link_a+'">'+result[i].link_name+'</a>'
+              +'</li>';
+              $('#cheng-href').html(yqli) 
+        }
+      }),
+      error:(function(result,status){
+          //console.log(result);
+          //
+          larye.alert('系统错误请联系管理员!');
+      })
+
+  });
+</script>
+
+
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('delijiajiao.public.public', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

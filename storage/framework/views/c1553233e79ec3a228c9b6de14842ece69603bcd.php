@@ -25,7 +25,7 @@
          #cheng-href a{
              color:#a7a7a7;
              display: inline-block;
-             width:100px;
+            margin-right: 10px;
            line-height: 50px;
              text-align: center;
          }
@@ -199,23 +199,6 @@ for(i=0; i <tabList.length; i++)
       <h1><a a href='/' class='primary-logo' ><img alt="广州" src="/delijiajiao/picture/guangzhou.png" class="city-logo" /></a></h1>
       <span class="listing-slogan" style="height:40px;"><?php echo e(session('regionname')); ?></span>
          <span class="listing-slogan1" style="height: 26px;">【德栗家教】【高校联盟】</span><a href="/change_city.html">更多城市</a>
-         
-         <i id='icon'></i>
-         <i id='icon1' style='display:none'></i>
-         <div class='more-city' style="display:none;">
-             <ul style='height:110px;'>
-                 <li><a href="http://ch.delijiajiao.com">长沙</a></li>
-                 <li><a href="">南京</a></li>
-                 <li><a href="">武汉</a></li>
-                 <li><a href="">珠海</a></li>
-                 <li><a href="">广州</a></li>
-                 <li><a href="">福州</a></li>
-                 <li><a href="">南昌</a></li>
-                 <li><a href="">成都</a></li>
-                 <li><a href="">西宁</a></li>
-                 <li><a href="">南宁</a></li>
-             </ul>
-         </div>
      </div>
      <div class="pull-right">
       <a href="/yuyuelaoshi.html" class="resume-btn" style="font-size: 16px">请老师</a>
@@ -291,6 +274,11 @@ for(i=0; i <tabList.length; i++)
           </div>
       </div>
   </footer>
+<div style="min-height: 50px;">
+      <ul id="cheng-href" style="margin: auto;width: 1200px;">
+      </ul>
+      <div id="fudong"></div>
+  </div>
 
   <div class="banquanxinxi">
           © 2005－2017德栗家教   |   <a href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action">粤ICP备16062097号-4</a> 关键词：家教,一对一家教,广州家教网</div>
@@ -323,7 +311,6 @@ for(i=0; i <tabList.length; i++)
               }
           })
       })
-
   </script>
   <script type="text/javascript" src="/delijiajiao/js/layer.js"></script>
    <script type="text/javascript">
@@ -356,7 +343,7 @@ for(i=0; i <tabList.length; i++)
 
     <?php endif; ?>
 </script>
-<script type="text/javascript" src="https://hztk5.kuaishang.cn/bs/ks.j?cI=125636&fI=79140" charset="utf-8"></script>
+<!-- <script type="text/javascript" src="https://hztk5.kuaishang.cn/bs/ks.j?cI=125636&fI=79140" charset="utf-8"></script> -->
   <script type="text/javascript">
       var ur = window.location.pathname;
       //alert(ur);
@@ -374,9 +361,7 @@ for(i=0; i <tabList.length; i++)
                 $('#as5').addClass('vtle');
             }
   </script>
-  <script>
-  console.log(str)
-  </script>
+  <script>  </script>
 <?php $__env->startSection('js'); ?>
 
 
