@@ -10,7 +10,7 @@ class xsinfoController extends Controller
     public function index(Request $request,$id)
     {
         //页面数据
-        $url = $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+        $url = $_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
         $data = DB::table('jjw_order')->where('id',$id)->first();
         //浏览加1
         $un = $data->browsenu+1;
