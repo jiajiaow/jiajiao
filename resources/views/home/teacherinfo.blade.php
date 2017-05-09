@@ -61,10 +61,10 @@
 					<li class=""><a href="">个人资料</a><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>
 					<li class=""><a href="">身份认证</a><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>
 					{{--<li class=""><a href="http://www.jiajiao114.com/member/">待付款订单</a><i>0</i><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>--}}
-					<li class=""><a href="">申请记录</a><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>
-					<li class=""><a href="">成功记录</a><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>
+					{{--<li class=""><a href="">申请记录</a><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>--}}
+					{{--<li class=""><a href="">成功记录</a><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>--}}
 					{{--<li class=""><a href="">申请退款</a><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>--}}
-					<li class=""><a href="">投诉中心</a><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>
+					{{--<li class=""><a href="">投诉中心</a><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>--}}
 					<li class=""><a href="">重置密码</a><span><img src="{{ asset('/home/image/arrow_right.png') }}"></span></li>
 					<div class="aa"><a href="/tc_order1.html">我的订单</a></div>
 				</ul>
@@ -1203,7 +1203,7 @@
 						});
 					</script>
 					</div>--}}
-					<div class="tab-cont  ">
+					{{--<div class="tab-cont  ">
 						<div class="application">
 							<div class="section">
 								<h3><i></i>您的订单申请记录</h3>
@@ -1221,7 +1221,7 @@
 								</tr>
 								</thead>
 								<tbody>
-									{{--@foreach($dd as $jl)
+									--}}{{--@foreach($dd as $jl)
 									<tr>
 										<td>{{ $jl->id }}</td>
 										<td>{{  date("Y-m-d h:i:s",$jl->time) }}</td>
@@ -1250,12 +1250,12 @@
 										</td>
 										<td>{{ $jl->beizhu }}</td>
 									</tr>
-									@endforeach--}}
+									@endforeach--}}{{--
 								</tbody>
 							</table>
 						</div>
-					</div>
-					<div class="tab-cont ">
+					</div>--}}
+					{{--<div class="tab-cont ">
 						<div class="succeed">
 							<div class="section">
 								<h3><i></i>您的成功家教记录</h3>
@@ -1274,7 +1274,7 @@
 								</tr>
 								</thead>
 								<tbody>
-								   {{-- @foreach($dd as $d)
+								   --}}{{-- @foreach($dd as $d)
 										@if($d->t_status == '4')
 									<tr>
 										<td>{{ $d->id }}</td>
@@ -1285,11 +1285,11 @@
 										<td>{{ $d->t_status }}</td>
 									</tr>
 										@endif
-									@endforeach--}}
+									@endforeach--}}{{--
 								</tbody>
 							</table>
 						</div>
-					</div>
+					</div>--}}
 					{{--<div class="tab-cont ">
 						<div id="ishave" class="succeed" style="display:none">
 							<table>
@@ -1488,7 +1488,7 @@
 
 						</div>
 					</div>--}}
-					<div class="tab-cont ">
+					{{--<div class="tab-cont ">
 						<div class="complain">
 							<form action="" method="post">
 								<div class="fg">
@@ -1513,7 +1513,7 @@
 								<button type="submit">提交</button>
 							</form>
 						</div>
-					</div>
+					</div>--}}
 					<div class="tab-cont ">
 						<div class="resetting">
 							<h3>修改密码</h3>

@@ -12,13 +12,13 @@ class TeacheryyController extends Controller
         //判断教员是否登陆
         if($request->session()->has('tc_id')){
             //查询是否预约
-            $data = DB::table('jjw_Reorder')->where('oid',$request->input('oid'))->where('tc_id',session('tc_id'))->first();
+            $data = DB::table('jjw_reorder')->where('oid',$request->input('oid'))->where('tc_id',session('tc_id'))->first();
             //dd($data);
             if($data){
                 $request->session()->flash('ts', 'layer.msg("你已预约,请不要重复操作", {icon: 3});');
                 return back();
             }else{
-                $re = DB::table('jjw_Reorder')->insert(['oid' => $request->input('oid'),'tc_id' => session('tc_id')]);
+                $re = DB::table('jjw_reorder')->insert(['oid' => $request->input('oid'),'tc_id' => session('tc_id')]);
                 if($re){
                     //返回session
                     $num = DB::table('jjw_order')->where('id',$request->input('oid'))->first();

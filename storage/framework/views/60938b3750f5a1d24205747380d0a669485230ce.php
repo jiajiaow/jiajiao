@@ -89,7 +89,7 @@
 			<div class="zfjm-c">
 				<!-- 第一部分 -->
 				<div class="ddh">
-					<span>订单号：<?php echo e($data['order_id']); ?></span>
+					<span>订单号：<?php echo e($data['order_id2']); ?></span>
 				</div>
 				<!-- 第二部分 -->
 				<div class="ddh-one">
@@ -118,9 +118,9 @@
 						</div>
 						<div class="d-h" id='caozz'>
 							<input type="hidden" name="cyj" vlaue="1">
-							<input readonly="readonly" type="hidden" class="d-jine" name="order_id" value="<?php echo e($data['order_id']); ?>">
+							<input readonly="readonly" type="hidden" class="d-jine" name="order_id" value="<?php echo e($data['order_id2']); ?>">
 							<input readonly="readonly" type="hidden" class="d-jine" name="cyj" value="1">
-							<input readonly="readonly" type="hidden" class="d-jine" name="r_id" value="<?php echo e($data['rid']); ?>">
+							<input readonly="readonly" type="hidden" class="d-jine" name="r_id" value="<?php echo e($data['rid2']); ?>">
 							<select class="d-jine" name="money">
 								<option value="0.01">0.01元</option>
 								<option value="50">50元</option>
@@ -195,6 +195,7 @@
         </div>	
         
 	</footer>
+
 	<script type="text/javascript" src='/new/js/jquery-2.2.3.min.js'></script>
 	<script type="text/javascript" src='/new/js/script_cheng.js'></script>
 	<script type="text/javascript" src='/new/js/bootstrap.js'></script>

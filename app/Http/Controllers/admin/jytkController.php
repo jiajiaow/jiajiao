@@ -105,7 +105,7 @@ class jytkController extends Controller
                         $list = DB::table('jjw_tkjl')->where('id',$_POST['id'])->update(['ht_zgsh'=>$_POST['edit']]);
                         return "y";
                     }else{
-                        $lists = DB::table('jjw_reorder')->where('id',$_POST['rid'])->update(['tk_type'=>null]);
+                       // $lists = DB::table('jjw_reorder')->where('id',$_POST['rid'])->update(['tk_type'=>null]);
                         $list = DB::table('jjw_tkjl')->where('id',$_POST['id'])->update(['ht_zgsh'=>$_POST['edit']]);
                         return "y";
                     }
@@ -132,7 +132,7 @@ class jytkController extends Controller
                         $list = DB::table('jjw_tkjl')->where('id',$_POST['id'])->update(['ht_zgsh'=>$_POST['edit']]);
                         return "y";
                     }else{
-                        $lists = DB::table('jjw_reorder')->where('id',$_POST['rid'])->update(['tk_type'=>null]);
+                        //$lists = DB::table('jjw_reorder')->where('id',$_POST['rid'])->update(['tk_type'=>null]);
                         $list = DB::table('jjw_tkjl')->where('id',$_POST['id'])->update(['ht_zgsh'=>$_POST['edit']]);
                         return "y";
                     }
