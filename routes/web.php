@@ -166,6 +166,7 @@ Route::any('/yuyuexxform','home\yuyueController@yuyuexxform');
 //提交
 Route::post('/StudentAdd','home\yuyueController@StudentAdd');
 //测试
+
 Route::get('/test','testController@index');
 //预约教员
 Route::post('/yuyuejiaoyuan.html','home\yuyueController@yyjy');
