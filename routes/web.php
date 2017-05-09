@@ -367,5 +367,7 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::get('/cyjjs','admin\jytkController@cyjjs');
     //admin/tdye.html  退款到后台
     Route::post('/tdye.html','admin\jytkController@tdye');
+    //添加商品
+    Route::get('/tjsp','admin\goodsController@index');
 });
 //----------后台END----------//

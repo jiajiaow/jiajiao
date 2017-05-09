@@ -283,7 +283,7 @@
                                 <div class="col-sm-3">
                                     <div align="left">
                                         <input type="radio" name="teacher_sex" value="1">男教员
-                                        <input type="radio" name="teacher_sex" value="0">女教员
+                                        <input type="radio" name="teacher_sex" value="2">女教员
                                         <input type="radio" name="teacher_sex" value="3">男女均可
                                     </div>
                                 </div>
