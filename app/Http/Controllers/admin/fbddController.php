@@ -26,7 +26,7 @@ class fbddController extends Controller
         $input['sk_times'] = $sk_times;
         $input['time'] = time();
          //$input['money2'] = $request->input('money');
-        dd($input);
+        //dd($input);
         //$re = DB::table('jjw_order')->where('id',$oid)->update($input);
         $data = DB::table('jjw_order')->insert($input);
         return redirect('/admin/xsdd');
