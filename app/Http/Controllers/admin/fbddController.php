@@ -21,7 +21,8 @@ class fbddController extends Controller
         $input = $request->except(['_token','provice','oid','fdlx','chi','shi','teacher_info','sk_times1','sk_times2','sk_times3','sk_times4','sk_times5','sk_times6','sk_times7','sk_times8','sk_times9','sk_times10','sk_times11','sk_times12','sk_times13','sk_times14','sk_times15','sk_times16','sk_times17','sk_times18','sk_times19','sk_times20','sk_times21','sk_times22']);
         $input['o_ts2'] = $request->input('o_ts');
         $input['o_xs2'] = $request->input('o_xs');
-        //$input['money2'] = $request->input('money');
+        $input['time'] = time();
+         //$input['money2'] = $request->input('money');
         //dd($input);
         //$re = DB::table('jjw_order')->where('id',$oid)->update($input);
         $data = DB::table('jjw_order')->insert($input);

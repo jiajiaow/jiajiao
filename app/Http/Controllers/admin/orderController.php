@@ -16,7 +16,7 @@ class orderController extends Controller
             ->join('jjw_reorder as r','r.oid','=','order.id')
             ->select('order.*','u.*','r.add','r.sk_times as rsk_times','jjw_position_city.fz_jzxxf','jjw_position_city.city_name','jjw_position_city.fz_vip','jjw_position_city.fz_qyjyfy','jjw_position_city.bfb1','jjw_position_city.bfb2','jjw_position_city.bfb3','jjw_position_city.bfb4','jjw_position_city.bfb5','jjw_position_city.bfb6','jjw_position_city.bfb7')
             ->where('user_reboot','1')
-            ->orderBy('order.time', 'desc')
+            ->orderBy('order.id', 'desc')
             ->paginate(10);
             //dd($data);
         return view('admin.order',['data' => $data]);
