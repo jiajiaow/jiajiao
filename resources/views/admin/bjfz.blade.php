@@ -26,15 +26,16 @@
             <div class="col-sm-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>修改分站信息:&nbsp;&nbsp;{{ $list->title }}&nbsp;分站</h5>
+                        <h5>修改分站</h5>
                     </div>
                     <div class="ibox-content">
                         <form method="post" action="{{ asset('/admin/dobjfz') }}" class="form-horizontal" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                        <input type="hidden" name="id" value="{{ $list->city_id }}"/>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">网站名称</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="title" value="{{ $list->title }}" class="form-control">
+                                    <input type="text" name="title" value="{{ $list->title }}" placeholder="请输入网站名：例：XXX家教网" class="form-control">
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
@@ -42,39 +43,142 @@
                                 <label class="col-sm-2 control-label">联系电话</label>
 
                                 <div class="col-sm-10">
-                                    <input type="text" name="phone" value="{{ $list->phone }}" class="form-control" >
+                                    <input type="text" name="phone" value="{{ $list->phone }}" placeholder="请输入联系电话：例：4008-000-000" class="form-control" >
                                 </div>
                             </div>
+                            {{--<div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">URL</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="url" placeholder="请输入网站名：例：http://www.baidu.com" class="form-control" >
+                                </div>
+                            </div>--}}
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">前缀</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="prefix" value="{{ $list->prefix }}" class="form-control" >
-                                    <input type="hidden" name="id" value="{{ $list->id }}" class="form-control" >
+                                    <input type="text" name="prefix" value="{{ $list->prefix }}" placeholder="请输入前缀：例：广州 -> gz , 深圳 -> sz" class="form-control" >
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">是否起用</label>
-
+                                <label class="col-sm-2 control-label">家长费用</label>
                                 <div class="col-sm-10">
-                                    <label class="checkbox-inline i-checks">
-                                        <input type="radio" name="state" value="1" checked="checked">是</label>
-                                    <label class="checkbox-inline i-checks">
-                                        <input type="radio" name="state" value="2">否</label>
+                                    <input type="text" name="fz_jzxxf" value="{{ $list->fz_jzxxf }}" placeholder="请输入费用：如(30)" class="form-control" >
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">分站地区</label>
-
+                                <label class="col-sm-2 control-label">签约教员定金</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control m-b" id="cid"  name='provice'>
-                                        <option>--请选择--</option>
-                                    </select>
+                                    <input type="text" name="fz_qyjyfy" value="{{ $list->fz_qyjyfy }}" placeholder="请输入费用：如(30)" class="form-control" >
                                 </div>
                             </div>
-                            {{--<input type="hidden" name="id" vlaue="{{ $list->id }}">--}}
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">信息费百分比1</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="bfb1" value="{{ $list->bfb1 }}" placeholder="请输入百分比：1 0.9 0.8" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">信息费百分比2</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="bfb2" value="{{ $list->bfb2 }}" placeholder="请输入百分比：1 0.9 0.8" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">信息费百分比3</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="bfb3" value="{{ $list->bfb3 }}" placeholder="请输入百分比：1 0.9 0.8" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">信息费百分比4</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="bfb4" value="{{ $list->bfb4 }}" placeholder="请输入百分比：1 0.9 0.8" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">信息费百分比5</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="bfb5" value="{{ $list->bfb5 }}" placeholder="请输入百分比：1 0.9 0.8" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">信息费百分比6</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="bfb6" value="{{ $list->bfb6 }}" placeholder="请输入百分比：1 0.9 0.8" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">信息费百分比7</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="bfb7" value="{{ $list->bfb7 }}" placeholder="请输入百分比：1 0.9 0.8" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">是否开起辅导内容</label>
+                                <div class="col-sm-10">
+                                    <label class="checkbox-inline i-checks">
+                                        <input type="radio" name="fz_vip" value="1" @if($list->fz_vip == '1') checked="checked" @endif>是</label>
+                                    <label class="checkbox-inline i-checks">
+                                        <input type="radio" name="fz_vip" value="2" @if($list->fz_vip == '2') checked="checked" @endif>否</label>
+                                    <label class="checkbox-inline i-checks">
+                                        <input type="radio" name="fz_vip" value="2" @if($list->fz_vip == '3') checked="checked" @endif>审核开起</label>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">文章头</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="fz_hade" value="{{ $list->fz_hade }}">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">文章尾</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="fz_footer" value="{{ $list->fz_footer }}">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">微信二维码</label>
+                                <div class="col-sm-10">
+                                    <input type="file" name="fz_wx" >
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">qq号</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="fz_qqhao" value="{{ $list->fz_qqhao }}">
+                                </div>
+                            </div>
+                                                        <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">微信号</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="fz_wxhao" value="{{ $list->fz_wxhao }}">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">QQ二维码</label>
+                                <div class="col-sm-10">
+                                    <input type="file" name="fz_qq" >
+                                </div>
+                            </div>
+                           {{-- <div class="form-group">
+                                <label class="col-sm-2 control-label">LOGO</label>
+
+                                <div class="col-sm-10">
+                                    <input type="file" name="file"  class="btn btn-default">
+                                </div>
+                            </div>--}}
+
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <div class="col-sm-4 col-sm-offset-2">
@@ -97,65 +201,6 @@
 
     <!-- iCheck -->
     <script src="js/plugins/iCheck/icheck.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('.i-checks').iCheck({
-                checkboxClass: 'icheckbox_square-green',
-                radioClass: 'iradio_square-green',
-            });
-        });
-    </script>
-    <script type="text/javascript">
-    //例：北京市
-        $.ajax({
-            url:'/admin/sheng',              //请求地址
-            type:'post',                //请求方式
-            async:true,                 //是否异步
-            success:function(data){     //成功回调函数
-                console.log(data);
-                for (var i = 0; i < data.length; i++) {
-                    $('#cid').append("<option value='"+data[i].provice_id+"'>"+data[i].provice_name+"</option>");
-                };
-            },
-            error:function(){
-                alert('ajax请求失败');  //失败回调
-            }
-        });
-
-    //例：北京市 - 市辖区（市辖县）
-
-        $("#cid").change(function(){
-            $(this).nextAll("select").remove();
-            var ob = $(this);
-            //alert(ob.val());
-            $.ajax({
-                url:'/admin/xian',              //请求地址
-                type:'post',                //请求方式
-                async:true,                 //是否异步
-                data:{pid:($(this).val())}, //发送的数据
-                dataType:'json',            //响应的数据类型
-                success:function(data){     //成功回调函数
-                    console.log(data);
-                    if(data.length>0){
-                        var select = $("<select id='city' class='form-control m-b' name='city'><option>--请选择--</option></select>")
-                        for (var i = 0; i < data.length; i++) {
-                            $(select).append("<option value='"+data[i].city_id+"'>"+data[i].city_name+"</option>");
-                        };
-                        ob.after(select);
-                    }
-                },
-                error:function(){
-                    alert('ajax请求失败');  //失败回调
-                }
-            });
-        });
-        @if(session("msg"))
-         layer.alert('{{session("msg")}}',{icon: 5,time:2000});
-        @endif
-    </script>
-
-
-
 </body>
 
 </html>
