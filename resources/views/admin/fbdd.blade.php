@@ -136,7 +136,12 @@
                                     </select>
                                 </div>
                             </div>
-
+                            <div class="form-group">
+                               <label class="col-sm-2 ">学员概况：</label>
+                                <div class="col-sm-2">
+                                    <textarea name="user_situation"></textarea>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="col-sm-2 ">学员性别：</label>
                                 <div class="col-sm-2">
