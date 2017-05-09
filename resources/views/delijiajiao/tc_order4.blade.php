@@ -184,7 +184,7 @@
                             <div class="right datep">
                                 <span style="font-size: 12px;">{{ $skzs->sk_times }}</span>
                                 <form action="/sktimes.html" method="post" style="display: inline-block">
-                                    <input class="datainp" id="dateinfo" name="sj" placeholder="请选择" readonly="" type="text">
+                                    <input class="datainp" id="dateinfo{{ $skzs->id }}" name="sj" placeholder="请选择" readonly="" type="text">
                                     <input type="hidden" name="oid" id="o" value="{{ $skzs->id }}">
                                     <input type="hidden" name="rid" id="r" value="{{ $skzs->rid }}">
                                     <input type="hidden" name="tc_id" value="{{ $skzs->tc_id }}">
@@ -208,7 +208,7 @@
                             </div>
                             <script type="text/javascript">
                                 jeDate({
-                                    dateCell:"#dateinfo",
+                                    dateCell:"#dateinfo{{ $skzs->id }}",
                                     format:"YYYY年MM月DD日 hh:mm:ss",
                                     isinitVal:true,
                                     isTime:true, //isClear:false,
@@ -475,20 +475,20 @@
                                         </p>
                                     </li>
                                     <li>是否试课
-                                        <select id="ok_no" name="sfsk">
+                                        <select id="ok_no{{ $skzs->id }}" name="sfsk">
                                             <option value="已试课">已试课</option>
                                             <option value="尚未试课">尚未试课</option>
                                         </select>
                                     </li>
                                     <li>不成功类型
-                                        <select id="renyuan" name="nocglx">
+                                        <select id="renyuan{{ $skzs->id }}" name="nocglx">
                                             <option value="家长原因">家长原因</option>
                                             <option value="教员原因">教员原因</option>
                                         </select>
                                     </li>
                                     <li>
                                         <p>原因
-                                            <select id="no_xueyuan" style="display:none; width:360px;" name="yuanyin" >
+                                            <select id="no_xueyuan{{ $skzs->id }}" style="display:none; width:360px;" name="yuanyin" >
                                                 <option value="家长已经找到老师了">家长已经找到老师了</option>
                                                 <option value="家长还是选择了去上辅导班（未试课）">家长还是选择了去上辅导班（未试课）</option>
                                                 <option value="家长临时不要而未能试课">家长临时不要而未能试课</option>
@@ -501,19 +501,19 @@
                                                 <option value="家长想换个更好学校或者更合适专业的老师（未试课）">家长想换个更好学校或者更合适专业的老师（未试课）</option>
                                                 <option value="家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）">家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）</option>
                                             </select>
-                                            <select id="ok_xueyuan" style="display:none;width:360px;" name="yuanyin">
+                                            <select id="ok_xueyuan{{ $skzs->id }}" style="display:none;width:360px;" name="yuanyin">
                                                 <option value="学员暂时不太适应家教试课不成功">学员暂时不太适应家教试课不成功</option>
                                                 <option value="家长还是选择了去上辅导班（已试课）">家长还是选择了去上辅导班（已试课）</option>
                                                 <option value="家长试课后想换个更好学校或者更合适专业的老师（已试课）">家长试课后想换个更好学校或者更合适专业的老师（已试课）</option>
                                                 <option value="家长想换个专职老师/或者原来是专职老师，想试试大学生（已试课）">家长想换个专职老师/或者原来是专职老师，想试试大学生（已试课）</option>
                                                 <option value="家长试课后家长想换个性别（男/女）的老师（已试课）">家长试课后家长想换个性别（男/女）的老师（已试课）</option>
                                             </select>
-                                            <select id="no_jiaoyuan" style="display:none;width:360px;" name="yuanyin">
+                                            <select id="no_jiaoyuan{{ $skzs->id }}" style="display:none;width:360px;" name="yuanyin">
                                                 <option value="教员个人原因去不了试课">教员个人原因去不了试课</option>
                                                 <option value="学员的要求较高，教员无法胜任">学员的要求较高，教员无法胜任</option>
                                             </select>
 
-                                            <select id="ok_jiaoyuan" style="display:none;width:360px;" name="yuanyin">
+                                            <select id="ok_jiaoyuan{{ $skzs->id }}" style="display:none;width:360px;" name="yuanyin">
                                                 <option value="教员个人原因以后没法上课">教员个人原因以后没法上课</option>
                                                 <option value="教员迟到、上课时玩手机、一直在提钱、态度不好">教员迟到、上课时玩手机、一直在提钱、态度不好</option>
                                                 <option value="教员不认真备课和准备，对孩子不负责">教员不认真备课和准备，对孩子不负责</option>
@@ -534,16 +534,86 @@
                                     <li>
                                         <p>
                                             @if($skzs->jy_qz =='1')
+                                                @if($skzs->tk_type == null)
                                                     <button style="margin-left: 110px;" type="submit" >申请退款</button>
+                                                @else
+                                                    <span style="margin-left: 110px;" onclick="layer.alert('您已经提交过申请了!')" >申请退款</span>
+                                                @endif
                                             @else
-                                                <button style="margin-left: 110px;" type="submit" >申请退款</button>
-
-                                            @endif<span class="seeMar">{{--<button>申请诚意金解锁</button>--}}</span><span><span style="padding: 0 13px;"  class="qxBtn">取消</span></span></p>
+                                                @if($skzs->tk_type !='')
+                                                    <span style="margin-left: 110px;" onclick="layer.alert('请您先确认合同!')" >申请退款</span>
+                                                @else
+                                                    <span style="margin-left: 110px;" onclick="layer.alert('1您已经提交过申请了!')" >申请退款</span>
+                                                @endif
+                                            @endif<span class="seeMar">{{--<button>申请诚意金解锁</button>--}}</span><span><span style="padding: 0 13px;"  class="qxBtn">取消</span></span>
+                                        </p>
                                     </li>
                                 </ul>
                             </div>
                         </form>
                     </div>
+
+
+                    <script>
+                        $('#ok_no{{ $skzs->id }}' ).change(function(){
+                            var ok_no = $('#ok_no{{ $skzs->id }} option:selected').val()
+                            var renyuan =$('#renyuan{{ $skzs->id }} option:selected').val()
+                            if(renyuan == '家长原因' & ok_no == '已试课'){
+                                $('#ok_xueyuan{{ $skzs->id }}').show()
+                                $('#ok_jiaoyuan{{ $skzs->id }}').hide()
+                                $('#no_jiaoyuan{{ $skzs->id }}').hide()
+                                $('#no_xueyuan{{ $skzs->id }}').hide()
+                            }
+                            if(renyuan == '家长原因' & ok_no == '尚未试课'){
+                                $('#ok_xueyuan{{ $skzs->id }}').hide()
+                                $('#ok_jiaoyuan{{ $skzs->id }}').hide()
+                                $('#no_jiaoyuan{{ $skzs->id }}').hide()
+                                $('#no_xueyuan{{ $skzs->id }}').show()
+                            }
+                            if(renyuan == '教员原因' & ok_no == '已试课'){
+                                $('#ok_xueyuan{{ $skzs->id }}').hide()
+                                $('#ok_jiaoyuan{{ $skzs->id }}').show()
+                                $('#no_jiaoyuan{{ $skzs->id }}').hide()
+                                $('#no_xueyuan{{ $skzs->id }}').hide()
+                            }
+                            if(renyuan == '教员原因' & ok_no == '尚未试课'){
+                                $('#ok_xueyuan{{ $skzs->id }}').hide()
+                                $('#ok_jiaoyuan{{ $skzs->id }}').hide()
+                                $('#no_jiaoyuan{{ $skzs->id }}').show()
+                                $('#no_xueyuan{{ $skzs->id }}').hide()
+                            }
+                        })
+                        $('#renyuan{{ $skzs->id }}').change(function(){
+                            var ok_no = $('#ok_no{{ $skzs->id }} option:selected').val()
+                            var renyuan =$('#renyuan{{ $skzs->id }} option:selected').val()
+                            if(renyuan == '家长原因' & ok_no == '已试课'){
+                                $('#ok_xueyuan{{ $skzs->id }}').show()
+                                $('#ok_jiaoyuan{{ $skzs->id }}').hide()
+                                $('#no_jiaoyuan{{ $skzs->id }}').hide()
+                                $('#no_xueyuan{{ $skzs->id }}').hide()
+                            }
+                            if(renyuan == '家长原因' & ok_no == '尚未试课'){
+                                $('#ok_xueyuan{{ $skzs->id }}').hide()
+                                $('#ok_jiaoyuan{{ $skzs->id }}').hide()
+                                $('#no_jiaoyuan{{ $skzs->id }}').hide()
+                                $('#no_xueyuan{{ $skzs->id }}').show()
+                            }
+                            if(renyuan == '教员原因' & ok_no == '已试课'){
+                                $('#ok_xueyuan{{ $skzs->id }}').hide()
+                                $('#ok_jiaoyuan{{ $skzs->id }}').show()
+                                $('#no_jiaoyuan{{ $skzs->id }}').hide()
+                                $('#no_xueyuan{{ $skzs->id }}').hide()
+                            }
+                            if(renyuan == '教员原因' & ok_no == '尚未试课'){
+                                $('#ok_xueyuan{{ $skzs->id }}').hide()
+                                $('#ok_jiaoyuan{{ $skzs->id }}').hide()
+                                $('#no_jiaoyuan{{ $skzs->id }}').show()
+                                $('#no_xueyuan{{ $skzs->id }}').hide()
+                            }
+                        })
+                    </script>
+
+
                     @endforeach
                             <!--  -->
             </div>
@@ -673,62 +743,7 @@
 
     })
 
-    $('#ok_no').change(function(){
-        var ok_no = $('#ok_no option:selected').val()
-        var renyuan =$('#renyuan option:selected').val()
-        if(renyuan == '家长原因' & ok_no == '已试课'){
-            $('#ok_xueyuan').show()
-            $('#ok_jiaoyuan').hide()
-            $('#no_jiaoyuan').hide()
-            $('#no_xueyuan').hide()
-        }
-        if(renyuan == '家长原因' & ok_no == '尚未试课'){
-            $('#ok_xueyuan').hide()
-            $('#ok_jiaoyuan').hide()
-            $('#no_jiaoyuan').hide()
-            $('#no_xueyuan').show()
-        }
-        if(renyuan == '教员原因' & ok_no == '已试课'){
-            $('#ok_xueyuan').hide()
-            $('#ok_jiaoyuan').show()
-            $('#no_jiaoyuan').hide()
-            $('#no_xueyuan').hide()
-        }
-        if(renyuan == '教员原因' & ok_no == '尚未试课'){
-            $('#ok_xueyuan').hide()
-            $('#ok_jiaoyuan').hide()
-            $('#no_jiaoyuan').show()
-            $('#no_xueyuan').hide()
-        }
-    })
-    $('#renyuan').change(function(){
-        var ok_no = $('#ok_no option:selected').val()
-        var renyuan =$('#renyuan option:selected').val()
-        if(renyuan == '家长原因' & ok_no == '已试课'){
-            $('#ok_xueyuan').show()
-            $('#ok_jiaoyuan').hide()
-            $('#no_jiaoyuan').hide()
-            $('#no_xueyuan').hide()
-        }
-        if(renyuan == '家长原因' & ok_no == '尚未试课'){
-            $('#ok_xueyuan').hide()
-            $('#ok_jiaoyuan').hide()
-            $('#no_jiaoyuan').hide()
-            $('#no_xueyuan').show()
-        }
-        if(renyuan == '教员原因' & ok_no == '已试课'){
-            $('#ok_xueyuan').hide()
-            $('#ok_jiaoyuan').show()
-            $('#no_jiaoyuan').hide()
-            $('#no_xueyuan').hide()
-        }
-        if(renyuan == '教员原因' & ok_no == '尚未试课'){
-            $('#ok_xueyuan').hide()
-            $('#ok_jiaoyuan').hide()
-            $('#no_jiaoyuan').show()
-            $('#no_xueyuan').hide()
-        }
-    })
+
 
     $('.timeShow').click(function(){
         $('.fc').show(500)

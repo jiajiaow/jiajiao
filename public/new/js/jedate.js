@@ -311,9 +311,9 @@
         //方位辨别
         orien:function(obj, self, pos) {
             var tops, rect = self.getBoundingClientRect();
-            obj.style.left = rect.left + (pos ? 0 :jeDt.scroll(1)) + "px";
+            obj.style.left = 900 +'px';
 
-            obj.style.top =  "500px";
+            obj.style.top = document.body.scrollTop +'px'
         },
         getDateStr:function(y, m, d) {
             var that = this, opts = that.config, dayStr = "", m = jeDt.digit(m);

@@ -22,7 +22,7 @@ class indexController extends Controller{
             //热门地区 1为热门,查6条
             $dq = DB::table('jjw_position_county')->where('city_id',session('regionid'))->where('hot',1)->limit(6)->get();
             //金牌 专职 学生
-            $jy = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_sort','1')->orderBy('tc_dltimes','DESC')->get();
+            $jy = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_sort','1')->orderBy('tc_dltimes','DESC')->limit(25)->get();
             //dd($jy);
             //最新学生订单
             $data = DB::table('jjw_order')->where('city_id',session('regionid'))->limit(6)->orderBy('id', 'DESC')->orderBy('time', 'DESC')->get();

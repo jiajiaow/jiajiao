@@ -144,7 +144,7 @@
                 <div class="right">
                     <div class="bk zqm">
                         <div class="left">订单编号</div>
-                        <div class="right">{{ $yaps->id }}<a href="/xsinfo{{ $yaps->id }}.html" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
+                        <div class="right"><span class="home_id">{{ $yaps->id }}</span><a href="/xsinfo{{ $yaps->id }}.html" target="_blank"><font color="#FF0000">(查看订单详情)</font></a></div>
                     </div>
                     <div class="bk">
                         <div class="left">订单类型</div>
@@ -226,19 +226,19 @@
                                     <button type="submit" style="border: none;height: 30px;line-height: 30px;border-radius: 2px;background: #fff0;">取消预约</button>
                                 </form>
                         </a>|
-                        <a style=";" href="javascript:;" onclick="cyjs()">
-                                <form action="/cyj.html" method="post" id="cyj" style="display: inline-block;">
+                        <a style=";" href="javascript:;" onclick="cyjs({{ $yaps->id }})">
+                                <form action="/cyj.html" method="post" id="cyj{{ $yaps->id }}" style="display: inline-block;">
                                     <a style="" href="javascript:;" onclick="cyj({{ $yaps->id }})">
-                                            <input type="hidden" name="order_id" value="{{ $yaps->id }}">
-                                            <input type="hidden" name="rid" value="{{ $yaps->rid }}">
-                                            <input type="hidden" name="xxf" value="@if($yaps->o_ts == '1'){{ $q*$yaps->bfb1>300?'300':$q*$yaps->bfb1 }}@elseif($yaps->o_ts == '2'){{ $q*$yaps->bfb2>300?'300':$q*$yaps->bfb2 }}@elseif($yaps->o_ts == '3'){{ $q*$yaps->bfb3>300?'300':$q*$yaps->bfb3 }}@elseif($yaps->o_ts == '4'){{ $q*$yaps->bfb4>300?'300':$q*$yaps->bfb4 }}@elseif($yaps->o_ts == '5'){{ $q*$yaps->bfb5>300?'300':$q*$yaps->bfb5 }}@elseif($yaps->o_ts == '6'){{ $q*$yaps->bfb6>300?'300':$q*$yaps->bfb6 }}@elseif($yaps->o_ts == '7'){{ $q*$yaps->bfb7>300?'300':$q*$yaps->bfb7 }}@endif">
+                                            <input type="hidden" name="order_id2" value="{{ $yaps->id }}">
+                                            <input type="hidden" name="rid2" value="{{ $yaps->rid }}">
+                                            <input type="hidden" name="cyj2" value="">
                                                 支付诚意金优先获取订单
                                     </a>|
                                 </form>
                           </a>
                         <a>
                             @if($yaps->ht_t_status =='3')
-                                <form action="/xxf.html" method="post" id="xxf" style="display: inline-block;">
+                                <form action="/xxf.html" method="post" id="xxf{{ $yaps->id }}" style="display: inline-block;">
                                          <a style="margin-left: 60px;margin-right: 60px;" href="javascript:;" onclick="qr({{ $yaps->id }})">
                                             <input type="hidden" name="order_id" value="{{ $yaps->id }}">
                                             <input type="hidden" name="rid" value="{{ $yaps->rid }}">
@@ -288,11 +288,11 @@
     <script type="text/javascript" src="{{ asset('/layer/layer.js') }}"></script>
 </body>
     <script>
-        function cyj(){
+        function cyj(oid){
             layer.confirm('如你确认本单各方面均合适，支付诚意金（一般为50元，你也可根据意愿程度进行修改），我方将优先安排。如本单未选中你，锁定的诚意金将实时退回你的账户余额（2天为限，如我们仍未能在已预约教员中挑选出学员满意的教员，诚意金也将退回），诚意金随时可进行提现，提现金额将于24小时内收到。如挑选你接单，但你因个人原因无法接单，将对我方和家长及学员均造成不良影响，诚意金将无法退回。', {
                 btn: ['确定','取消'] //按钮
             }, function(){
-                document.getElementById("cyj").submit();
+                document.getElementById("cyj"+oid).submit();
             }, function(){
 
             });
@@ -306,7 +306,7 @@
                 $.post("/tc_top_ups.html",{'oid':oid,'money':money},function(result){
                     window.location.href='/tc_top_ups.html';
                 });*/
-                document.getElementById("xxf").submit();
+                document.getElementById("xxf"+oid).submit();
             }, function(){
 
             });
