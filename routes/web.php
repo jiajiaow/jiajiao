@@ -310,7 +310,7 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::get('/xnjy','admin\xnController@xnjy');
     //发布订单
     Route::get('/fbdd','admin\fbddController@index');
-    //出来发布订单
+    //处理发布订单
     Route::post('/fbdddo','admin\fbddController@formdo');
     //热门    大学
     Route::get('/hot_school/{m?}','admin\hotController@school');
