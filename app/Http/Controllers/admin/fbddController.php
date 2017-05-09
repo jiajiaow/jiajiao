@@ -25,6 +25,6 @@ class fbddController extends Controller
         //dd($input);
         //$re = DB::table('jjw_order')->where('id',$oid)->update($input);
         $data = DB::table('jjw_order')->insert($input);
-        dd($data);
+        return redirect('/admin/xsdd');
     }
 }
