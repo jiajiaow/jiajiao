@@ -121,6 +121,7 @@
 							<input readonly="readonly" type="hidden" class="d-jine" name="order_id" value="{{ $data['order_id2'] }}">
 							<input readonly="readonly" type="hidden" class="d-jine" name="cyj" value="1">
 							<input readonly="readonly" type="hidden" class="d-jine" name="r_id" value="{{ $data['rid2'] }}">
+							<input readonly="readonly" type="hidden" class="d-jine" name="tid" value="{{ $data['tid2'] }}">
 							<select class="d-jine" name="money">
 								<option value="0.01">0.01元</option>
 								<option value="50">50元</option>

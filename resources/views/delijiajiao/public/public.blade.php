@@ -159,7 +159,7 @@ for(i=0; i <tabList.length; i++)
     <div class="toolbar">
      <div class="toolbar-link">
 家教上门联系电话：☎
-        {{ session('phone') }}
+        400-8250-710
      </div>
      <ul id="user-tools" class="navbar-nav" style="height: 36px">
          @if(session('dlzt') == 2 )
@@ -196,7 +196,7 @@ for(i=0; i <tabList.length; i++)
     <div class="location">
      <div class="breadcrumb" style="margin-bottom: 0px;background-color: #fff;padding: 0px" id="icon-top">
       <h1><a a href='/' class='primary-logo' ><img alt="广州" src="/delijiajiao/picture/guangzhou.png" class="city-logo" /></a></h1>
-      <span class="listing-slogan" style="height:40px;">{{ session('regionname') }}</span>
+      <span class="listing-slogan" style="height:40px;">{{ substr(session('cityname'),0,6) }}家教中心</span>
          <span class="listing-slogan1" style="height: 26px;">【德栗家教】【高校联盟】</span><a href="/change_city.html">更多城市</a>
      </div>
      <div class="pull-right">

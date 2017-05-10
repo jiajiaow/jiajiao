@@ -369,5 +369,9 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::post('/tdye.html','admin\jytkController@tdye');
     //添加商品
     Route::get('/tjsp','admin\goodsController@index');
+
+    //教员收支流水
+    Route::get('/jyszls','admin\caiwuController@jyszls');
+
 });
 //----------后台END----------//
