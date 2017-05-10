@@ -82,6 +82,7 @@ class jytkController extends Controller
                         'm_time'=>time(),
                         'm_mtype'=>'成功减少课酬',
                         'm_zfortk'=>'2',
+                        'm_type'=>'3',
                     ]);
                     return "y";
                 }else{
@@ -121,6 +122,7 @@ class jytkController extends Controller
                            'm_time'=>time(),
                            'm_mtype'=>'试课不成功',
                            'm_zfortk'=>'2',
+                           'm_type'=>'3',
                        ]);
                     return "y";
                 }else{
@@ -160,6 +162,7 @@ class jytkController extends Controller
                         'm_time'=>time(),
                         'm_mtype'=>'提前结束课程',
                         'm_zfortk'=>'2',
+                        'm_type'=>'3',
                     ]);
                     return "y";
                 }else{
