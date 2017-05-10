@@ -21,30 +21,46 @@ class paysController extends Controller
 //                echo "<pre>";
 //                var_dump($data);
 //                echo "</pre>";
-//                echo "<hr>";
+//               echo "<hr>";
 //                dd($data);
                 $li = \DB::table('jjw_reorder')->where('id',$_POST['rid'])->pluck('oid');
+//                echo "<pre>";
+//                var_dump($li);
+//                echo "</pre>";
+//                echo "<hr>";
                 $list = \DB::table('jjw_reorder')->where('oid',$li[0])->pluck('id');
+//                echo "<pre>";
+//                var_dump($list);
+//                echo "</pre>";
+//                echo "<hr>";
                 //循环list  存入num
                 for($i=0;$i<count($list);$i++){
                     if($list[$i] != $data['rid']){
                         $num[] =  $list[$i];
                     }
                 }
+                //dd($num);
                 //别的教员
                 session(['bdjy' => $num]);
-//                $nums = session('bdjy');
-//                for($i=0;$i<count($nums);$i++) {
-//                        $arr[$i] = $num[$i];
-//                    if($arr[$i] == $num[$i]){
-//                       $brjyjl = \DB::table('jjw_reorder')->where('id',$arr[$i])->update(['qt_t_status'=>'2']);
-//                        if($brjyjl){
-//                            session()->forget("bdjy");
-//                        }
-//                    }
-//                }
+                //$nums = session('bdjy');
+                //dd($nums);
+               //echo count($nums);
+                //for($i=0;$i<count($nums);$i++) {
+                        //$arr[$i] = $nums[$i];
+                    //if($nums[$i] == $list[$i]){
+                        //echo $nums[$i];
+                       //$brjyjl = \DB::table('jjw_reorder')->where('id',$nums[$i])->update(['qt_t_status'=>'2']);
+                        //echo $nums[$i];
+                        //if($brjyjl){
+                          // session()->forget("bdjy");
+                       // }
+                  // }
+               // }
+               // die;
                 return view('delijiajiao.xxf',['data'=>$data]);
             }else{
+               // die;
+                session()->forget("bdjy");
                 return view('delijiajiao.xxf',['data'=>$data]);
             }
 
@@ -54,6 +70,7 @@ class paysController extends Controller
     public function cyj(Request $request){
         $data = $request->all();
         //dd($_POST);
+        session()->forget("bdjy");
         return view('delijiajiao.cyj',['data'=>$data]);
     }
 
