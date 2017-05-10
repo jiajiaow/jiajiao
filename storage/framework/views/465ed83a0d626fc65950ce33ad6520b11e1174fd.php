@@ -542,7 +542,7 @@
                                     <li>
                                         <p>
                                             <?php if($skzs->jy_qz =='1'): ?>
-                                                <?php if($skzs->tk_type == '6' || $skzs->tk_type == ''): ?>
+                                                <?php if($skzs->tk_type == '6' || $skzs->tk_type == '' || $skzs->tk_type == '3'): ?>
                                                     <button style="margin-left: 110px;" type="submit" >申请退款</button>
                                                 <?php else: ?>
                                                     <span style="margin-left: 110px;" onclick="layer.alert('您已经提交过申请了!')" >申请退款</span>
