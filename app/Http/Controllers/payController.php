@@ -41,12 +41,18 @@ class payController extends Controller
                 //将没被选中的教员改为未选中
                 $li = \DB::table('jjw_reorder')->where('pay_id',$oid)->pluck('oid');
                 $list = \DB::table('jjw_reorder')->where('oid',$li[0])->pluck('id');
+                    //循环list  存入num
+                    for($i=0;$i<count($list);$i++){
+                        if($list[$i] != $data['rid']){
+                            $num[] =  $list[$i];
+                        }
+                    }
                     //别的教员
-                    //session(['bdjy' => $num]);
-                    $nums = session('bdjy');
+                    session(['bdjy' => $num]);
+                     $nums = session('bdjy');
                     for($i=0;$i<count($nums);$i++) {
-                        $arr[$i] = $nums[$i];
-                        if($arr[$i] == $nums[$i]){
+                        $arr[$i] = $num[$i];
+                        if($arr[$i] == $num[$i]){
                             $brjyjl = \DB::table('jjw_reorder')->where('id',$arr[$i])->update(['qt_t_status'=>'2']);
                             if($brjyjl){
                                 session()->forget("bdjy");
