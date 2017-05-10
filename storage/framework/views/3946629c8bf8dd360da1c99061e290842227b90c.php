@@ -54,8 +54,8 @@
                                 <tr>
                                   <th>流水编号</th>
                                   <th>用户城市</th>
-                                  <th>用户编码</th>
-                                  <th>用户姓名</th>
+                                  <th>教员编码</th>
+                                  <th>教员姓名</th>
                                   <th>类型</th>
                                   <th>收支性质</th>
                                   <th>金额</th>
@@ -73,27 +73,41 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php $__currentLoopData = $list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $l): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr class="gradeX">
-                                  <td><a href="">2003333</a></td>
+                                  <td><?php echo e($l->mid); ?></td>
+                                  <td><?php echo e($l->city_name); ?></td>
+                                  <td><?php echo e($l->tid); ?></td>
+                                  <td><?php echo e($l->tc_name); ?></td>
+                                  <td><?php echo e($l->m_type=='3'?'支出':'收入'); ?></td>
+                                  <td><?php echo e($l->m_mtype); ?></td>
+                                  <td><?php if($l->m_type=='3'): ?>
+                                          -<?php echo e($l->m_pay_money); ?>
+
+                                        <?php else: ?>
+                                          <?php echo e($l->m_pay_money); ?>
+
+                                      <?php endif; ?>
+                                  </td>
+                                  <td><?php echo e(date('Y-m-d h:i:s',$l->m_time)); ?></td>
+                                  <td><?php echo e($l->id); ?></td>
                                   <td></td>
                                   <td></td>
+                                  <td><?php echo e($l->id); ?></td>
+                                  <td><?php echo e($l->user_name); ?></td>
+                                  <td>
+                                      <?php if(substr($l->m_mtype,0,6)== '支付'): ?>
+                                          支付宝
+                                          <?php elseif(substr($l->m_mtype,0,6)== '微信'): ?>
+                                          微信
+                                      <?php endif; ?>
+                                  </td>
                                   <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td><a href="">1002323</a></td>
-                                  <td><a href="">5000109</a></td>
-                                  <td></td>
-                                  <td><a href="">3005423</a></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
+                                  <td><?php echo e($l->m_pay_id); ?></td>
                                   <td><input type="" name=""></td>
                                   <td><input type="" name=""></td>
                                 </tr>
-                               
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
                         </table>
 

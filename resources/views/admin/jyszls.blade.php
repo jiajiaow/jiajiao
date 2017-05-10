@@ -54,8 +54,8 @@
                                 <tr>
                                   <th>流水编号</th>
                                   <th>用户城市</th>
-                                  <th>用户编码</th>
-                                  <th>用户姓名</th>
+                                  <th>教员编码</th>
+                                  <th>教员姓名</th>
                                   <th>类型</th>
                                   <th>收支性质</th>
                                   <th>金额</th>
@@ -73,27 +73,39 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            @foreach($list as $l)
                                 <tr class="gradeX">
-                                  <td><a href="">2003333</a></td>
+                                  <td>{{ $l->mid }}</td>
+                                  <td>{{ $l->city_name }}</td>
+                                  <td>{{ $l->tid }}</td>
+                                  <td>{{ $l->tc_name }}</td>
+                                  <td>{{ $l->m_type=='3'?'支出':'收入' }}</td>
+                                  <td>{{ $l->m_mtype }}</td>
+                                  <td>@if($l->m_type=='3')
+                                          -{{ $l->m_pay_money }}
+                                        @else
+                                          {{ $l->m_pay_money }}
+                                      @endif
+                                  </td>
+                                  <td>{{ date('Y-m-d h:i:s',$l->m_time) }}</td>
+                                  <td>{{ $l->id }}</td>
                                   <td></td>
                                   <td></td>
+                                  <td>{{ $l->id }}</td>
+                                  <td>{{ $l->user_name }}</td>
+                                  <td>
+                                      @if(substr($l->m_mtype,0,6)== '支付')
+                                          支付宝
+                                          @elseif(substr($l->m_mtype,0,6)== '微信')
+                                          微信
+                                      @endif
+                                  </td>
                                   <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td><a href="">1002323</a></td>
-                                  <td><a href="">5000109</a></td>
-                                  <td></td>
-                                  <td><a href="">3005423</a></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
+                                  <td>{{ $l->m_pay_id }}</td>
                                   <td><input type="" name=""></td>
                                   <td><input type="" name=""></td>
                                 </tr>
-                               
+                            @endforeach
                             </tbody>
                         </table>
 

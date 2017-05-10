@@ -10,10 +10,13 @@ class caiwuController extends Controller
     public function jyszls(){
         $list = \DB::table('jjw_mpay as y')
             ->join('jjw_reorder as r', 'r.id', '=', 'y.m_rid')
+            ->join('jjw_teachers as t', 't.id', '=', 'r.tc_id')
             ->join('jjw_order as o', 'r.oid', '=', 'o.id')
-            ->select('y.*','o.*')
+            ->join('jjw_position_city as pc', 'pc.city_id', '=', 'o.city_id')
+            ->select('y.*','o.*','pc.city_name','t.id as tid','t.tc_name')
+            ->where('y.m_type','!=','0')
             ->get();
-        dd($list);
-        return view('admin.jyszls');
+       // dd($list);
+        return view('admin.jyszls',['list'=>$list]);
     }
 }

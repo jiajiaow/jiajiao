@@ -52,7 +52,7 @@
 					<span class="btn btn_3">签认按钮</span>
 					@endif
 				</p>
-				<p style="text-align: right">(自动生成日期)</p>
+				<p style="text-align: right">({{ date("Y-m-d",$list->hetong_time) }})</p>
 			</div>
 		</div>
 	</form>

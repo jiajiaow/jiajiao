@@ -17,6 +17,9 @@ class xsinfoController extends Controller
         DB::table('jjw_order')->where('id',$id)->update(['browsenu' => $un]);
         //预约人数
         $rs = DB::table('jjw_reorder')->where('oid',$id)->count();
-        return view('delijiajiao.xsinfo',['data' => $data,'nu' => $rs,'url' => $url]);
+        //相似订单
+        $list = \DB::table('jjw_order')->where('city_id', session('regionid'))->where('status', '0')->orderBy('id', 'desc')->get();
+            //dd($list);
+        return view('delijiajiao.xsinfo',['data' => $data,'nu' => $rs,'url' => $url,'list'=>$list]);
     }
 }
