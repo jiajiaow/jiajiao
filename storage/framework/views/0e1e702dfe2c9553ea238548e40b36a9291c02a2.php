@@ -62,6 +62,20 @@
        <a target="_blank" href="/reg.html" class="a_d_s_hidden_link adsense-image-link"><img class="a_d_s_img" src="/delijiajiao/picture/jyzc.png" /></a>
       </div>
      </div>
+        <div class="hezi" style="border: 1px solid #dddddd;">
+            <div style="padding-left: 20px;height: 60px;line-height: 60px;">
+                <img src="/delijiajiao/images/dingwei.png" alt="">
+                <label for=""><b>石家庄分站：</b></label>
+                <span style="margin-right: 6rem"><b>华师华工家教中心</b></span>
+                <img src="/delijiajiao/images/dianhua.png" alt="">
+                <label for=""><b>联系电话：</b></label>
+                <span style="color: red;margin-right: 7rem;"><b>135-8044-7199</b></span>
+                <img src="/delijiajiao/images/wechat1.png" alt="">
+                <label for=""><b>微信号：</b></label>
+                <span><b>delijiajiao</b></span>
+            </div>
+        </div>
+        
     <div class="meta-box">
         <div class="meta-welfares meta-block">
             <h3><i class="icon-area"></i>热门大学</h3>
