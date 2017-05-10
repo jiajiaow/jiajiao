@@ -45,22 +45,24 @@ class paysController extends Controller
                 //$nums = session('bdjy');
                 //dd($nums);
                //echo count($nums);
-                //for($i=0;$i<count($nums);$i++) {
-                        //$arr[$i] = $nums[$i];
-                    //if($nums[$i] == $list[$i]){
-                        //echo $nums[$i];
-                       //$brjyjl = \DB::table('jjw_reorder')->where('id',$nums[$i])->update(['qt_t_status'=>'2']);
-                        //echo $nums[$i];
-                        //if($brjyjl){
-                          // session()->forget("bdjy");
-                       // }
-                  // }
+                //for($is=0;$is<count($list);$is++) {
+                   // echo $list[$is];
+                    //for($i=0;$i<count($nums);$i++) {
+                            //$arr[$i] = $nums[$i];
+                        //if($nums[$i] == $list[$is]){
+                           // echo $nums[$i];
+                           //$brjyjl = \DB::table('jjw_reorder')->where('id',$nums[$i])->update(['qt_t_status'=>'2']);
+                            //echo $nums[$i];
+                            //if($brjyjl){
+                            //   session()->forget("bdjy");
+                           // }
+                       //}
+                    //}
                // }
                // die;
                 return view('delijiajiao.xxf',['data'=>$data]);
             }else{
                // die;
-                session()->forget("bdjy");
                 return view('delijiajiao.xxf',['data'=>$data]);
             }
 

@@ -39,19 +39,21 @@ class payController extends Controller
             //支付状态
             DB::table('jjw_mpay')->where('m_pay_id',$oid)->update(['m_type' =>'1']);
                 //将没被选中的教员改为未选中
-                //$li = \DB::table('jjw_reorder')->where('pay_id',$oid)->pluck('oid');
-                // $list = \DB::table('jjw_reorder')->where('oid',$li[0])->pluck('id');
+                $li = \DB::table('jjw_reorder')->where('pay_id',$oid)->pluck('oid');
+                $list = \DB::table('jjw_reorder')->where('oid',$li[0])->pluck('id');
+                    //session(['bdjy' => $num]);
                     $nums = session('bdjy');
-                    for($i=0;$i<count($nums);$i++) {
-                        //$arr[$i] = $nums[$i];
-                        //if($arr[$i] == $nums[$i]){
-                            $brjyjl = \DB::table('jjw_reorder')->where('id',$nums[$i])->update(['qt_t_status'=>'2']);
-                            if($brjyjl){
-                                session()->forget("bdjy");
+                    for($is=0;$is<count($list);$is++) {
+                        for ($i = 0; $i < count($nums); $i++) {
+                            //$arr[$i] = $nums[$i];
+                            if($nums[$i] == $list[$is]){
+                                $brjyjl = \DB::table('jjw_reorder')->where('id', $nums[$i])->update(['qt_t_status' => '2']);
+                                if ($brjyjl) {
+                                    session()->forget("bdjy");
+                                }
                             }
-                        //}
+                        }
                     }
-                    //END结束未选中
             //信息费状态 支付修改为成功 试课中
             DB::table('jjw_reorder')->where('pay_id',$oid)->update(['qt_t_status'=>'4','ht_t_status'=>'7','jd_times'=>time(),'pay_zt' =>'1']);
             //剩余信息费
