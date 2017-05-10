@@ -534,7 +534,7 @@
                                     <li>
                                         <p>
                                             @if($skzs->jy_qz =='1')
-                                                @if($skzs->tk_type == '6' || $skzs->tk_type == '')
+                                                @if($skzs->tk_type == '6' || $skzs->tk_type == '' || $skzs->tk_type == '3')
                                                     <button style="margin-left: 110px;" type="submit" >申请退款</button>
                                                 @else
                                                     <span style="margin-left: 110px;" onclick="layer.alert('您已经提交过申请了!')" >申请退款</span>
