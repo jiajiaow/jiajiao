@@ -41,16 +41,15 @@ class payController extends Controller
                 //将没被选中的教员改为未选中
                 $li = \DB::table('jjw_reorder')->where('pay_id',$oid)->pluck('oid');
                 $list = \DB::table('jjw_reorder')->where('oid',$li[0])->pluck('id');
+                    //别的教员
                     //session(['bdjy' => $num]);
                     $nums = session('bdjy');
-                    for($is=0;$is<count($list);$is++) {
-                        for ($i = 0; $i < count($nums); $i++) {
-                            //$arr[$i] = $nums[$i];
-                            if($nums[$i] == $list[$is]){
-                                $brjyjl = \DB::table('jjw_reorder')->where('id', $nums[$i])->update(['qt_t_status' => '2']);
-                                if ($brjyjl) {
-                                    session()->forget("bdjy");
-                                }
+                    for($i=0;$i<count($nums);$i++) {
+                        $arr[$i] = $nums[$i];
+                        if($arr[$i] == $nums[$i]){
+                            $brjyjl = \DB::table('jjw_reorder')->where('id',$arr[$i])->update(['qt_t_status'=>'2']);
+                            if($brjyjl){
+                                session()->forget("bdjy");
                             }
                         }
                     }
@@ -69,10 +68,9 @@ class payController extends Controller
         //dd($request);
         //信息费rid
         $rid = $request->input('rid') ==''?'':$request->input('rid');
-        //dd($rid);
         //诚意金r_id
         $r_id = $request->input('r_id') ==''?'':$request->input('r_id');
-        //dd($r_id);
+        //dd($rid);
         //本地订单id
         $id = $request->input('order_id');
         //钱
