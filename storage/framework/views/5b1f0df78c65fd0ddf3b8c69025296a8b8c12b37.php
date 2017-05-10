@@ -25,8 +25,8 @@
 <body class="gray-bg">
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
-            <div class="col-sm-12" style="width:3500px;">
-                <div class="ibox float-e-margins">
+            <div class="col-sm-12" style="overflow: scroll;">
+                <div class="ibox float-e-margins" style="width: 4000px;overflow: scroll;">
                     <div class="ibox-title">
                         <h5>试课不成功 <small>分类，查找</small></h5>
                         <div class="ibox-tools">
@@ -117,9 +117,9 @@
                                         <?php if($l->ht_zgsh == '4'|| $l->ht_zgsh == null): ?>
                                             <select name="" id="" onclick="shenhe( <?php echo e($l->jl_id); ?> )">
                                                 <option value="">请选择</option>
-                                                <option value="1" <?php echo e($l->ht_cljg == '1'?'selected':''); ?> onclick="ajaxsh(this,<?php echo e($l->jl_id); ?>,<?php echo e($l->t_id); ?>,<?php echo e($l->rid); ?>,1,1)">审核通过</option>
-                                                <option value="2" <?php echo e($l->ht_cljg == '2'?'selected':''); ?> onclick="ajaxsh(this,<?php echo e($l->jl_id); ?>,<?php echo e($l->t_id); ?>,<?php echo e($l->rid); ?>,1,2)">教员原因不退</option>
-                                                <option value="3" <?php echo e($l->ht_cljg == '3'?'selected':''); ?> onclick="ajaxsh(this,<?php echo e($l->jl_id); ?>,<?php echo e($l->t_id); ?>,<?php echo e($l->rid); ?>,1,3)">关闭退款</option>
+                                                <option value="1" <?php echo e($l->ht_cljg == '1'?'selected':''); ?> onclick="ajaxsh(this,<?php echo e($l->jl_id); ?>,<?php echo e($l->t_id); ?>,<?php echo e($l->rid); ?>,1,1,<?php echo e($l->id); ?>)">审核通过</option>
+                                                <option value="2" <?php echo e($l->ht_cljg == '2'?'selected':''); ?> onclick="ajaxsh(this,<?php echo e($l->jl_id); ?>,<?php echo e($l->t_id); ?>,<?php echo e($l->rid); ?>,1,2,<?php echo e($l->id); ?>)">教员原因不退</option>
+                                                <option value="3" <?php echo e($l->ht_cljg == '3'?'selected':''); ?> onclick="ajaxsh(this,<?php echo e($l->jl_id); ?>,<?php echo e($l->t_id); ?>,<?php echo e($l->rid); ?>,1,3,<?php echo e($l->id); ?>)">关闭退款</option>
                                             </select>
                                         <?php else: ?>
                                             <?php if($l->ht_zgsh == '1'): ?>
@@ -136,10 +136,10 @@
                                         <?php if($l->ht_zgsh == '4'|| $l->ht_zgsh == null): ?>
                                             <select name="" id="jc<?php echo e($l->jl_id); ?>" disabled="true">
                                                 <option value="" <?php echo e($l->ht_zgsh == ''?'selected':''); ?> >请选择</option>
-                                                <option value="1" <?php echo e($l->ht_zgsh == '1'?'selected':''); ?> onclick="ajaxsh(this,<?php echo e($l->jl_id); ?>,<?php echo e($l->t_id); ?>,<?php echo e($l->rid); ?>,2,1)">审核通过</option>
-                                                <option value="2" <?php echo e($l->ht_zgsh == '2'?'selected':''); ?> onclick="ajaxsh(this,<?php echo e($l->jl_id); ?>,<?php echo e($l->t_id); ?>,<?php echo e($l->rid); ?>,2,2)">拒绝退款</option>
-                                                <option value="3" <?php echo e($l->ht_zgsh == '3'?'selected':''); ?> onclick="ajaxsh(this,<?php echo e($l->jl_id); ?>,<?php echo e($l->t_id); ?>,<?php echo e($l->rid); ?>,2,3)">关闭退款</option>
-                                                <option value="4" <?php echo e($l->ht_zgsh == '4'?'selected':''); ?> onclick="ajaxsh(this,<?php echo e($l->jl_id); ?>,<?php echo e($l->t_id); ?>,<?php echo e($l->rid); ?>,2,4)">待处理</option>
+                                                <option value="1" <?php echo e($l->ht_zgsh == '1'?'selected':''); ?> onclick="ajaxsh(this,<?php echo e($l->jl_id); ?>,<?php echo e($l->t_id); ?>,<?php echo e($l->rid); ?>,2,1,<?php echo e($l->id); ?>)">审核通过</option>
+                                                <option value="2" <?php echo e($l->ht_zgsh == '2'?'selected':''); ?> onclick="ajaxsh(this,<?php echo e($l->jl_id); ?>,<?php echo e($l->t_id); ?>,<?php echo e($l->rid); ?>,2,2,<?php echo e($l->id); ?>)">拒绝退款</option>
+                                                <option value="3" <?php echo e($l->ht_zgsh == '3'?'selected':''); ?> onclick="ajaxsh(this,<?php echo e($l->jl_id); ?>,<?php echo e($l->t_id); ?>,<?php echo e($l->rid); ?>,2,3,<?php echo e($l->id); ?>)">关闭退款</option>
+                                                <option value="4" <?php echo e($l->ht_zgsh == '4'?'selected':''); ?> onclick="ajaxsh(this,<?php echo e($l->jl_id); ?>,<?php echo e($l->t_id); ?>,<?php echo e($l->rid); ?>,2,4,<?php echo e($l->id); ?>)">待处理</option>
                                             </select>
                                         <?php else: ?>
                                             <?php if($l->ht_zgsh == '1'): ?>
@@ -238,8 +238,8 @@
             })
         }
         //ajax 1为处理结果 2为主管审核
-        function ajaxsh(obj,id,tid,rid,zt,edit){
-            //  alert(id);
+        function ajaxsh(obj,id,tid,rid,zt,edit,oid){
+             // alert(oid);
             //alert(rid);
             var money = $('#money'+id).val();
             // alert(money);
@@ -247,7 +247,7 @@
                 type:'POST',
                 url:"<?php echo e(URL('/admin/tdye.html')); ?>",
                 contentType:"application/x-www-form-urlencoded; charset=utf8",
-                data:{"id":id,"tid":tid,'rid':rid,'zt':zt,'m':money,'edit':edit,'pd':'skbcg'},
+                data:{"id":id,"tid":tid,'rid':rid,'zt':zt,'m':money,'edit':edit,'pd':'skbcg','oid':oid},
                 /*dataType:'JSON',*/
                 success:(function(result){
                     location.reload();

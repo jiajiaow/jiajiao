@@ -238,6 +238,7 @@
                                     <a style="" href="javascript:;" onclick="cyj(<?php echo e($yaps->id); ?>)">
                                             <input type="hidden" name="order_id2" value="<?php echo e($yaps->id); ?>">
                                             <input type="hidden" name="rid2" value="<?php echo e($yaps->rid); ?>">
+                                            <input type="hidden" name="tid2" value="<?php echo e($yaps->tc_id); ?>">
                                             <input type="hidden" name="cyj2" value="">
                                                 支付诚意金优先获取订单
                                     </a>|
@@ -249,6 +250,7 @@
                                          <a style="margin-left: 60px;margin-right: 60px;" href="javascript:;" onclick="qr(<?php echo e($yaps->id); ?>)">
                                             <input type="hidden" name="order_id" value="<?php echo e($yaps->id); ?>">
                                             <input type="hidden" name="rid" value="<?php echo e($yaps->rid); ?>">
+                                            <input type="hidden" name="tid" value="<?php echo e($yaps->tc_id); ?>">
                                             <input type="hidden" name="xxf" value="<?php if($yaps->o_ts == '1'): ?><?php echo e($q*$yaps->bfb1>300?'300':$q*$yaps->bfb1); ?><?php elseif($yaps->o_ts == '2'): ?><?php echo e($q*$yaps->bfb2>300?'300':$q*$yaps->bfb2); ?><?php elseif($yaps->o_ts == '3'): ?><?php echo e($q*$yaps->bfb3>300?'300':$q*$yaps->bfb3); ?><?php elseif($yaps->o_ts == '4'): ?><?php echo e($q*$yaps->bfb4>300?'300':$q*$yaps->bfb4); ?><?php elseif($yaps->o_ts == '5'): ?><?php echo e($q*$yaps->bfb5>300?'300':$q*$yaps->bfb5); ?><?php elseif($yaps->o_ts == '6'): ?><?php echo e($q*$yaps->bfb6>300?'300':$q*$yaps->bfb6); ?><?php elseif($yaps->o_ts == '7'): ?><?php echo e($q*$yaps->bfb7>300?'300':$q*$yaps->bfb7); ?><?php endif; ?>">
                                                  
                                                  确定获取订单

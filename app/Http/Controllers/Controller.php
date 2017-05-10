@@ -45,6 +45,7 @@ class Controller extends BaseController
                 session(['regionname' => $re->city_name]);
                 //地区id
                 session(['regionid' => $re->city_id]);
+
             }else if($dlurl == 'www.delijiajiao.com/mobile'){
                 //地区id
                 session(['regionid' => '440100000000']);
@@ -96,6 +97,8 @@ class Controller extends BaseController
                 //地区名称
                 session(['regionname' => $re->title]);
                 session(['phone' => $re->phone]);
+                session(['fz_wx' => $re->fz_wx]);
+                session(['cityname' => $re->city_name]);
             }else{
                 if($zy == 'lizhijiajiao'){
                     $re = DB::table('jjw_position_city')->where('prefix',$qz)->first();

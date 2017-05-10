@@ -25,8 +25,8 @@
 <body class="gray-bg">
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
-            <div class="col-sm-12" style="width:3500px;">
-                <div class="ibox float-e-margins">
+            <div class="col-sm-12" style="overflow: scroll;">
+                <div class="ibox float-e-margins" style="width: 4000px;overflow: scroll;">
                     <div class="ibox-title">
                         <h5>试课不成功 <small>分类，查找</small></h5>
                         <div class="ibox-tools">
@@ -115,9 +115,9 @@
                                         @if($l->ht_zgsh == '4'|| $l->ht_zgsh == null)
                                             <select name="" id="" onclick="shenhe( {{ $l->jl_id }} )">
                                                 <option value="">请选择</option>
-                                                <option value="1" {{ $l->ht_cljg == '1'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},1,1)">审核通过</option>
-                                                <option value="2" {{ $l->ht_cljg == '2'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},1,2)">教员原因不退</option>
-                                                <option value="3" {{ $l->ht_cljg == '3'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},1,3)">关闭退款</option>
+                                                <option value="1" {{ $l->ht_cljg == '1'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},1,1,{{ $l->id }})">审核通过</option>
+                                                <option value="2" {{ $l->ht_cljg == '2'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},1,2,{{ $l->id }})">教员原因不退</option>
+                                                <option value="3" {{ $l->ht_cljg == '3'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},1,3,{{ $l->id }})">关闭退款</option>
                                             </select>
                                         @else
                                             @if($l->ht_zgsh == '1')
@@ -134,10 +134,10 @@
                                         @if($l->ht_zgsh == '4'|| $l->ht_zgsh == null)
                                             <select name="" id="jc{{ $l->jl_id }}" disabled="true">
                                                 <option value="" {{ $l->ht_zgsh == ''?'selected':'' }} >请选择</option>
-                                                <option value="1" {{ $l->ht_zgsh == '1'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},2,1)">审核通过</option>
-                                                <option value="2" {{ $l->ht_zgsh == '2'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},2,2)">拒绝退款</option>
-                                                <option value="3" {{ $l->ht_zgsh == '3'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},2,3)">关闭退款</option>
-                                                <option value="4" {{ $l->ht_zgsh == '4'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},2,4)">待处理</option>
+                                                <option value="1" {{ $l->ht_zgsh == '1'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},2,1,{{ $l->id }})">审核通过</option>
+                                                <option value="2" {{ $l->ht_zgsh == '2'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},2,2,{{ $l->id }})">拒绝退款</option>
+                                                <option value="3" {{ $l->ht_zgsh == '3'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},2,3,{{ $l->id }})">关闭退款</option>
+                                                <option value="4" {{ $l->ht_zgsh == '4'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},2,4,{{ $l->id }})">待处理</option>
                                             </select>
                                         @else
                                             @if($l->ht_zgsh == '1')
@@ -236,8 +236,8 @@
             })
         }
         //ajax 1为处理结果 2为主管审核
-        function ajaxsh(obj,id,tid,rid,zt,edit){
-            //  alert(id);
+        function ajaxsh(obj,id,tid,rid,zt,edit,oid){
+             // alert(oid);
             //alert(rid);
             var money = $('#money'+id).val();
             // alert(money);
@@ -245,7 +245,7 @@
                 type:'POST',
                 url:"{{ URL('/admin/tdye.html') }}",
                 contentType:"application/x-www-form-urlencoded; charset=utf8",
-                data:{"id":id,"tid":tid,'rid':rid,'zt':zt,'m':money,'edit':edit,'pd':'skbcg'},
+                data:{"id":id,"tid":tid,'rid':rid,'zt':zt,'m':money,'edit':edit,'pd':'skbcg','oid':oid},
                 /*dataType:'JSON',*/
                 success:(function(result){
                     location.reload();
