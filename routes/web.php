@@ -122,6 +122,8 @@ Route::get('/tc_order7.html','home\tcinfoController@tc_order7');
 //教员合同
 Route::get('/hetong/{id?}.html','home\tcinfoController@hetong');
 Route::post('/dohetong','home\tcinfoController@dohetong');
+//后台显示合同
+Route::get('/ht_hetong/{id?}.html','home\tcinfoController@ht_hetong');
 //订单审核
 Route::post('/dosc.html','home\tcinfoController@dosc');
 //试课成功的订单

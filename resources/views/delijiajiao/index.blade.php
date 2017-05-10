@@ -65,7 +65,7 @@
         <div class="hezi" style="border: 1px solid #dddddd;">
             <div style="padding-left: 20px;height: 60px;line-height: 60px;">
                 <img src="/delijiajiao/images/dingwei.png" alt="">
-                <label for=""><b>{{ substr(session('regionname'),0,6) }}分站：</b></label>
+                <label for=""><b>{{ substr(session('cityname'),0,6) }}分站：</b></label>
                 <span style="margin-right: 6rem"><b>{{ session('regionname') }}</b></span>
                 <img src="/delijiajiao/images/dianhua.png" alt="">
                 <label for=""><b>联系电话：</b></label>

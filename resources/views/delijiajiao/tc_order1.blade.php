@@ -81,15 +81,15 @@
 	<!-- 侧导航 -->
 <div class="cheng_nav">
 	<ul class="bian_nav">
-		<li>
+		{{--<li>
 			<i class='cheng_one'></i>
 			<span><a>个人信息</a></span>
-		</li>
+		</li>--}}
 		<li class="cheng_active">
 			<i class='cheng_two'></i>
 			<span><a href="/tc_order1.html"></a>订单管理</span>
 		</li>
-		<li>
+		{{--<li>
 			<i class='cheng_three'></i>
 			<span>授课订单管理</span>
 		</li>
@@ -108,7 +108,7 @@
 		<li>
 			<i class='cheng_seven'></i>
 			<span>沟通中心</span>
-		</li>
+		</li>--}}
 	</ul>
 </div>
 		<!-- 侧导航结束 -->

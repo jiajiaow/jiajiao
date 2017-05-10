@@ -127,8 +127,9 @@
                 <h3 style="margin-left: 10px;">相似家教订单</h3>
               </div>
               <ul>
-                <li><a href="/xueyuan/d-84184.html">阚利明需要高一高二英语数学家教</a><em>03-26</em></li>
-                <li><a href="/xueyuan/d-83631.html">王小姐需要高一高二英语数学家教</a><em>03-08</em></li>
+                @foreach($list as $l)
+                <li><a href="/xsinfo{{ $l->id }}.html">{{ $l->user_name }}需要{{ $l->subject_id }}家教</a><em>{{ date("m-d",$l->time) }}</em></li>
+                @endforeach
               </ul>
             </div>
           </div>

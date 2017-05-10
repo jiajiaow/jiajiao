@@ -118,6 +118,9 @@ class Controller extends BaseController
                     //地区名称
                     session(['regionname' => $re->title]);
                     session(['phone' => $re->phone]);
+                    session(['fz_wx' => $re->fz_wx]);
+                    session(['cityname' => $re->city_name]);
+//                    /dd($re);
                 }
             }
     }
