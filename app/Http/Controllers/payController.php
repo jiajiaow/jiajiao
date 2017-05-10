@@ -69,9 +69,10 @@ class payController extends Controller
         //dd($request);
         //信息费rid
         $rid = $request->input('rid') ==''?'':$request->input('rid');
+        //dd($rid);
         //诚意金r_id
         $r_id = $request->input('r_id') ==''?'':$request->input('r_id');
-        //dd($rid);
+        //dd($r_id);
         //本地订单id
         $id = $request->input('order_id');
         //钱
@@ -103,19 +104,19 @@ class payController extends Controller
              if($_POST['b'] == ''){
                  if($rid != ''){
                      DB::table('jjw_reorder')->where('id',$rid)->where('oid',$id)->update(['pay_id' => $oid,'xxf'=>$price]);
-                     DB::table('jjw_mpay')->insert(['m_oid'=>$id,'m_pay_id' => $oid,'m_pay_money'=>$price,'m_time'=>time(),'m_mtype'=>"支付宝信息费"]);
+                     DB::table('jjw_mpay')->insert(['m_rid'=>$rid,'m_oid'=>$id,'m_pay_id' => $oid,'m_pay_money'=>$price,'m_time'=>time(),'m_mtype'=>"支付宝信息费"]);
                  }
              }else if($_POST['b'] == 'b'){
                 // $yue = DB::table('jjw_reorder')->where('id',$rid)->first();
                 // $money = $yue->xxf + $price;
                 // dd($money);
                  DB::table('jjw_reorder')->where('id',$rid)->where('oid',$id)->update(['pay_id2' => $oid,'xxf2'=>$price]);
-                 DB::table('jjw_mpay')->insert(['m_oid'=>$id,'m_pay_id' => $oid,'m_pay_money'=>$price,'m_time'=>time(),'m_mtype'=>"支付宝剩余信息费"]);
+                 DB::table('jjw_mpay')->insert(['m_rid'=>$rid,'m_oid'=>$id,'m_pay_id' => $oid,'m_pay_money'=>$price,'m_time'=>time(),'m_mtype'=>"支付宝剩余信息费"]);
              }
              //诚意金
              if($r_id != ''){
                  DB::table('jjw_reorder')->where('id',$r_id)->where('oid',$id)->update(['cyj_pay_id' => $oid,'cyj'=>$price]);
-                 DB::table('jjw_mpay')->insert(['m_oid'=>$id,'m_pay_id' => $oid,'m_pay_money'=>$price,'m_time'=>time(),'m_mtype'=>"诚意金"]);
+                 DB::table('jjw_mpay')->insert(['m_rid'=>$rid,'m_oid'=>$id,'m_pay_id' => $oid,'m_pay_money'=>$price,'m_time'=>time(),'m_mtype'=>"诚意金"]);
              }
              //余额充值
              if($_POST['cz'] != ''){
