@@ -72,7 +72,7 @@
                 <span style="color: red;margin-right: 7rem;"><b>{{ session('phone') }}</b></span>
                 <img src="/delijiajiao/images/wechat1.png" alt="">
                 <label for=""><b>微信号：</b></label>
-                <span><b>{{ session('fz_wx') }}</b></span>
+                <span><b>{{ session('fz_wxhao') }}</b></span>
             </div>
         </div>
         {{----}}
