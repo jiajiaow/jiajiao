@@ -222,6 +222,7 @@
                                 <form action="/tc_skadd.html" method="post">
                                     <input type="hidden" name="rid" value="{{ $skzs->rid }}">
                                     <input type="hidden" name="tc_id" value="{{ $skzs->tc_id }}">
+                                    <input type="hidden" name="oid" value="{{ $skzs->id }}">
                                     <input name="add" id="jy_adres" type="text" style="width: 82%;height: 29px;border: none;"  value="{{ $skzs->radd }}"/>
                                     <button type="submit" style="
 																      height: 40px;
@@ -842,6 +843,7 @@
                 /*dataType:'JSON',*/
                 success:(function(result){
                     location.reload();
+                    console.log()
                 }),
                 error:(function(result,status){
                     larye.alert('sb!');

@@ -320,7 +320,10 @@ class tcinfoController extends Controller
 
     //试课地址
     public function tc_skadd(){
+        //dd($_POST);
         $list = DB::table('jjw_reorder')->where('id',$_POST['rid'])->where('tc_id',$_POST['tc_id'])->update(['add'=>$_POST['add']]);
+        //试课地址
+        $lis = DB::table('jjw_order')->where('id',$_POST['oid'])->update(['sks_add'=>$_POST['add']]);
         return back();
     }
 
@@ -379,8 +382,11 @@ class tcinfoController extends Controller
     //试课时间
     public function tc_sktimes(){
         $data = $_POST['sj'].$_POST['sjs'];
-       // dd($_POST);
+        //dd($_POST);
+        //reorder 试课时间
         $list = DB::table('jjw_reorder')->where('id',$_POST['rid'])->where('oid',$_POST['oid'])->where('tc_id',$_POST['tc_id'])->update(['sk_times'=>$data]);
+        //order 试课时间
+        $lis = DB::table('jjw_order')->where('id',$_POST['oid'])->update(['sks_time'=>$data]);
         return back();
     }
 
@@ -481,7 +487,6 @@ class tcinfoController extends Controller
     //教员合同
     public function ht_hetong($id){
         // $list = DB::table('jjw_order')->where('id',$id)->first();
-        //
         $list = \DB::table('jjw_order as o')
             ->join('jjw_reorder as r', 'r.oid', '=', 'o.id')
             ->join('jjw_teachers as t', 't.id', '=', 'r.tc_id')

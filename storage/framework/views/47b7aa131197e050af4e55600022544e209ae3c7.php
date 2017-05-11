@@ -211,11 +211,6 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="/admin/tjsp">添加商品</a>
-                            </li>
-                            <li>
-                                <a class="J_menuItem" href="/admin/goodslist">商品列表</a>
-                            </li>
                                 <a class="J_menuItem" href="/admin/jyszls">教员收支流水</a>
                             </li>
                         </ul>

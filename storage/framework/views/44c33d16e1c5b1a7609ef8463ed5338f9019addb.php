@@ -110,34 +110,12 @@
     <!-- 侧导航 -->
     <div class="cheng_nav">
         <ul class="bian_nav">
-            <li>
-                <i class='cheng_one'></i>
-                <span>个人信息</span>
-            </li>
+            
             <li class="cheng_active">
                 <i class='cheng_two'></i>
-                <span>订单管理</span>
+                <span><a href="/tc_order1.html"></a>订单管理</span>
             </li>
-            <li>
-                <i class='cheng_three'></i>
-                <span>授课订单管理</span>
-            </li>
-            <li>
-                <i class='cheng_four'></i>
-                <span>成绩管理</span>
-            </li>
-            <li>
-                <i class='cheng_five'></i>
-                <span>财务中心</span>
-            </li>
-            <li>
-                <i class='cheng_six'></i>
-                <span>积分商城</span>
-            </li>
-            <li>
-                <i class='cheng_seven'></i>
-                <span>沟通中心</span>
-            </li>
+            
         </ul>
     </div>
     <!-- 侧导航结束 -->
@@ -222,6 +200,7 @@
                                 <form action="/tc_skadd.html" method="post">
                                     <input type="hidden" name="rid" value="<?php echo e($skzs->rid); ?>">
                                     <input type="hidden" name="tc_id" value="<?php echo e($skzs->tc_id); ?>">
+                                    <input type="hidden" name="oid" value="<?php echo e($skzs->id); ?>">
                                     <input name="add" id="jy_adres" type="text" style="width: 82%;height: 29px;border: none;"  value="<?php echo e($skzs->radd); ?>"/>
                                     <button type="submit" style="
 																      height: 40px;
@@ -850,6 +829,7 @@
                 /*dataType:'JSON',*/
                 success:(function(result){
                     location.reload();
+                    console.log()
                 }),
                 error:(function(result,status){
                     larye.alert('sb!');
