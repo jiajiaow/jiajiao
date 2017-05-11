@@ -233,7 +233,7 @@
                     </p>
                     
                     
-                    <p><a href="">电子合同</a>|<a href="">本单授课订单</a></p>
+                    <p><a href="/ht_hetong/<?php echo e($re->id); ?>.html" target="_blank">电子合同</a>|<a href="">本单授课订单</a></p>
                     <p><a href="">前台查看次家教</a><button class="VIP" >设置为vip</button></p>
                     <p>
                         <a href="">显示</a>|

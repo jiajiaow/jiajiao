@@ -97,7 +97,7 @@ class Controller extends BaseController
                 //地区名称
                 session(['regionname' => $re->title]);
                 session(['phone' => $re->phone]);
-                session(['fz_wx' => $re->fz_wx]);
+                session(['fz_wxhao' => $re->fz_wxhao]);
                 session(['cityname' => $re->city_name]);
             }else{
                 if($zy == 'lizhijiajiao'){
@@ -118,7 +118,7 @@ class Controller extends BaseController
                     //地区名称
                     session(['regionname' => $re->title]);
                     session(['phone' => $re->phone]);
-                    session(['fz_wx' => $re->fz_wx]);
+                    session(['fz_wxhao' => $re->fz_wxhao]);
                     session(['cityname' => $re->city_name]);
 //                    /dd($re);
                 }
