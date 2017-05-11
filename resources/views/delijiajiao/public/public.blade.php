@@ -359,7 +359,7 @@ for(i=0; i <tabList.length; i++)
                 $('#as5').addClass('vtle');
             }
   </script>
-  <script>  </script>
+  <script type="text/javascript" src="https://hztk5.kuaishang.cn/bs/ks.j?cI=125636&fI=79140" charset="utf-8"></script>
 @section('js')
 
 

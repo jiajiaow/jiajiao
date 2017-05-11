@@ -371,7 +371,18 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::post('/tdye.html','admin\jytkController@tdye');
     //添加商品
     Route::get('/tjsp','admin\goodsController@index');
-
+    //商品列表
+    Route::get('/goodslist','admin\goodsController@goodslist');
+    //处理添加商品
+    Route::post('/tjspdo','admin\goodsController@tjspdo');
+    //修改商品状态
+    Route::get('/goodszt1/{id?}','admin\goodsController@goodszt1');
+    //修改商品状态
+    Route::get('/goodszt2/{id?}','admin\goodsController@goodszt2');
+    //编辑商品
+    Route::get('/goodsbj/{id?}','admin\goodsController@goodsbj');
+    //处理编辑商品
+    Route::post('/goodsbjdo','admin\goodsController@goodsbjdo');
     //教员收支流水
     Route::get('/jyszls','admin\caiwuController@jyszls');
 
