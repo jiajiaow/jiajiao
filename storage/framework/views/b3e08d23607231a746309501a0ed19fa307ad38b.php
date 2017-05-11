@@ -126,8 +126,9 @@
                 <h3 style="margin-left: 10px;">相似家教订单</h3>
               </div>
               <ul>
-                <li><a href="/xueyuan/d-84184.html">阚利明需要高一高二英语数学家教</a><em>03-26</em></li>
-                <li><a href="/xueyuan/d-83631.html">王小姐需要高一高二英语数学家教</a><em>03-08</em></li>
+                <?php $__currentLoopData = $list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $l): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <li><a href="/xsinfo<?php echo e($l->id); ?>.html"><?php echo e($l->user_name); ?>需要<?php echo e($l->subject_id); ?>家教</a><em><?php echo e(date("m-d",$l->time)); ?></em></li>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
               </ul>
             </div>
           </div>

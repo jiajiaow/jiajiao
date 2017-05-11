@@ -159,8 +159,7 @@ for(i=0; i <tabList.length; i++)
     <div class="toolbar">
      <div class="toolbar-link">
 家教上门联系电话：☎
-        <?php echo e(session('phone')); ?>
-
+        400-8250-710
      </div>
      <ul id="user-tools" class="navbar-nav" style="height: 36px">
          <?php if(session('dlzt') == 2 ): ?>
@@ -197,7 +196,7 @@ for(i=0; i <tabList.length; i++)
     <div class="location">
      <div class="breadcrumb" style="margin-bottom: 0px;background-color: #fff;padding: 0px" id="icon-top">
       <h1><a a href='/' class='primary-logo' ><img alt="广州" src="/delijiajiao/picture/guangzhou.png" class="city-logo" /></a></h1>
-      <span class="listing-slogan" style="height:40px;"><?php echo e(session('regionname')); ?></span>
+      <span class="listing-slogan" style="height:40px;"><?php echo e(substr(session('cityname'),0,6)); ?>家教中心</span>
          <span class="listing-slogan1" style="height: 26px;">【德栗家教】【高校联盟】</span><a href="/change_city.html">更多城市</a>
      </div>
      <div class="pull-right">
@@ -276,28 +275,10 @@ for(i=0; i <tabList.length; i++)
   </footer>
 <div style="min-height: 50px;">
       <ul id="cheng-href" style="margin: auto;width: 1200px;">
-          <li>
-              <a href="">友情链接</a>
-          </li>
-          <li>
-              <a href="">新浪新闻</a>
-          </li>
-          <li>
-              <a href="">网易云音乐</a>
-          </li>
-          <li>
-              <a href="">腾讯新闻</a>
-          </li>
-          <li>
-              <a href="">百度</a>
-          </li>
-             <li>
-                 <a href="">360</a>
-             </li>
       </ul>
       <div id="fudong"></div>
   </div>
-  
+
   <div class="banquanxinxi">
           © 2005－2017德栗家教   |   <a href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action">粤ICP备16062097号-4</a> 关键词：家教,一对一家教,广州家教网</div>
   </div>
@@ -329,7 +310,6 @@ for(i=0; i <tabList.length; i++)
               }
           })
       })
-
   </script>
   <script type="text/javascript" src="/delijiajiao/js/layer.js"></script>
    <script type="text/javascript">

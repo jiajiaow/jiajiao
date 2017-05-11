@@ -109,6 +109,7 @@
 							<input readonly="readonly" class="d-jine" id="money" name="money" value="<?php echo e($data['xxf']); ?>">元
 							<input readonly="readonly" type="hidden" class="d-jine" name="rid" value="<?php echo e($data['rid']); ?>">
 							<input readonly="readonly" type="hidden" class="d-jine" name="order_id" value="<?php echo e($data['order_id']); ?>">
+							<input readonly="readonly" type="hidden" class="d-jine" name="tid" value="<?php echo e($data['tid']); ?>">
 							<?php if(!empty($data['b'])): ?>
 							<input readonly="readonly" type="hidden" class="d-jine" name="b" value="<?php echo e($data['b']); ?>">
 							<?php endif; ?>

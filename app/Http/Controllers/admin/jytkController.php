@@ -56,7 +56,9 @@ class jytkController extends Controller
         return view('admin.cyjjs');
     }
 
+    //退到余额
     public function tdye(){
+        //dd($_POST);
        //die;
         //成功减少次数
         if($_POST['pd'] == 'cgjskc'){
@@ -71,6 +73,17 @@ class jytkController extends Controller
                     //修改余额
                     $lis = DB::table('jjw_teachers')->where('id',$_POST['tid'])->pluck('tc_money');
                     $li = DB::table('jjw_teachers')->where('id',$_POST['tid'])->update(['tc_money'=>($lis[0]+$_POST['m'])]);
+                    //退款流水记录
+                    $l = DB::table('jjw_mpay')->insert([
+                        'm_rid'=>$_POST['rid'],
+                        'm_oid'=>$_POST['oid'],
+                        'm_tid'=>$_POST['tid'],
+                        'm_pay_money'=>$_POST['m'],
+                        'm_time'=>time(),
+                        'm_mtype'=>'成功减少课酬',
+                        'm_zfortk'=>'2',
+                        'm_type'=>'3',
+                    ]);
                     return "y";
                 }else{
                     //修改状态  edit为3  关闭订单的时候才修改状态 为空
@@ -79,6 +92,8 @@ class jytkController extends Controller
                         $list = DB::table('jjw_tkjl')->where('id',$_POST['id'])->update(['ht_zgsh'=>$_POST['edit']]);
                         return "y";
                     }else{
+                        //拒绝退款 修改相应状态
+                        $lists = DB::table('jjw_reorder')->where('id',$_POST['rid'])->update(['tk_type'=>null,'qt_t_status'=>'6','ht_t_status'=>'8']);
                         $list = DB::table('jjw_tkjl')->where('id',$_POST['id'])->update(['ht_zgsh'=>$_POST['edit']]);
                         return "y";
                     }
@@ -86,17 +101,29 @@ class jytkController extends Controller
             }
             //试课不成功
         }else if($_POST['pd'] == 'skbcg'){
+            //dd($_POST);
             if($_POST['zt'] =='1'){
                 $list = DB::table('jjw_tkjl')->where('id',$_POST['id'])->update(['ht_cljg'=>$_POST['edit']]);
                 return "y";
             }else{
                 if($_POST['edit'] == '1'){
-                    //修改状态
-                    $lists = DB::table('jjw_reorder')->where('id',$_POST['rid'])->update(['tk_type'=>null,'qt_t_status'=>'8','ht_t_status'=>'10']);
-                    $list = DB::table('jjw_tkjl')->where('id',$_POST['id'])->update(['ht_zgsh'=>$_POST['edit']]);
-                    //修改余额
-                    $lis = DB::table('jjw_teachers')->where('id',$_POST['tid'])->pluck('tc_money');
-                    $li = DB::table('jjw_teachers')->where('id',$_POST['tid'])->update(['tc_money'=>($lis[0]+$_POST['m'])]);
+                    // 修改状态
+                     $lists = DB::table('jjw_reorder')->where('id',$_POST['rid'])->update(['tk_type'=>null,'qt_t_status'=>'8','ht_t_status'=>'10']);
+                     $list = DB::table('jjw_tkjl')->where('id',$_POST['id'])->update(['ht_zgsh'=>$_POST['edit']]);
+                     //修改余额
+                     $lis = DB::table('jjw_teachers')->where('id',$_POST['tid'])->pluck('tc_money');
+                     $li = DB::table('jjw_teachers')->where('id',$_POST['tid'])->update(['tc_money'=>($lis[0]+$_POST['m'])]);
+                    //退款流水记录
+                    $l = DB::table('jjw_mpay')->insert([
+                           'm_rid'=>$_POST['rid'],
+                           'm_oid'=>$_POST['oid'],
+                           'm_tid'=>$_POST['tid'],
+                           'm_pay_money'=>$_POST['m'],
+                           'm_time'=>time(),
+                           'm_mtype'=>'试课不成功',
+                           'm_zfortk'=>'2',
+                           'm_type'=>'3',
+                       ]);
                     return "y";
                 }else{
                     //修改状态  edit为3  关闭订单的时候才修改状态 为空
@@ -106,12 +133,14 @@ class jytkController extends Controller
                         return "y";
                     }else{
                        // $lists = DB::table('jjw_reorder')->where('id',$_POST['rid'])->update(['tk_type'=>null]);
+                        //拒绝退款 修改相应状态
+                        $lists = DB::table('jjw_reorder')->where('id',$_POST['rid'])->update(['tk_type'=>null,'qt_t_status'=>'8','ht_t_status'=>'10']);
                         $list = DB::table('jjw_tkjl')->where('id',$_POST['id'])->update(['ht_zgsh'=>$_POST['edit']]);
                         return "y";
                     }
                 }
             }
-
+            //提前结束课程
         }else if($_POST['pd'] == 'tqjskc'){
             if($_POST['zt'] =='1'){
                 $list = DB::table('jjw_tkjl')->where('id',$_POST['id'])->update(['ht_cljg'=>$_POST['edit']]);
@@ -124,6 +153,17 @@ class jytkController extends Controller
                     //修改余额
                     $lis = DB::table('jjw_teachers')->where('id',$_POST['tid'])->pluck('tc_money');
                     $li = DB::table('jjw_teachers')->where('id',$_POST['tid'])->update(['tc_money'=>($lis[0]+$_POST['m'])]);
+                    //退款流水记录
+                    $l = DB::table('jjw_mpay')->insert([
+                        'm_rid'=>$_POST['rid'],
+                        'm_oid'=>$_POST['oid'],
+                        'm_tid'=>$_POST['tid'],
+                        'm_pay_money'=>$_POST['m'],
+                        'm_time'=>time(),
+                        'm_mtype'=>'提前结束课程',
+                        'm_zfortk'=>'2',
+                        'm_type'=>'3',
+                    ]);
                     return "y";
                 }else{
                     //修改状态  edit为3  关闭订单的时候才修改状态 为空
@@ -133,6 +173,8 @@ class jytkController extends Controller
                         return "y";
                     }else{
                         //$lists = DB::table('jjw_reorder')->where('id',$_POST['rid'])->update(['tk_type'=>null]);
+                        //拒绝退款 修改相应状态
+                        $lists = DB::table('jjw_reorder')->where('id',$_POST['rid'])->update(['tk_type'=>null,'qt_t_status'=>'7','ht_t_status'=>'9']);
                         $list = DB::table('jjw_tkjl')->where('id',$_POST['id'])->update(['ht_zgsh'=>$_POST['edit']]);
                         return "y";
                     }

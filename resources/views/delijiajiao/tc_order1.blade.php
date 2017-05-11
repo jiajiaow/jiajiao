@@ -81,15 +81,15 @@
 	<!-- 侧导航 -->
 <div class="cheng_nav">
 	<ul class="bian_nav">
-		<li>
+		{{--<li>
 			<i class='cheng_one'></i>
 			<span><a>个人信息</a></span>
-		</li>
+		</li>--}}
 		<li class="cheng_active">
 			<i class='cheng_two'></i>
 			<span><a href="/tc_order1.html"></a>订单管理</span>
 		</li>
-		<li>
+		{{--<li>
 			<i class='cheng_three'></i>
 			<span>授课订单管理</span>
 		</li>
@@ -108,7 +108,7 @@
 		<li>
 			<i class='cheng_seven'></i>
 			<span>沟通中心</span>
-		</li>
+		</li>--}}
 	</ul>
 </div>
 		<!-- 侧导航结束 -->
@@ -231,6 +231,7 @@
                                     <a style="" href="javascript:;" onclick="cyj({{ $yaps->id }})">
                                             <input type="hidden" name="order_id2" value="{{ $yaps->id }}">
                                             <input type="hidden" name="rid2" value="{{ $yaps->rid }}">
+                                            <input type="hidden" name="tid2" value="{{ $yaps->tc_id }}">
                                             <input type="hidden" name="cyj2" value="">
                                                 支付诚意金优先获取订单
                                     </a>|
@@ -242,6 +243,7 @@
                                          <a style="margin-left: 60px;margin-right: 60px;" href="javascript:;" onclick="qr({{ $yaps->id }})">
                                             <input type="hidden" name="order_id" value="{{ $yaps->id }}">
                                             <input type="hidden" name="rid" value="{{ $yaps->rid }}">
+                                            <input type="hidden" name="tid" value="{{ $yaps->tc_id }}">
                                             <input type="hidden" name="xxf" value="@if($yaps->o_ts == '1'){{ $q*$yaps->bfb1>300?'300':$q*$yaps->bfb1 }}@elseif($yaps->o_ts == '2'){{ $q*$yaps->bfb2>300?'300':$q*$yaps->bfb2 }}@elseif($yaps->o_ts == '3'){{ $q*$yaps->bfb3>300?'300':$q*$yaps->bfb3 }}@elseif($yaps->o_ts == '4'){{ $q*$yaps->bfb4>300?'300':$q*$yaps->bfb4 }}@elseif($yaps->o_ts == '5'){{ $q*$yaps->bfb5>300?'300':$q*$yaps->bfb5 }}@elseif($yaps->o_ts == '6'){{ $q*$yaps->bfb6>300?'300':$q*$yaps->bfb6 }}@elseif($yaps->o_ts == '7'){{ $q*$yaps->bfb7>300?'300':$q*$yaps->bfb7 }}@endif">
                                                  {{--<input type="hidden" name="xxf" value="0.01">--}}
                                                  确定获取订单

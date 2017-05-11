@@ -349,8 +349,8 @@
                             </div>
                         </div>
                         <div class="bk2">
-                            <span style="margin-left: 60px;margin-right: 60px;"  onclick="timeShow(<?php echo e($skzs->id); ?>,<?php echo e($skzs->rid); ?>,<?php echo e($skzs->tc_id); ?>)" target="_blank"><font color="#000">申请退款</font></span>|
-                            <a style="margin-left: 60px;margin-right: 60px;" onclick="zf(this,<?php echo e($skzs->id); ?>,<?php echo e($skzs->rid); ?>)" class="xxf_btn"><font color="#000">支付信息费</font></a>|
+                            <span style="margin-left: 60px;margin-right: 60px;"  onclick="timeShow(<?php echo e($skzs->id); ?>,<?php echo e($skzs->rid); ?>,<?php echo e($skzs->tc_id); ?>)" target="_blank"><font color="#000" id="haha">申请退款</font></span>|
+                            <a style="margin-left: 60px;margin-right: 60px;" onclick="zf(this,<?php echo e($skzs->id); ?>,<?php echo e($skzs->rid); ?>,<?php echo e($skzs->tc_id); ?>)" class="xxf_btn"><font color="#000">支付信息费</font></a>|
                             <a style="margin-left: 60px;margin-right: 60px;" href="" target="_blank"><font color="#FF0000">收付款记录</font></a>|
                             <a style="margin-left:30px;margin-right: 30px;" href="javascript:;" onclick="sc(<?php echo e($skzs->id); ?>,<?php echo e($skzs->money*$skzs->o_xs-($skzs->xxf+$skzs->xxf2)); ?>,<?php echo e($skzs->jy_qz); ?>,<?php echo e($skzs->xy_qz); ?>,<?php echo e($skzs->tc_id); ?>)"><font color="#FF0000">审查订单</font></a>
                         </div>
@@ -363,7 +363,7 @@
                             <input type="hidden" name="tc_id" id="tc_id<?php echo e($skzs->id); ?>" value="">
                             <div style="padding: 10px 32px;">
                                 <ul >
-                                    <li><p><input name="Fruit" type="radio" value="1" />试课成功</p></li>
+                                    <li><p><input name="Fruit" type="radio" value="1" checked="checked" />试课成功</p></li>
                                     <li><p>周薪酬减少　
                                             <?php echo e($skzs->money2*$skzs->o_xs2*$skzs->o_ts2-$skzs->money*$skzs->o_xs*$skzs->o_ts); ?>
 
@@ -542,7 +542,7 @@
                                     <li>
                                         <p>
                                             <?php if($skzs->jy_qz =='1'): ?>
-                                                <?php if($skzs->tk_type == null): ?>
+                                                <?php if($skzs->tk_type == '6' || $skzs->tk_type == '' || $skzs->tk_type == '3'): ?>
                                                     <button style="margin-left: 110px;" type="submit" >申请退款</button>
                                                 <?php else: ?>
                                                     <span style="margin-left: 110px;" onclick="layer.alert('您已经提交过申请了!')" >申请退款</span>
@@ -551,9 +551,9 @@
                                                 <?php if($skzs->tk_type !=''): ?>
                                                     <span style="margin-left: 110px;" onclick="layer.alert('请您先确认合同!')" >申请退款</span>
                                                 <?php else: ?>
-                                                    <span style="margin-left: 110px;" onclick="layer.alert('1您已经提交过申请了!')" >申请退款</span>
+                                                    <span style="margin-left: 110px;" onclick="layer.alert('你已经提交过申请了!')" >申请退款</span>
                                                 <?php endif; ?>
-                                            <?php endif; ?><span class="seeMar"></span><span><span style="padding: 0 13px;"  class="qxBtn">取消</span></span>
+                                            <?php endif; ?><span class="seeMar"></span><span><span style="padding: 0 13px;"  class="qxBtn" onclick="qx(<?php echo e($skzs->id); ?>)">取消</span></span>
                                         </p>
                                     </li>
                                 </ul>
@@ -619,6 +619,9 @@
                                 $('#no_xueyuan<?php echo e($skzs->id); ?>').hide()
                             }
                         })
+
+
+
                     </script>
 
 
@@ -640,6 +643,7 @@
             <input type="hidden" id="m" name ="xxf" value="">
             <input type="hidden" id="i" name ="order_id" value="">
             <input type="hidden" id="z" name ="rid" value="">
+            <input type="hidden" id="tid" name ="tid" value="">
             <input type="hidden" id="b" name ="b" value="b">
         </form>
     </div></div>
@@ -797,7 +801,7 @@
 
     })
 
-    function zf(obj,id,rid){
+    function zf(obj,id,rid,tid){
         //alert(rid);
         var money = $('#'+id).html();
         //alert(Math.round(money));
@@ -814,6 +818,7 @@
         $('#m').val(money);
         $('#i').val(id);
         $('#z').val(rid);
+        $('#tid').val(tid);
         var path = "xxf.html";
         $('#zf').attr("action", path).submit();
     }
@@ -854,6 +859,34 @@
         }
     }
 
+    function  qx(id){
+        $('#fc'+id).hide()
+        $('#fc_content'+id).hide()
+    }
+//    function ifsq(id){
+//        let sqtk = $('#sqtk');
+//        var bkzqm = $('.zqm_yuyuejy').find('#fc_content'+id)
+//        for(var i = 0;i<bkzqm.length;i++){
+//          var seradio =   bkzqm.eq(i).find('input[type="radio"]')
+//            if(seradio[i].checked == true){
+//
+//            }else{
+//                $('#sqtk').click(function(){alert('1')})
+//            }
+//        }
+//    }
+</script>
+<script>
+//    let sqtk = $('#sqtk');
+//    $('#haha').click(function(){
+//        alert(1)
+//        let xz = $('input[name="Fruit"]');
+//        for(var i=0;i<xz.length;i++){
+//            if(xz[i].checked ==true){
+//                sqtk.removeAttr('disabled');
+//            }
+//        }
+//    })
 
 </script>
 </body>

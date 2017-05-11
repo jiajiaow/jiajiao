@@ -122,6 +122,8 @@ Route::get('/tc_order7.html','home\tcinfoController@tc_order7');
 //教员合同
 Route::get('/hetong/{id?}.html','home\tcinfoController@hetong');
 Route::post('/dohetong','home\tcinfoController@dohetong');
+//后台显示合同
+Route::get('/ht_hetong/{id?}.html','home\tcinfoController@ht_hetong');
 //订单审核
 Route::post('/dosc.html','home\tcinfoController@dosc');
 //试课成功的订单
@@ -381,5 +383,8 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::get('/goodsbj/{id?}','admin\goodsController@goodsbj');
     //处理编辑商品
     Route::post('/goodsbjdo','admin\goodsController@goodsbjdo');
+    //教员收支流水
+    Route::get('/jyszls','admin\caiwuController@jyszls');
+
 });
 //----------后台END----------//
