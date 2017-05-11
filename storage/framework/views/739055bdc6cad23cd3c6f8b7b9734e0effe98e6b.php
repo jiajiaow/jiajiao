@@ -15,7 +15,7 @@
           </div>
           <div class="info">
             <div class="info-left">
-              <p>学员请家教预算：<i><?php echo e($data->money); ?></i></p>
+              <p>学员请家教预算：<i><?php echo e($data->money); ?>元/次</i></p>
               <span><i><?php echo e($data->browsenu); ?></i>人浏览  已有<i><?php echo e($data->yynum); ?></i>人申请</span>
             </div>
             <div class="info-center" style="float:left;">
@@ -109,7 +109,7 @@
                               男女不限
                           <?php endif; ?>
                       </span></li>
-                  <li>课酬： <i><?php echo e($data->money); ?></i></li>
+                  <li>课酬： <i><?php echo e($data->money); ?>元/次</i></li>
                   <li>教学方式：<span>教员上门</span></li>
                   <li>老师类型：<span><?php echo e($data->ls_type); ?></span></li>
                   <li>其它要求：<span><?php echo e($data->teacher_info); ?></span></li>
@@ -126,8 +126,9 @@
                 <h3 style="margin-left: 10px;">相似家教订单</h3>
               </div>
               <ul>
-                <li><a href="/xueyuan/d-84184.html">阚利明需要高一高二英语数学家教</a><em>03-26</em></li>
-                <li><a href="/xueyuan/d-83631.html">王小姐需要高一高二英语数学家教</a><em>03-08</em></li>
+                <?php $__currentLoopData = $list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $l): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <li><a href="/xsinfo<?php echo e($l->id); ?>.html"><?php echo e($l->user_name); ?>需要<?php echo e($l->subject_id); ?>家教</a><em><?php echo e(date("m-d",$l->time)); ?></em></li>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
               </ul>
             </div>
           </div>
