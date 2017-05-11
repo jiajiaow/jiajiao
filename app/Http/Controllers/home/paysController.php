@@ -43,7 +43,7 @@ class paysController extends Controller
                 //别的教员
                 session(['bdjy' => $num]);
                 //$nums = session('bdjy');
-                //dd($nums);
+               //dd($nums);
                //echo count($nums);
                 //for($is=0;$is<count($list);$is++) {
                    // echo $list[$is];
