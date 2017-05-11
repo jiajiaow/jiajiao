@@ -59,7 +59,7 @@ class jytkController extends Controller
     //退到余额
     public function tdye(){
         //dd($_POST);
-       //die;
+        //die;
         //成功减少次数
         if($_POST['pd'] == 'cgjskc'){
             if($_POST['zt'] =='1'){
