@@ -137,7 +137,12 @@
                                     </select>
                                 </div>
                             </div>
-
+                            <div class="form-group">
+                               <label class="col-sm-2 ">学员概况：</label>
+                                <div class="col-sm-2">
+                                    <textarea name="user_situation"></textarea>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="col-sm-2 ">学员性别：</label>
                                 <div class="col-sm-2">
@@ -279,7 +284,7 @@
                                 <div class="col-sm-3">
                                     <div align="left">
                                         <input type="radio" name="teacher_sex" value="1">男教员
-                                        <input type="radio" name="teacher_sex" value="0">女教员
+                                        <input type="radio" name="teacher_sex" value="2">女教员
                                         <input type="radio" name="teacher_sex" value="3">男女均可
                                     </div>
                                 </div>
@@ -304,10 +309,10 @@
                             <div class="form-group">
                                 <label class="col-sm-2 ">*教员性质</label>
                                 <div class="col-sm-2">
-                                        <select>
-                                            <option>大学生家教</option>
-                                            <option>专职老师</option>
-                                            <option>大学生专职老师均可</option>
+                                        <select name="ls_type">
+                                            <option value="大学生">大学生家教</option>
+                                            <option value="专职老师">专职老师</option>
+                                            <option value="大学生专职老师均可">大学生专职老师均可</option>
                                         </select>
                                 </div>
                             </div>
