@@ -97,18 +97,18 @@
 			<i class='cheng_four'></i>
 			<span>成绩管理</span>
 		</li>
-		<li>
+		<li>--}}
 			<i class='cheng_five'></i>
 			<span><a href="/tc_financial.html">财务中心</a></span>
 		</li>
-		<li>
-			<i class='cheng_six'></i>
-			<span>积分商城</span>
-		</li>
-		<li>
-			<i class='cheng_seven'></i>
-			<span>沟通中心</span>
-		</li>--}}
+        {{--<<li>
+            <i class='cheng_six'></i>
+            <span>积分商城</span>
+        </li>
+        <li>
+            <i class='cheng_seven'></i>
+            <span>沟通中心</span>
+        </li>--}}
 	</ul>
 </div>
 		<!-- 侧导航结束 -->

@@ -163,6 +163,8 @@ Route::post('/register','home\yuyueController@register');
 Route::post('/registerdo','home\yuyueController@registerdo');
 //提交数据
 Route::post('/yuyuexiangxi.html','home\yuyueController@doyyform');
+//尾部提交
+Route::post('/dofloatyyform','home\yuyueController@dofloatyyform');
 //填写预约详细
 Route::any('/yuyuexxform','home\yuyueController@yuyuexxform');
 //提交
