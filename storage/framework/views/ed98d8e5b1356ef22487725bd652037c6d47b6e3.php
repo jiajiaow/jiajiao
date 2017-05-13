@@ -87,6 +87,10 @@
 			<span><a href="/tc_order1.html"></a>订单管理</span>
 		</li>
 		
+			<i class='cheng_five'></i>
+			<span><a href="/tc_financial.html">财务中心</a></span>
+		</li>
+        
 	</ul>
 </div>
 		<!-- 侧导航结束 -->

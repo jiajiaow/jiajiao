@@ -194,14 +194,14 @@
 	<script type="text/javascript" src='/new/js/script_cheng.js'></script>
 	<script type="text/javascript" src='/new/js/bootstrap.js'></script>
 	<script type="text/javascript" src='/new/js/vue.min.js'></script>
-	<script type="text/javascript">
-		new Vue({
-			el:'#caozz',
-			data:{
-				licheng:''
-			}
-		});
-	</script>
+	
+		
+			
+			
+				
+			
+		
+	
 	<!-- 点击切换的 -->
 	<script type="text/javascript">
 		$('#fd').click(function(){
@@ -239,15 +239,15 @@
 					 .siblings('#cyy').css('display','none')
 					 .siblings('#xxx').css('display','none')
 		})
-		$('#i-jinge').blur(function(){
-			let zhi = $(this).val();
-
-			console.log(zhi);
-			$('#cnm').text('费用'+a+'元');
-			$('#cnmm').text('费用'+a+'元');
-			$('#cnmmm').text('费用'+a+'元');
-			$('#bn').text('￥'+a+'元');
-		})
+//		$('#i-jinge').blur(function(){
+//			let zhi = $(this).val();
+//
+//			console.log(zhi);
+//			$('#cnm').text('费用'+a+'元');
+//			$('#cnmm').text('费用'+a+'元');
+//			$('#cnmmm').text('费用'+a+'元');
+//			$('#bn').text('￥'+a+'元');
+//		})
 		var a = $('.d-jine').val()
 		$('#cnm').text('费用'+a+'元');
 //		$('#cnmm').text('费用'+a+'元');

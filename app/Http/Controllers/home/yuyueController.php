@@ -205,4 +205,35 @@ class yuyueController extends Controller
             //栗志
         }
     }
+    //尾部发布新家教
+    public function dofloatyyform(Request $request){
+        //dd($_POST);
+        $km = $request->input('km');
+        $phone = $request->input('phone');
+        $password = substr($phone,7,4);
+        $regionid = $request->session()->get('regionid');
+        $re = DB::table('jjw_user')->where('phone',$_POST['phone'])->first();
+        //判断是否存在
+        if($re){
+            //dd($re);
+            $userid = DB::table('jjw_user')->where('phone',$phone)->first();
+            //dd($userid);
+            //添加 预约信息
+            $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid->u_id,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid]);
+            //$reorderid = DB::table('jjw_reorder')->insertGetId(['u_id' => $userid->u_id,'oid' => $orderid,'tc_id'=>$teacher_id,'yy_zt'=>'学员主动预约','ht_t_status'=>'3']);
+            //dd($reorderid);
+          //  return view('delijiajiao.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
+            return back();
+        }else{
+            //dd($re);
+            //不存在 注册账号
+            $userid = DB::table('jjw_user')->insertGetId(['phone' => $phone,'password' => $password,'city_id' => $regionid]);
+            //添加 预约信息
+            // dd($userid);
+            $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid]);
+           // $reorderid = DB::table('jjw_reorder')->insertGetId(['u_id' => $userid,'oid' => $orderid,'tc_id'=>$teacher_id,'yy_zt'=>'学员主动预约','ht_t_status'=>'3']);
+            //return view('home.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
+            return back();
+        }
+    }
 }

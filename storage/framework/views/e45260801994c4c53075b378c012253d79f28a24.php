@@ -122,6 +122,55 @@
              background-color:#f7b529;
              color:#eee;
          }
+         .footer_flot_box {
+             background: rgba(53, 55, 63, 0.70);
+             height: 115px;
+             width: 100%;
+             position: fixed;
+             bottom: 0;
+             z-index: 999;
+         }
+         .footer_mar {
+             margin: 0 auto;
+             width: 72%;
+             position: relative;
+         }
+         .fm_img {
+             display: inline-block;
+             position: absolute;
+             top: -80px;
+         }
+         .fm_content {
+             display: inline-block;
+             vertical-align: middle;
+             margin-top: 13px;
+             margin-left: 327px;
+             color: #fff;
+             text-align: center;
+             border-right: 1px solid #ababab;
+             padding: 0 10px;
+             margin-right: 11px;
+         }
+         .fm_free{
+             color: #ffa51b;
+             margin-left: 15px;
+         }
+         .tel_box {
+             display: inline-block;
+             vertical-align: middle;
+             margin-top: 13px;
+             color: #fff;
+             text-align: center;
+         }
+         .zxzx {
+             cursor: pointer;
+             padding: 4px 10px;
+             background: #ffbf03;
+             font-size: 14px;
+             border-radius: 4px;
+             margin-top: 6px;
+             display: inline-block;
+         }
      </style>
 
   
@@ -273,7 +322,7 @@ for(i=0; i <tabList.length; i++)
           </div>
       </div>
   </footer>
-<div style="min-height: 50px;">
+ <div style="min-height: 50px;">
       <ul id="cheng-href" style="margin: auto;width: 1200px;">
       </ul>
       <div id="fudong"></div>
@@ -281,6 +330,35 @@ for(i=0; i <tabList.length; i++)
 
   <div class="banquanxinxi">
           © 2005－2017德栗家教   |   <a href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action">粤ICP备16062097号-4</a> 关键词：家教,一对一家教,广州家教网</div>
+  </div>
+  <div class="footer_flot_box">
+      <div class="footer_mar">
+          <div class="fm_img"><img src="/new/images/xsznt.png"></div>
+          <div class="fm_content">
+              <p>还没找到心仪的老师？我们的金牌顾问帮您挑吧</p>
+              <h3 style="font-size: 26px;margin: 0;">专业大学生上门家教<span class="fm_free">免费上门试课！</span></h3>
+              <div style="margin-top: 6px">
+                  <form method="post" action="/dofloatyyform">
+                  <select style="width: 123px;height: 26px;vertical-align: middle;color:#000; padding: 0" name="km">
+                      <option value="">请选择授课科目</option>
+                      <option value="初中">初中</option>
+                      <option value="高">高中</option>
+                      <option value="小学及学龄前">小学及学龄前</option>
+                      <option value="语言">语言</option>
+                      <option value="艺术">艺术</option>
+                      <option value="其他">其他</option>
+                  </select>
+                  <input type=""  placeholder="请输入手机号" style="width: 123px;height: 22px;vertical-align: middle;padding: 0;color:#000;" name="phone" id="float_phone">
+                  <input type="submit" value="马上提交" style="background: #ff3939;border: none;color: #fff;padding: 5px  10px;border-radius: 4px;" onclick="isPhoneNo()">
+                  </form>
+              </div>
+          </div>
+          <div class="tel_box">
+              <p><?php echo e(substr(session('cityname'),0,6)); ?>热线：<?php echo e(session('phone')); ?></p>
+              <p>全国热线：400-8250-710</p>
+              <span class="zxzx">在线咨询</span>
+          </div>
+      </div>
   </div>
   <script>
       $('#icon').mouseover(function(){
@@ -292,6 +370,19 @@ for(i=0; i <tabList.length; i++)
       $('.more-city').mouseout(function(){
           $(this).css('display','none')
       })
+
+
+      function isPhoneNo() {
+
+          var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+          if(!myreg.test($("#float_phone").val()))
+          {
+              layer.alert('请输入有效的手机号码！');
+              return false;
+          }
+
+      }
+
   </script>
   <script type="text/javascript">
       $(function(){
