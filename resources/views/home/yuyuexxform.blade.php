@@ -214,7 +214,7 @@
       background-color: #f9f9f9;
     }
     li{
-        padding: 9px 0;
+        /*padding: 9px 0;*/
         font-size: 16px;
         color: #676767;
     }

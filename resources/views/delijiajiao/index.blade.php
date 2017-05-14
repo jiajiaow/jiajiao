@@ -86,7 +86,7 @@
             </ul>
 
         </div>
-        <div class="meta-area meta-block">
+        <div class="meta-area meta-block" style="width: 355px;">
             <h3><i class="icon-welfares"></i>热门学科</h3>
             <ul style="    margin-top: 9px;">
                 {{--@foreach($xueke as $xk)--}}
@@ -448,10 +448,11 @@
         text-overflow: ellipsis;
         overflow: hidden;
     }
-.menu-item-icon img{
-    width: 100%;
-    height: 100%;
-}
+    .menu-item-icon img{
+        width: 100%;
+        height: 100%;
+    }
+
 
 
 </style>
@@ -493,6 +494,22 @@
       })
 
   });
+
+  $(window).scroll(function(event){
+      var scroll = $(window).scrollTop()
+      var li_4 = $('.nav-item:nth(4)')
+      var li_5 = $('.nav-item:nth(5)')
+    if(scroll >= 2000){
+        li_4.hide()
+        li_5.hide()
+    }else if(scroll <= 2000){
+        li_4.show()
+        li_5.show()
+    }
+  });
+  var aaa = $('.nav-item:nth(4)')
+    console.log(aaa)
+
 </script>
 
 

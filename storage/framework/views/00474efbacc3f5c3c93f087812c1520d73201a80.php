@@ -34,12 +34,12 @@
 					<div class="form pull-left">
 						<h4>教员注册</h4>
 						<form name="form1" method="post" id="form1" action="<?php echo e(URL('/doreg.html')); ?>">
-							<div class="fg">
+							<div class="fg" style="padding-left: 0px">
 								<input type="text" id="uname" name="mobile" placeholder="手机号" maxlength=11>
 								<span></span>
 							</div>
 
-							<div class="yfg" id="hidepassword">
+							<div class="yfg" id="hidepassword" style="padding-left: 0px;">
 								<input type="password" id="pw1" name="pw1" placeholder="请设置密码" class="pass" onblur="changepw1pw2() " style="background-color: #EEEEEE;">
 								
 							</div>
@@ -50,9 +50,9 @@
 							
 
 
-							<div class="fg">
+							<div class="fg" style="padding-left: 0px;">
 								<input type="text" style="width:150px" id="mobile_code" name="mobile_code" placeholder="验证码" class="password">
-								<input type="button" style="width:156px;background:#F7B529;color:black;cursor: pointer;" onclick="sendMsg()" value="发送验证码" id="djs">
+								<input type="button" style="width:163px;background:#F7B529;color:black;cursor: pointer;" onclick="sendMsg()" value="发送验证码" id="djs">
 								<span></span>
 							</div>
 
