@@ -28,7 +28,7 @@
         <div class="col-sm-12" style="overflow: scroll;">
             <div class="ibox float-e-margins" style="overflow: scroll;">
                 <div class="ibox-title">
-                    <h5>教员收支流水 <small>分类，查找</small></h5>
+                    <h5>学员订单 <small>分类，查找</small></h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-up"></i>
