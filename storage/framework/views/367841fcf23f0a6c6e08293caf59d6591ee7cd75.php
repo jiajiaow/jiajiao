@@ -173,7 +173,7 @@
         </li>
         <li>
           <p>对教员具体的要求</p>
-          <textarea name='teacher_info'></textarea>
+          <textarea name='teacher_info' placeholder="有责任心，有家教经验优先！"></textarea>
         </li>
         <li>
           <p>教员性质</p>
@@ -209,7 +209,7 @@
                 <option value="200">200</option>
                 <option value="300">300</option>
             </select>
-            <a href="">点击查看家教薪资参考标准</a>
+            
         </li>
       </ul>
       <input name="oid" value="<?php echo e($orderid); ?>" type="hidden"/>
@@ -222,7 +222,7 @@
       background-color: #f9f9f9;
     }
     li{
-        padding: 9px 0;
+        /*padding: 9px 0;*/
         font-size: 16px;
         color: #676767;
     }

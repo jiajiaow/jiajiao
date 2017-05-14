@@ -132,7 +132,7 @@
          }
          .footer_mar {
              margin: 0 auto;
-             width: 72%;
+             width: 1026px;
              position: relative;
          }
          .fm_img {
@@ -151,9 +151,11 @@
              padding: 0 10px;
              margin-right: 11px;
          }
-         .fm_free{
+         .fm_free {
              color: #ffa51b;
              margin-left: 15px;
+             font-size: 25px;
+             font-weight: 600;
          }
          .tel_box {
              display: inline-block;
@@ -161,6 +163,10 @@
              margin-top: 13px;
              color: #fff;
              text-align: center;
+         }
+         .tel_box p{
+             color: #fff;;
+             font-size: 14px;
          }
          .zxzx {
              cursor: pointer;
@@ -170,6 +176,18 @@
              border-radius: 4px;
              margin-top: 6px;
              display: inline-block;
+             color: #fff;
+         }
+         .footer_mar h3 {
+             color: #fff;
+             font-weight: 600;
+             height: 37px;
+             line-height: 37px;
+         }
+         .fm_content p{
+             color:#fff;
+             font-size: 14px;
+             margin: 0;
          }
      </style>
 
@@ -256,7 +274,7 @@ for(i=0; i <tabList.length; i++)
    </div>
   </header>
   <div class="nav-horizontal">
-   <div class="nav-horizontal-content">
+   <div class="nav-horizontal-content" style="height: 46px;">
     <ul id="weituo">
      <li id="as1" class="vtle"><a href="/"  id="ad1">德栗首页</a></li>
      <li id="as2"><a href="/yuyuelaoshi.html" id="ad2">快速请家教</a></li>
@@ -264,7 +282,6 @@ for(i=0; i <tabList.length; i++)
      <li id="as4"><a href="/zfsm.html" id="ad4">资费说明</a></li>
      <li id="as5"><a href="/xueyuan.html" id="ad5">学员库</a></li>
      <li id="as6"><a href="" id="ad6">会员中心</a></li>
-
      <li id="as7"><a href="/Articlecenter1.html" id="ad7">文章中心</a></li>
 
 
@@ -313,8 +330,7 @@ for(i=0; i <tabList.length; i++)
               </div>
               <div class="line"></div>
               <div class="b5">
-                  <li><a a href='/' class='primary-logo' ><img alt="广州" src="/delijiajiao/picture/erwei.png" class="city-logo" width="60px"/></a><br><p>电话：400-8080-740
-
+                  <li><a a href='/' class='primary-logo' ><img alt="广州" src="/delijiajiao/picture/erwei.png" class="city-logo" width="60px"/></a><br><p>电话：400-8250-
                       </p></li>
                   <!--<li><a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备16062097号</a></li>-->
               </div>
@@ -338,19 +354,19 @@ for(i=0; i <tabList.length; i++)
               <p>还没找到心仪的老师？我们的金牌顾问帮您挑吧</p>
               <h3 style="font-size: 26px;margin: 0;">专业大学生上门家教<span class="fm_free">免费上门试课！</span></h3>
               <div style="margin-top: 6px">
-                  <form method="post" action="/dofloatyyform">
-                  <select style="width: 123px;height: 26px;vertical-align: middle;color:#000; padding: 0" name="km">
+                  {{--<form method="post" action="/dofloatyyform" id="ksqjj">--}}
+                  <select style="width: 123px;height: 26px;vertical-align: middle;color:#000;font-size:12px; padding: 0" name="km" id="km">
                       <option value="">请选择授课科目</option>
                       <option value="初中">初中</option>
-                      <option value="高">高中</option>
+                      <option value="高中">高中</option>
                       <option value="小学及学龄前">小学及学龄前</option>
                       <option value="语言">语言</option>
                       <option value="艺术">艺术</option>
                       <option value="其他">其他</option>
                   </select>
-                  <input type=""  placeholder="请输入手机号" style="width: 123px;height: 22px;vertical-align: middle;padding: 0;color:#000;" name="phone" id="float_phone">
-                  <input type="submit" value="马上提交" style="background: #ff3939;border: none;color: #fff;padding: 5px  10px;border-radius: 4px;" onclick="isPhoneNo()">
-                  </form>
+                  <input type=""  placeholder="请输入手机号" style="width: 123px;height: 26px;vertical-align: middle;padding: 0;font-size:12px;color:#000;" name="phone" id="float_phone">
+                  <input type="submit" id="float_tj_btn" style="background: #ff3939;border: none;color: #fff;font-size:12px;padding: 5px  10px;border-radius: 4px;" onclick="isPhoneNo()" value="马上提交"  >
+                  {{--</form>--}}
               </div>
           </div>
           <div class="tel_box">
@@ -371,16 +387,42 @@ for(i=0; i <tabList.length; i++)
           $(this).css('display','none')
       })
 
-
-      function isPhoneNo() {
-
-          var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
-          if(!myreg.test($("#float_phone").val()))
+      $('#float_phone').blur(function(){
+          var myreg = /^1[345678]\d{9}$/;
+          if($(this).val() == ''){
+              alert('手机号不能为空')
+          }
+          else if(!myreg.test($("#float_phone").val()))
           {
               layer.alert('请输入有效的手机号码！');
               return false;
           }
+      })
+      function isPhoneNo() {
+          var km = $('#km').val()
+          //alert(km);
+          var phone = $('#float_phone').val();
+          if(km != ''){
+              if(phone != ''){
+                  var myreg = /^1[34578]\d{9}$/;
+                  if(!myreg.test($("#float_phone").val()))
+                  {
+                      layer.alert('请输入有效的手机号码！');
+                      return false;
+                  }else{
+                      $.post('/dofloatyyform',{km:km,phone:phone},function(r){
+                          layer.alert('尊敬的家长/学员,我们已经收到您的需求,我们的金牌顾问将尽快联系您,非常感谢您的认可。');
+                      })
+                  }
+              }else{
+                  alert('手机号码不能为空');
+                  return false;
+              }
 
+          }else{
+                alert('科目不能为空');
+              return false;
+          }
       }
 
   </script>

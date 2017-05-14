@@ -110,6 +110,7 @@
                                     </td>
                                     <td>
                                         家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）
+                                        <button class="timeShow1" onclick="tjfk(<?php echo e($l->jl_id); ?>)">查看</button>
                                     </td>
                                     <td>无显示</td>
                                     <td>无显示</td>
@@ -178,6 +179,100 @@
         </div>
 
     </div>
+    <div class="fc" style="display: none;"></div>
+    <div class="fc_content" id="tjfk<?php echo e($l->jl_id); ?>" style="display: none">
+        <div style="padding: 10px 32px;">
+            <ul>
+                <li><font><font>是否试课
+                        </font></font><select id="ok_no">
+                        <option value="已试课"><font><font>已试课</font></font></option>
+                        <option value="尚未试课"><font><font>尚未试课</font></font></option>
+                    </select>
+                </li>
+                <li><font><font>不成功类型
+                        </font></font><select id="renyuan">
+                        <option value="家长原因"><font><font>家长原因</font></font></option>
+                        <option value="教员原因"><font><font>教员原因</font></font></option>
+                    </select>
+                </li>
+                <li>
+                    <p class="seleYY"><font><font>原因
+                            </font></font><select id="no_xueyuan" style="display:none; width:360px;">
+                            <option value=""><font><font>家长已经找到老师了</font></font></option>
+                            <option value=""><font><font>家长还是选择了去上辅导班（未试课）</font></font></option>
+                            <option value=""><font><font>家长临时不要而未能试课</font></font></option>
+                            <option value=""><font><font>家长的要求与订单不符，经协调不合适未去试课</font></font></option>
+                            <option value=""><font><font>家长/学​​生因为课程的变动不试课</font></font></option>
+                            <option value=""><font><font>学员暂时不接受家教未能试课</font></font></option>
+                            <option value=""><font><font>家长一个星期后未联系上</font></font></option>
+                            <option value=""><font><font>家长一个星期后还无法确认试课时间</font></font></option>
+                            <option value=""><font><font>家长想换个性别（男/女）的老师（未试课）</font></font></option>
+                            <option value=""><font><font>家长想换个更好学校或者更合适专业的老师（未试课）</font></font></option>
+                            <option value=""><font><font>家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）</font></font></option>
+                        </select>
+                        <select id="ok_xueyuan" style="display:none;width:360px;">
+                            <option value=""><font><font>学员暂时不太适应家教试课不成功</font></font></option>
+                            <option value=""><font><font>家长还是选择了去上辅导班（已试课）</font></font></option>
+                            <option value=""><font><font>家长试课后想换个更好学校或者更合适专业的老师（已试课）</font></font></option>
+                            <option value=""><font><font>家长想换个专职老师/或者原来是专职老师，想试试大学生（已试课）</font></font></option>
+                            <option value=""><font><font>家长试课后家长想换个性别（男/女）的老师（已试课）</font></font></option>
+                        </select>
+                        <select id="no_jiaoyuan" style="display:none;width:360px;">
+                            <option value=""><font><font>教员个人原因去不了试课</font></font></option>
+                            <option value=""><font><font>学员的要求较高，教员无法胜任</font></font></option>
+                        </select>
+
+                        <select id="ok_jiaoyuan" style="display:none;width:360px;">
+                            <option value=""><font><font>教员个人原因以后没法上课</font></font></option>
+                            <option value=""><font><font>教员迟到，上课时玩手机，一直在提钱，态度不好</font></font></option>
+                            <option value=""><font><font>教员不认真备课和准备，对孩子不负责</font></font></option>
+                            <option value=""><font><font>教员能力有限，带不了孩子</font></font></option>
+                            <option value=""><font><font>教员试课后家长不满意（除以上项目以外的）</font></font></option>
+                        </select>
+                    </p>
+                </li>
+                <li style="text-align: center">
+                    <button class="sure_qd_btn">确认</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+            padding: 8px 0;
+        }
+        .fc {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.41);
+            top: 0;
+            left: 0;
+            z-index: 998;
+        }
+        .fc_content {
+            width: 470px;
+            height: 173px;
+            position: fixed;
+            background: #fff;
+            left: 50%;
+            top: 50%;
+            margin-left: -235px;
+            margin-top: -107px;
+            padding-bottom: 14px;
+            z-index: 999;
+        }
+        .seeMar{
+            margin: 0 27px;
+        }
+    </style>
+
 
     <!-- 全局js -->
     <script src="js/jquery.min.js?v=2.1.4"></script>
@@ -260,8 +355,95 @@
         }
     </script>
 
-    
-    
+    <script>
+        $('.timeShow').click(function(){
+            $('.fc').show(500)
+            $('.fc_content').show(500)
+        })
+        $('.fc').click(function(){
+            $('.fc').hide(500)
+            $('.fc_content').hide(500)
+        })
+        $('.sure_btn').click(function(){
+            $('.fc').hide(500)
+            $('.fc_content').hide(500)
+        })
+        $('.sure_qd_btn').click(function(){
+            $('.fc').hide(500)
+            $('.fc_content').hide(500)
+        })
+        $('.qxBtn').click(function(){
+            $('.fc').hide(500)
+            $('.fc_content').hide(500)
+        })
+
+
+
+        $('#ok_no').change(function(){
+            var ok_no = $('#ok_no option:selected').val()
+            var renyuan =$('#renyuan option:selected').val()
+            if(renyuan == '家长原因' & ok_no == '已试课'){
+                $('#ok_xueyuan').show()
+                $('#ok_jiaoyuan').hide()
+                $('#no_jiaoyuan').hide()
+                $('#no_xueyuan').hide()
+            }
+            if(renyuan == '家长原因' & ok_no == '尚未试课'){
+                $('#ok_xueyuan').hide()
+                $('#ok_jiaoyuan').hide()
+                $('#no_jiaoyuan').hide()
+                $('#no_xueyuan').show()
+            }
+            if(renyuan == '教员原因' & ok_no == '已试课'){
+                $('#ok_xueyuan').hide()
+                $('#ok_jiaoyuan').show()
+                $('#no_jiaoyuan').hide()
+                $('#no_xueyuan').hide()
+            }
+            if(renyuan == '教员原因' & ok_no == '尚未试课'){
+                $('#ok_xueyuan').hide()
+                $('#ok_jiaoyuan').hide()
+                $('#no_jiaoyuan').show()
+                $('#no_xueyuan').hide()
+            }
+        })
+        $('#renyuan').change(function(){
+            var ok_no = $('#ok_no option:selected').val()
+            var renyuan =$('#renyuan option:selected').val()
+            if(renyuan == '家长原因' & ok_no == '已试课'){
+                $('#ok_xueyuan').show()
+                $('#ok_jiaoyuan').hide()
+                $('#no_jiaoyuan').hide()
+                $('#no_xueyuan').hide()
+            }
+            if(renyuan == '家长原因' & ok_no == '尚未试课'){
+                $('#ok_xueyuan').hide()
+                $('#ok_jiaoyuan').hide()
+                $('#no_jiaoyuan').hide()
+                $('#no_xueyuan').show()
+            }
+            if(renyuan == '教员原因' & ok_no == '已试课'){
+                $('#ok_xueyuan').hide()
+                $('#ok_jiaoyuan').show()
+                $('#no_jiaoyuan').hide()
+                $('#no_xueyuan').hide()
+            }
+            if(renyuan == '教员原因' & ok_no == '尚未试课'){
+                $('#ok_xueyuan').hide()
+                $('#ok_jiaoyuan').hide()
+                $('#no_jiaoyuan').show()
+                $('#no_xueyuan').hide()
+            }
+        })
+
+        function tjfk(id){
+            alert(id);
+            $('.fc').show(500)
+            $('#tjfk'+id).show(500)
+        }
+
+    </script>
+
 
 </body>
 
