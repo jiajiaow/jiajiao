@@ -1,5 +1,6 @@
 @extends('delijiajiao.public.public')
-@section('title','文章中心')
+@section('title',$data->ar_title)
+@section('ms',$data->ar_title)
 @section('style')
   <link rel="stylesheet" type="text/css" href="/delijiajiao/css/cheng_css.css">
   <link rel="stylesheet" href="/delijiajiao/css/bootstrap.css">
