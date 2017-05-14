@@ -175,6 +175,7 @@
                         </tbody>
                     </table>
                 </div>
+                <?php echo e($data->links()); ?>
 
             </div>
         </div>

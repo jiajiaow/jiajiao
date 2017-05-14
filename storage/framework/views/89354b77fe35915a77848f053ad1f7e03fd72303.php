@@ -32,7 +32,7 @@
 			margin:auto;
 			width: 1200px;
 			height: 100px;
-			/*background-color: #e4393c;*/
+			background-color: #FACC40;
 		}
 		.lf{
 			float: left ;
@@ -240,10 +240,11 @@
 <div id="fudong">
 
 </div>
-<footer>
-	<div class="footer">
+<footer style='background-color:#333'>
+	<div class="footer" style="width:1200px;margin:auto;">
 		Copyright　2005-2017　广州学求易教育咨询有限公司　版权所有　<a style="color: #ccc;" href="http://www.miitbeian.gov.cn/" target="_blank">粤ＩＰＣ备：16062097号</a>
 	</div>
+
 </footer>
 <div class="fc" style="display: none;"></div>
 <div class="fc_content" style="display: none;">
