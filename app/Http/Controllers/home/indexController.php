@@ -25,7 +25,7 @@ class indexController extends Controller{
             $jy = DB::table('jjw_teachers')->where('tc_city_id',session('regionid'))->where('tc_sort','1')->orderBy('tc_dltimes','DESC')->limit(25)->get();
             //dd($jy);
             //最新学生订单
-            $data = DB::table('jjw_order')->where('city_id',session('regionid'))->limit(6)->orderBy('id', 'DESC')->orderBy('time', 'DESC')->get();
+            $data = DB::table('jjw_order')->where('status','!=','3')->where('city_id',session('regionid'))->limit(6)->orderBy('id', 'DESC')->orderBy('time', 'DESC')->get();
             //热门学科
             $xueke = DB::table('jjw_sanji')->where('hot','1')->limit(8)->get();
             //return view('delijiajiao.index',['jinpai'=>$jinpai,'xueshen'=>$xueshen,'zhuanzhi'=>$zhuanzhi,'data'=>$data,'xx' => $xx,'xueke'=>$xueke,'dq'=>$dq]);

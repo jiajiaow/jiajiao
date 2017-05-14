@@ -32,7 +32,7 @@
             margin:auto;
             width: 1200px;
             height: 100px;
-            /*background-color: #e4393c;*/
+            background-color: #FACC40;
         }
         .lf{
             float: left ;

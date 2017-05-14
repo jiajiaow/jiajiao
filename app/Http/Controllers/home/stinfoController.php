@@ -11,7 +11,7 @@ class stinfoController extends Controller
     public function stinfo(){
         //1为德栗
         if (session('Template') == '2') {
-            $user = \DB::table('jjw_user')->where('city_id',session('regionid'))->where('phone',session('st_phone'))->first();
+            $user = \DB::table('jjw_user')->where('phone',session('st_phone'))->first();
             //dd($user);
             return view('delijiajiao.xy_info',['user'=>$user]);
         }else{
@@ -24,7 +24,7 @@ class stinfoController extends Controller
             if(session('st_phone') == ''){
                 return redirect('/')->with('msg','请您先登录!');
             }
-            $user = \DB::table('jjw_user')->where('city_id',session('regionid'))->where('phone',session('st_phone'))->first();
+            $user = \DB::table('jjw_user')->where('phone',session('st_phone'))->first();
             // dd($user);
             //待试课
             // $dsk = \DB::table('jjw_order')->where('city_id',session('regionid'))->where('user_id',$user->u_id)->where('status','1')->paginate(2);

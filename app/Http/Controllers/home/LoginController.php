@@ -24,7 +24,7 @@ class LoginController extends Controller
         if(isset($_POST['code'])){
             $phone = $_POST['phone'];
             $yzm = $_POST['code'];
-            $list = \DB::table('jjw_teachers')->where('tc_phone',$phone)->where('tc_city_id',session('regionid'))->first();
+            $list = \DB::table('jjw_teachers')->where('tc_phone',$phone)->first();
             //dd($list);
             if($list != null AND $request->cookie('code') == $yzm){
                 //设置session
@@ -45,7 +45,7 @@ class LoginController extends Controller
             $phone = $_POST['phone'];
             $pass = md5($_POST['pwd']);
             //查询账号密码是否存在
-            $list = \DB::table('jjw_teachers')->where('tc_phone',$phone)->where('tc_city_id',session('regionid'))->first();
+            $list = \DB::table('jjw_teachers')->where('tc_phone',$phone)->first();
             if($list != null){
                 if($list->tc_pass != $pass){
                     return redirect('/login.html')->with('msg','密码错误,请重新输入!');
@@ -163,7 +163,7 @@ class LoginController extends Controller
         if(isset($_POST['code'])){
             $phone = $_POST['phone'];
             $yzm = $_POST['code'];
-            $list = \DB::table('jjw_user')->where('phone',$phone)->where('city_id',session('regionid'))->first();
+            $list = \DB::table('jjw_user')->where('phone',$phone)->first();
             //dd($list);
             if($list != null AND $request->cookie('code') == $yzm){
                 //设置session
@@ -185,7 +185,7 @@ class LoginController extends Controller
             $pass = $_POST['pwd'];
             session(['dlzt' => $_POST['dlzt']]);
             //查询账号密码是否存在
-            $list = \DB::table('jjw_user')->where('phone',$phone)->where('city_id',session('regionid'))->first();
+            $list = \DB::table('jjw_user')->where('phone',$phone)->first();
             //dd($list);
             if($list != null){
                 if($list->password != $pass) {
@@ -194,11 +194,11 @@ class LoginController extends Controller
                     //设置session
                     session(['st_phone' => $list->phone, 'st_name' => $list->name]);
                     //重定向  //判断是德栗还是栗志  1是栗志 2是德栗
-                    if (session('Template') == '2') {
+                  //  if (session('Template') == '2') {
                         return redirect('/stinfo.html');
-                    } else if (session('Template') == '2') {
-                        return redirect('/stinfo.html');
-                    }
+                   // } else if (session('Template') == '2') {
+                   //     return redirect('/stinfo.html');
+                   // }
                 }
             }else{
                 //重定向

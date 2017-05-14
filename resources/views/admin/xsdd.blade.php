@@ -104,8 +104,8 @@
                                         <option value="opel">今日头条/老客户</option>
                                         <option value="opel">搜狗</option>
                                         <option value="opel">搜狗/老客户</option>
-                                        <potion value="xs">同学介绍</option>
-                                        <potion value="xs">老家长</option>
+                                        <option value="xs">同学介绍</option>
+                                        <option value="xs">老家长</option>
                                     </select>
                                 </p>
                             </li>
