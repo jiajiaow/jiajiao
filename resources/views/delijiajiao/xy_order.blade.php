@@ -89,7 +89,7 @@
 								</div>
 								<div class="cz">
 									<label>订单编号：</label>
-									<p>{{ $dsks->id }}</p>
+									<p><a href="/xsinfo{{ $dsks->id }}.html">{{ $dsks->id }}</a></p>
 								</div>
 								<div class="cz shen">
 									<label>学员姓名：</label>
@@ -105,9 +105,9 @@
 								</div>
 								<div class="cz">
 									<label>评价教员：</label>
-									<p style="color:red;">
+									<p style="color:red;text-align: center;">
 										<!-- <form action="" method="POST"> -->
-											<input id="jz"type="text" name='pj' placeholder='立即评价（教员不可见）'>
+											<input id="jz"type="text" name='pj' placeholder='                                             立即评价（教员不可见）'>
 										<!-- </form> -->
 									</p>
 								</div>
@@ -117,19 +117,19 @@
 								</div>
 								<div class="cz">
 									<label>试课时间：</label>
-									<p></p>
+									<p>{{ date('Y-m-d h:i:s',$dsks->rsk_times) }}</p>
 								</div>
-								<div class="cz shen">
+								{{--<div class="cz shen">
 									<label>授课订单：</label>
 									<p>VIP专享</p>
-								</div>
+								</div>--}}
 								<div class="cz">
 									<label>状态：</label>
 									<p>试课中</p>
 								</div>
 								<div class="zuihou">
-									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='color:#B5B5B5;'href="">结束订单</a></span>
-									<span style='font-size:18px;color:#B5B5B5;text-align:center;display:inline-block;width:400px;'><a href="" style="color:#B5B5B5;">常见问题</a></span>
+									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='' href="/xsinfo{{ $dsks->id }}.html">查看订单详情</a></span>
+									<span style='font-size:18px;color:#B5B5B5;text-align:center;display:inline-block;width:400px;'><a href="/Articlecenter18.html" >常见问题</a></span>
 								</div>
 							</div>
 						@endforeach
@@ -144,7 +144,7 @@
 								</div>
 								<div class="cz">
 									<label>订单编号：</label>
-									<p>{{ $skzs->id }}</p>
+									<p><a href="/xsinfo{{ $skzs->id }}.html">{{ $skzs->id }}</a></p>
 								</div>
 								<div class="cz shen">
 									<label>学员姓名：</label>
@@ -162,29 +162,29 @@
 									<label>评价教员：</label>
 									<p style="color:red;">
 										<!-- <form action="" method="POST"> -->
-											<input id="jz"type="text" name='pj' placeholder='立即评价（教员不可见）'>
+										<input id="jz"type="text" name='pj' placeholder='                                             立即评价（教员不可见）'>
 										<!-- </form> -->
 									</p>
 								</div>
 								<div class="cz shen">
 									<label>电子介绍信/合同：</label>
-									<p><a style='color:red'href="">点击查看</a></p>
+									<p><a style='color:red'href="/xy_hetong/{{ $skzs->id }}.html">点击查看</a></p>
 								</div>
 								<div class="cz">
-									<label>试课时间：</label>
-									<p></p>
+									<label>授课时间：</label>
+									<p>{{ $skzs->sk_times }}</p>
 								</div>
-								<div class="cz shen">
-									<label>授课订单：</label>
-									<p>VIP专享</p>
-								</div>
+								{{--<div class="cz shen">--}}
+									{{--<label>授课订单：</label>--}}
+									{{--<p>VIP专享</p>--}}
+								{{--</div>--}}
 								<div class="cz">
 									<label>状态：</label>
 									<p>授课中</p>
 								</div>
 								<div class="zuihou">
-									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='color:#B5B5B5;'href="">结束订单</a></span>
-									<span style='font-size:18px;color:#B5B5B5;text-align:center;display:inline-block;width:400px;'><a href="" style="color:#B5B5B5;">常见问题</a></span>
+									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='' href="/xsinfo{{ $skzs->id }}.html">查看订单详情</a></span>
+									<span style='font-size:18px;color:#B5B5B5;text-align:center;display:inline-block;width:400px;'><a href="/Articlecenter18.html" >常见问题</a></span>
 								</div>
 							</div>
 						@endforeach
@@ -200,7 +200,7 @@
 								</div>
 								<div class="cz">
 									<label>订单编号：</label>
-									<p>{{ $skjss->id }}</p>
+									<p><a href="/xsinfo{{ $skjss->id }}.html">{{ $skjss->id }}</a></p>
 								</div>
 								<div class="cz shen">
 									<label>学员姓名：</label>
@@ -212,35 +212,36 @@
 								</div>
 								<div class="cz shen">
 									<label>教员基本信息：</label>
-									<p>{{ $skjss->tc_school }}<a style="color:red" href="/teacher/detail/{{ $skjss->tc_id }}.html"> (点击查看详细信息) </a></p>
+									<p>{{ $skjss->tc_name }}<a style="color:red" href="/teacher/detail/{{ $skjss->tc_id }}.html"> (点击查看详细信息) </a></p>
 								</div>
 								<div class="cz">
 									<label>评价教员：</label>
 									<p style="color:red;">
 										<!-- <form action="" method="POST"> -->
-											<input id="jz"type="text" name='pj' placeholder='立即评价（教员不可见）'>
+										<input id="jz"type="text" name='pj' placeholder='                                             立即评价（教员不可见）'>
 										<!-- </form> -->
 									</p>
 								</div>
 								<div class="cz shen">
 									<label>电子介绍信/合同：</label>
-									<p><a style='color:red'href="">点击查看</a></p>
+									<p><a style='color:red'href="/xy_hetong/{{ $skjss->id }}.html">点击查看</a></p>
 								</div>
-								<div class="cz">
+								{{--<div class="cz">
 									<label>试课时间：</label>
 									<p></p>
-								</div>
-								<div class="cz shen">
+								</div>--}}
+								{{--<div class="cz shen">
 									<label>授课订单：</label>
 									<p>VIP专享</p>
-								</div>
+								</div>--}}
 								<div class="cz">
 									<label>状态：</label>
 									<p>授课结束</p>
 								</div>
 								<div class="zuihou">
-									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='color:#B5B5B5;'href="">结束订单</a></span>
-									<span style='font-size:18px;color:#B5B5B5;text-align:center;display:inline-block;width:400px;'><a href="" style="color:#B5B5B5;">常见问题</a></span>
+									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='' href="/xsinfo{{ $skjss->id }}.html">查看订单详情</a></span>
+									<span style='font-size:18px;color:#B5B5B5;text-align:center;display:inline-block;width:400px;'><a href="/Articlecenter18.html" >常见问题</a></span>
+
 								</div>
 							</div>
 						@endforeach
@@ -256,7 +257,7 @@
 								</div>
 								<div class="cz">
 									<label>订单编号：</label>
-									<p>{{ $apdds->id }}</p>
+									<p><a href="/xsinfo{{ $apdds->id }}.html">{{ $apdds->id }}</a></p>
 								</div>
 								<div class="cz shen">
 									<label>学员年级：</label>
@@ -276,15 +277,16 @@
 								</div>
 								<div class="cz shen">
 									<label>辅导课酬：</label>
-									<p>@if($apdds->money != ''){{ $apdds->money }}/1小时@else @endif </p>
+									<p>@if($apdds->money != ''){{ $apdds->money }}元/1小时@else @endif </p>
 								</div>
 								<div class="cz">
 									<label>状态：</label>
 									<p>安排中</p>
 								</div>
 								<div class="zuihou">
-									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='color:#B5B5B5;'href="">查看订单详情</a></span>
-									<span style='font-size:18px;color:#B5B5B5;text-align:center;display:inline-block;width:400px;'><a href="" style="color:#B5B5B5;">常见问题</a></span>
+									<span style='font-size:18px;height:50px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='' href="/xsinfo{{ $apdds->id }}.html">查看订单详情</a></span>
+									<span style='font-size:18px;height:50px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='' href="http://www.delijiajiao.com/faculty.html">挑老师</a></span>
+									<span style='font-size:18px;color:#B5B5B5;text-align:center;display:inline-block;'><a href="/Articlecenter18.html" >常见问题</a></span>
 								</div>
 							</div>
 						@endforeach
@@ -295,11 +297,11 @@
 							<div class="c_container">
 								<div class="cz shen">
 									<label>订单生成时间：</label>
-									<p>{{ date("Y-m-d h:i:s",$skwcgs->time) }}}</p>
+									<p>{{ date("Y-m-d h:i:s",$skwcgs->time) }}</p>
 								</div>
 								<div class="cz">
 									<label>订单编号：</label>
-									<p>{{ $skwcgs->id }}</p>
+									<p><a href="/xsinfo{{ $skwcgs->id }}.html">{{ $skwcgs->id }}</a></p>
 								</div>
 								<div class="cz shen">
 									<label>学员姓名：</label>
@@ -317,29 +319,29 @@
 									<label>评价教员：</label>
 									<p style="color:red;">
 										<!-- <form action="" method="POST"> -->
-											<input id="jz"type="text" name='pj' placeholder='立即评价（教员不可见）'>
+										<input id="jz"type="text" name='pj' placeholder='                                             立即评价（教员不可见）'>
 										<!-- </form> -->
 									</p>
 								</div>
 								<div class="cz shen">
 									<label>电子介绍信/合同：</label>
-									<p><a style='color:red'href="">点击查看</a></p>
+									<p><a style='color:red'href="/xy_hetong/{{ $skwcgs->id }}.html">点击查看</a></p>
 								</div>
 								<div class="cz">
 									<label>试课时间：</label>
-									<p>2017.8.9&nbsp;19:20</p>
+									<p>{{ date('Y-m-d h:i:s',$skwcgs->rsk_times) }}</p>
 								</div>
-								<div class="cz shen">
+								{{--<div class="cz shen">
 									<label>授课订单：</label>
 									<p>VIP专享</p>
-								</div>
+								</div>--}}
 								<div class="cz">
 									<label>状态：</label>
-									<p>试课中</p>
+									<p>试课未成功</p>
 								</div>
 								<div class="zuihou">
-									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='color:#B5B5B5;'href="">结束订单</a></span>
-									<span style='font-size:18px;color:#B5B5B5;text-align:center;display:inline-block;width:400px;'><a href="" style="color:#B5B5B5;">常见问题</a></span>
+									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='' href="/xsinfo{{ $skwcgs->id }}.html">查看订单详情</a></span>
+									<span style='font-size:18px;color:#B5B5B5;text-align:center;display:inline-block;width:400px;'><a href="/Articlecenter18.html" >常见问题</a></span>
 								</div>
 							</div>
 						@endforeach
@@ -351,6 +353,14 @@
 		<!-- nav 结束 -->
 		
 	</div>
+	<style>
+		.zuihou{
+			text-align: center;
+		}
+		.zuihou span{
+			width:32%;
+		}
+	</style>
 @endsection
 @section('js')
 

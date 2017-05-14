@@ -34,7 +34,7 @@ class stinfoController extends Controller
                 ->where('o.city_id',session('regionid'))
                  ->where('o.user_id',$user->u_id)
                 ->where('r.qt_t_status','4')
-                ->select('o.*','t.tc_name','t.tc_school','t.id as tc_id')
+                ->select('o.*','t.tc_name','t.tc_school','t.id as tc_id','r.sk_times as rsk_times','r.id as rid')
                 ->paginate(2);
             //dd($dsk);
             //授课中
@@ -62,7 +62,7 @@ class stinfoController extends Controller
                 ->where('o.city_id',session('regionid'))
                 ->where('o.user_id',$user->u_id)
                 ->where('r.qt_t_status','8')
-                ->select('o.*','t.tc_name','t.tc_school','t.id as tc_id')
+                ->select('o.*','t.tc_name','t.tc_school','t.id as tc_id','r.sk_times as rsk_times')
                 ->paginate(2);
             //安排中的订单
             $apdd = \DB::table('jjw_order as o')

@@ -511,7 +511,7 @@
         //alert(rid);
         var moneys = $('#money'+id).val();
         var money = $.trim(moneys)
-        alert(money);
+        //alert(money);
         $.ajax({
             type:'POST',
             url:"{{ URL('/admin/tdye.html') }}",

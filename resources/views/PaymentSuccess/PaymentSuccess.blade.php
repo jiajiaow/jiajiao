@@ -65,10 +65,10 @@
         <img src="/wx/images/cg1.png" style="width:200px;">
       </div>
        <div class="ahv" style="width: 100px;height: 45px;border: 1px solid #eee;background: #ccc;text-align: center;line-height: 40px;font-size:18px;float: left;margin-left: 27%;"><a href="/">返回首页</a></div>
-       <div class="ahv" style="width: 100px;height: 45px;border: 1px solid #eee;background: #ccc;text-align: center;line-height: 40px;font-size:18px;float: left;margin-left: 27%;"><a href="/contact.html">联系我们</a></div>
+       <div class="ahv" style="width: 100px;height: 45px;border: 1px solid #eee;background: #ccc;text-align: center;line-height: 40px;font-size:18px;float: left;margin-left: 27%;"><a href="https://hztk5.kuaishang.cn/bs/leavemsg.htm?cas=69564___125636&fi=79140&ri=18245978652&_d=14947899145509028">联系我们</a></div>
       <!--  -->
       <div class="er-two" style="color:#000;font-size: 16PX;">
-      如果您对支付有任何疑问请联系我们</BR>微信：delijiajiao</BR>QQ:1774932105</BR>电话：400-8080740
+      如果您对支付有任何疑问请联系我们</BR>微信：delijiajiao</BR>QQ:1774932105</BR>电话：400-8250-710
 
 </div>
       <!-- 清楚浮动高度为0 -->
