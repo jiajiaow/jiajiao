@@ -18,7 +18,7 @@ class xsinfoController extends Controller
         //预约人数
         $rs = DB::table('jjw_reorder')->where('oid',$id)->count();
         //相似订单
-        $list = \DB::table('jjw_order')->where('city_id', session('regionid'))->where('status', '0')->orderBy('id', 'desc')->get();
+        $list = \DB::table('jjw_order')->where('city_id', session('regionid'))->where('status', '0')->orderBy('id', 'desc')->skip(0)->take(10)->get();
             //dd($list);
         return view('delijiajiao.xsinfo',['data' => $data,'nu' => $rs,'url' => $url,'list'=>$list]);
     }
