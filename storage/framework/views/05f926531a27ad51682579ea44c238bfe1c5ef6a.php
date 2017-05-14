@@ -25,10 +25,6 @@
     <div class="content">
       <ul>
         <li>
-          <p>联系电话</p>
-          <input type="" name="user_phone">
-        </li>
-        <li>
           <p>联系微信</p>
           <input type="" name="wx"> <span class="fb">非必填，找到老师后，我们将通过微信将老师的简历发给您</span>
         </li>
@@ -64,10 +60,6 @@
               <OPTION value="成人">成人</OPTION>
           </select>
           <span class="bt">必填</span>
-        </li>
-        <li>
-          <p>辅导科目</p>
-          <input type="" name="subject_id"><span class="bt">必填</span>
         </li>
         <li>
           <p>学员希望的主要辅导类型</p>
@@ -168,12 +160,12 @@
         <li>
           <p>选择教员性别</p>
                 <input type="radio" name="teacher_sex" value="1">男教员
-                <input type="radio" name="teacher_sex" value="2">女教员
+                <input type="radio" name="teacher_sex" value="2" checked>女教员
                 <input type="radio" name="teacher_sex" value="3">男女均可
         </li>
         <li>
           <p>对教员具体的要求</p>
-          <textarea name='teacher_info'></textarea>
+          <textarea name='teacher_info'>有责任心，有家教经验优先。</textarea>
         </li>
         <li>
           <p>教员性质</p>
@@ -191,14 +183,13 @@
         <li>
           <p>支付给老师的报酬</p>
           <select name="money" size="1" id="bc" style="width:255px;height:34px;">
-                <option value="面议">面议</option>
                 <option value="30">30</option>
                 <option value="35">35</option>
                 <option value="40">40</option>
                 <option value="45">45</option>
                 <option value="50">50</option>
                 <option value="55">55</option>
-                <option value="60">60</option>
+                <option value="60" selected="true">60</option>
                 <option value="65">65</option>
                 <option value="70">70</option>
                 <option value="80">80</option>
@@ -209,7 +200,7 @@
                 <option value="200">200</option>
                 <option value="300">300</option>
             </select>
-            <a href="">点击查看家教薪资参考标准</a>
+            <a target="_blank" href="/zfsm.html">点击查看家教薪资参考标准</a>
         </li>
       </ul>
       <input name="oid" value="<?php echo e($orderid); ?>" type="hidden"/>
