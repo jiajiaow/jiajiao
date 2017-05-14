@@ -1,4 +1,5 @@
-<?php $__env->startSection('title','文章中心'); ?>
+<?php $__env->startSection('title',$data->ar_title); ?>
+<?php $__env->startSection('ms',$data->ar_title); ?>
 <?php $__env->startSection('style'); ?>
   <link rel="stylesheet" type="text/css" href="/delijiajiao/css/cheng_css.css">
   <link rel="stylesheet" href="/delijiajiao/css/bootstrap.css">

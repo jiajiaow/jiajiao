@@ -122,7 +122,7 @@
    <div class="index1" style="height:335px;overflow: hidden">
           <div class="lebt">
           <div class="l">
-            <img src="/delijiajiao/picture/s_1.png">金牌教员</div> <div class="r"><a href="/facultys.html/gd/2" >更多</a></div></div>
+            <img src="/delijiajiao/picture/s_1.png">金牌教员</div> <div class="r"><a href="/faculty.html" >更多</a></div></div>
                 <div class="acrt">
                 @foreach($jy as $jp)
                   @if($jp->tc_jinpai == 2)
@@ -158,14 +158,14 @@
         <div class="lebt">
             <div class="l">
                 <img src="/delijiajiao/images/s_2.png">学生教员</div>
-            <div class="r"><a href="/facultys.html/gd/0">更多</a></div>
+            <div class="r"><a href="/faculty.html">更多</a></div>
         </div>
             <div class="acrt">
             @foreach($jy as $xs)
               @if($xs->tc_jinpai == 0)
                 <li class="kuan">
                     <div class="top" onmouseover="this.style.cursor='pointer'" onclick="location.href='/teacher/detail/{{ $xs->id }}.html'">
-                        <img src="{{ $xs->tc_photo==''?'/delijiajiao/images/logo.png':$xs->tc_photo }}" alt="魏玲" width="110" height="110">
+                        <img src="{{ $xs->tc_photo==''?'/delijiajiao/images/logo.png':$xs->tc_photo }}" width="110" height="110">
                         <i>{{ mb_substr($xs->tc_name,0,1) }}教员</i>
                         <div class="hover">
                             <p>{{subtext( $xs->tc_comments,40) }}</p>
@@ -192,14 +192,14 @@
       <div class="index1">
           <div class="lebt">
             <div class="l"><img src="/delijiajiao/images/s_3.png">专职教员</div>
-            <div class="r"><a href="/facultys.html/gd/1">更多</a></div>
+            <div class="r"><a href="/faculty.html">更多</a></div>
           </div>
           <div class="acrt">
             @foreach($jy as $zhuanzhi)
               @if($zhuanzhi->tc_jinpai == 1)
                 <li class="kuan">
                     <div class="top" onmouseover="this.style.cursor='pointer'" onclick="location.href='/teacher/detail/207692.html'">
-                        <img src="{{ $zhuanzhi->tc_photo==''?'/delijiajiao/images/logo.png':$zhuanzhi->tc_photo }}" alt="魏玲" width="110" height="110">
+                        <img src="{{ $zhuanzhi->tc_photo==''?'/delijiajiao/images/logo.png':$zhuanzhi->tc_photo }}" width="110" height="110">
                         <i>{{ mb_substr($zhuanzhi->tc_name,0,1) }}教员</i>
                         <div class="hover">
                             <p>{{ subtext($zhuanzhi->tc_comments,40) }}</p>
@@ -456,7 +456,7 @@
 
 </style>
 
-  
+
 <script>
   $.ajax({
       type:'POST',
@@ -467,7 +467,7 @@
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       },
       success:(function(result){
-          
+
           console.log(result)
           // let html='';
           // $.each(result,function(){
@@ -478,12 +478,12 @@
 
          var yqli = '';
           for(var i =0;i<result.length;i++){
-            
-            
+
+
             yqli += '<li>'
               +'<a href="'+result[i].link_a+'">'+result[i].link_name+'</a>'
               +'</li>';
-              $('#cheng-href').html(yqli) 
+              $('#cheng-href').html(yqli)
         }
       }),
       error:(function(result,status){

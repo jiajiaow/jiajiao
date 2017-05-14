@@ -61,10 +61,10 @@
 					<li class=""><a href="">个人资料</a><span><img src="<?php echo e(asset('/home/image/arrow_right.png')); ?>"></span></li>
 					<li class=""><a href="">身份认证</a><span><img src="<?php echo e(asset('/home/image/arrow_right.png')); ?>"></span></li>
 					
-					<li class=""><a href="">申请记录</a><span><img src="<?php echo e(asset('/home/image/arrow_right.png')); ?>"></span></li>
-					<li class=""><a href="">成功记录</a><span><img src="<?php echo e(asset('/home/image/arrow_right.png')); ?>"></span></li>
 					
-					<li class=""><a href="">投诉中心</a><span><img src="<?php echo e(asset('/home/image/arrow_right.png')); ?>"></span></li>
+					
+					
+					
 					<li class=""><a href="">重置密码</a><span><img src="<?php echo e(asset('/home/image/arrow_right.png')); ?>"></span></li>
 					<div class="aa"><a href="/tc_order1.html">我的订单</a></div>
 				</ul>
@@ -926,80 +926,10 @@
 						</div>
 					</div>
 					
-					<div class="tab-cont  ">
-						<div class="application">
-							<div class="section">
-								<h3><i></i>您的订单申请记录</h3>
-								<p>如下是您最近申请过的订单，某些申请记录可能因为特殊原因未被展示。</p>
-							</div>
-							<table>
-								<caption>家教申请记录</caption>
-								<thead>
-								<tr>
-									<th>订单号</th>
-									<th>申请时间</th>
-									<th>年级科目</th>
-									<th>状态</th>
-									<th>备注</th>
-								</tr>
-								</thead>
-								<tbody>
-									
-								</tbody>
-							</table>
-						</div>
-					</div>
-					<div class="tab-cont ">
-						<div class="succeed">
-							<div class="section">
-								<h3><i></i>您的成功家教记录</h3>
-								<p>成功记录是您过往在德栗家教接受聘用并持续任教的历史记录，成功记录丰富，学员将会更愿意选择您任教。</p>
-							</div>
-							<table>
-								<caption>家教记录</caption>
-								<thead>
-								<tr>
-									<th>订单号</th>
-									<th>申请时间</th>
-									<th>年级科目</th>
-									<th>家长姓名</th>
-									<th>家长电话</th>
-									<th>状态</th>
-								</tr>
-								</thead>
-								<tbody>
-								   
-								</tbody>
-							</table>
-						</div>
-					</div>
 					
-					<div class="tab-cont ">
-						<div class="complain">
-							<form action="" method="post">
-								<div class="fg">
-									<label for="" style="font-size:16px">主题：</label>
-									<input type="text" name="title" maxlength="30">
-								</div>
-								<div class="fg fl">
-									<label for="" style="font-size:16px">分类：</label>
-									<input type="radio" name="type" value="1"><span>投诉</span>
-									<input type="radio" name="type" value="2"><span>建议</span>
-								</div>
-								<div class="tfg">
-									<label for="" style="font-size:16px">描述：</label>
-									<textarea name="message" id="message" maxlength="100"></textarea>
-								</div>
-								<div class="fg">
-									<label for="" style="font-size:16px">
-										如果是投诉退款相关问题，请提交相应订单号：
-									</label>
-									<input type="text" name="order_id">
-								</div>
-								<button type="submit">提交</button>
-							</form>
-						</div>
-					</div>
+					
+					
+					
 					<div class="tab-cont ">
 						<div class="resetting">
 							<h3>修改密码</h3>
