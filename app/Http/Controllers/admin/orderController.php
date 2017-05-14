@@ -48,10 +48,12 @@ class orderController extends Controller
     //修改订单要求
     public function orderyy(Request $request)
     {
-        //dd($request->all());
         $id = $request->input('id');
         $all = $request->all();
         $all = $request->except('_token');
+        $all['o_ts2'] = $request->input('o_ts');
+        $all['o_xs2'] = $request->input('o_xs');
+        $all['money2'] = $request->input('money');
         DB::table('jjw_order')->where('id',$id)->update($all);
         return back();
     }
