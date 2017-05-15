@@ -263,6 +263,9 @@
             @endforeach
           </div>
       </div>
+    <div class="wx_box" style="display: none;">
+        <img src="{!! session('fz_wx') !!}" alt=""  width="100%">
+    </div>
  {{--<div class="index5">
         <div class="lebt">
     <div class="l"><img src="/delijiajiao/images/icon_title5.png">教学资源</div>
@@ -452,7 +455,13 @@
         width: 100%;
         height: 100%;
     }
-
+    .wx_box {
+        position: fixed;
+        right: 74px;
+        bottom: 171px;
+        width: 100px;
+        height: 100px;
+    }
 
 
 </style>
@@ -507,9 +516,26 @@
         li_5.show()
     }
   });
-  var aaa = $('.nav-item:nth(4)')
-    console.log(aaa)
 
+    $('#div4').hover(function(){
+        $('.wx_box').show()
+    },function(){
+        $('.wx_box').hide()
+    })
+
+  setTimeout(function(){
+      var aa = $('#div4')
+      aa.hover(function(){
+          $('.wx_box').show()
+      },function(){
+          $('.wx_box').hide()
+      })
+  },3000)
+
+$('#div4').click(function(){
+
+})
+    console.log($('#div4').html())
 </script>
 
 
