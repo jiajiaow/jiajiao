@@ -98,7 +98,7 @@ class Controller extends BaseController
                 session(['regionname' => $re->title]);
                 session(['phone' => $re->phone]);
                 session(['fz_wxhao' => $re->fz_wxhao]);
-                session(['fz_wxhao' => $re->fz_qqhao]);
+                session(['fz_qqhao' => $re->fz_qqhao]);
                 session(['cityname' => $re->city_name]);
                 session(['fz_wx' => $re->fz_wx]);
                 session(['fz_qq' => $re->fz_qq]);

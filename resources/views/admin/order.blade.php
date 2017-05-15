@@ -164,7 +164,7 @@
                                     {{ csrf_field() }}
                                     <input type="hidden" name="id" value="{{ $re->id }}">
                                     <div>
-                                        {{-- <p>电话:{{ $re->user_phone }}</p> --}}
+                                        <p>电话:{{ $re->user_phone }}</p>
                                         <p>微信:<input type="text" name="wx" value="{{ $re->wx }}"></p>
                                         <p>QQ:<input type="text" name="qq" value="{{ $re->qq }}"></p>
                                         <p>年级:<input type="text" name="grade" value="{{ $re->grade }}"></p>
