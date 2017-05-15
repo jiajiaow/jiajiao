@@ -98,7 +98,10 @@ class Controller extends BaseController
                 session(['regionname' => $re->title]);
                 session(['phone' => $re->phone]);
                 session(['fz_wxhao' => $re->fz_wxhao]);
+                session(['fz_wxhao' => $re->fz_qqhao]);
                 session(['cityname' => $re->city_name]);
+                session(['regionname' => $re->fz_wx]);
+                session(['regionname' => $re->fz_qq]);
             }else{
                 if($zy == 'lizhijiajiao'){
                     $re = DB::table('jjw_position_city')->where('prefix',$qz)->first();
