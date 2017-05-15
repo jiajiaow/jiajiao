@@ -358,23 +358,23 @@
     <script>
         $('.timeShow').click(function(){
             $('.fc').show(500)
-            $('.fc_content').show(500)
+            $('#tjfk<?php echo e($l->jl_id); ?>').show(500)
         })
         $('.fc').click(function(){
             $('.fc').hide(500)
-            $('.fc_content').hide(500)
+            $('#tjfk<?php echo e($l->jl_id); ?>').hide(500)
         })
         $('.sure_btn').click(function(){
             $('.fc').hide(500)
-            $('.fc_content').hide(500)
+            $('#tjfk<?php echo e($l->jl_id); ?>').hide(500)
         })
         $('.sure_qd_btn').click(function(){
             $('.fc').hide(500)
-            $('.fc_content').hide(500)
+            $('#tjfk<?php echo e($l->jl_id); ?>').hide(500)
         })
         $('.qxBtn').click(function(){
             $('.fc').hide(500)
-            $('.fc_content').hide(500)
+            $('#tjfk<?php echo e($l->jl_id); ?>').hide(500)
         })
 
 
@@ -437,9 +437,8 @@
         })
 
         function tjfk(id){
-            alert(id);
             $('.fc').show(500)
-            $('#tjfk'+id).show(500)
+            $('#tjfk<?php echo e($l->jl_id); ?>').show(500)
         }
 
     </script>

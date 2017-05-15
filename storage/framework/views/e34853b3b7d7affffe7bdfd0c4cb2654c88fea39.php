@@ -105,7 +105,7 @@
                                     <td><?php echo e($l->xxftk); ?>元<input type="hidden" id="money<?php echo e($l->jl_id); ?>" value="<?php echo e($l->xxftk); ?>" ></td>
                                     <td>
                                         家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）
-                                        <button class="timeShow">查看</button>
+                                        <button class="timeShow" onclick="showfx(<?php echo e($l->jl_id); ?>)">查看</button>
                                     </td>
                                     <td>无显示</td>
                                     <td>无显示</td>
@@ -175,7 +175,7 @@
 
     </div>
     <div class="fc" style="display: none;"></div>
-    <div class="fc_content" style="display: none">
+    <div class="fc_content" style="display: none" id="skbcg<?php echo e($l->jl_id); ?>">
         <div style="padding: 10px 32px;">
             <ul>
 
@@ -336,26 +336,29 @@
 
         $('.timeShow').click(function(){
             $('.fc').show(500)
-            $('.fc_content').show(500)
+            $('#skbcg<?php echo e($l->jl_id); ?>').show(500)
         })
         $('.fc').click(function(){
             $('.fc').hide(500)
-            $('.fc_content').hide(500)
+            $('#skbcg<?php echo e($l->jl_id); ?>').hide(500)
         })
         $('.sure_btn').click(function(){
             $('.fc').hide(500)
-            $('.fc_content').hide(500)
-            var a = $('.sure_gou').find('input')
+            $('#skbcg<?php echo e($l->jl_id); ?>').hide(500)
+
         })
         $('.sure_qd_btn').click(function(){
             $('.fc').hide(500)
-            $('.fc_content').hide(500)
+            $('#skbcg<?php echo e($l->jl_id); ?>').hide(500)
         })
         $('.qxBtn').click(function(){
             $('.fc').hide(500)
-            $('.fc_content').hide(500)
+            $('#skbcg<?php echo e($l->jl_id); ?>').hide(500)
         })
-
+       function showfx(id){
+           $('.fc').show(500)
+           $('#skbcg<?php echo e($l->jl_id); ?>').show(500)
+       }
         $('#renyuan').change(function(){
             var ok_no = $('#ok_no option:selected').val()
             var renyuan =$('#renyuan option:selected').val()

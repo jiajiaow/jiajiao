@@ -144,13 +144,9 @@
 					<div class="bk">
 						<div class="left">备注</div>
 						<div class="right">
-							<a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">沟通咨询/疑问</font></a>
-							<?php if($wxzs->yy_zt ==''): ?>
-								<a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">系统推荐订单？</font></a>
-							<?php else: ?>
-								<a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000"><?php echo e($wxzs->yy_zt); ?></font></a>
-							<?php endif; ?>
-							<a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">常见问题</font></a>
+							<a style="margin-right: 20px;" href="https://hztk5.kuaishang.cn/bs/leavemsg.htm?cas=69564___125636&fi=79140&ri=18245978652&_d=14947899145509028" target="_blank"><font color="#FF0000">沟通咨询/疑问</font></a>
+							
+							<a style="margin-right: 20px;" href="/Articlecenter19.html" target="_blank"><font color="#FF0000">常见问题</font></a>
 						</div>
 					</div>
 					<div class="bk2">
