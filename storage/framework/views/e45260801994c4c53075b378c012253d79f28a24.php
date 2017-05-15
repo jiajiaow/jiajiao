@@ -132,11 +132,7 @@
          }
          .footer_mar {
              margin: 0 auto;
-<<<<<<< HEAD
-             width: 72%;
-=======
              width: 1026px;
->>>>>>> 865357254d54a82193198f34d7a567fc800961f1
              position: relative;
          }
          .fm_img {
@@ -155,17 +151,11 @@
              padding: 0 10px;
              margin-right: 11px;
          }
-<<<<<<< HEAD
-         .fm_free{
-             color: #ffa51b;
-             margin-left: 15px;
-=======
          .fm_free {
              color: #ffa51b;
              margin-left: 15px;
              font-size: 25px;
              font-weight: 600;
->>>>>>> 865357254d54a82193198f34d7a567fc800961f1
          }
          .tel_box {
              display: inline-block;
@@ -174,13 +164,10 @@
              color: #fff;
              text-align: center;
          }
-<<<<<<< HEAD
-=======
          .tel_box p{
              color: #fff;;
              font-size: 14px;
          }
->>>>>>> 865357254d54a82193198f34d7a567fc800961f1
          .zxzx {
              cursor: pointer;
              padding: 4px 10px;
@@ -189,9 +176,6 @@
              border-radius: 4px;
              margin-top: 6px;
              display: inline-block;
-<<<<<<< HEAD
-         }
-=======
              color: #fff;
          }
          .footer_mar h3 {
@@ -205,8 +189,6 @@
              font-size: 14px;
              margin: 0;
          }
-
->>>>>>> 865357254d54a82193198f34d7a567fc800961f1
      </style>
 
   
@@ -300,10 +282,7 @@ for(i=0; i <tabList.length; i++)
      <li id="as4"><a href="/zfsm.html" id="ad4">资费说明</a></li>
      <li id="as5"><a href="/xueyuan.html" id="ad5">学员库</a></li>
      <li id="as6"><a href="/login.html" id="ad6">会员中心</a></li>
-     <li id="as7"><a href="/Articlecenter1.html" id="ad7">文章中心</a></li>
-
-
-
+     <li id="as7"><a href="/Articlecenter18.html" id="ad7">文章中心</a></li>
     </ul>
    </div>
   </div>
@@ -372,33 +351,19 @@ for(i=0; i <tabList.length; i++)
               <p>还没找到心仪的老师？我们的金牌顾问帮您挑吧</p>
               <h3 style="font-size: 26px;margin: 0;">专业大学生上门家教<span class="fm_free">免费上门试课！</span></h3>
               <div style="margin-top: 6px">
-<<<<<<< HEAD
-                  <form method="post" action="/dofloatyyform">
-                  <select style="width: 123px;height: 26px;vertical-align: middle;color:#000; padding: 0" name="km">
-                      <option value="">请选择授课科目</option>
-                      <option value="初中">初中</option>
-                      <option value="高">高中</option>
-=======
                   
                   <select style="width: 123px;height: 26px;vertical-align: middle;color:#000;font-size:12px; padding: 0" name="km" id="km">
                       <option value="">请选择授课科目</option>
                       <option value="初中">初中</option>
                       <option value="高中">高中</option>
->>>>>>> 865357254d54a82193198f34d7a567fc800961f1
                       <option value="小学及学龄前">小学及学龄前</option>
                       <option value="语言">语言</option>
                       <option value="艺术">艺术</option>
                       <option value="其他">其他</option>
                   </select>
-<<<<<<< HEAD
-                  <input type=""  placeholder="请输入手机号" style="width: 123px;height: 22px;vertical-align: middle;padding: 0;color:#000;" name="phone" id="float_phone">
-                  <input type="submit" value="马上提交" style="background: #ff3939;border: none;color: #fff;padding: 5px  10px;border-radius: 4px;" onclick="isPhoneNo()">
-                  </form>
-=======
                   <input type=""  placeholder="请输入手机号" style="width: 123px;height: 26px;vertical-align: middle;padding: 0;font-size:12px;color:#000;" name="phone" id="float_phone">
                   <input type="submit" id="float_tj_btn" style="background: #ff3939;border: none;color: #fff;font-size:12px;padding: 5px  10px;border-radius: 4px;" onclick="isPhoneNo()" value="马上提交"  >
                   
->>>>>>> 865357254d54a82193198f34d7a567fc800961f1
               </div>
           </div>
           <div class="tel_box">
@@ -461,27 +426,16 @@ for(i=0; i <tabList.length; i++)
           $(this).css('display','none')
       })
 
-<<<<<<< HEAD
-
-      function isPhoneNo() {
-
-          var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
-          if(!myreg.test($("#float_phone").val()))
-=======
       $('#float_phone').blur(function(){
           var myreg = /^1[345678]\d{9}$/;
           if($(this).val() == ''){
               alert('手机号不能为空')
           }
           else if(!myreg.test($("#float_phone").val()))
->>>>>>> 865357254d54a82193198f34d7a567fc800961f1
           {
               layer.alert('请输入有效的手机号码！');
               return false;
           }
-<<<<<<< HEAD
-
-=======
       })
       function isPhoneNo() {
           var km = $('#km').val()
@@ -508,7 +462,6 @@ for(i=0; i <tabList.length; i++)
                 alert('科目不能为空');
               return false;
           }
->>>>>>> 865357254d54a82193198f34d7a567fc800961f1
       }
       function isPhoneNos() {
           var km = $('#float_name').val()

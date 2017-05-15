@@ -263,6 +263,9 @@
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </div>
       </div>
+    <div class="wx_box" style="display: none;">
+        <img src="<?php echo session('fz_wx'); ?>" alt=""  width="100%">
+    </div>
  
     <div>
         <a style="display:block;" >
@@ -322,7 +325,13 @@
         width: 100%;
         height: 100%;
     }
-
+    .wx_box {
+        position: fixed;
+        right: 74px;
+        bottom: 171px;
+        width: 100px;
+        height: 100px;
+    }
 
 
 </style>
@@ -377,9 +386,26 @@
         li_5.show()
     }
   });
-  var aaa = $('.nav-item:nth(4)')
-    console.log(aaa)
 
+    $('#div4').hover(function(){
+        $('.wx_box').show()
+    },function(){
+        $('.wx_box').hide()
+    })
+
+  setTimeout(function(){
+      var aa = $('#div4')
+      aa.hover(function(){
+          $('.wx_box').show()
+      },function(){
+          $('.wx_box').hide()
+      })
+  },3000)
+
+$('#div4').click(function(){
+
+})
+    console.log($('#div4').html())
 </script>
 
 
