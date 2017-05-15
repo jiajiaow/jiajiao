@@ -88,7 +88,7 @@
 								</div>
 								<div class="cz">
 									<label>订单编号：</label>
-									<p><?php echo e($dsks->id); ?></p>
+									<p><a href="/xsinfo<?php echo e($dsks->id); ?>.html"><?php echo e($dsks->id); ?></a></p>
 								</div>
 								<div class="cz shen">
 									<label>学员姓名：</label>
@@ -104,9 +104,9 @@
 								</div>
 								<div class="cz">
 									<label>评价教员：</label>
-									<p style="color:red;">
+									<p style="color:red;text-align: center;">
 										<!-- <form action="" method="POST"> -->
-											<input id="jz"type="text" name='pj' placeholder='立即评价（教员不可见）'>
+											<input id="jz"type="text" name='pj' placeholder='                                             立即评价（教员不可见）'>
 										<!-- </form> -->
 									</p>
 								</div>
@@ -116,19 +116,16 @@
 								</div>
 								<div class="cz">
 									<label>试课时间：</label>
-									<p></p>
+									<p><?php echo e(date('Y-m-d h:i:s',$dsks->rsk_times)); ?></p>
 								</div>
-								<div class="cz shen">
-									<label>授课订单：</label>
-									<p>VIP专享</p>
-								</div>
+								
 								<div class="cz">
 									<label>状态：</label>
 									<p>试课中</p>
 								</div>
 								<div class="zuihou">
-									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='color:#B5B5B5;'href="">结束订单</a></span>
-									<span style='font-size:18px;color:#B5B5B5;text-align:center;display:inline-block;width:400px;'><a href="" style="color:#B5B5B5;">常见问题</a></span>
+									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='' href="/xsinfo<?php echo e($dsks->id); ?>.html">查看订单详情</a></span>
+									<span style='font-size:18px;color:#B5B5B5;text-align:center;display:inline-block;width:400px;'><a href="/Articlecenter18.html" >常见问题</a></span>
 								</div>
 							</div>
 						<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -144,7 +141,7 @@
 								</div>
 								<div class="cz">
 									<label>订单编号：</label>
-									<p><?php echo e($skzs->id); ?></p>
+									<p><a href="/xsinfo<?php echo e($skzs->id); ?>.html"><?php echo e($skzs->id); ?></a></p>
 								</div>
 								<div class="cz shen">
 									<label>学员姓名：</label>
@@ -162,29 +159,29 @@
 									<label>评价教员：</label>
 									<p style="color:red;">
 										<!-- <form action="" method="POST"> -->
-											<input id="jz"type="text" name='pj' placeholder='立即评价（教员不可见）'>
+										<input id="jz"type="text" name='pj' placeholder='                                             立即评价（教员不可见）'>
 										<!-- </form> -->
 									</p>
 								</div>
 								<div class="cz shen">
 									<label>电子介绍信/合同：</label>
-									<p><a style='color:red'href="">点击查看</a></p>
+									<p><a style='color:red'href="/xy_hetong/<?php echo e($skzs->id); ?>.html">点击查看</a></p>
 								</div>
 								<div class="cz">
-									<label>试课时间：</label>
-									<p></p>
+									<label>授课时间：</label>
+									<p><?php echo e($skzs->sk_times); ?></p>
 								</div>
-								<div class="cz shen">
-									<label>授课订单：</label>
-									<p>VIP专享</p>
-								</div>
+								
+									
+									
+								
 								<div class="cz">
 									<label>状态：</label>
 									<p>授课中</p>
 								</div>
 								<div class="zuihou">
-									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='color:#B5B5B5;'href="">结束订单</a></span>
-									<span style='font-size:18px;color:#B5B5B5;text-align:center;display:inline-block;width:400px;'><a href="" style="color:#B5B5B5;">常见问题</a></span>
+									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='' href="/xsinfo<?php echo e($skzs->id); ?>.html">查看订单详情</a></span>
+									<span style='font-size:18px;color:#B5B5B5;text-align:center;display:inline-block;width:400px;'><a href="/Articlecenter18.html" >常见问题</a></span>
 								</div>
 							</div>
 						<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -201,7 +198,7 @@
 								</div>
 								<div class="cz">
 									<label>订单编号：</label>
-									<p><?php echo e($skjss->id); ?></p>
+									<p><a href="/xsinfo<?php echo e($skjss->id); ?>.html"><?php echo e($skjss->id); ?></a></p>
 								</div>
 								<div class="cz shen">
 									<label>学员姓名：</label>
@@ -213,35 +210,30 @@
 								</div>
 								<div class="cz shen">
 									<label>教员基本信息：</label>
-									<p><?php echo e($skjss->tc_school); ?><a style="color:red" href="/teacher/detail/<?php echo e($skjss->tc_id); ?>.html"> (点击查看详细信息) </a></p>
+									<p><?php echo e($skjss->tc_name); ?><a style="color:red" href="/teacher/detail/<?php echo e($skjss->tc_id); ?>.html"> (点击查看详细信息) </a></p>
 								</div>
 								<div class="cz">
 									<label>评价教员：</label>
 									<p style="color:red;">
 										<!-- <form action="" method="POST"> -->
-											<input id="jz"type="text" name='pj' placeholder='立即评价（教员不可见）'>
+										<input id="jz"type="text" name='pj' placeholder='                                             立即评价（教员不可见）'>
 										<!-- </form> -->
 									</p>
 								</div>
 								<div class="cz shen">
 									<label>电子介绍信/合同：</label>
-									<p><a style='color:red'href="">点击查看</a></p>
+									<p><a style='color:red'href="/xy_hetong/<?php echo e($skjss->id); ?>.html">点击查看</a></p>
 								</div>
-								<div class="cz">
-									<label>试课时间：</label>
-									<p></p>
-								</div>
-								<div class="cz shen">
-									<label>授课订单：</label>
-									<p>VIP专享</p>
-								</div>
+								
+								
 								<div class="cz">
 									<label>状态：</label>
 									<p>授课结束</p>
 								</div>
 								<div class="zuihou">
-									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='color:#B5B5B5;'href="">结束订单</a></span>
-									<span style='font-size:18px;color:#B5B5B5;text-align:center;display:inline-block;width:400px;'><a href="" style="color:#B5B5B5;">常见问题</a></span>
+									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='' href="/xsinfo<?php echo e($skjss->id); ?>.html">查看订单详情</a></span>
+									<span style='font-size:18px;color:#B5B5B5;text-align:center;display:inline-block;width:400px;'><a href="/Articlecenter18.html" >常见问题</a></span>
+
 								</div>
 							</div>
 						<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -258,7 +250,7 @@
 								</div>
 								<div class="cz">
 									<label>订单编号：</label>
-									<p><?php echo e($apdds->id); ?></p>
+									<p><a href="/xsinfo<?php echo e($apdds->id); ?>.html"><?php echo e($apdds->id); ?></a></p>
 								</div>
 								<div class="cz shen">
 									<label>学员年级：</label>
@@ -278,15 +270,16 @@
 								</div>
 								<div class="cz shen">
 									<label>辅导课酬：</label>
-									<p><?php if($apdds->money != ''): ?><?php echo e($apdds->money); ?>/1小时<?php else: ?> <?php endif; ?> </p>
+									<p><?php if($apdds->money != ''): ?><?php echo e($apdds->money); ?>元/1小时<?php else: ?> <?php endif; ?> </p>
 								</div>
 								<div class="cz">
 									<label>状态：</label>
 									<p>安排中</p>
 								</div>
 								<div class="zuihou">
-									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='color:#B5B5B5;'href="">查看订单详情</a></span>
-									<span style='font-size:18px;color:#B5B5B5;text-align:center;display:inline-block;width:400px;'><a href="" style="color:#B5B5B5;">常见问题</a></span>
+									<span style='font-size:18px;height:50px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='' href="/xsinfo<?php echo e($apdds->id); ?>.html">查看订单详情</a></span>
+									<span style='font-size:18px;height:50px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='' href="http://www.delijiajiao.com/faculty.html">挑老师</a></span>
+									<span style='font-size:18px;color:#B5B5B5;text-align:center;display:inline-block;'><a href="/Articlecenter18.html" >常见问题</a></span>
 								</div>
 							</div>
 						<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -298,11 +291,11 @@
 							<div class="c_container">
 								<div class="cz shen">
 									<label>订单生成时间：</label>
-									<p><?php echo e(date("Y-m-d h:i:s",$skwcgs->time)); ?>}</p>
+									<p><?php echo e(date("Y-m-d h:i:s",$skwcgs->time)); ?></p>
 								</div>
 								<div class="cz">
 									<label>订单编号：</label>
-									<p><?php echo e($skwcgs->id); ?></p>
+									<p><a href="/xsinfo<?php echo e($skwcgs->id); ?>.html"><?php echo e($skwcgs->id); ?></a></p>
 								</div>
 								<div class="cz shen">
 									<label>学员姓名：</label>
@@ -320,29 +313,26 @@
 									<label>评价教员：</label>
 									<p style="color:red;">
 										<!-- <form action="" method="POST"> -->
-											<input id="jz"type="text" name='pj' placeholder='立即评价（教员不可见）'>
+										<input id="jz"type="text" name='pj' placeholder='                                             立即评价（教员不可见）'>
 										<!-- </form> -->
 									</p>
 								</div>
 								<div class="cz shen">
 									<label>电子介绍信/合同：</label>
-									<p><a style='color:red'href="">点击查看</a></p>
+									<p><a style='color:red'href="/xy_hetong/<?php echo e($skwcgs->id); ?>.html">点击查看</a></p>
 								</div>
 								<div class="cz">
 									<label>试课时间：</label>
-									<p>2017.8.9&nbsp;19:20</p>
+									<p><?php echo e(date('Y-m-d h:i:s',$skwcgs->rsk_times)); ?></p>
 								</div>
-								<div class="cz shen">
-									<label>授课订单：</label>
-									<p>VIP专享</p>
-								</div>
+								
 								<div class="cz">
 									<label>状态：</label>
-									<p>试课中</p>
+									<p>试课未成功</p>
 								</div>
 								<div class="zuihou">
-									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='color:#B5B5B5;'href="">结束订单</a></span>
-									<span style='font-size:18px;color:#B5B5B5;text-align:center;display:inline-block;width:400px;'><a href="" style="color:#B5B5B5;">常见问题</a></span>
+									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='' href="/xsinfo<?php echo e($skwcgs->id); ?>.html">查看订单详情</a></span>
+									<span style='font-size:18px;color:#B5B5B5;text-align:center;display:inline-block;width:400px;'><a href="/Articlecenter18.html" >常见问题</a></span>
 								</div>
 							</div>
 						<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -355,6 +345,14 @@
 		<!-- nav 结束 -->
 		
 	</div>
+	<style>
+		.zuihou{
+			text-align: center;
+		}
+		.zuihou span{
+			width:32%;
+		}
+	</style>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('js'); ?>
 

@@ -40,7 +40,16 @@
 				<p>本协议自签订之日起生效，自丙方结束授课之日起且甲方结清价款后自动失效。</p>
 				<input type="hidden" name="jy_qz" value="1">
 				<input type="hidden" name="id" value="{{ $list->id }}">
-				<p>　<span class="text_1">@if($list->xy_qz == '1') 甲方已签认 @else甲方（签字）@endif</span>：<span class="btn btn_1">签认按钮</span> <span class="text_2">乙方签字</span>：<span class=" btn_2">已签认</span>  <span class="text_3">
+				<p>　<span class="text_1">
+						@if($list->xy_qz == '1')
+							甲方已签认
+						@elseif($list->xy_qz == '2')
+							系统代签
+						@else
+							甲方（签字）
+						@endif</span>：<span class="btn btn_1">签认按钮</span> 
+					<span class="text_2">乙方签字</span>：<span class=" btn_2">已签认</span>
+					<span class="text_3">
 						@if($list->jy_qz == '1')
 							丙方已签认
 						@else

@@ -344,6 +344,7 @@ class tcinfoController extends Controller
         //dd($_POST);
         $_POST['yskc']==''?$_POST['yskc']=null: $_POST['yskc'];
         if($_POST['xxftk'] == ''){
+            $list = DB::table('jjw_order')->where('id',$_POST['oid'])->update(['ht_status'=>'4']);
             $list = DB::table('jjw_reorder')->where('id',$_POST['rid'])->where('oid',$_POST['oid'])->update([
                 'qt_t_status'=>'7'
                 ,'ht_t_status'=>'9',
@@ -458,28 +459,40 @@ class tcinfoController extends Controller
     }
     //执行合同修改
     public function dohetong(Request $request){
-        //dd($_POST);
-        $data = $request->except('id');
-        $data['hetong_time']=time();
-       // dd($data);
-        $list = DB::table('jjw_order')->where('id',$request->id)->update($data);
-        $list = DB::table('jjw_reorder')->where('oid',$request->id)->update(['tk_type'=>'3']);
-        if($list){
-            return redirect('/tc_order4.html');
+        if($_POST['xt'] == '1'){
+            $data = $request->except('id','xt');
+            $data['hetong_time']=time();
+            $list = DB::table('jjw_order')->where('id',$request->id)->update($data);
+            $list = DB::table('jjw_reorder')->where('oid',$request->id)->update(['tk_type'=>'3']);
+            return back();
         }else{
-            return redirect('/tc_order4.html');
+            //dd($_POST);
+            $data = $request->except('id','xt');
+            $data['hetong_time']=time();
+            // dd($data);
+            $list = DB::table('jjw_order')->where('id',$request->id)->update($data);
+            $list = DB::table('jjw_reorder')->where('oid',$request->id)->update(['tk_type'=>'3']);
+            if($list){
+                return redirect('/tc_order4.html');
+            }else{
+                return redirect('/tc_order4.html');
+            }
         }
+
     }
 
     //审查订单
     public function dosc(){
         $list = \DB::table('jjw_reorder')->where('oid',$_POST['oid'])->where('tc_id',$_POST['tc_id'])->update(['qt_t_status'=>'6','ht_t_status'=>'8',]);
+        $lis = \DB::table('jjw_order')->where('id',$_POST['oid'])->update(['ht_status'=>'3',]);
         if($list){
             return "y";
         }
     }
-    //自定授课成功订单
+    //自动授课成功订单
     public function doscs(){
+        //dd($_POST);
+        $lis = \DB::table('jjw_order')->where('id',$_POST['oid'])->update(['ht_status'=>'3',]);
         $list = \DB::table('jjw_reorder')->where('oid',$_POST['oid'])->where('id',$_POST['id'])->update(['qt_t_status'=>'6','ht_t_status'=>'8',]);
         //var_dump($_POST);
     }
