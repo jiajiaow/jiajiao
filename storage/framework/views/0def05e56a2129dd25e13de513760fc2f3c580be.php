@@ -40,7 +40,16 @@
 				<p>本协议自签订之日起生效，自丙方结束授课之日起且甲方结清价款后自动失效。</p>
 				<input type="hidden" name="jy_qz" value="1">
 				<input type="hidden" name="id" value="<?php echo e($list->id); ?>">
-				<p>　<span class="text_1"><?php if($list->xy_qz == '1'): ?> 甲方已签认 <?php else: ?>甲方（签字）<?php endif; ?></span>：<span class="btn btn_1">签认按钮</span> <span class="text_2">乙方签字</span>：<span class=" btn_2">已签认</span>  <span class="text_3">
+				<p>　<span class="text_1">
+						<?php if($list->xy_qz == '1'): ?>
+							甲方已签认
+						<?php elseif($list->xy_qz == '2'): ?>
+							系统代签
+						<?php else: ?>
+							甲方（签字）
+						<?php endif; ?></span>：<span class="btn btn_1">签认按钮</span> 
+					<span class="text_2">乙方签字</span>：<span class=" btn_2">已签认</span>
+					<span class="text_3">
 						<?php if($list->jy_qz == '1'): ?>
 							丙方已签认
 						<?php else: ?>

@@ -167,7 +167,7 @@
 
                                     <input type="hidden" name="id" value="<?php echo e($re->id); ?>">
                                     <div>
-                                        
+                                        <p>电话:<?php echo e($re->user_phone); ?></p>
                                         <p>微信:<input type="text" name="wx" value="<?php echo e($re->wx); ?>"></p>
                                         <p>QQ:<input type="text" name="qq" value="<?php echo e($re->qq); ?>"></p>
                                         <p>年级:<input type="text" name="grade" value="<?php echo e($re->grade); ?>"></p>
