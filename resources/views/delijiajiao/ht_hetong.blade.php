@@ -18,7 +18,7 @@
 			</div>
 			<div class="content-mid">
 				<img src="/new/images/TT.png" style="position: absolute;bottom: 0;width: 136px;left: 20%;">
-				<h5>电子授课合同</h5>
+				<h5>电子授课合同</h5>  
 				<p><span>甲方（学员）</span>：<span id="adds"><input type="text" value="{{ $list->user_name }}" class="inwidths"></span>  联系电话：{{ $list->user_phone }}<span class="add">+</span></p>
 				<p><span>乙方（德栗）</span>：<span style="width: 72px; display: inline-block;">德栗家教</span>    联系电话：400-8080-740  微信号：delijiajiao</p>
 				<p><span>丙方（教员）</span>：<span style="width: 72px; display: inline-block;">{{ $list->tc_name }}</span>  联系电话：{{ $list->tc_phone }}</p>
