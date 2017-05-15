@@ -67,8 +67,7 @@
                             <td>
                                 <form action="/admin/orderjc" method="post">
                                     {{ csrf_field() }}
-                                    <input type="hidden" name="_token" value="a39HAW7mxeLffl3PSZebI4WrkTxm39z3Mx4zF4nN">
-                                    <input type="hidden" name="id" value="10204770">
+                                    <input type="hidden" name="id" value="{{ $re->id }}">
                                     <div>
                                         <p>城市:{{ $re->city_name }}{{ $re->city_id }}<span class="no_ne"></span></p>
                                         <p>签约:
@@ -131,7 +130,6 @@
                             <td>
                                 <form action="/admin/orderxgyh" method="post">
                                     <input type="hidden" name="id" value="{{ $re->id }}">
-                                    <input type="hidden" name="_token" value="a39HAW7mxeLffl3PSZebI4WrkTxm39z3Mx4zF4nN">
                                     {{ csrf_field() }}
                                     <div>
                                         <p>编号:{{ $re->id }}</p>
@@ -153,7 +151,7 @@
                                             <span style="float: right" class="bj_btn">编辑</span>
                                         </p>
                                         <p>
-                                            <textarea class="bj_msg" style="display: block" name="ddbz">                        </textarea>
+                                            <textarea class="bj_msg" style="display: block" name="ddbz"></textarea>
                                         </p>
                                         <p><input type="submit" name="" value="修改"></p>
                                         <span class="no_ne"></span>
@@ -163,10 +161,10 @@
                             </td>
                             <td>
                                 <form action="/admin/orderxgyh" method="post">
-                                    <input type="hidden" name="_token" value="{{ csrf_field() }}">
+                                    {{ csrf_field() }}
                                     <input type="hidden" name="id" value="{{ $re->id }}">
                                     <div>
-                                        <p>电话:{{ $re->user_phone }}</p>
+                                        {{-- <p>电话:{{ $re->user_phone }}</p> --}}
                                         <p>微信:<input type="text" name="wx" value="{{ $re->wx }}"></p>
                                         <p>QQ:<input type="text" name="qq" value="{{ $re->qq }}"></p>
                                         <p>年级:<input type="text" name="grade" value="{{ $re->grade }}"></p>
@@ -182,7 +180,7 @@
                             </td>
                             <td>
                                 <form action="/admin/orderyy" method="post">
-                                    <input type="hidden" name="_token" value="{{ csrf_field() }}">
+                                    {{ csrf_field() }}
                                     <input type="hidden" name="id" value="{{ $re->id }}">
                                     <div>
                                         <p style="width: 324px;">辅导科目:<input type="text" value="{{$re->subject_id}}" name="subject_id">
@@ -279,7 +277,12 @@
                                         <a href="">删除</a>
                                     </p>
                                     <p><button >本单收支流水</button></p>
-
+                                    <span style='display: none;'>{{$re->id }}{{$re->user_id }}{{$re->user_name }}{{$re->user_phone }}{{$re->user_byphone }}{{$re->user_qq }}{{$re->user_sex }}{{$re->dq }}{{$re->contact }}{{$re->grade }}{{$re->sk_times }}
+{{$re->explain }}{{$re->subject_id }}{{$re->user_situation }}{{$re->teacher_id }}{{$re->teacher_sex }}{{$re->teacher_info }}{{$re->money }}{{$re->time }}{{$re->region }}{{$re->status }}{{$re->pay }}{{$re->pay_id }}{{$re->city_id }}
+{{$re->user_reboot }}{{$re->per_week }}{{$re->xx_dz }}{{$re->ls_type }}{{$re->tc_Signing }}{{$re->qq }}{{$re->wx }}{{$re->wlk }}{{$re->browsenu }}{{$re->yynum }}{{$re->ddzt }}{{$re->jqzt }}{{$re->wzly }}{{$re->khly }}{{$re->ap }}{{$re->yhbz }}{{$re->ht_status }}
+{{$re->ddbz }}{{$re->o_ts }}{{$re->o_xs }}{{$re->fdlx }}{{$re->o_yue }}{{$re->jy_qz }}{{$re->xy_qz }}{{$re->money2 }}{{$re->o_ts2 }}{{$re->o_xs2 }}{{$re->bj_msg_A }}{{$re->hetong_time }}{{$re->sks_time }}{{$re->sks_add }}{{$re->fz_jzxxf }}{{$re->city_name }}
+{{$re->fz_vip }}{{$re->fz_qyjyfy }}{{$re->bfb1 }}{{$re->bfb2 }}{{$re->bfb3 }}{{$re->bfb4 }}{{$re->bfb5 }}{{$re->bfb6 }}{{$re->bfb7 }}
+                                    </span>
                                 </div>
                             </td>
 

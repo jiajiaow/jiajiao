@@ -83,9 +83,11 @@
                             <li>
                                 <a class="J_menuItem" href="/admin/htjyk">教员库</a>
                             </li>
-
                             <li>
                                 <a class="J_menuItem" href="/admin/fbdd">发布订单</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="/admin/recyclebin">订单回收站</a>
                             </li>
                         </ul>
                     </li>

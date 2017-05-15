@@ -27,7 +27,6 @@
                 <dd><a href="http://www.delijiajiao.com/">广州</a></dd>
                 <dd><a href="http://bj.delijiajiao.com/">北京</a></dd>
                 <dd><a href="http://tj.delijiajiao.com/">天津</a></dd>
-                <dd><a href="http://gz.delijiajiao.com/">广州</a></dd>
                 <dd><a href="http://sz.delijiajiao.com/">深圳</a></dd>
                 <dd><a href="http://hz.delijiajiao.com/">杭州</a></dd>
                 <dd><a href="http://nj.delijiajiao.com/">南京</a></dd>
