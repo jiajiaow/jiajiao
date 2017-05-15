@@ -7,15 +7,7 @@
 	<script type="text/javascript" src= "<?php echo e(asset('/home/js/jquery-2.2.3.min.js')); ?>"></script>
 	<script src="<?php echo e(asset('/delijiajiao/js/layer.js')); ?>"></script>
 	<script>
-		<?php if(session('tc_phone') != null): ?>
-				window.location.href="<?php echo e(URL('/teacherinfo.html')); ?>";
-		<?php elseif(session('st_phone') != null): ?>
-				<?php if(session('dlzt') == 2): ?>
-					window.location.href="<?php echo e(URL('/stinfo2.html')); ?>";
-				<?php else: ?>
-					window.location.href="<?php echo e(URL('/stinfo.html')); ?>";
-				<?php endif; ?>
-		<?php endif; ?>
+
 	</script>
 </head>
 <body>
@@ -40,12 +32,12 @@
 			<div class="container">
 				<div class="left-code pull-left">
 					<div class="code">
-						<img src="<?php echo e(asset('/home/picture/qqqcode.jpg')); ?>" style="width: 100%">
+						<img src="<?php echo e(asset('/home/picture/qqqCode.jpg')); ?>" style="width: 100%">
 						<p style="color:#bbb; margin: 2px 0;">QQ信息发布群</p>
 						<p style="font-weight: 600">367144804</p>
 					</div>
 					<div class="code" style="margin-left: 15px;">
-						<img src="<?php echo e(asset('/home/picture/qqcode.jpg')); ?>" style="width: 100%">
+						<img src="<?php echo e(asset('/home/picture/qqCode.jpg')); ?>" style="width: 100%">
 						<p style="color:#bbb; margin: 2px 0;">微信联系</p>
 						<p style="font-weight: 600">delijiajiao</p>
 					</div>
@@ -76,7 +68,7 @@
 									<img src="<?php echo e(asset('/home/picture/icon_pass.png')); ?>">
 								</label>
 								<input id="mobile" type="tel"  style='width:46%' name="code" placeholder="验证码">
-								<input style="width: 108px;cursor: pointer;background-color: #F7B529" id="getsms" type="button" value="获取验证码"/>
+								<input style="width: 107px;cursor: pointer;background-color: #F7B529" id="getsms" type="button" value="获取验证码"/>
 
 							</div>
 							<button id="deng"  type="submit">登录</button>
@@ -124,7 +116,7 @@
 									<img src="<?php echo e(asset('/home/picture/icon_pass.png')); ?>">
 								</label>
 								<input id="mobile" type="tel"  style='width:46%' name="code" placeholder="验证码">
-								<input style="width: 108px;cursor: pointer;background-color: #F7B529" id="getsmsS" type="button" value="获取验证码"/>
+								<input style="width: 107px;cursor: pointer;background-color: #F7B529" id="getsmsS" type="button" value="获取验证码"/>
 
 							</div>
 							<button id="deng"  type="submit">登录</button>

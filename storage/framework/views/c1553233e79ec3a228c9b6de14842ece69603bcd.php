@@ -694,6 +694,15 @@ for(i=0; i <tabList.length; i++)
           })
   </script>
   <script type="text/javascript" src="https://hztk5.kuaishang.cn/bs/ks.j?cI=125636&fI=79140" charset="utf-8"></script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?369d7ab93408dc8f73e2587f48b8915c";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
 <?php $__env->startSection('js'); ?>
 
 

@@ -1,10 +1,9 @@
-@extends('delijiajiao.public.xy')
-@section('title',mb_substr(session('regionname'),0,2))
-@section('style')
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    {{--<link href="/home/css/ljj.css" rel="stylesheet" type="text/css" />--}}
-    @endsection
-    @section('content')
+<?php $__env->startSection('title',mb_substr(session('regionname'),0,2)); ?>
+<?php $__env->startSection('style'); ?>
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
+    
+    <?php $__env->stopSection(); ?>
+    <?php $__env->startSection('content'); ?>
 	<!-- 主体部分 -->
 	<div id="zhen_container">
 	<!-- 侧导航 公共样式，勿修改，修改自行加class-->
@@ -80,28 +79,28 @@
 				<div>
 					<div id="myTabContent" class="tab-content">
 						<div class="tab-pane fade in active" id="home">
-						@foreach($dsk as $dsks)
+						<?php $__currentLoopData = $dsk; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dsks): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 							<div class="c_container">
 								<div class="cz shen">
 									<label>订单生成时间：</label>
-									{{--<p>2017.8.9&nbsp;19:20</p>--}}
-									<p>{{ date("Y-m-d h:i:s",$dsks->time) }}</p>
+									
+									<p><?php echo e(date("Y-m-d h:i:s",$dsks->time)); ?></p>
 								</div>
 								<div class="cz">
 									<label>订单编号：</label>
-									<p><a href="/xsinfo{{ $dsks->id }}.html">{{ $dsks->id }}</a></p>
+									<p><a href="/xsinfo<?php echo e($dsks->id); ?>.html"><?php echo e($dsks->id); ?></a></p>
 								</div>
 								<div class="cz shen">
 									<label>学员姓名：</label>
-									<p>{{ $dsks->user_name }}</p>
+									<p><?php echo e($dsks->user_name); ?></p>
 								</div>
 								<div class="cz">
 									<label>学校：</label>
-									<p>{{ $dsks->tc_school }}</p>
+									<p><?php echo e($dsks->tc_school); ?></p>
 								</div>
 								<div class="cz shen">
 									<label>教员基本信息：</label>
-									<p>{{ $dsks->tc_name }}<a style="color:red" href="/teacher/detail/{{ $dsks->tc_id }}.html"> (点击查看详细信息) </a></p>
+									<p><?php echo e($dsks->tc_name); ?><a style="color:red" href="/teacher/detail/<?php echo e($dsks->tc_id); ?>.html"> (点击查看详细信息) </a></p>
 								</div>
 								<div class="cz">
 									<label>评价教员：</label>
@@ -113,50 +112,48 @@
 								</div>
 								<div class="cz shen">
 									<label>电子介绍信/合同：</label>
-									<p><a style='color:red'href="/xy_hetong/{{ $dsks->id }}.html">点击查看</a></p>
+									<p><a style='color:red'href="/xy_hetong/<?php echo e($dsks->id); ?>.html">点击查看</a></p>
 								</div>
 								<div class="cz">
 									<label>试课时间：</label>
-									<p>{{ $dsks->rsk_times }}</p>
+									<p><?php echo e($dsks->rsk_times); ?></p>
 								</div>
-								{{--<div class="cz shen">
-									<label>授课订单：</label>
-									<p>VIP专享</p>
-								</div>--}}
+								
 								<div class="cz">
 									<label>状态：</label>
 									<p>试课中</p>
 								</div>
 								<div class="zuihou">
-									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='' href="/xsinfo{{ $dsks->id }}.html">查看订单详情</a></span>
+									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='' href="/xsinfo<?php echo e($dsks->id); ?>.html">查看订单详情</a></span>
 									<span style='font-size:18px;color:#B5B5B5;text-align:center;display:inline-block;width:400px;'><a href="/Articlecenter18.html" >常见问题</a></span>
 								</div>
 							</div>
-						@endforeach
-							{{ $dsk->links()}}
+						<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+							<?php echo e($dsk->links()); ?>
+
 						</div>
 						<div class="tab-pane fade" id="ios_a">
-						@foreach($skz as $skzs)
+						<?php $__currentLoopData = $skz; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $skzs): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 							<div class="c_container">
 								<div class="cz shen">
 									<label>订单生成时间：</label>
-									<p>{{ date("Y-m-d h:i:s",$skzs->time) }}</p>
+									<p><?php echo e(date("Y-m-d h:i:s",$skzs->time)); ?></p>
 								</div>
 								<div class="cz">
 									<label>订单编号：</label>
-									<p><a href="/xsinfo{{ $skzs->id }}.html">{{ $skzs->id }}</a></p>
+									<p><a href="/xsinfo<?php echo e($skzs->id); ?>.html"><?php echo e($skzs->id); ?></a></p>
 								</div>
 								<div class="cz shen">
 									<label>学员姓名：</label>
-									<p>{{ $skzs->user_name }}</p>
+									<p><?php echo e($skzs->user_name); ?></p>
 								</div>
 								<div class="cz">
 									<label>学校：</label>
-									<p>{{ $skzs->tc_school }}</p>
+									<p><?php echo e($skzs->tc_school); ?></p>
 								</div>
 								<div class="cz shen">
 									<label>教员基本信息：</label>
-									<p>{{ $skzs->tc_name }}<a style="color:red" href="/teacher/detail/{{ $skzs->tc_id }}.html"> (点击查看详细信息) </a></p>
+									<p><?php echo e($skzs->tc_name); ?><a style="color:red" href="/teacher/detail/<?php echo e($skzs->tc_id); ?>.html"> (点击查看详细信息) </a></p>
 								</div>
 								<div class="cz">
 									<label>评价教员：</label>
@@ -168,51 +165,52 @@
 								</div>
 								<div class="cz shen">
 									<label>电子介绍信/合同：</label>
-									<p><a style='color:red'href="/xy_hetong/{{ $skzs->id }}.html">点击查看</a></p>
+									<p><a style='color:red'href="/xy_hetong/<?php echo e($skzs->id); ?>.html">点击查看</a></p>
 								</div>
 								<div class="cz">
 									<label>授课时间：</label>
-									<p>{{ $skzs->sk_times }}</p>
+									<p><?php echo e($skzs->sk_times); ?></p>
 								</div>
-								{{--<div class="cz shen">--}}
-									{{--<label>授课订单：</label>--}}
-									{{--<p>VIP专享</p>--}}
-								{{--</div>--}}
+								
+									
+									
+								
 								<div class="cz">
 									<label>状态：</label>
 									<p>授课中</p>
 								</div>
 								<div class="zuihou">
-									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='' href="/xsinfo{{ $skzs->id }}.html">查看订单详情</a></span>
+									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='' href="/xsinfo<?php echo e($skzs->id); ?>.html">查看订单详情</a></span>
 									<span style='font-size:18px;color:#B5B5B5;text-align:center;display:inline-block;width:400px;'><a href="/Articlecenter18.html" >常见问题</a></span>
 								</div>
 							</div>
-						@endforeach
-							{{ $skz->links()}}
+						<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+							<?php echo e($skz->links()); ?>
+
 						</div>
 
 						<div class="tab-pane fade" id="ios_b">
-						@foreach($skjs as $skjss)
+						<?php $__currentLoopData = $skjs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $skjss): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 							<div class="c_container">
 								<div class="cz shen">
 									<label>订单生成时间：</label>
-									<p>{{ date("Y-m-d h:i:s",$skjss->time) }}</p>
+									<p><?php echo e(date("Y-m-d h:i:s",$skjss->time)); ?></p>
 								</div>
 								<div class="cz">
 									<label>订单编号：</label>
-									<p><a href="/xsinfo{{ $skjss->id }}.html">{{ $skjss->id }}</a></p>
+									<p><a href="/xsinfo<?php echo e($skjss->id); ?>.html"><?php echo e($skjss->id); ?></a></p>
 								</div>
 								<div class="cz shen">
 									<label>学员姓名：</label>
-									<p>{{ $skjss->user_name }}</p>
+									<p><?php echo e($skjss->user_name); ?></p>
 								</div>
 								<div class="cz">
 									<label>学校：</label>
-									<p>{{ $skjss->tc_school }}</p>
+									<p><?php echo e($skjss->tc_school); ?></p>
 								</div>
 								<div class="cz shen">
 									<label>教员基本信息：</label>
-									<p>{{ $skjss->tc_name }}<a style="color:red" href="/teacher/detail/{{ $skjss->tc_id }}.html"> (点击查看详细信息) </a></p>
+									<p><?php echo e($skjss->tc_name); ?><a style="color:red" href="/teacher/detail/<?php echo e($skjss->tc_id); ?>.html"> (点击查看详细信息) </a></p>
 								</div>
 								<div class="cz">
 									<label>评价教员：</label>
@@ -224,96 +222,92 @@
 								</div>
 								<div class="cz shen">
 									<label>电子介绍信/合同：</label>
-									<p><a style='color:red'href="/xy_hetong/{{ $skjss->id }}.html">点击查看</a></p>
+									<p><a style='color:red'href="/xy_hetong/<?php echo e($skjss->id); ?>.html">点击查看</a></p>
 								</div>
-								{{--<div class="cz">
-									<label>试课时间：</label>
-									<p></p>
-								</div>--}}
-								{{--<div class="cz shen">
-									<label>授课订单：</label>
-									<p>VIP专享</p>
-								</div>--}}
+								
+								
 								<div class="cz">
 									<label>状态：</label>
 									<p>授课结束</p>
 								</div>
 								<div class="zuihou">
-									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='' href="/xsinfo{{ $skjss->id }}.html">查看订单详情</a></span>
+									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='' href="/xsinfo<?php echo e($skjss->id); ?>.html">查看订单详情</a></span>
 									<span style='font-size:18px;color:#B5B5B5;text-align:center;display:inline-block;width:400px;'><a href="/Articlecenter18.html" >常见问题</a></span>
 
 								</div>
 							</div>
-						@endforeach
-							{{ $skjs->links() }}
+						<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+							<?php echo e($skjs->links()); ?>
+
 						</div>
 
 						<div class="tab-pane fade" id="ios_c">
-						@foreach($apdd as $apdds)
+						<?php $__currentLoopData = $apdd; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $apdds): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 							<div class="c_container">
 								<div class="cz shen">
 									<label>订单生成时间：</label>
-									<p>{{ date("Y-m-d h:i:s",$apdds->time) }}</p>
+									<p><?php echo e(date("Y-m-d h:i:s",$apdds->time)); ?></p>
 								</div>
 								<div class="cz">
 									<label>订单编号：</label>
-									<p><a href="/xsinfo{{ $apdds->id }}.html">{{ $apdds->id }}</a></p>
+									<p><a href="/xsinfo<?php echo e($apdds->id); ?>.html"><?php echo e($apdds->id); ?></a></p>
 								</div>
 								<div class="cz shen">
 									<label>学员年级：</label>
-									<p>{{ $apdds->grade }}</p>
+									<p><?php echo e($apdds->grade); ?></p>
 								</div>
 								<div class="cz">
 									<label>辅导科目：</label>
-									<p>{{ $apdds->subject_id }}</p>
+									<p><?php echo e($apdds->subject_id); ?></p>
 								</div>
 								<div class="cz shen">
 									<label>辅导次数：</label>
-									<p>{{ $apdds->per_week }}</p>
+									<p><?php echo e($apdds->per_week); ?></p>
 								</div>
 								<div class="cz">
 									<label>辅导地点：</label>
-									<p>{{ $apdds->xx_dz }}</p>
+									<p><?php echo e($apdds->xx_dz); ?></p>
 								</div>
 								<div class="cz shen">
 									<label>辅导课酬：</label>
-									<p>@if($apdds->money != ''){{ $apdds->money }}元/1小时@else @endif </p>
+									<p><?php if($apdds->money != ''): ?><?php echo e($apdds->money); ?>元/1小时<?php else: ?> <?php endif; ?> </p>
 								</div>
 								<div class="cz">
 									<label>状态：</label>
 									<p>安排中</p>
 								</div>
 								<div class="zuihou">
-									<span style='font-size:18px;height:50px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='' href="/xsinfo{{ $apdds->id }}.html">查看订单详情</a></span>
+									<span style='font-size:18px;height:50px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='' href="/xsinfo<?php echo e($apdds->id); ?>.html">查看订单详情</a></span>
 									<span style='font-size:18px;height:50px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='' href="http://www.delijiajiao.com/faculty.html">挑老师</a></span>
 									<span style='font-size:18px;color:#B5B5B5;text-align:center;display:inline-block;'><a href="/Articlecenter18.html" >常见问题</a></span>
 								</div>
 							</div>
-						@endforeach
-							{{ $apdd->links() }}
+						<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+							<?php echo e($apdd->links()); ?>
+
 						</div>
 						<div class="tab-pane fade" id="ios_d">
-						@foreach($skwcg as $skwcgs)
+						<?php $__currentLoopData = $skwcg; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $skwcgs): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 							<div class="c_container">
 								<div class="cz shen">
 									<label>订单生成时间：</label>
-									<p>{{ date("Y-m-d h:i:s",$skwcgs->time) }}</p>
+									<p><?php echo e(date("Y-m-d h:i:s",$skwcgs->time)); ?></p>
 								</div>
 								<div class="cz">
 									<label>订单编号：</label>
-									<p><a href="/xsinfo{{ $skwcgs->id }}.html">{{ $skwcgs->id }}</a></p>
+									<p><a href="/xsinfo<?php echo e($skwcgs->id); ?>.html"><?php echo e($skwcgs->id); ?></a></p>
 								</div>
 								<div class="cz shen">
 									<label>学员姓名：</label>
-									<p>{{ $skwcgs->user_name }}</p>
+									<p><?php echo e($skwcgs->user_name); ?></p>
 								</div>
 								<div class="cz">
 									<label>学校：</label>
-									<p>{{ $skwcgs->tc_school }}</p>
+									<p><?php echo e($skwcgs->tc_school); ?></p>
 								</div>
 								<div class="cz shen">
 									<label>教员基本信息：</label>
-									<p>{{ $skwcgs->tc_name }}<a style="color:red" href="/teacher/detail/{{ $skwcgs->tc_id }}.html"> (点击查看详细信息) </a></p>
+									<p><?php echo e($skwcgs->tc_name); ?><a style="color:red" href="/teacher/detail/<?php echo e($skwcgs->tc_id); ?>.html"> (点击查看详细信息) </a></p>
 								</div>
 								<div class="cz">
 									<label>评价教员：</label>
@@ -325,27 +319,25 @@
 								</div>
 								<div class="cz shen">
 									<label>电子介绍信/合同：</label>
-									<p><a style='color:red'href="/xy_hetong/{{ $skwcgs->id }}.html">点击查看</a></p>
+									<p><a style='color:red'href="/xy_hetong/<?php echo e($skwcgs->id); ?>.html">点击查看</a></p>
 								</div>
 								<div class="cz">
 									<label>试课时间：</label>
-									<p>{{ $skwcgs->rsk_times }}</p>
+									<p><?php echo e($skwcgs->rsk_times); ?></p>
 								</div>
-								{{--<div class="cz shen">
-									<label>授课订单：</label>
-									<p>VIP专享</p>
-								</div>--}}
+								
 								<div class="cz">
 									<label>状态：</label>
 									<p>试课未成功</p>
 								</div>
 								<div class="zuihou">
-									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='' href="/xsinfo{{ $skwcgs->id }}.html">查看订单详情</a></span>
+									<span style='font-size:18px;height:50px;width:450px;display:inline-block;text-align:center;line-height:50px;border-right:1px solid #E1E1E1;color:#B5B5B5;margin-top:10px;'><a style='' href="/xsinfo<?php echo e($skwcgs->id); ?>.html">查看订单详情</a></span>
 									<span style='font-size:18px;color:#B5B5B5;text-align:center;display:inline-block;width:400px;'><a href="/Articlecenter18.html" >常见问题</a></span>
 								</div>
 							</div>
-						@endforeach
-							{{ $skwcg->links()  }}
+						<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+							<?php echo e($skwcg->links()); ?>
+
 						</div>
 					</div>
 				</div>
@@ -361,7 +353,9 @@
 			width:32%;
 		}
 	</style>
-@endsection
-@section('js')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('js'); ?>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('delijiajiao.public.xy', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
