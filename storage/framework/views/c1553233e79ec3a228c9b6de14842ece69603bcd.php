@@ -283,7 +283,7 @@ for(i=0; i <tabList.length; i++)
      <li id="as4"><a href="/zfsm.html" id="ad4">资费说明</a></li>
      <li id="as5"><a href="/xueyuan.html" id="ad5">学员库</a></li>
      <li id="as6"><a href="" id="ad6">会员中心</a></li>
-     <li id="as7"><a href="/Articlecenter1.html" id="ad7">文章中心</a></li>
+     <li id="as7"><a href="/Articlecenter18.html" id="ad7">文章中心</a></li>
 
 
 

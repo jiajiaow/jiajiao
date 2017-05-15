@@ -387,6 +387,7 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::post('/goodsbjdo','admin\goodsController@goodsbjdo');
     //教员收支流水
     Route::get('/jyszls','admin\caiwuController@jyszls');
-
+    //订单回收站
+    Route::get('/recyclebin','admin\recyclebinController@recyclebin');
 });
 //----------后台END----------//
