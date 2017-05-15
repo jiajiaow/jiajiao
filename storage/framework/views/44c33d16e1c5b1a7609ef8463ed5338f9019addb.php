@@ -221,7 +221,7 @@
                             <div class="left">试课结果填写</div>
                             <div class="right">
                                 <div style="height: 40px;" class="yesno">
-                                    <?php if($skzs->jy_qz == '1' && $skzs-> xy_qz =='1'): ?>
+                                    <?php if($skzs->jy_qz == '1' && $skzs-> xy_qz =='1' || $skzs->jy_qz == '1' && $skzs-> xy_qz =='2'): ?>
                                         <a class="cg" id="cg<?php echo e($skzs->id); ?>">试课成功</a>
                                     <?php else: ?>
                                         <a onclick="skcgs()"  href="/hetong/<?php echo e($skzs->id); ?>.html">试课成功</a>
@@ -521,7 +521,7 @@
                                     <li>
                                         <p>
                                             <?php if($skzs->jy_qz =='1'): ?>
-                                                <?php if($skzs->tk_type == '6' || $skzs->tk_type == '' || $skzs->tk_type == '3'): ?>
+                                                <?php if($skzs->tk_type == '6' || $skzs->tk_type == ''): ?>
                                                     <button style="margin-left: 110px;" type="submit" >申请退款</button>
                                                 <?php else: ?>
                                                     <span style="margin-left: 110px;" onclick="layer.alert('您已经提交过申请了!')" >申请退款</span>
@@ -810,16 +810,16 @@
         $('#fc'+id).show(500)
         $('#fc_content'+id).show(500)
     }
-
-    var bkzqm = $('.dd_length')
+    var bkzqm = $('.dd_length');
     for(var i = 0;i<bkzqm.length;i++){
 //        $.trim console.log( bkzqm.eq(i).find(".yesno").text())
 //        console.log( bkzqm.eq(i).find(".xbxxf").text())
       var a  =  $.trim(bkzqm.eq(i).find(".yesno").text())
-        bkzqm.eq(i).find(".xbxxf").text()
+      var xbxxf =   $.trim(bkzqm.eq(i).find(".xbxxf").text())
+
         bkzqm.eq(i).find("#o").val()
         bkzqm.eq(i).find("#r").val()
-        if(a == '试课成功' && bkzqm.eq(i).find(".xbxxf").text() == '0'){
+        if(a == '试课成功' && xbxxf == '0'){
             bkzqm.eq(i).find("#o").val()
             bkzqm.eq(i).find("#r").val()
             $.ajax({

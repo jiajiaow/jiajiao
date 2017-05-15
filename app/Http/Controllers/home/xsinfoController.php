@@ -22,4 +22,5 @@ class xsinfoController extends Controller
             //dd($list);
         return view('delijiajiao.xsinfo',['data' => $data,'nu' => $rs,'url' => $url,'list'=>$list]);
     }
+
 }

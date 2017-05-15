@@ -38,9 +38,28 @@
 				<p>3．丙方需认真授课、努力提高教学水平，守时诚信、文明礼貌，不得出现任何危害甲方利益、乙方利益及品牌形象的行为。</p>
 				<p>家教服务期间，若出现任何疑问或者另需请家教老师，请及时与德栗家教联系，400-8080-740，www.delijiajiao.com。</p>
 				<p>本协议自签订之日起生效，自丙方结束授课之日起且甲方结清价款后自动失效。</p>
-				<input type="hidden" name="jy_qz" value="1">
+				<input type="hidden" name="xy_qz" value="2">
 				<input type="hidden" name="id" value="<?php echo e($list->id); ?>">
+				<input type="hidden" name="xt" value="1">
+				<p>　<span class="text_1">
 
+
+				甲方签字</span>：<?php if($list->jy_qz =='1'): ?>
+					<?php if($list->xy_qz == '2' || $list->xy_qz == '1'): ?>
+						<span class="btn btn_3">系统代签</span>
+					<?php else: ?>
+						<button class="btn btn_3">系统代签</button>
+					<?php endif; ?>
+				<?php else: ?>
+					<span class="btn btn_3">系统代签</span>
+				<?php endif; ?> 
+					<span class="text_2">乙方签字</span>：<span class=" btn_2">已签认</span>
+					<span class="text_3">丙方签字</span>：
+						<?php if($list->jy_qz == '1'): ?>
+							丙方已签认
+						<?php else: ?>
+							丙方（签字）
+						<?php endif; ?>
 				<p style="text-align: right">(<?php echo e(date("Y-m-d",$list->hetong_time)); ?>)</p>
 			</div>
 		</div>
