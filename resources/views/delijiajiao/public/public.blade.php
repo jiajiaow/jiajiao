@@ -369,15 +369,15 @@ for(i=0; i <tabList.length; i++)
           <div class="tel_box">
               <p>{{ substr(session('cityname'),0,6) }}热线：{{ session('phone') }}</p>
               <p>全国热线：400-8250-710</p>
-              <a href="https://hztk5.kuaishang.cn/bs/leavemsg.htm?cas=69564___125636&fi=79140&ri=18245978652&_d=14947899145509028"><span class="zxzx">在线咨询</span></a>
+              <a href="https://hztk5.kuaishang.cn/bs/im.htm?cSource=1&cas=69564___125636&fi=79140&ri=18245998447&vi=84d357f55f854a87b7683824f3938530&dp=http%3A%2F%2Fwww.delijiajiao.com%2F&_d=1494806260357&_tk=575c5551"><span class="zxzx">在线咨询</span></a>
           </div>
       </div>
   </div>
   <div class="fc" style="display: none;"></div>
   <div class="fc_body" style="display: none">
       <div class="fcb_top">
-          <div style="display: inline-block;vertical-align: bottom;margin-left: 8px;">
-              <img src="/new/images/xsznt.png" style="width: 155px;">
+          <div style="display: inline-block;margin-left: 8px;">
+              <img src="/new/images/xsznt.png" style="width: 155px; vertical-align: bottom;">
           </div>
           <div style="display: inline-block;margin-top: 26px; ">
               <p class="fcb_text">还没找到心仪的老师？我们的金牌顾问帮您挑吧</p>
@@ -389,14 +389,14 @@ for(i=0; i <tabList.length; i++)
                       <p>全国热线：400-8250-740</p>
                   </div>
                   <div class="dsv">
-                      <a href="https://hztk5.kuaishang.cn/bs/leavemsg.htm?cas=69564___125636&fi=79140&ri=18245978652&_d=14947899145509028" class="zx_btn">在线咨询</a>
+                      <a href="https://hztk5.kuaishang.cn/bs/im.htm?cSource=1&cas=69564___125636&fi=79140&ri=18245998447&vi=84d357f55f854a87b7683824f3938530&dp=http%3A%2F%2Fwww.delijiajiao.com%2F&_d=1494806260357&_tk=575c5551" class="zx_btn">在线咨询</a>
                   </div>
               </div>
           </div>
 
       </div>
       <div class="fcb_bottom">
-          <p class="fcb_bottom_titp" style="padding: 14px 0 3px 50px;;text-align: left;color: #fff;font-size: 14px;">您希望的授课类型：</p>
+          <p class="fcb_bottom_titp" style="padding: 14px 0 3px 50px;;text-align: left;margin:0;color: #fff;font-size: 14px;">您希望的授课类型：</p>
           <div class="dsv fcb_b_box">
               <ul style="width: 200px;">
                   <li class="fcb_b_box_active">高中</li>
@@ -574,6 +574,7 @@ for(i=0; i <tabList.length; i++)
       }
       .dsv p{
           padding: 3px 0;
+          margin: 0;
       }
       .fcb_b_box{
           margin-left: -14px;

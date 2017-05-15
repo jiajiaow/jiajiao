@@ -200,7 +200,7 @@
                     <div class="bk">
                         <div class="left">备注</div>
                         <div class="right">
-                            <a style="margin-right: 20px;" href="https://hztk5.kuaishang.cn/bs/leavemsg.htm?cas=69564___125636&fi=79140&ri=18245978652&_d=14947899145509028" target="_blank"><font color="#FF0000">沟通咨询/疑问</font></a>
+                            <a style="margin-right: 20px;" href="https://hztk5.kuaishang.cn/bs/im.htm?cSource=1&cas=69564___125636&fi=79140&ri=18245998447&vi=84d357f55f854a87b7683824f3938530&dp=http%3A%2F%2Fwww.delijiajiao.com%2F&_d=1494806260357&_tk=575c5551" target="_blank"><font color="#FF0000">沟通咨询/疑问</font></a>
 
                                 
 

@@ -313,7 +313,7 @@
             var tops, rect = self.getBoundingClientRect();
             obj.style.left = 900 +'px';
 
-            obj.style.top = document.body.scrollTop +'px'
+            obj.style.top = $(document).scrollTop() +'px'
         },
         getDateStr:function(y, m, d) {
             var that = this, opts = that.config, dayStr = "", m = jeDt.digit(m);

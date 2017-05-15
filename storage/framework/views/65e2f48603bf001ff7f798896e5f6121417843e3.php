@@ -5,38 +5,16 @@
 	<?php $__env->stopSection(); ?>
 	<?php $__env->startSection('content'); ?>
 	<!-- 侧导航 -->
-		<div class="cheng_nav">
-			<ul class="bian_nav">
-				<li>
-					<i class='cheng_one'></i>
-					<span>个人信息</span>
-				</li>
-				<li class="cheng_active">
-					<i class='cheng_two'></i>
-					<span>订单管理</span>
-				</li>
-				<li>
-					<i class='cheng_three'></i>
-					<span>授课订单管理</span>
-				</li>
-				<li>
-					<i class='cheng_four'></i>
-					<span>成绩管理</span>
-				</li>
-				<li>
-					<i class='cheng_five'></i>
-					<span>财务中心</span>
-				</li>
-				<li>
-					<i class='cheng_six'></i>
-					<span>积分商城</span>
-				</li>
-				<li>
-					<i class='cheng_seven'></i>
-					<span>沟通中心</span>
-				</li>
-			</ul>
-		</div>
+	<div class="cheng_nav">
+		<ul class="bian_nav">
+			
+			<li class="cheng_active">
+				<i class='cheng_two'></i>
+				<span><a href="/tc_order1.html"></a>订单管理</span>
+			</li>
+			
+		</ul>
+	</div>
 		<!-- 侧导航结束 -->
 		<!--nav 开始 -->
 <div class="cheng_body" style="width:954px;">
@@ -164,13 +142,9 @@
 						<div class="bk">
 							<div class="left">备注</div>
 							<div class="right">
-								<a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">沟通咨询/疑问</font></a>
-								<?php if($yqxs->yy_zt ==''): ?>
-									<a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">系统推荐订单？</font></a>
-								<?php else: ?>
-									<a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000"><?php echo e($yqxs->yy_zt); ?></font></a>
-								<?php endif; ?>
-								<a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">常见问题</font></a>
+								<a style="margin-right: 20px;" href="https://hztk5.kuaishang.cn/bs/leavemsg.htm?cas=69564___125636&fi=79140&ri=18245978652&_d=14947899145509028" target="_blank"><font color="#FF0000">沟通咨询/疑问</font></a>
+								
+								<a style="margin-right: 20px;" href="/Articlecenter19.html" target="_blank"><font color="#FF0000">常见问题</font></a>
 							</div>
 						</div>
 						<div class="bk2">
