@@ -135,7 +135,7 @@
                             </span>
                             <div class="hover">
                                 <p >{{ subtext($jp->tc_comments,40) }}</p>
-                                <a href="javascript:void(0)"  class="look">查看 ></a>
+                                <a href="/teacher/detail/{{ $jp->id }}.html"  class="look">查看 ></a>
                             </div>
                         </div>
                         <div class="bottom">
@@ -169,7 +169,7 @@
                         <i>{{ mb_substr($xs->tc_name,0,1) }}教员</i>
                         <div class="hover">
                             <p>{{subtext( $xs->tc_comments,40) }}</p>
-                            <a href="javascript:void(0)" class="look" onclick="location.href='/teacher/detail/{{ $xs->id }}.html'" >查看 ></a>
+                            <a href="/teacher/detail/{{ $xs->id }}.html" class="look"  >查看 ></a>
                         </div>
                     </div>
                     <div class="bottom">
@@ -198,12 +198,12 @@
             @foreach($jy as $zhuanzhi)
               @if($zhuanzhi->tc_jinpai == 1)
                 <li class="kuan">
-                    <div class="top" onmouseover="this.style.cursor='pointer'" onclick="location.href='/teacher/detail/207692.html'">
+                    <div class="top" onmouseover="this.style.cursor='pointer'" onclick="location.href='/teacher/detail/{{ $zhuanzhi->id }}.html'">
                         <img src="{{ $zhuanzhi->tc_photo==''?'/delijiajiao/images/logo.png':$zhuanzhi->tc_photo }}" width="110" height="110">
                         <i>{{ mb_substr($zhuanzhi->tc_name,0,1) }}教员</i>
                         <div class="hover">
                             <p>{{ subtext($zhuanzhi->tc_comments,40) }}</p>
-                            <a href="javascript:void(0)" class="look" onclick="location.href='/teacher/detail/{{ $zhuanzhi->id }}.html'">查看 ></a>
+                            <a href="/teacher/detail/{{ $zhuanzhi->id }}.html" class="look" >查看 ></a>
                         </div>
                     </div>
                     <div class="bottom">
@@ -263,7 +263,7 @@
             @endforeach
           </div>
       </div>
-    <div class="wx_box" style="display: none;">
+    <div class="wx_box" style="display:none;">
         <img src="{!! session('fz_wx') !!}" alt=""  width="100%">
     </div>
  {{--<div class="index5">
