@@ -389,5 +389,7 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::get('/jyszls','admin\caiwuController@jyszls');
     //订单回收站
     Route::get('/recyclebin','admin\recyclebinController@recyclebin');
+    //订单屏蔽
+    Route::get('/xgddzt/{id?}/{zt?}','admin\orderController@xgddzt');
 });
 //----------后台END----------//

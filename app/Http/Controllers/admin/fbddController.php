@@ -25,6 +25,7 @@ class fbddController extends Controller
         $input['per_week'] = ',';
         $input['sk_times'] = $sk_times;
         $input['time'] = time();
+        $input['status'] = '0';
          //$input['money2'] = $request->input('money');
         //dd($input);
         //$re = DB::table('jjw_order')->where('id',$oid)->update($input);

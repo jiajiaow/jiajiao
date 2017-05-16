@@ -189,4 +189,9 @@ class orderController extends Controller
         DB::table('jjw_order')->where('id',$id)->update($all);
         return back();
     }
+    public function xgddzt($id,$zt)
+    {
+        DB::table('jjw_order')->where('id',$id)->update(['status' => $zt]);
+        return back();
+    }
 }
