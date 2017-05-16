@@ -20,7 +20,7 @@
 				<img src="/new/images/TT.png" style="position: absolute;bottom: 0;width: 136px;left: 20%;">
 				<h5>电子授课合同</h5>  
 				<p><span>甲方（学员）</span>：<span id="adds"><input type="text" value="{{ $list->user_name }}" class="inwidths"></span>  联系电话：{{ $list->user_phone }}<span class="add">+</span></p>
-				<p><span>乙方（德栗）</span>：<span style="width: 72px; display: inline-block;">德栗家教</span>    联系电话：400-8080-740  微信号：delijiajiao</p>
+				<p><span>乙方（德栗）</span>：<span style="width: 72px; display: inline-block;">德栗家教</span>    联系电话：400-8250-710  微信号：delijiajiao</p>
 				<p><span>丙方（教员）</span>：<span style="width: 72px; display: inline-block;">{{ $list->tc_name }}</span>  联系电话：{{ $list->tc_phone }}</p>
 				<p>德栗家教（官方网站：www.delijiajiao.com）安排我方教员自动抓取上门为甲方进行家教辅导。甲乙丙各方在合法公正、平等自愿的基础上,经过充分的友好协商达成如下协议:</p>
 				<p>一、乙方教员自动抓取为甲方提供每周<input type="text" name="o_ts" value="{{ $list->o_ts }}" class="inwidth">次，每次<input type="text" name="o_xs" value="{{ $list->o_xs }}"  class="inwidth">小时的家教辅导；约定授课周期为<input type="text" name="o_yue" value="{{ $list->o_yue }}" class="inwidth">月。</p>
@@ -36,7 +36,7 @@
 				<p>1．将共同做好备课准备，如家长选择的是签约教员，将由乙方根据学员的情况，安排乙方特聘专职老师一对一提供上课内容和定期提供学习报告。</p>
 				<p>2．教学过程中，对甲方负责，解答疑虑、指导课程学习。</p>
 				<p>3．丙方需认真授课、努力提高教学水平，守时诚信、文明礼貌，不得出现任何危害甲方利益、乙方利益及品牌形象的行为。</p>
-				<p>家教服务期间，若出现任何疑问或者另需请家教老师，请及时与德栗家教联系，400-8080-740，www.delijiajiao.com。</p>
+				<p>家教服务期间，若出现任何疑问或者另需请家教老师，请及时与德栗家教联系，400-8250-710，www.delijiajiao.com。</p>
 				<p>本协议自签订之日起生效，自丙方结束授课之日起且甲方结清价款后自动失效。</p>
 				<input type="hidden" name="xy_qz" value="2">
 				<input type="hidden" name="id" value="{{ $list->id }}">

@@ -135,7 +135,7 @@
                             </span>
                             <div class="hover">
                                 <p ><?php echo e(subtext($jp->tc_comments,40)); ?></p>
-                                <a href="javascript:void(0)"  class="look">查看 ></a>
+                                <a href="/teacher/detail/<?php echo e($jp->id); ?>.html"  class="look">查看 ></a>
                             </div>
                         </div>
                         <div class="bottom">
@@ -169,7 +169,7 @@
                         <i><?php echo e(mb_substr($xs->tc_name,0,1)); ?>教员</i>
                         <div class="hover">
                             <p><?php echo e(subtext( $xs->tc_comments,40)); ?></p>
-                            <a href="javascript:void(0)" class="look" onclick="location.href='/teacher/detail/<?php echo e($xs->id); ?>.html'" >查看 ></a>
+                            <a href="/teacher/detail/<?php echo e($xs->id); ?>.html" class="look"  >查看 ></a>
                         </div>
                     </div>
                     <div class="bottom">
@@ -198,12 +198,12 @@
             <?php $__currentLoopData = $jy; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $zhuanzhi): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
               <?php if($zhuanzhi->tc_jinpai == 1): ?>
                 <li class="kuan">
-                    <div class="top" onmouseover="this.style.cursor='pointer'" onclick="location.href='/teacher/detail/207692.html'">
+                    <div class="top" onmouseover="this.style.cursor='pointer'" onclick="location.href='/teacher/detail/<?php echo e($zhuanzhi->id); ?>.html'">
                         <img src="<?php echo e($zhuanzhi->tc_photo==''?'/delijiajiao/images/logo.png':$zhuanzhi->tc_photo); ?>" width="110" height="110">
                         <i><?php echo e(mb_substr($zhuanzhi->tc_name,0,1)); ?>教员</i>
                         <div class="hover">
                             <p><?php echo e(subtext($zhuanzhi->tc_comments,40)); ?></p>
-                            <a href="javascript:void(0)" class="look" onclick="location.href='/teacher/detail/<?php echo e($zhuanzhi->id); ?>.html'">查看 ></a>
+                            <a href="/teacher/detail/<?php echo e($zhuanzhi->id); ?>.html" class="look" >查看 ></a>
                         </div>
                     </div>
                     <div class="bottom">
@@ -263,7 +263,7 @@
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </div>
       </div>
-    <div class="wx_box" style="display: none;">
+    <div class="wx_box" style="display:none;">
         <img src="<?php echo session('fz_wx'); ?>" alt=""  width="100%">
     </div>
  
