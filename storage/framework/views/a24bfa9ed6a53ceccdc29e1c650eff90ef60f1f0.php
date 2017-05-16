@@ -63,7 +63,7 @@
                         </thead>
                         <tbody>
                         <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $re): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <tr valign="top" align="center">
+                        <tr valign="top" align="center" <?php if($re->status == '3'): ?> style="color:red;" <?php endif; ?>>
                             <td>
                                 <form action="/admin/orderjc" method="post">
                                     <?php echo e(csrf_field()); ?>
@@ -274,8 +274,11 @@
                                     <p>试课地址:<input type="text" value="<?php echo e($re->sks_add); ?>" ></p>
                                     <p><a href="">前台查看次家教</a><button class="VIP" >设置为vip</button></p>
                                     <p>
-                                        <a href="">显示</a>|
-                                        <a href="">屏蔽</a>|
+                                        <?php if($re->status != '3'): ?>
+                                        <a href="/admin/xgddzt/<?php echo e($re->id); ?>/3">屏蔽</a>
+                                        <?php else: ?>
+                                        <a href="/admin/xgddzt/<?php echo e($re->id); ?>/0">显示</a>
+                                        <?php endif; ?>|
                                         <a href="">非置顶</a>|
                                         <a href="">推送</a>|
                                         <a href="">删除</a>
