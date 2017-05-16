@@ -76,7 +76,7 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="/admin/xsdd">学员订单</a>
+                                <a class="J_menuItem" href="/admin/xsdd">学员订单&nbsp;&nbsp;&nbsp;<span style="color:red;"><?php echo e($num); ?></span></a>
                             </li>
                             <li>
                                 <a class="J_menuItem" href="/admin/htjyk">教员库</a>
