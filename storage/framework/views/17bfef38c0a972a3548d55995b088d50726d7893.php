@@ -167,7 +167,7 @@
 
                                     <input type="hidden" name="id" value="<?php echo e($re->id); ?>">
                                     <div>
-                                        
+                                        <p>电话:<?php echo e($re->user_phone); ?></p>
                                         <p>微信:<input type="text" name="wx" value="<?php echo e($re->wx); ?>"></p>
                                         <p>QQ:<input type="text" name="qq" value="<?php echo e($re->qq); ?>"></p>
                                         <p>年级:<input type="text" name="grade" value="<?php echo e($re->grade); ?>"></p>
@@ -201,7 +201,7 @@
                                             </select>
                                             接单教员：
                                         </p>
-                                        <p>时间安排:<input type="text" name="per_week" value="<?php echo e($re->per_week); ?>" style="width:220px;"></p>
+                                        
                                         <p>授课时间:<input type="text" name="sk_times" value="<?php echo e($re->sk_times); ?>" style="width:220px;"></p>
                                         <p>学员描述:<input type="text" name="user_situation" value="<?php echo e($re->user_situation); ?>" style="width:220px;"></p>
                                         <p>教员要求:<input type="text" name="teacher_info" value="<?php echo e($re->teacher_info); ?>" style="width:220px;"></p>
@@ -240,6 +240,7 @@
                                 <div><?php $q = $re->o_ts*$re->o_xs*$re->money ?>
                                     <p>周薪酬:<input type="text" value="<?php echo e($q); ?>" name="order_zkc"></p>
                                     <p>月薪酬:<input type="text" value="<?php if($re->o_ts == '1'): ?><?php echo e($q*4); ?><?php elseif($re->o_ts == '2'): ?><?php echo e($q*4); ?><?php elseif($re->o_ts == '3'): ?><?php echo e($q*4); ?><?php elseif($re->o_ts == '4'): ?><?php echo e($q*4); ?><?php elseif($re->o_ts == '5'): ?><?php echo e($q*4); ?><?php elseif($re->o_ts == '6'): ?><?php echo e($q*4); ?><?php elseif($re->o_ts == '7'): ?><?php echo e($q*4); ?><?php endif; ?>" name="order_ykc"></p>
+                                    <p>折扣：<input type="text"></p>
                                     <p>预计总费用:<input type="text" value="<?php if($re->o_ts == '1'): ?><?php echo e($q*$re->bfb1+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '2'): ?><?php echo e($q*$re->bfb2+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '3'): ?><?php echo e($q*$re->bfb3+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '4'): ?><?php echo e($q*$re->bfb4+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '5'): ?><?php echo e($q*$re->bfb5+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '6'): ?><?php echo e($q*$re->bfb6+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '7'): ?><?php echo e($q*$re->bfb7+$re->fz_jzxxf); ?><?php endif; ?>"name="money" style="width: 60px;"></p>
                                     <p>预计信息费:<input type="text" name="order_xxf" value="<?php if($re->o_ts == '1'): ?><?php echo e($q*$re->bfb1); ?><?php elseif($re->o_ts == '2'): ?><?php echo e($q*$re->bfb2); ?><?php elseif($re->o_ts == '3'): ?><?php echo e($q*$re->bfb3); ?><?php elseif($re->o_ts == '4'): ?><?php echo e($q*$re->bfb4); ?><?php elseif($re->o_ts == '5'): ?><?php echo e($q*$re->bfb5); ?><?php elseif($re->o_ts == '6'): ?><?php echo e($q*$re->bfb6); ?><?php elseif($re->o_ts == '7'): ?><?php echo e($q*$re->bfb7); ?><?php endif; ?>"style="width: 60px;"></p>
                                     <p>家长服务费:<input type="text" value="<?php echo e($re->fz_jzxxf); ?>" name="order_jzfy" style="width: 60px;"></p>

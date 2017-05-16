@@ -501,6 +501,7 @@
                                                 <option value="家长想换个性别（男/女）的老师（未试课）">家长想换个性别（男/女）的老师（未试课）</option>
                                                 <option value="家长想换个更好学校或者更合适专业的老师（未试课）">家长想换个更好学校或者更合适专业的老师（未试课）</option>
                                                 <option value="家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）">家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）</option>
+                                                <option value="其他（请在备注中说明情况）"></option>
                                             </select>
                                             <select id="ok_xueyuan{{ $skzs->id }}" style="display:none;width:360px;" name="yuanyin">
                                                 <option value="学员暂时不太适应家教试课不成功">学员暂时不太适应家教试课不成功</option>

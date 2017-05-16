@@ -1,0 +1,125 @@
+/*学员管理的界面 个人中心成绩分析*/
+#xy-container{
+	
+	min-height: 300px;
+	margin-left: 20px;
+	margin-right: 20px;
+
+}
+.xy-1{
+	height: 42px;
+	border:1px solid #DDDDDD;
+	background-color: #FAF9F9;
+	line-height: 42px;
+	font-size: 16px;
+	margin-top: 10px;
+
+}
+.xy-2{
+	padding-left: 45px;
+	padding-top:25px;
+	padding-right: 78px;
+	margin-top: 10px;
+	border:1px solid #DDDDDD;
+	background-color: #Fff;
+	min-height: 210px;
+}
+.xy-3{
+	min-height: 173px;
+	background-color: #FAF9F9;
+	border:1px solid #DDDDDD;
+	border-top:none;
+}
+.xy-2 span{
+	font-weight:normal;
+	color: #6E6E6E;
+}
+#xy-container div:first-child img:nth-child(1){
+	margin-left: 25px;
+	margin-right: 10px;
+
+}
+#xy-container div:first-child span{
+	font-size: 16px;
+
+}
+div.xy-sj{
+	float: left;
+	margin-top:26px;
+	margin-left: 15px;
+	font-size: 17px;
+	color: #facc40;
+}
+div.xy-xz{
+	min-height: 115px;
+	border-left: 1px solid #dddddd;
+	width: 790px;
+	float: right;
+	margin-top:30px;
+	padding-left:15px;
+	margin-bottom:10px;
+	
+}
+div.xy-xz div{
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 10px;
+}
+div.xy-xz div label{
+	font-weight: normal;
+	color: #575757;
+	
+}
+
+.gr-sj{
+	margin-right: 10px;
+	margin-left: 10px;
+}
+.gr-tj{
+	font-size: 16px;
+	color: #1216F1;
+}
+.gr-xz{
+	display: inline-block;
+	width: 100px;
+	height: 30px;
+	border-radius: 4px;
+	background-color: #FBD452;
+	text-align:center;
+	color: #777171;
+	font-size: 15px;
+	margin-right:10px;
+}
+.gr-fk{
+	display: inline-block;
+	width: 100px;
+	height: 30px;
+	border-radius: 4px;
+	background-color: #DDDDDD;
+	text-align:center;
+	color: #8F8F8F;
+	font-size: 15px;
+	
+}
+input.ljtj{
+	width: 200px;
+	height: 34px;
+	background-color: #FBD049;
+	outline: none;
+	border: none;
+	border-radius: 4px;
+	font-size: 16px;
+	text-align: center;
+	margin:auto;
+	display: inline-block;
+	margin-bottom: 28px;
+}
+.cz-wg{
+	width: 142px;
+	height: 40px;
+	font-weight: normal;
+}
+.btn-group{
+	margin-right:12px;
+	margin-bottom: 15px;
+}

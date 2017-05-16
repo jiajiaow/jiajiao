@@ -266,6 +266,48 @@
     <div class="wx_box" style="display:none;">
         <img src="{!! session('fz_wx') !!}" alt=""  width="100%">
     </div>
+    <div class="fc" style="display: none;"></div>
+    <div class="fc_body" style="display: none">
+        <div class="fcb_top">
+            <div style="display: inline-block;margin-left: 8px; vertical-align: middle">
+                <img src="/new/images/xsznt.png" style="width: 155px; vertical-align: bottom;">
+            </div>
+            <div style="display: inline-block;margin-top: 26px;vertical-align: bottom ">
+                <p class="fcb_text">还没找到心仪的老师？我们的金牌顾问帮您挑吧</p>
+                <h2 class="fcb_h2">专业大学生<span class="fcb_h2_span">上门家教</span></h2>
+                <h2 class="fcb_h2" style="border-bottom: 1px solid #ccc;padding-bottom: 5px;"><span class="fcb_h2_span">免费</span>上门试课！</h2>
+                <div style="font-size: 12px;">
+                    <div class="dsv">
+                        <p>{{ substr(session('cityname'),0,6) }}热线：{{ session('phone') }}</p>
+                        <p>全国热线：400-8250-710</p>
+                    </div>
+                    <div class="dsv">
+                        <a href="https://hztk5.kuaishang.cn/bs/im.htm?cSource=1&cas=69564___125636&fi=79140&ri=18245998447&vi=84d357f55f854a87b7683824f3938530&dp=http%3A%2F%2Fwww.delijiajiao.com%2F&_d=1494806260357&_tk=575c5551" class="zx_btn">在线咨询</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="fcb_bottom">
+            <p class="fcb_bottom_titp" style="padding: 14px 0 3px 50px;;text-align: left;margin:0;color: #fff;font-size: 14px;">您希望的授课类型：</p>
+            <div class="dsv fcb_b_box">
+                <ul style="width: 200px;">
+                    <li class="fcb_b_box_active">高中</li>
+                    <li>初中</li>
+                    <li>小学</li>
+                    <li>语言</li>
+                    <li>艺术</li>
+                    <li>其他</li>
+                </ul>
+            </div>
+            <div class="dsv">
+                <p style="color: #fff;font-size: 14px;">您的姓名：<input id="float_name" type="text" name="" placeholder="例：周先生/林小姐"></p>
+                <p style="color: #fff;font-size: 14px;">您的电话：<input id="float_phones" type="text" name="" placeholder="请输入您的电话"></p>
+            </div>
+            <div style="text-align: center;margin-top: 6px;"><span class="ljtj" onclick="isPhoneNos()" >立即提交</span></div>
+        </div>
+        <span class="fc_body_clock"><i></i></span>
+    </div>
  {{--<div class="index5">
         <div class="lebt">
     <div class="l"><img src="/delijiajiao/images/icon_title5.png">教学资源</div>
@@ -458,11 +500,128 @@
     .wx_box {
         position: fixed;
         right: 74px;
-        bottom: 171px;
+        bottom:29%;
         width: 100px;
         height: 100px;
     }
+    .fcb_b_box_active{
+        border: 1px solid #000;
+    }
+    .fc{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.41);
+        z-index: 998;
+        left: 0;
+        bottom: 0;
+    }
+    .fc_body{
+        position: fixed;
+        background: transparent;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 498px;
+        border-radius: 10px;
+        z-index: 999;
+    }
+    .fc_body_clock {
+        position: absolute;
+        background: #f7b528;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        top: -12px;
+        right: -12px;
+        text-align: center;
+        line-height: 29px;
+        cursor: pointer;
+    }
+    .fc_body_clock i {
+        background: url(/new/images/X.png)center center no-repeat;
+        background-size: 100%;
+        width: 13px;
+        height: 13px;
+        display: inline-block;
+    }
+    .fcb_top{
+        width: 100%;
+        height: 175px;
+        background: #fff;
+        border-radius: 10px 10px 0 0;
+    }
+    .fcb_bottom{
+        width: 100%;
+        height: 145px;
+        background: #f7b528;
+        border-radius: 0 0 10px 10px;
+        text-align: center;
+    }
+    .fcb_text{
+        font-size: 12px;
+        background: #f7b528;
+        color: #fff;
+        padding: 4px 12px;
+    }
+    .fcb_h2{
+        color: #6e6e6e;
+        margin: 0;
+    }
+    .fcb_h2_span{
+        color: #f7b528;
+    }
+    .dsv{
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .dsv a{
+        padding: 2px 17px;
+        background: #2097fb;
+        color: #fff;
+        border-radius: 10px;
+        margin-left: 39px;
+    }
+    .dsv p{
+        padding: 3px 0;
+        margin: 0;
+    }
+    .fcb_b_box{
+        margin-left: -14px;
+    }
 
+    .fcb_b_box li{
+        display: inline-block;
+        padding: 2px 15px;
+        background: #fff;
+        border-radius: 17px;
+        font-size: 12px;
+        color: #f7b528;
+        margin: 5px 0;
+        cursor: pointer;
+    }
+    .fcb_bottom .ljtj{
+        background: #fd1616;
+        font-size: 12px;
+        color: #fff;
+        padding: 3px 33px;
+        border-radius: 16px;
+        height: auto;
+        cursor: pointer;
+    }
+    .fcb_bottom input {
+        border: none;
+        height: 26px;
+        padding-left: 11px;
+        width: 138px;
+        color: #000;
+    }
+    .fcb_bottom_titp{
+        padding: 14px 0 3px 28px;
+        text-align: left;
+        color: #fff;
+        font-size: 14px;
+    }
 
 </style>
 
@@ -517,11 +676,70 @@
     }
   });
 
-    $('#div4').hover(function(){
-        $('.wx_box').show()
-    },function(){
-        $('.wx_box').hide()
-    })
+  function isPhoneNos() {
+      var name = $('#float_name').val()
+      var km = $('.fcb_b_box_active').html()
+      alert(km);
+      return false;
+      var phone = $('#float_phones').val();
+      if(km != ''){
+          if(phone != ''){
+              var myreg = /^1[34578]\d{9}$/;
+              if(!myreg.test($("#float_phones").val()))
+              {
+                  layer.alert('请输入有效的手机号码！');
+                  return false;
+              }else{
+                  $.post('/dofloatyyform',{km:km,phone:phone,name:name},function(r){
+                      layer.alert('尊敬的家长/学员,我们已经收到您的需求,我们的金牌顾问将尽快联系您,非常感谢您的认可。');
+                  })
+                  $('.fc').fadeOut()
+                  $('.fc_body').fadeOut()
+              }
+          }else{
+              alert('手机号码不能为空');
+              return false;
+          }
+      }else{
+          alert('姓名不能为空');
+          return false;
+      }
+  }
+
+
+
+  function isPhoneNos() {
+      var km = $('#float_name').val()
+      var fcb_b_box_active = $('.fcb_b_box_active').html()
+      alert(km);
+      return false;
+      var phone = $('#float_phones').val();
+      if(km != ''){
+          if(phone != ''){
+              var myreg = /^1[34578]\d{9}$/;
+              if(!myreg.test($("#float_phones").val()))
+              {
+                  layer.alert('请输入有效的手机号码！');
+                  return false;
+              }else{
+                  $.post('/dofloatyyform',{km:km,phone:phone,name:fcb_b_box_active},function(r){
+                      layer.alert('尊敬的家长/学员,我们已经收到您的需求,我们的金牌顾问将尽快联系您,非常感谢您的认可。');
+                  })
+                  $('.fc').fadeOut()
+                  $('.fc_body').fadeOut()
+              }
+          }else{
+              alert('手机号码不能为空');
+              return false;
+          }
+
+      }else{
+          alert('姓名不能为空');
+          return false;
+      }
+  }
+
+
 
   setTimeout(function(){
       var aa = $('#div4')
@@ -532,10 +750,7 @@
       })
   },3000)
 
-$('#div4').click(function(){
 
-})
-    console.log($('#div4').html())
 </script>
 
 

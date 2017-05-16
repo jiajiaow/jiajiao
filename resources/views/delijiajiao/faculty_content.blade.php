@@ -101,7 +101,7 @@
   <!-- 选项卡结束 -->
   </center>
 </div>
-    </div>--
+
    <script type="text/javascript">
 
       var JoDiv =  $('.DivJoin').text()

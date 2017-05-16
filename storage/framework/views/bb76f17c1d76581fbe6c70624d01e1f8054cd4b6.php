@@ -5,8 +5,8 @@
 	<meta name="renderer" content="webkit">
 	<title>教员财务中心</title>
 	<link rel="stylesheet" type="text/css" href="/new/css/cheng_css.css">
+	<link rel="stylesheet" href="/new/css/jycwzx.css">
 	<link rel="stylesheet" href="/admin/css/bootstrap.min.css">
-
 	<style type="text/css">
 		body,p,h1,h2,h3,h4,h5,h6,ul,li{
 			margin:0;
@@ -93,7 +93,7 @@
 			</li>
 			<li>
 				<i class='cheng_two'></i>
-				<span><a href="/tc_order1.html">订单管理</a></span>
+				<span>订单管理</span>
 			</li>
 			<li>
 				<i class='cheng_three'></i>
@@ -105,7 +105,7 @@
 			</li>
 			<li class="cheng_active">
 				<i class='cheng_five'></i>
-				<span><a href="/tc_financial.html">财务中心</a></span>
+				<span>财务中心</span>
 			</li>
 			<li>
 				<i class='cheng_six'></i>
@@ -210,14 +210,14 @@
 			</div>
 		</div>
 		<!-- 支付账号 -->
-		<div id="cai-mid" class="cai-mid" style="display:none;">
+		<div id="cai-mid" class="cai-mid" style="display:none;height: 64px;">
 			<form action="" method="POST">
-				<div class="cai-mid-one">
-					<div>
+				<div class="cai-mid-one" style="width: 100%;float: none;border:none;">
+					<div style="float: left;">
 						<label>支付宝：</label>
 						<input type="text" name="" class="tq">
 					</div>
-					<div>
+					<div style="float: left;">
 						<label style="margin-right:2px;">微&nbsp;&nbsp;&nbsp;信：</label>
 						<input type="text" name="" class="tq">
 					</div>
@@ -388,6 +388,7 @@
 </footer>
 <script type="text/javascript" src='/new/js/jquery-2.2.3.min.js'></script>
 <script type="text/javascript" src='/new/js/script_cheng.js'></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <!-- -->
 <script type="text/javascript">
 	$('#i-one').click(function(){

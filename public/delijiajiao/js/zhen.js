@@ -296,6 +296,14 @@ function time(c,z){
 		},1000)
 	}
 }
+setTimeout(function(){
+	var aa = $('#div4')
+	aa.hover(function(){
+		$('.wx_box').show()
+	},function(){
+		$('.wx_box').hide()
+	})
+},3000)
 //学员快速请家教的验证
 	$('#gy_2_mz').blur(function(){
 		var q = $(this);

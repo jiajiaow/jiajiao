@@ -181,7 +181,7 @@
                                             </select>
                                             接单教员：
                                         </p>
-                                        <p>时间安排:<input type="text" name="per_week" value="{{ $re->per_week }}" style="width:220px;"></p>
+                                        {{--<p>时间安排:<input type="text" name="per_week" value="{{ $re->per_week }}" style="width:220px;"></p>--}}
                                         <p>授课时间:<input type="text" name="sk_times" value="{{ $re->sk_times }}" style="width:220px;"></p>
                                         <p>学员描述:<input type="text" name="user_situation" value="{{ $re->user_situation }}" style="width:220px;"></p>
                                         <p>教员要求:<input type="text" name="teacher_info" value="{{ $re->teacher_info }}" style="width:220px;"></p>
@@ -220,6 +220,7 @@
                                 <div><?php $q = $re->o_ts*$re->o_xs*$re->money ?>
                                     <p>周薪酬:<input type="text" value="{{ $q }}" name="order_zkc"></p>
                                     <p>月薪酬:<input type="text" value="@if($re->o_ts == '1'){{ $q*4 }}@elseif($re->o_ts == '2'){{ $q*4 }}@elseif($re->o_ts == '3'){{ $q*4 }}@elseif($re->o_ts == '4'){{ $q*4 }}@elseif($re->o_ts == '5'){{ $q*4 }}@elseif($re->o_ts == '6'){{ $q*4 }}@elseif($re->o_ts == '7'){{ $q*4 }}@endif" name="order_ykc"></p>
+                                    <p>折扣：<input type="text"></p>
                                     <p>预计总费用:<input type="text" value="@if($re->o_ts == '1'){{ $q*$re->bfb1+$re->fz_jzxxf }}@elseif($re->o_ts == '2'){{ $q*$re->bfb2+$re->fz_jzxxf }}@elseif($re->o_ts == '3'){{ $q*$re->bfb3+$re->fz_jzxxf }}@elseif($re->o_ts == '4'){{ $q*$re->bfb4+$re->fz_jzxxf }}@elseif($re->o_ts == '5'){{ $q*$re->bfb5+$re->fz_jzxxf }}@elseif($re->o_ts == '6'){{ $q*$re->bfb6+$re->fz_jzxxf }}@elseif($re->o_ts == '7'){{ $q*$re->bfb7+$re->fz_jzxxf }}@endif"name="money" style="width: 60px;"></p>
                                     <p>预计信息费:<input type="text" name="order_xxf" value="@if($re->o_ts == '1'){{ $q*$re->bfb1 }}@elseif($re->o_ts == '2'){{ $q*$re->bfb2 }}@elseif($re->o_ts == '3'){{ $q*$re->bfb3 }}@elseif($re->o_ts == '4'){{ $q*$re->bfb4 }}@elseif($re->o_ts == '5'){{ $q*$re->bfb5 }}@elseif($re->o_ts == '6'){{ $q*$re->bfb6 }}@elseif($re->o_ts == '7'){{ $q*$re->bfb7 }}@endif"style="width: 60px;"></p>
                                     <p>家长服务费:<input type="text" value="{{$re->fz_jzxxf}}" name="order_jzfy" style="width: 60px;"></p>
