@@ -510,11 +510,14 @@ class tcinfoController extends Controller
         $list = \DB::table('jjw_order as o')
             ->join('jjw_reorder as r', 'r.oid', '=', 'o.id')
             ->join('jjw_teachers as t', 't.id', '=', 'r.tc_id')
-            ->where('t.id',session('tc_id'))
             ->where('o.id',$id)
             ->select('o.*','r.yy_zt','r.ht_t_status','r.id as rid','r.add as radd','t.tc_phone','t.tc_name','r.jd_times','t.id as t_id','tc_school','tc_type')
             ->first();
         //dd($list);
-        return view('delijiajiao.ht_hetong',['list'=>$list]);
+        if($list){
+            return view('delijiajiao.ht_hetong',['list'=>$list]);
+        }else{
+            echo "没有合同";
+        }
     }
 }
