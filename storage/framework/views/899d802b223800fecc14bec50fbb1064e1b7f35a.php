@@ -160,8 +160,8 @@
                                     <p><a href="">编辑资料</a></p>
                                     <p><a href="">推荐到首页</a>|<a href="">有头像</a></p>
                                     <p><a href="">查看简历</a> <input type="submit" name=""></p>
-                                    <p><a href="">查看身份证</a><input type="submit" name=""></p>
-                                    <p><a href="">查看学生证</a><input type="submit" name=""></p>
+                                    <p><a onclick="<?php echo e($re->tc_id_photo==null?alert('对方没有上传身份证'):$re->tc_id_photo); ?>" target="_blank">查看身份证</a><input type="submit" name=""></p>
+                                    <p><a onclick="<?php echo e($re->tc_xszimage==null?'/admin/index':$re->tc_xszimage); ?>" target="_blank">查看学生证</a><input type="submit" name=""></p>
                                     <p>邀请人：<input type="text"><input type="" name=""></p>
                                     <p>管理人：<input type="text"><input type="" name=""></p>
                                 </div>
