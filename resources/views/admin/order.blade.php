@@ -232,7 +232,7 @@
 
                             <td>
                                 <div>
-                                    <p><a href="/admin/orderyyrs/{{ $re->id }}" style="font-size:24px;color: red;">{{ $re->yynum }}</a>|<a target="_blank" href="/xxfb.php?oid={{ $re->id }}&title=@if(session('Template') == '2' || '4')德栗家教@else栗志家教@endif&q={{ $re->money*$re->o_xs }}&nj={{ $re->grade }}&dq={{ $re->dq }}">生成信息模板</a></p>
+                                    <p><a href="/admin/orderyyrs/{{ $re->id }}" style="font-size:24px;color: red;">{{ $re->yynum }}</a>|<a target="_blank" href="/xxfb.php?oid={{ $re->id }}&title=@if(session('Template') == '2' || '4')德栗家教@else栗志家教@endif&q={{ $re->money*$re->o_xs }}&nj={{ $re->grade }}&dq={{ $re->dq }}&fdkm={{ $re->subject_id }}">生成信息模板</a></p>
                                     <p>状态:
                                         <select name="ht_status">
                                             <option value="0" @if($re->ht_status == '0') selected='selected' @endif>新家教</option>

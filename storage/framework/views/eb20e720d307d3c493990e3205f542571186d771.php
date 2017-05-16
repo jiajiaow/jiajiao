@@ -236,7 +236,7 @@
 
                             <td>
                                 <div>
-                                    <p><a href="/admin/orderyyrs/<?php echo e($re->id); ?>" style="font-size:24px;color: red;"><?php echo e($re->yynum); ?></a>|<a target="_blank" href="/xxfb.php?oid=<?php echo e($re->id); ?>&title=<?php if(session('Template') == '2' || '4'): ?>德栗家教<?php else: ?>栗志家教<?php endif; ?>&q=<?php echo e($re->money*$re->o_xs); ?>&nj=<?php echo e($re->grade); ?>&dq=<?php echo e($re->dq); ?>">生成信息模板</a></p>
+                                    <p><a href="/admin/orderyyrs/<?php echo e($re->id); ?>" style="font-size:24px;color: red;"><?php echo e($re->yynum); ?></a>|<a target="_blank" href="/xxfb.php?oid=<?php echo e($re->id); ?>&title=<?php if(session('Template') == '2' || '4'): ?>德栗家教<?php else: ?>栗志家教<?php endif; ?>&q=<?php echo e($re->money*$re->o_xs); ?>&nj=<?php echo e($re->grade); ?>&dq=<?php echo e($re->dq); ?>&fdkm=<?php echo e($re->subject_id); ?>">生成信息模板</a></p>
                                     <p>状态:
                                         <select name="ht_status">
                                             <option value="0" <?php if($re->ht_status == '0'): ?> selected='selected' <?php endif; ?>>新家教</option>

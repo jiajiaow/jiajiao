@@ -258,7 +258,7 @@
                      <p id="t4">{{ $data->teacher_info }}</p>
                       <p id="t5">{{ $data->dq}}</p>
                        <p id="t6"> {{ $data->grade }}{{ $data->subject_id }} </p>
-                        <p id="t7"> {{ $data->user_name}}</p>
+                        <p id="t7"> {{ mb_substr($data->user_name,0,1) }}学员</p>
               </li>
             @endforeach
           </div>

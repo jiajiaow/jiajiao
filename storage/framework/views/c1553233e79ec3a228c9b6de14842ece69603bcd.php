@@ -386,7 +386,7 @@ for(i=0; i <tabList.length; i++)
               <div style="font-size: 12px;">
                   <div class="dsv">
                       <p><?php echo e(substr(session('cityname'),0,6)); ?>热线：<?php echo e(session('phone')); ?></p>
-                      <p>全国热线：400-8250-740</p>
+                      <p>全国热线：400-8250-710</p>
                   </div>
                   <div class="dsv">
                       <a href="https://hztk5.kuaishang.cn/bs/im.htm?cSource=1&cas=69564___125636&fi=79140&ri=18245998447&vi=84d357f55f854a87b7683824f3938530&dp=http%3A%2F%2Fwww.delijiajiao.com%2F&_d=1494806260357&_tk=575c5551" class="zx_btn">在线咨询</a>
@@ -466,7 +466,8 @@ for(i=0; i <tabList.length; i++)
       function isPhoneNos() {
           var km = $('#float_name').val()
             var fcb_b_box_active = $('.fcb_b_box_active').html()
-          //alert(km);
+          alert(km);
+          return false;
           var phone = $('#float_phones').val();
           if(km != ''){
               if(phone != ''){

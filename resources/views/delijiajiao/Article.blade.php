@@ -76,7 +76,7 @@
   <div class="wz-container">
       <div class="wz-wz">
         <span></span>
-        <a href="/Articlecenter.html" onclick="window.history.go(-1);"><&nbsp;&nbsp;返回上一级</a>
+{{--         <a href="/Articlecenter.html" onclick="window.history.go(-1);"><&nbsp;&nbsp;返回上一级</a> --}}
       </div>
       @if($list !== null)
         @foreach($list as $li)
