@@ -35,7 +35,7 @@ class payController extends Controller
         $sign = $_POST['sign'];//安全验证
         $signs = md5($oid.$token);
         if($signs == $sign){
-            DB::table('jjw_order')->where('pay_id',$oid)->update(['pay' => '1']);
+            DB::table('jjw_order')->where('pay_id',$oid)->update(['pay' => '1','status'=>'1']);
             //支付状态
             DB::table('jjw_mpay')->where('m_pay_id',$oid)->update(['m_type' =>'1']);
                 //将没被选中的教员改为未选中
@@ -106,10 +106,10 @@ class payController extends Controller
              //dd($json);
              $oid = $json['data']['out_trade_no'];//返回的订单号,可存在自己的数据库中
              //信息费支付修改订单
-
              if($_POST['b'] == ''){
                  if($rid != ''){
                      DB::table('jjw_reorder')->where('id',$rid)->where('oid',$id)->update(['pay_id' => $oid,'xxf'=>$price]);
+                     DB::table('jjw_order')->where('id',$id)->update(['pay_id' => $oid]);
                      DB::table('jjw_mpay')->insert(['m_tid'=>$_POST['tid'],'m_zfortk'=>'1','m_rid'=>$rid,'m_oid'=>$id,'m_pay_id' => $oid,'m_pay_money'=>$price,'m_time'=>time(),'m_mtype'=>"支付宝信息费"]);
                  }
              }else if($_POST['b'] == 'b'){

@@ -116,7 +116,7 @@
 								</div>
 								<div class="cz">
 									<label>试课时间：</label>
-									<p><?php echo e(date('Y-m-d h:i:s',$dsks->rsk_times)); ?></p>
+									<p><?php echo e($dsks->rsk_times); ?></p>
 								</div>
 								
 								<div class="cz">
@@ -323,7 +323,7 @@
 								</div>
 								<div class="cz">
 									<label>试课时间：</label>
-									<p><?php echo e(date('Y-m-d h:i:s',$skwcgs->rsk_times)); ?></p>
+									<p><?php echo e($skwcgs->rsk_times); ?></p>
 								</div>
 								
 								<div class="cz">
@@ -343,7 +343,7 @@
 				</div>
 			</div>
 		<!-- nav 结束 -->
-		
+
 	</div>
 	<style>
 		.zuihou{
@@ -357,4 +357,5 @@
 <?php $__env->startSection('js'); ?>
 
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('delijiajiao.public.xy', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
