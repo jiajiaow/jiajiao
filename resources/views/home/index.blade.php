@@ -86,7 +86,7 @@
 
                 <div class="tabcont" id="qianyue">
                     <ul class="active tabbox">
-                    @foreach($jinpai as $jp)
+                    @foreach($jy as $jp)
                          @if($jp->tc_jinpai == 2)
                             <li class="kuan">
                                 <div class="top">
@@ -147,7 +147,7 @@
                             <a href="">可悲的鱼</a><br/>
                         </div>
                         <ul class="active tabbox">
-                        @foreach($xueshen as $xs)
+                        @foreach($jy as $xs)
                             {{-- 判断 0 为学生教员 --}}
                             @if($xs->tc_jinpai == 0)
                             <li >
@@ -201,7 +201,7 @@
                             <a href="">可悲的鱼</a><br/>
                         </div>
                         <ul class="active tabbox">
-                        @foreach($zhuanzhi as $zz)
+                        @foreach($jy as $zz)
                             {{-- 判断 1专职教员 --}}
 
                             <li >

@@ -258,7 +258,7 @@
                      <p id="t4"><?php echo e($data->teacher_info); ?></p>
                       <p id="t5"><?php echo e($data->dq); ?></p>
                        <p id="t6"> <?php echo e($data->grade); ?><?php echo e($data->subject_id); ?> </p>
-                        <p id="t7"> <?php echo e($data->user_name); ?></p>
+                        <p id="t7"> <?php echo e(mb_substr($data->user_name,0,1)); ?>学员</p>
               </li>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </div>
@@ -547,8 +547,8 @@
   });
 
   function isPhoneNos() {
-      var km = $('#float_name').val()
-      var fcb_b_box_active = $('.fcb_b_box_active').html()
+      var name = $('#float_name').val()
+      var km = $('.fcb_b_box_active').html()
       alert(km);
       return false;
       var phone = $('#float_phones').val();
@@ -560,7 +560,7 @@
                   layer.alert('请输入有效的手机号码！');
                   return false;
               }else{
-                  $.post('/dofloatyyform',{km:km,phone:phone,name:fcb_b_box_active},function(r){
+                  $.post('/dofloatyyform',{km:km,phone:phone,name:name},function(r){
                       layer.alert('尊敬的家长/学员,我们已经收到您的需求,我们的金牌顾问将尽快联系您,非常感谢您的认可。');
                   })
                   $('.fc').fadeOut()
@@ -570,7 +570,6 @@
               alert('手机号码不能为空');
               return false;
           }
-
       }else{
           alert('姓名不能为空');
           return false;

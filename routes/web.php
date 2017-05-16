@@ -132,6 +132,8 @@ Route::post('/doscs.html','home\tcinfoController@doscs');
 Route::get('/xy_hetong/{id?}.html','home\stinfoController@xy_hetong');
 //执行
 Route::post('/doxy_hetong','home\stinfoController@doxy_hetong');
+//教员提现
+Route::post('/tc_tixian','home\tcinfoController@tc_tixian');
 
 
 //省

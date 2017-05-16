@@ -133,17 +133,19 @@
 					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						<div class="modal-dialog">
 							<div class="modal-content" style="width: 336px;float: right;">
-								<form action="" method="POST">
+								<form action="/tc_tixian" method="POST">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 											&times;
 										</button>
 										<label for="">提现：</label>
-										<input type="text" name="" placeholder="提现金额">
+										<input type="text" name="m_pay_money" placeholder="提现金额">
+										<input type="hidden" name="m_tid" value="{{ $list->id }}">
+										<input type="hidden" name="m_zfortk" value="3">
 									</div>
 									<div class="modal-body">
-										<input type="radio" name="1" checked="checked" id="p1">支付宝
-										<input type="radio" name="1" id="p2" style="margin-left: 10px">微信
+										<input type="radio" name="m_type" value="4" checked="checked" id="p1">支付宝
+										<input type="radio" name="m_type" value="5" id="p2" style="margin-left: 10px">微信
 										<p id="p3" style="margin-top: 10px">温馨提示：尊敬的用户，由于支付宝提现于2016年开始收取手续费，支付宝公司将对您的提现收取千分之五的手续费，您也可以选择将余额留存在我的钱包里下次使用。您是否确认提现？</p>
 										<p style="display: none;margin-top:10px;" id="p4">微信提现   弹窗提示  ：
 											因微信提现需要7天才能到账，且与支付宝公司一样，微信提现也需要收取手续费，建议您使用支付宝提现，当天即可到账，如您确认想通过微信提现（且您原先的支付方式需为微信），请联系我们。
