@@ -18,7 +18,8 @@ class orderController extends Controller
             ->select('order.*','jjw_position_city.fz_jzxxf','jjw_position_city.city_name','jjw_position_city.fz_vip','jjw_position_city.fz_qyjyfy','jjw_position_city.bfb1','jjw_position_city.bfb2','jjw_position_city.bfb3','jjw_position_city.bfb4','jjw_position_city.bfb5','jjw_position_city.bfb6','jjw_position_city.bfb7')
             ->orderBy('id','desc')
             ->paginate(10);
-        return view('admin.order',['data' => $data]);
+        $num = DB::table('jjw_order')->where('status','3')->count();
+        return view('admin.order',['data' => $data,'num' => $num]);
     }
     //订单基础修改
     public function orderjc(Request $request)
