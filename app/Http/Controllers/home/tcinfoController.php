@@ -31,6 +31,7 @@ class tcinfoController extends Controller
             ->where('o.city_id', session('regionid'))
             ->where('r.tc_id', session('tc_id'))
             ->where('r.qt_t_status', '1')
+            ->orderBy('id', 'DESC')
             ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.ht_t_status','r.id as rid','r.add as radd','pc.fz_jzxxf','pc.city_name','pc.fz_vip','pc.fz_qyjyfy','pc.bfb1','pc.bfb2','pc.bfb3','pc.bfb4','pc.bfb5','pc.bfb6','pc.bfb7')
             ->paginate(2);
         //dd($yap);
@@ -55,6 +56,7 @@ class tcinfoController extends Controller
             ->where('o.city_id', session('regionid'))
             ->where('r.tc_id', session('tc_id'))
             ->where('r.qt_t_status', '2')
+            ->orderBy('id', 'DESC')
             ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.ht_t_status','r.id as rid','r.add as radd','pc.fz_jzxxf','pc.city_name','pc.fz_vip','pc.fz_qyjyfy','pc.bfb1','pc.bfb2','pc.bfb3','pc.bfb4','pc.bfb5','pc.bfb6','pc.bfb7')
             ->paginate(2);
         $num = $wxz->lastPage();
@@ -77,6 +79,7 @@ class tcinfoController extends Controller
             ->where('o.city_id', session('regionid'))
             ->where('r.tc_id', session('tc_id'))
             ->where('r.qt_t_status', '3')
+            ->orderBy('id', 'DESC')
             ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.ht_t_status','r.id as rid','r.add as radd','pc.fz_jzxxf','pc.city_name','pc.fz_vip','pc.fz_qyjyfy','pc.bfb1','pc.bfb2','pc.bfb3','pc.bfb4','pc.bfb5','pc.bfb6','pc.bfb7')
             ->paginate(2);
         $num = $yqx->lastPage();
@@ -101,6 +104,7 @@ class tcinfoController extends Controller
             ->where('r.qt_t_status', '4')
             //->where('o.jy_qz', '0')
             //->where('o.xy_qz', '0')
+            ->orderBy('id', 'DESC')
             ->select('o.*','t.tc_name', 't.tc_school', 't.id as tc_id','r.tk_type','r.ytxxf','r.pay_zt2','r.yy_zt','r.xxf','r.xxf2','r.jd_times','r.ht_t_status','r.sk_times','r.cyj','r.id as rid','r.add as radd','pc.fz_jzxxf','pc.city_name','pc.fz_vip','pc.fz_qyjyfy','pc.bfb1','pc.bfb2','pc.bfb3','pc.bfb4','pc.bfb5','pc.bfb6','pc.bfb7')
             ->paginate(2);
         //dd($skz);
@@ -124,6 +128,7 @@ class tcinfoController extends Controller
             ->where('o.city_id', session('regionid'))
             ->where('r.tc_id', session('tc_id'))
             ->where('r.qt_t_status', '8')
+            ->orderBy('id', 'DESC')
             ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.ht_t_status','r.id as rid','r.add as radd','pc.fz_jzxxf','pc.city_name','pc.fz_vip','pc.fz_qyjyfy','pc.bfb1','pc.bfb2','pc.bfb3','pc.bfb4','pc.bfb5','pc.bfb6','pc.bfb7','r.sk_times','r.jd_times')
             ->paginate(2);
         $num = $sskjs->lastPage();
@@ -147,6 +152,7 @@ class tcinfoController extends Controller
                 ->where('r.qt_t_status', '6')
 //                ->where('o.jy_qz', '1')
                // ->where('o.xy_qz', '1')
+                ->orderBy('id', 'DESC')
                 ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.ht_t_status','r.id as rid','r.add as radd','pc.fz_jzxxf','pc.city_name','pc.fz_vip','pc.fz_qyjyfy','pc.bfb1','pc.bfb2','pc.bfb3','pc.bfb4','pc.bfb5','pc.bfb6','pc.bfb7')
                 ->paginate(2);
         //dd($sskz);
@@ -169,6 +175,7 @@ class tcinfoController extends Controller
             ->where('o.city_id', session('regionid'))
             ->where('r.tc_id', session('tc_id'))
             ->where('r.qt_t_status', '7')
+            ->orderBy('id', 'DESC')
             ->select('o.*', 't.tc_name', 't.tc_school', 't.id as tc_id','r.yy_zt','r.ht_t_status','r.jd_times','r.id as rid','r.add as radd','pc.fz_jzxxf','pc.city_name','pc.fz_vip','pc.fz_qyjyfy','pc.bfb1','pc.bfb2','pc.bfb3','pc.bfb4','pc.bfb5','pc.bfb6','pc.bfb7')
             ->paginate(2);
         $num = $skjs->lastPage();
@@ -503,11 +510,14 @@ class tcinfoController extends Controller
         $list = \DB::table('jjw_order as o')
             ->join('jjw_reorder as r', 'r.oid', '=', 'o.id')
             ->join('jjw_teachers as t', 't.id', '=', 'r.tc_id')
-            ->where('t.id',session('tc_id'))
             ->where('o.id',$id)
             ->select('o.*','r.yy_zt','r.ht_t_status','r.id as rid','r.add as radd','t.tc_phone','t.tc_name','r.jd_times','t.id as t_id','tc_school','tc_type')
             ->first();
         //dd($list);
-        return view('delijiajiao.ht_hetong',['list'=>$list]);
+        if($list){
+            return view('delijiajiao.ht_hetong',['list'=>$list]);
+        }else{
+            echo "没有合同";
+        }
     }
 }

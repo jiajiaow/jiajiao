@@ -68,8 +68,7 @@
                                 <form action="/admin/orderjc" method="post">
                                     <?php echo e(csrf_field()); ?>
 
-                                    <input type="hidden" name="_token" value="a39HAW7mxeLffl3PSZebI4WrkTxm39z3Mx4zF4nN">
-                                    <input type="hidden" name="id" value="10204770">
+                                    <input type="hidden" name="id" value="<?php echo e($re->id); ?>">
                                     <div>
                                         <p>城市:<?php echo e($re->city_name); ?><?php echo e($re->city_id); ?><span class="no_ne"></span></p>
                                         <p>签约:
@@ -132,7 +131,6 @@
                             <td>
                                 <form action="/admin/orderxgyh" method="post">
                                     <input type="hidden" name="id" value="<?php echo e($re->id); ?>">
-                                    <input type="hidden" name="_token" value="a39HAW7mxeLffl3PSZebI4WrkTxm39z3Mx4zF4nN">
                                     <?php echo e(csrf_field()); ?>
 
                                     <div>
@@ -155,7 +153,7 @@
                                             <span style="float: right" class="bj_btn">编辑</span>
                                         </p>
                                         <p>
-                                            <textarea class="bj_msg" style="display: block" name="ddbz">                        </textarea>
+                                            <textarea class="bj_msg" style="display: block" name="ddbz"></textarea>
                                         </p>
                                         <p><input type="submit" name="" value="修改"></p>
                                         <span class="no_ne"></span>
@@ -165,10 +163,11 @@
                             </td>
                             <td>
                                 <form action="/admin/orderxgyh" method="post">
-                                    <input type="hidden" name="_token" value="<?php echo e(csrf_field()); ?>">
+                                    <?php echo e(csrf_field()); ?>
+
                                     <input type="hidden" name="id" value="<?php echo e($re->id); ?>">
                                     <div>
-                                        <p>电话:<?php echo e($re->user_phone); ?></p>
+                                        
                                         <p>微信:<input type="text" name="wx" value="<?php echo e($re->wx); ?>"></p>
                                         <p>QQ:<input type="text" name="qq" value="<?php echo e($re->qq); ?>"></p>
                                         <p>年级:<input type="text" name="grade" value="<?php echo e($re->grade); ?>"></p>
@@ -184,7 +183,8 @@
                             </td>
                             <td>
                                 <form action="/admin/orderyy" method="post">
-                                    <input type="hidden" name="_token" value="<?php echo e(csrf_field()); ?>">
+                                    <?php echo e(csrf_field()); ?>
+
                                     <input type="hidden" name="id" value="<?php echo e($re->id); ?>">
                                     <div>
                                         <p style="width: 324px;">辅导科目:<input type="text" value="<?php echo e($re->subject_id); ?>" name="subject_id">
@@ -281,7 +281,17 @@
                                         <a href="">删除</a>
                                     </p>
                                     <p><button >本单收支流水</button></p>
+                                    <span style='display: none;'><?php echo e($re->id); ?><?php echo e($re->user_id); ?><?php echo e($re->user_name); ?><?php echo e($re->user_phone); ?><?php echo e($re->user_byphone); ?><?php echo e($re->user_qq); ?><?php echo e($re->user_sex); ?><?php echo e($re->dq); ?><?php echo e($re->contact); ?><?php echo e($re->grade); ?><?php echo e($re->sk_times); ?>
 
+<?php echo e($re->explain); ?><?php echo e($re->subject_id); ?><?php echo e($re->user_situation); ?><?php echo e($re->teacher_id); ?><?php echo e($re->teacher_sex); ?><?php echo e($re->teacher_info); ?><?php echo e($re->money); ?><?php echo e($re->time); ?><?php echo e($re->region); ?><?php echo e($re->status); ?><?php echo e($re->pay); ?><?php echo e($re->pay_id); ?><?php echo e($re->city_id); ?>
+
+<?php echo e($re->user_reboot); ?><?php echo e($re->per_week); ?><?php echo e($re->xx_dz); ?><?php echo e($re->ls_type); ?><?php echo e($re->tc_Signing); ?><?php echo e($re->qq); ?><?php echo e($re->wx); ?><?php echo e($re->wlk); ?><?php echo e($re->browsenu); ?><?php echo e($re->yynum); ?><?php echo e($re->ddzt); ?><?php echo e($re->jqzt); ?><?php echo e($re->wzly); ?><?php echo e($re->khly); ?><?php echo e($re->ap); ?><?php echo e($re->yhbz); ?><?php echo e($re->ht_status); ?>
+
+<?php echo e($re->ddbz); ?><?php echo e($re->o_ts); ?><?php echo e($re->o_xs); ?><?php echo e($re->fdlx); ?><?php echo e($re->o_yue); ?><?php echo e($re->jy_qz); ?><?php echo e($re->xy_qz); ?><?php echo e($re->money2); ?><?php echo e($re->o_ts2); ?><?php echo e($re->o_xs2); ?><?php echo e($re->bj_msg_A); ?><?php echo e($re->hetong_time); ?><?php echo e($re->sks_time); ?><?php echo e($re->sks_add); ?><?php echo e($re->fz_jzxxf); ?><?php echo e($re->city_name); ?>
+
+<?php echo e($re->fz_vip); ?><?php echo e($re->fz_qyjyfy); ?><?php echo e($re->bfb1); ?><?php echo e($re->bfb2); ?><?php echo e($re->bfb3); ?><?php echo e($re->bfb4); ?><?php echo e($re->bfb5); ?><?php echo e($re->bfb6); ?><?php echo e($re->bfb7); ?>
+
+                                    </span>
                                 </div>
                             </td>
 

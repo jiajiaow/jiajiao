@@ -99,7 +99,7 @@
                                 男女不限
                             <?php endif; ?>
                             ]<?php echo e(subtext($li->teacher_info,45)); ?>[<?php echo e($li->yynum); ?>]</p>
-                        <p id="te"><?php echo e($li->money==''?'执行德栗家教收费标准':$li->money); ?></p>
+                        <p id="te"><?php echo e($li->money==''?'执行德栗家教收费标准':$li->money."/元"); ?></p>
                         <p id="tf"> <?php echo e($li->grade); ?>(
                             <?php if($li->user_sex == '1'): ?>
                                 男

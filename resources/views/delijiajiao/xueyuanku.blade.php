@@ -99,7 +99,7 @@
                                 男女不限
                             @endif
                             ]{{  subtext($li->teacher_info,45) }}[{{ $li->yynum }}]</p>
-                        <p id="te">{{ $li->money==''?'执行德栗家教收费标准':$li->money }}</p>
+                        <p id="te">{{ $li->money==''?'执行德栗家教收费标准':$li->money."/元" }}</p>
                         <p id="tf"> {{ $li->grade }}(
                             @if($li->user_sex == '1')
                                 男
