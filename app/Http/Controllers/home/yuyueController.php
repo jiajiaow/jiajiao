@@ -28,7 +28,6 @@ class yuyueController extends Controller
     public function register(Request $request)
     {
         if(session('Template') == '2'){
-
             $phone = $request->input('phone');
             $code = rand(1000,9999);
             //$code = '1111';
@@ -95,10 +94,37 @@ class yuyueController extends Controller
                 if($re){
                     $userid = DB::table('jjw_user')->where('phone',$phone)->first();
                     $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid->u_id,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid]);
+                    $config = [
+                        'app_key'    => '23779228',
+                        'app_secret' => '9d9788c22c9a4dbc8522fae7b97b15ae',
+                    ];
+                    //dd($code);
+                    $client = new Client(new App($config));
+                    $req    = new AlibabaAliqinFcSmsNumSend;
+
+                    $req->setRecNum($phone)
+                        ->setSmsParam([])
+                        ->setSmsFreeSignName('德栗教育')
+                        ->setSmsTemplateCode('SMS_63745200');
+                        $resp = $client->execute($req);
+                        //dd($resp);
                     return view('delijiajiao.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
                 }else{
                     $userid = DB::table('jjw_user')->insertGetId(['name' => $user,'phone' => $phone,'password' => $password,'city_id' => $regionid]);
                     $orderid = DB::table('jjw_order')->insert(['user_id' => $userid,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid]);
+                    $config = [
+                        'app_key'    => '23779228',
+                        'app_secret' => '9d9788c22c9a4dbc8522fae7b97b15ae',
+                    ];
+                    //dd($code);
+                    $client = new Client(new App($config));
+                    $req    = new AlibabaAliqinFcSmsNumSend;
+
+                    $req->setRecNum($phone)
+                        ->setSmsParam([])
+                        ->setSmsFreeSignName('德栗教育')
+                        ->setSmsTemplateCode('SMS_63745200');
+                        $resp = $client->execute($req);
                     return view('delijiajiao.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
                 }
             }else{
