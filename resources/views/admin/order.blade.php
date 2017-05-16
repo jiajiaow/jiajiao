@@ -63,7 +63,7 @@
                         </thead>
                         <tbody>
                         @foreach($data as $re)
-                        <tr valign="top" align="center">
+                        <tr valign="top" align="center" @if($re->status == '3') style="color:red;" @endif>
                             <td>
                                 <form action="/admin/orderjc" method="post">
                                     {{ csrf_field() }}
@@ -270,8 +270,11 @@
                                     <p>试课地址:<input type="text" value="{{ $re->sks_add }}" ></p>
                                     <p><a href="">前台查看次家教</a><button class="VIP" >设置为vip</button></p>
                                     <p>
-                                        <a href="">显示</a>|
-                                        <a href="">屏蔽</a>|
+                                        @if($re->status != '3')
+                                        <a href="/admin/xgddzt/{{ $re->id }}/3">屏蔽</a>
+                                        @else
+                                        <a href="/admin/xgddzt/{{ $re->id }}/0">显示</a>
+                                        @endif|
                                         <a href="">非置顶</a>|
                                         <a href="">推送</a>|
                                         <a href="">删除</a>
