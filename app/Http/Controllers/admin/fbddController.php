@@ -14,6 +14,7 @@ class fbddController extends Controller
     public function formdo(Request $request)
     {
         $all = $request->all();
+	//dd($all);
         $per = $request->input('chi').','.$request->input('shi');
         $all = $request->except('provice','_token');
                 //拼接每周上课的具体时间段

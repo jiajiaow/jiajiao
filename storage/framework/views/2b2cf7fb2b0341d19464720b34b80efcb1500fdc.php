@@ -373,47 +373,50 @@ for(i=0; i <tabList.length; i++)
           </div>
       </div>
   </div>
-  <div class="fc" style="display: none;"></div>
-  <div class="fc_body" style="display: none">
-      <div class="fcb_top">
-          <div style="display: inline-block;margin-left: 8px;">
-              <img src="/new/images/xsznt.png" style="width: 155px; vertical-align: bottom;">
-          </div>
-          <div style="display: inline-block;margin-top: 26px; ">
-              <p class="fcb_text">还没找到心仪的老师？我们的金牌顾问帮您挑吧</p>
-              <h2 class="fcb_h2">专业大学生<span class="fcb_h2_span">上门家教</span></h2>
-              <h2 class="fcb_h2" style="border-bottom: 1px solid #ccc;padding-bottom: 5px;"><span class="fcb_h2_span">免费</span>上门试课！</h2>
-              <div style="font-size: 12px;">
-                  <div class="dsv">
-                      <p><?php echo e(substr(session('cityname'),0,6)); ?>热线：<?php echo e(session('phone')); ?></p>
-                      <p>全国热线：400-8250-710</p>
-                  </div>
-                  <div class="dsv">
-                      <a href="https://hztk5.kuaishang.cn/bs/im.htm?cSource=1&cas=69564___125636&fi=79140&ri=18245998447&vi=84d357f55f854a87b7683824f3938530&dp=http%3A%2F%2Fwww.delijiajiao.com%2F&_d=1494806260357&_tk=575c5551" class="zx_btn">在线咨询</a>
-                  </div>
-              </div>
-          </div>
+  
+  
+      
+          
+              
+          
+          
+              
+              
+              
+              
+                  
+                      
+                      
+                  
+                  
+                      
+                  
+              
+          
 
-      </div>
-      <div class="fcb_bottom">
-          <p class="fcb_bottom_titp" style="padding: 14px 0 3px 50px;;text-align: left;margin:0;color: #fff;font-size: 14px;">您希望的授课类型：</p>
-          <div class="dsv fcb_b_box">
-              <ul style="width: 200px;">
-                  <li class="fcb_b_box_active">高中</li>
-                  <li>初中</li>
-                  <li>小学</li>
-                  <li>语言</li>
-                  <li>艺术</li>
-                  <li>其他</li>
-              </ul>
-          </div>
-          <div class="dsv">
-              <p style="color: #fff;font-size: 14px;">您的姓名：<input id="float_name" type="text" name="" placeholder="例：周先生/林小姐"></p>
-              <p style="color: #fff;font-size: 14px;">您的电话：<input id="float_phones" type="text" name="" placeholder="请输入您的电话"></p>
-          </div>
-          <div style="text-align: center;margin-top: 6px;"><span class="ljtj" onclick="isPhoneNos()" >立即提交</span></div>
-      </div>
-      <span class="fc_body_clock"><i></i></span>
+      
+      
+          
+          
+              
+                  
+                  
+                  
+                  
+                  
+                  
+              
+          
+          
+              
+              
+          
+          
+      
+      
+  
+  <div class="wx_box" style="display:none;">
+      <img src="<?php echo session('fz_wx'); ?>" alt=""  width="100%">
   </div>
   <script>
       $('#icon').mouseover(function(){
@@ -613,6 +616,13 @@ for(i=0; i <tabList.length; i++)
           color: #fff;
           font-size: 14px;
       }
+      .wx_box {
+          position: fixed;
+          right: 74px;
+          bottom:29%;
+          width: 100px;
+          height: 100px;
+      }
   </style>
   <script type="text/javascript">
       $(function(){
@@ -693,6 +703,14 @@ for(i=0; i <tabList.length; i++)
               $('.fcb_b_box li').removeClass('fcb_b_box_active')
               $(this).addClass('fcb_b_box_active')
           })
+          setTimeout(function(){
+              var aa = $('#div4')
+              aa.hover(function(){
+                  $('.wx_box').show()
+              },function(){
+                  $('.wx_box').hide()
+              })
+          },4000)
   </script>
   <script type="text/javascript" src="https://hztk5.kuaishang.cn/bs/ks.j?cI=125636&fI=79140" charset="utf-8"></script>
   <script>

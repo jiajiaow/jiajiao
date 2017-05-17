@@ -185,7 +185,7 @@
                                             </select>
                                             接单教员：
                                         </p>
-                                        <p>时间安排:<input type="text" name="per_week" value="<?php echo e($re->per_week); ?>" style="width:220px;"></p>
+                                        
                                         <p>授课时间:<input type="text" name="sk_times" value="<?php echo e($re->sk_times); ?>" style="width:220px;"></p>
                                         <p>学员描述:<input type="text" name="user_situation" value="<?php echo e($re->user_situation); ?>" style="width:220px;"></p>
                                         <p>教员要求:<input type="text" name="teacher_info" value="<?php echo e($re->teacher_info); ?>" style="width:220px;"></p>
@@ -224,6 +224,7 @@
                                 <div><?php $q = $re->o_ts*$re->o_xs*$re->money ?>
                                     <p>周薪酬:<input type="text" value="<?php echo e($q); ?>" name="order_zkc"></p>
                                     <p>月薪酬:<input type="text" value="<?php if($re->o_ts == '1'): ?><?php echo e($q*4); ?><?php elseif($re->o_ts == '2'): ?><?php echo e($q*4); ?><?php elseif($re->o_ts == '3'): ?><?php echo e($q*4); ?><?php elseif($re->o_ts == '4'): ?><?php echo e($q*4); ?><?php elseif($re->o_ts == '5'): ?><?php echo e($q*4); ?><?php elseif($re->o_ts == '6'): ?><?php echo e($q*4); ?><?php elseif($re->o_ts == '7'): ?><?php echo e($q*4); ?><?php endif; ?>" name="order_ykc"></p>
+                                    <p>折扣：<input type="text"></p>
                                     <p>预计总费用:<input type="text" value="<?php if($re->o_ts == '1'): ?><?php echo e($q*$re->bfb1+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '2'): ?><?php echo e($q*$re->bfb2+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '3'): ?><?php echo e($q*$re->bfb3+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '4'): ?><?php echo e($q*$re->bfb4+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '5'): ?><?php echo e($q*$re->bfb5+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '6'): ?><?php echo e($q*$re->bfb6+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '7'): ?><?php echo e($q*$re->bfb7+$re->fz_jzxxf); ?><?php endif; ?>"name="money" style="width: 60px;"></p>
                                     <p>预计信息费:<input type="text" name="order_xxf" value="<?php if($re->o_ts == '1'): ?><?php echo e($q*$re->bfb1); ?><?php elseif($re->o_ts == '2'): ?><?php echo e($q*$re->bfb2); ?><?php elseif($re->o_ts == '3'): ?><?php echo e($q*$re->bfb3); ?><?php elseif($re->o_ts == '4'): ?><?php echo e($q*$re->bfb4); ?><?php elseif($re->o_ts == '5'): ?><?php echo e($q*$re->bfb5); ?><?php elseif($re->o_ts == '6'): ?><?php echo e($q*$re->bfb6); ?><?php elseif($re->o_ts == '7'): ?><?php echo e($q*$re->bfb7); ?><?php endif; ?>"style="width: 60px;"></p>
                                     <p>家长服务费:<input type="text" value="<?php echo e($re->fz_jzxxf); ?>" name="order_jzfy" style="width: 60px;"></p>
@@ -236,7 +237,7 @@
 
                             <td>
                                 <div>
-                                    <p><a href="/admin/orderyyrs/<?php echo e($re->id); ?>" style="font-size:24px;color: red;"><?php echo e($re->yynum); ?></a>|<a target="_blank" href="/xxfb.php?oid=<?php echo e($re->id); ?>&title=<?php if(session('Template') == '2' || '4'): ?>德栗家教<?php else: ?>栗志家教<?php endif; ?>&q=<?php echo e($re->money*$re->o_xs); ?>&nj=<?php echo e($re->grade); ?>&dq=<?php echo e($re->dq); ?>">生成信息模板</a></p>
+                                    <p><a href="/admin/orderyyrs/<?php echo e($re->id); ?>" style="font-size:24px;color: red;"><?php echo e($re->yynum); ?></a>|<a target="_blank" href="/xxfb.php?oid=<?php echo e($re->id); ?>&title=<?php if(session('Template') == '2' || '4'): ?>德栗家教<?php else: ?>栗志家教<?php endif; ?>&q=<?php echo e($re->money*$re->o_xs); ?>&nj=<?php echo e($re->grade); ?>&dq=<?php echo e($re->dq); ?>&fdkm=<?php echo e($re->subject_id); ?>">生成信息模板</a></p>
                                     <p>状态:
                                         <select name="ht_status">
                                             <option value="0" <?php if($re->ht_status == '0'): ?> selected='selected' <?php endif; ?>>新家教</option>
