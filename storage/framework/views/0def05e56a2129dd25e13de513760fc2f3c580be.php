@@ -40,6 +40,7 @@
 				<p>本协议自签订之日起生效，自丙方结束授课之日起且甲方结清价款后自动失效。</p>
 				<input type="hidden" name="jy_qz" value="1">
 				<input type="hidden" name="id" value="<?php echo e($list->id); ?>">
+				<input type="hidden" name="xt" value="2">
 				<p>　<span class="text_1">
 						<?php if($list->xy_qz == '1'): ?>
 							甲方已签认
