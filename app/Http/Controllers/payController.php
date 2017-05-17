@@ -187,7 +187,9 @@ class payController extends Controller
                      }
                  }else if($_POST['b'] == 'b'){
                         DB::table('jjw_reorder')->where('id',$rid)->where('oid',$id)->update(['pay_id2' => $oid,'xxf2'=>$price]);
+                        DB::table('jjw_order')->where('id', $id)->update(['pay_id' => $oid]);
                         DB::table('jjw_mpay')->insert(['m_tid'=>$_POST['tid'],'m_zfortk'=>'1','m_rid'=>$rid,'m_oid'=>$id,'m_pay_id' => $oid,'m_pay_money'=>$price,'m_time'=>time(),'m_mtype'=>"微信剩余信息费"]);
+                        return view('wx.wx', ['url' => $json['data']['url'], 'price' => $price, 'stime' => $json['stime'], 'oid' => $json['data']['oid']]);
                  }
 
              }else{
