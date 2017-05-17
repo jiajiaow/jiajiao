@@ -14,7 +14,7 @@ class xueshenController extends Controller
         //区域
         $quyu = \DB::table('jjw_position_county')->where('city_id',Session('regionid'))->get();
         //学员
-        $list = \DB::table('jjw_order')->where('city_id',session('regionid'))->where('status','!=','3')->orderBy('id','desc')->paginate(10);
+        $list = \DB::table('jjw_order')->where('city_id',session('regionid'))->where('status','!=','3')->orderBy('time','desc')->paginate(10);
        // dd($list);
         //自定义分页
         $num=$list->lastPage();
@@ -33,7 +33,7 @@ class xueshenController extends Controller
         $quyu = \DB::table('jjw_position_county')->where('city_id',Session('regionid'))->get();
         //发布
         if($type == 'x'){
-            $list = \DB::table('jjw_order')->where('city_id',session('regionid'))->where('status','!=','3')->where('status',$num)->orderBy('id','desc')->paginate(10);
+            $list = \DB::table('jjw_order')->where('city_id',session('regionid'))->where('status','!=','3')->where('status',$num)->orderBy('time','desc')->paginate(10);
             //自定义分页
             $num=$list->lastPage();
             $nextpage=$num-$list->currentPage() ==0 ? $num : $list->currentPage()+1 ;
@@ -44,7 +44,7 @@ class xueshenController extends Controller
             return view('delijiajiao.xueyuanku',['quyu'=>$quyu,'list'=>$list]);
         //老师类型
         }else if($type == 't'){
-            $list = \DB::table('jjw_order')->where('city_id',session('regionid'))->where('status','!=','3')->where('ls_type',$num)->orderBy('id','desc')->paginate(10);
+            $list = \DB::table('jjw_order')->where('city_id',session('regionid'))->where('status','!=','3')->where('ls_type',$num)->orderBy('time','desc')->paginate(10);
             //自定义分页
             $num=$list->lastPage();
             $nextpage=$num-$list->currentPage() ==0 ? $num : $list->currentPage()+1 ;
@@ -56,7 +56,7 @@ class xueshenController extends Controller
         //区域
         }else if($type == 'q'){
             $qu = \DB::table('jjw_position_county')->where('id',$num)->first();
-            $list = \DB::table('jjw_order')->where('city_id',session('regionid'))->where('status','!=','3')->where('dq',$qu->county_name)->orderBy('id','desc')->paginate(10);
+            $list = \DB::table('jjw_order')->where('city_id',session('regionid'))->where('status','!=','3')->where('dq',$qu->county_name)->orderBy('time','desc')->paginate(10);
             //dd($list);
             //自定义分页
             $num=$list->lastPage();

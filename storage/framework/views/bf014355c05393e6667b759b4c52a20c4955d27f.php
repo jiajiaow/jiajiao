@@ -282,7 +282,7 @@
                         <p>全国热线：400-8250-710</p>
                     </div>
                     <div class="dsv">
-                        <a href="https://hztk5.kuaishang.cn/bs/im.htm?cSource=1&cas=69564___125636&fi=79140&ri=18245998447&vi=84d357f55f854a87b7683824f3938530&dp=http%3A%2F%2Fwww.delijiajiao.com%2F&_d=1494806260357&_tk=575c5551" class="zx_btn">在线咨询</a>
+                        <a href="https://hztk5.kuaishang.cn/bs/im.htm?cSource=1&cas=69564___125636&fi=79140&ri=18245998447&vi=84d357f55f854a87b7683824f3938530&dp=http%3A%2F%2Fwww.delijiajiao.com%2F&_d=1494806260357&_tk=575c5551" class="zx_btn" target="_blank">在线咨询</a>
                     </div>
                 </div>
             </div>
@@ -549,8 +549,8 @@
   function isPhoneNos() {
       var name = $('#float_name').val()
       var km = $('.fcb_b_box_active').html()
-      alert(km);
-      return false;
+//      alert(km);
+      //return false;
       var phone = $('#float_phones').val();
       if(km != ''){
           if(phone != ''){
@@ -560,7 +560,7 @@
                   layer.alert('请输入有效的手机号码！');
                   return false;
               }else{
-                  $.post('/dofloatyyform',{km:km,phone:phone,name:name},function(r){
+                  $.post('/dotanchuangform',{km:km,phone:phone,name:name},function(r){
                       layer.alert('尊敬的家长/学员,我们已经收到您的需求,我们的金牌顾问将尽快联系您,非常感谢您的认可。');
                   })
                   $('.fc').fadeOut()
@@ -578,41 +578,12 @@
 
 
 
-  function isPhoneNos() {
-      var km = $('#float_name').val()
-      var fcb_b_box_active = $('.fcb_b_box_active').html()
-      alert(km);
-      return false;
-      var phone = $('#float_phones').val();
-      if(km != ''){
-          if(phone != ''){
-              var myreg = /^1[34578]\d{9}$/;
-              if(!myreg.test($("#float_phones").val()))
-              {
-                  layer.alert('请输入有效的手机号码！');
-                  return false;
-              }else{
-                  $.post('/dofloatyyform',{km:km,phone:phone,name:fcb_b_box_active},function(r){
-                      layer.alert('尊敬的家长/学员,我们已经收到您的需求,我们的金牌顾问将尽快联系您,非常感谢您的认可。');
-                  })
-                  $('.fc').fadeOut()
-                  $('.fc_body').fadeOut()
-              }
-          }else{
-              alert('手机号码不能为空');
-              return false;
-          }
 
-      }else{
-          alert('姓名不能为空');
-          return false;
-      }
-  }
 
 
 
   setTimeout(function(){
-      var aa = $('#div4')
+      var aa = $('#div4_off')
       aa.hover(function(){
           $('.wx_box').show()
       },function(){

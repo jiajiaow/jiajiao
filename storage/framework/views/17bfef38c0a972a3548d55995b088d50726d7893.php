@@ -28,24 +28,8 @@
         <div class="col-sm-12" style="overflow: scroll;">
             <div class="ibox float-e-margins" style="overflow: scroll;">
                 <div class="ibox-title">
-                    <h5>学员订单 <small>分类，查找</small></h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="table_data_tables.html#">
-                            <i class="fa fa-wrench"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-user">
-                            <li><a href="table_data_tables.html#">选项1</a>
-                            </li>
-                            <li><a href="table_data_tables.html#">选项2</a>
-                            </li>
-                        </ul>
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
-                        </a>
-                    </div>
+                    <h5>学员订单 <small>当前屏蔽订单<span style="color:red;"><?php echo e($num); ?></span></small></h5>
+
                 </div>
                 <div class="ibox-content">
                     <table class="table table-striped table-bordered table-hover dataTables-example">
@@ -63,7 +47,7 @@
                         </thead>
                         <tbody>
                         <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $re): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <tr valign="top" align="center">
+                        <tr valign="top" align="center" <?php if($re->status == '3'): ?> style="color:red;" <?php endif; ?>>
                             <td>
                                 <form action="/admin/orderjc" method="post">
                                     <?php echo e(csrf_field()); ?>
@@ -253,7 +237,7 @@
 
                             <td>
                                 <div>
-                                    <p><a href="/admin/orderyyrs/<?php echo e($re->id); ?>" style="font-size:24px;color: red;"><?php echo e($re->yynum); ?></a>|<a target="_blank" href="/xxfb.php?oid=<?php echo e($re->id); ?>&title=<?php if(session('Template') == '2' || '4'): ?>德栗家教<?php else: ?>栗志家教<?php endif; ?>&q=<?php echo e($re->money*$re->o_xs); ?>&nj=<?php echo e($re->grade); ?>&dq=<?php echo e($re->dq); ?>">生成信息模板</a></p>
+                                    <p><a href="/admin/orderyyrs/<?php echo e($re->id); ?>" style="font-size:24px;color: red;"><?php echo e($re->yynum); ?></a>|<a target="_blank" href="/xxfb.php?oid=<?php echo e($re->id); ?>&title=<?php if(session('Template') == '2' || '4'): ?>德栗家教<?php else: ?>栗志家教<?php endif; ?>&q=<?php echo e($re->money*$re->o_xs); ?>&nj=<?php echo e($re->grade); ?>&dq=<?php echo e($re->dq); ?>&fdkm=<?php echo e($re->subject_id); ?>">生成信息模板</a></p>
                                     <p>状态:
                                         <select name="ht_status">
                                             <option value="0" <?php if($re->ht_status == '0'): ?> selected='selected' <?php endif; ?>>新家教</option>
@@ -275,8 +259,11 @@
                                     <p>试课地址:<input type="text" value="<?php echo e($re->sks_add); ?>" ></p>
                                     <p><a href="">前台查看次家教</a><button class="VIP" >设置为vip</button></p>
                                     <p>
-                                        <a href="">显示</a>|
-                                        <a href="">屏蔽</a>|
+                                        <?php if($re->status != '3'): ?>
+                                        <a href="/admin/xgddzt/<?php echo e($re->id); ?>/3">屏蔽</a>
+                                        <?php else: ?>
+                                        <a href="/admin/xgddzt/<?php echo e($re->id); ?>/0">显示</a>
+                                        <?php endif; ?>|
                                         <a href="">非置顶</a>|
                                         <a href="">推送</a>|
                                         <a href="">删除</a>
@@ -300,8 +287,6 @@
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
                     </table>
-                    <?php echo e($data->links()); ?>
-
                 </div>
             </div>
         </div>
