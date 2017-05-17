@@ -520,4 +520,13 @@ class tcinfoController extends Controller
             echo "没有合同";
         }
     }
+
+    //教员提现
+    public function tc_tixian(Request $request){
+        $all = $request->all();
+        $all['m_mtype'] = '';
+        $all['m_type'] == '4'?$all['m_mtype'] = '支付宝提现':$all['m_mtype'] = '微信提现';
+        $list = \DB::table('jjw_mpay')->insert($all);
+        return back();
+    }
 }

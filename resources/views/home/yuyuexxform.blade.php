@@ -22,8 +22,10 @@
     <div class="title_p">
       <h3>请完善您的个人资料，方便为您匹配家教订单</h3>
     </div>
+    {{--<form method="post" action="StudentAdd"  onSubmit="return ChkFields();" name="myform" id="myform">--}}
     <form method="post" action="StudentAdd"  onSubmit="return ChkFields();" name="myform" id="myform">
-    <div class="content">
+
+        <div class="content">
       <ul>
         <li>
           <p>联系微信</p>
@@ -41,7 +43,7 @@
         </li>
         <li>
           <p>学员年级</p>
-          <select name="grade"  style="width:255px;height:34px;">
+          <select name="grade"  style="width:255px;height:34px;" id="yxnj">
               <OPTION value="" selected>请选择</OPTION>
               <OPTION value="幼儿">幼儿</OPTION>
               <OPTION value="一年级">一年级</OPTION>
@@ -156,7 +158,7 @@
         </li>
         <li>
           <p>家教上课地点</p>
-          <input type="" name="xx_dz"><span class="bt">必填</span>
+          <input type="" name="xx_dz" id="xx_dz"><span class="bt">必填</span>
         </li>
         <li>
           <p>选择教员性别</p>
@@ -205,7 +207,7 @@
         </li>
       </ul>
       <input name="oid" value="{{ $orderid }}" type="hidden"/>
-      <input type="submit" value="填好了，立即提交找老师" class="TJ_btn">
+      <input type="button" value="填好了，立即提交找老师" class="TJ_btn" id="#TJ_btn" onclick="tjbtnIf()">
     </div>
     </form>
   </div>
@@ -316,10 +318,50 @@
     $('#cheng_show').css('display','none');
   });
 
+
+ function tjbtnIf(){
+     var licbox = $('.licbox').find('input')
+    console.log(licbox)
+     var num = 0;
+     for(var i = 0;i<licbox.length;i++){
+         if(licbox[i].checked == true){
+             num = 1
+             break
+         }
+
+     }
+
+
+     var yxnj = $('#yxnj option:selected')[0].innerHTML
+
+     var dq = $('#dq option:selected')[0].innerHTML
+
+     var xx_dz = $('#xx_dz').val()
+
+     if(yxnj == '请选择'){
+         alert('必选项没填哦')
+         return
+     }else if(dq == '请选择'){
+         alert('必选项没填哦')
+         return
+     }else if(xx_dz == ''){
+         alert('必选项没填哦')
+         return
+     }else if(num == 0){
+         alert('授课时间没选哦')
+         return
+     }
+     document.getElementById("myform").submit()
+ }
+
+
+
+
+
+
 </script>
 <script>
   $('input#sk').click(function(){
-    // alert(1);
     $('#cheng_a').css('display','block');
   });
   $('#qxx').click(function(){

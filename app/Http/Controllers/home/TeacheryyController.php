@@ -46,8 +46,8 @@ class TeacheryyController extends Controller
                         $request->session()->flash('ts', 'layer.msg("您的性别与学员的要求不符，您可以预约其他学员订单哟^-^", {icon: 3});');
                         return back();
                     }
-                }else if ($num->teacher_sex == '1') {
-                    if($tc == '0'){
+                }else if ($num->teacher_sex == '1'){
+                    if($tc == '1'){
                         $re = DB::table('jjw_reorder')->insert(['oid' => $request->input('oid'),'tc_id' => session('tc_id')]);
                         if($re){
                             //返回session

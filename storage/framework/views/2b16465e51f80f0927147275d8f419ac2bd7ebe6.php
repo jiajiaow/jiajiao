@@ -75,7 +75,7 @@
   <div class="wz-container">
       <div class="wz-wz">
         <span></span>
-        <a href="/Articlecenter.html" onclick="window.history.go(-1);"><&nbsp;&nbsp;返回上一级</a>
+
       </div>
       <?php if($list !== null): ?>
         <?php $__currentLoopData = $list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $li): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
