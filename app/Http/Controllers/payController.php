@@ -146,12 +146,15 @@ class payController extends Controller
      //微信pay
     public function wechatpay(Request $request)
     {
-        //rid
-        $rid = $request->input('rid') ==''?'':$request->input('rid');
-        //$url = session('_previous');
-        //dd($url);
         //dd($request);
+        //信息费rid
+        $rid = $request->input('rid') ==''?'':$request->input('rid');
+        //诚意金r_id
+        $r_id = $request->input('r_id') ==''?'':$request->input('r_id');
+        //dd($rid);
+        //本地订单id
         $id = $request->input('order_id');
+        //钱
         $price = $request->input('money');
 
         date_default_timezone_set('PRC');
@@ -175,11 +178,18 @@ class payController extends Controller
 
              if($json['data']['url'] != ''){
                  //信息费支付修改订单
-                 if($rid != ''){
-                     DB::table('jjw_reorder')->where('id',$rid)->where('oid',$id)->update(['pay_id' => $oid,'xxf'=>$price]);
+                 if($_POST['b'] == '') {
+                     if ($rid != '') {
+                         DB::table('jjw_reorder')->where('id', $rid)->where('oid', $id)->update(['pay_id' => $oid, 'xxf' => $price]);
+                         DB::table('jjw_order')->where('id', $id)->update(['pay_id' => $oid]);
+                         DB::table('jjw_mpay')->insert(['m_tid' => $_POST['tid'], 'm_zfortk' => '1', 'm_rid' => $rid, 'm_oid' => $id, 'm_pay_id' => $oid, 'm_pay_money' => $price, 'm_time' => time(), 'm_mtype' => "微信信息费"]);
+                         return view('wx.wx', ['url' => $json['data']['url'], 'price' => $price, 'stime' => $json['stime'], 'oid' => $json['data']['oid']]);
+                     }
+                 }else if($_POST['b'] == 'b'){
+                        DB::table('jjw_reorder')->where('id',$rid)->where('oid',$id)->update(['pay_id2' => $oid,'xxf2'=>$price]);
+                        DB::table('jjw_mpay')->insert(['m_tid'=>$_POST['tid'],'m_zfortk'=>'1','m_rid'=>$rid,'m_oid'=>$id,'m_pay_id' => $oid,'m_pay_money'=>$price,'m_time'=>time(),'m_mtype'=>"微信剩余信息费"]);
                  }
-                DB::table('jjw_order')->where('id',$id)->update(['pay_id' => $oid]);
-                return view('wx.wx',['url' => $json['data']['url'],'price' => $price,'stime' => $json['stime'],'oid' => $json['data']['oid']]);
+
              }else{
                  echo $json['data'];
              }
