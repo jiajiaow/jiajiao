@@ -167,6 +167,8 @@ Route::post('/registerdo','home\yuyueController@registerdo');
 Route::post('/yuyuexiangxi.html','home\yuyueController@doyyform');
 //尾部提交
 Route::post('/dofloatyyform','home\yuyueController@dofloatyyform');
+//弹窗提交新家教
+Route::post('/dotanchuangform','home\yuyueController@dotanchuangform');
 //填写预约详细
 Route::any('/yuyuexxform','home\yuyueController@yuyuexxform');
 //提交
@@ -393,5 +395,20 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::get('/recyclebin','admin\recyclebinController@recyclebin');
     //订单屏蔽
     Route::get('/xgddzt/{id?}/{zt?}','admin\orderController@xgddzt');
+    //tc_tixian教员提现记录
+    Route::get('/tc_tixian','admin\caiwuController@tc_tixian');
+    //金牌教员
+    Route::get('/jinpai/{m?}','admin\jinpaiController@jinpai');
+    //执行修改金牌
+    Route::get('/do_jin_pai/{id?}/{zt?}','admin\jinpaiController@dojinpai');
+    //专职教员
+    Route::get('/zhuanzhi/{m?}','admin\jinpaiController@zhuanzhi');
+    //执行修改专职
+    Route::get('/do_zhuan_zhi/{id?}/{zt?}','admin\jinpaiController@dozhuanzhi');
+    //学生教员
+    Route::get('/xuesheng/{m?}','admin\jinpaiController@xuesheng');
+    //执行修改学生教员
+    Route::get('/do_xue_sheng/{id?}/{zt?}','admin\jinpaiController@doxuesheng');
+
 });
 //----------后台END----------//

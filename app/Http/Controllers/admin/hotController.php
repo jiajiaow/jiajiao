@@ -36,12 +36,12 @@ class hotController extends Controller
     public function do_hot_area(Request $request,$hot,$zt){
         //1为设置热门 ，0为取消热门
         if($zt == '1'){
-            $list = \DB::table('jjw_position_county')->where('id',$hot)->update(['hot'=>'1']);
+            $list = \DB::table('jjw_position_county')->where('id',$hot)->where('tc_sort','1')->update(['hot'=>'1']);
             if($list){
                 return back();
             }
         }else{
-            $list = \DB::table('jjw_position_county')->where('id',$hot)->update(['hot'=>'0']);
+            $list = \DB::table('jjw_position_county')->where('id',$hot)->where('tc_sort','1')->update(['hot'=>'0']);
             if($list){
                 return back();
             }
