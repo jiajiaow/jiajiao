@@ -20,7 +20,7 @@
   </style>
   <div class="wrap">
     <div class="title_p">
-      <h3>请完善您的个人资料，方便为您匹配家教订单</h3>
+      <h3>请完善您的个人资料，快速预约老师</h3>
     </div>
     {{--<form method="post" action="StudentAdd"  onSubmit="return ChkFields();" name="myform" id="myform">--}}
     <form method="post" action="StudentAdd"  onSubmit="return ChkFields();" name="myform" id="myform">

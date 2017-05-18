@@ -195,4 +195,13 @@ class orderController extends Controller
         DB::table('jjw_order')->where('id',$id)->update(['status' => $zt]);
         return back();
     }
+
+    //证件【身份证，学生证是否存在】
+    public function zj($id){
+        if($id == '1'){
+            echo "该教员没有上传身份证!";die;
+        }else{
+            echo "该教员没有上传学生证!";die;
+        }
+    }
 }

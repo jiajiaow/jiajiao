@@ -113,7 +113,7 @@
                                     <p>专业：<input type="text" name="" value="{{ $re->tc_zhuanye }}"></p>
                                     <p>类别：<input type="text" name="" value="{{ $re->tc_type }}"></p>
                                     <p>教龄：<input type="text" name="" value="{{ $re->tc_jl }}"></p>
-                                    <p>文理科：<input type="text" name="" value="{{ $re->tc_class }}"></p>
+                                    <p>文理未分科：<input type="text" name="" value="{{ $re->tc_class }}"></p>
                                     <p>高考省份：<input type="text" name="" value="{{ $re->tc_hight }}"></p>
                                 </div>
                             </td>
@@ -172,7 +172,7 @@
                                             <option value="9" @if($re->ht_t_status == '9') selected='selected' @endif>已成功(结束授课)</option>
                                             <option value="10" @if($re->ht_t_status == '10') selected='selected' @endif>试课失败</option>
                                         </select>
-                                        <input type="submit" value="修改"/>
+                                        <input type="submit" style="color: red;" value="修改"/>
                                     </form>
                                     </p>
                                     <p>预约类型:<input type="text" name=""></p>
@@ -192,9 +192,9 @@
                                 <div>
                                     <p><a href="">编辑资料</a></p>
                                     <p><a href="">推荐到首页</a>|<a href="">有头像</a></p>
-                                    <p><a href="">查看简历</a> <input type="submit" name=""></p>
-                                    <p><a href="{{ $re->tc_id_photo==null?'/admin/index':$re->tc_id_photo }}" target="_blank">查看身份证</a><input type="submit" name=""></p>
-                                    <p><a href="{{ $re->tc_xszimage==null?'/admin/index':$re->tc_xszimage }}" target="_blank">查看学生证</a><input type="submit" name=""></p>
+                                    <p><a href="/teacher/detail/{{ $re->id }}.html" target="_blank">查看简历</a> <input type="submit" name=""></p>
+                                    <p><a href="{{ $re->tc_id_photo==null?'/admin/zj/1':$re->tc_id_photo }}" target="_blank">查看身份证</a><input type="submit" name=""></p>
+                                    <p><a href="{{ $re->tc_xszimage==null?'/admin/zj/2':$re->tc_xszimage }}" target="_blank">查看学生证</a><input type="submit" name=""></p>
                                     <p>邀请人:<input type="text"><input type="" name=""></p>
                                     <p>管理人:<input type="text"><input type="" name=""></p>
                                 </div>

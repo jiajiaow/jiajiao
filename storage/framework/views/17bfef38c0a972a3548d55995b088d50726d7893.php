@@ -269,15 +269,14 @@
                                         <a href="">删除</a>
                                     </p>
                                     <p><button >本单收支流水</button></p>
-                                    <span style='display: none;'><?php echo e($re->id); ?><?php echo e($re->user_id); ?><?php echo e($re->user_name); ?><?php echo e($re->user_phone); ?><?php echo e($re->user_byphone); ?><?php echo e($re->user_qq); ?><?php echo e($re->user_sex); ?><?php echo e($re->dq); ?><?php echo e($re->contact); ?><?php echo e($re->grade); ?><?php echo e($re->sk_times); ?>
+                                    <span style='display: none;'><?php echo e($re->id); ?><br><?php echo e($re->user_id); ?><br><?php echo e($re->user_name); ?><br><?php echo e($re->user_phone); ?><br><?php echo e($re->user_byphone); ?><br><?php echo e($re->user_qq); ?><br><?php echo e($re->user_sex); ?><br><?php echo e($re->dq); ?><br><?php echo e($re->contact); ?><br><?php echo e($re->grade); ?><br><?php echo e($re->sk_times); ?><br>
+<?php echo e($re->explain); ?><br><?php echo e($re->subject_id); ?><br><?php echo e($re->user_situation); ?><br><?php echo e($re->teacher_id); ?><br><?php echo e($re->teacher_sex); ?><br><?php echo e($re->teacher_info); ?><br><?php echo e($re->money); ?><br><?php echo e($re->time); ?><br><?php echo e($re->region); ?><br><?php echo e($re->status); ?><br><?php echo e($re->pay); ?><br><?php echo e($re->pay_id); ?><br><?php echo e($re->city_id); ?>
 
-<?php echo e($re->explain); ?><?php echo e($re->subject_id); ?><?php echo e($re->user_situation); ?><?php echo e($re->teacher_id); ?><?php echo e($re->teacher_sex); ?><?php echo e($re->teacher_info); ?><?php echo e($re->money); ?><?php echo e($re->time); ?><?php echo e($re->region); ?><?php echo e($re->status); ?><?php echo e($re->pay); ?><?php echo e($re->pay_id); ?><?php echo e($re->city_id); ?>
+<?php echo e($re->user_reboot); ?><br><?php echo e($re->per_week); ?><br><?php echo e($re->xx_dz); ?><br><?php echo e($re->ls_type); ?><br><?php echo e($re->tc_Signing); ?><br><?php echo e($re->qq); ?><br><?php echo e($re->wx); ?><br><?php echo e($re->wlk); ?><br><?php echo e($re->browsenu); ?><br><?php echo e($re->yynum); ?><br><?php echo e($re->ddzt); ?><br><?php echo e($re->jqzt); ?><br><?php echo e($re->wzly); ?><br><?php echo e($re->khly); ?><br><?php echo e($re->ap); ?><br><?php echo e($re->yhbz); ?><br><?php echo e($re->ht_status); ?>
 
-<?php echo e($re->user_reboot); ?><?php echo e($re->per_week); ?><?php echo e($re->xx_dz); ?><?php echo e($re->ls_type); ?><?php echo e($re->tc_Signing); ?><?php echo e($re->qq); ?><?php echo e($re->wx); ?><?php echo e($re->wlk); ?><?php echo e($re->browsenu); ?><?php echo e($re->yynum); ?><?php echo e($re->ddzt); ?><?php echo e($re->jqzt); ?><?php echo e($re->wzly); ?><?php echo e($re->khly); ?><?php echo e($re->ap); ?><?php echo e($re->yhbz); ?><?php echo e($re->ht_status); ?>
+<?php echo e($re->ddbz); ?><br><?php echo e($re->o_ts); ?><br><?php echo e($re->o_xs); ?><br><?php echo e($re->fdlx); ?><br><?php echo e($re->o_yue); ?><br><?php echo e($re->jy_qz); ?><br><?php echo e($re->xy_qz); ?><br><?php echo e($re->money2); ?><br><?php echo e($re->o_ts2); ?><br><?php echo e($re->o_xs2); ?><br><?php echo e($re->bj_msg_A); ?><br><?php echo e($re->hetong_time); ?><br><?php echo e($re->sks_time); ?><br><?php echo e($re->sks_add); ?><br><?php echo e($re->fz_jzxxf); ?><br><?php echo e($re->city_name); ?>
 
-<?php echo e($re->ddbz); ?><?php echo e($re->o_ts); ?><?php echo e($re->o_xs); ?><?php echo e($re->fdlx); ?><?php echo e($re->o_yue); ?><?php echo e($re->jy_qz); ?><?php echo e($re->xy_qz); ?><?php echo e($re->money2); ?><?php echo e($re->o_ts2); ?><?php echo e($re->o_xs2); ?><?php echo e($re->bj_msg_A); ?><?php echo e($re->hetong_time); ?><?php echo e($re->sks_time); ?><?php echo e($re->sks_add); ?><?php echo e($re->fz_jzxxf); ?><?php echo e($re->city_name); ?>
-
-<?php echo e($re->fz_vip); ?><?php echo e($re->fz_qyjyfy); ?><?php echo e($re->bfb1); ?><?php echo e($re->bfb2); ?><?php echo e($re->bfb3); ?><?php echo e($re->bfb4); ?><?php echo e($re->bfb5); ?><?php echo e($re->bfb6); ?><?php echo e($re->bfb7); ?>
+<?php echo e($re->fz_vip); ?><br><?php echo e($re->fz_qyjyfy); ?><br><?php echo e($re->bfb1); ?><br><?php echo e($re->bfb2); ?><br><?php echo e($re->bfb3); ?><br><?php echo e($re->bfb4); ?><br><?php echo e($re->bfb5); ?><br><?php echo e($re->bfb6); ?><br><?php echo e($re->bfb7); ?>
 
                                     </span>
                                 </div>
@@ -486,7 +485,6 @@
 <!-- Page-Level Scripts -->
 <script>
     $(document).ready(function () {
-        console.log('%c 作者：林俊江','background:#aaa;color:#bada55','this is not colored');
         $('.dataTables-example').dataTable();
 
         /* Init DataTables */
@@ -504,7 +502,10 @@
                     "column": oTable.fnGetPosition(this)[2]
                 };
             },
+            select:{
 
+        items:'cells'
+            },
             "width": "90%",
             "height": "100%"
         });

@@ -193,6 +193,8 @@ Route::get('/hot.html/{type?}/{key?}','home\teacherinfoController@hot');
 Route::get('/navigation.html/{type?}/{key?}','home\teacherinfoController@hot');
 //内页搜索
 Route::post('/dokey','home\teacherinfoController@dokey');
+//搜索教员 学员ID
+Route::post('/dosousuoid','home\teacherinfoController@dosousuoid');
 //资费说明
 Route::get('/zfsm.html','home\zfsmController@index');
 //学员详细资料
@@ -409,6 +411,8 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::get('/xuesheng/{m?}','admin\jinpaiController@xuesheng');
     //执行修改学生教员
     Route::get('/do_xue_sheng/{id?}/{zt?}','admin\jinpaiController@doxuesheng');
+    //判断证件
+    Route::get('/zj/{id?}','admin\orderController@zj');
 
 });
 //----------后台END----------//
