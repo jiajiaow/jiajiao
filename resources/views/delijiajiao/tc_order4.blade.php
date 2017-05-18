@@ -265,7 +265,39 @@
                                     <div class="right">
                                         需补/需退信息费：
                                         <span class="xbxxf" id="{{ $skzs->id }}">
-                                            0.01
+                                            @if($skzs->pay_zt2 == '1')
+                                                @if($skzs->o_ts == '1')
+                                                    {{  round(($q*$skzs->bfb1-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) }}
+                                                @elseif($skzs->o_ts == '2')
+                                                    {{  round(($q*$skzs->bfb2-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) }}
+                                                @elseif($skzs->o_ts == '3')
+                                                    {{  round(($q*$skzs->bfb3-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) }}
+                                                @elseif($skzs->o_ts == '4')
+                                                    {{  round(($q*$skzs->bfb4-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) }}
+                                                @elseif($skzs->o_ts == '5')
+                                                    {{  round(($q*$skzs->bfb5-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) }}
+                                                @elseif($skzs->o_ts == '6')
+                                                    {{  round(($q*$skzs->bfb6-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) }}
+                                                @elseif($skzs->o_ts == '7')
+                                                    {{  round(($q*$skzs->bfb7-($skzs->xxf+$skzs->xxf2))+$skzs->ytxxf) }}
+                                                @endif
+                                            @else
+                                                @if($skzs->o_ts == '1')
+                                                    {{ round(($q*$skzs->bfb1-($skzs->xxf))+$skzs->ytxxf) }}
+                                                @elseif($skzs->o_ts == '2')
+                                                    {{ round(($q*$skzs->bfb2-($skzs->xxf))+$skzs->ytxxf) }}
+                                                @elseif($skzs->o_ts == '3')
+                                                    {{ round(($q*$skzs->bfb3-($skzs->xxf))+$skzs->ytxxf) }}
+                                                @elseif($skzs->o_ts == '4')
+                                                    {{ round(($q*$skzs->bfb4-($skzs->xxf))+$skzs->ytxxf) }}
+                                                @elseif($skzs->o_ts == '5')
+                                                    {{ round(($q*$skzs->bfb5-($skzs->xxf))+$skzs->ytxxf) }}
+                                                @elseif($skzs->o_ts == '6')
+                                                    {{ round(($q*$skzs->bfb6-($skzs->xxf))+$skzs->ytxxf) }}
+                                                @elseif($skzs->o_ts == '7')
+                                                    {{ round(($q*$skzs->bfb7-($skzs->xxf))+$skzs->ytxxf) }}
+                                                @endif
+                                            @endif
                                         </span>元
                                     </div>
                                 </div>

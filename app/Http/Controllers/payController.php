@@ -36,6 +36,7 @@ class payController extends Controller
         $signs = md5($oid.$token);
         if($signs == $sign){
             DB::table('jjw_order')->where('pay_id',$oid)->update(['pay' => '1','status'=>'1']);
+            DB::table('jjw_order')->where('wx_pay_id',$oid)->update(['wx_pay' => '1','status'=>'1']);
             //支付状态
             DB::table('jjw_mpay')->where('m_pay_id',$oid)->update(['m_type' =>'1']);
                 //将没被选中的教员改为未选中
@@ -187,9 +188,9 @@ class payController extends Controller
                      }
                  }else if($_POST['b'] == 'b'){
                         DB::table('jjw_reorder')->where('id',$rid)->where('oid',$id)->update(['pay_id2' => $oid,'xxf2'=>$price]);
-                        DB::table('jjw_order')->where('id', $id)->update(['pay_id' => $oid]);
+                        DB::table('jjw_order')->where('id', $id)->update(['wx_pay_id' => $oid]);
                         DB::table('jjw_mpay')->insert(['m_tid'=>$_POST['tid'],'m_zfortk'=>'1','m_rid'=>$rid,'m_oid'=>$id,'m_pay_id' => $oid,'m_pay_money'=>$price,'m_time'=>time(),'m_mtype'=>"微信剩余信息费"]);
-                        return view('wx.wx', ['url' => $json['data']['url'], 'price' => $price, 'stime' => $json['stime'], 'oid' => $json['data']['oid']]);
+                        return view('wx.wxsyxxf', ['url' => $json['data']['url'], 'price' => $price, 'stime' => $json['stime'], 'oid' => $json['data']['oid']]);
                  }
 
              }else{
@@ -205,6 +206,7 @@ class payController extends Controller
 
         return view('PaymentSuccess.PaymentSuccess');
      }
+    //微信信息费
      public function wechatpayquery(Request $request)
      {
         $oid = $request->input('pay_id');
@@ -216,4 +218,16 @@ class payController extends Controller
             return 'no';
         }
      }
+    //微信剩余信息费
+    public function wechatpayquery2(Request $request)
+    {
+        $oid = $request->input('pay_id');
+        $re = DB::table('jjw_order')->where('pay_id',$oid)->first();
+        //dd($re);
+        if($re->wx_pay == '1'){
+            return 'ok';
+        }else{
+            return 'no';
+        }
+    }
 }
