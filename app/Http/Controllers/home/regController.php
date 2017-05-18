@@ -69,7 +69,7 @@ class regController extends Controller
         $zt = $_POST['zt'];
         $yzm = rand(1000,9999);
         //记录
-        $filename="./a.txt";
+        $filename="a.txt";
         $handle=fopen($filename,"a+");
         $str=fwrite($handle,"$yzm\n");
         fclose($handle);
