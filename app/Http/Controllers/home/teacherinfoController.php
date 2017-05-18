@@ -534,4 +534,26 @@ class teacherinfoController extends Controller
        // dd($where);
         return view('delijiajiao.jiaoyuan',['quyu'=>$quyu,'list'=>$list,'xx'=>$xx]);
     }
+
+    //搜索学员 教员 id
+    public function dosousuoid(){
+        if($_POST['sb'] == '1'){
+            $r = \DB::table('jjw_teachers')->where('id',substr($_POST['id'],1,20))->get();
+            return $r;
+        }else{
+            //dd($_POST);
+            $quyu = \DB::table('jjw_position_county')->where('city_id',Session('regionid'))->get();
+            //学院
+            $xx= DB::table('school_t')->where('city_id',session('regionid'))->limit(10)->get();
+
+            $list = \DB::table('jjw_order')->where('id',$_POST['id'])->paginate(10);
+            //自定义分页
+            $num=$list->lastPage();
+            $nextpage=$num-$list->currentPage() ==0 ? $num : $list->currentPage()+1 ;
+            $lastpage=$list->currentPage()-1 <0 ? 1 : $list->currentPage()-1 ;
+            $list->next=$nextpage; $list->last=$lastpage;
+            return view('delijiajiao.xueyuanku',['list'=>$list,'quyu'=>$quyu,'xx'=>$xx]);
+        }
+
+    }
 }

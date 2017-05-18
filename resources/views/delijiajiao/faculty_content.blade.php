@@ -78,7 +78,7 @@
     </div>
         </div>
 
-    <div style="height: 200px;border:1px solid #F7B529; width: 888px;float: left;">
+    <div style="height: 200px;border:1px solid #F7B529; width: 888px;margin-left: -262px; display: inline-block">
     <!-- 内容开始 -->
   <div class="TabContent">
       <div id="myTab0_Content0" >

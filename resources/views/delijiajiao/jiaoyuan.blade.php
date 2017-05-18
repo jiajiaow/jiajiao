@@ -80,8 +80,8 @@
                                 <img src="{{ asset('/delijiajiao/images/icon_title4.png') }}">教员库
                             </div>
                             <div class="r">
-                                老师编号:<input type="text" />
-                                <input id="sousuo" type="submit">
+                                老师编号:<input type="text" id="tc_ids" value="" />
+                                <input onclick="sousuo($('#tc_ids').val())" type="button" value="搜索">
                             </div>
                         </div>
                         <div class="acrtty">
@@ -338,7 +338,6 @@
                             layer.alert('请输入有效的手机号码！');
                             return false;
                         }else{
-                            debugger;
                             $.post('/dotanchuangform',{km:km,phone:phone,name:name},function(r){
                                 layer.alert('尊敬的家长/学员,我们已经收到您的需求,我们的金牌顾问将尽快联系您,非常感谢您的认可。');
                             })
@@ -470,6 +469,21 @@
              });
              event.stopPropagation();
              })*/
+            //搜索
+            function sousuo(id){
+                $.post('/dosousuoid',{id:id,sb:'1'},function(res){
+                    $('.acrtt3 li').remove();
+                    $('.acrtp').remove();
+                    for (var i = 0; i < res.length; i++) {
+                        if(res[i].tc_sex == "1"){
+                            res[i].tc_sex = '男';
+                        }else{
+                            res[i].tc_sex = '女';
+                        }
+                        $('.acrtt3').append("<li><p id='tta'> <a href='/yuyuelaoshi.html?"+ res[i].id+"'>预约|免费试课</a> </p><p id='ttb'> <a href='/teacher/detail/"+ res[i].id+".html'>查看详情</a></p><p id='ttd'>"+res[i].tc_comments+"</p><div id='tte'>"+res[i].tc_school+res[i].tc_zhuanye+"</div><p id='ttf'>"+ res[i].tc_name+"教员<br />/"+res[i].tc_sex+"</p><p id='ttg'> <br>T"+ res[i].id+"</p> </li> ");
+                    };
+                })
+            }
         </script>
 
         @endsection

@@ -265,11 +265,11 @@
                                         <a href="">删除</a>
                                     </p>
                                     <p><button >本单收支流水</button></p>
-                                    <span style='display: none;'>{{$re->id }}{{$re->user_id }}{{$re->user_name }}{{$re->user_phone }}{{$re->user_byphone }}{{$re->user_qq }}{{$re->user_sex }}{{$re->dq }}{{$re->contact }}{{$re->grade }}{{$re->sk_times }}
-{{$re->explain }}{{$re->subject_id }}{{$re->user_situation }}{{$re->teacher_id }}{{$re->teacher_sex }}{{$re->teacher_info }}{{$re->money }}{{$re->time }}{{$re->region }}{{$re->status }}{{$re->pay }}{{$re->pay_id }}{{$re->city_id }}
-{{$re->user_reboot }}{{$re->per_week }}{{$re->xx_dz }}{{$re->ls_type }}{{$re->tc_Signing }}{{$re->qq }}{{$re->wx }}{{$re->wlk }}{{$re->browsenu }}{{$re->yynum }}{{$re->ddzt }}{{$re->jqzt }}{{$re->wzly }}{{$re->khly }}{{$re->ap }}{{$re->yhbz }}{{$re->ht_status }}
-{{$re->ddbz }}{{$re->o_ts }}{{$re->o_xs }}{{$re->fdlx }}{{$re->o_yue }}{{$re->jy_qz }}{{$re->xy_qz }}{{$re->money2 }}{{$re->o_ts2 }}{{$re->o_xs2 }}{{$re->bj_msg_A }}{{$re->hetong_time }}{{$re->sks_time }}{{$re->sks_add }}{{$re->fz_jzxxf }}{{$re->city_name }}
-{{$re->fz_vip }}{{$re->fz_qyjyfy }}{{$re->bfb1 }}{{$re->bfb2 }}{{$re->bfb3 }}{{$re->bfb4 }}{{$re->bfb5 }}{{$re->bfb6 }}{{$re->bfb7 }}
+                                    <span style='display: none;'>{{$re->id }}<br>{{$re->user_id }}<br>{{$re->user_name }}<br>{{$re->user_phone }}<br>{{$re->user_byphone }}<br>{{$re->user_qq }}<br>{{$re->user_sex }}<br>{{$re->dq }}<br>{{$re->contact }}<br>{{$re->grade }}<br>{{$re->sk_times }}<br>
+{{$re->explain }}<br>{{$re->subject_id }}<br>{{$re->user_situation }}<br>{{$re->teacher_id }}<br>{{$re->teacher_sex }}<br>{{$re->teacher_info }}<br>{{$re->money }}<br>{{$re->time }}<br>{{$re->region }}<br>{{$re->status }}<br>{{$re->pay }}<br>{{$re->pay_id }}<br>{{$re->city_id }}
+{{$re->user_reboot }}<br>{{$re->per_week }}<br>{{$re->xx_dz }}<br>{{$re->ls_type }}<br>{{$re->tc_Signing }}<br>{{$re->qq }}<br>{{$re->wx }}<br>{{$re->wlk }}<br>{{$re->browsenu }}<br>{{$re->yynum }}<br>{{$re->ddzt }}<br>{{$re->jqzt }}<br>{{$re->wzly }}<br>{{$re->khly }}<br>{{$re->ap }}<br>{{$re->yhbz }}<br>{{$re->ht_status }}
+{{$re->ddbz }}<br>{{$re->o_ts }}<br>{{$re->o_xs }}<br>{{$re->fdlx }}<br>{{$re->o_yue }}<br>{{$re->jy_qz }}<br>{{$re->xy_qz }}<br>{{$re->money2 }}<br>{{$re->o_ts2 }}<br>{{$re->o_xs2 }}<br>{{$re->bj_msg_A }}<br>{{$re->hetong_time }}<br>{{$re->sks_time }}<br>{{$re->sks_add }}<br>{{$re->fz_jzxxf }}<br>{{$re->city_name }}
+{{$re->fz_vip }}<br>{{$re->fz_qyjyfy }}<br>{{$re->bfb1 }}<br>{{$re->bfb2 }}<br>{{$re->bfb3 }}<br>{{$re->bfb4 }}<br>{{$re->bfb5 }}<br>{{$re->bfb6 }}<br>{{$re->bfb7 }}
                                     </span>
                                 </div>
                             </td>
@@ -477,7 +477,6 @@
 <!-- Page-Level Scripts -->
 <script>
     $(document).ready(function () {
-        console.log('%c 作者：林俊江','background:#aaa;color:#bada55','this is not colored');
         $('.dataTables-example').dataTable();
 
         /* Init DataTables */
@@ -495,7 +494,10 @@
                     "column": oTable.fnGetPosition(this)[2]
                 };
             },
+            select:{
 
+        items:'cells'
+            },
             "width": "90%",
             "height": "100%"
         });
