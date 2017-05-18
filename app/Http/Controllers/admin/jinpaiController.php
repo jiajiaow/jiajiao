@@ -16,6 +16,7 @@ class jinpaiController extends Controller
                 ->join('jjw_position_city as pc', 'pc.city_id', '=', 't.tc_city_id')
                 ->where('tc_city_id','440100000000')
                 ->where('tc_jinpai','2')
+                ->where('t.tc_reboot','0')
                 ->orderBy('id','DESC')
                 ->select('t.*','pc.city_name')
                 ->paginate(1000);
@@ -27,6 +28,7 @@ class jinpaiController extends Controller
                 ->join('jjw_position_city as pc', 'pc.city_id', '=', 't.tc_city_id')
                 ->where('tc_city_id',$m)
                 ->where('tc_jinpai','2')
+                ->where('t.tc_reboot','0')
                 ->orderBy('id','DESC')
                 ->select('t.*','pc.city_name')
                 ->paginate(1000);
@@ -55,6 +57,7 @@ class jinpaiController extends Controller
                 ->join('jjw_position_city as pc', 'pc.city_id', '=', 't.tc_city_id')
                 ->where('tc_city_id','440100000000')
                 ->where('tc_jinpai','1')
+                ->where('t.tc_reboot','0')
                 ->orderBy('tc_dltimes','DESC')
                 ->select('t.*','pc.city_name')
                 ->paginate(1000);
@@ -64,6 +67,7 @@ class jinpaiController extends Controller
                 ->join('jjw_position_city as pc', 'pc.city_id', '=', 't.tc_city_id')
                 ->where('tc_city_id',$m)
                 ->where('tc_jinpai','1')
+                ->where('t.tc_reboot','0')
                 ->orderBy('tc_dltimes','DESC')
                 ->select('t.*','pc.city_name')
                 ->paginate(1000);
@@ -92,7 +96,8 @@ class jinpaiController extends Controller
             $list= DB::table('jjw_teachers as t')
                 ->join('jjw_position_city as pc', 'pc.city_id', '=', 't.tc_city_id')
                 ->where('tc_city_id','440100000000')
-                ->where('tc_jinpai','0')
+                ->where('t.tc_jinpai','0')
+                ->where('t.tc_reboot','0')
                 ->orderBy('tc_dltimes','DESC')
                 ->select('t.*','pc.city_name')
                 ->paginate(1000);
@@ -104,6 +109,7 @@ class jinpaiController extends Controller
                 ->join('jjw_position_city as pc', 'pc.city_id', '=', 't.tc_city_id')
                 ->where('tc_city_id',$m)
                 ->where('tc_jinpai','0')
+                ->where('t.tc_reboot','0')
                 ->orderBy('tc_dltimes','DESC')
                 ->select('t.*','pc.city_name')
                 ->paginate(1000);
