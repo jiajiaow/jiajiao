@@ -675,6 +675,14 @@ for(i=0; i <tabList.length; i++)
               $(this).addClass('fcb_b_box_active')
           })
           setTimeout(function(){
+              var aa = $('#div4')
+              aa.hover(function(){
+                  $('.wx_box').show()
+              },function(){
+                  $('.wx_box').hide()
+              })
+          },4000)
+          setTimeout(function(){
               var aa = $('#div4_off')
               aa.hover(function(){
                   $('.wx_box').show()
@@ -682,6 +690,7 @@ for(i=0; i <tabList.length; i++)
                   $('.wx_box').hide()
               })
           },4000)
+
   </script>
   <script type="text/javascript" src="https://hztk5.kuaishang.cn/bs/ks.j?cI=125636&fI=79140" charset="utf-8"></script>
   <script>
