@@ -83,19 +83,19 @@
                                             <span class="no_ne"></span>
                                         </p>
                                         <p>状态:
-                                            <select name="ddzt">
-                                                <option value="正常">正常(默认)</option>
-                                                <option value="协助">协助</option>
-                                                <option value="求助单">求助单</option>
-                                                <option value="特别关注">特别关注</option>
+                                            <select name="ddzt" autocomplete="off">
+                                                <option value="正常" <?php echo e($re->ddzt=='正常(默认)'?'selected':''); ?>>正常(默认)</option>
+                                                <option value="协助" <?php echo e($re->ddzt=='协助'?'selected':''); ?>>协助</option>
+                                                <option value="求助单" <?php echo e($re->ddzt=='求助单'?'selected':''); ?>>求助单</option>
+                                                <option value="特别关注" <?php echo e($re->ddzt=='特别关注'?'selected':''); ?>>特别关注</option>
                                             </select>
                                             <span class="no_ne"></span>
                                         </p>
                                         <p>学期:
-                                            <select name="jqzt">
-                                                <option value="学期中">学期中</option>
-                                                <option value="暑假单">暑假单</option>
-                                                <option value="寒假单">寒假单</option>
+                                            <select name="jqzt" autocomplete="off">
+                                                <option value="学期中" <?php echo e($re->jqzt=='学期中'?'selected':''); ?>>学期中</option>
+                                                <option value="暑假单" <?php echo e($re->jqzt=='暑假单'?'selected':''); ?>>暑假单</option>
+                                                <option value="寒假单" <?php echo e($re->jqzt=='寒假单'?'selected':''); ?>>寒假单</option>
                                             </select>
                                             <span class="no_ne"></span>
                                         </p>
@@ -137,7 +137,7 @@
                                             <span style="float: right" class="bj_btn">编辑</span>
                                         </p>
                                         <p>
-                                            <textarea class="bj_msg" style="display: block" name="ddbz"></textarea>
+                                            <textarea class="bj_msg" style="display: block" name="ddbz"><?php echo e($re->ddbz); ?></textarea>
                                         </p>
                                         <p><input type="submit" name="" value="修改"></p>
                                         <span class="no_ne"></span>
@@ -178,10 +178,11 @@
                                                 <option value="否" <?php if($re->tc_Signing == '否'): ?> selected = "selected" <?php endif; ?>>否</option>
                                             </select>
                                         </p>
-                                        <p>辅导类型:<select name="fdlx">
-                                                <option value="授课教学">授课教学</option>
-                                                <option value="作业辅导">作业辅导</option>
-                                                <option value="讲解疑难">讲解疑难</option>
+                                        <p>辅导类型:<select name="fdlx" autocomplete="off">
+                                                <option value="" >请选择</option>
+                                                <option value="授课教学" <?php echo e($re->fdlx=='授课教学'?'selected':''); ?>>授课教学</option>
+                                                <option value="作业辅导" <?php echo e($re->fdlx=='作业辅导'?'selected':''); ?>>作业辅导</option>
+                                                <option value="讲解疑难" <?php echo e($re->fdlx=='讲解疑难'?'selected':''); ?>>讲解疑难</option>
                                             </select>
                                             接单教员：
                                         </p>

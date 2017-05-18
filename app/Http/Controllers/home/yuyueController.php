@@ -209,6 +209,9 @@ class yuyueController extends Controller
                     //添加 预约信息
                    // $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid->u_id,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid,'yynum'=>'1','ap'=>'学员主动预约']);
                     $orderid = DB::table('jjw_order')->where('user_phone',$userid->phone)->where('status','3')->first();
+//                    if($orderid == ''){
+//                        $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid->u_id,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid,'yynum'=>'1','ap'=>'学员主动预约']);
+//                    }
                     if($orderid->yynum == ''){
                         $orderids = DB::table('jjw_order')->where('id',$orderid->id)->update(['subject_id' => $km,'time' => time(),'city_id' => $regionid,'yynum'=>'1','ap'=>'学员主动预约']);
                     }else{

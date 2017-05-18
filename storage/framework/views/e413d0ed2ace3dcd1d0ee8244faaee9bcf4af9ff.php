@@ -84,10 +84,10 @@
     <!-- 内容开始 -->
   <div class="TabContent">
       <div id="myTab0_Content0" >
-          <div style="float: left;margin:5px 0px 0px 5px;text-align: left"><b style="color: #ff0000;">可授科目：</b><?php echo e($list->tc_subjects); ?></div><br><br>
-          <div style="float: left;margin:5px 0px 0px 5px;text-align: left"><b style="color: #ff0000;">可授区域：</b><?php echo e($list->tc_area); ?></div><br><br><br>
-          <div class="DivJoin" style="float: left;margin:5px 0px 0px 5px;text-align: left"><b style="color: #ff0000;">可授课时间：</b><?php echo e($list->tc_sktime); ?></div><br><br>
-          <div style="float: left;margin:5px 0px 15px 5px;text-align: left"><b style="color: #ff0000;">课酬要求：</b><?php if($list->tc_salary == null): ?>执行德栗家教收费标准<?php else: ?><?php echo e($list->tc_salary); ?><?php endif; ?></div>
+          <div style=";margin:5px 0px 0px 5px;text-align: left"><b style="color: #ff0000;">可授科目：</b><?php echo e($list->tc_subjects); ?></div>
+          <div style=";margin:5px 0px 0px 5px;text-align: left"><b style="color: #ff0000;">可授区域：</b><?php echo e($list->tc_area); ?></div>
+          <div class="DivJoin" style="margin:5px 0px 0px 5px;text-align: left"><b style="color: #ff0000;">可授课时间：</b><?php echo e($list->tc_sktime); ?></div>
+          <div style="margin:5px 0px 15px 5px;text-align: left"><b style="color: #ff0000;">课酬要求：</b><?php if($list->tc_salary == null): ?>执行德栗家教收费标准<?php else: ?><?php echo e($list->tc_salary); ?><?php endif; ?></div>
       </div>
        <div id="myTab0_Content1" class="none">
            <div style="float: left;margin:5px 0px 0px 5px; text-align: left"><b style="color: #ff0000;">自我评价：</b><?php echo e($list->tc_comments); ?></div><br><br>
