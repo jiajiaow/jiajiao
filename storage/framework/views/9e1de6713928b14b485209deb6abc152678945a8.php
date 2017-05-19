@@ -174,8 +174,11 @@
                         </ul>
                     </el-tab-pane>
                     <?php $nums = 0;?>
+                    <?php $nums2 = 0;?>
                     <?php $__currentLoopData = $zhiyuan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $zy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <?php if($zy->dh_status == '0'): ?>
+                            <?php $nums2++;?>
+                            <?php if($nums2 < 6): ?>
                             <el-tab-pane label="<?php echo e($zy->dh_Navigationbar); ?>" name="second<?php echo e($zy->dh_id); ?>">
                                 <ul>
                                     <?php $__currentLoopData = $timu; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tm): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -191,6 +194,7 @@
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </ul>
                             </el-tab-pane>
+                            <?php endif; ?>
                         <?php endif; ?>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     
