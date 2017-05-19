@@ -119,7 +119,7 @@
                                         <p>编号:{{ $re->id }}</p>
                                         <p>姓名:<input name="user_name" value="{{ $re->user_name }}"></p>
                                         <p>学员姓名：<input type="text" name="" value="" style="width: 70px;"><span class="xyxm_btn">+</span></p>
-                                        <p>时间:{{ date('Y-m-d H:i:s',$re->time) }}</p>
+                                        <p>时间:{{ date('Y-m-d G:i:s',$re->time) }}</p>
                                         <p>学员等级:</p>
                                         <p style="position:relative; height: 20px;">
                                             <span style="float: left">学员备注:</span>
@@ -198,8 +198,6 @@
                                             </div>
                                             @if($re->tc_Signing == '否'){{ $re->money*$re->o_xs }}@else 0 @endif
                                         </div>
-
-
                                         <p>性别要求:
                                             <select name="teacher_sex">
                                                 <option value="1" @if($re->teacher_sex == '1') selected="selected" @endif>男</option>
@@ -221,9 +219,9 @@
                                 <div><?php $q = $re->o_ts*$re->o_xs*$re->money ?>
                                     <p>周薪酬:<input type="text" value="{{ $q }}" name="order_zkc"></p>
                                     <p>月薪酬:<input type="text" value="@if($re->o_ts == '1'){{ $q*4 }}@elseif($re->o_ts == '2'){{ $q*4 }}@elseif($re->o_ts == '3'){{ $q*4 }}@elseif($re->o_ts == '4'){{ $q*4 }}@elseif($re->o_ts == '5'){{ $q*4 }}@elseif($re->o_ts == '6'){{ $q*4 }}@elseif($re->o_ts == '7'){{ $q*4 }}@endif" name="order_ykc"></p>
-                                    <p>折扣：<input type="text"></p>
-                                    <p>预计总费用:<input type="text" value="@if($re->o_ts == '1'){{ $q*$re->bfb1+$re->fz_jzxxf }}@elseif($re->o_ts == '2'){{ $q*$re->bfb2+$re->fz_jzxxf }}@elseif($re->o_ts == '3'){{ $q*$re->bfb3+$re->fz_jzxxf }}@elseif($re->o_ts == '4'){{ $q*$re->bfb4+$re->fz_jzxxf }}@elseif($re->o_ts == '5'){{ $q*$re->bfb5+$re->fz_jzxxf }}@elseif($re->o_ts == '6'){{ $q*$re->bfb6+$re->fz_jzxxf }}@elseif($re->o_ts == '7'){{ $q*$re->bfb7+$re->fz_jzxxf }}@endif"name="money" style="width: 60px;"></p>
-                                    <p>预计信息费:<input type="text" name="order_xxf" value="@if($re->o_ts == '1'){{ $q*$re->bfb1 }}@elseif($re->o_ts == '2'){{ $q*$re->bfb2 }}@elseif($re->o_ts == '3'){{ $q*$re->bfb3 }}@elseif($re->o_ts == '4'){{ $q*$re->bfb4 }}@elseif($re->o_ts == '5'){{ $q*$re->bfb5 }}@elseif($re->o_ts == '6'){{ $q*$re->bfb6 }}@elseif($re->o_ts == '7'){{ $q*$re->bfb7 }}@endif"style="width: 60px;"></p>
+                                    <p>折扣：<input type="text" value="{{ $re->zk }}"></p>
+                                    <p>预计总费用:<input type="text" value="@if($re->o_ts == '1'){{ (($q*$re->bfb1)*$re->zk)+$re->fz_jzxxf }}@elseif($re->o_ts == '2'){{ (($q*$re->bfb2)*$re->zk)+$re->fz_jzxxf }}@elseif($re->o_ts == '3'){{ (($q*$re->bfb3)*$re->zk)+$re->fz_jzxxf }}@elseif($re->o_ts == '4'){{ (($q*$re->bfb4)*$re->zk)+$re->fz_jzxxf }}@elseif($re->o_ts == '5'){{ (($q*$re->bfb5)*$re->zk)+$re->fz_jzxxf }}@elseif($re->o_ts == '6'){{ (($q*$re->bfb6)*$re->zk)+$re->fz_jzxxf }}@elseif($re->o_ts == '7'){{ (($q*$re->bfb7)*$re->zk)+$re->fz_jzxxf }}@endif"name="money" style="width: 60px;"></p>
+                                    <p>预计信息费:<input type="text" name="order_xxf" value="@if($re->o_ts == '1'){{ ($q*$re->bfb1)*$re->zk }}@elseif($re->o_ts == '2'){{ ($q*$re->bfb2)*$re->zk }}@elseif($re->o_ts == '3'){{ ($q*$re->bfb3)*$re->zk }}@elseif($re->o_ts == '4'){{ ($q*$re->bfb4)*$re->zk }}@elseif($re->o_ts == '5'){{ ($q*$re->bfb5)*$re->zk }}@elseif($re->o_ts == '6'){{ ($q*$re->bfb6)*$re->zk }}@elseif($re->o_ts == '7'){{ ($q*$re->bfb7)*$re->zk }}@endif"style="width: 60px;"></p>
                                     <p>家长服务费:<input type="text" value="{{$re->fz_jzxxf}}" name="order_jzfy" style="width: 60px;"></p>
                                     <p>实际收款总额:<input type="text" name="sjsk" style="width:40px;"></p>
                                     <p>收费差额:<input type="text" name="sfc" style="width:70px;"></p>

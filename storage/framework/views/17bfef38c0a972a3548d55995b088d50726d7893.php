@@ -121,7 +121,7 @@
                                         <p>编号:<?php echo e($re->id); ?></p>
                                         <p>姓名:<input name="user_name" value="<?php echo e($re->user_name); ?>"></p>
                                         <p>学员姓名：<input type="text" name="" value="" style="width: 70px;"><span class="xyxm_btn">+</span></p>
-                                        <p>时间:<?php echo e(date('Y-m-d H:i:s',$re->time)); ?></p>
+                                        <p>时间:<?php echo e(date('Y-m-d G:i:s',$re->time)); ?></p>
                                         <p>学员等级:</p>
                                         <p style="position:relative; height: 20px;">
                                             <span style="float: left">学员备注:</span>
@@ -202,8 +202,6 @@
                                             </div>
                                             <?php if($re->tc_Signing == '否'): ?><?php echo e($re->money*$re->o_xs); ?><?php else: ?> 0 <?php endif; ?>
                                         </div>
-
-
                                         <p>性别要求:
                                             <select name="teacher_sex">
                                                 <option value="1" <?php if($re->teacher_sex == '1'): ?> selected="selected" <?php endif; ?>>男</option>
@@ -225,9 +223,9 @@
                                 <div><?php $q = $re->o_ts*$re->o_xs*$re->money ?>
                                     <p>周薪酬:<input type="text" value="<?php echo e($q); ?>" name="order_zkc"></p>
                                     <p>月薪酬:<input type="text" value="<?php if($re->o_ts == '1'): ?><?php echo e($q*4); ?><?php elseif($re->o_ts == '2'): ?><?php echo e($q*4); ?><?php elseif($re->o_ts == '3'): ?><?php echo e($q*4); ?><?php elseif($re->o_ts == '4'): ?><?php echo e($q*4); ?><?php elseif($re->o_ts == '5'): ?><?php echo e($q*4); ?><?php elseif($re->o_ts == '6'): ?><?php echo e($q*4); ?><?php elseif($re->o_ts == '7'): ?><?php echo e($q*4); ?><?php endif; ?>" name="order_ykc"></p>
-                                    <p>折扣：<input type="text"></p>
-                                    <p>预计总费用:<input type="text" value="<?php if($re->o_ts == '1'): ?><?php echo e($q*$re->bfb1+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '2'): ?><?php echo e($q*$re->bfb2+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '3'): ?><?php echo e($q*$re->bfb3+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '4'): ?><?php echo e($q*$re->bfb4+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '5'): ?><?php echo e($q*$re->bfb5+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '6'): ?><?php echo e($q*$re->bfb6+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '7'): ?><?php echo e($q*$re->bfb7+$re->fz_jzxxf); ?><?php endif; ?>"name="money" style="width: 60px;"></p>
-                                    <p>预计信息费:<input type="text" name="order_xxf" value="<?php if($re->o_ts == '1'): ?><?php echo e($q*$re->bfb1); ?><?php elseif($re->o_ts == '2'): ?><?php echo e($q*$re->bfb2); ?><?php elseif($re->o_ts == '3'): ?><?php echo e($q*$re->bfb3); ?><?php elseif($re->o_ts == '4'): ?><?php echo e($q*$re->bfb4); ?><?php elseif($re->o_ts == '5'): ?><?php echo e($q*$re->bfb5); ?><?php elseif($re->o_ts == '6'): ?><?php echo e($q*$re->bfb6); ?><?php elseif($re->o_ts == '7'): ?><?php echo e($q*$re->bfb7); ?><?php endif; ?>"style="width: 60px;"></p>
+                                    <p>折扣：<input type="text" value="<?php echo e($re->zk); ?>"></p>
+                                    <p>预计总费用:<input type="text" value="<?php if($re->o_ts == '1'): ?><?php echo e((($q*$re->bfb1)*$re->zk)+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '2'): ?><?php echo e((($q*$re->bfb2)*$re->zk)+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '3'): ?><?php echo e((($q*$re->bfb3)*$re->zk)+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '4'): ?><?php echo e((($q*$re->bfb4)*$re->zk)+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '5'): ?><?php echo e((($q*$re->bfb5)*$re->zk)+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '6'): ?><?php echo e((($q*$re->bfb6)*$re->zk)+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '7'): ?><?php echo e((($q*$re->bfb7)*$re->zk)+$re->fz_jzxxf); ?><?php endif; ?>"name="money" style="width: 60px;"></p>
+                                    <p>预计信息费:<input type="text" name="order_xxf" value="<?php if($re->o_ts == '1'): ?><?php echo e(($q*$re->bfb1)*$re->zk); ?><?php elseif($re->o_ts == '2'): ?><?php echo e(($q*$re->bfb2)*$re->zk); ?><?php elseif($re->o_ts == '3'): ?><?php echo e(($q*$re->bfb3)*$re->zk); ?><?php elseif($re->o_ts == '4'): ?><?php echo e(($q*$re->bfb4)*$re->zk); ?><?php elseif($re->o_ts == '5'): ?><?php echo e(($q*$re->bfb5)*$re->zk); ?><?php elseif($re->o_ts == '6'): ?><?php echo e(($q*$re->bfb6)*$re->zk); ?><?php elseif($re->o_ts == '7'): ?><?php echo e(($q*$re->bfb7)*$re->zk); ?><?php endif; ?>"style="width: 60px;"></p>
                                     <p>家长服务费:<input type="text" value="<?php echo e($re->fz_jzxxf); ?>" name="order_jzfy" style="width: 60px;"></p>
                                     <p>实际收款总额:<input type="text" name="sjsk" style="width:40px;"></p>
                                     <p>收费差额:<input type="text" name="sfc" style="width:70px;"></p>
