@@ -173,8 +173,11 @@
                         </ul>
                     </el-tab-pane>
                     <?php $nums = 0;?>
+                    <?php $nums2 = 0;?>
                     @foreach($zhiyuan as $zy)
                         @if($zy->dh_status == '0')
+                            <?php $nums2++;?>
+                            @if($nums2 < 6)
                             <el-tab-pane label="{{ $zy->dh_Navigationbar }}" name="second{{ $zy->dh_id }}">
                                 <ul>
                                     @foreach($timu as $tm)
@@ -189,6 +192,7 @@
                                     @endforeach
                                 </ul>
                             </el-tab-pane>
+                            @endif
                         @endif
                     @endforeach
                     {{--<el-tab-pane label="英语资源" name="second">配置管理</el-tab-pane>--}}
