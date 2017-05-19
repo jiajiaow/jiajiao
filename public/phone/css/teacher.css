@@ -1,0 +1,79 @@
+.nav_sele {
+    border-bottom: 1px solid #fbde9f;
+    background: #fff;
+}
+.nav_sele li {
+    display: inline-block;
+    width: 22%;
+    text-align: center;
+}
+.teacher_name {
+    font-family: STXihei;
+    font-weight: 600;
+    font-size: .4rem;
+    margin-bottom: .16rem;
+}
+.teacher_num {
+    font-family: monospace;
+    font-weight: 100;
+    font-size: .33rem;
+    color: #c0c0c0;
+    margin-left: .1rem;
+}
+.teacher_desc {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #9a9a9a;
+    margin-bottom: .3rem;
+    font-family: sans-serif;
+}
+.teacher_box{
+    background: #ffffff;
+}
+.teacher_msg {
+    color: #adadad;
+}
+.teacher_info {
+    flex: 1 1 auto;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.teacher_box li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: .3rem;
+}
+.teacher_avatar {
+    margin-right: .25rem;
+    text-align: center;
+}
+.jt_right_box {
+    margin-left: 0.5rem;
+}
+.jt_right {
+    background: url(../img/right.png) no-repeat;
+    background-size: 100%;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+}
+.teacher_school_icon {
+    background: url(../img/dx@2x.png) no-repeat;
+    display: inline-block;
+    width: .4rem;
+    height: .7rem;
+    vertical-align: middle;
+    margin: -.1rem .2rem 0 0;
+    background-size: 100%;
+}
+.teacher_edu_icon {
+    background: url(../img/zy@2x.png) no-repeat;
+    display: inline-block;
+    width: .5rem;
+    height: .5rem;
+    vertical-align: middle;
+    margin: 0 .1rem 0 .1rem;
+    background-size: 100%;
+}
