@@ -5,6 +5,9 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
+use Flc\Alidayu\Client;
+use Flc\Alidayu\App;
+use Flc\Alidayu\Requests\AlibabaAliqinFcSmsNumSend;
 class orderController extends Controller
 {
     public function xsdd(Request $request)
@@ -137,6 +140,18 @@ class orderController extends Controller
             DB::table('jjw_reorder')->where('oid',$oid)->where('tc_id',$tc_id)->update(['qt_t_status' => '1']);
 
         }else if($ht_t_status == '3'){//已审核
+            //教员审核短信
+            $config = [
+                'app_key'    => '23779228',
+                'app_secret' => '9d9788c22c9a4dbc8522fae7b97b15ae',
+            ];
+            $client = new Client(new App($config));
+            $req    = new AlibabaAliqinFcSmsNumSend;
+            $req->setRecNum($_POST['tc_phone'])
+                ->setSmsParam(['oid' => "$oid"])
+                ->setSmsFreeSignName('大鱼测试')
+                ->setSmsTemplateCode('SMS_67295549');
+            $resp = $client->execute($req);
             //修改选择的状态
             DB::table('jjw_reorder')->where('oid',$oid)->where('tc_id',$tc_id)->update(['ht_t_status' => $ht_t_status]);
             //修改前台教员状态 <!-- 不清楚修改什么 -->

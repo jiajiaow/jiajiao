@@ -160,6 +160,7 @@
                                         {{ csrf_field() }}
                                         <input type="hidden" name="oid" value="{{ $re->oid }}"/>
                                         <input type="hidden" name="tc_id" value="{{ $re->tc_id }}"/>
+                                        <input type="hidden" name="tc_phone" value="{{ $re->tc_phone }}"/>
                                         <select name="ht_t_status">
                                             <option value="1" @if($re->ht_t_status == '1') selected='selected' @endif >已预约</option>
                                             <!-- <option value="2">待处理</option> -->
