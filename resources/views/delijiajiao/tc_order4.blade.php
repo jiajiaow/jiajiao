@@ -545,7 +545,7 @@
                                                 @if($skzs->tk_type !='')
                                                     <span style="margin-left: 110px;" onclick="layer.alert('请您先确认合同!')" >申请退款</span>
                                                 @else
-                                                    <span style="margin-left: 110px;" onclick="layer.alert('你已经提交过申请了!')" >申请退款</span>
+                                                    <button style="margin-left: 110px;" type="submit" >申请退款</button>
                                                 @endif
                                             @endif<span class="seeMar">{{--<button>申请诚意金解锁</button>--}}</span><span><span style="padding: 0 13px;"  class="qxBtn" onclick="qx({{ $skzs->id }})">取消</span></span>
                                         </p>

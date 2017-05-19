@@ -531,7 +531,7 @@
                                                 <?php if($skzs->tk_type !=''): ?>
                                                     <span style="margin-left: 110px;" onclick="layer.alert('请您先确认合同!')" >申请退款</span>
                                                 <?php else: ?>
-                                                    <span style="margin-left: 110px;" onclick="layer.alert('你已经提交过申请了!')" >申请退款</span>
+                                                    <button style="margin-left: 110px;" type="submit" >申请退款</button>
                                                 <?php endif; ?>
                                             <?php endif; ?><span class="seeMar"></span><span><span style="padding: 0 13px;"  class="qxBtn" onclick="qx(<?php echo e($skzs->id); ?>)">取消</span></span>
                                         </p>

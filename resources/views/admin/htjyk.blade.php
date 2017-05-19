@@ -71,7 +71,7 @@
                                     <p>编号：{{ $re->id }}</p>
                                     <p>注册入口：<input type="text" name=""></p>
                                     <p>注册时间：{{ $re->tc_reg_date }}</p>
-                                    <p>最近登录：{{ date('Y-m-d h:i:s',$re->tc_dltimes) }}</p>
+                                    <p>最近登录：{{ date('Y-m-d G:i:s',$re->tc_dltimes) }}</p>
                                     <p>平时城市：<input type="text" name="" value="{{ $re->tc_citys }}"></p>
                                     <p>暑假城市：<input type="text" name="" value="{{ $re->tc_shu }}"></p>
                                     <p>寒假城市：<input type="text" name="" value="{{ $re->tc_han }}"></p>
@@ -81,7 +81,7 @@
                                 <div>
                                     <p>姓名：<input type="text" value="{{ $re->tc_name }}"></p>
                                     <p>籍贯：<input type="text" value="{{ $re->tc_jiguan }}"></p>
-                                    <p>性别：<input type="text" value="{{ $re->tc_sex=='1'?'男':'女' }}"></p>
+                                    <p>性别：<input type="text" value="@if($re->tc_sex=='1')男@elseif($re->tc_sex=='0')女@elseif($re->tc_sex=='')@endif"></p>
                                     <p>教员性质：<input type="text" name="" value=""></p>
                                     <p>教员等级：<input type="text" name="" value=""></p>
                                     <p>教员类型：<input type="text" name="" value="{{ $re->tc_type }}"></p>

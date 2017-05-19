@@ -71,7 +71,7 @@
                                     <p>编号：<?php echo e($re->id); ?></p>
                                     <p>注册入口：<input type="text" name=""></p>
                                     <p>注册时间：<?php echo e($re->tc_reg_date); ?></p>
-                                    <p>最近登录：<?php echo e(date('Y-m-d h:i:s',$re->tc_dltimes)); ?></p>
+                                    <p>最近登录：<?php echo e(date('Y-m-d G:i:s',$re->tc_dltimes)); ?></p>
                                     <p>平时城市：<input type="text" name="" value="<?php echo e($re->tc_citys); ?>"></p>
                                     <p>暑假城市：<input type="text" name="" value="<?php echo e($re->tc_shu); ?>"></p>
                                     <p>寒假城市：<input type="text" name="" value="<?php echo e($re->tc_han); ?>"></p>
@@ -81,7 +81,7 @@
                                 <div>
                                     <p>姓名：<input type="text" value="<?php echo e($re->tc_name); ?>"></p>
                                     <p>籍贯：<input type="text" value="<?php echo e($re->tc_jiguan); ?>"></p>
-                                    <p>性别：<input type="text" value="<?php echo e($re->tc_sex=='1'?'男':'女'); ?>"></p>
+                                    <p>性别：<input type="text" value="<?php if($re->tc_sex=='1'): ?>男<?php elseif($re->tc_sex=='0'): ?>女<?php elseif($re->tc_sex==''): ?><?php endif; ?>"></p>
                                     <p>教员性质：<input type="text" name="" value=""></p>
                                     <p>教员等级：<input type="text" name="" value=""></p>
                                     <p>教员类型：<input type="text" name="" value="<?php echo e($re->tc_type); ?>"></p>
@@ -118,7 +118,7 @@
                                     <p>QQ：<input type="text" name="" value="<?php echo e($re->tc_qq); ?>"></p>
                                     <p>备用电话：<input type="text" name="" value="<?php echo e($re->tc_phone_bak); ?>"></p>
                                     <p><a href="">个人基础评分：</a><input type="text" name="" value=""></p>
-                                    <p><button>QQ交谈</button></p>
+                                    <p><a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo e($re->tc_qq); ?>&site=<?php echo e($re->tc_qq); ?>&menu=yes">QQ交谈</a></p>
                                 </div>
                             </td>
                             <td>
