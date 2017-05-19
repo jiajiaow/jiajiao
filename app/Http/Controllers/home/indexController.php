@@ -177,7 +177,7 @@ class indexController extends Controller{
                 //return view('delijiajiao.index',['jinpai'=>$jinpai,'xueshen'=>$xueshen,'zhuanzhi'=>$zhuanzhi,'data'=>$data,'xx' => $xx,'xueke'=>$xueke,'dq'=>$dq]);
                 //教学资源
                 $zhiyuan = DB::table('jjw_navigation')->orderBy('dh_status','desc')->get();
-                $timu = DB::table('jjw_articlelist')->orderBy('ar_status','desc')->paginate(5);
+                $timu = DB::table('jjw_articlelist')->orderBy('ar_status','desc')->get();
                 return view('phonedl.index',['jy'=>$jy,'data'=>$data,'xx' => $xx,'xueke'=>$xueke,'dq'=>$dq,'zhiyuan'=>$zhiyuan,'timu'=>$timu]);
             }
 
