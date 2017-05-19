@@ -158,8 +158,10 @@
             <div class="msg_box_tab_content">
                 <el-tabs v-model="activeName2" type="card" >
                     <el-tab-pane label="全部资源" name="first">
-                        <ul>
+                        <ul><?php $num = 0;?>
                             <?php $__currentLoopData = $timu; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tm): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php $num++;?>
+                            <?php if($num < 6): ?>
                             <li class="el_tab_content">
                                 <span class="el_tab_content-l">
                                     <?php echo e($tm->ar_title); ?>
@@ -167,15 +169,17 @@
                                 </span>
                                 <span class="el_tab_content-r"><?php echo e(substr($tm->ar_time,0,10)); ?></span>
                             </li>
+                            <?php endif; ?>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </ul>
                     </el-tab-pane>
+                    <?php $nums = 0;?>
                     <?php $__currentLoopData = $zhiyuan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $zy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <?php if($zy->dh_status == '0'): ?>
                             <el-tab-pane label="<?php echo e($zy->dh_Navigationbar); ?>" name="second<?php echo e($zy->dh_id); ?>">
                                 <ul>
                                     <?php $__currentLoopData = $timu; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tm): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <?php if($zy->dh_id == $tm->ar_pid): ?>
+                                        <?php if($tm->ar_pid  ==  $zy->dh_id): ?>
                                             <li class="el_tab_content">
                                                 <span class="el_tab_content-l">
                                                     <?php echo e($tm->ar_title); ?>
@@ -214,7 +218,7 @@
                                     <?php echo e($tm->ar_title); ?>
 
                                 </span>
-                                <span class="el_tab_content-r">2017.5.7</span>
+                                <span class="el_tab_content-r"><?php echo e(substr($tm->ar_time,0,10)); ?></span>
                             </li>
                             <?php endif; ?>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

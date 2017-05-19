@@ -158,23 +158,27 @@
             <div class="msg_box_tab_content">
                 <el-tabs v-model="activeName2" type="card" >
                     <el-tab-pane label="全部资源" name="first">
-                        <ul>
+                        <ul><?php $num = 0;?>
                             @foreach($timu as $tm)
+                            <?php $num++;?>
+                            @if($num < 6)
                             <li class="el_tab_content">
                                 <span class="el_tab_content-l">
                                     {{ $tm->ar_title }}
                                 </span>
                                 <span class="el_tab_content-r">{{ substr($tm->ar_time,0,10) }}</span>
                             </li>
+                            @endif
                             @endforeach
                         </ul>
                     </el-tab-pane>
+                    <?php $nums = 0;?>
                     @foreach($zhiyuan as $zy)
                         @if($zy->dh_status == '0')
                             <el-tab-pane label="{{ $zy->dh_Navigationbar }}" name="second{{ $zy->dh_id }}">
                                 <ul>
                                     @foreach($timu as $tm)
-                                        @if($zy->dh_id == $tm->ar_pid)
+                                        @if($tm->ar_pid  ==  $zy->dh_id)
                                             <li class="el_tab_content">
                                                 <span class="el_tab_content-l">
                                                     {{ $tm->ar_title }}
@@ -211,7 +215,7 @@
                                 <span class="el_tab_content-l">
                                     {{ $tm->ar_title }}
                                 </span>
-                                <span class="el_tab_content-r">2017.5.7</span>
+                                <span class="el_tab_content-r">{{ substr($tm->ar_time,0,10) }}</span>
                             </li>
                             @endif
                             @endforeach
