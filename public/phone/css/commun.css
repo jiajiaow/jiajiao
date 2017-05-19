@@ -1,0 +1,105 @@
+.el-tabs__header {
+    border:none;
+    padding: 0;
+    position: relative;
+    margin: 0 0 15px;
+}
+.el-tabs__nav {
+    position: relative;
+    transition: transform .3s;
+    float: left;
+    padding: .3rem .1rem;
+}
+.el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active {
+    background-color: #f7b529;
+    border-right-color: #d1dbe5;
+    border-left-color: #d1dbe5;
+}
+.el-tabs--border-card>.el-tabs__header .el-tabs__item {
+    transition: all .3s cubic-bezier(.645,.045,.355,1);
+    border: 1px solid #f7bc3e;
+    margin-right: -1px;
+    margin-left: -1px;
+}
+.el-tabs__item.is-active {
+    color: #fff;
+    background-color: #f7b529;
+}
+.el-tabs__nav .el-tabs__item:nth-child(1){
+    border-radius: .2rem 1px 1px .2rem;
+}
+.el-tabs__nav .el-tabs__item:nth-child(2){
+    border-radius: 1px .2rem .2rem 1px;
+}
+.el-tabs__item {
+    padding: 0 .9rem;
+    height: .67rem;
+    box-sizing: border-box;
+    line-height: .67rem;
+    display: inline-block;
+    list-style: none;
+    color: #f7b529;
+    position: relative;
+    font-size: .3rem;
+}
+.el-tabs--border-card>.el-tabs__content {
+     padding: 0;
+}
+.sendMsg {
+    position: absolute;
+    right: .2rem;
+    top: 1.33rem;
+    background: #40b9fe;
+    color: #fff;
+    border-radius: .1rem;
+    width: 3.5rem;
+    height: .65rem;
+    text-align: center;
+    line-height: .65rem;
+}
+.el-tab-pane {
+    background: #f2f8ff;
+    padding: .2rem;
+}
+.com_content_msg_box {
+    padding: .5rem .35rem .4rem .35rem;
+    background: #fff;
+    border-radius: .1rem;
+}
+.com_msg_title {
+    font-size: .4rem;
+}
+.com_msg_p {
+    font-size: .35rem;
+    line-height: .6rem;
+    border-bottom: 1px solid #c7c7c7;
+    padding: .2rem 0;
+    overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;
+}
+.com_msg_bottom {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: .3rem;
+    align-items: center;
+}
+.laji_icon{
+    background: url("../img/laji.png") center center no-repeat;
+    background-size: 100%;
+    width: .4rem;
+    height: .4rem;
+    display: inline-block;
+    margin: 0 .1rem;
+}
+.huifu_icon{
+    background: url("../img/huifu.png") center center no-repeat;
+    background-size: 100%;
+    width: .4rem;
+    height: .4rem;
+    display: inline-block;
+    margin: 0 .1rem;
+}
+.flex_box {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}

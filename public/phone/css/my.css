@@ -1,0 +1,152 @@
+.wrap{
+    background: #f2f7ff;
+}
+
+.my_details_box {
+    background: #fff;
+    box-sizing: border-box;
+}
+.my_details_top {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: .66rem 0;
+}
+.mdt_ava {
+    margin-left: .6rem;
+}
+.mdt_msg {
+    flex: 1;
+    margin-left: .5rem;
+}
+.mdtm_name {
+    margin-bottom: .2rem;
+    font-size: .43rem;
+    font-weight: 500;
+}
+.mdym_num {
+    font-size: .35rem;
+    margin-left: .2rem;
+    color: #c7c7c7;
+}
+.mdtm_phone {
+    margin-bottom: .4rem;
+    color: #646464;
+}
+.mdtm_see {
+    color: #686868;
+    display: flex;
+    align-items: center;
+}
+.mdtm_see span{
+    display: flex;
+    align-items: center;
+}
+.my_doubt{
+    background: url("../img/wh.png") no-repeat;
+    width: .3rem;
+    height: .3rem;
+    background-size: 100%;
+    margin: 0 .2rem;
+}
+.my_grade{
+    background: url("../img/qy.png") no-repeat;
+}
+.my_id{
+    background: url("../img/sfyz.png") no-repeat;
+}
+.icon {
+    width: .5rem;
+    height: .45rem;
+    background-size: 100%;
+    display: inline-block;
+    margin-right: .1rem;
+}
+
+.my_details_bottom {
+    padding-bottom: .5rem;
+}
+.my_details_bottom_ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.my_details_bottom_ul li {
+    border-right: 1px solid #e9e9e9;
+    width: 33%;
+    text-align: center;
+}
+.my_details_bottom_ul li:nth-child(3){
+    border: none;
+}
+.my_details_bottom_ul li p:nth-child(1){
+    color: #ffbe2b;
+    font-size: .4rem;
+    margin-bottom: .22rem;
+}
+.my_details_bottom_ul li p:nth-child(2) {
+    color: #c4c4c4;
+    font-size: .3rem;
+}
+.my_information {
+    background: #fff;
+    margin-top: .3rem;
+}
+.my_information li {
+    display: flex;
+    align-items: center;
+    font-size: .38rem;
+    padding-left: .5rem;
+}
+.my_information li div {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    border-bottom: 1px solid #ededed;
+}
+.my_information li div:nth-child(4){
+    border: none;
+}
+.my_information li div p {
+    flex: 1;
+    padding: .35rem 0;
+    color: #6a6a6a;
+}
+.right_icon {
+    background: url(../img/right.png) no-repeat;
+    width: .6rem;
+    height: .6rem;
+    background-size: 100%;
+    display: block;
+}
+.my_money {
+    padding-bottom: 2rem;
+}
+.icons {
+    width: .6rem;
+    height: .6rem;
+    background-size: 100%;
+    display: inline-block;
+    margin-right: .2rem;
+}
+.my_icon{
+    background: url("../img/my_icon.png") no-repeat;
+}
+.my_dd{
+    background: url("../img/my_dd.png") no-repeat;
+}
+.my_setdd{
+    background: url("../img/my_setdd.png") no-repeat;
+}
+.my_xy{
+    background: url("../img/my_xy.png") no-repeat;
+}
+.my_cw{
+    background: url("../img/my_cw.png") no-repeat;
+}
+.my_shop{
+    background: url("../img/my_shop.png") no-repeat;
+}
+.my_info{
+    background: url("../img/my_info.png") no-repeat;
+}
