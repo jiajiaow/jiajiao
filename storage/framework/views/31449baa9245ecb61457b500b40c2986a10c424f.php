@@ -54,7 +54,7 @@
                 </div>
                 <div class="teacher_info">
                     <p class="teacher_name"><?php echo e(substr($li->tc_name,0,3)); ?>教员/<?php echo e($li->tc_sex=='1'?'男':'女'); ?><span class="teacher_num">T<?php echo e($li->id); ?></span></p>
-                    <p class="teacher_desc"><?php echo e($li->tc_comments); ?></p>
+                    <p class="teacher_desc"><?php echo e(subtext($li->tc_comments,10)); ?></p>
                     <div class="teacher_msg">
                         <span><i class="teacher_school_icon"></i><?php echo e($li->tc_school=='如无上述学校请手动输入'?'':$li->tc_school); ?></span>
                         <span style="margin-left: .2rem"><i class="teacher_edu_icon"></i><?php echo e($li->tc_zhuanye); ?></span>
@@ -114,11 +114,11 @@
         -moz-appearance: none;
         -webkit-appearance: none;
         background: url(/phone/img/csj.png) no-repeat scroll right center transparent;
-        width: 45%;
-        padding: .18rem 14px .18rem 0;
+        width: 55%;
         font-size: .32rem;
         background-size: .25rem;
         color: #000;
+        height: 1rem;
     }
     li.spacer {
         overflow: hidden;

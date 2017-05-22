@@ -7,7 +7,6 @@ use \DB;
 use \Cookie;
 class indexController extends Controller{
 
-    //构造函数获取当前域名
     public function __construct()
     {
         //正则表达式
@@ -67,6 +66,7 @@ class indexController extends Controller{
                 //地区名称
                 session(['regionname' => $re->city_name]);
             }else if($dlurl == 'delijiajiao.com/mobile'){
+                echo 'delijiajiao.com/mobile';die;
                 $re = DB::table('jjw_position_city')->where('prefix',$qz)->first();
                 //模板
                 session(['Template' => '4']);
@@ -75,13 +75,8 @@ class indexController extends Controller{
                 //地区名称
                 session(['regionname' => $re->title]);
                 session(['phone' => $re->phone]);
-                session(['fz_wxhao' => $re->fz_wxhao]);
-                session(['fz_qqhao' => $re->fz_qqhao]);
-                session(['cityname' => $re->city_name]);
-                session(['fz_wx' => $re->fz_wx]);
-                session(['fz_qq' => $re->fz_qq]);
             }else{
-                /*------------------------------------*/
+
                 if($zlpc == 'www.lizhijiajiao.com'){
                     //地区id
                     session(['regionid' => '440100000000']);
@@ -93,10 +88,12 @@ class indexController extends Controller{
                     session(['regionname' => $re->city_name]);
                     return 'zlpc';
                 }elseif($dlpc == 'www.delijiajiao.com'){
+
                     //地区id
                     session(['regionid' => '440100000000']);
                     //模板
                     session(['Template' => '2']);
+
                     $re = DB::table('jjw_position_city')->where('city_id','440100000000')->first();
                     //dd($re);
                     //地区名称
@@ -111,6 +108,7 @@ class indexController extends Controller{
                     if($zy == 'lizhijiajiao'){
                         $re = DB::table('jjw_position_city')->where('prefix',$qz)->first();
                         //模板
+
                         session(['Template' => '1']);
                         //地区id
                         session(['regionid' => $re->city_id]);
@@ -127,9 +125,10 @@ class indexController extends Controller{
                         session(['phone' => $re->phone]);
                         session(['fz_wxhao' => $re->fz_wxhao]);
                         session(['cityname' => $re->city_name]);
+//                    /dd($re);
                     }
                 }
-                /*------------------------------------*/
+
             }
         }
 
@@ -177,7 +176,7 @@ class indexController extends Controller{
                 //return view('delijiajiao.index',['jinpai'=>$jinpai,'xueshen'=>$xueshen,'zhuanzhi'=>$zhuanzhi,'data'=>$data,'xx' => $xx,'xueke'=>$xueke,'dq'=>$dq]);
                 //教学资源
                 $zhiyuan = DB::table('jjw_navigation')->orderBy('dh_status','desc')->get();
-                $timu = DB::table('jjw_articlelist')->orderBy('ar_status','desc')->get();
+                $timu = DB::table('jjw_articlelist')->orderBy('ar_status','desc')->paginate(5);
                 return view('phonedl.index',['jy'=>$jy,'data'=>$data,'xx' => $xx,'xueke'=>$xueke,'dq'=>$dq,'zhiyuan'=>$zhiyuan,'timu'=>$timu]);
             }
 
