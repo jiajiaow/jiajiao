@@ -121,7 +121,6 @@
                                         <p>编号:<?php echo e($re->id); ?></p>
                                         <p>姓名:<input name="user_name" value="<?php echo e($re->user_name); ?>"></p>
                                         <p>学员姓名：<input type="text" name="" value="" style="width: 70px;"><span class="xyxm_btn">+</span></p>
-                                        <p>时间:<?php echo e(date('Y-m-d G:i:s',$re->time)); ?></p>
                                         <p>学员等级:</p>
                                         <p style="position:relative; height: 20px;">
                                             <span style="float: left">学员备注:</span>

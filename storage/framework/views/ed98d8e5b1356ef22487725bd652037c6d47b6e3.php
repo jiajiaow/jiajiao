@@ -161,7 +161,7 @@
                             </div>
                             <div class="pm zqm">
                                 <div class="left">
-                                    信息费：<?php if($yaps->o_ts == '1'): ?><?php echo e($q*$yaps->bfb1); ?><?php elseif($yaps->o_ts == '2'): ?><?php echo e($q*$yaps->bfb2); ?><?php elseif($yaps->o_ts == '3'): ?><?php echo e($q*$yaps->bfb3); ?><?php elseif($yaps->o_ts == '4'): ?><?php echo e($q*$yaps->bfb4); ?><?php elseif($yaps->o_ts == '5'): ?><?php echo e($q*$yaps->bfb5); ?><?php elseif($yaps->o_ts == '6'): ?><?php echo e($q*$yaps->bfb6); ?><?php elseif($yaps->o_ts == '7'): ?><?php echo e($q*$yaps->bfb7); ?><?php endif; ?>元
+                                    信息费：<?php if($yaps->o_ts == '1'): ?><?php echo e(($q*$yaps->bfb1)*$yaps->zk); ?><?php elseif($yaps->o_ts == '2'): ?><?php echo e(($q*$yaps->bfb2)*$yaps->zk); ?><?php elseif($yaps->o_ts == '3'): ?><?php echo e(($q*$yaps->bfb3)*$yaps->zk); ?><?php elseif($yaps->o_ts == '4'): ?><?php echo e(($q*$yaps->bfb4)*$yaps->zk); ?><?php elseif($yaps->o_ts == '5'): ?><?php echo e(($q*$yaps->bfb5)*$yaps->zk); ?><?php elseif($yaps->o_ts == '6'): ?><?php echo e(($q*$yaps->bfb6)*$yaps->zk); ?><?php elseif($yaps->o_ts == '7'): ?><?php echo e(($q*$yaps->bfb7)*$yaps->zk); ?><?php endif; ?>元
                                 </div>
                                 <div class="right">
                                     成功后需付信息费：
