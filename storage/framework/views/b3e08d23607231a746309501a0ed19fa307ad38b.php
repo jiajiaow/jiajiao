@@ -15,7 +15,7 @@
           </div>
           <div class="info">
             <div class="info-left">
-              <p>学员请家教预算：<i><?php echo e($data->money); ?>元/次</i></p>
+              <p>学员请家教预算：<i><?php echo e($data->money*$data->o_xs); ?>元/次</i></p>
               <span><i><?php echo e($data->browsenu); ?></i>人浏览  已有<i><?php echo e($data->yynum); ?></i>人申请</span>
             </div>
             <div class="info-center" style="float:left;">
@@ -109,7 +109,7 @@
                               男女不限
                           <?php endif; ?>
                       </span></li>
-                  <li>课酬： <i><?php echo e($data->money); ?>元/次</i></li>
+                  <li>课酬： <i><?php echo e($data->money*$data->o_xs); ?>元/次</i></li>
                   <li>教学方式：<span>教员上门</span></li>
                   <li>老师类型：<span><?php echo e($data->ls_type); ?></span></li>
                   <li>其它要求：<span><?php echo e($data->teacher_info); ?></span></li>

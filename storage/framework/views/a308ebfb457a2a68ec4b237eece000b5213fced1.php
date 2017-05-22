@@ -171,7 +171,7 @@
 
             </div>
             <div class="fcb_bottom">
-                <p class="fcb_bottom_titp" style="padding: 14px 0 3px 50px;;text-align: left;margin:0;color: #fff;font-size: 14px;">您希望的授课类型：</p>
+                <p class="fcb_bottom_titp" style="padding: 14px 0 3px 50px;;text-align: left;margin:0;color: #fff;font-size: 14px;">您孩子希望辅导的类型：</p>
                 <div class="dsv fcb_b_box">
                     <ul style="width: 200px;">
                         <li class="fcb_b_box_active">高中</li>

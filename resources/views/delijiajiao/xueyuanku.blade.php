@@ -108,7 +108,7 @@
                             @elseif($li->money == '面议')
                                 面议
                             @elseif($li->money != '执行德栗家教收费标准' && $li->money !='面议')
-                                {{ $li->money }}元/次
+                                {{ $li->money*$li->o_xs }}元/次
                             @endif
                         </p>
                         <p id="tf"> {{ $li->grade }}(

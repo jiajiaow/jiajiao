@@ -16,7 +16,7 @@
           </div>
           <div class="info">
             <div class="info-left">
-              <p>学员请家教预算：<i>{{ $data->money*$data->o_xs   }}元/次</i></p>
+              <p>学员请家教预算：<i>{{ $data->money*$data->o_xs }}元/次</i></p>
               <span><i>{{ $data->browsenu }}</i>人浏览  已有<i>{{ $data->yynum }}</i>人申请</span>
             </div>
             <div class="info-center" style="float:left;">

@@ -416,3 +416,11 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
 
 });
 //----------后台END----------//
+
+//
+//----------栗志手机端----------//
+Route::group(['prefix' => '/mobile',"middleware"=>"CheckAges"],function(){
+//导航搜索
+    Route::get('/navigation.html/{type?}/{key?}','home\teacherinfoController@hot');
+});
+//----------栗志手机端END----------//

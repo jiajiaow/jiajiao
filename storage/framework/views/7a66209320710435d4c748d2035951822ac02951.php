@@ -108,7 +108,7 @@
                             <?php elseif($li->money == '面议'): ?>
                                 面议
                             <?php elseif($li->money != '执行德栗家教收费标准' && $li->money !='面议'): ?>
-                                <?php echo e($li->money); ?>元/次
+                                <?php echo e($li->money*$li->o_xs); ?>元/次
                             <?php endif; ?>
                         </p>
                         <p id="tf"> <?php echo e($li->grade); ?>(

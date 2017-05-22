@@ -36,7 +36,7 @@
         </section>
         <section class="contact_box">
             <div class="contact_box_top">
-                <div style="width: 63%">
+                <div style="width: 61%">
                     <span class="fz_icon icon"></span>
                     <span><?php echo e(substr(session('cityname'),0,6)); ?>分站：<?php echo e(session('regionname')); ?></span>
                 </div>
@@ -46,7 +46,7 @@
                 </div>
             </div>
            <div class="contact_box_bottom">
-               <div style="width: 63%">
+               <div style="width: 61%">
                    <span class="redphone_icon icon"></span>
                    <span>全国统一热线：400-8080-740</span>
                </div>
@@ -60,7 +60,7 @@
             <div>
                 <ul>
                     <li>
-                        <a href="">
+                        <a href="/navigation.html/学科/数学">
                             <img src="/phone/img/sx.png" alt="">
                             <p>数学</p>
                         </a>
