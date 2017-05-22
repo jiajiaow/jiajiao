@@ -593,8 +593,8 @@ for(i=0; i <tabList.length; i++)
       }
       .wx_box {
           position: fixed;
-          right: 74px;
-          bottom:29%;
+          right: 94px;
+          bottom:31%;
           width: 100px;
           height: 100px;
       }

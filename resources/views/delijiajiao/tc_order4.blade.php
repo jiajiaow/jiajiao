@@ -311,7 +311,8 @@
                                 </div>
                                 <div class="pm zqm">
                                     <div class="left">
-                                        信息费：@if($skzs->o_ts == '1'){{ $q*$skzs->bfb1 }}@elseif($skzs->o_ts == '2'){{ $q*$skzs->bfb2 }}@elseif($skzs->o_ts == '3'){{ $q*$skzs->bfb3 }}@elseif($skzs->o_ts == '4'){{ $q*$skzs->bfb4 }}@elseif($skzs->o_ts == '5'){{ $q*$skzs->bfb5 }}@elseif($skzs->o_ts == '6'){{ $q*$skzs->bfb6 }}@elseif($skzs->o_ts == '7'){{ $q*$skzs->bfb7 }}@endif元
+                                        {{--信息费：@if($skzs->o_ts == '1'){{ $q*$skzs->bfb1 }}@elseif($skzs->o_ts == '2'){{ $q*$skzs->bfb2 }}@elseif($skzs->o_ts == '3'){{ $q*$skzs->bfb3 }}@elseif($skzs->o_ts == '4'){{ $q*$skzs->bfb4 }}@elseif($skzs->o_ts == '5'){{ $q*$skzs->bfb5 }}@elseif($skzs->o_ts == '6'){{ $q*$skzs->bfb6 }}@elseif($skzs->o_ts == '7'){{ $q*$skzs->bfb7 }}@endif元--}}
+                                        信息费：@if($skzs->o_ts == '1'){{ ($q*$skzs->bfb1)*$skzs->zk }}@elseif($skzs->o_ts == '2'){{ ($q*$skzs->bfb2)*$skzs->zk }}@elseif($skzs->o_ts == '3'){{ ($q*$skzs->bfb3)*$skzs->zk }}@elseif($skzs->o_ts == '4'){{ ($q*$skzs->bfb4)*$skzs->zk }}@elseif($skzs->o_ts == '5'){{ ($q*$skzs->bfb5)*$skzs->zk }}@elseif($skzs->o_ts == '6'){{ ($q*$skzs->bfb6)*$skzs->zk }}@elseif($skzs->o_ts == '7'){{ ($q*$skzs->bfb7)*$skzs->zk }}@endif元
                                     </div>
                                     <div class="left">
                                         家长服务费：{{$skzs->fz_jzxxf}}元

@@ -179,7 +179,7 @@
                             </div>
                             <div class="pm zqm">
                                 <div class="left">
-                                    信息费：@if($yaps->o_ts == '1'){{ $q*$yaps->bfb1 }}@elseif($yaps->o_ts == '2'){{ $q*$yaps->bfb2 }}@elseif($yaps->o_ts == '3'){{ $q*$yaps->bfb3 }}@elseif($yaps->o_ts == '4'){{ $q*$yaps->bfb4 }}@elseif($yaps->o_ts == '5'){{ $q*$yaps->bfb5 }}@elseif($yaps->o_ts == '6'){{ $q*$yaps->bfb6 }}@elseif($yaps->o_ts == '7'){{ $q*$yaps->bfb7 }}@endif元
+                                    信息费：@if($yaps->o_ts == '1'){{ ($q*$yaps->bfb1)*$yaps->zk }}@elseif($yaps->o_ts == '2'){{ ($q*$yaps->bfb2)*$yaps->zk }}@elseif($yaps->o_ts == '3'){{ ($q*$yaps->bfb3)*$yaps->zk }}@elseif($yaps->o_ts == '4'){{ ($q*$yaps->bfb4)*$yaps->zk }}@elseif($yaps->o_ts == '5'){{ ($q*$yaps->bfb5)*$yaps->zk }}@elseif($yaps->o_ts == '6'){{ ($q*$yaps->bfb6)*$yaps->zk }}@elseif($yaps->o_ts == '7'){{ ($q*$yaps->bfb7)*$yaps->zk }}@endif元
                                 </div>
                                 <div class="right">
                                     成功后需付信息费：

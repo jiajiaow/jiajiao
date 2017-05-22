@@ -62,7 +62,7 @@
 					<span class="btn btn_3">签认按钮</span>
 					<?php endif; ?>
 				</p>
-				<p style="text-align: right">(<?php echo e(date("Y-m-d",$list->hetong_time)); ?>)</p>
+				<p style="text-align: right">(<?php echo e($list->hetong_time==''?'':date("Y-m-d",$list->hetong_time)); ?>)</p>
 			</div>
 		</div>
 	</form>

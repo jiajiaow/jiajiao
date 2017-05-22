@@ -66,50 +66,50 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="/navigation.html/学科/英语">
                             <img src="/phone/img/English@2x.png" alt="">
                             <p>英语</p>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="/navigation.html/学科/语文">
                             <img src="/phone/img/yw.png" alt="">
                             <p>语文</p>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="/navigation.html/学科/理综">
                             <img src="/phone/img/lz.png" alt="">
                             <p>理综</p>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="/navigation.html/学科/物理">
                             <img src="/phone/img/wl.png" alt="">
                             <p>物理</p>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="/navigation.html/学科/化学">
                             <img src="/phone/img/hx.png" alt="">
                             <p>化学</p>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="/navigation.html/学科/地理">
                             <img src="/phone/img/dl.png" alt="">
                             <p>地理</p>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="/faculty.html">
                             <img src="/phone/img/gd.png" alt="">
                             <p>更多</p>
                         </a>
                     </li>
                 </ul>
                 <div style="text-align: center;     margin-top: .2rem;">
-                    <a href="">
+                    <a href="/yuyuelaoshi.html">
                         <img src="/phone/img/ksqjj.png" width="100%">
                     </a>
                 </div>
@@ -123,26 +123,26 @@
             <div class="school_box_content">
                 <ul>
                     @foreach($xx as $xx)
-                        <li><a href="#">{{ $xx->school_name }}</a></li>
+                        <li><a href="/hot.html/学院/{{ $xx->school_name }}">{{ $xx->school_name }}</a></li>
                     @endforeach
                 </ul>
             </div>
         </section>
         <section class="sele_box">
-            <div style="width: 50%"><img src="/phone/img/qls.png" alt="" width="100%"></div>
-            <div style="width: 50%"><img src="/phone/img/dls.png" alt="" width="100%"></div>
+            <div style="width: 50%" onclick="location.href='/faculty.html'"><img src="/phone/img/qls.png" alt="" width="100%"></div>
+            <div style="width: 50%" onclick="location.href='/reg.html'"><img src="/phone/img/dls.png" alt="" width="100%"></div>
         </section>
         <section class="msg_box">
             <div class="msg_box_title">
                 <span class="msg_box_title_l"><img src="/phone/img/xy.png" style="margin: 0 .1rem">学员信息</span>
-                <span class="msg_box_title_r"><a href="#">更多   > </a></span>
+                <span class="msg_box_title_r"><a href="/xueyuan.html">更多   > </a></span>
             </div>
             <div class="msg_box_tab_content">
                 <ul>
                     @foreach($data as $data)
-                    <li class="el_tab_content">
+                    <li class="el_tab_content" onclick="location.href='xsinfo{{ $data->id }}.html'">
                                 <span class="el_tab_content-l">
-                                    {{ mb_substr($data->user_name,0,1) }}学员
+                                    {{ $data->dq }}{{ mb_substr($data->user_name,0,1) }}学员请{{ $data->grade }}{{ $data->subject_id }}家教
                                 </span>
                         <span class="el_tab_content-r">{{ date('Y-m-d',$data->time) }}</span>
                     </li>
@@ -153,25 +153,10 @@
         <section class="msg_box">
             <div class="msg_box_title">
                 <span class="msg_box_title_l"><img src="/phone/img/sj.png" style="margin: 0 .1rem">教学资源</span>
-                <span class="msg_box_title_r"><a href="#">更多   > </a></span>
+                <span class="msg_box_title_r"><a href="/Articlecenter18.html">更多   > </a></span>
             </div>
             <div class="msg_box_tab_content">
                 <el-tabs v-model="activeName2" type="card" >
-                    <el-tab-pane label="全部资源" name="first">
-                        <ul><?php $num = 0;?>
-                            @foreach($timu as $tm)
-                            <?php $num++;?>
-                            @if($num < 6)
-                            <li class="el_tab_content">
-                                <span class="el_tab_content-l">
-                                    {{ $tm->ar_title }}
-                                </span>
-                                <span class="el_tab_content-r">{{ substr($tm->ar_time,0,10) }}</span>
-                            </li>
-                            @endif
-                            @endforeach
-                        </ul>
-                    </el-tab-pane>
                     <?php $nums = 0;?>
                     <?php $nums2 = 0;?>
                     @foreach($zhiyuan as $zy)
@@ -184,7 +169,7 @@
                                         @if($tm->ar_pid  ==  $zy->dh_id)
                                             <li class="el_tab_content">
                                                 <span class="el_tab_content-l">
-                                                    {{ $tm->ar_title }}
+                                                    {{ substr($tm->ar_title,51,90) }}
                                                 </span>
                                                 <span class="el_tab_content-r"></span>
                                             </li>
@@ -205,7 +190,7 @@
         <section class="msg_box">
             <div class="msg_box_title">
                 <span class="msg_box_title_l"><img src="/phone/img/sj.png" style="margin: 0 .1rem">热门文章</span>
-                <span class="msg_box_title_r"><a href="#">更多   > </a></span>
+                <span class="msg_box_title_r"><a href="/Articlecenter18.html">更多   > </a></span>
             </div>
             <div class="msg_box_tab_content">
                 <el-tabs v-model="activeName3" type="card" >
@@ -234,12 +219,12 @@
         </section>
         <section class="footer_yejiao">
             <div style="text-align: center;margin-top: 0.7rem;">
-                <a href="">
+                <a href="/yuyuelaoshi.html">
                     <img src="/phone/img/ksdxs.png" width="100%" style="position: relative;top: -0.4rem;">
                 </a>
             </div>
             <div class="footer_yejiao_text">
-                <span style="color: rgb(49, 49, 49);">电脑版入口</span>
+                <span style="color: rgb(49, 49, 49);"><a href="/">电脑版入口</a></span>
                 <span style="margin: 0 .2rem;height: .35rem;overflow: hidden;">|</span>
                 Copyright @ 2005 - 2017 delijiajiao.com
             </div>
@@ -253,7 +238,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="/login.html">
                         <i class="footer_my footer_icon" style="width:.38rem;"></i>
                         <p>我的</p>
                     </a>
@@ -279,6 +264,10 @@
         </div>
     </div>
     <style>
+        .el-tab-pane {
+            overflow: scroll;
+            height: 3rem;
+        }
         .return_top {
             position: fixed;
             bottom: 1rem;

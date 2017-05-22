@@ -48,7 +48,7 @@
     <section class="teacher_box">
         <ul>
             @foreach($list as $li)
-            <li>
+            <li onclick="location.href='/teacher/detail/{{ $li->id }}.html'">
                 <div class="teacher_avatar">
                     <img src="/phone/img/tc@2x.png" alt=""  style="width: 1.3rem;">
                 </div>
@@ -56,7 +56,7 @@
                     <p class="teacher_name">{{ substr($li->tc_name,0,3) }}教员/{{ $li->tc_sex=='1'?'男':'女' }}<span class="teacher_num">T{{ $li->id }}</span></p>
                     <p class="teacher_desc">{{ $li->tc_comments }}</p>
                     <div class="teacher_msg">
-                        <span><i class="teacher_school_icon"></i>{{ $li->tc_school }}</span>
+                        <span><i class="teacher_school_icon"></i>{{ $li->tc_school=='如无上述学校请手动输入'?'':$li->tc_school }}</span>
                         <span style="margin-left: .2rem"><i class="teacher_edu_icon"></i>{{ $li->tc_zhuanye }}</span>
                     </div>
                 </div>

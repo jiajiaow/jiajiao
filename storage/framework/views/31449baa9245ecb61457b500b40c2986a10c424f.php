@@ -48,7 +48,7 @@
     <section class="teacher_box">
         <ul>
             <?php $__currentLoopData = $list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $li): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <li>
+            <li onclick="location.href='/teacher/detail/<?php echo e($li->id); ?>.html'">
                 <div class="teacher_avatar">
                     <img src="/phone/img/tc@2x.png" alt=""  style="width: 1.3rem;">
                 </div>
@@ -56,7 +56,7 @@
                     <p class="teacher_name"><?php echo e(substr($li->tc_name,0,3)); ?>教员/<?php echo e($li->tc_sex=='1'?'男':'女'); ?><span class="teacher_num">T<?php echo e($li->id); ?></span></p>
                     <p class="teacher_desc"><?php echo e($li->tc_comments); ?></p>
                     <div class="teacher_msg">
-                        <span><i class="teacher_school_icon"></i><?php echo e($li->tc_school); ?></span>
+                        <span><i class="teacher_school_icon"></i><?php echo e($li->tc_school=='如无上述学校请手动输入'?'':$li->tc_school); ?></span>
                         <span style="margin-left: .2rem"><i class="teacher_edu_icon"></i><?php echo e($li->tc_zhuanye); ?></span>
                     </div>
                 </div>

@@ -40,9 +40,9 @@
                 @foreach($re as $re1)
                     @if($data->provice_id == $re1->province_id && $re1->prefix !== null)
                     @if(session('Template') == '1')
-                <dd><a href="http://{{ $re1->prefix }}.lizhijiajiao.com"  target="_blank" rel="nofollow">{{ $re1->city_name }}</a></dd>
+                <dd><a href="http://{{ $re1->prefix }}.lizhijiajiao.com"  target="_blank" rel="nofollow">{{ substr($re1->city_name,0,9) }}</a></dd>
                     @else
-                <dd><a href="http://{{ $re1->prefix }}.delijiajiao.com"  target="_blank" rel="nofollow">{{ $re1->city_name }}</a></dd>
+                <dd><a href="http://{{ $re1->prefix }}.delijiajiao.com"  target="_blank" rel="nofollow">{{ substr($re1->city_name,0,9) }}</a></dd>
                     @endif
                     @endif
                 @endforeach
