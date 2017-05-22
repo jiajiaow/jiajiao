@@ -114,11 +114,11 @@
         -moz-appearance: none;
         -webkit-appearance: none;
         background: url(/phone/img/csj.png) no-repeat scroll right center transparent;
-        width: 45%;
-        padding: .18rem 14px .18rem 0;
+        width: 55%;
         font-size: .32rem;
         background-size: .25rem;
         color: #000;
+        height: 1rem;
     }
     li.spacer {
         overflow: hidden;
