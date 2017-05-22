@@ -34,9 +34,10 @@
     color: #adadad;
 }
 .teacher_info {
-    flex: 1 1 auto;
+    flex: 1;
     overflow: hidden;
     white-space: nowrap;
+    padding-top:10px;
 }
 .teacher_box li{
     display: flex;
