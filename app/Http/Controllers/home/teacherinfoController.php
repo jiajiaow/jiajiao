@@ -432,8 +432,16 @@ class teacherinfoController extends Controller
             $xx = DB::table('school_t')->where('city_id', session('regionid'))->limit(10)->get();
             // dd($xy);
             return view('delijiajiao.jiaoyuan', ['quyu' => $quyu, 'list' => $list, 'xx' => $xx]);
-        }else{
-                //栗志
+        }else if(session('Template') == '4'){//手机德栗
+            if ($type == "学科") {
+                $list = \DB::table('jjw_teachers')->where('tc_city_id', session('regionid'))->where('tc_subjects', 'like', '%' . $key . '%')->orderBy('id', 'desc')->paginate(10);
+            } else if ($type == "区域") {
+                $list = \DB::table('jjw_teachers')->where('tc_city_id', session('regionid'))->where('tc_area', 'like', '%' . $key . '%')->orderBy('id', 'desc')->orderBy('tc_reg_date', 'desc')->paginate(10);
+            } else if ($type == "学院") {
+                $list = \DB::table('jjw_teachers')->where('tc_city_id', session('regionid'))->where('tc_school', 'like', '%' . $key . '%')->orderBy('id', 'desc')->paginate(10);
+            }
+           //dd($list);
+            return view('phonedl.jiaoyuan', ['list' => $list,]);
         }
     }
 

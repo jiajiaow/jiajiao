@@ -113,7 +113,7 @@
                                     <p>专业：<input type="text" name="" value="<?php echo e($re->tc_zhuanye); ?>"></p>
                                     <p>类别：<input type="text" name="" value="<?php echo e($re->tc_type); ?>"></p>
                                     <p>教龄：<input type="text" name="" value="<?php echo e($re->tc_jl); ?>"></p>
-                                    <p>文理科：<input type="text" name="" value="<?php echo e($re->tc_class); ?>"></p>
+                                    <p>文理未分科：<input type="text" name="" value="<?php echo e($re->tc_class); ?>"></p>
                                     <p>高考省份：<input type="text" name="" value="<?php echo e($re->tc_hight); ?>"></p>
                                 </div>
                             </td>
@@ -161,6 +161,7 @@
 
                                         <input type="hidden" name="oid" value="<?php echo e($re->oid); ?>"/>
                                         <input type="hidden" name="tc_id" value="<?php echo e($re->tc_id); ?>"/>
+                                        <input type="hidden" name="tc_phone" value="<?php echo e($re->tc_phone); ?>"/>
                                         <select name="ht_t_status">
                                             <option value="1" <?php if($re->ht_t_status == '1'): ?> selected='selected' <?php endif; ?> >已预约</option>
                                             <!-- <option value="2">待处理</option> -->
