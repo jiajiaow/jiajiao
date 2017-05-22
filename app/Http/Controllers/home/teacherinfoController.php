@@ -361,6 +361,8 @@ class teacherinfoController extends Controller
                 return view('home.teacher', ['list' => $list]);
             } else if (session('Template') == '2') {
                 return view('delijiajiao.faculty_content', ['list' => $list]);
+            }else if(session('Template') == '4'){//手机德栗
+                return view('phonedl.faculty_content', ['list' => $list]);
             }
     }
 
@@ -382,8 +384,9 @@ class teacherinfoController extends Controller
             $lastpage = $list->currentPage() - 1 < 0 ? 1 : $list->currentPage() - 1;
             $list->next = $nextpage; $list->last = $lastpage; $list->shi = $shipage;
             return view('delijiajiao.jiaoyuan', ['quyu' => $quyu, 'list' => $list, 'xx' => $xx]);
-        }else{
-            //栗志
+        }else if(session('Template') == '4'){
+            $list = \DB::table('jjw_teachers')->where('tc_city_id', session('regionid'))->orderBy('tc_reboot', 'desc')->orderBy('id', 'desc')->where('tc_name','!=','')->where('tc_comments','!=','')->paginate(10);
+            return view('phonedl.jiaoyuan', ['list' => $list]);
         }
 
     }
