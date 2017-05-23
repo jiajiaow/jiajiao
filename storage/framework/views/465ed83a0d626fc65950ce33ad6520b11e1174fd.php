@@ -303,7 +303,8 @@
                                 </div>
                                 <div class="pm zqm">
                                     <div class="left">
-                                        信息费：<?php if($skzs->o_ts == '1'): ?><?php echo e($q*$skzs->bfb1); ?><?php elseif($skzs->o_ts == '2'): ?><?php echo e($q*$skzs->bfb2); ?><?php elseif($skzs->o_ts == '3'): ?><?php echo e($q*$skzs->bfb3); ?><?php elseif($skzs->o_ts == '4'): ?><?php echo e($q*$skzs->bfb4); ?><?php elseif($skzs->o_ts == '5'): ?><?php echo e($q*$skzs->bfb5); ?><?php elseif($skzs->o_ts == '6'): ?><?php echo e($q*$skzs->bfb6); ?><?php elseif($skzs->o_ts == '7'): ?><?php echo e($q*$skzs->bfb7); ?><?php endif; ?>元
+                                        
+                                        信息费：<?php if($skzs->o_ts == '1'): ?><?php echo e(($q*$skzs->bfb1)*$skzs->zk); ?><?php elseif($skzs->o_ts == '2'): ?><?php echo e(($q*$skzs->bfb2)*$skzs->zk); ?><?php elseif($skzs->o_ts == '3'): ?><?php echo e(($q*$skzs->bfb3)*$skzs->zk); ?><?php elseif($skzs->o_ts == '4'): ?><?php echo e(($q*$skzs->bfb4)*$skzs->zk); ?><?php elseif($skzs->o_ts == '5'): ?><?php echo e(($q*$skzs->bfb5)*$skzs->zk); ?><?php elseif($skzs->o_ts == '6'): ?><?php echo e(($q*$skzs->bfb6)*$skzs->zk); ?><?php elseif($skzs->o_ts == '7'): ?><?php echo e(($q*$skzs->bfb7)*$skzs->zk); ?><?php endif; ?>元
                                     </div>
                                     <div class="left">
                                         家长服务费：<?php echo e($skzs->fz_jzxxf); ?>元
