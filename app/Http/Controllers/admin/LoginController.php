@@ -22,7 +22,7 @@ class LoginController extends Controller
         }else{
             $errmsg = '账号不存在或密码错误,请重新输入!';
             //重定向
-            return redirect('/admin/login')->with('errmsg',$errmsg);
+            return redirect('/admin/好好学习天天上wEa3358acQ')->with('errmsg',$errmsg);
         }
 //        dd($list);
     }
@@ -32,6 +32,6 @@ class LoginController extends Controller
         session()->forget("name");
         session()->forget("user_id");
         session()->forget("admin_id");
-        return redirect('/admin/login')->with('errmsg','已退出登录!');
+        return redirect('/admin/好好学习天天上wEa3358acQ')->with('errmsg','已退出登录!');
     }
 }

@@ -8856,7 +8856,7 @@ textarea{
 }
 /*城市列表*/
 .city-contain {
-	width: 1020px;
+	width: 100%;
 	margin: 0 auto;
 }
 #city-top {
@@ -8919,9 +8919,10 @@ textarea{
 	font-size: 15px;
 	margin-bottom: 22px;
 	width: 100%;
+	padding: 0 5%;
 }
 #city-content .city-list dl dt {
-	float: left;
+
 	font-weight: bold;
 	margin-right: 20px;
 }
