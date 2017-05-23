@@ -244,13 +244,13 @@ Route::any('/yqlj','home\yqljController@yqlj');
 //end退款
 //----------  后台  ----------//
 //登录视图 方法
-Route::get('/admin/好好学习天天上wEa3358acQ',function(){ return view('admin.login');  });
+Route::get('/admin/backstages',function(){ return view('admin.login');  });
 //登录 Login控制器
 Route::post('/admin/Logins','admin\LoginController@login');
 //路由群组 中间件 拒绝后台未登录访问页面
 Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     //首页 admin控制器
-    Route::get('/好好学习天天向上','admin\AdminController@index');
+    Route::get('/index','admin\AdminController@index');
     //首页 右边栏 admin控制器
      Route::get('/indexi','admin\AdminController@indexi');
     //退出登录 exit Login控制器
