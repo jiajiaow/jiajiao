@@ -18,7 +18,7 @@ class LoginController extends Controller
             //设置session
             session(['user_id' => $list->id,'name' => $list->name,'admin_id'=>$list->authority]);
             //重定向
-            return redirect('/admin/好好学习天天向上wEa3358acQ');
+            return redirect('/admin/好好学习天天向上');
         }else{
             $errmsg = '账号不存在或密码错误,请重新输入!';
             //重定向
