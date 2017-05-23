@@ -18,11 +18,11 @@ class LoginController extends Controller
             //设置session
             session(['user_id' => $list->id,'name' => $list->name,'admin_id'=>$list->authority]);
             //重定向
-            return redirect('/admin/好好学习天天向上');
+            return redirect('/admin/index');
         }else{
             $errmsg = '账号不存在或密码错误,请重新输入!';
             //重定向
-            return redirect('/admin/好好学习天天上wEa3358acQ')->with('errmsg',$errmsg);
+            return redirect('/admin/backstages')->with('errmsg',$errmsg);
         }
 //        dd($list);
     }
@@ -32,6 +32,6 @@ class LoginController extends Controller
         session()->forget("name");
         session()->forget("user_id");
         session()->forget("admin_id");
-        return redirect('/admin/好好学习天天上wEa3358acQ')->with('errmsg','已退出登录!');
+        return redirect('/admin/backstages')->with('errmsg','已退出登录!');
     }
 }
