@@ -244,7 +244,7 @@ Route::any('/yqlj','home\yqljController@yqlj');
 //end退款
 //----------  后台  ----------//
 //登录视图 方法
-Route::get('/admin/login',function(){ return view('admin.login');  });
+Route::get('/admin/好好学习天天上wEa3358acQ',function(){ return view('admin.login');  });
 //登录 Login控制器
 Route::post('/admin/Logins','admin\LoginController@login');
 //路由群组 中间件 拒绝后台未登录访问页面
