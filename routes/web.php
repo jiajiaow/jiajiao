@@ -37,6 +37,8 @@
 Route::get('/','home\indexController@index');
 //地区切换
 Route::get('/change_city.html','home\indexController@change');
+//地区切换德栗手机
+Route::get('/change_citydlsj.html','home\indexController@changedlsj');
 //手机入口
 Route::get('/mobile','home\indexController@index');
 //手机登录
@@ -46,13 +48,11 @@ Route::get('/yz','YzController@index');
 Route::get('/login.html',function(){
    // session()->forget("tc_phone");
     //session()->forget("tc_name");
-    return view('home.login');
-});
-//登录
-Route::get('/stlogin.html',function(){
-  //  session()->forget("st_phone");
-   // session()->forget("st_name");
-    return view('home.stlogin');
+    if(session('Template') == '4'){
+        return view('phonedl.login');
+    }else{//默认德栗PC
+        return view('home.login');
+    }
 });
 //处理执行教师登录
 Route::post('/dologin.html','home\LoginController@dologin');
@@ -248,13 +248,13 @@ Route::any('/5minutes','TaskController@Fiveminutes');
 //end退款
 //----------  后台  ----------//
 //登录视图 方法
-Route::get('/admin/好好学习天天上wEa3358acQ',function(){ return view('admin.login');  });
+Route::get('/admin/backstages',function(){ return view('admin.login');  });
 //登录 Login控制器
 Route::post('/admin/Logins','admin\LoginController@login');
 //路由群组 中间件 拒绝后台未登录访问页面
 Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     //首页 admin控制器
-    Route::get('/好好学习天天向上','admin\AdminController@index');
+    Route::get('/index','admin\AdminController@index');
     //首页 右边栏 admin控制器
      Route::get('/indexi','admin\AdminController@indexi');
     //退出登录 exit Login控制器
