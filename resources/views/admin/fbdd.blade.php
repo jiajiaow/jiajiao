@@ -194,6 +194,7 @@
                                         ；每次课上
                                         <select name="o_xs" id="shi" >
                                             <option value="" selected="">请选择</option>
+                                            <option value="1">1</option>
                                             <option value="1.5">1.5</option>
                                             <option value="2">2 推荐</option>
                                             <option value="2.5">2.5</option>

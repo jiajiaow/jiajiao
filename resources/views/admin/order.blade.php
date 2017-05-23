@@ -82,19 +82,19 @@
                                             <span class="no_ne"></span>
                                         </p>
                                         <p>状态:
-                                            <select name="ddzt">
-                                                <option value="正常">正常(默认)</option>
-                                                <option value="协助">协助</option>
-                                                <option value="求助单">求助单</option>
-                                                <option value="特别关注">特别关注</option>
+                                            <select name="ddzt" autocomplete="off">
+                                                <option value="正常" {{ $re->ddzt=='正常(默认)'?'selected':'' }}>正常(默认)</option>
+                                                <option value="协助" {{ $re->ddzt=='协助'?'selected':'' }}>协助</option>
+                                                <option value="求助单" {{ $re->ddzt=='求助单'?'selected':'' }}>求助单</option>
+                                                <option value="特别关注" {{ $re->ddzt=='特别关注'?'selected':'' }}>特别关注</option>
                                             </select>
                                             <span class="no_ne"></span>
                                         </p>
                                         <p>学期:
-                                            <select name="jqzt">
-                                                <option value="学期中">学期中</option>
-                                                <option value="暑假单">暑假单</option>
-                                                <option value="寒假单">寒假单</option>
+                                            <select name="jqzt" autocomplete="off">
+                                                <option value="学期中" {{ $re->jqzt=='学期中'?'selected':'' }}>学期中</option>
+                                                <option value="暑假单" {{ $re->jqzt=='暑假单'?'selected':'' }}>暑假单</option>
+                                                <option value="寒假单" {{ $re->jqzt=='寒假单'?'selected':'' }}>寒假单</option>
                                             </select>
                                             <span class="no_ne"></span>
                                         </p>
@@ -119,7 +119,7 @@
                                         <p>编号:{{ $re->id }}</p>
                                         <p>姓名:<input name="user_name" value="{{ $re->user_name }}"></p>
                                         <p>学员姓名：<input type="text" name="" value="" style="width: 70px;"><span class="xyxm_btn">+</span></p>
-                                        <p>时间:{{ date('Y-m-d H:i:s',$re->time) }}</p>
+                                        <p>时间:{{ $re->time==''?'':date('Y-m-d G:i:s',$re->time) }}</p>
                                         <p>学员等级:</p>
                                         <p style="position:relative; height: 20px;">
                                             <span style="float: left">学员备注:</span>
@@ -135,7 +135,7 @@
                                             <span style="float: right" class="bj_btn">编辑</span>
                                         </p>
                                         <p>
-                                            <textarea class="bj_msg" style="display: block" name="ddbz"></textarea>
+                                            <textarea class="bj_msg" style="display: block" name="ddbz">{{ $re->ddbz }}</textarea>
                                         </p>
                                         <p><input type="submit" name="" value="修改"></p>
                                         <span class="no_ne"></span>
@@ -174,14 +174,15 @@
                                                 <option value="否" @if($re->tc_Signing == '否') selected = "selected" @endif>否</option>
                                             </select>
                                         </p>
-                                        <p>辅导类型:<select name="fdlx">
-                                                <option value="授课教学">授课教学</option>
-                                                <option value="作业辅导">作业辅导</option>
-                                                <option value="讲解疑难">讲解疑难</option>
+                                        <p>辅导类型:<select name="fdlx" autocomplete="off">
+                                                <option value="" >请选择</option>
+                                                <option value="授课教学" {{ $re->fdlx=='授课教学'?'selected':'' }}>授课教学</option>
+                                                <option value="作业辅导" {{ $re->fdlx=='作业辅导'?'selected':'' }}>作业辅导</option>
+                                                <option value="讲解疑难" {{ $re->fdlx=='讲解疑难'?'selected':'' }}>讲解疑难</option>
                                             </select>
                                             接单教员：
                                         </p>
-                                        <p>时间安排:<input type="text" name="per_week" value="{{ $re->per_week }}" style="width:220px;"></p>
+                                        {{--<p>时间安排:<input type="text" name="per_week" value="{{ $re->per_week }}" style="width:220px;"></p>--}}
                                         <p>授课时间:<input type="text" name="sk_times" value="{{ $re->sk_times }}" style="width:220px;"></p>
                                         <p>学员描述:<input type="text" name="user_situation" value="{{ $re->user_situation }}" style="width:220px;"></p>
                                         <p>教员要求:<input type="text" name="teacher_info" value="{{ $re->teacher_info }}" style="width:220px;"></p>
@@ -197,8 +198,6 @@
                                             </div>
                                             @if($re->tc_Signing == '否'){{ $re->money*$re->o_xs }}@else 0 @endif
                                         </div>
-
-
                                         <p>性别要求:
                                             <select name="teacher_sex">
                                                 <option value="1" @if($re->teacher_sex == '1') selected="selected" @endif>男</option>
@@ -220,8 +219,9 @@
                                 <div><?php $q = $re->o_ts*$re->o_xs*$re->money ?>
                                     <p>周薪酬:<input type="text" value="{{ $q }}" name="order_zkc"></p>
                                     <p>月薪酬:<input type="text" value="@if($re->o_ts == '1'){{ $q*4 }}@elseif($re->o_ts == '2'){{ $q*4 }}@elseif($re->o_ts == '3'){{ $q*4 }}@elseif($re->o_ts == '4'){{ $q*4 }}@elseif($re->o_ts == '5'){{ $q*4 }}@elseif($re->o_ts == '6'){{ $q*4 }}@elseif($re->o_ts == '7'){{ $q*4 }}@endif" name="order_ykc"></p>
-                                    <p>预计总费用:<input type="text" value="@if($re->o_ts == '1'){{ $q*$re->bfb1+$re->fz_jzxxf }}@elseif($re->o_ts == '2'){{ $q*$re->bfb2+$re->fz_jzxxf }}@elseif($re->o_ts == '3'){{ $q*$re->bfb3+$re->fz_jzxxf }}@elseif($re->o_ts == '4'){{ $q*$re->bfb4+$re->fz_jzxxf }}@elseif($re->o_ts == '5'){{ $q*$re->bfb5+$re->fz_jzxxf }}@elseif($re->o_ts == '6'){{ $q*$re->bfb6+$re->fz_jzxxf }}@elseif($re->o_ts == '7'){{ $q*$re->bfb7+$re->fz_jzxxf }}@endif"name="money" style="width: 60px;"></p>
-                                    <p>预计信息费:<input type="text" name="order_xxf" value="@if($re->o_ts == '1'){{ $q*$re->bfb1 }}@elseif($re->o_ts == '2'){{ $q*$re->bfb2 }}@elseif($re->o_ts == '3'){{ $q*$re->bfb3 }}@elseif($re->o_ts == '4'){{ $q*$re->bfb4 }}@elseif($re->o_ts == '5'){{ $q*$re->bfb5 }}@elseif($re->o_ts == '6'){{ $q*$re->bfb6 }}@elseif($re->o_ts == '7'){{ $q*$re->bfb7 }}@endif"style="width: 60px;"></p>
+                                    <p>折扣：<input type="text" value="{{ $re->zk }}"></p>
+                                    <p>预计总费用:<input type="text" value="@if($re->o_ts == '1'){{ (($q*$re->bfb1)*$re->zk)+$re->fz_jzxxf }}@elseif($re->o_ts == '2'){{ (($q*$re->bfb2)*$re->zk)+$re->fz_jzxxf }}@elseif($re->o_ts == '3'){{ (($q*$re->bfb3)*$re->zk)+$re->fz_jzxxf }}@elseif($re->o_ts == '4'){{ (($q*$re->bfb4)*$re->zk)+$re->fz_jzxxf }}@elseif($re->o_ts == '5'){{ (($q*$re->bfb5)*$re->zk)+$re->fz_jzxxf }}@elseif($re->o_ts == '6'){{ (($q*$re->bfb6)*$re->zk)+$re->fz_jzxxf }}@elseif($re->o_ts == '7'){{ (($q*$re->bfb7)*$re->zk)+$re->fz_jzxxf }}@endif"name="money" style="width: 60px;"></p>
+                                    <p>预计信息费:<input type="text" name="order_xxf" value="@if($re->o_ts == '1'){{ ($q*$re->bfb1)*$re->zk }}@elseif($re->o_ts == '2'){{ ($q*$re->bfb2)*$re->zk }}@elseif($re->o_ts == '3'){{ ($q*$re->bfb3)*$re->zk }}@elseif($re->o_ts == '4'){{ ($q*$re->bfb4)*$re->zk }}@elseif($re->o_ts == '5'){{ ($q*$re->bfb5)*$re->zk }}@elseif($re->o_ts == '6'){{ ($q*$re->bfb6)*$re->zk }}@elseif($re->o_ts == '7'){{ ($q*$re->bfb7)*$re->zk }}@endif"style="width: 60px;"></p>
                                     <p>家长服务费:<input type="text" value="{{$re->fz_jzxxf}}" name="order_jzfy" style="width: 60px;"></p>
                                     <p>实际收款总额:<input type="text" name="sjsk" style="width:40px;"></p>
                                     <p>收费差额:<input type="text" name="sfc" style="width:70px;"></p>
@@ -264,11 +264,11 @@
                                         <a href="">删除</a>
                                     </p>
                                     <p><button >本单收支流水</button></p>
-                                    <span style='display: none;'>{{$re->id }}{{$re->user_id }}{{$re->user_name }}{{$re->user_phone }}{{$re->user_byphone }}{{$re->user_qq }}{{$re->user_sex }}{{$re->dq }}{{$re->contact }}{{$re->grade }}{{$re->sk_times }}
-{{$re->explain }}{{$re->subject_id }}{{$re->user_situation }}{{$re->teacher_id }}{{$re->teacher_sex }}{{$re->teacher_info }}{{$re->money }}{{$re->time }}{{$re->region }}{{$re->status }}{{$re->pay }}{{$re->pay_id }}{{$re->city_id }}
-{{$re->user_reboot }}{{$re->per_week }}{{$re->xx_dz }}{{$re->ls_type }}{{$re->tc_Signing }}{{$re->qq }}{{$re->wx }}{{$re->wlk }}{{$re->browsenu }}{{$re->yynum }}{{$re->ddzt }}{{$re->jqzt }}{{$re->wzly }}{{$re->khly }}{{$re->ap }}{{$re->yhbz }}{{$re->ht_status }}
-{{$re->ddbz }}{{$re->o_ts }}{{$re->o_xs }}{{$re->fdlx }}{{$re->o_yue }}{{$re->jy_qz }}{{$re->xy_qz }}{{$re->money2 }}{{$re->o_ts2 }}{{$re->o_xs2 }}{{$re->bj_msg_A }}{{$re->hetong_time }}{{$re->sks_time }}{{$re->sks_add }}{{$re->fz_jzxxf }}{{$re->city_name }}
-{{$re->fz_vip }}{{$re->fz_qyjyfy }}{{$re->bfb1 }}{{$re->bfb2 }}{{$re->bfb3 }}{{$re->bfb4 }}{{$re->bfb5 }}{{$re->bfb6 }}{{$re->bfb7 }}
+                                    <span style='display: none;'>{{$re->id }}<br>{{$re->user_id }}<br>{{$re->user_name }}<br>{{$re->user_phone }}<br>{{$re->user_byphone }}<br>{{$re->user_qq }}<br>{{$re->user_sex }}<br>{{$re->dq }}<br>{{$re->contact }}<br>{{$re->grade }}<br>{{$re->sk_times }}<br>
+{{$re->explain }}<br>{{$re->subject_id }}<br>{{$re->user_situation }}<br>{{$re->teacher_id }}<br>{{$re->teacher_sex }}<br>{{$re->teacher_info }}<br>{{$re->money }}<br>{{$re->time }}<br>{{$re->region }}<br>{{$re->status }}<br>{{$re->pay }}<br>{{$re->pay_id }}<br>{{$re->city_id }}
+{{$re->user_reboot }}<br>{{$re->per_week }}<br>{{$re->xx_dz }}<br>{{$re->ls_type }}<br>{{$re->tc_Signing }}<br>{{$re->qq }}<br>{{$re->wx }}<br>{{$re->wlk }}<br>{{$re->browsenu }}<br>{{$re->yynum }}<br>{{$re->ddzt }}<br>{{$re->jqzt }}<br>{{$re->wzly }}<br>{{$re->khly }}<br>{{$re->ap }}<br>{{$re->yhbz }}<br>{{$re->ht_status }}
+{{$re->ddbz }}<br>{{$re->o_ts }}<br>{{$re->o_xs }}<br>{{$re->fdlx }}<br>{{$re->o_yue }}<br>{{$re->jy_qz }}<br>{{$re->xy_qz }}<br>{{$re->money2 }}<br>{{$re->o_ts2 }}<br>{{$re->o_xs2 }}<br>{{$re->bj_msg_A }}<br>{{$re->hetong_time }}<br>{{$re->sks_time }}<br>{{$re->sks_add }}<br>{{$re->fz_jzxxf }}<br>{{$re->city_name }}
+{{$re->fz_vip }}<br>{{$re->fz_qyjyfy }}<br>{{$re->bfb1 }}<br>{{$re->bfb2 }}<br>{{$re->bfb3 }}<br>{{$re->bfb4 }}<br>{{$re->bfb5 }}<br>{{$re->bfb6 }}<br>{{$re->bfb7 }}
                                     </span>
                                 </div>
                             </td>
@@ -477,7 +477,6 @@
 <!-- Page-Level Scripts -->
 <script>
     $(document).ready(function () {
-        console.log('%c 作者：林俊江','background:#aaa;color:#bada55','this is not colored');
         $('.dataTables-example').dataTable();
 
         /* Init DataTables */
@@ -495,7 +494,10 @@
                     "column": oTable.fnGetPosition(this)[2]
                 };
             },
+            select:{
 
+        items:'cells'
+            },
             "width": "90%",
             "height": "100%"
         });

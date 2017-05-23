@@ -132,6 +132,8 @@ Route::post('/doscs.html','home\tcinfoController@doscs');
 Route::get('/xy_hetong/{id?}.html','home\stinfoController@xy_hetong');
 //执行
 Route::post('/doxy_hetong','home\stinfoController@doxy_hetong');
+//教员提现
+Route::post('/tc_tixian','home\tcinfoController@tc_tixian');
 
 
 //省
@@ -165,6 +167,8 @@ Route::post('/registerdo','home\yuyueController@registerdo');
 Route::post('/yuyuexiangxi.html','home\yuyueController@doyyform');
 //尾部提交
 Route::post('/dofloatyyform','home\yuyueController@dofloatyyform');
+//弹窗提交新家教
+Route::post('/dotanchuangform','home\yuyueController@dotanchuangform');
 //填写预约详细
 Route::any('/yuyuexxform','home\yuyueController@yuyuexxform');
 //提交
@@ -189,6 +193,8 @@ Route::get('/hot.html/{type?}/{key?}','home\teacherinfoController@hot');
 Route::get('/navigation.html/{type?}/{key?}','home\teacherinfoController@hot');
 //内页搜索
 Route::post('/dokey','home\teacherinfoController@dokey');
+//搜索教员 学员ID
+Route::post('/dosousuoid','home\teacherinfoController@dosousuoid');
 //资费说明
 Route::get('/zfsm.html','home\zfsmController@index');
 //学员详细资料
@@ -391,5 +397,30 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     Route::get('/recyclebin','admin\recyclebinController@recyclebin');
     //订单屏蔽
     Route::get('/xgddzt/{id?}/{zt?}','admin\orderController@xgddzt');
+    //tc_tixian教员提现记录
+    Route::get('/tc_tixian','admin\caiwuController@tc_tixian');
+    //金牌教员
+    Route::get('/jinpai/{m?}','admin\jinpaiController@jinpai');
+    //执行修改金牌
+    Route::get('/do_jin_pai/{id?}/{zt?}','admin\jinpaiController@dojinpai');
+    //专职教员
+    Route::get('/zhuanzhi/{m?}','admin\jinpaiController@zhuanzhi');
+    //执行修改专职
+    Route::get('/do_zhuan_zhi/{id?}/{zt?}','admin\jinpaiController@dozhuanzhi');
+    //学生教员
+    Route::get('/xuesheng/{m?}','admin\jinpaiController@xuesheng');
+    //执行修改学生教员
+    Route::get('/do_xue_sheng/{id?}/{zt?}','admin\jinpaiController@doxuesheng');
+    //判断证件
+    Route::get('/zj/{id?}','admin\orderController@zj');
+
 });
 //----------后台END----------//
+
+//
+//----------栗志手机端----------//
+Route::group(['prefix' => '/mobile',"middleware"=>"CheckAges"],function(){
+//导航搜索
+    Route::get('/navigation.html/{type?}/{key?}','home\teacherinfoController@hot');
+});
+//----------栗志手机端END----------//

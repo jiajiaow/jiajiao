@@ -1,0 +1,108 @@
+
+.Balance_box {
+    background: #fff;
+    padding-bottom: .8rem;
+}
+.Balance {
+    text-align: center;
+    padding: .9rem 0 .5rem 0;
+}
+.Balance_num {
+    font-size: .7rem;
+    color: #ffbe2b;
+    font-weight: 500;
+}
+.Balance_text {
+    margin-top: .2rem;
+    color: #cfcfcf;
+}
+
+.Balance_dec ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.Balance_dec ul:nth-child(2){
+    margin: .6rem 0;
+}
+.Balance_dec ul li {
+    width: 33%;
+    text-align: center;
+}
+
+.Balance_dec ul li p:nth-child(1) {
+    font-size: .45rem;
+    color: #ffbe2b;
+    margin-bottom: .12rem;
+}
+
+.Balance_dec ul li p:nth-child(2) {
+    color: #c7c7c7;
+    font-size: .26rem;
+}
+
+.Balance_btn_box {
+    text-align: center;
+    margin-top: .8rem;
+}
+.Balance_btn_box span {
+    text-align: center;
+    background: #f7b529;
+    color: #fff;
+    padding: .2rem 1.2rem;
+    border-radius: .5rem;
+    margin: .1rem;
+    cursor: pointer;
+}
+.my_information {
+    background: #fff;
+    margin-top: .3rem;
+}
+.my_information li {
+    display: flex;
+    align-items: center;
+    font-size: .38rem;
+}
+.my_information li div {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    border-bottom: 1px solid #ededed;
+}
+.my_information li div:nth-child(4){
+    border: none;
+}
+.my_information li div p {
+    flex: 1;
+    padding: .35rem 0;
+    color: #555;
+}
+.right_icon {
+    background: url(../img/right.png) no-repeat;
+    width: .6rem;
+    height: .6rem;
+    background-size: 100%;
+    display: block;
+}
+.F_cw{
+    background: url("../img/F_cw.png") no-repeat;
+}
+.F_ls{
+    background: url("../img/F_ls.png") no-repeat;
+}
+.icon{
+    width: .4rem;
+    height: .5rem;
+    display: block;
+}
+.icons {
+    width: .6rem;
+    height: .6rem;
+    background-size: 100%;
+    display: block;
+    margin: 0 .5rem;
+}
+.js_icon{
+    background: url("../img/js_icon.png")no-repeat;
+    background-size: 100%;
+}

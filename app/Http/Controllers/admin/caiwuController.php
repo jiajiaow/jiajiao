@@ -19,4 +19,13 @@ class caiwuController extends Controller
        // dd($list);
         return view('admin.jyszls',['list'=>$list]);
     }
+
+    public function tc_tixian(){
+        $list = \DB::table('jjw_mpay as y')
+            ->join('jjw_teachers as t', 't.id', '=', 'y.m_tid')
+            ->where('m_zfortk','3')
+            ->get();
+        //dd($list);
+        return view('admin.tc_tixian',['list'=>$list]);
+    }
 }

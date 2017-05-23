@@ -361,6 +361,8 @@ class teacherinfoController extends Controller
                 return view('home.teacher', ['list' => $list]);
             } else if (session('Template') == '2') {
                 return view('delijiajiao.faculty_content', ['list' => $list]);
+            }else if(session('Template') == '4'){//手机德栗
+                return view('phonedl.faculty_content', ['list' => $list]);
             }
     }
 
@@ -382,8 +384,9 @@ class teacherinfoController extends Controller
             $lastpage = $list->currentPage() - 1 < 0 ? 1 : $list->currentPage() - 1;
             $list->next = $nextpage; $list->last = $lastpage; $list->shi = $shipage;
             return view('delijiajiao.jiaoyuan', ['quyu' => $quyu, 'list' => $list, 'xx' => $xx]);
-        }else{
-            //栗志
+        }else if(session('Template') == '4'){
+            $list = \DB::table('jjw_teachers')->where('tc_city_id', session('regionid'))->orderBy('tc_reboot', 'desc')->orderBy('id', 'desc')->where('tc_name','!=','')->where('tc_comments','!=','')->paginate(10);
+            return view('phonedl.jiaoyuan', ['list' => $list]);
         }
 
     }
@@ -432,8 +435,16 @@ class teacherinfoController extends Controller
             $xx = DB::table('school_t')->where('city_id', session('regionid'))->limit(10)->get();
             // dd($xy);
             return view('delijiajiao.jiaoyuan', ['quyu' => $quyu, 'list' => $list, 'xx' => $xx]);
-        }else{
-                //栗志
+        }else if(session('Template') == '4'){//手机德栗
+            if ($type == "学科") {
+                $list = \DB::table('jjw_teachers')->where('tc_city_id', session('regionid'))->where('tc_subjects', 'like', '%' . $key . '%')->orderBy('id', 'desc')->paginate(10);
+            } else if ($type == "区域") {
+                $list = \DB::table('jjw_teachers')->where('tc_city_id', session('regionid'))->where('tc_area', 'like', '%' . $key . '%')->orderBy('id', 'desc')->orderBy('tc_reg_date', 'desc')->paginate(10);
+            } else if ($type == "学院") {
+                $list = \DB::table('jjw_teachers')->where('tc_city_id', session('regionid'))->where('tc_school', 'like', '%' . $key . '%')->orderBy('id', 'desc')->paginate(10);
+            }
+           //dd($list);
+            return view('phonedl.jiaoyuan', ['list' => $list,]);
         }
     }
 
@@ -533,5 +544,27 @@ class teacherinfoController extends Controller
             ->paginate(10);
        // dd($where);
         return view('delijiajiao.jiaoyuan',['quyu'=>$quyu,'list'=>$list,'xx'=>$xx]);
+    }
+
+    //搜索学员 教员 id
+    public function dosousuoid(){
+        if($_POST['sb'] == '1'){
+            $r = \DB::table('jjw_teachers')->where('id',substr($_POST['id'],1,20))->get();
+            return $r;
+        }else{
+            //dd($_POST);
+            $quyu = \DB::table('jjw_position_county')->where('city_id',Session('regionid'))->get();
+            //学院
+            $xx= DB::table('school_t')->where('city_id',session('regionid'))->limit(10)->get();
+
+            $list = \DB::table('jjw_order')->where('id',$_POST['id'])->paginate(10);
+            //自定义分页
+            $num=$list->lastPage();
+            $nextpage=$num-$list->currentPage() ==0 ? $num : $list->currentPage()+1 ;
+            $lastpage=$list->currentPage()-1 <0 ? 1 : $list->currentPage()-1 ;
+            $list->next=$nextpage; $list->last=$lastpage;
+            return view('delijiajiao.xueyuanku',['list'=>$list,'quyu'=>$quyu,'xx'=>$xx]);
+        }
+
     }
 }

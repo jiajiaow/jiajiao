@@ -1,0 +1,333 @@
+/*快速请家教的页面*/
+
+html{
+    margin: 0;
+    padding:0;
+}
+img{
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+}
+a{
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+    font-size: .4rem;
+    font-weight: normal;
+    padding-left: .3rem;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    font-size: .4rem;
+    font-weight: normal;
+    padding-left: .3rem;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    font-size: .4rem;
+    font-weight: normal;
+    padding-left: .3rem;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    font-size: .4rem;
+    font-weight: normal;
+    padding-left: .3rem;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "宋体","Arial","Microsoft YaHei","黑体",sans-serif;
+}
+.rt{
+    float: right;
+}
+.lf{
+    float: left;
+}
+.cler{
+    content:"";
+    display: block;
+    clear: both;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+a:link{
+    text-decoration:none;
+}
+a:visited {
+    text-decoration:none;
+}
+header{
+    width: 100%;
+    background-color: #F7B529;
+
+}
+header>img:nth-child(1){
+    height: 1.5rem;
+    margin-left: .3rem;
+}
+header>div{
+    background-color: #fff;
+    margin-top: .35rem;
+    border-radius: .2rem;
+}
+img.tq{
+    margin-top: .15rem;
+    margin-left: .7rem;
+    width: .5rem;
+}
+header>div>input{
+    font-size: .5rem;
+    line-height: .8rem;
+    width: 5rem;
+    outline: none;
+    border: none;
+    border-radius: .2rem;
+    padding-left: .2rem;
+
+}
+header>img:nth-child(1){
+    float: left;
+}
+/*页脚部分*/
+footer {
+    background: #fff;
+    width: 100%;
+
+}
+footer ul{
+    display: flex;
+    /*align-items: center;*/
+    padding:0;
+    /*height: 1rem;*/
+    margin-bottom: 0;
+
+}
+footer li {
+    text-align: center;
+}
+footer>ul>li p{
+
+}
+footer li a{
+    text-align: center;
+}
+footer li:nth-child(1){
+    width: 15%;
+    margin-top: 10px;
+}
+footer li:nth-child(2){
+    width: 15%;
+    margin-top: 10px;
+}
+footer li:nth-child(2) p{
+    margin-top: 3px;
+    font-size: smaller;
+    color: #acacac;
+    margin-bottom: 0;
+}
+footer li:nth-child(1) p{
+    margin-top: 3px;
+    font-size: smaller;
+    color: #acacac;
+    margin-bottom: 0;
+}
+
+footer li:nth-child(3) {
+    display: flex;
+    width: 35%;
+
+    justify-content: center;
+    align-items: center;
+    background: #40B9FE;
+    color: #fff;
+    padding: .25rem 0;
+}
+footer li:nth-child(3) i{
+    margin: 0 .2rem 0 0;
+}
+footer li:nth-child(3) a{
+    color: #fff;
+}
+footer li:nth-child(4){
+    display: flex;
+    width: 35%;
+    justify-content: center;
+    align-items: center;
+    background: #f7b529;
+    color: #fff;
+    padding: .25rem 0;
+}
+footer li:nth-child(4) i{
+    margin: 0 .2rem 0 0;
+}
+footer li:nth-child(4) a{
+    color: #ffffff;
+}
+.footer_home{
+    background: url("../images/home_blach@2x.png");
+}
+.footer_my{
+    background: url("../images/my_black@2x.png");
+}
+.footer_zx{
+    background: url("../images/FFFadvice.png");
+}
+.footer_phone{
+    background: url("../images/FFFphone.png");
+}
+.footer_icon {
+    width: .5rem;
+    height: .5rem;
+    background-size: 100%;
+    display: block;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+}
+.footer_active a{
+    color: #ffbb0e;
+}
+/*主体部分*/
+section>div:nth-child(1){
+    background-color: #fff;
+    min-height: 1.4rem;
+    padding: 0 .4rem;
+    padding-left: .65rem;
+    border-bottom:1px solid #FCDFA2;
+
+}
+section>div:nth-child(1) span{
+    border-right: 1px solid #dddddd;
+    font-size: .4rem;
+    color: #282828;
+    padding-right: .3rem;
+    display: inline-block;
+    margin-top: .5rem;
+    padding-left: .3rem;
+}
+section>div:nth-child(1) span img{
+    width: .4rem;
+}
+div.cz{
+    background-color: #FFFFFF;
+    min-height: 2rem;
+    padding-top: .4rem;
+    width: 100%;
+}
+div.cz>div:nth-child(1){
+    background: url("../images/round.png") no-repeat;
+    /*border: 1px solid #dddddd;*/
+    width: 20%;
+    height: 2rem;
+    float: left;
+    background-size: cover;
+    text-align: center;
+    margin-left: .1rem;
+}
+div.cz>div:nth-child(1)>span{
+    margin-top: .8rem;
+    display: inline-block;
+    color: #FFFFFF;
+    font-size: .4rem;
+}
+div.cz>div:nth-child(2){
+    float: left;
+    width: 60%;
+    padding-left: .2rem;
+}
+div.nj{
+    margin-bottom: .4rem;
+}
+div.nj>span.fb{
+    background-color: #F7B529;
+    display: inline-block;
+    color: #FFFFFF;
+    font-size: smaller;
+    text-align: center;
+    margin-left: .2rem;
+    line-height: .44rem;
+    height: .44rem;
+    width: 1.5rem;
+
+}
+div.cz>div:nth-child(2)>p{
+    color: #A6A6A6;
+}
+div.cz>div:nth-child(2)>h3{
+    margin: 0;
+    float: left;
+    font-size: .45rem;
+}
+div.nj>span{
+    color:#A6A6A6 ;
+
+}
+div.cz>div:nth-child(3){
+    float: right;
+    width: 17%;
+    min-height: 2rem;
+}
+div.cz>div:nth-child(3) span{
+    color: #A6A6A6;
+}
+img.you{
+    margin-top: .5rem;
+    height: 1rem;
+    margin-left: .7rem;
+}
+/*动画部分*/
+.dropnav{
+    background-color: #ddd;
+    position: absolute;
+    z-index: 5201314;
+    top: 1px;
+    width: 100%;
+    right: 0;
+    min-height: 1rem;
+    display: none;
+    /*display: inline-block;*/
+    zoom: 1;
+}
+.dropnav a {
+    display: block;
+    float: left;
+    width: 24.7%;
+    color: #555;
+    height:1rem;
+    line-height:1rem;
+    font-size: .4rem;
+    border: solid 1px #efefef;
+    margin-right: -1px;
+    margin-top: -1px;
+    text-align: center;
+}
+.down{
+    display: inline-block;
+}
+i.iconDown{
+    background:url('../images/down.png')no-repeat center;
+    width: .45rem;
+    height: .3rem;
+}
+.iconUp{
+    width: .45rem;
+    height: .3rem;
+    background: url("../images/up.png") no-repeat center;
+}
+.icon{
+    display: inline-block;
+}
+
+.icon2{
+    display: inline-block;
+}
+.icon1{
+    display: inline-block;
+}

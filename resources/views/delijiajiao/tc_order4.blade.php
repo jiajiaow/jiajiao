@@ -311,7 +311,8 @@
                                 </div>
                                 <div class="pm zqm">
                                     <div class="left">
-                                        信息费：@if($skzs->o_ts == '1'){{ $q*$skzs->bfb1 }}@elseif($skzs->o_ts == '2'){{ $q*$skzs->bfb2 }}@elseif($skzs->o_ts == '3'){{ $q*$skzs->bfb3 }}@elseif($skzs->o_ts == '4'){{ $q*$skzs->bfb4 }}@elseif($skzs->o_ts == '5'){{ $q*$skzs->bfb5 }}@elseif($skzs->o_ts == '6'){{ $q*$skzs->bfb6 }}@elseif($skzs->o_ts == '7'){{ $q*$skzs->bfb7 }}@endif元
+                                        {{--信息费：@if($skzs->o_ts == '1'){{ $q*$skzs->bfb1 }}@elseif($skzs->o_ts == '2'){{ $q*$skzs->bfb2 }}@elseif($skzs->o_ts == '3'){{ $q*$skzs->bfb3 }}@elseif($skzs->o_ts == '4'){{ $q*$skzs->bfb4 }}@elseif($skzs->o_ts == '5'){{ $q*$skzs->bfb5 }}@elseif($skzs->o_ts == '6'){{ $q*$skzs->bfb6 }}@elseif($skzs->o_ts == '7'){{ $q*$skzs->bfb7 }}@endif元--}}
+                                        信息费：@if($skzs->o_ts == '1'){{ ($q*$skzs->bfb1)*$skzs->zk }}@elseif($skzs->o_ts == '2'){{ ($q*$skzs->bfb2)*$skzs->zk }}@elseif($skzs->o_ts == '3'){{ ($q*$skzs->bfb3)*$skzs->zk }}@elseif($skzs->o_ts == '4'){{ ($q*$skzs->bfb4)*$skzs->zk }}@elseif($skzs->o_ts == '5'){{ ($q*$skzs->bfb5)*$skzs->zk }}@elseif($skzs->o_ts == '6'){{ ($q*$skzs->bfb6)*$skzs->zk }}@elseif($skzs->o_ts == '7'){{ ($q*$skzs->bfb7)*$skzs->zk }}@endif元
                                     </div>
                                     <div class="left">
                                         家长服务费：{{$skzs->fz_jzxxf}}元
@@ -371,7 +372,7 @@
                             <input type="hidden" name="tc_id" id="tc_id{{ $skzs->id }}" value="">
                             <div style="padding: 10px 32px;">
                                 <ul >
-                                    <li><p><input name="Fruit" type="radio" value="1" checked="checked" />试课成功</p></li>
+                                    <li><p><input name="Fruit" id="SKCG_input" type="radio" value="1" onclick="skcgFn({{ $skzs->id }})" />试课成功</p></li>
                                     <li><p>周薪酬减少　
                                             {{ $skzs->money2*$skzs->o_xs2*$skzs->o_ts2-$skzs->money*$skzs->o_xs*$skzs->o_ts }}
                                             <span class="seeMar"><!--<input type="text" name="kc">--></span>申请信息费退款　
@@ -467,7 +468,7 @@
                                             @endif
                                         </p>
                                     </li>
-                                    <li><input name="Fruit" type="radio" value="2" />试课不成功</li>
+                                    <li><input name="Fruit" type="radio" value="2" onclick="skcgFn({{ $skzs->id }})" />试课不成功</li>
                                     <li>
                                         <p>申请信息费退款<span class="seeMar">
                                                 <input type="" name="xxftk" style="width:55px">
@@ -501,6 +502,7 @@
                                                 <option value="家长想换个性别（男/女）的老师（未试课）">家长想换个性别（男/女）的老师（未试课）</option>
                                                 <option value="家长想换个更好学校或者更合适专业的老师（未试课）">家长想换个更好学校或者更合适专业的老师（未试课）</option>
                                                 <option value="家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）">家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）</option>
+                                                <option value="其他（请在备注中说明情况）"></option>
                                             </select>
                                             <select id="ok_xueyuan{{ $skzs->id }}" style="display:none;width:360px;" name="yuanyin">
                                                 <option value="学员暂时不太适应家教试课不成功">学员暂时不太适应家教试课不成功</option>
@@ -533,20 +535,23 @@
                                         {{--<p><input name="Fruit" type="radio" value="" />已锁定诚意金<span class="seeMar"></span></p>--}}
                                     {{--</li>--}}
                                     <li>
-                                        <p>
+                                        <p id="skcg_btn">
                                             @if($skzs->jy_qz =='1')
                                                 @if($skzs->tk_type == '6' || $skzs->tk_type == '')
-                                                    <button style="margin-left: 110px;" type="submit" >申请退款</button>
+                                                    <button style="margin-left: 110px;" type="submit"  >申请退款</button>
                                                 @else
                                                     <span style="margin-left: 110px;" onclick="layer.alert('您已经提交过申请了!')" >申请退款</span>
                                                 @endif
                                             @else
-                                                @if($skzs->tk_type !='')
                                                     <span style="margin-left: 110px;" onclick="layer.alert('请您先确认合同!')" >申请退款</span>
-                                                @else
-                                                    <span style="margin-left: 110px;" onclick="layer.alert('你已经提交过申请了!')" >申请退款</span>
-                                                @endif
                                             @endif<span class="seeMar">{{--<button>申请诚意金解锁</button>--}}</span><span><span style="padding: 0 13px;"  class="qxBtn" onclick="qx({{ $skzs->id }})">取消</span></span>
+                                        </p>
+                                        <p id="skbcg_btn" style="display: none">
+                                            @if($skzs->tk_type == '6' || $skzs->tk_type == '')
+                                                <button style="margin-left: 110px;" type="submit"  >申请退款</button>
+                                            @else
+                                                <span style="margin-left: 110px;" onclick="layer.alert('您已经提交过申请了!')" >申请退款</span>
+                                            @endif<span style="margin-left: 75px;"><span style="padding: 0 13px;"  class="qxBtn" onclick="qx({{ $skzs->id }})">取消</span></span>
                                         </p>
                                     </li>
                                 </ul>
@@ -681,6 +686,20 @@
 <script type="text/javascript" src='/layer/layer.js'></script>
 
 <script>
+
+    function skcgFn(id){
+
+        if($('#SKCG_input')[0].checked == true){
+            $('#skcg_btn').show()
+            $('#skbcg_btn').hide()
+        }else{
+            $('#skcg_btn').hide()
+            $('#skbcg_btn').show()
+        }
+
+    }
+
+
     //审查订单
     function sc(oid,money,jy_qz,xy_qz,tc_id){
        // alert(oid);

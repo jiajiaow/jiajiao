@@ -21,13 +21,11 @@
     <div class="title_p">
       <h3>请完善您的个人资料，方便为您匹配家教订单</h3>
     </div>
+    
     <form method="post" action="StudentAdd"  onSubmit="return ChkFields();" name="myform" id="myform">
-    <div class="content">
+
+        <div class="content">
       <ul>
-        <li>
-          <p>联系电话</p>
-          <input type="" name="user_phone">
-        </li>
         <li>
           <p>联系微信</p>
           <input type="" name="wx"> <span class="fb">非必填，找到老师后，我们将通过微信将老师的简历发给您</span>
@@ -44,7 +42,7 @@
         </li>
         <li>
           <p>学员年级</p>
-          <select name="grade"  style="width:255px;height:34px;">
+          <select name="grade"  style="width:255px;height:34px;" id="yxnj">
               <OPTION value="" selected>请选择</OPTION>
               <OPTION value="幼儿">幼儿</OPTION>
               <OPTION value="一年级">一年级</OPTION>
@@ -64,10 +62,6 @@
               <OPTION value="成人">成人</OPTION>
           </select>
           <span class="bt">必填</span>
-        </li>
-        <li>
-          <p>辅导科目</p>
-          <input type="" name="subject_id"><span class="bt">必填</span>
         </li>
         <li>
           <p>学员希望的主要辅导类型</p>
@@ -163,17 +157,17 @@
         </li>
         <li>
           <p>家教上课地点</p>
-          <input type="" name="xx_dz"><span class="bt">必填</span>
+          <input type="" name="xx_dz" id="xx_dz"><span class="bt">必填</span>
         </li>
         <li>
           <p>选择教员性别</p>
                 <input type="radio" name="teacher_sex" value="1">男教员
-                <input type="radio" name="teacher_sex" value="2">女教员
+                <input type="radio" name="teacher_sex" value="2" checked>女教员
                 <input type="radio" name="teacher_sex" value="3">男女均可
         </li>
         <li>
           <p>对教员具体的要求</p>
-          <textarea name='teacher_info' placeholder="有责任心，有家教经验优先！"></textarea>
+          <textarea name='teacher_info'>有责任心，有家教经验优先。</textarea>
         </li>
         <li>
           <p>教员性质</p>
@@ -191,14 +185,13 @@
         <li>
           <p>支付给老师的报酬</p>
           <select name="money" size="1" id="bc" style="width:255px;height:34px;">
-                <option value="面议">面议</option>
                 <option value="30">30</option>
                 <option value="35">35</option>
                 <option value="40">40</option>
                 <option value="45">45</option>
                 <option value="50">50</option>
                 <option value="55">55</option>
-                <option value="60">60</option>
+                <option value="60" selected="true">60</option>
                 <option value="65">65</option>
                 <option value="70">70</option>
                 <option value="80">80</option>
@@ -209,11 +202,11 @@
                 <option value="200">200</option>
                 <option value="300">300</option>
             </select>
-            
+            <a target="_blank" href="/zfsm.html">点击查看家教薪资参考标准</a>
         </li>
       </ul>
       <input name="oid" value="<?php echo e($orderid); ?>" type="hidden"/>
-      <input type="submit" value="填好了，立即提交找老师" class="TJ_btn">
+      <input type="button" value="填好了，立即提交找老师" class="TJ_btn" id="#TJ_btn" onclick="tjbtnIf()">
     </div>
     </form>
   </div>
@@ -325,10 +318,50 @@
     $('#cheng_show').css('display','none');
   });
 
+
+ function tjbtnIf(){
+     var licbox = $('.licbox').find('input')
+    console.log(licbox)
+     var num = 0;
+     for(var i = 0;i<licbox.length;i++){
+         if(licbox[i].checked == true){
+             num = 1
+             break
+         }
+
+     }
+
+
+     var yxnj = $('#yxnj option:selected')[0].innerHTML
+
+     var dq = $('#dq option:selected')[0].innerHTML
+
+     var xx_dz = $('#xx_dz').val()
+
+     if(yxnj == '请选择'){
+         alert('必选项没填哦')
+         return
+     }else if(dq == '请选择'){
+         alert('必选项没填哦')
+         return
+     }else if(xx_dz == ''){
+         alert('必选项没填哦')
+         return
+     }else if(num == 0){
+         alert('授课时间没选哦')
+         return
+     }
+     document.getElementById("myform").submit()
+ }
+
+
+
+
+
+
 </script>
 <script>
   $('input#sk').click(function(){
-    // alert(1);
     $('#cheng_a').css('display','block');
   });
   $('#qxx').click(function(){

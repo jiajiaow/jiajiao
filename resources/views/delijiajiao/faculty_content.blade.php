@@ -78,14 +78,14 @@
     </div>
         </div>
 
-    <div style="height: 200px;border:1px solid #F7B529; width: 888px;float: left;">
+    <div style="height: 200px;border:1px solid #F7B529; width: 888px;margin-left: -262px; display: inline-block">
     <!-- 内容开始 -->
   <div class="TabContent">
       <div id="myTab0_Content0" >
-          <div style="float: left;margin:5px 0px 0px 5px;text-align: left"><b style="color: #ff0000;">可授科目：</b>{{ $list->tc_subjects }}</div><br><br>
-          <div style="float: left;margin:5px 0px 0px 5px;text-align: left"><b style="color: #ff0000;">可授区域：</b>{{ $list->tc_area }}</div><br><br><br>
-          <div class="DivJoin" style="float: left;margin:5px 0px 0px 5px;text-align: left"><b style="color: #ff0000;">可授课时间：</b>{{ $list->tc_sktime }}</div><br><br>
-          <div style="float: left;margin:5px 0px 15px 5px;text-align: left"><b style="color: #ff0000;">课酬要求：</b>@if($list->tc_salary == null)执行德栗家教收费标准@else{{ $list->tc_salary }}@endif</div>
+          <div style=";margin:5px 0px 0px 5px;text-align: left"><b style="color: #ff0000;">可授科目：</b>{{ $list->tc_subjects }}</div>
+          <div style=";margin:5px 0px 0px 5px;text-align: left"><b style="color: #ff0000;">可授区域：</b>{{ $list->tc_area }}</div>
+          <div class="DivJoin" style="margin:5px 0px 0px 5px;text-align: left"><b style="color: #ff0000;">可授课时间：</b>{{ $list->tc_sktime }}</div>
+          <div style="margin:5px 0px 15px 5px;text-align: left"><b style="color: #ff0000;">课酬要求：</b>@if($list->tc_salary == null)执行德栗家教收费标准@else{{ $list->tc_salary }}@endif</div>
       </div>
        <div id="myTab0_Content1" class="none">
            <div style="float: left;margin:5px 0px 0px 5px; text-align: left"><b style="color: #ff0000;">自我评价：</b>{{ $list->tc_comments }}</div><br><br>
@@ -101,7 +101,7 @@
   <!-- 选项卡结束 -->
   </center>
 </div>
-    </div>--
+
    <script type="text/javascript">
 
       var JoDiv =  $('.DivJoin').text()

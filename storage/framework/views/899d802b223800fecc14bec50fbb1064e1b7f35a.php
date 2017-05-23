@@ -71,7 +71,7 @@
                                     <p>编号：<?php echo e($re->id); ?></p>
                                     <p>注册入口：<input type="text" name=""></p>
                                     <p>注册时间：<?php echo e($re->tc_reg_date); ?></p>
-                                    <p>最近登录：<?php echo e(date('Y-m-d h:i:s',$re->tc_dltimes)); ?></p>
+                                    <p>最近登录：<?php echo e(date('Y-m-d G:i:s',$re->tc_dltimes)); ?></p>
                                     <p>平时城市：<input type="text" name="" value="<?php echo e($re->tc_citys); ?>"></p>
                                     <p>暑假城市：<input type="text" name="" value="<?php echo e($re->tc_shu); ?>"></p>
                                     <p>寒假城市：<input type="text" name="" value="<?php echo e($re->tc_han); ?>"></p>
@@ -81,7 +81,7 @@
                                 <div>
                                     <p>姓名：<input type="text" value="<?php echo e($re->tc_name); ?>"></p>
                                     <p>籍贯：<input type="text" value="<?php echo e($re->tc_jiguan); ?>"></p>
-                                    <p>性别：<input type="text" value="<?php echo e($re->tc_sex=='1'?'男':'女'); ?>"></p>
+                                    <p>性别：<input type="text" value="<?php if($re->tc_sex=='1'): ?>男<?php elseif($re->tc_sex=='0'): ?>女<?php elseif($re->tc_sex==''): ?><?php endif; ?>"></p>
                                     <p>教员性质：<input type="text" name="" value=""></p>
                                     <p>教员等级：<input type="text" name="" value=""></p>
                                     <p>教员类型：<input type="text" name="" value="<?php echo e($re->tc_type); ?>"></p>
@@ -118,7 +118,7 @@
                                     <p>QQ：<input type="text" name="" value="<?php echo e($re->tc_qq); ?>"></p>
                                     <p>备用电话：<input type="text" name="" value="<?php echo e($re->tc_phone_bak); ?>"></p>
                                     <p><a href="">个人基础评分：</a><input type="text" name="" value=""></p>
-                                    <p><button>QQ交谈</button></p>
+                                    <p><a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo e($re->tc_qq); ?>&site=<?php echo e($re->tc_qq); ?>&menu=yes">QQ交谈</a></p>
                                 </div>
                             </td>
                             <td>
@@ -160,8 +160,8 @@
                                     <p><a href="">编辑资料</a></p>
                                     <p><a href="">推荐到首页</a>|<a href="">有头像</a></p>
                                     <p><a href="">查看简历</a> <input type="submit" name=""></p>
-                                    <p><a onclick="<?php echo e($re->tc_id_photo==null?alert('对方没有上传身份证'):$re->tc_id_photo); ?>" target="_blank">查看身份证</a><input type="submit" name=""></p>
-                                    <p><a onclick="<?php echo e($re->tc_xszimage==null?'/admin/index':$re->tc_xszimage); ?>" target="_blank">查看学生证</a><input type="submit" name=""></p>
+                                    <p><a href="<?php echo e($re->tc_id_photo==null?'/admin/index':$re->tc_id_photo); ?>" target="_blank">查看身份证</a><input type="submit" name=""></p>
+                                    <p><a href="<?php echo e($re->tc_xszimage==null?'/admin/index':$re->tc_xszimage); ?>" target="_blank">查看学生证</a><input type="submit" name=""></p>
                                     <p>邀请人：<input type="text"><input type="" name=""></p>
                                     <p>管理人：<input type="text"><input type="" name=""></p>
                                 </div>

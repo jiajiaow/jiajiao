@@ -40,6 +40,7 @@
 				<p>本协议自签订之日起生效，自丙方结束授课之日起且甲方结清价款后自动失效。</p>
 				<input type="hidden" name="jy_qz" value="1">
 				<input type="hidden" name="id" value="{{ $list->id }}">
+				<input type="hidden" name="xt" value="2">
 				<p>　<span class="text_1">
 						@if($list->xy_qz == '1')
 							甲方已签认
@@ -61,7 +62,7 @@
 					<span class="btn btn_3">签认按钮</span>
 					@endif
 				</p>
-				<p style="text-align: right">({{ date("Y-m-d",$list->hetong_time) }})</p>
+				<p style="text-align: right">({{ $list->hetong_time==''?'':date("Y-m-d",$list->hetong_time) }})</p>
 			</div>
 		</div>
 	</form>

@@ -466,6 +466,7 @@ class tcinfoController extends Controller
     }
     //执行合同修改
     public function dohetong(Request $request){
+        //dd($_POST);
         if($_POST['xt'] == '1'){
             $data = $request->except('id','xt');
             $data['hetong_time']=time();
@@ -519,5 +520,15 @@ class tcinfoController extends Controller
         }else{
             echo "没有合同";
         }
+    }
+
+    //教员提现
+    public function tc_tixian(Request $request){
+        $all = $request->all();
+        $all['m_mtype'] = '';
+        $all['m_type'] == '4'?$all['m_mtype'] = '支付宝提现':$all['m_mtype'] = '微信提现';
+        $all['m_time']=time();
+        $list = \DB::table('jjw_mpay')->insert($all);
+        return back();
     }
 }

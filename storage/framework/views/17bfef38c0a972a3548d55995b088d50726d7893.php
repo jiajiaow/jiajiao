@@ -28,24 +28,8 @@
         <div class="col-sm-12" style="overflow: scroll;">
             <div class="ibox float-e-margins" style="overflow: scroll;">
                 <div class="ibox-title">
-                    <h5>学员订单 <small>分类，查找</small></h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="table_data_tables.html#">
-                            <i class="fa fa-wrench"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-user">
-                            <li><a href="table_data_tables.html#">选项1</a>
-                            </li>
-                            <li><a href="table_data_tables.html#">选项2</a>
-                            </li>
-                        </ul>
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
-                        </a>
-                    </div>
+                    <h5>学员订单 <small>当前屏蔽订单<span style="color:red;"><?php echo e($num); ?></span></small></h5>
+
                 </div>
                 <div class="ibox-content">
                     <table class="table table-striped table-bordered table-hover dataTables-example">
@@ -63,7 +47,7 @@
                         </thead>
                         <tbody>
                         <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $re): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <tr valign="top" align="center">
+                        <tr valign="top" align="center" <?php if($re->status == '3'): ?> style="color:red;" <?php endif; ?>>
                             <td>
                                 <form action="/admin/orderjc" method="post">
                                     <?php echo e(csrf_field()); ?>
@@ -99,19 +83,19 @@
                                             <span class="no_ne"></span>
                                         </p>
                                         <p>状态:
-                                            <select name="ddzt">
-                                                <option value="正常">正常(默认)</option>
-                                                <option value="协助">协助</option>
-                                                <option value="求助单">求助单</option>
-                                                <option value="特别关注">特别关注</option>
+                                            <select name="ddzt" autocomplete="off">
+                                                <option value="正常" <?php echo e($re->ddzt=='正常(默认)'?'selected':''); ?>>正常(默认)</option>
+                                                <option value="协助" <?php echo e($re->ddzt=='协助'?'selected':''); ?>>协助</option>
+                                                <option value="求助单" <?php echo e($re->ddzt=='求助单'?'selected':''); ?>>求助单</option>
+                                                <option value="特别关注" <?php echo e($re->ddzt=='特别关注'?'selected':''); ?>>特别关注</option>
                                             </select>
                                             <span class="no_ne"></span>
                                         </p>
                                         <p>学期:
-                                            <select name="jqzt">
-                                                <option value="学期中">学期中</option>
-                                                <option value="暑假单">暑假单</option>
-                                                <option value="寒假单">寒假单</option>
+                                            <select name="jqzt" autocomplete="off">
+                                                <option value="学期中" <?php echo e($re->jqzt=='学期中'?'selected':''); ?>>学期中</option>
+                                                <option value="暑假单" <?php echo e($re->jqzt=='暑假单'?'selected':''); ?>>暑假单</option>
+                                                <option value="寒假单" <?php echo e($re->jqzt=='寒假单'?'selected':''); ?>>寒假单</option>
                                             </select>
                                             <span class="no_ne"></span>
                                         </p>
@@ -137,7 +121,7 @@
                                         <p>编号:<?php echo e($re->id); ?></p>
                                         <p>姓名:<input name="user_name" value="<?php echo e($re->user_name); ?>"></p>
                                         <p>学员姓名：<input type="text" name="" value="" style="width: 70px;"><span class="xyxm_btn">+</span></p>
-                                        <p>时间:<?php echo e(date('Y-m-d H:i:s',$re->time)); ?></p>
+                                        <p>时间:<?php echo e($re->time==''?'':date('Y-m-d G:i:s',$re->time)); ?></p>
                                         <p>学员等级:</p>
                                         <p style="position:relative; height: 20px;">
                                             <span style="float: left">学员备注:</span>
@@ -153,7 +137,7 @@
                                             <span style="float: right" class="bj_btn">编辑</span>
                                         </p>
                                         <p>
-                                            <textarea class="bj_msg" style="display: block" name="ddbz"></textarea>
+                                            <textarea class="bj_msg" style="display: block" name="ddbz"><?php echo e($re->ddbz); ?></textarea>
                                         </p>
                                         <p><input type="submit" name="" value="修改"></p>
                                         <span class="no_ne"></span>
@@ -167,7 +151,7 @@
 
                                     <input type="hidden" name="id" value="<?php echo e($re->id); ?>">
                                     <div>
-                                        
+                                        <p>电话:<?php echo e($re->user_phone); ?></p>
                                         <p>微信:<input type="text" name="wx" value="<?php echo e($re->wx); ?>"></p>
                                         <p>QQ:<input type="text" name="qq" value="<?php echo e($re->qq); ?>"></p>
                                         <p>年级:<input type="text" name="grade" value="<?php echo e($re->grade); ?>"></p>
@@ -194,14 +178,15 @@
                                                 <option value="否" <?php if($re->tc_Signing == '否'): ?> selected = "selected" <?php endif; ?>>否</option>
                                             </select>
                                         </p>
-                                        <p>辅导类型:<select name="fdlx">
-                                                <option value="授课教学">授课教学</option>
-                                                <option value="作业辅导">作业辅导</option>
-                                                <option value="讲解疑难">讲解疑难</option>
+                                        <p>辅导类型:<select name="fdlx" autocomplete="off">
+                                                <option value="" >请选择</option>
+                                                <option value="授课教学" <?php echo e($re->fdlx=='授课教学'?'selected':''); ?>>授课教学</option>
+                                                <option value="作业辅导" <?php echo e($re->fdlx=='作业辅导'?'selected':''); ?>>作业辅导</option>
+                                                <option value="讲解疑难" <?php echo e($re->fdlx=='讲解疑难'?'selected':''); ?>>讲解疑难</option>
                                             </select>
                                             接单教员：
                                         </p>
-                                        <p>时间安排:<input type="text" name="per_week" value="<?php echo e($re->per_week); ?>" style="width:220px;"></p>
+                                        
                                         <p>授课时间:<input type="text" name="sk_times" value="<?php echo e($re->sk_times); ?>" style="width:220px;"></p>
                                         <p>学员描述:<input type="text" name="user_situation" value="<?php echo e($re->user_situation); ?>" style="width:220px;"></p>
                                         <p>教员要求:<input type="text" name="teacher_info" value="<?php echo e($re->teacher_info); ?>" style="width:220px;"></p>
@@ -217,8 +202,6 @@
                                             </div>
                                             <?php if($re->tc_Signing == '否'): ?><?php echo e($re->money*$re->o_xs); ?><?php else: ?> 0 <?php endif; ?>
                                         </div>
-
-
                                         <p>性别要求:
                                             <select name="teacher_sex">
                                                 <option value="1" <?php if($re->teacher_sex == '1'): ?> selected="selected" <?php endif; ?>>男</option>
@@ -240,8 +223,9 @@
                                 <div><?php $q = $re->o_ts*$re->o_xs*$re->money ?>
                                     <p>周薪酬:<input type="text" value="<?php echo e($q); ?>" name="order_zkc"></p>
                                     <p>月薪酬:<input type="text" value="<?php if($re->o_ts == '1'): ?><?php echo e($q*4); ?><?php elseif($re->o_ts == '2'): ?><?php echo e($q*4); ?><?php elseif($re->o_ts == '3'): ?><?php echo e($q*4); ?><?php elseif($re->o_ts == '4'): ?><?php echo e($q*4); ?><?php elseif($re->o_ts == '5'): ?><?php echo e($q*4); ?><?php elseif($re->o_ts == '6'): ?><?php echo e($q*4); ?><?php elseif($re->o_ts == '7'): ?><?php echo e($q*4); ?><?php endif; ?>" name="order_ykc"></p>
-                                    <p>预计总费用:<input type="text" value="<?php if($re->o_ts == '1'): ?><?php echo e($q*$re->bfb1+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '2'): ?><?php echo e($q*$re->bfb2+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '3'): ?><?php echo e($q*$re->bfb3+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '4'): ?><?php echo e($q*$re->bfb4+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '5'): ?><?php echo e($q*$re->bfb5+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '6'): ?><?php echo e($q*$re->bfb6+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '7'): ?><?php echo e($q*$re->bfb7+$re->fz_jzxxf); ?><?php endif; ?>"name="money" style="width: 60px;"></p>
-                                    <p>预计信息费:<input type="text" name="order_xxf" value="<?php if($re->o_ts == '1'): ?><?php echo e($q*$re->bfb1); ?><?php elseif($re->o_ts == '2'): ?><?php echo e($q*$re->bfb2); ?><?php elseif($re->o_ts == '3'): ?><?php echo e($q*$re->bfb3); ?><?php elseif($re->o_ts == '4'): ?><?php echo e($q*$re->bfb4); ?><?php elseif($re->o_ts == '5'): ?><?php echo e($q*$re->bfb5); ?><?php elseif($re->o_ts == '6'): ?><?php echo e($q*$re->bfb6); ?><?php elseif($re->o_ts == '7'): ?><?php echo e($q*$re->bfb7); ?><?php endif; ?>"style="width: 60px;"></p>
+                                    <p>折扣：<input type="text" value="<?php echo e($re->zk); ?>"></p>
+                                    <p>预计总费用:<input type="text" value="<?php if($re->o_ts == '1'): ?><?php echo e((($q*$re->bfb1)*$re->zk)+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '2'): ?><?php echo e((($q*$re->bfb2)*$re->zk)+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '3'): ?><?php echo e((($q*$re->bfb3)*$re->zk)+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '4'): ?><?php echo e((($q*$re->bfb4)*$re->zk)+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '5'): ?><?php echo e((($q*$re->bfb5)*$re->zk)+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '6'): ?><?php echo e((($q*$re->bfb6)*$re->zk)+$re->fz_jzxxf); ?><?php elseif($re->o_ts == '7'): ?><?php echo e((($q*$re->bfb7)*$re->zk)+$re->fz_jzxxf); ?><?php endif; ?>"name="money" style="width: 60px;"></p>
+                                    <p>预计信息费:<input type="text" name="order_xxf" value="<?php if($re->o_ts == '1'): ?><?php echo e(($q*$re->bfb1)*$re->zk); ?><?php elseif($re->o_ts == '2'): ?><?php echo e(($q*$re->bfb2)*$re->zk); ?><?php elseif($re->o_ts == '3'): ?><?php echo e(($q*$re->bfb3)*$re->zk); ?><?php elseif($re->o_ts == '4'): ?><?php echo e(($q*$re->bfb4)*$re->zk); ?><?php elseif($re->o_ts == '5'): ?><?php echo e(($q*$re->bfb5)*$re->zk); ?><?php elseif($re->o_ts == '6'): ?><?php echo e(($q*$re->bfb6)*$re->zk); ?><?php elseif($re->o_ts == '7'): ?><?php echo e(($q*$re->bfb7)*$re->zk); ?><?php endif; ?>"style="width: 60px;"></p>
                                     <p>家长服务费:<input type="text" value="<?php echo e($re->fz_jzxxf); ?>" name="order_jzfy" style="width: 60px;"></p>
                                     <p>实际收款总额:<input type="text" name="sjsk" style="width:40px;"></p>
                                     <p>收费差额:<input type="text" name="sfc" style="width:70px;"></p>
@@ -252,7 +236,7 @@
 
                             <td>
                                 <div>
-                                    <p><a href="/admin/orderyyrs/<?php echo e($re->id); ?>" style="font-size:24px;color: red;"><?php echo e($re->yynum); ?></a>|<a target="_blank" href="/xxfb.php?oid=<?php echo e($re->id); ?>&title=<?php if(session('Template') == '2' || '4'): ?>德栗家教<?php else: ?>栗志家教<?php endif; ?>&q=<?php echo e($re->money*$re->o_xs); ?>&nj=<?php echo e($re->grade); ?>&dq=<?php echo e($re->dq); ?>">生成信息模板</a></p>
+                                    <p><a href="/admin/orderyyrs/<?php echo e($re->id); ?>" style="font-size:24px;color: red;"><?php echo e($re->yynum); ?></a>|<a target="_blank" href="/xxfb.php?oid=<?php echo e($re->id); ?>&title=<?php if(session('Template') == '2' || '4'): ?>德栗家教<?php else: ?>栗志家教<?php endif; ?>&q=<?php echo e($re->money*$re->o_xs); ?>&nj=<?php echo e($re->grade); ?>&dq=<?php echo e($re->dq); ?>&fdkm=<?php echo e($re->subject_id); ?>">生成信息模板</a></p>
                                     <p>状态:
                                         <select name="ht_status">
                                             <option value="0" <?php if($re->ht_status == '0'): ?> selected='selected' <?php endif; ?>>新家教</option>
@@ -274,22 +258,24 @@
                                     <p>试课地址:<input type="text" value="<?php echo e($re->sks_add); ?>" ></p>
                                     <p><a href="">前台查看次家教</a><button class="VIP" >设置为vip</button></p>
                                     <p>
-                                        <a href="">显示</a>|
-                                        <a href="">屏蔽</a>|
+                                        <?php if($re->status != '3'): ?>
+                                        <a href="/admin/xgddzt/<?php echo e($re->id); ?>/3">屏蔽</a>
+                                        <?php else: ?>
+                                        <a href="/admin/xgddzt/<?php echo e($re->id); ?>/0">显示</a>
+                                        <?php endif; ?>|
                                         <a href="">非置顶</a>|
                                         <a href="">推送</a>|
                                         <a href="">删除</a>
                                     </p>
                                     <p><button >本单收支流水</button></p>
-                                    <span style='display: none;'><?php echo e($re->id); ?><?php echo e($re->user_id); ?><?php echo e($re->user_name); ?><?php echo e($re->user_phone); ?><?php echo e($re->user_byphone); ?><?php echo e($re->user_qq); ?><?php echo e($re->user_sex); ?><?php echo e($re->dq); ?><?php echo e($re->contact); ?><?php echo e($re->grade); ?><?php echo e($re->sk_times); ?>
+                                    <span style='display: none;'><?php echo e($re->id); ?><br><?php echo e($re->user_id); ?><br><?php echo e($re->user_name); ?><br><?php echo e($re->user_phone); ?><br><?php echo e($re->user_byphone); ?><br><?php echo e($re->user_qq); ?><br><?php echo e($re->user_sex); ?><br><?php echo e($re->dq); ?><br><?php echo e($re->contact); ?><br><?php echo e($re->grade); ?><br><?php echo e($re->sk_times); ?><br>
+<?php echo e($re->explain); ?><br><?php echo e($re->subject_id); ?><br><?php echo e($re->user_situation); ?><br><?php echo e($re->teacher_id); ?><br><?php echo e($re->teacher_sex); ?><br><?php echo e($re->teacher_info); ?><br><?php echo e($re->money); ?><br><?php echo e($re->time); ?><br><?php echo e($re->region); ?><br><?php echo e($re->status); ?><br><?php echo e($re->pay); ?><br><?php echo e($re->pay_id); ?><br><?php echo e($re->city_id); ?>
 
-<?php echo e($re->explain); ?><?php echo e($re->subject_id); ?><?php echo e($re->user_situation); ?><?php echo e($re->teacher_id); ?><?php echo e($re->teacher_sex); ?><?php echo e($re->teacher_info); ?><?php echo e($re->money); ?><?php echo e($re->time); ?><?php echo e($re->region); ?><?php echo e($re->status); ?><?php echo e($re->pay); ?><?php echo e($re->pay_id); ?><?php echo e($re->city_id); ?>
+<?php echo e($re->user_reboot); ?><br><?php echo e($re->per_week); ?><br><?php echo e($re->xx_dz); ?><br><?php echo e($re->ls_type); ?><br><?php echo e($re->tc_Signing); ?><br><?php echo e($re->qq); ?><br><?php echo e($re->wx); ?><br><?php echo e($re->wlk); ?><br><?php echo e($re->browsenu); ?><br><?php echo e($re->yynum); ?><br><?php echo e($re->ddzt); ?><br><?php echo e($re->jqzt); ?><br><?php echo e($re->wzly); ?><br><?php echo e($re->khly); ?><br><?php echo e($re->ap); ?><br><?php echo e($re->yhbz); ?><br><?php echo e($re->ht_status); ?>
 
-<?php echo e($re->user_reboot); ?><?php echo e($re->per_week); ?><?php echo e($re->xx_dz); ?><?php echo e($re->ls_type); ?><?php echo e($re->tc_Signing); ?><?php echo e($re->qq); ?><?php echo e($re->wx); ?><?php echo e($re->wlk); ?><?php echo e($re->browsenu); ?><?php echo e($re->yynum); ?><?php echo e($re->ddzt); ?><?php echo e($re->jqzt); ?><?php echo e($re->wzly); ?><?php echo e($re->khly); ?><?php echo e($re->ap); ?><?php echo e($re->yhbz); ?><?php echo e($re->ht_status); ?>
+<?php echo e($re->ddbz); ?><br><?php echo e($re->o_ts); ?><br><?php echo e($re->o_xs); ?><br><?php echo e($re->fdlx); ?><br><?php echo e($re->o_yue); ?><br><?php echo e($re->jy_qz); ?><br><?php echo e($re->xy_qz); ?><br><?php echo e($re->money2); ?><br><?php echo e($re->o_ts2); ?><br><?php echo e($re->o_xs2); ?><br><?php echo e($re->bj_msg_A); ?><br><?php echo e($re->hetong_time); ?><br><?php echo e($re->sks_time); ?><br><?php echo e($re->sks_add); ?><br><?php echo e($re->fz_jzxxf); ?><br><?php echo e($re->city_name); ?>
 
-<?php echo e($re->ddbz); ?><?php echo e($re->o_ts); ?><?php echo e($re->o_xs); ?><?php echo e($re->fdlx); ?><?php echo e($re->o_yue); ?><?php echo e($re->jy_qz); ?><?php echo e($re->xy_qz); ?><?php echo e($re->money2); ?><?php echo e($re->o_ts2); ?><?php echo e($re->o_xs2); ?><?php echo e($re->bj_msg_A); ?><?php echo e($re->hetong_time); ?><?php echo e($re->sks_time); ?><?php echo e($re->sks_add); ?><?php echo e($re->fz_jzxxf); ?><?php echo e($re->city_name); ?>
-
-<?php echo e($re->fz_vip); ?><?php echo e($re->fz_qyjyfy); ?><?php echo e($re->bfb1); ?><?php echo e($re->bfb2); ?><?php echo e($re->bfb3); ?><?php echo e($re->bfb4); ?><?php echo e($re->bfb5); ?><?php echo e($re->bfb6); ?><?php echo e($re->bfb7); ?>
+<?php echo e($re->fz_vip); ?><br><?php echo e($re->fz_qyjyfy); ?><br><?php echo e($re->bfb1); ?><br><?php echo e($re->bfb2); ?><br><?php echo e($re->bfb3); ?><br><?php echo e($re->bfb4); ?><br><?php echo e($re->bfb5); ?><br><?php echo e($re->bfb6); ?><br><?php echo e($re->bfb7); ?>
 
                                     </span>
                                 </div>
@@ -500,7 +486,6 @@
 <!-- Page-Level Scripts -->
 <script>
     $(document).ready(function () {
-        console.log('%c 作者：林俊江','background:#aaa;color:#bada55','this is not colored');
         $('.dataTables-example').dataTable();
 
         /* Init DataTables */
@@ -518,7 +503,10 @@
                     "column": oTable.fnGetPosition(this)[2]
                 };
             },
+            select:{
 
+        items:'cells'
+            },
             "width": "90%",
             "height": "100%"
         });

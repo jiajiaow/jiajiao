@@ -58,8 +58,11 @@
                     <img src="/delijiajiao/images/icon_title4.png">学员库
                 </div>
               <div class="r">
-                  学员编号:<input type="text" style="color:#eee;" />
-                  <input id="sousuo" type="submit">
+                  <form action="/dosousuoid" method="post">
+                  学员编号:<input type="text" id="or_ids" value="" name="id" />
+                  <input type="hidden" id="or_ids" value="2" name="sb" />
+                  <input  type="submit" value="搜索">
+                  </form>
                 </div>
             </div>
 
@@ -99,7 +102,15 @@
                                 男女不限
                             @endif
                             ]{{  subtext($li->teacher_info,45) }}[{{ $li->yynum }}]</p>
-                        <p id="te">{{ $li->money==''?'执行德栗家教收费标准':$li->money."/元" }}</p>
+                        <p id="te">
+                            @if($li->money == '')
+                                执行德栗家教收费标准
+                            @elseif($li->money == '面议')
+                                面议
+                            @elseif($li->money != '执行德栗家教收费标准' && $li->money !='面议')
+                                {{ $li->money*$li->o_xs }}元/次
+                            @endif
+                        </p>
                         <p id="tf"> {{ $li->grade }}(
                             @if($li->user_sex == '1')
                                 男
@@ -147,7 +158,14 @@
     <div class="selectNumberScreen">
   </div></div>
 
-
+<style>
+    #tf{
+        white-space:nowrap;
+        text-overflow:ellipsis;
+        -o-text-overflow:ellipsis;
+        overflow: hidden;
+    }
+</style>
 <script type="text/javascript">
     var dlNum  =$("#selectList").find("dl");
     for (i = 0; i < dlNum.length; i++) {
@@ -189,7 +207,32 @@
         $(this).hide();
         $(".listIndex a ").removeClass("selected");
     });
+    //搜索
+    function sousuo(id){
+        $.post('/dosousuoid',{id:id,sb:'2'},function(res){
+            console.log(res)
+            $('.acrt3 li').remove();
+            $('.acrtp').remove();
+            for (var i = 0; i < res.length; i++) {
+                if(res[i].user_sex == "1"){
+                    res[i].user_sex = '男';
+                }else if(res[i].user_sex == "2"){
+                    res[i].user_sex = '女';
+                }else if(res[i].user_sex == "3" || res[i].user_sex == ''){
+                    res[i].user_sex = '男女不限';
+                }
 
+                if(res[i].status == '0'){
+                    res[i].status = "<p id='tc' style='background-color: #ff9900;'> 新发布 </p>";
+                }else if(res[i].status == '1'){
+                    res[i].status = "<p id='tc' style='background-color: #3366cc;'> 已安排 </p>";
+                }elseif(res[i].status == '2'){
+                    res[i].status = "<p id='tc' style='background-color: #cc6699;'> 已完成 </p>";
+                }
+                $('.acrt3').append("<li><p id='ta'> <a href='/xsinfo"+res[i].id+".html'>查看详情</a></p><p id='tb'>"+res[i].time+"</p>"+res[i].status+"[][0]</p><p id='te'>执行德栗家教收费标准</p><p id='tf'> ()<br>化学 </p><p id='tg'> lic学员<br>10152377</p></li>");
+            };
+        })
+    }
 
 </script>
 @endsection

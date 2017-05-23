@@ -1,0 +1,236 @@
+/*手机登录的样式*/
+
+.lc-bg{
+	position: relative;
+}
+.lc-x{
+	width: 1rem;
+	position: absolute;
+	top: .6rem;
+	right: .5rem;
+}
+.lc-logo{
+	width: 3.5rem;
+}
+header{
+	position: relative;
+}
+section.xx{
+	position: absolute;
+	top: 3.5rem;
+	left: 32%;
+}
+div.sjdl{
+	width: 100%;
+	text-align: center;
+	color: #FFFFFF;
+
+
+}
+a.lc-one{
+	display: inline-block;
+	width: 75%;
+	border: 1px solid #FCE0A4;
+	font-size:.6rem;
+	color: #F8BD42;
+	height: 1.4rem;
+	line-height: 1.4rem;
+	border:1px solid #F7B529;
+	border-radius:1rem;
+	margin-bottom: .7rem;
+	outline: none;	
+}
+.yy{
+	box-shadow: 3px 8px 6px rgba(211,211,211,.6);
+	background-color: #F7B529;
+}
+.oo{
+	margin-top: 2.5rem;
+}
+#lc-footer{
+	font-size: .4rem;
+	width: 100%;
+	text-align: center;
+	margin-top:3rem;
+	margin-bottom: .2rem;
+}
+/*登录注册页1的样式*/
+img.czy{
+	width: 3rem;
+	position: absolute;
+	top:1.3rem;
+	left: 34%;
+}
+#ye1-container{
+	border: 1px solid #dddddd;
+	min-height: 6rem;
+	width: 90%;
+	margin: auto;
+	border-radius: .3rem;
+	z-index: 999;
+	background-color: #fff;
+	position: relative;
+	top: -.6rem;
+	text-align: center;
+	-webkit-box-shadow: 2px 2px 2px 1px rgba(211,211,211,.6);
+	-moz-box-shadow: 2px 2px 2px 1px rgba(211,211,211,.6);
+	box-shadow: 2px 2px 2px 1px rgba(211,211,211,.6);
+	/*box-shadow: -2px 0 0 rgba(211,211,211,.6)*/
+}
+
+/*#ye1-container input{
+	background-color: #F7F7F7;
+	margin: auto;
+	border-radius: 1rem;
+	width: 80%;
+	margin-top: 1.4rem;
+	height: 1.3rem;
+	outline: none;
+	border: none;
+
+}*/
+div.ye1{
+	width: 80%;
+	background-color: #F7F7F7;
+	border-radius: 1rem;
+	/*margin-top: 1.4rem;*/
+	height: 1.2rem;
+	margin: auto;
+	margin-bottom: .5rem;
+	overflow: hidden;
+}
+div.ye6{
+	width: 80%;
+
+	border-radius: 1rem;
+	/*margin-top: 1.4rem;*/
+	height: 1.2rem;
+	margin: auto;
+	margin-bottom: .5rem;
+	overflow: hidden;
+}
+div.ye2{
+	width: 80%;
+	margin: auto;
+	height: 1.2rem;
+
+}
+.img1{
+	/*display: inline-block;*/
+	width: .5rem;
+	position: absolute;
+	top: 1.5rem;
+	left: 1.7rem;
+}
+.img2{
+	position: absolute;
+	top: 3.2rem;
+	width: .6rem;
+	left: 1.66rem;
+}
+.zzzzz{
+	border: none;
+	height: 100%;
+	margin-left: .5rem;
+	color: #757474;
+	font-size: .38rem;
+	width: 4rem;
+	background-color: #F7F7F7;
+}
+.xxxxx{
+	background-color: #F7F7F7;
+	height: 100%;
+	width: 45%;
+	padding: 0;
+	float: left;
+	padding-left: .75rem;
+	border-top-left-radius:1rem; 
+	border-bottom-left-radius:1rem;
+	font-size: .38rem;
+}
+.sj-yzm{
+	background-color: #F7B529;
+	height: 100%;
+	width: 44.5%;
+	color: #fff;
+	padding: 0;
+	float: left;
+	border-top-right-radius:1rem; 
+	border-bottom-right-radius:1rem;
+	font-size: .38rem;
+}
+#dl{
+	width: 100%;
+	height: 100%;
+	line-height: 100%;
+	color: #fff;
+	font-size: .5rem;
+	border-radius: 1rem;
+	background-color: #F7B529;
+}
+.ye2 a{
+	float: right;
+	color: #333;
+	font-size: .4rem;
+	padding-top: .5rem;
+}
+.ye2 span{
+	float:right;
+	color: #333;
+	font-size: .4rem;
+	padding-top: .5rem;
+}
+/*登录注册页面3*/
+.img3{
+	position: absolute;
+	width: 2rem;
+	top: 1.5rem;
+	left: 4rem;
+}
+.dl3-container{
+	position: absolute;
+	top: 3.7rem;
+	width: 100%;
+}
+#container-top{
+	text-align:center;
+}
+#container-top span{
+	color: #fff;
+	font-size:.6rem;
+}
+#container-top span:nth-child(1){
+	margin-right: 1.3rem;
+	
+}
+#container-top span:nth-child(2){
+
+}
+#container-mid{
+	background-color: #fff;
+	min-height: 6rem;
+	width: 90%;
+	margin:auto;
+	border-radius: .3rem;
+	border: 1px solid rgb(211,211,211);
+	text-align: -webkit-center;
+	margin-top:.5rem;
+}
+.mid-one{
+	margin-top:1.3rem;
+}
+.mid-one>span{
+	font-size: .4rem;
+	color:#a2a0a0;
+	position: relative;
+	/*margin-right:1.5rem;*/
+}
+div.line{
+	height: 2px;
+	width: 17%;
+	position: absolute;
+	top: 3.1rem;
+	left: 21%;
+	border-radius: 3px;
+	background-color: #f60;
+}

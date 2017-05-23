@@ -5,6 +5,9 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
+use Flc\Alidayu\Client;
+use Flc\Alidayu\App;
+use Flc\Alidayu\Requests\AlibabaAliqinFcSmsNumSend;
 class orderController extends Controller
 {
     public function xsdd(Request $request)
@@ -13,7 +16,6 @@ class orderController extends Controller
         //学员 1是真 0是虚拟的
         $data = DB::table('jjw_order as order')
             ->join('jjw_position_city', 'jjw_position_city.city_id', '=', 'order.city_id')
-            ->where('order.city_id',session('regionid'))
             ->where('user_reboot','1')
             ->select('order.*','jjw_position_city.fz_jzxxf','jjw_position_city.city_name','jjw_position_city.fz_vip','jjw_position_city.fz_qyjyfy','jjw_position_city.bfb1','jjw_position_city.bfb2','jjw_position_city.bfb3','jjw_position_city.bfb4','jjw_position_city.bfb5','jjw_position_city.bfb6','jjw_position_city.bfb7')
             ->orderBy('id','desc')
@@ -137,6 +139,18 @@ class orderController extends Controller
             DB::table('jjw_reorder')->where('oid',$oid)->where('tc_id',$tc_id)->update(['qt_t_status' => '1']);
 
         }else if($ht_t_status == '3'){//已审核
+            //教员审核短信
+            $config = [
+                'app_key'    => '23779228',
+                'app_secret' => '9d9788c22c9a4dbc8522fae7b97b15ae',
+            ];
+            $client = new Client(new App($config));
+            $req    = new AlibabaAliqinFcSmsNumSend;
+            $req->setRecNum($_POST['tc_phone'])
+                ->setSmsParam(['oid' => "$oid"])
+                ->setSmsFreeSignName('大鱼测试')
+                ->setSmsTemplateCode('SMS_67295549');
+            $resp = $client->execute($req);
             //修改选择的状态
             DB::table('jjw_reorder')->where('oid',$oid)->where('tc_id',$tc_id)->update(['ht_t_status' => $ht_t_status]);
             //修改前台教员状态 <!-- 不清楚修改什么 -->
@@ -194,5 +208,14 @@ class orderController extends Controller
     {
         DB::table('jjw_order')->where('id',$id)->update(['status' => $zt]);
         return back();
+    }
+
+    //证件【身份证，学生证是否存在】
+    public function zj($id){
+        if($id == '1'){
+            echo "该教员没有上传身份证!";die;
+        }else{
+            echo "该教员没有上传学生证!";die;
+        }
     }
 }

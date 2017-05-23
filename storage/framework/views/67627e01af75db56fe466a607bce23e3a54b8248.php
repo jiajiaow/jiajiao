@@ -76,7 +76,7 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="/admin/xsdd">学员订单</a>
+                                <a class="J_menuItem" href="/admin/xsdd">学员订单&nbsp;&nbsp;&nbsp;<span style="color:red;"><?php echo e($num); ?></span></a>
                             </li>
                             <li>
                                 <a class="J_menuItem" href="/admin/htjyk">教员库</a>
@@ -214,6 +214,21 @@
                         <ul class="nav nav-second-level">
                             <li>
                                 <a class="J_menuItem" href="/admin/jyszls">教员收支流水</a>
+                                <a class="J_menuItem" href="/admin/tc_tixian">提现</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa fa-institution"></i>
+                            <span class="nav-label">前台教员[金牌|专职|学员]</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="/admin/jinpai/1">金牌教员</a>
+                                <a class="J_menuItem" href="/admin/zhuanzhi/1">专职教员</a>
+                                <a class="J_menuItem" href="/admin/xuesheng/1">学生教员</a>
                             </li>
                         </ul>
                     </li>
