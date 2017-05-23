@@ -252,7 +252,7 @@
                 </li>
                 <li>
                         <i class="footer_phone footer_icon"></i>
-                        <a href="tel:13113329950"><p>电话咨询</p></a>
+                        <a href="tel:{{ session('phone') }}"><p>电话咨询</p></a>
                 </li>
             </ul>
         </footer>

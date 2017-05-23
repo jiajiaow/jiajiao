@@ -40,9 +40,9 @@
                 <?php $__currentLoopData = $re; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $re1): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <?php if($data->provice_id == $re1->province_id && $re1->prefix !== null): ?>
                     <?php if(session('Template') == '1'): ?>
-                <dd><a href="http://<?php echo e($re1->prefix); ?>.lizhijiajiao.com"  target="_blank" rel="nofollow"><?php echo e($re1->city_name); ?></a></dd>
+                <dd><a href="http://<?php echo e($re1->prefix); ?>.lizhijiajiao.com"  target="_blank" rel="nofollow"><?php echo e(substr($re1->city_name,0,9)); ?></a></dd>
                     <?php else: ?>
-                <dd><a href="http://<?php echo e($re1->prefix); ?>.delijiajiao.com"  target="_blank" rel="nofollow"><?php echo e($re1->city_name); ?></a></dd>
+                <dd><a href="http://<?php echo e($re1->prefix); ?>.delijiajiao.com"  target="_blank" rel="nofollow"><?php echo e(substr($re1->city_name,0,9)); ?></a></dd>
                     <?php endif; ?>
                     <?php endif; ?>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
