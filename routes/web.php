@@ -250,7 +250,7 @@ Route::post('/admin/Logins','admin\LoginController@login');
 //路由群组 中间件 拒绝后台未登录访问页面
 Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     //首页 admin控制器
-    Route::get('/好好学习天天向上wEa3358acQ','admin\AdminController@index');
+    Route::get('/好好学习天天向上','admin\AdminController@index');
     //首页 右边栏 admin控制器
      Route::get('/indexi','admin\AdminController@indexi');
     //退出登录 exit Login控制器
