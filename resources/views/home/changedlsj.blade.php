@@ -17,23 +17,23 @@
     <div class="city-contain">
         <div class="top-link">
             @if(session('Template') == '1')
-            <a href="http://www.lizhijiajiao.com" class="btn">进入栗志家教</a>
+            <a href="http://www.lizhijiajiao.com/mobile" class="btn">进入栗志家教</a>
             @else
-            <a href="http://www.delijiajiao.com" class="btn">德栗家教</a>
+            <a href="http://www.delijiajiao.com/mobile" class="btn">德栗家教</a>
             @endif
         </div>
         <div class="city-list">
             <dl style="margin-top: 10px;" class="first">
                 <dt>热门城市</dt>
-                <dd><a href="http://www.delijiajiao.com/">广州</a></dd>
-                <dd><a href="http://bj.delijiajiao.com/">北京</a></dd>
-                <dd><a href="http://tj.delijiajiao.com/">天津</a></dd>
-                <dd><a href="http://sz.delijiajiao.com/">深圳</a></dd>
-                <dd><a href="http://hz.delijiajiao.com/">杭州</a></dd>
-                <dd><a href="http://nj.delijiajiao.com/">南京</a></dd>
-                <dd><a href="http://wh.delijiajiao.com/">武汉</a></dd>
-                <dd><a href="http://xa.delijiajiao.com/">西安</a></dd>
-                <dd><a href="http://cd.delijiajiao.com/">成都</a></dd>
+                <dd><a href="http://www.delijiajiao.com/mobile">广州</a></dd>
+                <dd><a href="http://bj.delijiajiao.com/mobile">北京</a></dd>
+                <dd><a href="http://tj.delijiajiao.com/mobile">天津</a></dd>
+                <dd><a href="http://sz.delijiajiao.com/mobile">深圳</a></dd>
+                <dd><a href="http://hz.delijiajiao.com/mobile">杭州</a></dd>
+                <dd><a href="http://nj.delijiajiao.com/mobile">南京</a></dd>
+                <dd><a href="http://wh.delijiajiao.com/mobile">武汉</a></dd>
+                <dd><a href="http://xa.delijiajiao.com/mobile">西安</a></dd>
+                <dd><a href="http://cd.delijiajiao.com/mobile">成都</a></dd>
             </dl>
             @foreach($data as $data)
             <dl>
@@ -41,9 +41,9 @@
                 @foreach($re as $re1)
                     @if($data->provice_id == $re1->province_id && $re1->prefix !== null)
                     @if(session('Template') == '1')
-                <dd><a href="http://{{ $re1->prefix }}.lizhijiajiao.com"  target="_blank" rel="nofollow">{{ substr($re1->city_name,0,9) }}</a></dd>
+                <dd><a href="http://{{ $re1->prefix }}.lizhijiajiao.com/mobile"  rel="nofollow">{{ substr($re1->city_name,0,9) }}</a></dd>
                     @else
-                <dd><a href="http://{{ $re1->prefix }}.delijiajiao.com"  target="_blank" rel="nofollow">{{ substr($re1->city_name,0,9) }}</a></dd>
+                <dd><a href="http://{{ $re1->prefix }}.delijiajiao.com/mobile"   rel="nofollow">{{ substr($re1->city_name,0,9) }}</a></dd>
                     @endif
                     @endif
                 @endforeach

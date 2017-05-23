@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/phone/css/main.css">
     <link rel="stylesheet" href="/phone/css/swiper-3.4.2.min.css">
     <script src="/phone/js/flexible.js"></script>
+    <script type="text/javascript" src="https://hztk5.kuaishang.cn/bs/ks.j?cI=125636&fI=79140&ism=1" charset="utf-8"></script>
 </head>
 <body>
     <div class="wrap" id="app">
@@ -20,7 +21,7 @@
             </div>
             <div class="jj_header_right">
                 <span class="jj_header_right_yh"><img src="/phone/img/yh.png" width="100%" style="width:.4rem;"></span>
-                <span class="header_city"><span class="header_city_text" onclick="javascript:window.location.href='#'">广州</span> <img src="/phone/img/xl.png" style="margin-top: .1rem;width:.4rem;" ></span>
+                <span class="header_city"><span class="header_city_text" onclick="javascript:window.location.href='/change_citydlsj.html'">广州</span> <img src="/phone/img/xl.png" style="margin-top: .1rem;width:.4rem;" ></span>
             </div>
         </header>
         <section class="banner_box">
@@ -203,8 +204,12 @@
                                         <?php if($zy->dh_id == $tm->ar_pid): ?>
 =======
                                         <?php if($tm->ar_pid  ==  $zy->dh_id): ?>
+<<<<<<< HEAD
 >>>>>>> 6ee243fde0632b966c0283e7333cb3ba801c0149
                                             <li class="el_tab_content">
+=======
+                                            <li class="el_tab_content" onclick="location.href='/Articlecontent<?php echo e($tm->ar_id); ?>.html'">
+>>>>>>> 7340d317d4e611301e46fa743e909eb31edb251a
                                                 <span class="el_tab_content-l">
                                                     <?php echo e(substr($tm->ar_title,51,90)); ?>
 
@@ -237,11 +242,12 @@
                     <el-tab-pane label="<?php echo e($zy->dh_Navigationbar); ?>" name="one<?php echo e($zy->dh_id); ?>">
                         <ul>
                             <?php $__currentLoopData = $timu; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tm): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <?php if($zy->dh_id == $tm->ar_pid): ?>
-                            <li class="el_tab_content">
-                                <span class="el_tab_content-l">
-                                    <?php echo e($tm->ar_title); ?>
+                                <?php if($zy->dh_id == $tm->ar_pid): ?>
+                                    <li class="el_tab_content" onclick="location.href='/Articlecontent<?php echo e($tm->ar_id); ?>.html'">
+                                        <span class="el_tab_content-l">
+                                            <?php echo e($tm->ar_title); ?>
 
+<<<<<<< HEAD
                                 </span>
 <<<<<<< HEAD
                                 <span class="el_tab_content-r">2017.5.7</span>
@@ -250,6 +256,12 @@
 >>>>>>> 6ee243fde0632b966c0283e7333cb3ba801c0149
                             </li>
                             <?php endif; ?>
+=======
+                                        </span>
+                                        <span class="el_tab_content-r"><?php echo e(substr($tm->ar_time,0,10)); ?></span>
+                                    </li>
+                                <?php endif; ?>
+>>>>>>> 7340d317d4e611301e46fa743e909eb31edb251a
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </ul>
                     </el-tab-pane>
@@ -287,14 +299,14 @@
                 </li>
                 <li>
                         <i class="footer_zx footer_icon"></i>
-                    <a href="http://wpa.qq.com/msgrd?v=3&uin=1774932105&site=qq&menu=yes">
+                    <a href="https://hztk5.kuaishang.cn/bs/im.htm?cSource=1&cas=69564___125636&fi=79140&ri=18250381975&vi=b91fa36776ee4ca0bac77f7af86e3d04&ism=1&dp=http%3A%2F%2Fwww.delijiajiao.com%2Fmobile&_d=1495518714221324&_tk=b9cc3dd4">
                         <p>在线咨询</p>
                     </a>
 
                 </li>
                 <li>
                         <i class="footer_phone footer_icon"></i>
-                        <a href="tel:13113329950"><p>电话咨询</p></a>
+                        <a href="tel:<?php echo e(session('phone')); ?>"><p>电话咨询</p></a>
                 </li>
             </ul>
         </footer>
@@ -302,7 +314,7 @@
             <img src="/phone/img/hddb.png" alt="" style="margin: .36rem 0 0 .2rem;width: .6rem;">
         </div>
         <div class="wx_icon_f" >
-            <img src="/phone/img/fd_wx.png" alt="" style="margin: .3rem 0 0 .2rem;width: .6rem;">
+            <a href="https://hztk5.kuaishang.cn/bs/im.htm?cSource=1&cas=69564___125636&fi=79140&ri=18250381975&vi=b91fa36776ee4ca0bac77f7af86e3d04&ism=1&dp=http%3A%2F%2Fwww.delijiajiao.com%2Fmobile&_d=1495518714221324&_tk=b9cc3dd4"><img src="/phone/img/fd_wx.png" alt="" style="margin: .3rem 0 0 .2rem;width: .6rem;"></a>
         </div>
     </div>
     <style>

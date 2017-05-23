@@ -17,7 +17,6 @@ class LoginController extends Controller
     {
         $this->sms=$sms;
     }*/
-
     //教师登录
     public function dologin(Request $request){
         //判断是否是验证码登录  有code是手机验证码登录

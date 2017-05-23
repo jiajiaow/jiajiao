@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/phone/css/main.css">
     <link rel="stylesheet" href="/phone/css/swiper-3.4.2.min.css">
     <script src="/phone/js/flexible.js"></script>
+    <script type="text/javascript" src="https://hztk5.kuaishang.cn/bs/ks.j?cI=125636&fI=79140&ism=1" charset="utf-8"></script>
 </head>
 <body>
     <div class="wrap" id="app">
@@ -20,7 +21,7 @@
             </div>
             <div class="jj_header_right">
                 <span class="jj_header_right_yh"><img src="/phone/img/yh.png" width="100%" style="width:.4rem;"></span>
-                <span class="header_city"><span class="header_city_text" onclick="javascript:window.location.href='#'">广州</span> <img src="/phone/img/xl.png" style="margin-top: .1rem;width:.4rem;" ></span>
+                <span class="header_city"><span class="header_city_text" onclick="javascript:window.location.href='/change_citydlsj.html'">广州</span> <img src="/phone/img/xl.png" style="margin-top: .1rem;width:.4rem;" ></span>
             </div>
         </header>
         <section class="banner_box">
@@ -167,7 +168,7 @@
                                 <ul>
                                     @foreach($timu as $tm)
                                         @if($tm->ar_pid  ==  $zy->dh_id)
-                                            <li class="el_tab_content">
+                                            <li class="el_tab_content" onclick="location.href='/Articlecontent{{ $tm->ar_id }}.html'">
                                                 <span class="el_tab_content-l">
                                                     {{ substr($tm->ar_title,51,90) }}
                                                 </span>
@@ -199,14 +200,14 @@
                     <el-tab-pane label="{{ $zy->dh_Navigationbar }}" name="one{{ $zy->dh_id }}">
                         <ul>
                             @foreach($timu as $tm)
-                            @if($zy->dh_id == $tm->ar_pid)
-                            <li class="el_tab_content">
-                                <span class="el_tab_content-l">
-                                    {{ $tm->ar_title }}
-                                </span>
-                                <span class="el_tab_content-r">{{ substr($tm->ar_time,0,10) }}</span>
-                            </li>
-                            @endif
+                                @if($zy->dh_id == $tm->ar_pid)
+                                    <li class="el_tab_content" onclick="location.href='/Articlecontent{{ $tm->ar_id }}.html'">
+                                        <span class="el_tab_content-l">
+                                            {{ $tm->ar_title }}
+                                        </span>
+                                        <span class="el_tab_content-r">{{ substr($tm->ar_time,0,10) }}</span>
+                                    </li>
+                                @endif
                             @endforeach
                         </ul>
                     </el-tab-pane>
@@ -245,7 +246,7 @@
                 </li>
                 <li>
                         <i class="footer_zx footer_icon"></i>
-                    <a href="http://wpa.qq.com/msgrd?v=3&uin=1774932105&site=qq&menu=yes">
+                    <a href="https://hztk5.kuaishang.cn/bs/im.htm?cSource=1&cas=69564___125636&fi=79140&ri=18250381975&vi=b91fa36776ee4ca0bac77f7af86e3d04&ism=1&dp=http%3A%2F%2Fwww.delijiajiao.com%2Fmobile&_d=1495518714221324&_tk=b9cc3dd4">
                         <p>在线咨询</p>
                     </a>
 
@@ -260,7 +261,7 @@
             <img src="/phone/img/hddb.png" alt="" style="margin: .36rem 0 0 .2rem;width: .6rem;">
         </div>
         <div class="wx_icon_f" >
-            <img src="/phone/img/fd_wx.png" alt="" style="margin: .3rem 0 0 .2rem;width: .6rem;">
+            <a href="https://hztk5.kuaishang.cn/bs/im.htm?cSource=1&cas=69564___125636&fi=79140&ri=18250381975&vi=b91fa36776ee4ca0bac77f7af86e3d04&ism=1&dp=http%3A%2F%2Fwww.delijiajiao.com%2Fmobile&_d=1495518714221324&_tk=b9cc3dd4"><img src="/phone/img/fd_wx.png" alt="" style="margin: .3rem 0 0 .2rem;width: .6rem;"></a>
         </div>
     </div>
     <style>

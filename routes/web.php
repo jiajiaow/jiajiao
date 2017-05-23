@@ -37,6 +37,8 @@
 Route::get('/','home\indexController@index');
 //地区切换
 Route::get('/change_city.html','home\indexController@change');
+//地区切换德栗手机
+Route::get('/change_citydlsj.html','home\indexController@changedlsj');
 //手机入口
 Route::get('/mobile','home\indexController@index');
 //手机登录
@@ -46,13 +48,11 @@ Route::get('/yz','YzController@index');
 Route::get('/login.html',function(){
    // session()->forget("tc_phone");
     //session()->forget("tc_name");
-    return view('home.login');
-});
-//登录
-Route::get('/stlogin.html',function(){
-  //  session()->forget("st_phone");
-   // session()->forget("st_name");
-    return view('home.stlogin');
+    if(session('Template') == '4'){
+        return view('phonedl.login');
+    }else{//默认德栗PC
+        return view('home.login');
+    }
 });
 //处理执行教师登录
 Route::post('/dologin.html','home\LoginController@dologin');

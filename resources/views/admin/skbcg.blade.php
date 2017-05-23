@@ -114,7 +114,7 @@
                                     <td>无显示</td>
                                     <td>
                                         @if($l->ht_zgsh == '4'|| $l->ht_zgsh == null)
-                                            <select name="" id="" onclick="shenhe( {{ $l->jl_id }} )">
+                                            <select name="" id="" onchange="shenhe(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},1,0,{{ $l->id }})">
                                                 <option value="">请选择</option>
                                                 <option value="1" {{ $l->ht_cljg == '1'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},1,1,{{ $l->id }})">审核通过</option>
                                                 <option value="2" {{ $l->ht_cljg == '2'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},1,2,{{ $l->id }})">教员原因不退</option>
@@ -133,7 +133,7 @@
                                     <td>17-4-28|11:06</td>
                                     <td>
                                         @if($l->ht_zgsh == '4'|| $l->ht_zgsh == null)
-                                            <select name="" id="jc{{ $l->jl_id }}" disabled="true">
+                                            <select name="" id="jc{{ $l->jl_id }}" disabled="true"  onchange="shenhes(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},2,0,{{ $l->id }})">
                                                 <option value="" {{ $l->ht_zgsh == ''?'selected':'' }} >请选择</option>
                                                 <option value="1" {{ $l->ht_zgsh == '1'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},2,1,{{ $l->id }})">审核通过</option>
                                                 <option value="2" {{ $l->ht_zgsh == '2'?'selected':'' }} onclick="ajaxsh(this,{{ $l->jl_id }},{{ $l->t_id }},{{ $l->rid }},2,2,{{ $l->id }})">拒绝退款</option>
@@ -323,10 +323,52 @@
                 "New row"]);
 
         }
-        function shenhe(id){
+        function shenhe(value,id,tid,rid,zt,edit,oid){
             $(this).change(function(){
                 $('#jc'+id).attr('disabled',false)
             })
+            var moneys = $('#money'+id).val();
+            var money = $.trim(moneys);
+            var item = value.options[value.selectedIndex];
+            if(item.value == '1'){
+                $.post('/admin/tdye.html',{"id":id,"tid":tid,'rid':rid,'zt':zt,'m':money,'edit':'1','pd':'skbcg','oid':oid},function(){
+                    location.reload();
+                })
+            }else if(item.value == '2'){
+                $.post('/admin/tdye.html',{"id":id,"tid":tid,'rid':rid,'zt':zt,'m':money,'edit':'2','pd':'skbcg','oid':oid},function(){
+                    location.reload();
+                })
+            }else if(item.value == '3'){
+                $.post('/admin/tdye.html',{"id":id,"tid":tid,'rid':rid,'zt':zt,'m':money,'edit':'3','pd':'skbcg','oid':oid},function(){
+                    location.reload();
+                })
+            }
+        }
+
+        function shenhes(value,id,tid,rid,zt,edit,oid){
+            $(this).change(function(){
+                $('#jc'+id).attr('disabled',false)
+            })
+            var moneys = $('#money'+id).val();
+            var money = $.trim(moneys);
+            var item = value.options[value.selectedIndex];
+            if(item.value == '1'){
+                $.post('/admin/tdye.html',{"id":id,"tid":tid,'rid':rid,'zt':zt,'m':money,'edit':'1','pd':'skbcg','oid':oid},function(){
+                    location.reload();
+                })
+            }else if(item.value == '2'){
+                $.post('/admin/tdye.html',{"id":id,"tid":tid,'rid':rid,'zt':zt,'m':money,'edit':'2','pd':'skbcg','oid':oid},function(){
+                    location.reload();
+                })
+            }else if(item.value == '3'){
+                $.post('/admin/tdye.html',{"id":id,"tid":tid,'rid':rid,'zt':zt,'m':money,'edit':'3','pd':'skbcg','oid':oid},function(){
+                    location.reload();
+                })
+            }else if(item.value == '4'){
+                $.post('/admin/tdye.html',{"id":id,"tid":tid,'rid':rid,'zt':zt,'m':money,'edit':'4','pd':'skbcg','oid':oid},function(){
+                    location.reload();
+                })
+            }
         }
         //ajax 1为处理结果 2为主管审核
         function ajaxsh(obj,id,tid,rid,zt,edit,oid){
