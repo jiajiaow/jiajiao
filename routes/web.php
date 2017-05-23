@@ -38,7 +38,7 @@ Route::get('/','home\indexController@index');
 //地区切换
 Route::get('/change_city.html','home\indexController@change');
 //手机入口
-Route::get('/mobile/{a?}/{b?}/{c?}','home\indexController@index');
+Route::get('/mobile','home\indexController@index');
 //手机登录
 Route::get('/mobile/login','home\indexController@login');
 Route::get('/yz','YzController@index');
@@ -244,13 +244,13 @@ Route::any('/yqlj','home\yqljController@yqlj');
 //end退款
 //----------  后台  ----------//
 //登录视图 方法
-Route::get('/admin/login',function(){ return view('admin.login');  });
+Route::get('/admin/好好学习天天上wEa3358acQ',function(){ return view('admin.login');  });
 //登录 Login控制器
 Route::post('/admin/Logins','admin\LoginController@login');
 //路由群组 中间件 拒绝后台未登录访问页面
 Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     //首页 admin控制器
-    Route::get('/好好学习天天向上wEa3358acQ','admin\AdminController@index');
+    Route::get('/好好学习天天向上','admin\AdminController@index');
     //首页 右边栏 admin控制器
      Route::get('/indexi','admin\AdminController@indexi');
     //退出登录 exit Login控制器
