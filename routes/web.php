@@ -241,6 +241,10 @@ Route::post('/refund','home\refundController@index');
 
 //友情链接
 Route::any('/yqlj','home\yqljController@yqlj');
+//计划任务每5分钟一次
+Route::any('/5minutes','TaskController@Fiveminutes');
+
+
 //end退款
 //----------  后台  ----------//
 //登录视图 方法
