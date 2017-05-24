@@ -60,7 +60,7 @@
 						@else
 							丙方（签字）
 						@endif
-				<p style="text-align: right">({{ date("Y-m-d",$list->hetong_time) }})</p>
+				<p style="text-align: right">({{ $list->hetong_time==''?'':date("Y-m-d",$list->hetong_time) }})</p>
 			</div>
 		</div>
 	</form>

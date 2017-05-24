@@ -466,12 +466,12 @@ class tcinfoController extends Controller
     }
     //执行合同修改
     public function dohetong(Request $request){
-        //dd($_POST);
-        if($_POST['xt'] == '1'){
+       // dd($_POST);
+        if($_POST['xt'] == '1'){//后台合同修改
             $data = $request->except('id','xt');
             $data['hetong_time']=time();
             $list = DB::table('jjw_order')->where('id',$request->id)->update($data);
-            $list = DB::table('jjw_reorder')->where('oid',$request->id)->update(['tk_type'=>'3']);
+            $list = DB::table('jjw_reorder')->where('oid',$request->id)->update(['tk_type'=>'3','qt_t_status'=>'6','ht_t_status'=>'8']);
             return back();
         }else{
             //dd($_POST);
@@ -512,9 +512,21 @@ class tcinfoController extends Controller
             ->join('jjw_reorder as r', 'r.oid', '=', 'o.id')
             ->join('jjw_teachers as t', 't.id', '=', 'r.tc_id')
             ->where('o.id',$id)
+            ->where('r.qt_t_status','6')
+            ->where('r.ht_t_status','8')
             ->select('o.*','r.yy_zt','r.ht_t_status','r.id as rid','r.add as radd','t.tc_phone','t.tc_name','r.jd_times','t.id as t_id','tc_school','tc_type')
             ->first();
-        //dd($list);
+        if($list==null){
+            $list = \DB::table('jjw_order as o')
+                ->join('jjw_reorder as r', 'r.oid', '=', 'o.id')
+                ->join('jjw_teachers as t', 't.id', '=', 'r.tc_id')
+                ->where('o.id',$id)
+                ->where('r.qt_t_status','4')
+                ->where('r.ht_t_status','7')
+                ->select('o.*','r.yy_zt','r.ht_t_status','r.id as rid','r.add as radd','t.tc_phone','t.tc_name','r.jd_times','t.id as t_id','tc_school','tc_type')
+                ->first();
+        }
+       // dd($list);
         if($list){
             return view('delijiajiao.ht_hetong',['list'=>$list]);
         }else{

@@ -19,6 +19,7 @@ class LoginController extends Controller
     }*/
     //教师登录
     public function dologin(Request $request){
+        //dd($_POST);
         //判断是否是验证码登录  有code是手机验证码登录
         if(isset($_POST['code'])){
             $phone = $_POST['phone'];

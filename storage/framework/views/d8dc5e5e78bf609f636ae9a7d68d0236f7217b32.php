@@ -95,10 +95,10 @@
 					<img src="/phone/lichengphonedl/images/photo.png" alt="" class="img1" style="left: 2.2rem;top:4rem">
 					<input type="text" name="" placeholder="请输入账号/手机号" class="zzzzz" maxlength="11">
 				</div>
-				{{--<div class="ye1">--}}
-					{{--<img src="/phone/lichengphonedl/images/suo.png" alt="" class="img2" style="top:5.7rem;left: 2.2rem">--}}
-					{{--<input type="password" name="" placeholder="请输入密码" class="zzzzz" maxlength="16">--}}
-				{{--</div>--}}
+				
+					
+					
+				
 				<div class="ye1" style="background-color:transparent">
 					<input type="text" name="" placeholder="请输入验证码" class="xxxxx">
 					<input type="button" name="" value="发送验证码" class="sj-yzm">
@@ -138,10 +138,10 @@
 						<img src="/phone/lichengphonedl/images/photo.png" alt="" class="img1" style="left: 2.2rem;top:4rem">
 						<input type="text" name="" placeholder="请输入账号/手机号" class="zzzzz" maxlength="11">
 					</div>
-					{{--<div class="ye1">--}}
-						{{--<img src="/phone/lichengphonedl/images/suo.png" alt="" class="img2" style="top:5.7rem;left: 2.2rem">--}}
-						{{--<input type="password" name="" placeholder="请输入密码" class="zzzzz" maxlength="16">--}}
-					{{--</div>--}}
+					
+						
+						
+					
 					<div class="ye1" style="background-color:transparent">
 						<input type="text" name="" placeholder="请输入验证码" class="xxxxx">
 						<input type="button" name="" value="发送验证码" class="sj-yzm">
