@@ -111,7 +111,7 @@
                 </ul>
                 <div style="text-align: center;     margin-top: .2rem;">
                     <a href="/yuyuelaoshi.html">
-                        <img src="/phone/img/ksqjj.png" width="100%">
+			 <img src="/phone/img/ksqjj.png" width="100%">
                     </a>
                 </div>
             </div>
@@ -130,7 +130,7 @@
             </div>
         </section>
         <section class="sele_box">
-            <div style="width: 50%" onclick="location.href='/yuyuelaoshi.html.html'"><img src="/phone/img/qls.png" alt="" width="100%"></div>
+            <div style="width: 50%" onclick="location.href='/yuyuelaoshi.html'"><img src="/phone/img/qls.png" alt="" width="100%"></div>
             <div style="width: 50%" onclick="location.href='/reg.html'"><img src="/phone/img/dls.png" alt="" width="100%"></div>
         </section>
         <section class="msg_box">
