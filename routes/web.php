@@ -258,8 +258,11 @@ Route::group(['prefix' => '/mobile',"middleware"=>"CheckAges"],function(){
     Route::get('/navigation.html/{type?}/{key?}','home\teacherinfoController@hot');
     //文章内容
     Route::get('/Articlecontent{id?}.html','home\ArticleController@Articlecontent');
+    //文章列表
+    Route::get('/Articlecenter{id?}.html','home\ArticleController@wzlist');
     //学员详细资料
     Route::get('/xsinfo{id?}.html','home\xsinfoController@index');
+
 });
 //----------栗志手机端END----------//
 
