@@ -15,8 +15,10 @@
   <link rel="shortcut icon" href="/delijiajiao/favicon.ico" type="image/x-icon">
      <link rel="stylesheet" type="text/css" href="/delijiajiao/css/swiper.min.css">
      <script type="text/javascript">
-        if(window.innerWidth <= 750) {
+        if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
             window.location.href="/mobile";
+        }else{
+            window.location.href="/";
         }
       </script>
      <style>
