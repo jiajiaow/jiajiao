@@ -60,7 +60,7 @@
 						<?php else: ?>
 							丙方（签字）
 						<?php endif; ?>
-				<p style="text-align: right">(<?php echo e(date("Y-m-d",$list->hetong_time)); ?>)</p>
+				<p style="text-align: right">(<?php echo e($list->hetong_time==''?'':date("Y-m-d",$list->hetong_time)); ?>)</p>
 			</div>
 		</div>
 	</form>
