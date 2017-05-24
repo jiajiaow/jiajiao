@@ -508,7 +508,7 @@
         items:'cells'
             },
             "width": "90%",
-            "height": "100%"
+            "height": "100%",
         });
 
 
@@ -523,7 +523,9 @@
             "New row"]);
 
     }
-
+    $.extend( $.fn.dataTable.defaults, {
+        ordering:  false
+    } );
 
     $('.show_tj_btn').click(function(){
         $('.fc').show(500)
