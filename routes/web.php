@@ -245,7 +245,33 @@ Route::any('/yqlj','home\yqljController@yqlj');
 Route::any('/5minutes','TaskController@Fiveminutes');
 
 
-//end退款
+
+
+
+
+
+
+
+//----------栗志手机端----------//
+Route::group(['prefix' => '/mobile',"middleware"=>"CheckAges"],function(){
+    //导航搜索
+    Route::get('/navigation.html/{type?}/{key?}','home\teacherinfoController@hot');
+    //文章内容
+    Route::get('/Articlecontent{id?}.html','home\ArticleController@Articlecontent');
+    //学员详细资料
+    Route::get('/xsinfo{id?}.html','home\xsinfoController@index');
+});
+//----------栗志手机端END----------//
+
+
+
+
+
+
+
+
+
+
 //----------  后台  ----------//
 //登录视图 方法
 Route::get('/admin/backstages',function(){ return view('admin.login');  });
@@ -421,10 +447,3 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
 });
 //----------后台END----------//
 
-//
-//----------栗志手机端----------//
-Route::group(['prefix' => '/mobile',"middleware"=>"CheckAges"],function(){
-//导航搜索
-    Route::get('/navigation.html/{type?}/{key?}','home\teacherinfoController@hot');
-});
-//----------栗志手机端END----------//

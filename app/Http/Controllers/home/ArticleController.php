@@ -28,10 +28,15 @@ class ArticleController extends Controller
     }
     public function Articlecontent($id)
     {
-        //dd(session('regionid'));
-        $fz = DB::table('jjw_position_city')->where('city_id',session('regionid'))->first();
-        //dd($fz);
-        $data = DB::table('jjw_articlelist')->where('ar_id',$id)->first();
-        return view('delijiajiao.Articlecontent',['data' => $data,'fz' => $fz ]);
+        if(session('Template') == '2'){
+            $fz = DB::table('jjw_position_city')->where('city_id',session('regionid'))->first();
+            //dd($fz);
+            $data = DB::table('jjw_articlelist')->where('ar_id',$id)->first();
+            return view('delijiajiao.Articlecontent',['data' => $data,'fz' => $fz ]);
+        }else if(session('Template') == '4'){
+            $fz = DB::table('jjw_position_city')->where('city_id',session('regionid'))->first();
+            $data = DB::table('jjw_articlelist')->where('ar_id',$id)->first();
+            return view('phonedl.Articlecontent',['data' => $data,'fz' => $fz ]);
+        }
     }
 }
