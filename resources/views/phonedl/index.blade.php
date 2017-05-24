@@ -141,7 +141,7 @@
             <div class="msg_box_tab_content">
                 <ul>
                     @foreach($data as $data)
-                    <li class="el_tab_content" onclick="location.href='xsinfo{{ $data->id }}.html'">
+                    <li class="el_tab_content" onclick="location.href='/mobile/xsinfo{{ $data->id }}.html'">
                                 <span class="el_tab_content-l">
                                     {{ $data->dq }}{{ mb_substr($data->user_name,0,1) }}学员请{{ $data->grade }}{{ $data->subject_id }}家教
                                 </span>
@@ -154,7 +154,7 @@
         <section class="msg_box">
             <div class="msg_box_title">
                 <span class="msg_box_title_l"><img src="/phone/img/sj.png" style="margin: 0 .1rem">教学资源</span>
-                <span class="msg_box_title_r"><a href="/Articlecenter18.html">更多   > </a></span>
+                <span class="msg_box_title_r"><a href="/mobile/Articlecenter18.html">更多   > </a></span>
             </div>
             <div class="msg_box_tab_content">
                 <el-tabs v-model="activeName2" type="card" >
@@ -168,7 +168,7 @@
                                 <ul>
                                     @foreach($timu as $tm)
                                         @if($tm->ar_pid  ==  $zy->dh_id)
-                                            <li class="el_tab_content" onclick="location.href='/Articlecontent{{ $tm->ar_id }}.html'">
+                                            <li class="el_tab_content" onclick="location.href='/mobile/Articlecontent{{ $tm->ar_id }}.html'">
                                                 <span class="el_tab_content-l">
                                                     {{ substr($tm->ar_title,51,90) }}
                                                 </span>
@@ -191,7 +191,7 @@
         <section class="msg_box">
             <div class="msg_box_title">
                 <span class="msg_box_title_l"><img src="/phone/img/sj.png" style="margin: 0 .1rem">热门文章</span>
-                <span class="msg_box_title_r"><a href="/Articlecenter18.html">更多   > </a></span>
+                <span class="msg_box_title_r"><a href="/mobile/Articlecenter18.html">更多   > </a></span>
             </div>
             <div class="msg_box_tab_content">
                 <el-tabs v-model="activeName3" type="card" >
@@ -201,7 +201,7 @@
                         <ul>
                             @foreach($timu as $tm)
                                 @if($zy->dh_id == $tm->ar_pid)
-                                    <li class="el_tab_content" onclick="location.href='/Articlecontent{{ $tm->ar_id }}.html'">
+                                    <li class="el_tab_content" onclick="location.href='/mobile/Articlecontent{{ $tm->ar_id }}.html'">
                                         <span class="el_tab_content-l">
                                             {{ $tm->ar_title }}
                                         </span>
