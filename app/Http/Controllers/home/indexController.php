@@ -17,9 +17,9 @@ class indexController extends Controller{
         else if(getenv("REMOTE_ADDR"))
         $ip = getenv("REMOTE_ADDR");
         else $ip = "Unknow";
-        dd($ip);
+        $sip = explode(',',$ip);
         $ch = curl_init();
-        $url = 'http://apis.baidu.com/apistore/iplookup/iplookup_paid?ip='.$zip;
+        $url = 'http://apis.baidu.com/apistore/iplookup/iplookup_paid?ip='.$sip['0'];
         $header = array(
             'apikey:6c57f3d5755cbfe78fbba8d7bba2c286',
         );
