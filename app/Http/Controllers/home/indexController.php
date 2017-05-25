@@ -6,6 +6,13 @@ use App\Http\Controllers\Controller;
 use \DB;
 use \Cookie;
 class indexController extends Controller{
+   public function unicode_decode($name)
+   {
+      $json = '{"str":"'.$name.'"}';
+      $arr = json_decode($json,true);
+      if(empty($arr)) return '';
+      return $arr['str'];
+    }
     public function getCity($ip = '')
     {
         if($ip == ''){
@@ -20,8 +27,10 @@ class indexController extends Controller{
             }
             $data = (array)$ip->data;
         }
-        return $data['city'];
+        $city = $this->unicode_decode($data['city']);
+        return $city;
     }
+
     public function __construct()
     {
         //正则表达式
