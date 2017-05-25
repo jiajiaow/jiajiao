@@ -72,10 +72,9 @@ class indexController extends Controller{
             session(['regionid' => $re->city_id]);
 
         }else if($dlurl == 'www.delijiajiao.com/mobile'){
-            if ($this->getCity() != null){
-                $re = DB::table('jjw_position_city')->where('city_name','like',$this->getCity() . '%')->first();
+            $re = DB::table('jjw_position_city')->where('city_name','like',$this->getCity() . '%')->first();
                 //$re = DB::table('jjw_position_city')->where('city_id','440100000000')->first();
-            }
+
             //地区id
             session(['regionid' => $re->city_id]);
             //模板
@@ -126,10 +125,9 @@ class indexController extends Controller{
                 }elseif($dlpc == 'www.delijiajiao.com'){
 
                     //ip判断
-                    if ($this->getCity() != null){
-                        $re = DB::table('jjw_position_city')->where('city_name','like',$this->getCity() . '%')->first();
+                    $re = DB::table('jjw_position_city')->where('city_name','like',$this->getCity() . '%')->first();
                         //$re = DB::table('jjw_position_city')->where('city_id','440100000000')->first();
-                    }
+
                     //模板
                     session(['Template' => '2']);
                     session(['regionid' => $re->city_id]);
