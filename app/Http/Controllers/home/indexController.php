@@ -6,21 +6,36 @@ use App\Http\Controllers\Controller;
 use \DB;
 use \Cookie;
 class indexController extends Controller{
+    public function GetIP()
+    {
+        if (getenv("HTTP_CLIENT_IP") && strcasecmp(getenv("HTTP_CLIENT_IP"), "unknown"))
+            $ip = getenv("HTTP_CLIENT_IP");
+        else if (getenv("HTTP_X_FORWARDED_FOR") && strcasecmp(getenv("HTTP_X_FORWARDED_FOR"), "unknown"))
+            $ip = getenv("HTTP_X_FORWARDED_FOR");
+        else if (getenv("REMOTE_ADDR") && strcasecmp(getenv("REMOTE_ADDR"), "unknown"))
+            $ip = getenv("REMOTE_ADDR");
+        else if (isset($_SERVER['REMOTE_ADDR']) && $_SERVER['REMOTE_ADDR'] && strcasecmp($_SERVER['REMOTE_ADDR'], "unknown"))
+            $ip = $_SERVER['REMOTE_ADDR'];
+        else
+            $ip = "unknown";
+        return ($ip);
+        //return '58.62.30.207';
+    }
     public function getCity($ip = '')
     {
-        if($ip == ''){
-            $url = "http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json";
-            $ip=json_decode(file_get_contents($url),true);
-            $data = $ip;
-        }else{
-            $url="http://ip.taobao.com/service/getIpInfo.php?ip=".$ip;
-            $ip=json_decode(file_get_contents($url));
-            if((string)$ip->code=='1'){
-               return false;
-            }
-            $data = (array)$ip->data;
-        }
-        return $data['city'];
+        $ch = curl_init();
+        $url = 'http://apis.baidu.com/apistore/iplookup/iplookup_paid?ip='.$this->GetIP();
+        $header = array(
+            'apikey:6c57f3d5755cbfe78fbba8d7bba2c286',
+        );
+        // 添加apikey到header
+        curl_setopt($ch, CURLOPT_HTTPHEADER  , $header);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        // 执行HTTP请求
+        curl_setopt($ch , CURLOPT_URL , $url);
+        $res = curl_exec($ch);
+        $city = json_decode($res,true);
+        return $city['retData']['city'];
     }
     public function __construct()
     {
@@ -58,7 +73,7 @@ class indexController extends Controller{
 
         }else if($dlurl == 'www.delijiajiao.com/mobile'){
             if ($this->getCity() != null){
-                $re = DB::table('jjw_position_city')->where('city_name','like','%' . $this->getCity() . '%')->first();
+                $re = DB::table('jjw_position_city')->where('city_name','like',$this->getCity() . '%')->first();
                 //$re = DB::table('jjw_position_city')->where('city_id','440100000000')->first();
             }
             //地区id
@@ -112,7 +127,7 @@ class indexController extends Controller{
 
                     //ip判断
                     if ($this->getCity() != null){
-                        $re = DB::table('jjw_position_city')->where('city_name','like','%' . $this->getCity() . '%')->first();
+                        $re = DB::table('jjw_position_city')->where('city_name','like',$this->getCity() . '%')->first();
                         //$re = DB::table('jjw_position_city')->where('city_id','440100000000')->first();
                     }
                     //模板
