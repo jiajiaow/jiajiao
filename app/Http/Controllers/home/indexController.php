@@ -6,7 +6,22 @@ use App\Http\Controllers\Controller;
 use \DB;
 use \Cookie;
 class indexController extends Controller{
-
+    public function getCity($ip = '')
+    {
+        if($ip == ''){
+            $url = "http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json";
+            $ip=json_decode(file_get_contents($url),true);
+            $data = $ip;
+        }else{
+            $url="http://ip.taobao.com/service/getIpInfo.php?ip=".$ip;
+            $ip=json_decode(file_get_contents($url));
+            if((string)$ip->code=='1'){
+               return false;
+            }
+            $data = (array)$ip->data;
+        }
+        return $data['city'];
+    }
     public function __construct()
     {
         //正则表达式
@@ -42,12 +57,14 @@ class indexController extends Controller{
             session(['regionid' => $re->city_id]);
 
         }else if($dlurl == 'www.delijiajiao.com/mobile'){
+            if ($this->getCity() != null){
+                $re = DB::table('jjw_position_city')->where('city_name','like','%' . $this->getCity() . '%')->first();
+                //$re = DB::table('jjw_position_city')->where('city_id','440100000000')->first();
+            }
             //地区id
-            session(['regionid' => '440100000000']);
+            session(['regionid' => $re->city_id]);
             //模板
             session(['Template' => '4']);
-
-            $re = DB::table('jjw_position_city')->where('city_id','440100000000')->first();
             //地区名称
             session(['regionname' => $re->title]);
             session(['phone' => $re->phone]);
@@ -93,14 +110,14 @@ class indexController extends Controller{
                     return 'zlpc';
                 }elseif($dlpc == 'www.delijiajiao.com'){
 
-                    //地区id
-                    session(['regionid' => '440100000000']);
+                    //ip判断
+                    if ($this->getCity() != null){
+                        $re = DB::table('jjw_position_city')->where('city_name','like','%' . $this->getCity() . '%')->first();
+                        //$re = DB::table('jjw_position_city')->where('city_id','440100000000')->first();
+                    }
                     //模板
                     session(['Template' => '2']);
-
-                    $re = DB::table('jjw_position_city')->where('city_id','440100000000')->first();
-                    //dd($re);
-                    //地区名称
+                    session(['regionid' => $re->city_id]);
                     session(['regionname' => $re->title]);
                     session(['phone' => $re->phone]);
                     session(['fz_wxhao' => $re->fz_wxhao]);
