@@ -28,7 +28,7 @@ class indexController extends Controller{
             $data = (array)$ip->data;
         }
         $city = $this->unicode_decode($data['city']);
-        dd($city);
+        return $city;
     }
 
     public function __construct()
