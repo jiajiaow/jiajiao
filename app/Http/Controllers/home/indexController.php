@@ -18,10 +18,11 @@ class indexController extends Controller{
             $ip = $_SERVER['REMOTE_ADDR'];
         else
             $ip = "unknown";
-        return ($ip);
+	dd($ip);
+        return $ip;
         //return '58.62.30.207';
     }
-    public function getCity($ip = '')
+    public function getCity()
     {
         $ch = curl_init();
         $url = 'http://apis.baidu.com/apistore/iplookup/iplookup_paid?ip='.$this->GetIP();
@@ -35,7 +36,7 @@ class indexController extends Controller{
         curl_setopt($ch , CURLOPT_URL , $url);
         $res = curl_exec($ch);
         $city = json_decode($res,true);
-        return $city['retData']['city'];
+        dd($city['retData']['city']);
     }
     public function __construct()
     {
@@ -73,7 +74,7 @@ class indexController extends Controller{
 
         }else if($dlurl == 'www.delijiajiao.com/mobile'){
             $re = DB::table('jjw_position_city')->where('city_name','like',$this->getCity() . '%')->first();
-            dd($re);
+            dd($this->getCity(),$re);
                 //$re = DB::table('jjw_position_city')->where('city_id','440100000000')->first();
 
             //地区id
