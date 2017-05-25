@@ -6,25 +6,11 @@ use App\Http\Controllers\Controller;
 use \DB;
 use \Cookie;
 class indexController extends Controller{
-    public function GetIP()
-    {
-        if (getenv("HTTP_CLIENT_IP") && strcasecmp(getenv("HTTP_CLIENT_IP"), "unknown"))
-            $ip = getenv("HTTP_CLIENT_IP");
-        else if (getenv("HTTP_X_FORWARDED_FOR") && strcasecmp(getenv("HTTP_X_FORWARDED_FOR"), "unknown"))
-            $ip = getenv("HTTP_X_FORWARDED_FOR");
-        else if (getenv("REMOTE_ADDR") && strcasecmp(getenv("REMOTE_ADDR"), "unknown"))
-            $ip = getenv("REMOTE_ADDR");
-        else if (isset($_SERVER['REMOTE_ADDR']) && $_SERVER['REMOTE_ADDR'] && strcasecmp($_SERVER['REMOTE_ADDR'], "unknown"))
-            $ip = $_SERVER['REMOTE_ADDR'];
-        else
-            $ip = "unknown";
-        return ($ip);
-        //return '58.62.30.207';
-    }
-    public function getCity($ip = '')
+
+    public function __construct(Request $request)
     {
         $ch = curl_init();
-        $url = 'http://apis.baidu.com/apistore/iplookup/iplookup_paid?ip='.$this->GetIP();
+        $url = 'http://apis.baidu.com/apistore/iplookup/iplookup_paid?ip='.$request->getClientIp();
         $header = array(
             'apikey:6c57f3d5755cbfe78fbba8d7bba2c286',
         );
@@ -35,10 +21,7 @@ class indexController extends Controller{
         curl_setopt($ch , CURLOPT_URL , $url);
         $res = curl_exec($ch);
         $city = json_decode($res,true);
-        return $city['retData']['city'];
-    }
-    public function __construct()
-    {
+        $getCity = $city['retData']['city'];
         //正则表达式
         $pattern = '/([^*]+)\.([^\.\/]+)\.(com|net|org|cn)/';
         //获取绝对url
@@ -72,7 +55,7 @@ class indexController extends Controller{
             session(['regionid' => $re->city_id]);
 
         }else if($dlurl == 'www.delijiajiao.com/mobile'){
-                $re = DB::table('jjw_position_city')->where('city_name','like',$this->getCity() . '%')->first();
+                $re = DB::table('jjw_position_city')->where('city_name','like',$getCity . '%')->first();
                 //$re = DB::table('jjw_position_city')->where('city_id','440100000000')->first();
             //地区id
             session(['regionid' => $re->city_id]);
@@ -124,7 +107,7 @@ class indexController extends Controller{
                 }elseif($dlpc == 'www.delijiajiao.com'){
 
                     //ip判断
-                    $re = DB::table('jjw_position_city')->where('city_name','like',$this->getCity() . '%')->first();
+                    $re = DB::table('jjw_position_city')->where('city_name','like',$getCity . '%')->first();
                         //$re = DB::table('jjw_position_city')->where('city_id','440100000000')->first();
 
                     //模板
