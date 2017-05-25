@@ -7,10 +7,11 @@ use \DB;
 use \Cookie;
 class indexController extends Controller{
 
-    public function __construct(Request $request)
+    public function __construct()
     {
+        $reIP = $_SERVER["REMOTE_ADDR"];
         $ch = curl_init();
-        $url = 'http://apis.baidu.com/apistore/iplookup/iplookup_paid?ip='.$request->getClientIp();
+        $url = 'http://apis.baidu.com/apistore/iplookup/iplookup_paid?ip='.$reIP;
         $header = array(
             'apikey:6c57f3d5755cbfe78fbba8d7bba2c286',
         );
@@ -157,7 +158,7 @@ class indexController extends Controller{
     public function index(Request $request)
     {
         //调用构造方法
-        $this->__construct();
+        $this->__construct($request->getClientIp());
             if(session('Template') == '2'){ //PC德栗
     //            $s = DB::table('jjw_position_city')->where('city_id',session('regionid'))->first();
     //            $x = DB::table('city_info')->where('ci_city','like',mb_substr($s->city_name,0,2).'%')->first();
