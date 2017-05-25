@@ -6,15 +6,8 @@ use App\Http\Controllers\Controller;
 use \DB;
 use \Cookie;
 class indexController extends Controller{
-    public function getCity(){
-        global $ip;
-        if (getenv("HTTP_CLIENT_IP"))
-            $ip = getenv("HTTP_CLIENT_IP");
-        else if(getenv("HTTP_X_FORWARDED_FOR"))
-            $ip = getenv("HTTP_X_FORWARDED_FOR");
-        else if(getenv("REMOTE_ADDR"))
-            $ip = getenv("REMOTE_ADDR");
-        else $ip = "Unknow";
+    public function getCity($ip = '')
+    {
         if($ip == ''){
             $url = "http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json";
             $ip=json_decode(file_get_contents($url),true);
@@ -29,7 +22,6 @@ class indexController extends Controller{
         }
         return $data['city'];
     }
-
     public function __construct()
     {
         //正则表达式
@@ -66,7 +58,7 @@ class indexController extends Controller{
 
         }else if($dlurl == 'www.delijiajiao.com/mobile'){
             if ($this->getCity() != null){
-                $re = DB::table('jjw_position_city')->where('city_name',$this->getCity())->first();
+                $re = DB::table('jjw_position_city')->where('city_name','like','%' . $this->getCity() . '%')->first();
                 //$re = DB::table('jjw_position_city')->where('city_id','440100000000')->first();
             }
             //地区id
@@ -120,7 +112,7 @@ class indexController extends Controller{
 
                     //ip判断
                     if ($this->getCity() != null){
-                        $re = DB::table('jjw_position_city')->where('city_name',$this->getCity())->first();
+                        $re = DB::table('jjw_position_city')->where('city_name','like','%' . $this->getCity() . '%')->first();
                         //$re = DB::table('jjw_position_city')->where('city_id','440100000000')->first();
                     }
                     //模板
