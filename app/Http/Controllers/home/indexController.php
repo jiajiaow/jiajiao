@@ -73,6 +73,7 @@ class indexController extends Controller{
 
         }else if($dlurl == 'www.delijiajiao.com/mobile'){
             $re = DB::table('jjw_position_city')->where('city_name','like',$this->getCity() . '%')->first();
+            dd($re);
                 //$re = DB::table('jjw_position_city')->where('city_id','440100000000')->first();
 
             //地区id
