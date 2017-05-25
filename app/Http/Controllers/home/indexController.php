@@ -9,9 +9,10 @@ class indexController extends Controller{
 
     public function __construct()
     {
-        $reIP = $_SERVER["REMOTE_ADDR"];
+        $reIP=$_SERVER["REMOTE_ADDR"];
+        dd($reIP);
         $ch = curl_init();
-        $url = 'http://apis.baidu.com/apistore/iplookup/iplookup_paid?ip='.$reIP;
+        $url = 'http://apis.baidu.com/apistore/iplookup/iplookup_paid?ip='.$zip;
         $header = array(
             'apikey:6c57f3d5755cbfe78fbba8d7bba2c286',
         );
