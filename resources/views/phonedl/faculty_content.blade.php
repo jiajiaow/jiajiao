@@ -107,7 +107,7 @@
     </div>
     <section class="form_fastTutor" style="margin-top: .2rem; padding-bottom: 2rem;">
         <div class="form_fastTutor_title">
-            <span class="form_fastTutor_title_text">预约荣教员（编号：T215440）</span>
+            <span class="form_fastTutor_title_text">预约{{ substr($list->tc_name,0,3) }}教员（编号：T215440）</span>
         </div>
         <div class="form_fastTutor_content">
             <ul>
@@ -128,34 +128,7 @@
             <span class="tj_button">立即提交</span>
         </div>
     </section>
-    <footer>
-        <ul>
-            <li>
-                <a href="index.html">
-                    <i class="footer_home footer_icon"></i>
-
-                    <p>首页</p></a>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <i class="footer_my footer_icon" style="width:.38rem;"></i>
-                    <p>我的</p>
-                </a>
-            </li>
-            <li>
-                <i class="footer_zx footer_icon"></i>
-                <a href="http://wpa.qq.com/msgrd?v=3&uin=1774932105&site=qq&menu=yes">
-                    <p>在线咨询</p>
-                </a>
-
-            </li>
-            <li>
-                <i class="footer_phone footer_icon"></i>
-                <a href="tel:13113329950"><p>电话咨询</p></a>
-            </li>
-        </ul>
-    </footer>
+    @include('phonedl.float.float')
     <el-dialog
             title="提示"
             :visible.sync="dialogVisible"

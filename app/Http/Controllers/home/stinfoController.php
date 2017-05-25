@@ -10,10 +10,12 @@ class stinfoController extends Controller
 	//栗志
     public function stinfo(){
         //1为德栗
+        $user = \DB::table('jjw_user')->where('phone', session('st_phone'))->first();
+        //dd($user);
         if (session('Template') == '2') {
-            $user = \DB::table('jjw_user')->where('phone',session('st_phone'))->first();
-            //dd($user);
-            return view('delijiajiao.xy_info',['user'=>$user]);
+            return view('delijiajiao.xy_info', ['user' => $user]);
+        }elseif((session('Template') == '4')){
+            return view('phonedl.xy_info', ['user' => $user]);
         }else{
             echo "栗志家教学员个人中心 <a href='/outlogin.html'>退出</a>";
         }

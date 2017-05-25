@@ -48,11 +48,7 @@ Route::get('/yz','YzController@index');
 Route::get('/login.html',function(){
    // session()->forget("tc_phone");
     //session()->forget("tc_name");
-    if(session('Template') == '4'){
-        return view('phonedl.login');
-    }else{//默认德栗PC
         return view('home.login');
-    }
 });
 //处理执行教师登录
 Route::post('/dologin.html','home\LoginController@dologin');
@@ -256,10 +252,32 @@ Route::any('/5minutes','TaskController@Fiveminutes');
 Route::group(['prefix' => '/mobile',"middleware"=>"CheckAges"],function(){
     //导航搜索
     Route::get('/navigation.html/{type?}/{key?}','home\teacherinfoController@hot');
+    //导航更多
+    Route::get('/faculty.html/{a?}/{b?}','home\teacherinfoController@faculty');
+    //热门学科 大学 区域
+    Route::get('/hot.html/{type?}/{key?}','home\teacherinfoController@hot');
     //文章内容
     Route::get('/Articlecontent{id?}.html','home\ArticleController@Articlecontent');
     //学员详细资料
     Route::get('/xsinfo{id?}.html','home\xsinfoController@index');
+    //预约老师
+    Route::get('/yuyuelaoshi.html/{a?}/{b?}/{c?}/{d?}','home\yuyueController@index');
+    //教师注册
+    Route::get('/reg.html',function(){return view('phonedl.reg');});
+    //登录
+    Route::get('/login.html',function(){return view('phonedl.login');});
+    //教师详细
+    Route::get('/teacher/detail/{m?}.html','home\teacherinfoController@teacher');
+    //学员库
+    Route::get('/xueyuan.html','home\xueshenController@xueyuan');
+    //处理执行教师登录
+    Route::post('/dologin.html','home\LoginController@dologin');
+    //教员个人中心
+    Route::get('/teacherinfo.html','home\teacherinfoController@index');
+    //用户个人中心 stinfo栗志  stinfo2德栗
+    Route::get('/stinfo.html','home\stinfoController@stinfo');
+    //前台退出登录
+    Route::get('/outlogin.html','home\LoginController@outlogin');
 });
 //----------栗志手机端END----------//
 

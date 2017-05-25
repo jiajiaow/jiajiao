@@ -19,9 +19,9 @@
 
     <div class="com_content_box" >
         <div style="padding: 0 .2rem; padding-bottom:2rem; " >
-            <h2 class="text_title">{{ $data->ar_title }}</h2>
-            <p class="time_box">{{ $data->ar_time }}</p>
-            <p class="text_content_box">{{ $fz->fz_hade }}{!! $data->ar_content !!}{{ $fz->fz_footer }}</p>
+            <h2 class="text_title"><?php echo e($data->ar_title); ?></h2>
+            <p class="time_box"><?php echo e($data->ar_time); ?></p>
+            <p class="text_content_box"><?php echo e($fz->fz_hade); ?><?php echo $data->ar_content; ?><?php echo e($fz->fz_footer); ?></p>
 
             <div class="img_box">
                 <img src="">
@@ -29,7 +29,7 @@
         </div>
     </div>
 
-    @include('phonedl.float.float')
+    <?php echo $__env->make('phonedl.float.float', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 </div>
 <style>
     .wrap{
