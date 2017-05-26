@@ -61,56 +61,56 @@
             <div>
                 <ul>
                     <li>
-                        <a href="/navigation.html/学科/数学">
+                        <a href="/mobile/navigation.html/学科/数学">
                             <img src="/phone/img/sx.png" alt="">
                             <p>数学</p>
                         </a>
                     </li>
                     <li>
-                        <a href="/navigation.html/学科/英语">
+                        <a href="/mobile/navigation.html/学科/英语">
                             <img src="/phone/img/English@2x.png" alt="">
                             <p>英语</p>
                         </a>
                     </li>
                     <li>
-                        <a href="/navigation.html/学科/语文">
+                        <a href="/mobile/navigation.html/学科/语文">
                             <img src="/phone/img/yw.png" alt="">
                             <p>语文</p>
                         </a>
                     </li>
                     <li>
-                        <a href="/navigation.html/学科/理综">
+                        <a href="/mobile/navigation.html/学科/理综">
                             <img src="/phone/img/lz.png" alt="">
                             <p>理综</p>
                         </a>
                     </li>
                     <li>
-                        <a href="/navigation.html/学科/物理">
+                        <a href="/mobile/navigation.html/学科/物理">
                             <img src="/phone/img/wl.png" alt="">
                             <p>物理</p>
                         </a>
                     </li>
                     <li>
-                        <a href="/navigation.html/学科/化学">
+                        <a href="/mobile/navigation.html/学科/化学">
                             <img src="/phone/img/hx.png" alt="">
                             <p>化学</p>
                         </a>
                     </li>
                     <li>
-                        <a href="/navigation.html/学科/地理">
+                        <a href="/mobile/navigation.html/学科/地理">
                             <img src="/phone/img/dl.png" alt="">
                             <p>地理</p>
                         </a>
                     </li>
                     <li>
-                        <a href="/faculty.html">
+                        <a href="/mobile/faculty.html">
                             <img src="/phone/img/gd.png" alt="">
                             <p>更多</p>
                         </a>
                     </li>
                 </ul>
                 <div style="text-align: center;     margin-top: .2rem;">
-                    <a href="/yuyuelaoshi.html">
+                    <a href="/mobile/yuyuelaoshi.html">
                         <img src="/phone/img/ksqjj.png" width="100%">
                     </a>
                 </div>
@@ -119,34 +119,34 @@
         <section class="msg_box">
             <div class="msg_box_title">
                 <span class="msg_box_title_l"><img src="/phone/img/dax.png" style="margin: 0 .1rem">热门大学</span>
-                <span class="msg_box_title_r"><a href="#">更多   > </a></span>
+                <span class="msg_box_title_r"><a href="/mobile/faculty.html">更多   > </a></span>
             </div>
             <div class="school_box_content">
                 <ul>
                     <?php $__currentLoopData = $xx; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $xx): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <li><a href="/hot.html/学院/<?php echo e($xx->school_name); ?>"><?php echo e($xx->school_name); ?></a></li>
+                        <li><a href="/mobile/hot.html/学院/<?php echo e($xx->school_name); ?>"><?php echo e($xx->school_name); ?></a></li>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </ul>
             </div>
         </section>
         <section class="sele_box">
-            <div style="width: 50%" onclick="location.href='/yuyuelaoshi.html.html'"><img src="/phone/img/qls.png" alt="" width="100%"></div>
-            <div style="width: 50%" onclick="location.href='/reg.html'"><img src="/phone/img/dls.png" alt="" width="100%"></div>
+            <div style="width: 50%" ><a href="/mobile/yuyuelaoshi.html"><img src="/phone/img/qls.png" alt="" width="100%"></a></div>
+            <div style="width: 50%" ><a href="/mobile/reg.html"><img src="/phone/img/dls.png" alt="" width="100%"></a></div>
         </section>
         <section class="msg_box">
             <div class="msg_box_title">
                 <span class="msg_box_title_l"><img src="/phone/img/xy.png" style="margin: 0 .1rem">学员信息</span>
-                <span class="msg_box_title_r"><a href="/xueyuan.html">更多   > </a></span>
+                <span class="msg_box_title_r"><a href="/mobile/xueyuan.html">更多   > </a></span>
             </div>
             <div class="msg_box_tab_content">
                 <ul>
                     <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <li class="el_tab_content" onclick="location.href='/mobile/xsinfo<?php echo e($data->id); ?>.html'">
+                    <a href="/mobile/xsinfo<?php echo e($data->id); ?>.html" style="color:#000;"><li class="el_tab_content">
                                 <span class="el_tab_content-l">
                                     <?php echo e($data->dq); ?><?php echo e(mb_substr($data->user_name,0,1)); ?>学员请<?php echo e($data->grade); ?><?php echo e($data->subject_id); ?>家教
                                 </span>
                         <span class="el_tab_content-r"><?php echo e(date('Y-m-d',$data->time)); ?></span>
-                    </li>
+                    </li></a>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </ul>
             </div>
@@ -158,41 +158,8 @@
             </div>
             <div class="msg_box_tab_content">
                 <el-tabs v-model="activeName2" type="card" >
-<<<<<<< HEAD
-                    <el-tab-pane label="全部资源" name="first">
-<<<<<<< HEAD
-                        <ul>
-                            <?php $__currentLoopData = $timu; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tm): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-=======
-                        <ul><?php $num = 0;?>
-                            <?php $__currentLoopData = $timu; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tm): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <?php $num++;?>
-                            <?php if($num < 6): ?>
->>>>>>> 6ee243fde0632b966c0283e7333cb3ba801c0149
-                            <li class="el_tab_content">
-                                <span class="el_tab_content-l">
-                                    <?php echo e($tm->ar_title); ?>
-
-                                </span>
-                                <span class="el_tab_content-r"><?php echo e(substr($tm->ar_time,0,10)); ?></span>
-                            </li>
-<<<<<<< HEAD
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </ul>
-                    </el-tab-pane>
-=======
-                            <?php endif; ?>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </ul>
-                    </el-tab-pane>
-=======
->>>>>>> b29ef37033a0fed35ce5a94af48bfdc14e434b58
                     <?php $nums = 0;?>
-<<<<<<< HEAD
->>>>>>> 6ee243fde0632b966c0283e7333cb3ba801c0149
-=======
                     <?php $nums2 = 0;?>
->>>>>>> 7b2fa52b746938485445a20cffdd5cc42cb0249c
                     <?php $__currentLoopData = $zhiyuan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $zy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <?php if($zy->dh_status == '0'): ?>
                             <?php $nums2++;?>
@@ -200,20 +167,8 @@
                             <el-tab-pane label="<?php echo e($zy->dh_Navigationbar); ?>" name="second<?php echo e($zy->dh_id); ?>">
                                 <ul>
                                     <?php $__currentLoopData = $timu; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tm): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-<<<<<<< HEAD
-                                        <?php if($zy->dh_id == $tm->ar_pid): ?>
-=======
                                         <?php if($tm->ar_pid  ==  $zy->dh_id): ?>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 6ee243fde0632b966c0283e7333cb3ba801c0149
-                                            <li class="el_tab_content">
-=======
-                                            <li class="el_tab_content" onclick="location.href='/Articlecontent<?php echo e($tm->ar_id); ?>.html'">
->>>>>>> 7340d317d4e611301e46fa743e909eb31edb251a
-=======
                                             <li class="el_tab_content" onclick="location.href='/mobile/Articlecontent<?php echo e($tm->ar_id); ?>.html'">
->>>>>>> 5172514d7ba2447c435ed3d1593602ad0c73f454
                                                 <span class="el_tab_content-l">
                                                     <?php echo e(substr($tm->ar_title,51,90)); ?>
 
@@ -251,21 +206,10 @@
                                         <span class="el_tab_content-l">
                                             <?php echo e($tm->ar_title); ?>
 
-<<<<<<< HEAD
-                                </span>
-<<<<<<< HEAD
-                                <span class="el_tab_content-r">2017.5.7</span>
-=======
-                                <span class="el_tab_content-r"><?php echo e(substr($tm->ar_time,0,10)); ?></span>
->>>>>>> 6ee243fde0632b966c0283e7333cb3ba801c0149
-                            </li>
-                            <?php endif; ?>
-=======
                                         </span>
                                         <span class="el_tab_content-r"><?php echo e(substr($tm->ar_time,0,10)); ?></span>
                                     </li>
                                 <?php endif; ?>
->>>>>>> 7340d317d4e611301e46fa743e909eb31edb251a
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </ul>
                     </el-tab-pane>
@@ -277,7 +221,7 @@
         </section>
         <section class="footer_yejiao">
             <div style="text-align: center;margin-top: 0.7rem;">
-                <a href="/yuyuelaoshi.html">
+                <a href="/mobile/yuyuelaoshi.html">
                     <img src="/phone/img/ksdxs.png" width="100%" style="position: relative;top: -0.4rem;">
                 </a>
             </div>
@@ -287,33 +231,7 @@
                 Copyright @ 2005 - 2017 delijiajiao.com
             </div>
         </section>
-        <footer>
-            <ul>
-                <li>
-                    <a href="/mobile">
-                        <i class="footer_home footer_icon"></i>
-                        <p>首页</p></a>
-                    </a>
-                </li>
-                <li>
-                    <a href="/login.html">
-                        <i class="footer_my footer_icon" style="width:.38rem;"></i>
-                        <p>我的</p>
-                    </a>
-                </li>
-                <li>
-                        <i class="footer_zx footer_icon"></i>
-                    <a href="https://hztk5.kuaishang.cn/bs/im.htm?cSource=1&cas=69564___125636&fi=79140&ri=18250381975&vi=b91fa36776ee4ca0bac77f7af86e3d04&ism=1&dp=http%3A%2F%2Fwww.delijiajiao.com%2Fmobile&_d=1495518714221324&_tk=b9cc3dd4">
-                        <p>在线咨询</p>
-                    </a>
-
-                </li>
-                <li>
-                        <i class="footer_phone footer_icon"></i>
-                        <a href="tel:<?php echo e(session('phone')); ?>"><p>电话咨询</p></a>
-                </li>
-            </ul>
-        </footer>
+        <?php echo $__env->make('phonedl.float.float', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <div class="return_top" @click="backTop" v-if="scroll>200">
             <img src="/phone/img/hddb.png" alt="" style="margin: .36rem 0 0 .2rem;width: .6rem;">
         </div>

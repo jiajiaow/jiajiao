@@ -20,6 +20,8 @@ class yuyueController extends Controller
                 return view('delijiajiao.yuyuelaoshis',['tc_id'=>$_GET['tc']]);
             }
             return view('delijiajiao.yuyuelaoshi');
+        }elseif(session('Template') == '4'){
+            return view('phonedl.yuyuelaoshi');
         }else{
             return view('home.yuyuelaoshi');
         }

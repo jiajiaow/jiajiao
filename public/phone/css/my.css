@@ -150,3 +150,10 @@
 .my_info{
     background: url("../img/my_info.png") no-repeat;
 }
+.ex_icon{
+    background: url("../img/js_icon.png") no-repeat;
+    width: .38rem;
+    height: .39rem;
+    background-size: 100%;
+    display: inline-block;
+}
