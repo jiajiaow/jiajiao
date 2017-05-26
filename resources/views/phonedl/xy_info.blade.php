@@ -13,7 +13,7 @@
 <div class="wrap" id="app">
     <div class="nav_header">
         <i class="header_left_icon header_icon" onclick="javascript :history.back(-1);"></i>
-        <span>个人中心</span>
+        <span>个人中心</span> {{--学员个人中心--}}
         <a href="/mobile/outlogin.html"><span class="ex_icon"></span></a>
     </div>
     <div class="com_content_box">

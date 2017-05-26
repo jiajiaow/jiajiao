@@ -258,6 +258,8 @@ Route::group(['prefix' => '/mobile',"middleware"=>"CheckAges"],function(){
     Route::get('/hot.html/{type?}/{key?}','home\teacherinfoController@hot');
     //文章内容
     Route::get('/Articlecontent{id?}.html','home\ArticleController@Articlecontent');
+    //文章列表
+    Route::get('/Articlecenter{id?}.html','home\ArticleController@wzlist');
     //学员详细资料
     Route::get('/xsinfo{id?}.html','home\xsinfoController@index');
     //预约老师
@@ -276,7 +278,7 @@ Route::group(['prefix' => '/mobile',"middleware"=>"CheckAges"],function(){
     Route::get('/teacherinfo.html','home\teacherinfoController@index');
     //用户个人中心 stinfo栗志  stinfo2德栗
     Route::get('/stinfo.html','home\stinfoController@stinfo');
-    //前台退出登录
+    //前台退出登录a
     Route::get('/outlogin.html','home\LoginController@outlogin');
 });
 //----------栗志手机端END----------//

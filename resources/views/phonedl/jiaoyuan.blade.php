@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>教员库</title>
+    <title>教员库</title>{{--教员库--}}
     <link rel="stylesheet" href="/phone/css/fast.css">
     <link rel="stylesheet" href="/phone/css/reset.css">
     <link rel="stylesheet" href="/phone/css/teacher.css">

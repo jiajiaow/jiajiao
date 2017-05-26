@@ -147,7 +147,8 @@
                                 <label class="col-sm-2 ">学员性别：</label>
                                 <div class="col-sm-2">
                                     <input name="user_sex" type="radio" value="1" checked="">男　
-                                    <input name="user_sex" type="radio" value="0">女
+                                    <input name="user_sex" type="radio" value="2">女
+				    <input name="user_sex" type="radio" value="3">男女不限
                                 </div>
                                 </div>
 
@@ -195,6 +196,7 @@
                                         ；每次课上
                                         <select name="o_xs" id="shi" >
                                             <option value="" selected="">请选择</option>
+                                            <option value="1">1</option>
                                             <option value="1.5">1.5</option>
                                             <option value="2">2 推荐</option>
                                             <option value="2.5">2.5</option>
@@ -301,7 +303,7 @@
                                     <div align="left">
                                         <input type="radio" value="是" name="tc_Signing" checked="">是
                                         <input type="radio" value="否" name="tc_Signing">否
-                                        <a href="/">点击查看签约老师说明</a>
+                                       <!-- <a href="/">点击查看签约老师说明</a>-->
                                     </div>
                                 </div>
                             </div>

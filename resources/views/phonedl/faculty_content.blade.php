@@ -13,7 +13,7 @@
 <div class="wrap" id="app">
     <div class="nav_header">
         <i class="header_left_icon header_icon"></i>
-        <span >教员信息</span>
+        <span >教员信息</span> {{--教员信息--}}
         <i class="header_right_icon header_icon"></i>
     </div>
 

@@ -1,6 +1,4 @@
 <?php
-    $cs = 7;
-    $xs = 2;
-    $xsdj = 100;
-    $bl = 1;
-    echo $cs*$xs*$xsdj*$bl.'.00';
+    $source = '58.62.30.207, 122.1.1.2';
+    $hello = explode(',',$source);
+    var_dump($hello);

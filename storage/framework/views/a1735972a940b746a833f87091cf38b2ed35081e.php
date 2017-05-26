@@ -105,6 +105,7 @@
                                     <td><?php echo e($l->xxftk); ?>元<input type="hidden" id="money<?php echo e($l->jl_id); ?>" value="<?php echo e($l->xxftk); ?>" ></td>
                                     <td>
                                         家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）
+                                        <button class="timeShow" onclick="showfx(<?php echo e($l->jl_id); ?>)">查看</button>
                                     </td>
                                     <td>无显示</td>
                                     <td>无显示</td>
@@ -173,7 +174,84 @@
         </div>
 
     </div>
+    <div class="fc" style="display: none;"></div>
+    <div class="fc_content" style="display: none" id="skbcg<?php echo e($l->jl_id); ?>">
+        <div style="padding: 10px 32px;">
+            <ul>
 
+                <li><font><font>结束类型
+                        </font></font><select id="renyuan">
+                        <option value="家长原因"><font><font>家长原因</font></font></option>
+                        <option value="教员原因"><font><font>教员原因</font></font></option>
+                    </select>
+                </li>
+
+                <li>
+                    <p><font><font>原因
+                            </font></font><select id="ok_xueyuan" style="width:360px;">
+                            <option value=""><font><font>家长另外找了更好的老师</font></font></option>
+                            <option value=""><font><font>家长找了专职老师</font></font></option>
+                            <option value=""><font><font>家长觉得成绩没有明显提升</font></font></option>
+                            <option value=""><font><font>家长/学​​生因为时间的变动无法继续上课</font></font></option>
+                            <option value=""><font><font>学员暂时不太适应家教</font></font></option>
+                            <option value=""><font><font>家长还是选择了去上辅导班</font></font></option>
+                            <option value=""><font><font>合同期满</font></font></option>
+                        </select>
+                        <select id="ok_jiaoyuan" style="display:none;width:360px;">
+                            <option value=""><font><font>教员未能勤勉尽责，无法按时保质完成我方家教要求</font></font></option>
+                            <option value=""><font><font>教员个人原因以后没法上课</font></font></option>
+                            <option value=""><font><font>教员迟到，上课时玩手机，一直在提钱，态度不好</font></font></option>
+                            <option value=""><font><font>教员不认真备课和准备，对孩子不负责</font></font></option>
+                            <option value=""><font><font>教员能力有限，带不了孩子</font></font></option>
+                            <option value=""><font><font>教员性格和孩子不是很合得来，孩子不喜欢</font></font></option>
+                        </select>
+                    </p>
+
+
+                </li>
+                <li style="text-align: center">
+                    <button class="sure_qd_btn">确认</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+            padding: 8px 0;
+        }
+        .fc {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.41);
+            top: 0;
+            left: 0;
+            z-index: 998;
+        }
+        .fc_content {
+            width: 470px;
+            height: 132px;
+            position: fixed;
+            background: #fff;
+            left: 50%;
+            top: 50%;
+            margin-left: -235px;
+            margin-top: -107px;
+            padding-bottom: 14px;
+            z-index: 999;
+        }
+        .seeMar{
+            margin: 0 27px;
+        }
+    </style>
     <!-- 全局js -->
     <script src="js/jquery.min.js?v=2.1.4"></script>
     <script src="js/bootstrap.min.js?v=3.3.6"></script>
@@ -255,10 +333,55 @@
 
             });
         }
+
+        $('.timeShow').click(function(){
+            $('.fc').show(500)
+            $('#skbcg<?php echo e($l->jl_id); ?>').show(500)
+        })
+        $('.fc').click(function(){
+            $('.fc').hide(500)
+            $('#skbcg<?php echo e($l->jl_id); ?>').hide(500)
+        })
+        $('.sure_btn').click(function(){
+            $('.fc').hide(500)
+            $('#skbcg<?php echo e($l->jl_id); ?>').hide(500)
+
+        })
+        $('.sure_qd_btn').click(function(){
+            $('.fc').hide(500)
+            $('#skbcg<?php echo e($l->jl_id); ?>').hide(500)
+        })
+        $('.qxBtn').click(function(){
+            $('.fc').hide(500)
+            $('#skbcg<?php echo e($l->jl_id); ?>').hide(500)
+        })
+       function showfx(id){
+           $('.fc').show(500)
+           $('#skbcg<?php echo e($l->jl_id); ?>').show(500)
+       }
+        $('#renyuan').change(function(){
+            var ok_no = $('#ok_no option:selected').val()
+            var renyuan =$('#renyuan option:selected').val()
+            if(renyuan == '家长原因'){
+                $('#ok_xueyuan').show()
+                $('#ok_jiaoyuan').hide()
+
+            }else{
+                $('#ok_jiaoyuan').show()
+                $('#ok_xueyuan').hide()
+
+            }
+
+        })
+        $('.sure_qd_btn$').click(function(){
+            $('.fc').hide(500)
+            $('.fc_content').hide(500)
+        })
+
     </script>
 
-    
-    
+
+
 
 </body>
 

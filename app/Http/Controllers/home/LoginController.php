@@ -24,7 +24,7 @@ class LoginController extends Controller
             $phone = $_POST['phone'];
             $yzm = $_POST['code'];
             $list = \DB::table('jjw_teachers')->where('tc_phone',$phone)->first();
-            //dd($list);
+            //dd($list);a
             if($list != null){
                 if ($request->cookie('code') == $yzm) {
                     //设置session

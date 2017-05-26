@@ -221,7 +221,7 @@
                             <div class="left">试课结果填写</div>
                             <div class="right">
                                 <div style="height: 40px;" class="yesno">
-                                    <?php if($skzs->jy_qz == '1' && $skzs-> xy_qz =='1'): ?>
+                                    <?php if($skzs->jy_qz == '1' && $skzs-> xy_qz =='1' || $skzs->jy_qz == '1' && $skzs-> xy_qz =='2'): ?>
                                         <a class="cg" id="cg<?php echo e($skzs->id); ?>">试课成功</a>
                                     <?php else: ?>
                                         <a onclick="skcgs()"  href="/hetong/<?php echo e($skzs->id); ?>.html">试课成功</a>
@@ -303,7 +303,8 @@
                                 </div>
                                 <div class="pm zqm">
                                     <div class="left">
-                                        信息费：<?php if($skzs->o_ts == '1'): ?><?php echo e($q*$skzs->bfb1); ?><?php elseif($skzs->o_ts == '2'): ?><?php echo e($q*$skzs->bfb2); ?><?php elseif($skzs->o_ts == '3'): ?><?php echo e($q*$skzs->bfb3); ?><?php elseif($skzs->o_ts == '4'): ?><?php echo e($q*$skzs->bfb4); ?><?php elseif($skzs->o_ts == '5'): ?><?php echo e($q*$skzs->bfb5); ?><?php elseif($skzs->o_ts == '6'): ?><?php echo e($q*$skzs->bfb6); ?><?php elseif($skzs->o_ts == '7'): ?><?php echo e($q*$skzs->bfb7); ?><?php endif; ?>元
+                                        
+                                        信息费：<?php if($skzs->o_ts == '1'): ?><?php echo e(($q*$skzs->bfb1)*$skzs->zk); ?><?php elseif($skzs->o_ts == '2'): ?><?php echo e(($q*$skzs->bfb2)*$skzs->zk); ?><?php elseif($skzs->o_ts == '3'): ?><?php echo e(($q*$skzs->bfb3)*$skzs->zk); ?><?php elseif($skzs->o_ts == '4'): ?><?php echo e(($q*$skzs->bfb4)*$skzs->zk); ?><?php elseif($skzs->o_ts == '5'): ?><?php echo e(($q*$skzs->bfb5)*$skzs->zk); ?><?php elseif($skzs->o_ts == '6'): ?><?php echo e(($q*$skzs->bfb6)*$skzs->zk); ?><?php elseif($skzs->o_ts == '7'): ?><?php echo e(($q*$skzs->bfb7)*$skzs->zk); ?><?php endif; ?>元
                                     </div>
                                     <div class="left">
                                         家长服务费：<?php echo e($skzs->fz_jzxxf); ?>元
@@ -342,7 +343,7 @@
                             <input type="hidden" name="tc_id" id="tc_id<?php echo e($skzs->id); ?>" value="">
                             <div style="padding: 10px 32px;">
                                 <ul >
-                                    <li><p><input name="Fruit" type="radio" value="1" checked="checked" />试课成功</p></li>
+                                    <li><p><input name="Fruit" id="SKCG_input" type="radio" value="1" onclick="skcgFn(<?php echo e($skzs->id); ?>)" />试课成功</p></li>
                                     <li><p>周薪酬减少　
                                             <?php echo e($skzs->money2*$skzs->o_xs2*$skzs->o_ts2-$skzs->money*$skzs->o_xs*$skzs->o_ts); ?>
 
@@ -453,7 +454,7 @@
                                             <?php endif; ?>
                                         </p>
                                     </li>
-                                    <li><input name="Fruit" type="radio" value="2" />试课不成功</li>
+                                    <li><input name="Fruit" type="radio" value="2" onclick="skcgFn(<?php echo e($skzs->id); ?>)" />试课不成功</li>
                                     <li>
                                         <p>申请信息费退款<span class="seeMar">
                                                 <input type="" name="xxftk" style="width:55px">
@@ -487,6 +488,7 @@
                                                 <option value="家长想换个性别（男/女）的老师（未试课）">家长想换个性别（男/女）的老师（未试课）</option>
                                                 <option value="家长想换个更好学校或者更合适专业的老师（未试课）">家长想换个更好学校或者更合适专业的老师（未试课）</option>
                                                 <option value="家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）">家长想换个专职老师/或者原来是专职老师，想试试大学生（未试课）</option>
+                                                <option value="其他（请在备注中说明情况）"></option>
                                             </select>
                                             <select id="ok_xueyuan<?php echo e($skzs->id); ?>" style="display:none;width:360px;" name="yuanyin">
                                                 <option value="学员暂时不太适应家教试课不成功">学员暂时不太适应家教试课不成功</option>
@@ -519,20 +521,23 @@
                                         
                                     
                                     <li>
-                                        <p>
+                                        <p id="skcg_btn">
                                             <?php if($skzs->jy_qz =='1'): ?>
-                                                <?php if($skzs->tk_type == '6' || $skzs->tk_type == '' || $skzs->tk_type == '3'): ?>
-                                                    <button style="margin-left: 110px;" type="submit" >申请退款</button>
+                                                <?php if($skzs->tk_type == '6' || $skzs->tk_type == ''): ?>
+                                                    <button style="margin-left: 110px;" type="submit"  >申请退款</button>
                                                 <?php else: ?>
                                                     <span style="margin-left: 110px;" onclick="layer.alert('您已经提交过申请了!')" >申请退款</span>
                                                 <?php endif; ?>
                                             <?php else: ?>
-                                                <?php if($skzs->tk_type !=''): ?>
                                                     <span style="margin-left: 110px;" onclick="layer.alert('请您先确认合同!')" >申请退款</span>
-                                                <?php else: ?>
-                                                    <span style="margin-left: 110px;" onclick="layer.alert('你已经提交过申请了!')" >申请退款</span>
-                                                <?php endif; ?>
                                             <?php endif; ?><span class="seeMar"></span><span><span style="padding: 0 13px;"  class="qxBtn" onclick="qx(<?php echo e($skzs->id); ?>)">取消</span></span>
+                                        </p>
+                                        <p id="skbcg_btn" style="display: none">
+                                            <?php if($skzs->tk_type == '6' || $skzs->tk_type == ''): ?>
+                                                <button style="margin-left: 110px;" type="submit"  >申请退款</button>
+                                            <?php else: ?>
+                                                <span style="margin-left: 110px;" onclick="layer.alert('您已经提交过申请了!')" >申请退款</span>
+                                            <?php endif; ?><span style="margin-left: 75px;"><span style="padding: 0 13px;"  class="qxBtn" onclick="qx(<?php echo e($skzs->id); ?>)">取消</span></span>
                                         </p>
                                     </li>
                                 </ul>
@@ -667,6 +672,20 @@
 <script type="text/javascript" src='/layer/layer.js'></script>
 
 <script>
+
+    function skcgFn(id){
+
+        if($('#SKCG_input')[0].checked == true){
+            $('#skcg_btn').show()
+            $('#skbcg_btn').hide()
+        }else{
+            $('#skcg_btn').hide()
+            $('#skbcg_btn').show()
+        }
+
+    }
+
+
     //审查订单
     function sc(oid,money,jy_qz,xy_qz,tc_id){
        // alert(oid);
@@ -810,16 +829,16 @@
         $('#fc'+id).show(500)
         $('#fc_content'+id).show(500)
     }
-
-    var bkzqm = $('.dd_length')
+    var bkzqm = $('.dd_length');
     for(var i = 0;i<bkzqm.length;i++){
 //        $.trim console.log( bkzqm.eq(i).find(".yesno").text())
 //        console.log( bkzqm.eq(i).find(".xbxxf").text())
       var a  =  $.trim(bkzqm.eq(i).find(".yesno").text())
-        bkzqm.eq(i).find(".xbxxf").text()
+      var xbxxf =   $.trim(bkzqm.eq(i).find(".xbxxf").text())
+
         bkzqm.eq(i).find("#o").val()
         bkzqm.eq(i).find("#r").val()
-        if(a == '试课成功' && bkzqm.eq(i).find(".xbxxf").text() == '0'){
+        if(a == '试课成功' && xbxxf == '0'){
             bkzqm.eq(i).find("#o").val()
             bkzqm.eq(i).find("#r").val()
             $.ajax({

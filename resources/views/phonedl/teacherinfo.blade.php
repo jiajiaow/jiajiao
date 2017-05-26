@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>个人中心</title>
+    <title>教员个人中心</title>
     <link rel="stylesheet" href="/phone/css/fast.css">
     <link rel="stylesheet" href="/phone/css/reset.css">
     <link rel="stylesheet" href="/phone/css/ele.css">
@@ -13,7 +13,7 @@
 <div class="wrap" id="app">
     <div class="nav_header">
         <i class="header_left_icon header_icon" onclick="javascript :history.back(-1);"></i>
-        <span>个人中心</span>
+        <span>个人中心</span>{{--教员个人中心--}}
         <a href="/mobile/outlogin.html"><span class="ex_icon"></span></a>
     </div>
 

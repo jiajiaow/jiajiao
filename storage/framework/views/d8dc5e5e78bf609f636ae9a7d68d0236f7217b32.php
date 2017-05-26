@@ -260,7 +260,7 @@
 				data:{"phone":xy,"zt":'登录'},
 				contentType: "application/x-www-form-urlencoded; charset=utf8",
 		 		success:function(result){
-					alert(result);
+					alert('验证码发送成功');
 		 		},
 		 		error:function(result,status){
 		 			console.log(result);
@@ -325,7 +325,7 @@
 				dateType:'json',
 				contentType: "application/x-www-form-urlencoded; charset=utf8",
 				success:function(data){
-					alert(data);
+					alert('验证码发送成功');
 				},
 				error:function(result,status){
 					console.log(result);

@@ -3,7 +3,7 @@
  <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" charset='utf-8'/>
   <meta name="applicable-device" content="pc" />
-  <title>@yield('title')【德栗家教】{{ session('regionname') }}家教专业大学生家教全国连锁领导品牌!</title>
+  <title>@yield('title')【德栗家教】家教专业大学生家教全国连锁领导品牌!</title>
   <meta name="description" content="@yield('ms')，专业大学生一对一上门家教，专业大学生家教全国连锁领导品牌。免费上门试课热线：{{ session('phone') }}。业务覆盖全国200多个城市，汇集数十万名大学生、专职老师在内的各类优秀教员，竭诚为广大学员提供最专业、最值得信赖的一对一上门家教辅导。免费上门试课热线：{{ session('phone') }}" />
   <meta name="keywords" content="德栗家教,{{ session('regionname') }}家教,{{ session('regionname') }}家教网,{{ session('regionname') }}大学生家教,{{ session('regionname') }}家教,{{ session('regionname') }}家教网,辅导,补习,一对一" />
   <script src="/delijiajiao/js/jquery-1.7.2.min.js"></script>
@@ -15,9 +15,10 @@
   <link rel="shortcut icon" href="/delijiajiao/favicon.ico" type="image/x-icon">
      <link rel="stylesheet" type="text/css" href="/delijiajiao/css/swiper.min.css">
      <script type="text/javascript">
-         if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
-             window.location.href='/mobile';
-         }</script>
+        if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+            window.location.href="/mobile";
+        }
+      </script>
      <style>
          #cheng-href{
              color:#a7a7a7;
@@ -267,8 +268,8 @@ for(i=0; i <tabList.length; i++)
     <div class="location">
      <div class="breadcrumb" style="margin-bottom: 0px;background-color: #fff;padding: 0px" id="icon-top">
       <h1><a a href='/' class='primary-logo' ><img alt="广州" src="/delijiajiao/picture/guangzhou.png" class="city-logo" /></a></h1>
-      <span class="listing-slogan" style="height:40px;">{{ substr(session('cityname'),0,6) }}家教中心</span>
-         <span class="listing-slogan1" style="height: 26px;">【德栗家教】【高校联盟】</span><a href="/change_city.html">更多城市</a>
+      <span class="listing-slogan" style="height:40px;">【德栗家教】</span>
+         <span class="listing-slogan1" style="height: 26px;">{{ session('regionname') }}【高校联盟】</span><a href="/change_city.html">更多城市</a>
      </div>
      <div class="pull-right">
       <a href="/yuyuelaoshi.html" class="resume-btn" style="font-size: 16px">请老师</a>

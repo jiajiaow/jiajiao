@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="renderer" content="webkit">
 	<!-- <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" /> -->
-	<title>手机登录</title>
+	<title>手机登录</title> {{--手机登录--}}
 	<link rel="stylesheet" href="/phone/lichengphonedl/css/sjdl.css">
 	<link rel="stylesheet" href="/phone/lichengphonedl/css/swiper-3.4.2.min.css">
 	<link rel="stylesheet" href="/phone/lichengphonedl/css/yanzhen/validate.css">

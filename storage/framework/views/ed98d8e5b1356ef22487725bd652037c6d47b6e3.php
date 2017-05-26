@@ -161,7 +161,7 @@
                             </div>
                             <div class="pm zqm">
                                 <div class="left">
-                                    信息费：<?php if($yaps->o_ts == '1'): ?><?php echo e($q*$yaps->bfb1); ?><?php elseif($yaps->o_ts == '2'): ?><?php echo e($q*$yaps->bfb2); ?><?php elseif($yaps->o_ts == '3'): ?><?php echo e($q*$yaps->bfb3); ?><?php elseif($yaps->o_ts == '4'): ?><?php echo e($q*$yaps->bfb4); ?><?php elseif($yaps->o_ts == '5'): ?><?php echo e($q*$yaps->bfb5); ?><?php elseif($yaps->o_ts == '6'): ?><?php echo e($q*$yaps->bfb6); ?><?php elseif($yaps->o_ts == '7'): ?><?php echo e($q*$yaps->bfb7); ?><?php endif; ?>元
+                                    信息费：<?php if($yaps->o_ts == '1'): ?><?php echo e(($q*$yaps->bfb1)*$yaps->zk); ?><?php elseif($yaps->o_ts == '2'): ?><?php echo e(($q*$yaps->bfb2)*$yaps->zk); ?><?php elseif($yaps->o_ts == '3'): ?><?php echo e(($q*$yaps->bfb3)*$yaps->zk); ?><?php elseif($yaps->o_ts == '4'): ?><?php echo e(($q*$yaps->bfb4)*$yaps->zk); ?><?php elseif($yaps->o_ts == '5'): ?><?php echo e(($q*$yaps->bfb5)*$yaps->zk); ?><?php elseif($yaps->o_ts == '6'): ?><?php echo e(($q*$yaps->bfb6)*$yaps->zk); ?><?php elseif($yaps->o_ts == '7'): ?><?php echo e(($q*$yaps->bfb7)*$yaps->zk); ?><?php endif; ?>元
                                 </div>
                                 <div class="right">
                                     成功后需付信息费：
@@ -200,11 +200,11 @@
                     <div class="bk">
                         <div class="left">备注</div>
                         <div class="right">
-                            <a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">沟通咨询/疑问</font></a>
+                            <a style="margin-right: 20px;" href="https://hztk5.kuaishang.cn/bs/im.htm?cSource=1&cas=69564___125636&fi=79140&ri=18245998447&vi=84d357f55f854a87b7683824f3938530&dp=http%3A%2F%2Fwww.delijiajiao.com%2F&_d=1494806260357&_tk=575c5551" target="_blank"><font color="#FF0000">沟通咨询/疑问</font></a>
 
-                                <a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000"><?php echo e($yaps->ap); ?></font></a>
+                                
 
-                            <a style="margin-right: 20px;" href="" target="_blank"><font color="#FF0000">常见问题</font></a>
+                            <a style="margin-right: 20px;" href="/Articlecenter19.html" target="_blank"><font color="#FF0000">常见问题</font></a>
                         </div>
                     </div>
                     <div class="bk2">
@@ -303,5 +303,11 @@
 
             });
         }
+
     </script>
+ <style>
+     #yff{
+         font-weight:600;
+     }
+ </style>
 </html>

@@ -68,11 +68,6 @@ class regController extends Controller
         $phone = $_POST['phone'];
         $zt = $_POST['zt'];
         $yzm = rand(1000,9999);
-        //记录
-        $filename="a.txt";
-        $handle=fopen($filename,"a+");
-        $str=fwrite($handle,"$yzm\n");
-        fclose($handle);
         Cookie::queue("code", $yzm,5);
         Cookie::queue("phone", $phone,5);
         if(session('Template') == '1'){

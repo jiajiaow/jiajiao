@@ -13,7 +13,7 @@
 <div class="wrap" id="app">
     <div class="nav_header">
         <i class="header_left_icon header_icon" onclick="javascript :history.back(-1);"></i>
-        <span>文章中心</span>
+        <span>文章中心</span> {{--文章中心--}}
         <span></span>
     </div>
 

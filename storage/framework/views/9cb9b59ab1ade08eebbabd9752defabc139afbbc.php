@@ -85,7 +85,7 @@
 
                 <div class="tabcont" id="qianyue">
                     <ul class="active tabbox">
-                    <?php $__currentLoopData = $jinpai; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $jp): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <?php $__currentLoopData = $jy; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $jp): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                          <?php if($jp->tc_jinpai == 2): ?>
                             <li class="kuan">
                                 <div class="top">
@@ -146,7 +146,7 @@
                             <a href="">可悲的鱼</a><br/>
                         </div>
                         <ul class="active tabbox">
-                        <?php $__currentLoopData = $xueshen; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $xs): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php $__currentLoopData = $jy; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $xs): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             
                             <?php if($xs->tc_jinpai == 0): ?>
                             <li >
@@ -200,7 +200,7 @@
                             <a href="">可悲的鱼</a><br/>
                         </div>
                         <ul class="active tabbox">
-                        <?php $__currentLoopData = $zhuanzhi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $zz): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php $__currentLoopData = $jy; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $zz): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             
 
                             <li >

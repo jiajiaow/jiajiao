@@ -9,6 +9,31 @@ class indexController extends Controller{
 
     public function __construct()
     {
+        global $ip;
+        if (getenv("HTTP_CLIENT_IP"))
+        $ip = getenv("HTTP_CLIENT_IP");
+        else if(getenv("HTTP_X_FORWARDED_FOR"))
+        $ip = getenv("HTTP_X_FORWARDED_FOR");
+        else if(getenv("REMOTE_ADDR"))
+        $ip = getenv("REMOTE_ADDR");
+        else $ip = "Unknow";
+        if($ip == '127.0.0.1'){
+            $ip = '58.62.30.207';
+        }
+        $sip = explode(',',$ip);
+        $ch = curl_init();
+        $url = 'http://apis.baidu.com/apistore/iplookup/iplookup_paid?ip='.$sip['0'];
+        $header = array(
+            'apikey:6c57f3d5755cbfe78fbba8d7bba2c286',
+        );
+        // 添加apikey到header
+        curl_setopt($ch, CURLOPT_HTTPHEADER  , $header);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        // 执行HTTP请求
+        curl_setopt($ch , CURLOPT_URL , $url);
+        $res = curl_exec($ch);
+        $city = json_decode($res,true);
+        $getCity = $city['retData']['city'];
         //正则表达式
         $pattern = '/([^*]+)\.([^\.\/]+)\.(com|net|org|cn)/';
         //获取绝对url
@@ -42,12 +67,12 @@ class indexController extends Controller{
             session(['regionid' => $re->city_id]);
 
         }else if($dlurl == 'www.delijiajiao.com/mobile'){
+                $re = DB::table('jjw_position_city')->where('city_name','like',$getCity . '%')->first();
+                //$re = DB::table('jjw_position_city')->where('city_id','440100000000')->first();
             //地区id
-            session(['regionid' => '440100000000']);
+            session(['regionid' => $re->city_id]);
             //模板
             session(['Template' => '4']);
-
-            $re = DB::table('jjw_position_city')->where('city_id','440100000000')->first();
             //地区名称
             session(['regionname' => $re->title]);
             session(['phone' => $re->phone]);
@@ -93,14 +118,13 @@ class indexController extends Controller{
                     return 'zlpc';
                 }elseif($dlpc == 'www.delijiajiao.com'){
 
-                    //地区id
-                    session(['regionid' => '440100000000']);
+                    //ip判断
+                    $re = DB::table('jjw_position_city')->where('city_name','like',$getCity . '%')->first();
+                        //$re = DB::table('jjw_position_city')->where('city_id','440100000000')->first();
+
                     //模板
                     session(['Template' => '2']);
-
-                    $re = DB::table('jjw_position_city')->where('city_id','440100000000')->first();
-                    //dd($re);
-                    //地区名称
+                    session(['regionid' => $re->city_id]);
                     session(['regionname' => $re->title]);
                     session(['phone' => $re->phone]);
                     session(['fz_wxhao' => $re->fz_wxhao]);
@@ -145,7 +169,7 @@ class indexController extends Controller{
     public function index(Request $request)
     {
         //调用构造方法
-        $this->__construct();
+        $this->__construct($request->getClientIp());
             if(session('Template') == '2'){ //PC德栗
     //            $s = DB::table('jjw_position_city')->where('city_id',session('regionid'))->first();
     //            $x = DB::table('city_info')->where('ci_city','like',mb_substr($s->city_name,0,2).'%')->first();
