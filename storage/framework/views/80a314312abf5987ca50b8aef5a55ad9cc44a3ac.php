@@ -63,30 +63,7 @@
         <div class="cler"></div>
     </div>
 </section>
-<footer>
-    <ul style="margin-top: 0">
-        <li>
-            <a href="/mobile">
-                <i class="footer_home footer_icon"></i>
-                <p>首页</p></a>
-            </a>
-        </li>
-        <li>
-            <a href="/login.html">
-                <i class="footer_my footer_icon" style="width:.38rem;"></i>
-                <p>我的</p>
-            </a>
-        </li>
-        <li>
-            <i class="footer_zx footer_icon"></i>
-            <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1774932105&amp;site=qq&amp;menu=yes" target="_blank">在线咨询</a>
-        </li>
-        <li>
-            <i class="footer_phone footer_icon"></i>
-            <a  href="tel:<?php echo e(session('phone')); ?>">电话咨询</a>
-        </li>
-    </ul>
-</footer>
+<?php echo $__env->make('phonedl.float.float', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <script src='/phone/js/jquery-1.11.3.js'></script>
 <script src="/phone/js/zepto.js"></script>
 <script>

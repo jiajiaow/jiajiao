@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>快速请家教</title>
+    <title>学员库</title>
     <link rel="stylesheet" href="/phone/lichengphonedl/css/xyk.css">
     <script src="/phone/lichengphonedl/js/flexible.js"></script>
 <body style="background-color: #F1F1F1">
@@ -13,7 +13,7 @@
         <img src="/phone/lichengphonedl/images/sousuo@2x.png" alt="" class="lf tq">
     </div>
     <img src="/phone/lichengphonedl/images/xr.png" alt="" class="rt" style="height: 1.4rem;" id="you">
-    <div class="cler"></div>
+    <div class="cler"></div> 
 </header>
 <section>
     <div class="zhen">
@@ -55,7 +55,8 @@
         </div>
     </div>
     <?php $__currentLoopData = $list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $li): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <div style="margin-bottom: .25rem" onclick="location.href='/xsinfo<?php echo e($li->id); ?>.html'">
+        <a href="/mobile/xsinfo<?php echo e($li->id); ?>.html" style="color:#000;">
+    <div style="margin-bottom: .25rem">
         <div class="cz">
             <div>
                 <span><?php echo e($li->grade); ?></span>
@@ -90,31 +91,12 @@
             </div>
             <div class="cler"></div>
         </div>
-    </div>
+    </div></a>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
    
    
 </section>
-<footer>
-    <ul style="margin-top: 0">
-        <li>
-            <i class="footer_home footer_icon"></i>
-            <p>首页</p>
-        </li>
-        <li>
-            <i class="footer_my footer_icon" style="width:.38rem;"></i>
-            <p>我的</p>
-        </li>
-        <li>
-            <i class="footer_zx footer_icon"></i>
-            <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1774932105&amp;site=qq&amp;menu=yes" target="_blank">在线咨询</a>
-        </li>
-        <li>
-            <i class="footer_phone footer_icon"></i>
-            <a  href="tel:13866353457">电话咨询</a>
-        </li>
-    </ul>
-</footer>
+<?php echo $__env->make('phonedl.float.float', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <script src="/phone/lichengphonedl/js/zepto.js"></script>
 <script src="/phone/lichengphonedl/js/jquery-1.11.3.js"></script>
 <!--页面跳转-->
