@@ -9,15 +9,17 @@ class indexController extends Controller{
 
     public function __construct()
     {
+        //获取客户端ip
         global $ip;
         if (getenv("HTTP_CLIENT_IP"))
-        $ip = getenv("HTTP_CLIENT_IP");
+            $ip = getenv("HTTP_CLIENT_IP");
         else if(getenv("HTTP_X_FORWARDED_FOR"))
-        $ip = getenv("HTTP_X_FORWARDED_FOR");
+            $ip = getenv("HTTP_X_FORWARDED_FOR");
         else if(getenv("REMOTE_ADDR"))
-        $ip = getenv("REMOTE_ADDR");
+            $ip = getenv("REMOTE_ADDR");
         else $ip = "Unknow";
-        $sip = explode(',',$ip);
+            $sip = explode(',',$ip);
+        //请求api
         $ch = curl_init();
         $url = 'http://apis.baidu.com/apistore/iplookup/iplookup_paid?ip='.$sip['0'];
         $header = array(
@@ -38,7 +40,6 @@ class indexController extends Controller{
         preg_match($pattern,$url,$matches);
         //获取当前域名
         $x = explode(".",$url);
-        //dd($x);
         $qz = $x[0];
         $zy = $x[1];
         $hz = $x[2];
