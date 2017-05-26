@@ -53,6 +53,17 @@ class teacherinfoController extends Controller
            // dd($list);
             return view('home.teacherinfo', ['list' => $list, 'qu' => $qu, 'km' => $km, 'xuexiao' => $xuexiao, 'zhuanye' => $zhuanye]);
            // return view('home.teacherinfo', ['list' => $list, 'qu' => $qu, 'km' => $km, 'xuexiao' => $xuexiao, 'zhuanye' => $zhuanye, 'dd' => $dd]);
+        }else if(session('Template') == '4'){
+            $phone = session('tc_phone');
+            //教员信息
+            $list = \DB::table('jjw_teachers')->where('tc_phone', $phone)->first();
+            //锁定当前所在省
+            //dd($list);
+            if ($list == null) {
+                return redirect('/mobile/login.html')->with('msg', '请您先登录!');
+            }
+           // dd($list);
+            return view('phonedl.teacherinfo',['list'=>$list]);
         }
     }
 

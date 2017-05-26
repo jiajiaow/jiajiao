@@ -68,16 +68,11 @@ class regController extends Controller
         $phone = $_POST['phone'];
         $zt = $_POST['zt'];
         $yzm = rand(1000,9999);
-        //记录
-        $filename=".\a.txt";
-        $handle=fopen($filename,"a+");
-        $str=fwrite($handle,"$yzm\n");
-        fclose($handle);
         Cookie::queue("code", $yzm,5);
         Cookie::queue("phone", $phone,5);
         if(session('Template') == '1'){
             $result=$this->sms->send("$phone","栗志家教","{zt:'{$zt}','code':'{$yzm}'}",'SMS_61850084');
-        }else if(session('Template') == '2'){
+        }else if(session('Template') == '2' || session('Template') == '4'){
             $config = [
                 'app_key'    => '23746117',
                 'app_secret' => 'f0e278be87e2663cb6f47bb876c29deb',

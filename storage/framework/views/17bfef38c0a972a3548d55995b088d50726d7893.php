@@ -23,6 +23,9 @@
 </head>
 
 <body class="gray-bg">
+<script>
+    window.loaction.reload()
+</script>
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-sm-12" style="overflow: scroll;">
