@@ -22,7 +22,7 @@ class LoginController extends Controller
         }else{
             $errmsg = '账号不存在或密码错误,请重新输入!';
             //重定向
-            return redirect('/admin/backstages')->with('errmsg',$errmsg);
+            return redirect('/admin/backstagesoiunvdfkja387239871')->with('errmsg',$errmsg);
         }
 //        dd($list);
     }
@@ -32,6 +32,6 @@ class LoginController extends Controller
         session()->forget("name");
         session()->forget("user_id");
         session()->forget("admin_id");
-        return redirect('/admin/backstages')->with('errmsg','已退出登录!');
+        return redirect('/admin/backstagesoiunvdfkja387239871')->with('errmsg','已退出登录!');
     }
 }

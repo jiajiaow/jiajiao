@@ -17,49 +17,49 @@
         <span class="commonP " onclick="commonP();">常见问题
             <i class="icon iconDown iconUp"></i>
         </span>
-        <span class="resources" onclick="resources();">资源中心{{--资源中心--}}
+        <span class="resources" onclick="resources();">资源中心
             <i class="icon iconDown iconUp"></i>
         </span>
         <div class="cler"></div>
     </div>
     <div class="huadong" style="">
         <div class="drop1">
-        @foreach($data as $ls)
-            @if($ls->dh_status == '1')
-              <a href="/mobile/Articlecenter{{ $ls->dh_id }}.html" class="jycjwt">{{ $ls->dh_Navigationbar }}</a>
-            @endif
-        @endforeach
+        <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ls): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php if($ls->dh_status == '1'): ?>
+              <a href="/mobile/Articlecenter<?php echo e($ls->dh_id); ?>.html" class="jycjwt"><?php echo e($ls->dh_Navigationbar); ?></a>
+            <?php endif; ?>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
     </div>
     <div class="huadong1" style="">
         <div class="drop2">
-          @foreach($data as $erj)
-            @if($erj->dh_status == '0')
-              <a href="/mobile/Articlecenter{{ $erj->dh_id }}.html">{{ $erj->dh_Navigationbar }}</a>
-            @endif
-          @endforeach
+          <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $erj): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php if($erj->dh_status == '0'): ?>
+              <a href="/mobile/Articlecenter<?php echo e($erj->dh_id); ?>.html"><?php echo e($erj->dh_Navigationbar); ?></a>
+            <?php endif; ?>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
     </div>
-    @if($list !== null)
-        @foreach($list as $li)
-        <a href="/mobile/Articlecontent{{ $li->ar_id }}.html" style='color: #333;'>
+    <?php if($list !== null): ?>
+        <?php $__currentLoopData = $list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $li): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <a href="/mobile/Articlecontent<?php echo e($li->ar_id); ?>.html" style='color: #333;'>
             <div class="problem">
               <i></i>
-              <h1 style='overflow: hidden;width: 60%;'>{{ subtext($li->ar_title,10) }}</h1>
-              @if($li->ar_status == '1')
+              <h1 style='overflow: hidden;width: 60%;'><?php echo e(subtext($li->ar_title,10)); ?></h1>
+              <?php if($li->ar_status == '1'): ?>
                 　　<span class="z">置顶帖</span>
-              @endif
-              <span class='time'>{{ substr($li->ar_time,0,10) }}</span>
+              <?php endif; ?>
+              <span class='time'><?php echo e(substr($li->ar_time,0,10)); ?></span>
               <div class="cler"></div>
-              <p>{{ $li->ar_jj }}····</p>
+              <p><?php echo e($li->ar_jj); ?>····</p>
             </div>
         </a>
-        @endforeach
-    @endif
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    <?php endif; ?>
         <!-- 分页 -->
     <div class="fy">
-        <a href="{{ $list->Url($list->last) }}" class="top">上一页</a>
-        <a href="{{ $list->Url($list->next) }}" class="down">下一页</a>
+        <a href="<?php echo e($list->Url($list->last)); ?>" class="top">上一页</a>
+        <a href="<?php echo e($list->Url($list->next)); ?>" class="down">下一页</a>
         <div class="cler"></div>
     </div>
 </section>

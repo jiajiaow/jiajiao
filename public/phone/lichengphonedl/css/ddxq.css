@@ -47,11 +47,12 @@ a:visited {
 header{
     width: 100%;
     background-color: #F7B529;
+    text-align: center;
 
 }
 header>img:nth-child(1){
     height: 1.5rem;
-    margin-left: .3rem;
+    display: inline-block;
 }
 header>span{
     font-size: .6rem;
@@ -60,6 +61,8 @@ header>span{
 }
 header>img:nth-child(1){
     float: left;
+    position: absolute;
+    left: 0;
 }
 /*页脚部分*/
 footer {

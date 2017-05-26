@@ -294,7 +294,7 @@ Route::group(['prefix' => '/mobile',"middleware"=>"CheckAges"],function(){
 
 //----------  后台  ----------//
 //登录视图 方法
-Route::get('/admin/backstages',function(){ return view('admin.login');  });
+Route::get('/admin/backstagesoiunvdfkja387239871',function(){ return view('admin.login');  });
 //登录 Login控制器
 Route::post('/admin/Logins','admin\LoginController@login');
 //路由群组 中间件 拒绝后台未登录访问页面

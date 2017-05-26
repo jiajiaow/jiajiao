@@ -1,4 +1,4 @@
-        <footer>
+        <footer> 
             <ul>
                 <li>
                     <a href="/mobile">
