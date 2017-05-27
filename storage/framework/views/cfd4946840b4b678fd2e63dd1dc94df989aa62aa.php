@@ -61,31 +61,42 @@
             <ul>
                 <li>
                     <i class="icons my_icon"></i>
-                    <div>
-                        <p>个人资料维护</p>
-                        <i class="right_icon"></i>
-                    </div>
+                    <a href=""  class="aa">
+                        <div>
+                            <p>个人资料维护</p>
+                            <i class="right_icon" ></i>
+                        </div>
+                    </a>
+
                 </li>
                 <li>
                     <i class="icons my_dd"></i>
-                    <div>
-                        <p>订单管理</p>
-                        <i class="right_icon"></i>
-                    </div>
+                    <a href="/mobile/tc_page.html">
+                        <div style="width: 380%">
+                            <p>订单管理</p>
+                            <i class="right_icon"></i>
+                        </div>
+                    </a>
                 </li>
                 <li>
                     <i class="icons my_setdd"></i>
-                    <div>
-                        <p>授课订单管理</p>
-                        <i class="right_icon"></i>
-                    </div>
+                    <a href="">
+                        <div>
+                            <p>授课订单管理</p>
+                            <i class="right_icon"></i>
+                        </div>
+                    </a>
+
                 </li>
                 <li>
                     <i class="icons my_xy"></i>
-                    <div>
-                        <p>学员管理</p>
-                        <i class="right_icon"></i>
-                    </div>
+                    <a href="">
+                        <div style="width: 380%">
+                            <p>学员管理</p>
+                            <i class="right_icon"></i>
+                        </div>
+                    </a>
+
                 </li>
             </ul>
         </div>
@@ -93,24 +104,30 @@
             <ul>
                 <li>
                     <i class="icons my_cw"></i>
-                    <div>
-                        <p>财务中心</p>
-                        <i class="right_icon"></i>
-                    </div>
+                    <a href="">
+                        <div style="width: 380%">
+                            <p>财务中心</p>
+                            <i class="right_icon"></i>
+                        </div>
+                    </a>
                 </li>
                 <li>
                     <i class="icons my_shop"></i>
-                    <div>
-                        <p>积分商城</p>
-                        <i class="right_icon"></i>
-                    </div>
+                    <a href="">
+                        <div style="width: 380%">
+                            <p>积分商城</p>
+                            <i class="right_icon"></i>
+                        </div>
+                    </a>
                 </li>
                 <li>
                     <i class="icons my_info"></i>
-                    <div>
-                        <p>沟通中心</p>
-                        <i class="right_icon"></i>
-                    </div>
+                    <a href="">
+                        <div style="width: 380%">
+                            <p>沟通中心</p>
+                            <i class="right_icon"></i>
+                        </div>
+                    </a>
                 </li>
             </ul>
         </div>
