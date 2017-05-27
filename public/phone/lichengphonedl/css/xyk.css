@@ -83,7 +83,7 @@ img.tq{
     margin-left: .7rem;
     width: .5rem;
 }
-header>div>input{
+header>div>form>input{
     font-size: .5rem;
     line-height: .8rem;
     width: 5rem;

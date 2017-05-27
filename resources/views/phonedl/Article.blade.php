@@ -7,7 +7,7 @@
     <script src="/phone/js/flexible.js"></script>
 <body style="background-color: #F1F1F1">
 <header>
-    <img src="/phone/images/zuo.png" alt="" class="zuo">
+    <img src="/phone/images/zuo.png" alt="" onclick="javascript :history.back(-1);">
     <span>文章中心</span>
     <a href="/login.html"><img src="/phone/images/xr.png" alt="" class="rt you" style="height: 1.4rem;margin-right: .15rem"></a>
     <div class="cler"></div>

@@ -20,9 +20,9 @@ class indexController extends Controller{
         else $ip = "Unknow";
             $sip = explode(',',$ip);
         //请求api
-        if($ip == '127.0.0.1'){
+        /*if($ip == '127.0.0.1'){
             $ip = '58.62.30.207';
-        }
+        }*/
         $sip = explode(',',$ip);
         $ch = curl_init();
         $url = 'http://apis.baidu.com/apistore/iplookup/iplookup_paid?ip='.$sip['0'];
