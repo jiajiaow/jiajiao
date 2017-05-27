@@ -158,7 +158,7 @@
         </li>
         <li>
           <p>家教上课地点</p>
-          <input type="" name="xx_dz" id="xx_dz"><span class="bt">必填</span>
+          <input type="text" name="xx_dz" id="xx_dz"><span class="bt">必填</span>
         </li>
         <li>
           <p>选择教员性别</p>

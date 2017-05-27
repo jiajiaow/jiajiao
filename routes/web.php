@@ -280,6 +280,10 @@ Route::group(['prefix' => '/mobile',"middleware"=>"CheckAges"],function(){
     Route::get('/stinfo.html','home\stinfoController@stinfo');
     //前台退出登录a
     Route::get('/outlogin.html','home\LoginController@outlogin');
+    //提交数据
+    Route::post('/yuyuexiangxi.html','home\yuyueController@doyyform');
+    //填写预约详细
+    Route::any('/yuyuexxform','home\yuyueController@yuyuexxform');
 });
 //----------栗志手机端END----------//
 

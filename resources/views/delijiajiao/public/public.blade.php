@@ -1,11 +1,18 @@
+<?php $www = explode(".",$_SERVER['HTTP_HOST']) ?>
 <!DOCTYPE html>
 <html>
  <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" charset='utf-8'/>
   <meta name="applicable-device" content="pc" />
-  <title>@yield('title')【德栗家教】家教专业大学生家教全国连锁领导品牌!</title>
-  <meta name="description" content="@yield('ms')，专业大学生一对一上门家教，专业大学生家教全国连锁领导品牌。免费上门试课热线：{{ session('phone') }}。业务覆盖全国200多个城市，汇集数十万名大学生、专职老师在内的各类优秀教员，竭诚为广大学员提供最专业、最值得信赖的一对一上门家教辅导。免费上门试课热线：{{ session('phone') }}" />
-  <meta name="keywords" content="德栗家教,{{ session('regionname') }}家教,{{ session('regionname') }}家教网,{{ session('regionname') }}大学生家教,{{ session('regionname') }}家教,{{ session('regionname') }}家教网,辅导,补习,一对一" />
+  @if($www['0'] == 'www')
+  <title>【德栗家教】专业大学生上门家教一对一，全国家教连锁领导品牌!</title>
+  <meta name="description" content="专业大学生上门家教就选【德栗家教】，全国家教连锁领导品牌! 免费上门试课！0元试课！热线：400-8250-710。业务覆盖全国200多个城市，汇集数十万名大学生、专职老师在内的各类优秀教员，竭诚为广大学员提供最专业、最值得信赖的一对一上门家教辅导。" />
+  <meta name="keywords" content="家教,家教网,大学生家教,上门家教,家教一对一,一对一家教,大学生兼职,大学生上门家教,一对一辅导,德栗家教" />
+  @else
+  <title>【德栗家教】-{{ session('cityname') }}家教网-专业大学生上门家教-全国连锁领导品牌!</title>
+  <meta name="description" content="{{ session('regionname') }}是{{ session('cityname') }}最知名最专业的家教网，{{ session('cityname') }}家教领导品牌! 免费上门试课！0元试课！热线：{{ session('phone') }}。业务覆盖全国200多个城市，汇集数十万名大学生、专职老师在内的各类优秀教员，竭诚为广大学员提供最专业、最值得信赖的一对一上门家教辅导。" />
+  <meta name="keywords" content="{{ session('cityname') }}家教,{{ session('cityname') }}家教网,大学生家教,上门家教,家教一对一,一对一家教,大学生兼职,大学生上门家教,一对一辅导,德栗家教" />
+  @endif
   <script src="/delijiajiao/js/jquery-1.7.2.min.js"></script>
   <link rel="stylesheet" href="/delijiajiao/css/index.css" onerror="tracker.resErr(this)" />
   <link rel="stylesheet" href="/delijiajiao/css/style.css" onerror="tracker.resErr(this)" />

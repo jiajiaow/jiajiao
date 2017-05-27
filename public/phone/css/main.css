@@ -258,7 +258,6 @@ body{
     text-overflow: ellipsis;
     -o-text-overflow: ellipsis;
     overflow: hidden;
-    letter-spacing: 1px;
 }
 .footer_yejiao {
     background: #fff;
