@@ -105,7 +105,6 @@ class tcinfoController extends Controller
         }else if(session('Template') == '4'){
             return view('phonedl.tc_order3',['yqx'=>$yqx]);
         }
-
     }
 
     public function tc_order4(){
@@ -130,9 +129,13 @@ class tcinfoController extends Controller
         $nextpage = $num - $skz->currentPage() == 0 ? $num : $skz->currentPage() + 1;
         $shipage = $num - $skz->currentPage() == 0 ? $num : $skz->currentPage() + 10;
         $lastpage = $skz->currentPage() - 1 < 0 ? 1 : $skz->currentPage() - 1;
-        $skz->next = $nextpage; $skz->last = $lastpage; $skz->shi = $shipage;$skz->num = $num;
+        $skz->next = $nextpage; $skz->last = $lastpage; $skz->shi = $shipage;$skz->num=$skz->total();
           //dd($skz);
-        return view('delijiajiao.tc_order4',['skz'=>$skz]);
+        if(session('Template') == '2') {
+            return view('delijiajiao.tc_order4',['skz'=>$skz]);
+        }else if(session('Template') == '4'){
+            return view('phonedl.tc_order4',['skz'=>$skz]);
+        }
     }
     public function tc_order5(){
         if (session('tc_phone') == null) {
@@ -153,8 +156,12 @@ class tcinfoController extends Controller
         $nextpage = $num - $sskjs->currentPage() == 0 ? $num : $sskjs->currentPage() + 1;
         $shipage = $num - $sskjs->currentPage() == 0 ? $num : $sskjs->currentPage() + 10;
         $lastpage = $sskjs->currentPage() - 1 < 0 ? 1 : $sskjs->currentPage() - 1;
-        $sskjs->next = $nextpage; $sskjs->last = $lastpage; $sskjs->shi = $shipage;$sskjs->num = $num;
-        return view('delijiajiao.tc_order5',['sskjs'=>$sskjs]);
+        $sskjs->next = $nextpage; $sskjs->last = $lastpage; $sskjs->shi = $shipage;$sskjs->num=$sskjs->total();
+        if(session('Template') == '2') {
+            return view('delijiajiao.tc_order5',['sskjs'=>$sskjs]);
+        }else if(session('Template') == '4'){
+            return view('phonedl.tc_order5',['sskjs'=>$sskjs]);
+        }
     }
     public function tc_order6(){
         if (session('tc_phone') == null) {
@@ -178,8 +185,13 @@ class tcinfoController extends Controller
                 $nextpage = $num - $sskz->currentPage() == 0 ? $num : $sskz->currentPage() + 1;
                 $shipage = $num - $sskz->currentPage() == 0 ? $num : $sskz->currentPage() + 10;
                 $lastpage = $sskz->currentPage() - 1 < 0 ? 1 : $sskz->currentPage() - 1;
-                $sskz->next = $nextpage; $sskz->last = $lastpage; $sskz->shi = $shipage;$sskz->num = $num;
-         return view('delijiajiao.tc_order6',['sskz'=>$sskz]);
+                $sskz->next = $nextpage; $sskz->last = $lastpage; $sskz->shi = $shipage;$sskz->num=$sskz->total();
+            if(session('Template') == '2') {
+                return view('delijiajiao.tc_order6',['sskz'=>$sskz]);
+            }else if(session('Template') == '4'){
+                return view('phonedl.tc_order6',['sskz'=>$sskz]);
+            }
+
     }
     public function tc_order7(){
         if (session('tc_phone') == null) {
@@ -200,8 +212,13 @@ class tcinfoController extends Controller
         $nextpage = $num - $skjs->currentPage() == 0 ? $num : $skjs->currentPage() + 1;
         $shipage = $num - $skjs->currentPage() == 0 ? $num : $skjs->currentPage() + 10;
         $lastpage = $skjs->currentPage() - 1 < 0 ? 1 : $skjs->currentPage() - 1;
-        $skjs->next = $nextpage; $skjs->last = $lastpage; $skjs->shi = $shipage;$skjs->num = $num;
-        return view('delijiajiao.tc_order7',['skjs'=>$skjs]);
+        $skjs->next = $nextpage; $skjs->last = $lastpage; $skjs->shi = $shipage;$skjs->num=$skjs->total();
+        if(session('Template') == '2') {
+            return view('delijiajiao.tc_order7',['skjs'=>$skjs]);
+        }else if(session('Template') == '4'){
+            return view('phonedl.tc_order7',['skjs'=>$skjs]);
+        }
+
     }
     //教员订单
     /*public function tc_order(){

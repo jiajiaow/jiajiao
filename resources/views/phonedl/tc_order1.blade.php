@@ -36,41 +36,62 @@
         <a href="/mobile/tc_order2.html">未选择</a>
         <a href="/mobile/tc_order3.html">已取消</a>
     </div>
+    @foreach($yap as $yaps)
     <div class="lb" style="margin-top: 0">
         <div class="xy">
             <label for="">订单编号:</label>
-            <span>103666</span>
+            <span>{{ $yaps->id }}</span>
             <a href="" class="rt">查看详情 <img src="/phone/lichengphonedl/images/gd@2x.png" alt="" class="rt"></a>
         </div>
         <div class="zy ly">
             <label for="">订单类型:</label>
-            <span>签约教员单</span>
+            <span>{{ $yaps->tc_Signing =='是'?'签约订单':'普通订单' }}</span>
         </div>
         <div class="zy ly">
             <label for="">年级科目:</label>
-            <span>初一数学</span>
+            <span>{{ $yaps->subject_id }}</span>
         </div>
         <div class="zy ly">
             <label for="">地址:</label>
-            <span>广州白云</span>
+            <span>{{ $yaps->xx_dz }}</span>
         </div>
-        <div class="ly wq">
+        <div class="ly wq"><?php $q = $yaps->o_ts*$yaps->o_xs*$yaps->money ?>
             <label for="">费用:</label>
             <div style="float: right">
-                <p>课酬:180元/次</p>
-                <p>周课酬:360元/周</p>
+                <p>课酬:{{ $yaps->money*$yaps->o_xs }}元/次</p>
+                <p>周课酬:{{ $q }}元/周</p>
                 <p>信息费:360元</p>
                 <p>家长服务费:50元</p>
-                <p>预付信息费:360元</p>
-                <p>成功后需要付信息费:60元</p>
+                <p>预付信息费:@if($yaps->o_ts == '1'){{ $q*$yaps->bfb1>300?'300':$q*$yaps->bfb1 }}@elseif($yaps->o_ts == '2'){{ $q*$yaps->bfb2>300?'300':$q*$yaps->bfb2 }}@elseif($yaps->o_ts == '3'){{ $q*$yaps->bfb3>300?'300':$q*$yaps->bfb3 }}@elseif($yaps->o_ts == '4'){{ $q*$yaps->bfb4>300?'300':$q*$yaps->bfb4 }}@elseif($yaps->o_ts == '5'){{ $q*$yaps->bfb5>300?'300':$q*$yaps->bfb5 }}@elseif($yaps->o_ts == '6'){{ $q*$yaps->bfb6>300?'300':$q*$yaps->bfb6 }}@elseif($yaps->o_ts == '7'){{ $q*$yaps->bfb7>300?'300':$q*$yaps->bfb7 }}@endif元</p>
+                <p>成功后需要付信息费:@if($yaps->o_ts == '1')
+                        {{ $q*$yaps->bfb1 - ($q*$yaps->bfb1>300?'300':$q*$yaps->bfb1) }}
+                    @elseif($yaps->o_ts == '2')
+                        {{ $q*$yaps->bfb2 - ($q*$yaps->bfb2>300?'300':$q*$yaps->bfb2) }}
+                        {{-- {{ $q*$yaps->bfb2>300?'300':$q*$yaps->bfb2 }}--}}
+                    @elseif($yaps->o_ts == '3')
+                        {{ $q*$yaps->bfb3 - ($q*$yaps->bfb3>300?'300':$q*$yaps->bfb3) }}
+                        {{-- {{ $q*$yaps->bfb3>300?'300':$q*$yaps->bfb3 }}--}}
+                    @elseif($yaps->o_ts == '4')
+                        {{ $q*$yaps->bfb4 - ($q*$yaps->bfb4>300?'300':$q*$yaps->bfb4) }}
+                        {{--{{ $q*$yaps->bfb4>300?'300':$q*$yaps->bfb4 }}--}}
+                    @elseif($yaps->o_ts == '5')
+                        {{ $q*$yaps->bfb5 - ($q*$yaps->bfb5>300?'300':$q*$yaps->bfb5) }}
+                        {{--{{ $q*$yaps->bfb5>300?'300':$q*$yaps->bfb5 }}--}}
+                    @elseif($yaps->o_ts == '6')
+                        {{ $q*$yaps->bfb6 - ($q*$yaps->bfb6>300?'300':$q*$yaps->bfb6) }}
+                        {{--{{ $q*$yaps->bfb6>300?'300':$q*$yaps->bfb6 }}--}}
+                    @elseif($yaps->o_ts == '7')
+                        {{ $q*$yaps->bfb7 - ($q*$yaps->bfb7>300?'300':$q*$yaps->bfb7) }}
+                        {{--{{ $q*$yaps->bfb7>300?'300':$q*$yaps->bfb7 }}--}}
+                    @endif元</p>
 
             </div>
             <div class="cler"></div>
         </div>
         <div class="zy ly">
             <label for="">帮助:</label>
-            <a href="">常见问题</a>
-            <a href="">系统推荐订单？</a>
+            <a href="/mobile/Articlecenter19.html">常见问题</a>
+            <a href="https://hztk5.kuaishang.cn/bs/im.htm?cSource=1&cas=69564___125636&fi=79140&ri=18245998447&vi=84d357f55f854a87b7683824f3938530&dp=http%3A%2F%2Fwww.delijiajiao.com%2F&_d=1494806260357&_tk=575c5551">沟通咨询/疑问</a>
         </div>
         <div class="footer">
             <a class="btn2" href="" style="width: 35%">诚意金获取订单</a>
@@ -80,6 +101,7 @@
        <div class="cler"></div>
 
    </div>
+    @endforeach
 </section>
 @include('phonedl.float.float')
 <script src="/phone/lichengphonedl/js/zepto.js"></script>
