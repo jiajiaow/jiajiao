@@ -98,7 +98,7 @@
     font-size: .38rem;
     padding-left: .5rem;
 }
-.my_information li div {
+.my_information li a div {
     display: flex;
     align-items: center;
     flex: 1;
@@ -106,10 +106,10 @@
 }
 a.aa{
     display: block;
-
+    width: 100%;
 }
 .my_information li a div {
-    width: 280%;
+
     border-bottom: 1px solid #ededed;
 }
 .my_information li div:nth-child(4){
@@ -170,5 +170,5 @@ a.aa{
     width: .38rem;
     height: .39rem;
     background-size: 100%;
-    display: inline-block; 
+    display: inline-block;
 }

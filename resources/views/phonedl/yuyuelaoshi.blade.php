@@ -176,5 +176,12 @@
         }
 
     </script>
+    <style>
+
+        nput[type="button"], input[type="submit"], input[type="reset"] {
+-webkit-appearance: none;
+}
+textarea { -webkit-appearance: none;}
+    </style>
 </body>
 </html>

@@ -71,8 +71,13 @@
                 </li>
                 <li>
                     <i class="icons my_dd"></i>
+<<<<<<< HEAD
                     <a href="/mobile/tc_page.html">
                         <div style="width: 380%">
+=======
+                    <a href="/mobile/tc_page.html" class="aa">
+                        <div>
+>>>>>>> b7c76e198d62629a83e232984e23afcf059d0fea
                             <p>订单管理</p>
                             <i class="right_icon"></i>
                         </div>
@@ -80,7 +85,11 @@
                 </li>
                 <li>
                     <i class="icons my_setdd"></i>
+<<<<<<< HEAD
                     <a href="">
+=======
+                    <a href="" class="aa">
+>>>>>>> b7c76e198d62629a83e232984e23afcf059d0fea
                         <div>
                             <p>授课订单管理</p>
                             <i class="right_icon"></i>
@@ -90,8 +99,13 @@
                 </li>
                 <li>
                     <i class="icons my_xy"></i>
+<<<<<<< HEAD
                     <a href="">
                         <div style="width: 380%">
+=======
+                    <a href="" class="aa">
+                        <div>
+>>>>>>> b7c76e198d62629a83e232984e23afcf059d0fea
                             <p>学员管理</p>
                             <i class="right_icon"></i>
                         </div>
@@ -104,8 +118,13 @@
             <ul>
                 <li>
                     <i class="icons my_cw"></i>
+<<<<<<< HEAD
                     <a href="">
                         <div style="width: 380%">
+=======
+                    <a href="" class="aa">
+                        <div>
+>>>>>>> b7c76e198d62629a83e232984e23afcf059d0fea
                             <p>财务中心</p>
                             <i class="right_icon"></i>
                         </div>
@@ -113,8 +132,13 @@
                 </li>
                 <li>
                     <i class="icons my_shop"></i>
+<<<<<<< HEAD
                     <a href="">
                         <div style="width: 380%">
+=======
+                    <a href="" class="aa">
+                        <div>
+>>>>>>> b7c76e198d62629a83e232984e23afcf059d0fea
                             <p>积分商城</p>
                             <i class="right_icon"></i>
                         </div>
@@ -122,8 +146,13 @@
                 </li>
                 <li>
                     <i class="icons my_info"></i>
+<<<<<<< HEAD
                     <a href="">
                         <div style="width: 380%">
+=======
+                    <a href="" class="aa">
+                        <div>
+>>>>>>> b7c76e198d62629a83e232984e23afcf059d0fea
                             <p>沟通中心</p>
                             <i class="right_icon"></i>
                         </div>

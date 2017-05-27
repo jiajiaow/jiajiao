@@ -208,6 +208,21 @@ class orderController extends Controller
     public function xgddzt($id,$zt)
     {
         DB::table('jjw_order')->where('id',$id)->update(['status' => $zt]);
+        if ($zt == '0') {
+            $phone = DB::table('jjw_order')->where('id',$id)->pluck('user_phone');
+            $config = [
+                'app_key'    => '23779228',
+                'app_secret' => '9d9788c22c9a4dbc8522fae7b97b15ae',
+            ];
+            $client = new Client(new App($config));
+            $req    = new AlibabaAliqinFcSmsNumSend;
+
+            $req->setRecNum($phone['0'])
+                ->setSmsParam([])
+                ->setSmsFreeSignName("德栗教育")
+                ->setSmsTemplateCode('SMS_67135910');
+                $resp = $client->execute($req);
+        }
         return back();
     }
 

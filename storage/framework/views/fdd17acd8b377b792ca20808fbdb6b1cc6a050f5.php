@@ -63,15 +63,15 @@
 	<section style="min-height: 6.5rem">
 		<div class="dl3-container">
 			<div id="container-top">
-				<span style="font-size: .6rem;color: #e4393c" id="xy">学员登录</span>
-				<span style="font-size: .6rem" id="jy">教员登录</span>
+				<span style="font-size: .6rem;color: #e4393c;display: inline-block" id="xy">学员登录</span>
+				<span style="font-size: .6rem;display: inline-block" id="jy">教员登录</span>
 			</div>
 			<div id="container-mid" class="xyy">
 				<div class="mid-one">
-					<span style="margin-right: 1.5rem" id="zuo">账号登录</span>
+					<span style="margin-right: 1.5rem;display: inline-block" id="zuo">账号登录</span>
 
-					<span id="you">手机验证登录</span>
-					<div class="line"></div>
+					<span style="display: inline-block" id="you">手机验证登录</span>
+					<div class="line" style="margin-top: .2rem;"></div>
 				</div>
 			<form action="/dostlogin.html" id="form1" method="post">
 				<div class="ye1" style="margin-top: .6rem;height: 1.2rem"> 
@@ -115,7 +115,7 @@
 					<span style="margin-right: 1.5rem" id="zuo" class="nm">账号登录</span>
 
 					<span id="you" class="mn">手机验证登录</span>
-					<div class="line"></div>
+					<div class="line" style="margin-top: .2rem"></div>
 				</div>
 				<form action="/mobile/dologin.html" id="form3" class="mnn" method="post">
 					<div class="ye1" style="margin-top: .6rem;height: 1.2rem">

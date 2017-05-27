@@ -13,7 +13,7 @@
 <div class="wrap" id="app">
     <div class="nav_header">
         <i class="header_left_icon header_icon" onclick="javascript :history.back(-1);"></i>
-        <span>文章中心</span>
+        <span>文章中心</span> 
         <span></span>
     </div>
 
@@ -29,33 +29,7 @@
         </div>
     </div>
 
-    <footer>
-        <ul>
-            <li>
-                <a href="/mobile">
-                    <i class="footer_home footer_icon"></i>
-                    <p>首页</p></a>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <i class="footer_my footer_icon" style="width:.38rem;"></i>
-                    <p>我的</p>
-                </a>
-            </li>
-            <li>
-                <i class="footer_zx footer_icon"></i>
-                <a href="http://wpa.qq.com/msgrd?v=3&uin=1774932105&site=qq&menu=yes">
-                    <p>在线咨询</p>
-                </a>
-
-            </li>
-            <li>
-                <i class="footer_phone footer_icon"></i>
-                <a href="tel:<?php echo e(session('phone')); ?>"><p>电话咨询</p></a>
-            </li>
-        </ul>
-    </footer>
+    <?php echo $__env->make('phonedl.float.float', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 </div>
 <style>
     .wrap{
