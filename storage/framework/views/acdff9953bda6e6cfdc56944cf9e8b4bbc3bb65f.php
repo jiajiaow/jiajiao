@@ -37,6 +37,7 @@
         $('.zuo').on('tap',function(){
             window.history.go(-1);
         })
+        $('footer').css({'position':'fixed','bottom':'0'})
     </script>
 </body>
 </html>
