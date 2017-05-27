@@ -5,12 +5,33 @@
     <title>学员库</title>
     <link rel="stylesheet" href="/phone/lichengphonedl/css/xyk.css">
     <script src="/phone/lichengphonedl/js/flexible.js"></script>
+    <style>
+        .fy{
+
+            margin-bottom: .3rem;
+            text-align: center;
+        }
+        .fy>a{
+            display: inline-block;
+            border: 1px solid #dddddd;
+            background-color: #fff;
+            color: #333;
+            border-radius: .3rem;
+            width: 2rem;
+            height: .5rem;
+            line-height: .5rem;
+            text-align: center;
+        }
+    </style>
 <body style="background-color: #F1F1F1">
 <header>
     <img src="/phone/lichengphonedl/images/zuo.png" alt="" id="zuo">
     <div class="lf">
-        <input class="rt" type="text" name=""placeholder="请输入学员编号/名字">
+        <form action="/dosousuoid" method="post">
+        <input class="rt" type="text" name="id"placeholder="请输入学员编号">
+            <input type="hidden" class="sea_input" name="sb" value="2">
         <img src="/phone/lichengphonedl/images/sousuo@2x.png" alt="" class="lf tq">
+        </form>
     </div>
     <img src="/phone/lichengphonedl/images/xr.png" alt="" class="rt" style="height: 1.4rem;" id="you">
     <div class="cler"></div> {{--学员库--}}
@@ -30,28 +51,25 @@
     <!--第一个-->
     <div style="position: relative;height: 0;line-height: 0">
         <div class="dropnav drop-one">
-            <a href="">新发布</a>
-            <a href="">已安排</a>
-            <a href="">已完成</a>
+            <a href="/xueyuans/x0.html" >新发布</a>
+            <a href="/xueyuans/x1.html" >已安排</a>
+            <a href="/xueyuans/x2.html" >已完成</a>
         </div>
     </div>
     <!--第二个-->
     <div style="position: relative;height: 0;line-height: 0">
         <div class="dropnav drop-two">
-            <a href="">大学生老师</a>
-            <a href="">专职老师</a>
-            <!--<a href=""></a>-->
-            <!--<a href=""></a>-->
-            <!--<a href=""></a>-->
-            <!--<a href=""></a>-->
+            <a href="/xueyuans/t大学生.html">大学生</a>
+            <a href="/xueyuans/t专职老师.html">专职老师</a>
+            <a href="/xueyuans/t其他.html">其他老师</a>
         </div>
     </div>
     <!--第三个-->
     <div style="position: relative;height: 0;line-height: 0">
         <div class="dropnav drop-three">
-            <a href=""></a>
-            <a href=""></a>
-
+            @foreach($quyu as $qy)
+                <a href="/xueyuans/q{{ $qy->id }}.html">{{ $qy->county_name }}</a>
+            @endforeach
         </div>
     </div>
     @foreach($list as $li)
@@ -93,8 +111,14 @@
         </div>
     </div></a>
     @endforeach
-   
-   
+    {{--分页--}}
+    @if($list->num > '10')
+        <div class="fy">
+            <a href="{{ $list->Url($list->last) }}" class="top">上一页</a>
+            <a href="{{ $list->Url($list->next) }}" class="down">下一页</a>
+            <div class="cler"></div>
+        </div>
+    @endif
 </section>
 @include('phonedl.float.float')
 <script src="/phone/lichengphonedl/js/zepto.js"></script>

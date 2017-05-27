@@ -13,7 +13,7 @@
 <div class="wrap" id="app">
     <div class="nav_header">
         <i class="header_left_icon header_icon" onclick="javascript :history.back(-1);"></i>
-        <span>文章中心</span> 
+        <span>文章中心</span>
         <span></span>
     </div>
 
@@ -21,7 +21,7 @@
         <div style="padding: 0 .2rem; padding-bottom:2rem; " >
             <h2 class="text_title"><?php echo e($data->ar_title); ?></h2>
             <p class="time_box"><?php echo e($data->ar_time); ?></p>
-            <p class="text_content_box"><?php echo e($fz->fz_hade); ?><?php echo $data->ar_content; ?><?php echo e($fz->fz_footer); ?></p>
+            <p class="text_content_box" style="width:100%"><?php echo e($fz->fz_hade); ?><?php echo $data->ar_content; ?><?php echo e($fz->fz_footer); ?></p>
 
             <div class="img_box">
                 <img src="">

@@ -284,6 +284,22 @@ Route::group(['prefix' => '/mobile',"middleware"=>"CheckAges"],function(){
     Route::post('/yuyuexiangxi.html','home\yuyueController@doyyform');
     //填写预约详细
     Route::any('/yuyuexxform','home\yuyueController@yuyuexxform');
+    //手机端订单 里的新订单
+    Route::get('/tc_page.html','home\tcinfoController@tc_page');
+    //我的预约的单之安排中
+    Route::get('/tc_order1.html','home\tcinfoController@tc_order1');
+//未选中
+    Route::get('/tc_order2.html','home\tcinfoController@tc_order2');
+//取消预约
+    Route::get('/tc_order3.html','home\tcinfoController@tc_order3');
+//试课中
+    Route::get('/tc_order4.html','home\tcinfoController@tc_order4');
+//授课失败
+    Route::get('/tc_order5.html','home\tcinfoController@tc_order5');
+//授课中
+    Route::get('/tc_order6.html','home\tcinfoController@tc_order6');
+//授结束
+    Route::get('/tc_order7.html','home\tcinfoController@tc_order7');
 });
 //----------栗志手机端END----------//
 

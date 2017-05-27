@@ -16,7 +16,12 @@ class tcinfoController extends Controller
         $lastpage = $list->currentPage() - 1 < 0 ? 1 : $list->currentPage() - 1;
         $list->next = $nextpage; $list->last = $lastpage;$list->shi = $shipage;$list->num = $num; $list->dqy = $list->currentPage();
        //dd($list);
-        return view('delijiajiao.tc_page',['list'=>$list]);
+        if(session('Template') == '2') {
+            return view('delijiajiao.tc_page',['list'=>$list]);
+        }else if(session('Template') == '4'){
+            return view('phonedl.tc_page',['list'=>$list]);
+        }
+
     }
     //我预约的单之安排中
     public function tc_order1(){
@@ -39,8 +44,12 @@ class tcinfoController extends Controller
             $nextpage = $num - $yap->currentPage() == 0 ? $num : $yap->currentPage() + 1;
             $shipage = $num - $yap->currentPage() == 0 ? $num : $yap->currentPage() + 10;
             $lastpage = $yap->currentPage() - 1 < 0 ? 1 : $yap->currentPage() - 1;
-            $yap->next = $nextpage; $yap->last = $lastpage; $yap->shi = $shipage;$yap->num = $num;$yap->dqy = $yap->currentPage();
-        return view('delijiajiao.tc_order1',['yap'=>$yap]);
+            $yap->next = $nextpage; $yap->last = $lastpage; $yap->shi = $shipage;$yap->num=$yap->total();$yap->dqy = $yap->currentPage();
+            if(session('Template') == '2') {
+                return view('delijiajiao.tc_order1',['yap'=>$yap]);
+            }else if(session('Template') == '4'){
+                return view('phonedl.tc_order1',['yap'=>$yap]);
+            }
     }
 
     //未选中
@@ -63,8 +72,12 @@ class tcinfoController extends Controller
         $nextpage = $num - $wxz->currentPage() == 0 ? $num : $wxz->currentPage() + 1;
         $shipage = $num - $wxz->currentPage() == 0 ? $num : $wxz->currentPage() + 10;
         $lastpage = $wxz->currentPage() - 1 < 0 ? 1 : $wxz->currentPage() - 1;
-        $wxz->next = $nextpage; $wxz->last = $lastpage; $wxz->shi = $shipage;$wxz->num = $num;
-        return view('delijiajiao.tc_order2',['wxz'=>$wxz]);
+        $wxz->next = $nextpage; $wxz->last = $lastpage; $wxz->shi = $shipage;$wxz->num=$wxz->total();
+        if(session('Template') == '2') {
+            return view('delijiajiao.tc_order2',['wxz'=>$wxz]);
+        }else if(session('Template') == '4'){
+            return view('phonedl.tc_order2',['wxz'=>$wxz]);
+        }
     }
     //取消预约
     public function tc_order3(){
@@ -86,8 +99,13 @@ class tcinfoController extends Controller
         $nextpage = $num - $yqx->currentPage() == 0 ? $num : $yqx->currentPage() + 1;
         $shipage = $num - $yqx->currentPage() == 0 ? $num : $yqx->currentPage() + 10;
         $lastpage = $yqx->currentPage() - 1 < 0 ? 1 : $yqx->currentPage() - 1;
-        $yqx->next = $nextpage; $yqx->last = $lastpage; $yqx->shi = $shipage;$yqx->num = $num;
-        return view('delijiajiao.tc_order3',['yqx'=>$yqx]);
+        $yqx->next = $nextpage; $yqx->last = $lastpage; $yqx->shi = $shipage;$yqx->num=$yqx->total();
+        if(session('Template') == '2') {
+            return view('delijiajiao.tc_order3',['yqx'=>$yqx]);
+        }else if(session('Template') == '4'){
+            return view('phonedl.tc_order3',['yqx'=>$yqx]);
+        }
+
     }
 
     public function tc_order4(){

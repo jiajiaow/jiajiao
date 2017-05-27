@@ -12,13 +12,13 @@
 <body>
 <div class="wrap" id="app">
     <div class="nav_header">
-        <i class="header_left_icon header_icon"></i>
+        <i class="header_left_icon header_icon"  onclick="javascript :history.back(-1);"></i>
         <span >教员信息</span> {{--教员信息--}}
         <i class="header_right_icon header_icon"></i>
     </div>
 
     <div class="teacher_business">
-        <div class="tc_ava"><img src="/phone/img/tc@2x.png" alt=""></div>
+        <div class="tc_ava"><img src="{{ $list->tc_photo }}" alt=""></div>
         <p class="tc_name">{{ substr($list->tc_name,0,3) }}教员({{ $list->tc_sex=='1'?'男':'女' }}){{ $list->tc_nj}}<span class="tc_num">215440</span></p>
         <p style="margin: .3rem 0">
         <div class="teacher_msg">
@@ -79,8 +79,30 @@
                     </ul>
                 </div>
             </el-tab-pane>
-            <el-tab-pane label="可授课情况" name="second">可授课情况</el-tab-pane>
-            <el-tab-pane label="家教经验" name="third">家教经验</el-tab-pane>
+            <el-tab-pane label="可授课情况" name="second">
+                <div class="grzl_box grzl_box_p">
+                    <p>
+                        可授科目：{{ $list->tc_subjects }}
+                    </p>
+                    <p>
+                        可授区域：{{ $list->tc_area }}
+                    </p>
+                    <p>
+                        可授课时间：{{ $list->tc_sktime }}
+                    </p>
+                    <p>
+                        课酬要求：@if($list->tc_salary == null)执行德栗家教收费标准@else{{ $list->tc_salary }}@endif
+                    </p>
+                </div>
+            </el-tab-pane>
+            <el-tab-pane label="家教经验" name="third">
+                <div class="grzl_box grzl_box_p">
+                    <p>
+                        家教经验：{{ $list->tc_case }}
+                    </p>
+
+                </div>
+            </el-tab-pane>
         </el-tabs>
     </div>
     <div class="evaluation_box">
@@ -194,13 +216,28 @@
         width: 33%;
         text-align: center;
     }
+    .grzl_box_p p{
+        font-size:13px;
+        margin-bottom: .2rem;
+    }
+    .grzl_box_p p:first-child{
+        padding-top: .5rem;
+    }
+    .grzl_box_p p:last-child{
+        padding-bottom: .5rem;
+    }
 </style>
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="/phone/js/vue.js"></script>
 <script src="/phone/js/ele.js"></script>
-<script src="/phone/js/vue-resource.js"></script>
-
+<script src="/phone/lichengphonedl/js/zepto.js"></script>
+<script src="/phone/lichengphonedl/js/jquery-1.11.3.js"></script>
 <script>
+
+</script>
+<script src="/phone/js/vue-resource.js"></script>
+<script>
+
 //    var countdown=60;
 //    function settime(obj) {
 //        if (countdown == 0) {

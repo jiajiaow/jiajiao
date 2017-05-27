@@ -121,7 +121,13 @@
         window.history.back();
     })
     $('.you').on('tap',function(){
-        window.location.href='http://ww.baidu.com'
+        @if(session('tc_phone') != null)
+                window.location.href='/mobile/teacherinfo.html';
+        @elseif(session('st_phone') != null)
+                window.location.href='/mobile/stinfo.html';
+        @else
+                window.location.href='/mobile/login.html';
+        @endif
     })
     $('.share').on('tap',function () {
         if($('#nativeShare').is(':visible')){
