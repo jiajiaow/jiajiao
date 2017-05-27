@@ -102,10 +102,16 @@
 <!--页面跳转-->
 <script>
     $('#zuo').on('tap',function(){
-        window.location.href='http://www.baiu.com';
+        window.history.back();
     })
     $('#you').on('tap',function(){
-        window.location.href='http://www.baidu.com';
+        @if(session('tc_phone') != null)
+                window.location.href='/mobile/teacherinfo.html';
+        @elseif(session('st_phone') != null)
+                window.location.href='/mobile/stinfo.html';
+        @else
+                window.location.href='/mobile/login.html';
+        @endif
     })
     $('.you').on('tap',function(){
         window.location.href='http://www.baidu.com';

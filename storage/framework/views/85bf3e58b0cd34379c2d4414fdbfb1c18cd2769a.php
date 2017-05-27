@@ -9,7 +9,7 @@
 <body style="background-color: #F1F1F1">
 <header>
     <img src="/phone/lichengphonedl/images/zuo.png" alt="" class="zuo">
-    <span>订单详情</span>
+    <span>订单详情</span> 
     <img src="/phone/lichengphonedl/images/xr.png" alt="" class="rt you" style="height: 1.4rem;margin-right: .3rem">
     <div class="cler"></div>
 </header>
@@ -118,7 +118,7 @@
 <script src="/phone/lichengphonedl/js/jquery-2.2.3.min.js"></script>
 <script>
     $('.zuo').on('tap',function(){
-        window.location.href='http://ww.baidu.com'
+        window.history.back();
     })
     $('.you').on('tap',function(){
         window.location.href='http://ww.baidu.com'

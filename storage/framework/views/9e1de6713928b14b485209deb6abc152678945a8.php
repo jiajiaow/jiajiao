@@ -15,7 +15,7 @@
             <div class="jj_header_left">
                 <span class="jjh_logo"><img src="/phone/img/LOGO@2x.png" width="100%" style="width:1rem;"></span>
                 <div class="jjh_text_box">
-                    <span class="jjh_text_jj">德栗家教</span>
+                    <span class="jjh_text_jj">德栗家教</span> 
                     <span class="jjh_text_gx">【高校联盟】</span>
                 </div>
             </div>

@@ -45,7 +45,7 @@
         <a href="/mobile/Articlecontent{{ $li->ar_id }}.html" style='color: #333;'>
             <div class="problem">
               <i></i>
-              <h1 style='overflow: hidden;width: 60%;'>{{ substr($li->ar_title,51,90) }}{{ $li->ar_jj }}</h1>
+              <h1 style='overflow: hidden;width: 60%;'>{{ subtext($li->ar_title,10) }}</h1>
               @if($li->ar_status == '1')
                 　　<span class="z">置顶帖</span>
               @endif
@@ -63,7 +63,7 @@
         <div class="cler"></div>
     </div>
 </section>
-@include('phonedl.float.float')
+
 <script src='/phone/js/jquery-1.11.3.js'></script>
 <script src="/phone/js/zepto.js"></script>
 <script>

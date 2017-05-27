@@ -16,7 +16,7 @@
      <link rel="stylesheet" type="text/css" href="/delijiajiao/css/swiper.min.css">
      <script type="text/javascript">
         if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
-            window.location.href="/mobile";
+            //window.location.href="/mobile";
         }
       </script>
      <style>
@@ -267,9 +267,9 @@ for(i=0; i <tabList.length; i++)
    <div class="header">
     <div class="location">
      <div class="breadcrumb" style="margin-bottom: 0px;background-color: #fff;padding: 0px" id="icon-top">
-      <h1><a a href='/' class='primary-logo' ><img alt="广州" src="/delijiajiao/picture/guangzhou.png" class="city-logo" /></a></h1>
-      <span class="listing-slogan" style="height:40px;">【德栗家教】</span>
-         <span class="listing-slogan1" style="height: 26px;"><?php echo e(session('regionname')); ?>【高校联盟】</span><a href="/change_city.html">更多城市</a>
+      <h1><a a href='/' class='primary-logo' style="top: 16px;"><img alt="广州" src="/delijiajiao/picture/guangzhou.png" class="city-logo" /></a></h1>
+      <span class="listing-slogan" style="height:40px;font-size: 21px">【德栗家教】</span>
+         <span class="listing-slogan1" style="height: 26px;font-size: 25px"><?php echo e(session('regionname')); ?>【高校联盟】</span><a href="/change_city.html">更多城市</a>
      </div>
      <div class="pull-right">
       <a href="/yuyuelaoshi.html" class="resume-btn" style="font-size: 16px">请老师</a>

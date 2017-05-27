@@ -118,7 +118,7 @@
 <script src="/phone/lichengphonedl/js/jquery-2.2.3.min.js"></script>
 <script>
     $('.zuo').on('tap',function(){
-        window.location.href='http://ww.baidu.com'
+        window.history.back();
     })
     $('.you').on('tap',function(){
         window.location.href='http://ww.baidu.com'

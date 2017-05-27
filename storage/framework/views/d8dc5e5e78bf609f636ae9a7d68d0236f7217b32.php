@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="renderer" content="webkit">
 	<!-- <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" /> -->
-	<title>手机登录</title>
+	<title>手机登录</title> 
 	<link rel="stylesheet" href="/phone/lichengphonedl/css/sjdl.css">
 	<link rel="stylesheet" href="/phone/lichengphonedl/css/swiper-3.4.2.min.css">
 	<link rel="stylesheet" href="/phone/lichengphonedl/css/yanzhen/validate.css">
@@ -63,7 +63,7 @@
 	<section style="min-height: 6.5rem">
 		<div class="dl3-container">
 			<div id="container-top">
-				<span style="font-size: .6rem" id="xy">学员登录</span>
+				<span style="font-size: .6rem;color: #e4393c" id="xy">学员登录</span>
 				<span style="font-size: .6rem" id="jy">教员登录</span>
 			</div>
 			<div id="container-mid" class="xyy">
@@ -87,7 +87,7 @@
 					<input onclick="yanzhen();" type="button" value="登录" class="lc-one yy" style="color: #fff;width: 80%;height: 1.2rem;line-height: 1.2rem;margin-bottom: 0;font-size: .5rem;border-radius: 1rem"></input>
 				</div>
 				<div class="ye2">
-					<a href="" style="font-size: .35rem">忘记密码？</a>
+					<a href="javascript:void(0);" style="font-size: .35rem" class="wjmm">忘记密码？</a>
 					<a href="/mobile/reg.html" style='color:red;font-size: .35rem'>您还没有账号？请先注册账号。</a>
 				</div>
 			</form>
@@ -130,7 +130,7 @@
 						<input type="button" onclick="yanzhen2()" value="登录" class="lc-one yy" style="color: #fff;width: 80%;height: 1.2rem;line-height: 1.2rem;margin-bottom: 0;font-size: .5rem;border-radius: 1rem"></input>
 					</div>
 					<div class="ye2">
-						<a href="" style="font-size: .35rem">忘记密码</a>
+						<a href="javascript:void (0)" style="font-size: .35rem" class="wjmm1">忘记密码</a>
 						<a href="" style="color: red;font-size:.35rem;" >您还没有账号?请先注册账号</a>
 					</div>
 				</form>
@@ -165,8 +165,16 @@
 	<script src="/phone/lichengphonedl/js/zepto.js"></script>
 	<script src="/phone/lichengphonedl/js/jquery-mvalidate.js"></script>
 	<script>
+		$('.wjmm').click(function(){
+			$('#you').click();
+		})
+		$('.wjmm1').click(function(){
+			$('.mn').click();
+		})
+	</script>
+	<script>
 		$(document).ready(function(){
-			$('.mid-one').on('tap','#you',function(){
+			$('#you').click(function(){
 				$('div.line').animate({'left':'54%','width':'25%'},1000);
 				$('#form1').css('display','none')
 						   .next().css('display','block')
@@ -176,12 +184,14 @@
 				$('#form').css('display','none');
 						  $('#form1').css('display','block');
 			})
-			$('.mid-one').on('tap','.mn',function(){
-				$('.nmm').css('display','block')
+			$('.mn').click(function(){
+				$('.nmm').css('display','block');
+				$('div.line').animate({'left':'54%','width':'25%'},1000);
 				$('.mnn').css('display','none')
 			})
 			$('.mid-one').on('tap','.nm',function(){
-				$('.mnn').css('display','block')
+				$('.mnn').css('display','block');
+				$('div.line').animate({'left':'20%','width':'19%'},1000);
 				$('.nmm').css('display','none')
 			})
 		})
