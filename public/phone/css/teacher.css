@@ -29,16 +29,14 @@
 }
 .teacher_box{
     background: #ffffff;
-    padding-bottom: 1rem;
 }
 .teacher_msg {
     color: #adadad;
 }
 .teacher_info {
-    flex: 1;
+    flex: 1 1 auto;
     overflow: hidden;
     white-space: nowrap;
-    padding-top:10px;
 }
 .teacher_box li{
     display: flex;

@@ -1,0 +1,347 @@
+/*快速请家教的页面*/
+
+html{
+    margin: 0;
+    padding:0;
+}
+img{
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+}
+a{
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "宋体","Arial","Microsoft YaHei","黑体",sans-serif;
+}
+.rt{
+    float: right;
+    position: absolute;
+    right: 0;
+}
+.lf{
+
+}
+.cler{
+    content:"";
+    display: block;
+    clear: both;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+a:link{
+    text-decoration:none;
+}
+a:visited {
+    text-decoration:none;
+}
+header{
+    width: 100%;
+    background-color: #F7B529;
+    text-align: center;
+
+}
+header>img:nth-child(1){
+    height: 1.5rem;
+
+}
+header>span{
+    font-size: .6rem;
+    line-height: 1.5rem;
+
+}
+header>img:nth-child(1){
+    float: left;
+    position: absolute;
+    left: 0;
+}
+section {
+    background-color: #fff;
+    min-height: 3rem;
+    width: 100%;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+}
+div.fg{
+    text-align: center;
+    margin-bottom:.4rem;
+}
+.sfg{
+    padding: 0 .3rem;
+}
+.gf>a{
+    display: inline-block;
+    border:1px solid #e4393c;
+    width:3rem;
+    height: .7rem;
+    line-height: .7rem;
+    color: #333;
+    text-align: center;
+    font-size: .35rem;
+}
+div.fg:nth-child(1){
+    padding-top: 1rem;
+}
+div.fg:nth-child(1) img{
+    width: 4rem;
+}
+div.fg:nth-child(2)>span{
+    font-size: .35rem;
+}
+div.fg:nth-child(3)>span{
+    color:#000;
+    font-size: .45rem;
+}
+div.fg:nth-child(4)>a{
+    display: inline-block;
+    color:#fff;
+    background-color: #F7B529;
+    width: 3.9rem;
+    height: .8rem;
+    line-height: .8rem;
+    border-radius: .11rem;
+    font-size: .35rem;
+}
+div.fg:nth-child(4){
+    margin-bottom: 1rem;
+    margin-top: .3rem;
+}
+div.fg:last-child>p:nth-child(1){
+    font-size: .3rem;
+    color: #757070;
+    padding: 0 .5rem;
+}
+div.fg:last-child>p:nth-child(1)>span{
+    color:#FF6A6A;
+    margin-right: .9rem;
+}
+div.fg:last-child>p:nth-child(1){
+    margin-bottom: .3rem;
+    font-size: .35rem;
+}
+div.fg:last-child>p:nth-child(2){
+    padding-bottom: .8rem;
+    font-size: .33rem;
+}
+div.fg:last-child>p:nth-child(2)>a{
+    color:#9AD9FE;
+}
+footer {
+    background: #fff;
+    margin-top: 2rem;
+    width: 100%;
+
+
+}
+footer ul{
+    display: flex;
+    /*align-items: center;*/
+    padding:0;
+    /*height: 1rem;*/
+    margin-bottom: 0;
+}
+footer li {
+    text-align: center;
+}
+footer>ul>li p{
+
+}
+footer li a{
+    text-align: center;
+}
+footer li:nth-child(1){
+    width: 15%;
+    margin-top: 10px;
+}
+footer li:nth-child(2){
+    width: 15%;
+    margin-top: 10px;
+}
+footer li:nth-child(2) p{
+    margin-top: 3px;
+    font-size: smaller;
+    color: #acacac;
+    margin-bottom: 0;
+}
+footer li:nth-child(1) p{
+    margin-top: 3px;
+    font-size: smaller;
+    color: #acacac;
+    margin-bottom: 0;
+}
+
+footer li:nth-child(3) {
+    display: flex;
+    width: 35%;
+
+    justify-content: center;
+    align-items: center;
+    background: #40B9FE;
+    color: #fff;
+    padding: .25rem 0;
+}
+footer li:nth-child(3) i{
+    margin: 0 .2rem 0 0;
+}
+footer li:nth-child(3) a{
+    color: #fff;
+}
+footer li:nth-child(4){
+    display: flex;
+    width: 35%;
+    justify-content: center;
+    align-items: center;
+    background: #f7b529;
+    color: #fff;
+    padding: .25rem 0;
+}
+footer li:nth-child(4) i{
+    margin: 0 .2rem 0 0;
+}
+footer li:nth-child(4) a{
+    color: #ffffff;
+}
+.footer_home{
+    background: url("../images/home_blach@2x.png");
+}
+.footer_my{
+    background: url("../images/my_black@2x.png");
+}
+.footer_zx{
+    background: url("../images/FFFadvice.png");
+}
+.footer_phone{
+    background: url("../images/FFFphone.png");
+}
+.footer_icon {
+    width: .5rem;
+    height: .5rem;
+    background-size: 100%;
+    display: block;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+}
+.footer_active a{
+    color: #ffbb0e;
+}
+/*积分商城的样式*/
+
+div.tou>span:nth-child(1){
+    font-size: .5rem;
+    line-height: 1.3rem;
+    height: 1.3rem;
+    display: inline-block;
+
+}
+div.tou>span:nth-child(2){
+    font-size: .5rem;
+    color:red ;
+    line-height: 1.3rem;
+    height: 1.3em;
+    display: inline-block;
+}
+div.tou{
+    height: 1.3rem;
+    padding-left: 1rem;
+}
+div.tou>a{
+    display: inline-block;
+    color: #FFFFFF;
+    background-color: #40B9FE;
+    height: .8rem;
+    line-height: .8rem;
+    text-align: center;
+    width: 3rem;
+    font-size: .4rem;
+    margin-right: 1rem;
+    margin-top: .3rem;
+    border-radius: .1rem;
+}
+div.mid{
+
+    background-color: #FFFFFF;
+    margin-top: 0.4rem;
+
+
+}
+div.mid>div:nth-child(1){
+    height: 1.8rem;
+    border-bottom: 1px solid #ddd;
+}
+div.mid>div:nth-child(1)>img{
+    width: .8rem;
+    margin-left: .8rem;
+    float: left;
+    margin-top: .5rem;
+
+}
+div.mid>div:nth-child(1)>span{
+    font-size: .7rem;
+    vertical-align: middle;
+    float: left;
+    margin-top: .6rem;
+    margin-left: .4rem  ;
+}
+div.mid>div:nth-child(1)>a{
+    float: right;
+    color: #9a9393;
+    font-size: .4rem;
+    margin-top: .8rem;
+    margin-right: .5rem;
+}
+div.mid>div:nth-child(2){
+
+}
+.mid-one{
+    margin-top: .3rem;
+    background-color: #fff;
+    min-height: 4rem;
+}
+.mid-one>div:nth-child(1){
+    float: left;
+    margin-left: .5rem;
+}
+.mid-one>div:nth-child(1)>img{
+    width: 4rem;
+
+}
+.mid-one>div:nth-child(2){
+    float: left;
+    padding-left: .5rem;
+
+}
+.mid-one>div:nth-child(2)>h3{
+    font-weight:700;
+    font-size:.5rem;
+    margin-bottom: .16rem;
+}
+.mid-one>div:nth-child(2)>label{
+    font-size: .4rem;
+    color: #635d5d;
+}
+.mid-one>div:nth-child(2)>span{
+   font-size: .4rem;
+    color: #e4393c;
+}
+.mid-one>div:nth-child(2)>a{
+    display: inline-block;
+    background-color: #F7B529;
+    color: #FFFFFF;
+    width: 3rem;
+    height: .8rem;
+    line-height:.8rem;
+    text-align: center;
+    margin-top: .25rem;
+    border-radius: .15rem;
+}

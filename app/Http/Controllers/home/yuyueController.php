@@ -130,17 +130,41 @@ class yuyueController extends Controller
                 $request->session()->flash('error', "layer.msg('非法请求', {icon: 5});");
                 return back();
             }
-        }else{
+        }else if(session('Template') == '4'){
             if($phone == Cookie::get('phone')){
                 $re = DB::table('jjw_user')->where('phone',$phone)->first();
                 if($re){
                     $userid = DB::table('jjw_user')->where('phone',$phone)->first();
                     $orderid = DB::table('jjw_order')->insertGetId(['user_id' => $userid->u_id,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid]);
-                    return view('delijiajiao.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
+                    $config = [
+                        'app_key'    => '23779228',
+                        'app_secret' => '9d9788c22c9a4dbc8522fae7b97b15ae',
+                    ];
+                    $client = new Client(new App($config));
+                    $req    = new AlibabaAliqinFcSmsNumSend;
+
+                    $req->setRecNum($phone)
+                        ->setSmsParam([])
+                        ->setSmsFreeSignName("德栗教育")
+                        ->setSmsTemplateCode('SMS_67300846');
+                        $resp = $client->execute($req);
+                    return view('phonedl.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
                 }else{
                     $userid = DB::table('jjw_user')->insertGetId(['name' => $user,'phone' => $phone,'password' => $password,'city_id' => $regionid]);
                     $orderid = DB::table('jjw_order')->insert(['user_id' => $userid,'user_name' => $user,'user_phone' => $phone,'subject_id' => $km,'time' => time(),'city_id' => $regionid]);
-                    return view('delijiajiao.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
+                    $config = [
+                        'app_key'    => '23779228',
+                        'app_secret' => '9d9788c22c9a4dbc8522fae7b97b15ae',
+                    ];
+                    $client = new Client(new App($config));
+                    $req    = new AlibabaAliqinFcSmsNumSend;
+
+                    $req->setRecNum($phone)
+                        ->setSmsParam([])
+                        ->setSmsFreeSignName("德栗教育")
+                        ->setSmsTemplateCode('SMS_67300846');
+                        $resp = $client->execute($req);
+                    return view('phonedl.yuyuexx',['phone' => $phone,'orderid' => $orderid]);
                 }
             }else{
                 $request->session()->flash('error', "layer.msg('非法请求', {icon: 5});");
@@ -155,36 +179,61 @@ class yuyueController extends Controller
         $data = DB::table('jjw_position_county')->where('city_id',session('regionid'))->get();
         if(session('Template') == '2'){
             return view('home.yuyuexxform',['orderid' => $orderid,'data' => $data]);
-        }else{
-            return view('home.yuyuexxform',['orderid' => $orderid,'data' => $data]);
+        }else if(session('Template') == '4'){
+            return view('phonedl.yuyuexxform',['orderid' => $orderid,'data' => $data]);
         }
     }
     public function StudentAdd(Request $request)
     {
-        //dd($request);
-        //订单id
-        $oid = $request->input('oid');
-        //上课的时间
-        $per = $request->input('chi').','.$request->input('shi');
-        //家教要求
-        $teacher_info = $request->input('teacher_info');
-        //判断是否是空 如果空给默认数
-        if($teacher_info == ''){
-            $teacher_info = '有责任心，熟悉授课内容，有家教经验优先';
+        if(session('Template') == '2'){
+            //订单id
+            $oid = $request->input('oid');
+            //上课的时间
+            $per = $request->input('chi').','.$request->input('shi');
+            //家教要求
+            $teacher_info = $request->input('teacher_info');
+            //判断是否是空 如果空给默认数
+            if($teacher_info == ''){
+                $teacher_info = '有责任心，熟悉授课内容，有家教经验优先';
+            }
+            //拼接每周上课的具体时间段
+            $sk_times = $request->input('sk_times1').$request->input('sk_times2').$request->input('sk_times3').$request->input('sk_times4').$request->input('sk_times5').$request->input('sk_times6').$request->input('sk_times7').$request->input('sk_times8').$request->input('sk_times9').$request->input('sk_times10').$request->input('sk_times11').$request->input('sk_times12').$request->input('sk_times13').$request->input('sk_times14').$request->input('sk_times15').$request->input('sk_times16').$request->input('sk_times17').$request->input('sk_times18').$request->input('sk_times19').$request->input('sk_times20').$request->input('sk_times21').$request->input('sk_times22');
+
+            $input = $request->except(['oid','fdlx','chi','shi','teacher_info','sk_times1','sk_times2','sk_times3','sk_times4','sk_times5','sk_times6','sk_times7','sk_times8','sk_times9','sk_times10','sk_times11','sk_times12','sk_times13','sk_times14','sk_times15','sk_times16','sk_times17','sk_times18','sk_times19','sk_times20','sk_times21','sk_times22']);
+            $input['o_ts2'] = $request->input('o_ts');
+            $input['o_xs2'] = $request->input('o_xs');
+            $input['money2'] = $request->input('money');
+            //dd($input);
+            $re = DB::table('jjw_order')->where('id',$oid)->update($input);
+
+            DB::table('jjw_order')->where('id',$oid)->update(['per_week' => $per,'teacher_info' => $teacher_info,'sk_times' => $sk_times]);
+            $request->session()->flash('js', "$('#cheng_show').css('display','block');");
+            return view('delijiajiao.yycg');
+        }else if(session('Template') == '4'){
+            //订单id
+            $oid = $request->input('oid');
+            //上课的时间
+            $per = $request->input('chi').','.$request->input('shi');
+            //家教要求
+            $teacher_info = $request->input('teacher_info');
+            //判断是否是空 如果空给默认数
+            if($teacher_info == ''){
+                $teacher_info = '有责任心，熟悉授课内容，有家教经验优先';
+            }
+            //拼接每周上课的具体时间段
+            $sk_times = $request->input('sk_times1').$request->input('sk_times2').$request->input('sk_times3').$request->input('sk_times4').$request->input('sk_times5').$request->input('sk_times6').$request->input('sk_times7').$request->input('sk_times8').$request->input('sk_times9').$request->input('sk_times10').$request->input('sk_times11').$request->input('sk_times12').$request->input('sk_times13').$request->input('sk_times14').$request->input('sk_times15').$request->input('sk_times16').$request->input('sk_times17').$request->input('sk_times18').$request->input('sk_times19').$request->input('sk_times20').$request->input('sk_times21').$request->input('sk_times22');
+
+            $input = $request->except(['oid','fdlx','chi','shi','teacher_info','sk_times1','sk_times2','sk_times3','sk_times4','sk_times5','sk_times6','sk_times7','sk_times8','sk_times9','sk_times10','sk_times11','sk_times12','sk_times13','sk_times14','sk_times15','sk_times16','sk_times17','sk_times18','sk_times19','sk_times20','sk_times21','sk_times22']);
+            $input['o_ts2'] = $request->input('o_ts');
+            $input['o_xs2'] = $request->input('o_xs');
+            $input['money2'] = $request->input('money');
+            //dd($input);
+            $re = DB::table('jjw_order')->where('id',$oid)->update($input);
+
+            DB::table('jjw_order')->where('id',$oid)->update(['per_week' => $per,'teacher_info' => $teacher_info,'sk_times' => $sk_times]);
+            $request->session()->flash('js', "$('#cheng_show').css('display','block');");
+            return view('phonedl.yycg');
         }
-        //拼接每周上课的具体时间段
-        $sk_times = $request->input('sk_times1').$request->input('sk_times2').$request->input('sk_times3').$request->input('sk_times4').$request->input('sk_times5').$request->input('sk_times6').$request->input('sk_times7').$request->input('sk_times8').$request->input('sk_times9').$request->input('sk_times10').$request->input('sk_times11').$request->input('sk_times12').$request->input('sk_times13').$request->input('sk_times14').$request->input('sk_times15').$request->input('sk_times16').$request->input('sk_times17').$request->input('sk_times18').$request->input('sk_times19').$request->input('sk_times20').$request->input('sk_times21').$request->input('sk_times22');
-
-        $input = $request->except(['oid','fdlx','chi','shi','teacher_info','sk_times1','sk_times2','sk_times3','sk_times4','sk_times5','sk_times6','sk_times7','sk_times8','sk_times9','sk_times10','sk_times11','sk_times12','sk_times13','sk_times14','sk_times15','sk_times16','sk_times17','sk_times18','sk_times19','sk_times20','sk_times21','sk_times22']);
-        $input['o_ts2'] = $request->input('o_ts');
-        $input['o_xs2'] = $request->input('o_xs');
-        $input['money2'] = $request->input('money');
-        //dd($input);
-        $re = DB::table('jjw_order')->where('id',$oid)->update($input);
-
-        DB::table('jjw_order')->where('id',$oid)->update(['per_week' => $per,'teacher_info' => $teacher_info,'sk_times' => $sk_times]);
-        $request->session()->flash('js', "$('#cheng_show').css('display','block');");
-        return view('delijiajiao.yycg');
     }
 
     //预约教员

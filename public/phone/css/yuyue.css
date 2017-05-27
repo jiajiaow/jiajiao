@@ -1,0 +1,64 @@
+    select {
+        border: none;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        background: url("/phone/img/xlsj.png") no-repeat scroll right center transparent ;
+        width: 70%;
+        padding: .18rem 14px .18rem 0;
+        font-size: .35rem;
+        background-size: .35rem;
+        color:#c8c8c8;
+        margin: 1px 0;
+    }
+    select::-ms-expand { display: none; }
+
+    .form_fastTutor_content li:nth-child(6){
+        display: flex;
+        border: none;
+    }
+    .form_fastTutor_content li:nth-child(6) div{
+        border: 1px solid #9b9b9b;
+        width: 48%;
+        margin: 0 auto;
+
+    }
+    .form_fastTutor_content li:nth-child(6) div span{
+        width: 35%;
+        margin-left: .4rem;
+    }
+    .form_fastTutor_content li:nth-child(6) div select{
+        width: 50%;
+        background-size: .35rem;
+    }
+    .form_fastTutor_content li:nth-child(8){
+        border: none;
+        height: 2rem;
+        text-align: center;
+        color: #b0b0b0;
+    }
+    .form_fastTutor_content li:nth-child(8) input[type="checkbox"]{
+        appearance: none;
+        -webkit-appearance: none;
+        background-color: #ffffff;
+        border: 1px solid #ababab;
+        width: .25rem;
+        height: .25rem;
+    }
+    .form_fastTutor_content li:nth-child(8) input[type="checkbox"]:checked{
+        background: url("/phone/img/selegou.png") no-repeat;
+        background-size: 100%;
+    }
+    tr{
+        height: .5rem;
+    }
+    td{
+        vertical-align: middle;
+    }
+    .complete_week td{
+        width: 1%;
+    }
+    .seejj{
+        text-align: right;
+        margin-top: .3rem;
+    }

@@ -131,29 +131,29 @@
 }
 .my_icon{
     background: url("../img/my_icon.png") no-repeat;
+    background-size: .55rem;
 }
 .my_dd{
     background: url("../img/my_dd.png") no-repeat;
+    background-size: .55rem;
 }
 .my_setdd{
     background: url("../img/my_setdd.png") no-repeat;
+    background-size: .55rem;
 }
 .my_xy{
     background: url("../img/my_xy.png") no-repeat;
+    background-size: .55rem;
 }
 .my_cw{
     background: url("../img/my_cw.png") no-repeat;
+    background-size: .55rem;
 }
 .my_shop{
     background: url("../img/my_shop.png") no-repeat;
+    background-size: .55rem;
 }
 .my_info{
     background: url("../img/my_info.png") no-repeat;
-}
-.ex_icon{
-    background: url("../img/js_icon.png") no-repeat;
-    width: .38rem;
-    height: .39rem;
-    background-size: 100%;
-    display: inline-block;
+    background-size: .55rem;
 }
