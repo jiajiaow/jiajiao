@@ -104,11 +104,19 @@
     flex: 1;
     border-bottom: 1px solid #ededed;
 }
+a.aa{
+    display: block;
+
+}
+.my_information li a div {
+    width: 280%;
+    border-bottom: 1px solid #ededed;
+}
 .my_information li div:nth-child(4){
     border: none;
 }
-.my_information li div p {
-    flex: 1;
+.my_information li a div p {
+    width: 100%;
     padding: .35rem 0;
     color: #6a6a6a;
 }
@@ -156,4 +164,11 @@
 .my_info{
     background: url("../img/my_info.png") no-repeat;
     background-size: .55rem;
+}
+.ex_icon{
+    background: url("../img/js_icon.png") no-repeat;
+    width: .38rem;
+    height: .39rem;
+    background-size: 100%;
+    display: inline-block; 
 }

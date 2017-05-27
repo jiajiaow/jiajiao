@@ -5,14 +5,15 @@
     <title>快速请家教</title>
     <link rel="stylesheet" href="/phone/css/fast.css">
     <link rel="stylesheet" href="/phone/css/reset.css">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
     <script src="/phone/js/flexible.js"></script>
 </head>
 <body>
     <div class="wrap">
         <div class="nav_header">
             <i class="header_left_icon header_icon" onclick="javascript :history.back(-1);"></i>
-            <span>快速请家教</span> 
-            <i class="header_right_icon header_icon"></i>
+            <span>快速请家教</span>
+            <a href="/mobile/login.html"><i class="header_right_icon header_icon"></i></a>
         </div>
         <section class="form_fastTutor">
             <div class="form_fastTutor_title">
@@ -21,21 +22,25 @@
             </div>
             <div class="form_fastTutor_content">
                 <ul>
+                <form method="post" id="do" action="/yuyuexiangxi.html" >
+                <?php echo e(csrf_field()); ?>
+
                     <li>
-                        <span>联系人：</span><input type="text" name="" placeholder="请输入您的名字">
+                        <span>联系人：</span><input type="text" name="lxr" placeholder="请输入您的名字" id="lxr">
                     </li>
                     <li>
-                        <span>科目：</span><input type="text" name="" placeholder="请输入需要辅导的科目">
+                        <span>科目：</span><input type="text" name="km" placeholder="请输入需要辅导的科目" id="km">
                     </li>
                     <li>
-                        <span>手机号：</span><input type="text" name="" placeholder="请输入您的手机号码">
+                        <span>手机号：</span><input type="text" name="phone" placeholder="请输入您的手机号码" id="phone">
                     </li>
                     <li>
-                        <input type="text" name="" placeholder="请输入手机验证码">
+                        <input type="text" maxlength="4" placeholder="请输入手机验证码" name="yzm" id="yzm">
                         <input class="yzm_btn" style="margin: 0" value="获取验证码" type="button" onclick="settime(this)"></input>
                     </li>
                 </ul>
-                <span class="tj_button">立即提交</span>
+                </form>
+                <span class="tj_button" onclick='checkPhone()'>立即提交</span>
             </div>
         </section>
         <section class="tel_box">
@@ -59,18 +64,55 @@
                     </li>
                     <li>
                         <i class="wx_icon fast_icon"></i>
-                        <span>微信号：<?php echo e(session('fz_wxhao')); ?></span>
+                         <span>微信号：<?php echo e(session('fz_wxhao')); ?></span>
                     </li>
                 </ul>
             </div>
         </section>
-        <?php echo $__env->make('phonedl.float.float', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+ <?php echo $__env->make('phonedl.float.float', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     </div>
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 
     <script>
         var countdown=60;
         function settime(obj) {
+            var phone = $("#phone").val();
+            var name = document.getElementById('lxr').value;
+            if(!(/[\u4E00-\u9FA5\uF900-\uFA2D]/.test(name))){
+                alert("名字输入信息有误，请重填");
+                return
+            }
+            var km = document.getElementById('km').value;
+            if(!(/[\u4E00-\u9FA5\uF900-\uFA2D]/.test(km))){
+                alert("科目输入信息有误，请重填");
+                return
+            }
+            var phone = document.getElementById('phone').value;
+            if(!(/^1[34578]\d{9}$/.test(phone))){
+                alert("手机号码有误，请重填");
+                return
+            }
+
+
+            $.ajax({
+                type:'POST',
+                url:"/register",
+                contentType:"application/x-www-form-urlencoded; charset=utf8",
+                data:{"phone":phone},
+                headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success:function(result){
+                    if(result == 'y'){
+                        alert("请注意查收短信!");
+                        lisr(obj);
+                    }
+                    //console.log(result);
+                },
+            });
+
+        }
+        function lisr (obj) {
             if (countdown == 0) {
                 obj.removeAttribute("disabled");
                 obj.value="获取验证码";
@@ -82,9 +124,58 @@
                 countdown--;
             }
             setTimeout(function() {
-                    settime(obj) }
-                ,1000)
+                    lisr(obj) }
+                ,1000);
         }
+        function checkPhone(){
+            var phone = $("#phone").val();
+            var lxr = $("#lxr").val();
+            var km = $("#km").val();
+
+            var name = document.getElementById('lxr').value;
+            if(!(/[\u4E00-\u9FA5\uF900-\uFA2D]/.test(name))){
+                alert("名字输入信息有误，请重填");
+                return
+            }
+            var km = document.getElementById('km').value;
+            if(!(/[\u4E00-\u9FA5\uF900-\uFA2D]/.test(km))){
+                alert("科目输入信息有误，请重填");
+                return
+            }
+            var phone = document.getElementById('phone').value;
+            if(!(/^1[34578]\d{9}$/.test(phone))){
+                alert("手机号码有误，请重填");
+                return
+            }
+            var yzm = document.getElementById('yzm').value;
+            if(!(/^[0-9]*$/.test(yzm)) || yzm =='' || yzm.length < '4'){
+                alert("验证码输入有误，请重填");
+                return
+            }
+                $.ajax({
+                type:'POST',
+                url:"/registerdo",
+                contentType:"application/x-www-form-urlencoded; charset=utf8",
+                data:{"code":yzm,"name":lxr,"km":km,"phone":phone},
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success:function(result){
+                    if(result == 'y'){
+                        //$("#tj[type='button']").attr('type','submit');
+                        $("#do").submit();
+                    }else{
+                        alert("验证码输入有误，请重填");
+                    }
+                    //console.log(result);
+                },
+                error:(function(result,status){
+                    //console.log(result);
+                    larye.alert('系统错误请联系管理员!');
+                })
+            });
+        }
+
     </script>
 </body>
 </html>
