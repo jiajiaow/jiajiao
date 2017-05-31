@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Flc\Alidayu\Client;
+use Flc\Alidayu\App;
+use Flc\Alidayu\Requests\AlibabaAliqinFcSmsNumSend;
 class payController extends Controller
 {
     //自定义方法
@@ -69,6 +72,18 @@ class payController extends Controller
             //诚意金状态 支付修改为支付成功
             DB::table('jjw_reorder')->where('cyj_pay_id',$oid)->update(['cyj_pay_zt' =>'1','ht_t_status'=>'5']);
             //充值
+            //发送短信
+            $config = [
+                'app_key'    => '23779228',
+                'app_secret' => '9d9788c22c9a4dbc8522fae7b97b15ae',
+            ];
+            $client = new Client(new App($config));
+            $req    = new AlibabaAliqinFcSmsNumSend;
+            $req->setRecNum(session('tc_phone'))
+                ->setSmsParam(['oid' => "T".session('zf_tc_oid'),'name'=>session('tc_name'),'phone'=> session('tc_phone')])
+                ->setSmsFreeSignName('德栗教育')
+                ->setSmsTemplateCode('SMS_67220521');
+            $resp = $client->execute($req);
         }
     }
     //支付宝

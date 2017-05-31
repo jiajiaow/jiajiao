@@ -52,7 +52,7 @@
 
 							<div class="fg" style="padding-left: 0px;">
 								<input type="text" style="width:150px" id="mobile_code" name="mobile_code" placeholder="验证码" class="password">
-								<input type="button" style="width:163px;background:#F7B529;color:black;cursor: pointer;" onclick="sendMsg()" value="发送验证码" id="djs">
+								<input type="button" style="width:163px;background:#F7B529;color:black;cursor: pointer;" onclick="sendMsg();" value="发送验证码" id="djs">
 								<span></span>
 							</div>
 
@@ -145,66 +145,6 @@ function CheckValue()
 })
 }
 
-function sendMsg()
-{
-	//alert(1)
-	var mobile = $("#uname").val();
-	var code = $("#vcode").val();
-
-	if(mobile == null || mobile == ''){
-		layer.alert("请输入手机号", {icon: 5});return false;
-	}
-	var re = /^1[34578]\d{9}$/;
-    if (!re.test(mobile)) {
-		layer.alert("请输入正确手机号",{icon: 5});return false;
-    }
-	//获取验证码
-	getCode();
-	var get_code=$('#djs');
-	time(get_code);
-}
-function getCode(){
-	var phone = $("#uname").val();
-	$.ajax({
-		type:'POST',
-		url:"{{ URL('/docode.html') }}",
-		contentType:"application/x-www-form-urlencoded; charset=utf8",
-		data:{"phone":phone,"zt":'注册'},
-		/*dataType:'JSON',*/
-		success:(function(result){
-			if(result == 'y'){
-				if({{ session('Template') }} == '1'){
-					layer.alert('请注意查收短信!',{icon: 4,time:2000});
-				}else{
-					layer.alert('请注意查收短信!',{icon: 3,time:2000});
-				}
-
-			}
-			//console.log(result);
-		}),
-		error:(function(result,status){
-			//console.log(result);
-			//larye.alert('短信sb!');
-		})
-
-	});
-}
-var wait=60;
-function time(z){
-	if(wait==0){
-		z.removeAttr('disabled');
-		z.val('发送验证码');
-		wait = 60;
-	}else{
-		z.attr('disabled',"true");
-		z.val("倒数"+wait+"s");
-		wait--;
-		setTimeout(function(){
-			time(z,c);
-		},1000)
-	}
-}
-
 
 function showpassword(){
 	$("#hidepassword").hide();
@@ -259,5 +199,66 @@ function startRequest() {
 	}
 }*/
 	</script>
+<script>
+	function sendMsg() {
+
+		var mobile = $("#uname").val();
+		var code = $("#vcode").val();
+
+		if(mobile == null || mobile == ''){
+			layer.alert("请输入手机号", {icon: 5});return false;
+		}
+		var re = /^1[34578]\d{9}$/;
+		if (!re.test(mobile)) {
+			layer.alert("请输入正确手机号",{icon: 5});return false;
+		}
+		//获取验证码
+		getCode();
+		var get_code=$('#djs');
+		time(get_code);
+	}
+	function getCode(){
+		var phone = $("#uname").val();
+		$.ajax({
+			type:'POST',
+			url:"{{ URL('/docode.html') }}",
+			contentType:"application/x-www-form-urlencoded; charset=utf8",
+			data:{"phone":phone,"zt":'注册'},
+			/*dataType:'JSON',*/
+			success:(function(result){
+				if(result == 'y'){
+					if({{ session('Template') }} == '1'){
+						layer.alert('请注意查收短信!',{icon: 4,time:2000});
+					}else{
+						layer.alert('请注意查收短信!',{icon: 3,time:2000});
+					}
+
+				}
+				//console.log(result);
+			}),
+			error:(function(result,status){
+				//console.log(result);
+				//larye.alert('短信sb!');
+			})
+
+		});
+	}
+	var wait=60;
+	function time(z){
+		if(wait==0){
+			z.removeAttr('disabled');
+			z.val('发送验证码');
+			wait = 60;
+		}else{
+			z.attr('disabled',"true");
+			z.val("倒数"+wait+"s");
+			wait--;
+			setTimeout(function(){
+				time(z);
+			},1000)
+		}
+	}
+
+</script>
 </body>
 </html>

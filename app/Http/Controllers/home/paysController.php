@@ -4,7 +4,9 @@ namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Flc\Alidayu\Client;
+use Flc\Alidayu\App;
+use Flc\Alidayu\Requests\AlibabaAliqinFcSmsNumSend;
 class paysController extends Controller
 {
     //充值
@@ -16,23 +18,21 @@ class paysController extends Controller
     //信息费
     public function xxf(Request $request){
         $data = $request->all();
-       // dd($data);
+        session(['zf_tc_oid' => $data['order_id']]);
+        /*$config = [
+            'app_key'    => '23779228',
+            'app_secret' => '9d9788c22c9a4dbc8522fae7b97b15ae',
+        ];
+        $client = new Client(new App($config));
+        $req    = new AlibabaAliqinFcSmsNumSend;
+        $req->setRecNum(session('tc_phone'))
+            ->setSmsParam(['oid' => "T".session('zf_tc_oid'),'name'=>session('tc_name'),'phone'=> session('tc_phone')])
+            ->setSmsFreeSignName('德栗教育')
+            ->setSmsTemplateCode('SMS_67220521');
+        $resp = $client->execute($req);*/
             if(empty($data['b'])){
-//                echo "<pre>";
-//                var_dump($data);
-//                echo "</pre>";
-//               echo "<hr>";
-//                dd($data);
                 $li = \DB::table('jjw_reorder')->where('id',$_POST['rid'])->pluck('oid');
-//                echo "<pre>";
-//                var_dump($li);
-//                echo "</pre>";
-//                echo "<hr>";
                 $list = \DB::table('jjw_reorder')->where('oid',$li[0])->pluck('id');
-//                echo "<pre>";
-//                var_dump($list);
-//                echo "</pre>";
-//                echo "<hr>";
                 //循环list  存入num
                 for($i=0;$i<count($list);$i++){
                     if($list[$i] != $data['rid']){
