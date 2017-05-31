@@ -26,7 +26,11 @@ class tcinfoController extends Controller
     //我预约的单之安排中
     public function tc_order1(){
         if (session('tc_phone') == null) {
-            return redirect('/login.html')->with('msg', '请您先登录!');
+            if(session('Template') == '2') {
+                return redirect('/login.html')->with('msg', '请您重新登录!');
+            }else if(session('Template') == '4'){
+                return redirect('/mobile/login.html')->with('msg', '请您重新登录!');
+            }
         }
         //安排中
         $yap = \DB::table('jjw_order as o')
@@ -55,7 +59,11 @@ class tcinfoController extends Controller
     //未选中
     public function tc_order2(){
         if (session('tc_phone') == null) {
-            return redirect('/login.html')->with('msg', '请您先登录!');
+            if(session('Template') == '2') {
+                return redirect('/login.html')->with('msg', '请您重新登录!');
+            }else if(session('Template') == '4'){
+                return redirect('/mobile/login.html')->with('msg', '请您重新登录!');
+            }
         }
         //未选中
         $wxz = \DB::table('jjw_order as o')
@@ -82,7 +90,11 @@ class tcinfoController extends Controller
     //取消预约
     public function tc_order3(){
         if (session('tc_phone') == null) {
-            return redirect('/login.html')->with('msg', '请您先登录!');
+            if(session('Template') == '2') {
+                return redirect('/login.html')->with('msg', '请您重新登录!');
+            }else if(session('Template') == '4'){
+                return redirect('/mobile/login.html')->with('msg', '请您重新登录!');
+            }
         }
         //已取消
         $yqx = \DB::table('jjw_order as o')
@@ -109,7 +121,11 @@ class tcinfoController extends Controller
 
     public function tc_order4(){
         if (session('tc_phone') == null) {
-            return redirect('/login.html')->with('msg', '请您先登录!');
+            if(session('Template') == '2') {
+                return redirect('/login.html')->with('msg', '请您重新登录!');
+            }else if(session('Template') == '4'){
+                return redirect('/mobile/login.html')->with('msg', '请您重新登录!');
+            }
         }
         //试课中
         $skz = \DB::table('jjw_order as o')
@@ -139,7 +155,11 @@ class tcinfoController extends Controller
     }
     public function tc_order5(){
         if (session('tc_phone') == null) {
-            return redirect('/login.html')->with('msg', '请您先登录!');
+            if(session('Template') == '2') {
+                return redirect('/login.html')->with('msg', '请您重新登录!');
+            }else if(session('Template') == '4'){
+                return redirect('/mobile/login.html')->with('msg', '请您重新登录!');
+            }
         }
         //试课结束
         $sskjs = \DB::table('jjw_order as o')
@@ -165,7 +185,11 @@ class tcinfoController extends Controller
     }
     public function tc_order6(){
         if (session('tc_phone') == null) {
-            return redirect('/login.html')->with('msg', '请您先登录!');
+            if(session('Template') == '2') {
+                return redirect('/login.html')->with('msg', '请您重新登录!');
+            }else if(session('Template') == '4'){
+                return redirect('/mobile/login.html')->with('msg', '请您重新登录!');
+            }
         }
         //授课中
             $sskz = \DB::table('jjw_order as o')
@@ -195,7 +219,11 @@ class tcinfoController extends Controller
     }
     public function tc_order7(){
         if (session('tc_phone') == null) {
-            return redirect('/login.html')->with('msg', '请您先登录!');
+            if(session('Template') == '2') {
+                return redirect('/login.html')->with('msg', '请您重新登录!');
+            }else if(session('Template') == '4'){
+                return redirect('/mobile/login.html')->with('msg', '请您重新登录!');
+            }
         }
         //授课结束
         $skjs = \DB::table('jjw_order as o')
@@ -224,7 +252,7 @@ class tcinfoController extends Controller
     /*public function tc_order(){
         if (session('Template') == '2') {
             if (session('tc_phone') == '') {
-                return redirect('/')->with('msg', '请您先登录!');
+                return redirect('/')->with('msg', '请您重新登录!');
             }
             $list = \DB::table('jjw_order')->where('city_id', session('regionid'))->where('status', '0')->orderBy('id', 'desc')->paginate(5);
             $num = $list->lastPage();
@@ -435,7 +463,7 @@ class tcinfoController extends Controller
 
     //申请退款
     public function tc_sqtk(Request $request){
-        //dd($_POST);
+        dd($_POST);
         if($_POST['Fruit'] =='1'){
             //dd($_POST);
             $all = $request->except('xxftk','nocglx','yuanyin','bz');

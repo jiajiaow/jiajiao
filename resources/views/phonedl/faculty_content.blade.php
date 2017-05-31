@@ -8,6 +8,7 @@
     <script src="/phone/js/flexible.js"></script>
     <link rel="stylesheet" href="/phone/css/ele.css">
     <link rel="stylesheet" href="/phone/css/teacher_info.css">
+    <link rel="stylesheet" href="/phone/lichengphonedl/css/nativeShare.css">
 </head>
 <body>
 <div class="wrap" id="app">
@@ -27,9 +28,10 @@
         </div>
         </p>
         <div style="padding-bottom: 0.8rem;margin-top: .3rem;">
-            <span class="tc_fx_btn" >分享老师名片</span>
+            <span class="tc_fx_btn share" >分享老师名片</span>
             <span class="tc_jr_btn" @click="openFullScreen" v-loading.fullscreen.lock="fullscreenLoading">加入备选老师</span>
         </div>
+        <div id="nativeShare" ></div>
     </div>
     <div class="tc_tab_box">
         <el-tabs v-model="activeName" >
@@ -127,6 +129,7 @@
             </p>
         </div>
     </div>
+
     <section class="form_fastTutor" style="margin-top: .2rem; padding-bottom: 2rem;">
         <div class="form_fastTutor_title">
             <span class="form_fastTutor_title_text">预约{{ substr($list->tc_name,0,3) }}教员（编号：T215440）</span>
@@ -217,8 +220,10 @@
         text-align: center;
     }
     .grzl_box_p p{
-        font-size:13px;
+        font-size: .35rem;
+        line-height: .5rem;
         margin-bottom: .2rem;
+        color: #8e8e8e;
     }
     .grzl_box_p p:first-child{
         padding-top: .5rem;
@@ -232,10 +237,14 @@
 <script src="/phone/js/ele.js"></script>
 <script src="/phone/lichengphonedl/js/zepto.js"></script>
 <script src="/phone/lichengphonedl/js/jquery-1.11.3.js"></script>
+<script src="/phone/lichengphonedl/js/nativeShare.js"></script>
 <script>
+    var config = {
+    };
+    var share_obj = new nativeShare('nativeShare',config);
+
 
 </script>
-<script src="/phone/js/vue-resource.js"></script>
 <script>
 
 //    var countdown=60;

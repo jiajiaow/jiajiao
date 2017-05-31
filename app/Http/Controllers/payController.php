@@ -35,8 +35,8 @@ class payController extends Controller
         $sign = $_POST['sign'];//安全验证
         $signs = md5($oid.$token);
         if($signs == $sign){
-            DB::table('jjw_order')->where('pay_id',$oid)->update(['pay' => '1','status'=>'1']);
-            DB::table('jjw_order')->where('wx_pay_id',$oid)->update(['wx_pay' => '1','status'=>'1']);
+            DB::table('jjw_order')->where('pay_id',$oid)->update(['pay' => '1','status'=>'1','ht_status'=>'2']);
+            DB::table('jjw_order')->where('wx_pay_id',$oid)->update(['wx_pay' => '1','status'=>'1','ht_status'=>'2']);
             //支付状态
             DB::table('jjw_mpay')->where('m_pay_id',$oid)->update(['m_type' =>'1']);
                 //将没被选中的教员改为未选中

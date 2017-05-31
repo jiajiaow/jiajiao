@@ -1,6 +1,12 @@
 
 .tc_ava {
     padding: .3rem 0;
+    width: 35%;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+.tc_ava img{
+    width: 100%;
 }
 .tc_name {
     font-size: .4rem;

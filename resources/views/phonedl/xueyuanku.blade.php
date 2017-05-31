@@ -51,17 +51,17 @@
     <!--第一个-->
     <div style="position: relative;height: 0;line-height: 0">
         <div class="dropnav drop-one">
-            <a href="/xueyuans/x0.html" >新发布</a>
-            <a href="/xueyuans/x1.html" >已安排</a>
-            <a href="/xueyuans/x2.html" >已完成</a>
+            <a href="/xueyuans/x0.html" style="width: 33%" >新发布</a>
+            <a href="/xueyuans/x1.html" style="width: 33%" >已安排</a>
+            <a href="/xueyuans/x2.html"style="width: 33%" >已完成</a>
         </div>
     </div>
     <!--第二个-->
     <div style="position: relative;height: 0;line-height: 0">
         <div class="dropnav drop-two">
-            <a href="/xueyuans/t大学生.html">大学生</a>
-            <a href="/xueyuans/t专职老师.html">专职老师</a>
-            <a href="/xueyuans/t其他.html">其他老师</a>
+            <a href="/xueyuans/t大学生.html" style="width: 33%">大学生</a>
+            <a href="/xueyuans/t专职老师.html" style="width: 33%">专职老师</a>
+            <a href="/xueyuans/t其他.html" style="width: 33%">其他老师</a>
         </div>
     </div>
     <!--第三个-->
@@ -143,10 +143,14 @@
 </script>
 <script>
     function dingdan(){
+        $('.drop-two').hide();
+        $('.drop-three').hide();
         if($(".drop-one").is(":visible")){
             $('.drop-one').fadeOut(1000);
             $(".zhen .icon").removeClass('iconUp')
                 .addClass('iconDown')
+            $('.drop-two').hide();
+            $('.drop-three').hide();
         }else {
             $('.drop-one').fadeIn(1000);
             $(".zhen .icon").addClass('iconUp')
@@ -154,6 +158,8 @@
         }
     }
     function lsnx(){
+        $('.drop-one').hide();
+        $('.drop-three').hide();
         if($(".drop-two").is(":visible")){
             $('.drop-two').fadeOut(1000);
             $(".zhen .icon1").removeClass('iconUp')
@@ -165,6 +171,8 @@
         }
     }
     function szqy(){
+        $('.drop-one').hide();
+        $('.drop-two').hide();
         if($(".drop-three").is(":visible")){
             $('.drop-three').fadeOut(1000);
             $(".zhen .icon2").removeClass('iconUp')

@@ -181,17 +181,17 @@
     }
     #xxx,#km,#xb,#lb{
         position:relative;
-        background: rgba(211,211,211,.8);
+        background: rgba(211,211,211,1);
         z-index: 999;
         display:none;
         width: 100%;
-        padding: 0 57px;
+
     }
     #xxx>a,#km>a,#xb>a,#lb>a{
         display: inline-block;
         height: 1rem;
         line-height: 1rem;
-        width: 30%;
+        width: 32.3%;
         color: #333;
         text-align: center;
         font-size: .35rem;
@@ -208,6 +208,9 @@
         height: .6rem;
         border: none;
         font-size: .3rem;
+    }
+    .teacher_box{
+        padding-bottom: 1rem;
     }
 </style>
 <script src="/phone/lichengphonedl/js/zepto.js"></script>
