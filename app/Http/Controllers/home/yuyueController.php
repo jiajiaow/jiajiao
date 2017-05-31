@@ -118,7 +118,6 @@ class yuyueController extends Controller
                     ];
                     $client = new Client(new App($config));
                     $req    = new AlibabaAliqinFcSmsNumSend;
-
                     $req->setRecNum($phone)
                         ->setSmsParam([])
                         ->setSmsFreeSignName("德栗教育")
