@@ -22,6 +22,7 @@ class orderController extends Controller
             ->orderBy('id','desc')
             ->paginate(500);
         $num = DB::table('jjw_order')->where('status','3')->count();
+        //dd($data);
         return view('admin.order',['data' => $data,'num' => $num]);
     }
     //订单基础修改
