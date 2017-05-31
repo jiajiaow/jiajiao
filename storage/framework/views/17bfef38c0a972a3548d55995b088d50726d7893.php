@@ -23,9 +23,7 @@
 </head>
 
 <body class="gray-bg">
-<script>
-    window.loaction.reload()
-</script>
+
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-sm-12" style="overflow: scroll;">
@@ -511,7 +509,7 @@
         items:'cells'
             },
             "width": "90%",
-            "height": "100%"
+            "height": "100%",
         });
 
 
@@ -526,7 +524,9 @@
             "New row"]);
 
     }
-
+    $.extend( $.fn.dataTable.defaults, {
+        ordering:  false
+    } );
 
     $('.show_tj_btn').click(function(){
         $('.fc').show(500)

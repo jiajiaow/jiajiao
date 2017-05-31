@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use \DB;
 use App\Http\Requests;
 use \Cookie;
+use App\Http\Controllers\home\indexController;
 class teacherinfoController extends Controller
 {
     //教员个人中心
@@ -366,6 +367,8 @@ class teacherinfoController extends Controller
     }
     //栗志-德栗教师详细
     public function teacher(Request $request,$m){
+        $new = new  indexController;
+        $new->__construct();
             $list = \DB::table('jjw_teachers')->where('id', $m)->first();
             //判断是栗志还是德栗
             if (session('Template') == '1') {

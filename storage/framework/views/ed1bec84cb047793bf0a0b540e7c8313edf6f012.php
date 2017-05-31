@@ -28,7 +28,7 @@
         <div class="col-sm-12" style="overflow: scroll;">
             <div class="ibox float-e-margins" style="overflow: scroll;width: 1446px;">
                 <div class="ibox-title">
-                    <a href="/admin/xsdd"><h5 onclick="window.history.go(-1)">返回</h5></a>
+                    <a href="/admin/xsdd"><h5 onclick="history.back()">返回</h5></a>
                 </div>
                 <div class="ibox-title">
                     <h5>学员中的教员库 <small>分类，查找</small></h5>

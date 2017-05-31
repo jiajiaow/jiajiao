@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="renderer" content="webkit">
-	<title>手机登录</title>
+	<title>手机注册</title> 
 	<link rel="stylesheet" href="/phone/lichengphonedl/css/sjdl.css">
 	<link rel="stylesheet" href="/phone/lichengphonedl/css/swiper-3.4.2.min.css">
 	<style>
