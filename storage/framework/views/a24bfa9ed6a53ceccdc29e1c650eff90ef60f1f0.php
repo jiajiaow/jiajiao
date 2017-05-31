@@ -278,6 +278,17 @@
 
 <?php echo e($re->fz_vip); ?><br><?php echo e($re->fz_qyjyfy); ?><br><?php echo e($re->bfb1); ?><br><?php echo e($re->bfb2); ?><br><?php echo e($re->bfb3); ?><br><?php echo e($re->bfb4); ?><br><?php echo e($re->bfb5); ?><br><?php echo e($re->bfb6); ?><br><?php echo e($re->bfb7); ?>
 
+                                            <?php if($re->ht_status == '0'): ?>新家教ok <?php endif; ?>
+                                            <?php if($re->ht_status == '1'): ?>待处理ok <?php endif; ?>
+                                            <?php if($re->ht_status == '2'): ?>已安排ok <?php endif; ?>
+                                            <?php if($re->ht_status == '1'): ?>待处理ok <?php endif; ?>
+                                            <?php if($re->ht_status == '2'): ?>已安排ok <?php endif; ?>
+                                            <?php if($re->ht_status == '3'): ?>已成功(授课中)ok <?php endif; ?>
+                                            <?php if($re->ht_status == '4'): ?>已成功(授课结束)ok <?php endif; ?>
+                                            <?php if($re->ht_status == '5'): ?>待审核ok <?php endif; ?>
+                                            <?php if($re->ht_status == '6'): ?>待退款ok <?php endif; ?>
+                                            <?php if($re->ht_status == '7'): ?>关闭生成新单ok <?php endif; ?>
+                                            <?php if($re->ht_status == '8'): ?>关闭ok <?php endif; ?>
                                     </span>
                                 </div>
                             </td>
