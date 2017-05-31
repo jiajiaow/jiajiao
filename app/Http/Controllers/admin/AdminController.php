@@ -12,7 +12,7 @@ class AdminController extends Controller
     //
     public function index(Request $request){
 	//dd($_SERVER);
-        $num = DB::table('jjw_order')->where('status','3')->count();
+        $num = DB::table('jjw_order')->where('status','3')->where('xin_data','110')->where('user_reboot','1')->count();
 	   return view('admin.index',['num' => $num]);
     }
 

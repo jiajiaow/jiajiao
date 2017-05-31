@@ -280,15 +280,15 @@
 
                                             <?php if($re->ht_status == '0'): ?>新家教ok <?php endif; ?>
                                             <?php if($re->ht_status == '1'): ?>待处理ok <?php endif; ?>
-                                            <?php if($re->ht_status == '2'): ?> 已安排ok <?php endif; ?>
-                                            <?php if($re->ht_status == '1'): ?> 待处理ok <?php endif; ?>
-                                            <?php if($re->ht_status == '2'): ?> 已安排ok <?php endif; ?>
-                                            <?php if($re->ht_status == '3'): ?> 已成功(授课中)ok <?php endif; ?>
-                                            <?php if($re->ht_status == '4'): ?> 已成功(授课结束)ok <?php endif; ?>
-                                            <?php if($re->ht_status == '5'): ?> 待审核ok <?php endif; ?>
-                                            <?php if($re->ht_status == '6'): ?> 待退款ok <?php endif; ?>
-                                            <?php if($re->ht_status == '7'): ?> 关闭生成新单ok <?php endif; ?>
-                                            <?php if($re->ht_status == '8'): ?> 关闭ok <?php endif; ?>
+                                            <?php if($re->ht_status == '2'): ?>已安排ok <?php endif; ?>
+                                            <?php if($re->ht_status == '1'): ?>待处理ok <?php endif; ?>
+                                            <?php if($re->ht_status == '2'): ?>已安排ok <?php endif; ?>
+                                            <?php if($re->ht_status == '3'): ?>已成功(授课中)ok <?php endif; ?>
+                                            <?php if($re->ht_status == '4'): ?>已成功(授课结束)ok <?php endif; ?>
+                                            <?php if($re->ht_status == '5'): ?>待审核ok <?php endif; ?>
+                                            <?php if($re->ht_status == '6'): ?>待退款ok <?php endif; ?>
+                                            <?php if($re->ht_status == '7'): ?>关闭生成新单ok <?php endif; ?>
+                                            <?php if($re->ht_status == '8'): ?>关闭ok <?php endif; ?>
                                     </span>
                                 </div>
                             </td>
