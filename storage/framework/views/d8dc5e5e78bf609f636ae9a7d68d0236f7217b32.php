@@ -149,7 +149,7 @@
 						<input type="text" name="code" placeholder="请输入验证码" class="xxxxx">
 						<input type="button" name="" value="发送验证码" class=" jy-yzm">
 					</div>
-					<div class="ye1" style="background-color: #F7B529;margin-bottom:0;">
+					<div class="ye1" style="background-color: #F7B529;">
 						<input type="button" value="登录" name="" id="dl" onclick="yanzhen4();">
 					</div>
 				</form>
@@ -299,14 +299,16 @@
 			$('.xyy').css('display','none');
 			$('.jyy').fadeIn(1500);
 			$('.jyy').css('display','block')
+			$('div.line').animate({'left':'20%','width':'19%'},1000);
 
         })
         $('#xy').on('tap',function () {
 			$('#xy').css('color','#e4393c')
 				.next().css('color','#fff')
             $('.jyy').css('display','none');
-			$('.xyy').show(1000)
-            $('.xyy').css('display','block')
+			$('.xyy').fadeIn(1000);
+            $('.xyy').css('display','block');
+			$('div.line').animate({'left':'20%','width':'19%'},1000);
 
         })
 	</script>

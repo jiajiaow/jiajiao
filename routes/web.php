@@ -194,7 +194,7 @@ Route::post('/dosousuoid','home\teacherinfoController@dosousuoid');
 //资费说明
 Route::get('/zfsm.html','home\zfsmController@index');
 //学员详细资料
-Route::get('/xsinfo{id?}.html','home\xsinfoController@index');
+Route::get('/xsinfo{id?}.html','home\xsinfoController@indexb');
 //教员预约
 Route::get('/Teacheryy.html/{orderid?}','home\TeacheryyController@index');
 //联系我们

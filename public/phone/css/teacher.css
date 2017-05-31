@@ -12,6 +12,8 @@
     font-weight: 600;
     font-size: .4rem;
     margin-bottom: .16rem;
+    margin-top: .16rem;
+    padding-top: .16rem;
 }
 .teacher_num {
     font-family: monospace;

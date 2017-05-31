@@ -212,7 +212,7 @@
 																      float: right;
 																      font-size: 18px;
 																   "
-                                            class="tj_Btn"}
+                                            class="tj_Btn"
                                     >修改</button>
                                 </form>
                             </div>

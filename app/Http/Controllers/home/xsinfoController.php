@@ -5,9 +5,11 @@ namespace App\Http\Controllers\home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
+use App\Http\Controllers\home\indexController;
 class xsinfoController extends Controller
 {
-    public function index(Request $request,$id)
+
+    public function indexb(Request $request,$id)
     {
         if(session('Template') == '4'){//手机德栗
             //页面数据
@@ -23,6 +25,8 @@ class xsinfoController extends Controller
             //dd($list);
             return view('phonedl.xsinfo',['data' => $data,'nu' => $rs,'url' => $url,'list'=>$list]);
         }else{ //否则默认德栗PC端
+            $new = new  indexController;
+            $new->__construct();
             //页面数据
             $url = $_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
             $data = DB::table('jjw_order')->where('id',$id)->first();

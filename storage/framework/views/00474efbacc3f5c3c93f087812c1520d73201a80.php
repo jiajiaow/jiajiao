@@ -147,6 +147,7 @@ function CheckValue()
 
 function sendMsg()
 {
+	alert(1)
 	var mobile = $("#uname").val();
 	var code = $("#vcode").val();
 
@@ -189,7 +190,7 @@ function getCode(){
 	});
 }
 var wait=60;
-function time(z,c){
+function time(z){
 	if(wait==0){
 		z.removeAttr('disabled');
 		z.val('发送验证码');

@@ -199,7 +199,7 @@ section>div:nth-child(1){
     background-color: #fff;
     min-height: 1.4rem;
     padding: 0 .4rem;
-    padding-left: .65rem;
+    /*padding-left: .65rem;*/
     border-bottom:1px solid #FCDFA2;
 
 }
