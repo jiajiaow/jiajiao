@@ -11,8 +11,8 @@
       <?php elseif($list->tc_photo == 'tea_uppic/UploadFiles/None.png' || $list->tc_photo ==''): ?>
         <?php echo e(asset('/delijiajiao/images/logo.png')); ?>
 
-       <?php endif; ?>
-              " />
+      <?php endif; ?>
+               />
       <div class="jybtnl"><div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more" >分享老师名片</a></div>
 <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></div>
       <div class="jybtnr"><a href="123.htm" >加入备选老师</a></div>

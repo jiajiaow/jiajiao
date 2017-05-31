@@ -9,7 +9,7 @@
 <body style="background-color: #F1F1F1">
 <header>
     <img src="/phone/lichengphonedl/images/zuo.png" alt="" class="zuo">
-    <span>订单详情</span>
+    <span>订单详情</span> 
     <img src="/phone/lichengphonedl/images/xr.png" alt="" class="rt you" style="height: 1.4rem;margin-right: .3rem">
     <div class="cler"></div>
 </header>
@@ -21,7 +21,7 @@
         </div>
         <div class="cler"></div>
         <div>
-            <img src="images/yusuan.png" alt="">
+            <img src="/phone/lichengphonedl/images/yusuan.png" alt="">
             <span class="time"><?php echo e($data->money*$data->o_xs); ?>元/次</span>
             <span class="area"><?php echo e($data->dq); ?></span>
         </div>
@@ -31,7 +31,7 @@
         <div class="cler"></div>
     </div>
     <div class="nav-two">
-        <img src="images/dw.png" alt="">
+        <img src="/phone/lichengphonedl/images/dw.png" alt="">
         <p>授课地点 <span><?php echo e($data->xx_dz); ?></span></p>
         <div class="cler"></div>
     </div>
@@ -90,7 +90,7 @@
     </div>
     <div class="nav-five">
         <span>不是德栗家教老师?</span>
-        <a href="/reg.html">免费注册</a>
+        <a href="/mobile/reg.html">免费注册</a>
     </div>
 </section>
 <footer style="min-height: 1.5rem">
@@ -99,7 +99,7 @@
     </div>
     <div>
         <img src="/phone/lichengphonedl/images/upload.png" alt="">
-        <a href="">申请此订单</a>
+        <a href="#">申请此订单</a>
     </div>
 </footer>
 <div id="hh">
@@ -118,10 +118,16 @@
 <script src="/phone/lichengphonedl/js/jquery-2.2.3.min.js"></script>
 <script>
     $('.zuo').on('tap',function(){
-        window.location.href='http://ww.baidu.com'
+        window.history.back();
     })
     $('.you').on('tap',function(){
-        window.location.href='http://ww.baidu.com'
+        <?php if(session('tc_phone') != null): ?>
+                window.location.href='/mobile/teacherinfo.html';
+        <?php elseif(session('st_phone') != null): ?>
+                window.location.href='/mobile/stinfo.html';
+        <?php else: ?>
+                window.location.href='/mobile/login.html';
+        <?php endif; ?>
     })
     $('.share').on('tap',function () {
         if($('#nativeShare').is(':visible')){

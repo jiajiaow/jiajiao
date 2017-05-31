@@ -7,7 +7,7 @@
     <script src="/phone/js/flexible.js"></script>
 <body style="background-color: #F1F1F1">
 <header>
-    <img src="/phone/images/zuo.png" alt="" class="zuo">
+    <img src="/phone/images/zuo.png" alt="" onclick="javascript :history.back(-1);">
     <span>文章中心</span>
     <a href="/login.html"><img src="/phone/images/xr.png" alt="" class="rt you" style="height: 1.4rem;margin-right: .15rem"></a>
     <div class="cler"></div>
@@ -45,7 +45,7 @@
         <a href="/mobile/Articlecontent<?php echo e($li->ar_id); ?>.html" style='color: #333;'>
             <div class="problem">
               <i></i>
-              <h1 style='overflow: hidden;width: 60%;'><?php echo e(substr($li->ar_title,51,90)); ?><?php echo e($li->ar_jj); ?></h1>
+              <h1 style='overflow: hidden;width: 60%;'><?php echo e(subtext($li->ar_title,10)); ?></h1>
               <?php if($li->ar_status == '1'): ?>
                 　　<span class="z">置顶帖</span>
               <?php endif; ?>
@@ -63,30 +63,7 @@
         <div class="cler"></div>
     </div>
 </section>
-<footer>
-    <ul style="margin-top: 0">
-        <li>
-            <a href="/mobile">
-                <i class="footer_home footer_icon"></i>
-                <p>首页</p></a>
-            </a>
-        </li>
-        <li>
-            <a href="/login.html">
-                <i class="footer_my footer_icon" style="width:.38rem;"></i>
-                <p>我的</p>
-            </a>
-        </li>
-        <li>
-            <i class="footer_zx footer_icon"></i>
-            <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1774932105&amp;site=qq&amp;menu=yes" target="_blank">在线咨询</a>
-        </li>
-        <li>
-            <i class="footer_phone footer_icon"></i>
-            <a  href="tel:<?php echo e(session('phone')); ?>">电话咨询</a>
-        </li>
-    </ul>
-</footer>
+
 <script src='/phone/js/jquery-1.11.3.js'></script>
 <script src="/phone/js/zepto.js"></script>
 <script>

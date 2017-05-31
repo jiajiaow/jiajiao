@@ -46,9 +46,9 @@
                     <dl  class=" listIndex x" attr="terminal_os_s">
                         <dt>老师类型：</dt>
                         <dd>
-                            <a href="javascript:void(0)" values2="" values1="" attrval="ios" data-type="老师类型">大学生</a>
-                            <a href="javascript:void(0)" values2="" values1="" attrval="android" data-type="老师类型">专职老师</a>
-                            <a href="javascript:void(0)" values2="" values1="" attrval="symbian" data-type="老师类型">其他</a>
+                            <a href="/facultyp/b大学生.html" values2="" values1="" attrval="ios" data-type="老师类型">大学生</a>
+                            <a href="/facultyp/b专职老师.html" values2="" values1="" attrval="android" data-type="老师类型">专职老师</a>
+                            <a href="/facultyp/b其他.html" values2="" values1="" attrval="symbian" data-type="老师类型">其他</a>
                         </dd>
                     </dl>
                 </div>

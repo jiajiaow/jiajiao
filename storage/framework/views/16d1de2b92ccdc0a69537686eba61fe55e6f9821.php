@@ -12,13 +12,13 @@
 <body>
 <div class="wrap" id="app">
     <div class="nav_header">
-        <i class="header_left_icon header_icon"></i>
-        <span >教员信息</span>
+        <i class="header_left_icon header_icon"  onclick="javascript :history.back(-1);"></i>
+        <span >教员信息</span> 
         <i class="header_right_icon header_icon"></i>
     </div>
 
     <div class="teacher_business">
-        <div class="tc_ava"><img src="/phone/img/tc@2x.png" alt=""></div>
+        <div class="tc_ava"><img src="<?php echo e($list->tc_photo); ?>" alt=""></div>
         <p class="tc_name"><?php echo e(substr($list->tc_name,0,3)); ?>教员(<?php echo e($list->tc_sex=='1'?'男':'女'); ?>)<?php echo e($list->tc_nj); ?><span class="tc_num">215440</span></p>
         <p style="margin: .3rem 0">
         <div class="teacher_msg">
@@ -79,8 +79,34 @@
                     </ul>
                 </div>
             </el-tab-pane>
-            <el-tab-pane label="可授课情况" name="second">可授课情况</el-tab-pane>
-            <el-tab-pane label="家教经验" name="third">家教经验</el-tab-pane>
+            <el-tab-pane label="可授课情况" name="second">
+                <div class="grzl_box grzl_box_p">
+                    <p>
+                        可授科目：<?php echo e($list->tc_subjects); ?>
+
+                    </p>
+                    <p>
+                        可授区域：<?php echo e($list->tc_area); ?>
+
+                    </p>
+                    <p>
+                        可授课时间：<?php echo e($list->tc_sktime); ?>
+
+                    </p>
+                    <p>
+                        课酬要求：<?php if($list->tc_salary == null): ?>执行德栗家教收费标准<?php else: ?><?php echo e($list->tc_salary); ?><?php endif; ?>
+                    </p>
+                </div>
+            </el-tab-pane>
+            <el-tab-pane label="家教经验" name="third">
+                <div class="grzl_box grzl_box_p">
+                    <p>
+                        家教经验：<?php echo e($list->tc_case); ?>
+
+                    </p>
+
+                </div>
+            </el-tab-pane>
         </el-tabs>
     </div>
     <div class="evaluation_box">
@@ -109,7 +135,7 @@
     </div>
     <section class="form_fastTutor" style="margin-top: .2rem; padding-bottom: 2rem;">
         <div class="form_fastTutor_title">
-            <span class="form_fastTutor_title_text">预约荣教员（编号：T215440）</span>
+            <span class="form_fastTutor_title_text">预约<?php echo e(substr($list->tc_name,0,3)); ?>教员（编号：T215440）</span>
         </div>
         <div class="form_fastTutor_content">
             <ul>
@@ -130,34 +156,7 @@
             <span class="tj_button">立即提交</span>
         </div>
     </section>
-    <footer>
-        <ul>
-            <li>
-                <a href="index.html">
-                    <i class="footer_home footer_icon"></i>
-
-                    <p>首页</p></a>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <i class="footer_my footer_icon" style="width:.38rem;"></i>
-                    <p>我的</p>
-                </a>
-            </li>
-            <li>
-                <i class="footer_zx footer_icon"></i>
-                <a href="http://wpa.qq.com/msgrd?v=3&uin=1774932105&site=qq&menu=yes">
-                    <p>在线咨询</p>
-                </a>
-
-            </li>
-            <li>
-                <i class="footer_phone footer_icon"></i>
-                <a href="tel:13113329950"><p>电话咨询</p></a>
-            </li>
-        </ul>
-    </footer>
+    <?php echo $__env->make('phonedl.float.float', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <el-dialog
             title="提示"
             :visible.sync="dialogVisible"
@@ -223,13 +222,28 @@
         width: 33%;
         text-align: center;
     }
+    .grzl_box_p p{
+        font-size:13px;
+        margin-bottom: .2rem;
+    }
+    .grzl_box_p p:first-child{
+        padding-top: .5rem;
+    }
+    .grzl_box_p p:last-child{
+        padding-bottom: .5rem;
+    }
 </style>
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="/phone/js/vue.js"></script>
 <script src="/phone/js/ele.js"></script>
-<script src="/phone/js/vue-resource.js"></script>
-
+<script src="/phone/lichengphonedl/js/zepto.js"></script>
+<script src="/phone/lichengphonedl/js/jquery-1.11.3.js"></script>
 <script>
+
+</script>
+<script src="/phone/js/vue-resource.js"></script>
+<script>
+
 //    var countdown=60;
 //    function settime(obj) {
 //        if (countdown == 0) {

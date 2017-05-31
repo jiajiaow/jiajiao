@@ -19,7 +19,7 @@
   </style>
   <div class="wrap">
     <div class="title_p">
-      <h3>请完善您的个人资料，方便为您匹配家教订单</h3>
+      <h3>请完善您的个人资料，快速预约老师</h3>
     </div>
     
     <form method="post" action="StudentAdd"  onSubmit="return ChkFields();" name="myform" id="myform">
@@ -157,7 +157,7 @@
         </li>
         <li>
           <p>家教上课地点</p>
-          <input type="" name="xx_dz" id="xx_dz"><span class="bt">必填</span>
+          <input type="text" name="xx_dz" id="xx_dz"><span class="bt">必填</span>
         </li>
         <li>
           <p>选择教员性别</p>

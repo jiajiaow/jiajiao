@@ -35,7 +35,8 @@ class indexController extends Controller{
         // 执行HTTP请求
         curl_setopt($ch , CURLOPT_URL , $url);
         $res = curl_exec($ch);
-        $city = json_decode($res,true);
+        
+	$city = json_decode($res,true);
         $getCity = $city['retData']['city'];
         //正则表达式
         $pattern = '/([^*]+)\.([^\.\/]+)\.(com|net|org|cn)/';

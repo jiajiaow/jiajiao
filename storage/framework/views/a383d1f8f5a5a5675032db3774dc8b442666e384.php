@@ -2,18 +2,39 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>快速请家教</title>
+    <title>学员库</title>
     <link rel="stylesheet" href="/phone/lichengphonedl/css/xyk.css">
     <script src="/phone/lichengphonedl/js/flexible.js"></script>
+    <style>
+        .fy{
+
+            margin-bottom: .3rem;
+            text-align: center;
+        }
+        .fy>a{
+            display: inline-block;
+            border: 1px solid #dddddd;
+            background-color: #fff;
+            color: #333;
+            border-radius: .3rem;
+            width: 2rem;
+            height: .5rem;
+            line-height: .5rem;
+            text-align: center;
+        }
+    </style>
 <body style="background-color: #F1F1F1">
 <header>
     <img src="/phone/lichengphonedl/images/zuo.png" alt="" id="zuo">
     <div class="lf">
-        <input class="rt" type="text" name=""placeholder="请输入学员编号/名字">
+        <form action="/dosousuoid" method="post">
+        <input class="rt" type="text" name="id"placeholder="请输入学员编号">
+            <input type="hidden" class="sea_input" name="sb" value="2">
         <img src="/phone/lichengphonedl/images/sousuo@2x.png" alt="" class="lf tq">
+        </form>
     </div>
     <img src="/phone/lichengphonedl/images/xr.png" alt="" class="rt" style="height: 1.4rem;" id="you">
-    <div class="cler"></div>
+    <div class="cler"></div> 
 </header>
 <section>
     <div class="zhen">
@@ -30,32 +51,30 @@
     <!--第一个-->
     <div style="position: relative;height: 0;line-height: 0">
         <div class="dropnav drop-one">
-            <a href="">新发布</a>
-            <a href="">已安排</a>
-            <a href="">已完成</a>
+            <a href="/xueyuans/x0.html" >新发布</a>
+            <a href="/xueyuans/x1.html" >已安排</a>
+            <a href="/xueyuans/x2.html" >已完成</a>
         </div>
     </div>
     <!--第二个-->
     <div style="position: relative;height: 0;line-height: 0">
         <div class="dropnav drop-two">
-            <a href="">大学生老师</a>
-            <a href="">专职老师</a>
-            <!--<a href=""></a>-->
-            <!--<a href=""></a>-->
-            <!--<a href=""></a>-->
-            <!--<a href=""></a>-->
+            <a href="/xueyuans/t大学生.html">大学生</a>
+            <a href="/xueyuans/t专职老师.html">专职老师</a>
+            <a href="/xueyuans/t其他.html">其他老师</a>
         </div>
     </div>
     <!--第三个-->
     <div style="position: relative;height: 0;line-height: 0">
         <div class="dropnav drop-three">
-            <a href=""></a>
-            <a href=""></a>
-
+            <?php $__currentLoopData = $quyu; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $qy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <a href="/xueyuans/q<?php echo e($qy->id); ?>.html"><?php echo e($qy->county_name); ?></a>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
     </div>
     <?php $__currentLoopData = $list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $li): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <div style="margin-bottom: .25rem" onclick="location.href='/xsinfo<?php echo e($li->id); ?>.html'">
+        <a href="/mobile/xsinfo<?php echo e($li->id); ?>.html" style="color:#000;">
+    <div style="margin-bottom: .25rem">
         <div class="cz">
             <div>
                 <span><?php echo e($li->grade); ?></span>
@@ -90,40 +109,33 @@
             </div>
             <div class="cler"></div>
         </div>
-    </div>
+    </div></a>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-   
-   
+    
+    <?php if($list->num > '10'): ?>
+        <div class="fy">
+            <a href="<?php echo e($list->Url($list->last)); ?>" class="top">上一页</a>
+            <a href="<?php echo e($list->Url($list->next)); ?>" class="down">下一页</a>
+            <div class="cler"></div>
+        </div>
+    <?php endif; ?>
 </section>
-<footer>
-    <ul style="margin-top: 0">
-        <li>
-            <i class="footer_home footer_icon"></i>
-            <p>首页</p>
-        </li>
-        <li>
-            <i class="footer_my footer_icon" style="width:.38rem;"></i>
-            <p>我的</p>
-        </li>
-        <li>
-            <i class="footer_zx footer_icon"></i>
-            <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1774932105&amp;site=qq&amp;menu=yes" target="_blank">在线咨询</a>
-        </li>
-        <li>
-            <i class="footer_phone footer_icon"></i>
-            <a  href="tel:13866353457">电话咨询</a>
-        </li>
-    </ul>
-</footer>
+<?php echo $__env->make('phonedl.float.float', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <script src="/phone/lichengphonedl/js/zepto.js"></script>
 <script src="/phone/lichengphonedl/js/jquery-1.11.3.js"></script>
 <!--页面跳转-->
 <script>
     $('#zuo').on('tap',function(){
-        window.location.href='http://www.baiu.com';
+        window.history.back();
     })
     $('#you').on('tap',function(){
-        window.location.href='http://www.baidu.com';
+        <?php if(session('tc_phone') != null): ?>
+                window.location.href='/mobile/teacherinfo.html';
+        <?php elseif(session('st_phone') != null): ?>
+                window.location.href='/mobile/stinfo.html';
+        <?php else: ?>
+                window.location.href='/mobile/login.html';
+        <?php endif; ?>
     })
     $('.you').on('tap',function(){
         window.location.href='http://www.baidu.com';
