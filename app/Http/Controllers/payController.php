@@ -40,6 +40,18 @@ class payController extends Controller
         if($signs == $sign){
             DB::table('jjw_order')->where('pay_id',$oid)->update(['pay' => '1','status'=>'1','ht_status'=>'2']);
             DB::table('jjw_order')->where('wx_pay_id',$oid)->update(['wx_pay' => '1','status'=>'1','ht_status'=>'2']);
+            //支付发短信 给老师
+            $config = [
+                'app_key'    => '23779228',
+                'app_secret' => '9d9788c22c9a4dbc8522fae7b97b15ae',
+            ];
+            $client = new Client(new App($config));
+            $req    = new AlibabaAliqinFcSmsNumSend;
+            $req->setRecNum(session('tc_phone'))
+                ->setSmsParam(['oid' => "T".session('zf_tc_oid'),'name'=>session('zf_or_name'),'phone'=> session('zf_or_phone')])
+                ->setSmsFreeSignName('德栗教育')
+                ->setSmsTemplateCode('SMS_67220521');
+            $resp = $client->execute($req);
             //支付状态
             DB::table('jjw_mpay')->where('m_pay_id',$oid)->update(['m_type' =>'1']);
                 //将没被选中的教员改为未选中
@@ -73,17 +85,6 @@ class payController extends Controller
             DB::table('jjw_reorder')->where('cyj_pay_id',$oid)->update(['cyj_pay_zt' =>'1','ht_t_status'=>'5']);
             //充值
             //发送短信
-            $config = [
-                'app_key'    => '23779228',
-                'app_secret' => '9d9788c22c9a4dbc8522fae7b97b15ae',
-            ];
-            $client = new Client(new App($config));
-            $req    = new AlibabaAliqinFcSmsNumSend;
-            $req->setRecNum(session('tc_phone'))
-                ->setSmsParam(['oid' => "T".session('zf_tc_oid'),'name'=>session('tc_name'),'phone'=> session('tc_phone')])
-                ->setSmsFreeSignName('德栗教育')
-                ->setSmsTemplateCode('SMS_67220521');
-            $resp = $client->execute($req);
         }
     }
     //支付宝

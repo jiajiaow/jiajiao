@@ -119,7 +119,6 @@ class indexController extends Controller{
                     session(['regionname' => $re->city_name]);
                     return 'zlpc';
                 }elseif($dlpc == 'www.delijiajiao.com'){
-<<<<<<< HEAD
          //获取客户端ip
             global $ip;
             if (getenv("HTTP_CLIENT_IP"))
@@ -148,8 +147,6 @@ class indexController extends Controller{
             $res = curl_exec($ch);
             $city = json_decode($res,true);
             $getCity = $city['retData']['city'];
-=======
->>>>>>> b76afc0c6740fe20a886b9b01969166e1488c3b0
 
                     //ip判断
                     $re = DB::table('jjw_position_city')->where('city_name','like',$getCity . '%')->first();

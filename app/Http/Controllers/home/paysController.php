@@ -18,7 +18,8 @@ class paysController extends Controller
     //信息费
     public function xxf(Request $request){
         $data = $request->all();
-        session(['zf_tc_oid' => $data['order_id']]);
+        $zforder = \DB::table('jjw_order')->where('id',$_POST['order_id'])->first();
+        session(['zf_tc_oid' => $data['order_id'],'zf_or_name'=>$zforder->user_name,'zf_or_phone'=>$zforder->user_phone]);
         /*$config = [
             'app_key'    => '23779228',
             'app_secret' => '9d9788c22c9a4dbc8522fae7b97b15ae',
@@ -26,7 +27,7 @@ class paysController extends Controller
         $client = new Client(new App($config));
         $req    = new AlibabaAliqinFcSmsNumSend;
         $req->setRecNum(session('tc_phone'))
-            ->setSmsParam(['oid' => "T".session('zf_tc_oid'),'name'=>session('tc_name'),'phone'=> session('tc_phone')])
+            ->setSmsParam(['oid' => "T".session('zf_tc_oid'),'name'=>session('zf_or_name'),'phone'=> session('zf_or_phone')])
             ->setSmsFreeSignName('德栗教育')
             ->setSmsTemplateCode('SMS_67220521');
         $resp = $client->execute($req);*/
