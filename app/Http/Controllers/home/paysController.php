@@ -19,17 +19,24 @@ class paysController extends Controller
     public function xxf(Request $request){
         $data = $request->all();
         $zforder = \DB::table('jjw_order')->where('id',$_POST['order_id'])->first();
-        session(['zf_tc_oid' => $data['order_id'],'zf_or_name'=>$zforder->user_name,'zf_or_phone'=>$zforder->user_phone]);
-        /*$config = [
+        /*$zforders = \DB::table('jjw_reorder as r')
+            ->join('jjw_order as o', 'r.oid', '=', 'o.id')
+            ->join('jjw_teachers as t', 't.id', '=', 'r.tc_id')
+            ->where('r.pay_id','2017053101011023251074')
+            ->select('t.tc_phone','o.user_name','o.user_phone','o.id')
+            ->first();
+      //  dd($zforders);
+        //session(['zf_tc_oid' => $data['order_id'],'zf_or_name'=>$zforder->user_name,'zf_or_phone'=>$zforder->user_phone]);
+        $config = [
             'app_key'    => '23779228',
             'app_secret' => '9d9788c22c9a4dbc8522fae7b97b15ae',
         ];
         $client = new Client(new App($config));
         $req    = new AlibabaAliqinFcSmsNumSend;
-        $req->setRecNum(session('tc_phone'))
-            ->setSmsParam(['oid' => "T".session('zf_tc_oid'),'name'=>session('zf_or_name'),'phone'=> session('zf_or_phone')])
+        $req->setRecNum("$zforders->tc_phone")
+            ->setSmsParam(['oid' => "T"."$zforders->id",'name'=>"$zforders->user_name",'phone'=>"$zforders->user_phone"])
             ->setSmsFreeSignName('德栗教育')
-            ->setSmsTemplateCode('SMS_67220521');
+            ->setSmsTemplateCode('SMS_69735021');
         $resp = $client->execute($req);*/
             if(empty($data['b'])){
                 $li = \DB::table('jjw_reorder')->where('id',$_POST['rid'])->pluck('oid');

@@ -41,16 +41,22 @@ class payController extends Controller
             DB::table('jjw_order')->where('pay_id',$oid)->update(['pay' => '1','status'=>'1','ht_status'=>'2']);
             DB::table('jjw_order')->where('wx_pay_id',$oid)->update(['wx_pay' => '1','status'=>'1','ht_status'=>'2']);
             //支付发短信 给老师
+            $zforders = \DB::table('jjw_reorder as r')
+                ->join('jjw_order as o', 'r.oid', '=', 'o.id')
+                ->join('jjw_teachers as t', 't.id', '=', 'r.tc_id')
+                ->where('r.pay_id',$oid)
+                ->select('t.tc_phone','o.user_name','o.user_phone','o.id')
+                ->first();
             $config = [
                 'app_key'    => '23779228',
                 'app_secret' => '9d9788c22c9a4dbc8522fae7b97b15ae',
             ];
             $client = new Client(new App($config));
             $req    = new AlibabaAliqinFcSmsNumSend;
-            $req->setRecNum(session('tc_phone'))
-                ->setSmsParam(['oid' => "T".session('zf_tc_oid'),'name'=>session('zf_or_name'),'phone'=> session('zf_or_phone')])
+            $req->setRecNum("$zforders->tc_phone")
+                ->setSmsParam(['oid' => "T"."$zforders->id",'name'=>"$zforders->user_name",'phone'=>"$zforders->user_phone"])
                 ->setSmsFreeSignName('德栗教育')
-                ->setSmsTemplateCode('SMS_67220521');
+                ->setSmsTemplateCode('SMS_69735021');
             $resp = $client->execute($req);
             //支付状态
             DB::table('jjw_mpay')->where('m_pay_id',$oid)->update(['m_type' =>'1']);
