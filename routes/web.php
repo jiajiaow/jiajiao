@@ -322,7 +322,7 @@ Route::group(['prefix' => '/admin',"middleware"=>"CheckAge"],function(){
     //首页 admin控制器
     Route::get('/index','admin\AdminController@index');
     //首页 右边栏 admin控制器
-     Route::get('/indexi','admin\AdminController@indexi');
+    Route::get('/indexi','admin\AdminController@indexi');
     //退出登录 exit Login控制器
     Route::get('/out','admin\LoginController@out');
     //分站列表

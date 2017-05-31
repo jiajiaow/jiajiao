@@ -21,7 +21,7 @@
             </div>
             <div class="jj_header_right">
                 <span class="jj_header_right_yh"><img src="/phone/img/yh.png" width="100%" style="width:.4rem;"></span>
-                <span class="header_city"><span class="header_city_text" onclick="javascript:window.location.href='/change_citydlsj.html'">广州</span> <img src="/phone/img/xl.png" style="margin-top: .1rem;width:.4rem;" ></span>
+                <span class="header_city"><span class="header_city_text" onclick="javascript:window.location.href='/change_citydlsj.html'"><?php echo e(substr(session('cityname'),0,6)); ?></span> <img src="/phone/img/xl.png" style="margin-top: .1rem;width:.4rem;" ></span>
             </div>
         </header>
         <section class="banner_box">

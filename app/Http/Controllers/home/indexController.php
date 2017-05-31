@@ -9,35 +9,6 @@ class indexController extends Controller{
 
     public function __construct()
     {
-        //获取客户端ip
-        global $ip;
-        if (getenv("HTTP_CLIENT_IP"))
-            $ip = getenv("HTTP_CLIENT_IP");
-        else if(getenv("HTTP_X_FORWARDED_FOR"))
-            $ip = getenv("HTTP_X_FORWARDED_FOR");
-        else if(getenv("REMOTE_ADDR"))
-            $ip = getenv("REMOTE_ADDR");
-        else $ip = "Unknow";
-            $sip = explode(',',$ip);
-        //请求api
-        if($ip == '127.0.0.1'){
-            $ip = '58.62.30.207';
-        }
-        $sip = explode(',',$ip);
-        $ch = curl_init();
-        $url = 'http://apis.baidu.com/apistore/iplookup/iplookup_paid?ip='.$sip['0'];
-        $header = array(
-            'apikey:6c57f3d5755cbfe78fbba8d7bba2c286',
-        );
-        // 添加apikey到header
-        curl_setopt($ch, CURLOPT_HTTPHEADER  , $header);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        // 执行HTTP请求
-        curl_setopt($ch , CURLOPT_URL , $url);
-        $res = curl_exec($ch);
-        
-	$city = json_decode($res,true);
-        $getCity = $city['retData']['city'];
         //正则表达式
         $pattern = '/([^*]+)\.([^\.\/]+)\.(com|net|org|cn)/';
         //获取绝对url
@@ -70,7 +41,35 @@ class indexController extends Controller{
             session(['regionid' => $re->city_id]);
 
         }else if($dlurl == 'www.delijiajiao.com/mobile'){
-                $re = DB::table('jjw_position_city')->where('city_name','like',$getCity . '%')->first();
+                    //获取客户端ip
+            global $ip;
+            if (getenv("HTTP_CLIENT_IP"))
+                $ip = getenv("HTTP_CLIENT_IP");
+            else if(getenv("HTTP_X_FORWARDED_FOR"))
+                $ip = getenv("HTTP_X_FORWARDED_FOR");
+            else if(getenv("REMOTE_ADDR"))
+                $ip = getenv("REMOTE_ADDR");
+            else $ip = "Unknow";
+                $sip = explode(',',$ip);
+            //请求api
+            if($ip == '127.0.0.1'){
+                $ip = '58.62.30.207';
+            }
+            $sip = explode(',',$ip);
+            $ch = curl_init();
+            $url = 'http://apis.baidu.com/apistore/iplookup/iplookup_paid?ip='.$sip['0'];
+            $header = array(
+                'apikey:6c57f3d5755cbfe78fbba8d7bba2c286',
+            );
+            // 添加apikey到header
+            curl_setopt($ch, CURLOPT_HTTPHEADER  , $header);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            // 执行HTTP请求
+            curl_setopt($ch , CURLOPT_URL , $url);
+            $res = curl_exec($ch);
+            $city = json_decode($res,true);
+            $getCity = $city['retData']['city'];
+            $re = DB::table('jjw_position_city')->where('city_name','like',$getCity . '%')->first();
                 //$re = DB::table('jjw_position_city')->where('city_id','440100000000')->first();
             //地区id
             session(['regionid' => $re->city_id]);

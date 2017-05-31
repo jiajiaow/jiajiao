@@ -270,6 +270,17 @@
 {{$re->user_reboot }}<br>{{$re->per_week }}<br>{{$re->xx_dz }}<br>{{$re->ls_type }}<br>{{$re->tc_Signing }}<br>{{$re->qq }}<br>{{$re->wx }}<br>{{$re->wlk }}<br>{{$re->browsenu }}<br>{{$re->yynum }}<br>{{$re->ddzt }}<br>{{$re->jqzt }}<br>{{$re->wzly }}<br>{{$re->khly }}<br>{{$re->ap }}<br>{{$re->yhbz }}<br>{{$re->ht_status }}
 {{$re->ddbz }}<br>{{$re->o_ts }}<br>{{$re->o_xs }}<br>{{$re->fdlx }}<br>{{$re->o_yue }}<br>{{$re->jy_qz }}<br>{{$re->xy_qz }}<br>{{$re->money2 }}<br>{{$re->o_ts2 }}<br>{{$re->o_xs2 }}<br>{{$re->bj_msg_A }}<br>{{$re->hetong_time }}<br>{{$re->sks_time }}<br>{{$re->sks_add }}<br>{{$re->fz_jzxxf }}<br>{{$re->city_name }}
 {{$re->fz_vip }}<br>{{$re->fz_qyjyfy }}<br>{{$re->bfb1 }}<br>{{$re->bfb2 }}<br>{{$re->bfb3 }}<br>{{$re->bfb4 }}<br>{{$re->bfb5 }}<br>{{$re->bfb6 }}<br>{{$re->bfb7 }}
+                                            @if($re->ht_status == '0')新家教ok @endif
+                                            @if($re->ht_status == '1')待处理ok @endif
+                                            @if($re->ht_status == '2')已安排ok @endif
+                                            @if($re->ht_status == '1')待处理ok @endif
+                                            @if($re->ht_status == '2')已安排ok @endif
+                                            @if($re->ht_status == '3')已成功(授课中)ok @endif
+                                            @if($re->ht_status == '4')已成功(授课结束)ok @endif
+                                            @if($re->ht_status == '5')待审核ok @endif
+                                            @if($re->ht_status == '6')待退款ok @endif
+                                            @if($re->ht_status == '7')关闭生成新单ok @endif
+                                            @if($re->ht_status == '8')关闭ok @endif
                                     </span>
                                 </div>
                             </td>
