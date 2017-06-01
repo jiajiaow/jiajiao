@@ -7,7 +7,6 @@ use Flc\Alidayu\Client;
 use Flc\Alidayu\App;
 use Flc\Alidayu\Requests\AlibabaAliqinFcSmsNumSend;
 use DB;
-use Search;
 class TaskController extends Controller
 {
     public function Fiveminutes()
