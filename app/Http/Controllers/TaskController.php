@@ -7,6 +7,7 @@ use Flc\Alidayu\Client;
 use Flc\Alidayu\App;
 use Flc\Alidayu\Requests\AlibabaAliqinFcSmsNumSend;
 use DB;
+use Search;
 class TaskController extends Controller
 {
     public function Fiveminutes()
@@ -16,6 +17,8 @@ class TaskController extends Controller
     //每天早上9点
     public function Nine($token)
     {
+        $results = Search::search(null, 'fox')->get();
+        dd($results);
         //当前日期
         if($token == 'Stone'){
             $NowTime = date('Y年m月d日 h:i:s',time());
@@ -35,10 +38,12 @@ class TaskController extends Controller
                     ->setSmsTemplateCode('SMS_67185482');
                     $resp = $client->execute($req);
                     echo 'ok';
+                }else{
+                    echo '没有找到';
                 }
             }
         }else{
-            echo 'no';
+            echo 'token错误';
         }
     }
     //每天晚上10点

@@ -180,7 +180,9 @@ return [
         iscms\Alisms\AlidayuServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         'Stevenyangecho\UEditor\UEditorServiceProvider',
-        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        Mmanos\Search\SearchServiceProvider::class,
+        Laravel\Scout\ScoutServiceProvider::class,
 
     ],
 
@@ -232,6 +234,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+        'Search' => Mmanos\Search\Facade::class,
     ],
 
 ];

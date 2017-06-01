@@ -82,6 +82,7 @@ class ComposerStaticInit89c7234f6a61cd51e7529d918765dc61
         array (
             'League\\Flysystem\\' => 17,
             'Laravel\\Tinker\\' => 15,
+            'Laravel\\Scout\\' => 14,
         ),
         'I' => 
         array (
@@ -233,6 +234,10 @@ class ComposerStaticInit89c7234f6a61cd51e7529d918765dc61
         array (
             0 => __DIR__ . '/..' . '/laravel/tinker/src',
         ),
+        'Laravel\\Scout\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel/scout/src',
+        ),
         'Illuminate\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
@@ -311,6 +316,10 @@ class ComposerStaticInit89c7234f6a61cd51e7529d918765dc61
             array (
                 0 => __DIR__ . '/..' . '/mockery/mockery/library',
             ),
+            'Mmanos\\Search\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/mmanos/laravel-search/src',
+            ),
         ),
         'J' => 
         array (
@@ -335,6 +344,17 @@ class ComposerStaticInit89c7234f6a61cd51e7529d918765dc61
             'BaconQrCode' => 
             array (
                 0 => __DIR__ . '/..' . '/bacon/bacon-qr-code/src',
+            ),
+        ),
+        'A' => 
+        array (
+            'AlgoliaSearch\\Tests' => 
+            array (
+                0 => __DIR__ . '/..' . '/algolia/algoliasearch-client-php/tests',
+            ),
+            'AlgoliaSearch' => 
+            array (
+                0 => __DIR__ . '/..' . '/algolia/algoliasearch-client-php/src',
             ),
         ),
     );
