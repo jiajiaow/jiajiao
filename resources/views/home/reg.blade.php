@@ -125,13 +125,13 @@ function CheckValue()
 	data:$('#form1').serialize(),
 	success:function(data){
 		if(data == 'y'){
-				layer.alert('注册成功!',{icon: 6});
+			layer.alert('注册成功!',{icon: 6});
 			window.location.href='/login.html';
 		}else if(data == 'n'){
-			    layer.alert('验证码无效!',{icon: 5,time:2000});
+			layer.alert('验证码无效!',{icon: 5,time:2000});
 		}else if(data == 'ls'){
-			    layer.alert('该用户已经注册!',{icon: 5,time:2000});
- 		}else if(data == 'f'){
+			layer.alert('该用户已经注册!',{icon: 5,time:2000});
+		}else if(data == 'f'){
 			layer.alert('非法请求!',{icon: 5,time:2000});
 		}
 //		data = eval('('+data+')');
