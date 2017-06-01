@@ -196,13 +196,13 @@
         <div class="zy ly">
             <label for="">试课结果填写:</label>
             <a href="javascript:;" onclick="timeShow(<?php echo e($skzs->id); ?>,<?php echo e($skzs->rid); ?>,<?php echo e($skzs->tc_id); ?>)">试课不成功</a>
-            <a href="">试课成功</a>
+            <a href="javascript:;" onclick="timeShow(<?php echo e($skzs->id); ?>,<?php echo e($skzs->rid); ?>,<?php echo e($skzs->tc_id); ?>)">试课成功</a>
         </div>
         <div class="footer">
             
             <a class="btn2" href="">支付信息费</a>
-            <a class="btn1 btnActive" href="">诚意金解锁</a>
-            <a class="btn1" href="">申请退款</a>
+            <a class="btn1 btnActive" href="javascript:;">诚意金解锁</a>
+            <a class="btn1" href="javascript:;" onclick="timeShow(<?php echo e($skzs->id); ?>,<?php echo e($skzs->rid); ?>,<?php echo e($skzs->tc_id); ?>)">申请退款</a>
         </div>
 
     </div>

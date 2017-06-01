@@ -463,7 +463,7 @@ class tcinfoController extends Controller
 
     //申请退款
     public function tc_sqtk(Request $request){
-        dd($_POST);
+        //dd($_POST);
         if($_POST['Fruit'] =='1'){
             //dd($_POST);
             $all = $request->except('xxftk','nocglx','yuanyin','bz');
