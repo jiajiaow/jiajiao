@@ -54,7 +54,7 @@
 
                     <table class="table table-striped table-bordered table-hover dataTables-example">
                         <thead>
-                        <tr align="center">
+                        <tr align="center" >
                             <th>编号/入口/日期</th>
                             <th>个人基本信息</th>
                             <th>学位信息</th>
@@ -70,7 +70,7 @@
                         </thead>
                         <tbody>
                         <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $re): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <tr valign="top" align="center">
+                        <tr valign="top" align="center" <?php if($re->ht_t_status == '7'): ?> style="color:green;" <?php endif; ?>>
 
                             <td>
                                 <div>

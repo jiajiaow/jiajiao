@@ -498,10 +498,13 @@
 <!-- Page-Level Scripts -->
 <script>
     $(document).ready(function () {
-        $('.dataTables-example').dataTable();
-
+        $('.dataTables-example').dataTable({
+            "bStateSave": true,
+        });
         /* Init DataTables */
-        var oTable = $('#editable').dataTable();
+        var oTable = $('#editable').dataTable({
+            "bStateSave": true,
+        });
 
         /* Apply the jEditable handlers to the table */
         oTable.$('td').editable('../example_ajax.php', {

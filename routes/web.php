@@ -239,7 +239,8 @@ Route::post('/refund','home\refundController@index');
 Route::any('/yqlj','home\yqljController@yqlj');
 //计划任务每5分钟一次
 Route::any('/5minutes','TaskController@Fiveminutes');
-
+//计划任务每天早上9点
+Route::any('/9.00/{token?}','TaskController@Nine');
 
 
 
