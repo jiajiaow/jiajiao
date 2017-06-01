@@ -13,10 +13,7 @@ class TaskController extends Controller
     {
         return 'ok';
     }
-<<<<<<< HEAD
-=======
     //每天早上9点
->>>>>>> c7dc006dbd27044d591a8f6d126f1491f1cf49c8
     public function Nine($token)
     {
         //当前日期
@@ -44,8 +41,6 @@ class TaskController extends Controller
             echo 'no';
         }
     }
-<<<<<<< HEAD
-=======
     //每天晚上10点
     public function Ten($token)
     {
@@ -81,5 +76,4 @@ class TaskController extends Controller
             echo 'no';
         }
     }
->>>>>>> c7dc006dbd27044d591a8f6d126f1491f1cf49c8
 }
