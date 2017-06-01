@@ -241,6 +241,8 @@ Route::any('/yqlj','home\yqljController@yqlj');
 Route::any('/5minutes','TaskController@Fiveminutes');
 //计划任务每天早上9点
 Route::any('/9.00/{token?}','TaskController@Nine');
+//计划任务每天早上10点
+Route::any('/10.00/{token?}','TaskController@Ten');
 
 
 
