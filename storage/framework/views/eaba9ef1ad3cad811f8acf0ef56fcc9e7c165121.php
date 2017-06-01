@@ -6,6 +6,7 @@
 	<title>手机注册</title> 
 	<link rel="stylesheet" href="/phone/lichengphonedl/css/sjdl.css">
 	<link rel="stylesheet" href="/phone/lichengphonedl/css/swiper-3.4.2.min.css">
+	<script src="<?php echo e(asset('/delijiajiao/js/layer.js')); ?>"></script>
 	<style>
 		body{
 			margin: 0;
@@ -63,18 +64,18 @@
 				<div class="ye1" style="margin-top: 1.2rem" id='sj-yzm'>
 					<!-- <i></i> -->
 					<img src="/phone/lichengphonedl/images/photo.png" alt="" class="img1">
-					<input type="text" name="" placeholder="请输入账号/手机号" class="zzzzz" maxlength="11">
+					<input type="text" name="mobile" placeholder="请输入手机号" class="zzzzz" maxlength="11" id="qwer">
 				</div>
 				<div class="ye1">
 					<img src="/phone/lichengphonedl/images/suo.png" alt="" class="img2">
-					<input type="text" name="" placeholder="请输入密码" class="zzzzz" maxlength="16">
+					<input type="password" name="pw1" placeholder="请输入密码" class="zzzzz" maxlength="16" id="m">
 				</div>
 				<div class="ye1">
-					<input type="text" name="" placeholder="请输入验证码" class="xxxxx">
+					<input type="text" id="mobile_code" name="mobile_code"  placeholder="请输入验证码" class="xxxxx">
 					<input type="button" name="" value="发送验证码" class="sj-yzm">
 				</div>
 				<div class="ye6" style="background-color: #F7B529;margin-bottom:0;">
-					<input type="submit" value="注册" name="" id="dl">
+					<input type="button" value="注册" name="" id="dl">
 				</div>
 				<!-- 测试 -->
 				
@@ -95,27 +96,46 @@
 	<script src="/phone/lichengphonedl/js/zepto.js"></script>
 	<script type='text/javascript'>
 	
-		$('.sj-yzm').on('tap',function(){
+		$('.sj-yzm').on('click',function(){
+			var z=$('#qwer').val();
+			var m=$('#m').val();
+//			var phone = /^1[345678][0-9]{9}$/;
+			if(z==''){
+				alert('请输入手机号！');
+				return false;
+			}
+			if(!($('#qwer').val().match(/^1[345678][0-9]{9}$/))){
+				alert('手机号码不正确');
+				return false;
+			}
+			if(m==""){
+				alert('请输入密码！')
+				return false;
+			}
 		    createCode();
 			var ysm = $('.sj-yzm');
 			time(ysm);	
 		})
          function createCode(){
-         	var yanzhenma = $('.xxxxx').val();
-         	$.ajax({
-         		type:'POST',
-         		url:'',
-         		dateType:'json',
-         		data:{'yanzhenma':'yanzhenma'},
-         		success:function(result){
-         			// console.log(result)
-         		},
-         		error:function(result,status){
-         			console.log('什么鬼');
-         			console.log(result);
-         			console.log(status);
-         		}
-         	})
+			 var yanzhenma=$('#qwer').val();
+			 $.ajax({
+				 type:'POST',
+				 url:"<?php echo e(URL('/docode.html')); ?>",
+				 contentType:"application/x-www-form-urlencoded; charset=utf8",
+				 data:{"phone":yanzhenma,"zt":'注册'},
+				 /*dataType:'JSON',*/
+				 success:(function(result){
+					 if(result == 'y'){
+							 alert('请注意查收短信!');
+					 }
+					 //console.log(result);
+				 }),
+				 error:(function(result,status){
+					 //console.log(result);
+					 //larye.alert('短信sb!');
+				 })
+
+			 });
          }
 		var wait = 60;
 		function time(o){
@@ -132,7 +152,30 @@
 				},1000)
 			}
 		}
-		
+		$('#dl').click(function(){
+			$.ajax({
+				type:'POST',
+				url:'<?php echo e(URL('/doreg.html')); ?>',
+				contentType:"application/x-www-form-urlencoded; charset=utf8",
+				data:$('#form').serialize(),
+//				async: false,
+				success:function(data){
+					if(data == 'y'){
+						alert('注册成功!');
+						window.location.href='/mobile/login.html';
+					}else if(data == 'n'){
+						alert('验证码无效!');
+					}else if(data == 'ls'){
+						alert('该用户已经注册!');
+					}else if(data == 'f'){
+						alert('非法请求!');
+					}
+				},
+				error:function(request){
+					console.log(request);
+				}
+			})
+		})
 	</script>
 </body>
 </html>

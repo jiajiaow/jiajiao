@@ -573,19 +573,19 @@
         var item = value.options[value.selectedIndex];
         if(item.value == '1'){
             $.post('/admin/tdye.html',{"id":id,"tid":tid,'rid':rid,'zt':zt,'m':money,'edit':'1','pd':'cgjskc','oid':oid},function(){
-               // location.reload();
+                location.reload();
             })
         }else if(item.value == '2'){
             $.post('/admin/tdye.html',{"id":id,"tid":tid,'rid':rid,'zt':zt,'m':money,'edit':'2','pd':'cgjskc','oid':oid},function(){
-               // location.reload();
+                location.reload();
             })
         }else if(item.value == '3'){
             $.post('/admin/tdye.html',{"id":id,"tid":tid,'rid':rid,'zt':zt,'m':money,'edit':'3','pd':'cgjskc','oid':oid},function(){
-                //location.reload();
+                location.reload();
             })
         }else if(item.value == '4'){
             $.post('/admin/tdye.html',{"id":id,"tid":tid,'rid':rid,'zt':zt,'m':money,'edit':'4','pd':'cgjskc','oid':oid},function(){
-               // location.reload();
+                location.reload();
             })
         }
     }

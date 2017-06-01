@@ -54,7 +54,7 @@
 
                     <table class="table table-striped table-bordered table-hover dataTables-example">
                         <thead>
-                        <tr align="center">
+                        <tr align="center" >
                             <th>编号/入口/日期</th>
                             <th>个人基本信息</th>
                             <th>学位信息</th>
@@ -70,7 +70,7 @@
                         </thead>
                         <tbody>
                         @foreach($data as $re)
-                        <tr valign="top" align="center">
+                        <tr valign="top" align="center" @if($re->ht_t_status == '7') style="color:green;" @endif>
 
                             <td>
                                 <div>
