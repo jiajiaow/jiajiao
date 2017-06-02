@@ -184,7 +184,6 @@ return [
         Mmanos\Search\SearchServiceProvider::class,
         Laravel\Scout\ScoutServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
-        Maatwebsite\Excel\ExcelServiceProvider::class,
     ],
 
     /*
