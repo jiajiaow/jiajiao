@@ -30,7 +30,7 @@
             <div class="ibox float-e-margins" style="overflow: scroll;">
                 <div class="ibox-title">
                     <h5>学员订单 <small>当前屏蔽订单<span style="color:red;">{{ $num }}</span></small></h5>
-
+                    <h5 style='float:right'><a href="/admin/excel/export">导出Excel</a></h5>
                 </div>
                 <div class="ibox-content">
                     <table class="table table-striped table-bordered table-hover dataTables-example">

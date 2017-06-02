@@ -30,7 +30,7 @@
             <div class="ibox float-e-margins" style="overflow: scroll;">
                 <div class="ibox-title">
                     <h5>学员订单 <small>当前屏蔽订单<span style="color:red;"><?php echo e($num); ?></span></small></h5>
-
+                    <h5 style='float:right'><a href="/admin/excel/export">导出Excel</a></h5>
                 </div>
                 <div class="ibox-content">
                     <table class="table table-striped table-bordered table-hover dataTables-example">
@@ -498,10 +498,13 @@
 <!-- Page-Level Scripts -->
 <script>
     $(document).ready(function () {
-        $('.dataTables-example').dataTable();
-
+        $('.dataTables-example').dataTable({
+            "bStateSave": true,
+        });
         /* Init DataTables */
-        var oTable = $('#editable').dataTable();
+        var oTable = $('#editable').dataTable({
+            "bStateSave": true,
+        });
 
         /* Apply the jEditable handlers to the table */
         oTable.$('td').editable('../example_ajax.php', {

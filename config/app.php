@@ -183,7 +183,8 @@ return [
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
         Mmanos\Search\SearchServiceProvider::class,
         Laravel\Scout\ScoutServiceProvider::class,
-
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
     ],
 
     /*
@@ -235,6 +236,7 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
         'Search' => Mmanos\Search\Facade::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];
