@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
+    <script src="/phone/js/flexible.js"></script>
     <meta charset="UTF-8">
     <title>@yield('title')【德栗家教】{{ session('regionname') }}家教专业大学生家教全国连锁领导品牌!</title>
     <link rel="stylesheet" href="/phone/css/ele.css">
     <link rel="stylesheet" href="/phone/css/main.css">
     <link rel="stylesheet" href="/phone/css/swiper-3.4.2.min.css">
-    <script src="/phone/js/flexible.js"></script>
-    <script type="text/javascript" src="https://hztk5.kuaishang.cn/bs/ks.j?cI=125636&fI=79140&ism=1" charset="utf-8"></script>
 </head>
 <body>
     <div class="wrap" id="app">
@@ -27,9 +26,9 @@
         <section class="banner_box">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="/phone/img/banner_1@2x.png" width="100%" ></div>
-                    <div class="swiper-slide"><img src="/phone/img/banner_1@2x.png" width="100%"  ></div>
-                    <div class="swiper-slide"><img src="/phone/img/banner_1@2x.png"  width="100%" ></div>
+                    <div class="swiper-slide"><img src="/phone/img/banner_1.png" width="100%" ></div>
+                    <div class="swiper-slide"><img src="/phone/img/banner_2.png" width="100%"  ></div>
+                    <div class="swiper-slide"><img src="/phone/img/banner_4.png"  width="100%" ></div>
                 </div>
                 <div class="swiper-button-prev swiper-button-white"></div>
                 <div class="swiper-button-next swiper-button-white"></div>
@@ -269,6 +268,7 @@
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="/phone/js/ele.js"></script>
 <script src="/phone/js/home_page.js"></script>
+
 <script>
 
     var app = new Vue({
