@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="/phone/js/flexible.js"></script>
     <meta charset="UTF-8">
     <title>教员详细信息</title>
     <link rel="stylesheet" href="/phone/css/fast.css">
     <link rel="stylesheet" href="/phone/css/reset.css">
-    <script src="/phone/js/flexible.js"></script>
     <link rel="stylesheet" href="/phone/css/ele.css">
     <link rel="stylesheet" href="/phone/css/teacher_info.css">
     <link rel="stylesheet" href="/phone/lichengphonedl/css/nativeShare.css">

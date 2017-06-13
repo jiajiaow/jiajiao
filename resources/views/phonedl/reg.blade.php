@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<script type='text/javascript' src="/phone/lichengphonedl/js/flexible.js"></script>
 	<meta charset="UTF-8">
 	<meta name="renderer" content="webkit">
 	<title>手机注册</title> {{--手机注册--}}
@@ -92,7 +93,6 @@
 		<span>Copyright&copy 2005 - 2017 delijiajiao.com</span>
 	</footer>
 	<script src="/phone/lichengphonedl/js/jquery-2.2.3.min.js"></script>
-	<script type='text/javascript' src="/phone/lichengphonedl/js/flexible.js"></script>
 	<script src="/phone/lichengphonedl/js/zepto.js"></script>
 	<script type='text/javascript'>
 	

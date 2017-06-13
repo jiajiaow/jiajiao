@@ -180,10 +180,7 @@
                             @endif
                         @endif
                     @endforeach
-                    {{--<el-tab-pane label="英语资源" name="second">配置管理</el-tab-pane>--}}
-                    {{--<el-tab-pane label="物理资源" name="third">角色管理</el-tab-pane>--}}
-                    {{--<el-tab-pane label="化学资源" name="fourth">定时任务补偿</el-tab-pane>--}}
-                    {{--<el-tab-pane label="数学资源" name="five">覅是</el-tab-pane>--}}
+
                 </el-tabs>
             </div>
         </section>

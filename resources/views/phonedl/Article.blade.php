@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+    <script src="/phone/js/flexible.js"></script>
     <meta charset="UTF-8">
     <title>文章中心</title>
     <link rel="stylesheet" href="/phone/css/wzzx.css">
-    <script src="/phone/js/flexible.js"></script>
 <body style="background-color: #F1F1F1">
 <header>
     <img src="/phone/images/zuo.png" alt="" onclick="javascript :history.back(-1);">

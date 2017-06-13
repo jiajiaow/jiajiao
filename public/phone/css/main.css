@@ -261,6 +261,7 @@ body{
 }
 .footer_yejiao {
     background: #fff;
+    padding-bottom: 1rem;
 }
 .footer_yejiao_text {
     display: flex;
@@ -280,6 +281,9 @@ body{
 
 footer {
     height: 1rem;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
     background: #fff;
 }
 footer ul{
@@ -341,6 +345,7 @@ footer li:nth-child(4) a{
 footer li:nth-child(4) i{
     margin: 0 .2rem 0 0;
 }
+
 .footer_home{
     background: url("../img/home_blach@2x.png");
 }

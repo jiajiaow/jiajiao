@@ -1,12 +1,20 @@
+<?php $www = explode(".",$_SERVER['HTTP_HOST']) ?>
 <!DOCTYPE html>
 <html>
  <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" charset='utf-8'/>
   <meta name="applicable-device" content="pc" />
-  <title><?php echo $__env->yieldContent('title'); ?>【德栗家教】<?php echo e(session('regionname')); ?>家教专业大学生家教全国连锁领导品牌!</title>
-  <meta name="description" content="专业大学生一对一上门家教，专业大学生家教全国连锁领导品牌。免费上门试课热线：<?php echo e(session('phone')); ?>。业务覆盖全国200多个城市，汇集数十万名大学生、专职老师在内的各类优秀教员，竭诚为广大学员提供最专业、最值得信赖的一对一上门家教辅导。免费上门试课热线：<?php echo e(session('phone')); ?>" />
-  <meta name="keywords" content="德栗家教,<?php echo e(session('regionname')); ?>家教,<?php echo e(session('regionname')); ?>家教网,<?php echo e(session('regionname')); ?>大学生家教,<?php echo e(session('regionname')); ?>家教,<?php echo e(session('regionname')); ?>家教网,辅导,补习,一对一" />
+  <?php if($www['0'] == 'www'): ?>
+  <title>【德栗家教】专业大学生上门家教一对一，全国家教连锁领导品牌!</title>
+  <meta name="description" content="专业大学生上门家教就选【德栗家教】，全国家教连锁领导品牌! 免费上门试课！0元试课！热线：400-8250-710。业务覆盖全国200多个城市，汇集数十万名大学生、专职老师在内的各类优秀教员，竭诚为广大学员提供最专业、最值得信赖的一对一上门家教辅导。" />
+  <meta name="keywords" content="家教,家教网,大学生家教,上门家教,家教一对一,一对一家教,大学生兼职,大学生上门家教,一对一辅导,德栗家教" />
+  <?php else: ?>
+  <title>【德栗家教】-<?php echo e(session('cityname')); ?>家教网-专业大学生上门家教-全国连锁领导品牌!</title>
+  <meta name="description" content="<?php echo e(session('regionname')); ?>是<?php echo e(session('cityname')); ?>最知名最专业的家教网，<?php echo e(session('cityname')); ?>家教领导品牌! 免费上门试课！0元试课！热线：<?php echo e(session('phone')); ?>。业务覆盖全国200多个城市，汇集数十万名大学生、专职老师在内的各类优秀教员，竭诚为广大学员提供最专业、最值得信赖的一对一上门家教辅导。" />
+  <meta name="keywords" content="<?php echo e(session('cityname')); ?>家教,<?php echo e(session('cityname')); ?>家教网,大学生家教,上门家教,家教一对一,一对一家教,大学生兼职,大学生上门家教,一对一辅导,德栗家教" />
+  <?php endif; ?>
   <script src="/delijiajiao/js/jquery-1.7.2.min.js"></script>
+
   <link rel="stylesheet" href="/delijiajiao/css/index.css" onerror="tracker.resErr(this)" />
   <link rel="stylesheet" href="/delijiajiao/css/style.css" onerror="tracker.resErr(this)" />
   <link rel="stylesheet" href="/delijiajiao/css/style1.css" onerror="tracker.resErr(this)" />
@@ -14,6 +22,11 @@
   <link rel="icon" href="/delijiajiao/favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="/delijiajiao/favicon.ico" type="image/x-icon">
      <link rel="stylesheet" type="text/css" href="/delijiajiao/css/swiper.min.css">
+     <script type="text/javascript">
+        if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+            //window.location.href="/mobile";
+        }
+      </script>
      <style>
          #cheng-href{
              color:#a7a7a7;
@@ -122,6 +135,73 @@
              background-color:#f7b529;
              color:#eee;
          }
+         .footer_flot_box {
+             background: rgba(53, 55, 63, 0.70);
+             height: 115px;
+             width: 100%;
+             position: fixed;
+             bottom: 0;
+             z-index: 999;
+         }
+         .footer_mar {
+             margin: 0 auto;
+             width: 1026px;
+             position: relative;
+         }
+         .fm_img {
+             display: inline-block;
+             position: absolute;
+             top: -80px;
+         }
+         .fm_content {
+             display: inline-block;
+             vertical-align: middle;
+             margin-top: 13px;
+             margin-left: 327px;
+             color: #fff;
+             text-align: center;
+             border-right: 1px solid #ababab;
+             padding: 0 10px;
+             margin-right: 11px;
+         }
+         .fm_free {
+             color: #ffa51b;
+             margin-left: 15px;
+             font-size: 25px;
+             font-weight: 600;
+         }
+         .tel_box {
+             display: inline-block;
+             vertical-align: middle;
+             margin-top: 13px;
+             color: #fff;
+             text-align: center;
+         }
+         .tel_box p{
+             color: #fff;;
+             font-size: 14px;
+         }
+         .zxzx {
+             cursor: pointer;
+             padding: 4px 10px;
+             background: #ffbf03;
+             font-size: 14px;
+             border-radius: 4px;
+             margin-top: 6px;
+             display: inline-block;
+             color: #fff;
+         }
+         .footer_mar h3 {
+             color: #fff;
+             font-weight: 600;
+             height: 37px;
+             line-height: 37px;
+         }
+         .fm_content p{
+             color:#fff;
+             font-size: 14px;
+             margin: 0;
+         }
      </style>
 
   
@@ -159,8 +239,7 @@ for(i=0; i <tabList.length; i++)
     <div class="toolbar">
      <div class="toolbar-link">
 家教上门联系电话：☎
-        <?php echo e(session('phone')); ?>
-
+        400-8250-710
      </div>
      <ul id="user-tools" class="navbar-nav" style="height: 36px">
          <?php if(session('dlzt') == 2 ): ?>
@@ -196,9 +275,9 @@ for(i=0; i <tabList.length; i++)
    <div class="header">
     <div class="location">
      <div class="breadcrumb" style="margin-bottom: 0px;background-color: #fff;padding: 0px" id="icon-top">
-      <h1><a a href='/' class='primary-logo' ><img alt="广州" src="/delijiajiao/picture/guangzhou.png" class="city-logo" /></a></h1>
-      <span class="listing-slogan" style="height:40px;"><?php echo e(session('regionname')); ?></span>
-         <span class="listing-slogan1" style="height: 26px;">【德栗家教】【高校联盟】</span><a href="/change_city.html">更多城市</a>
+      <h1><a a href='/' class='primary-logo' style="top: 16px;"><img alt="广州" src="/delijiajiao/picture/guangzhou.png" class="city-logo" /></a></h1>
+      <span class="listing-slogan" style="height:40px;font-size: 21px">【德栗家教】</span>
+         <span class="listing-slogan1" style="height: 26px;font-size: 25px"><?php echo e(session('regionname')); ?>【高校联盟】</span><a href="/change_city.html">更多城市</a>
      </div>
      <div class="pull-right">
       <a href="/yuyuelaoshi.html" class="resume-btn" style="font-size: 16px">请老师</a>
@@ -208,19 +287,15 @@ for(i=0; i <tabList.length; i++)
    </div>
   </header>
   <div class="nav-horizontal">
-   <div class="nav-horizontal-content">
+   <div class="nav-horizontal-content" style="height: 46px;">
     <ul id="weituo">
      <li id="as1" class="vtle"><a href="/"  id="ad1">德栗首页</a></li>
      <li id="as2"><a href="/yuyuelaoshi.html" id="ad2">快速请家教</a></li>
      <li id="as3"><a href="/faculty.html" id="ad3">挑老师</a></li>
      <li id="as4"><a href="/zfsm.html" id="ad4">资费说明</a></li>
      <li id="as5"><a href="/xueyuan.html" id="ad5">学员库</a></li>
-     <li id="as6"><a href="" id="ad6">会员中心</a></li>
-
-     <li id="as7"><a href="/Articlecenter1.html" id="ad7">文章中心</a></li>
-
-
-
+     <li id="as6"><a href="/login.html" id="ad6">会员中心</a></li>
+     <li id="as7"><a href="/Articlecenter18.html" id="ad7">文章中心</a></li>
     </ul>
    </div>
   </div>
@@ -265,8 +340,7 @@ for(i=0; i <tabList.length; i++)
               </div>
               <div class="line"></div>
               <div class="b5">
-                  <li><a a href='/' class='primary-logo' ><img alt="广州" src="/delijiajiao/picture/erwei.png" class="city-logo" width="60px"/></a><br><p>电话：400-8080-740
-
+                  <li><a a href='/' class='primary-logo' ><img alt="广州" src="/delijiajiao/picture/erwei.png" class="city-logo" width="60px"/></a><br><p>电话：400-8250-710
                       </p></li>
                   <!--<li><a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备16062097号</a></li>-->
               </div>
@@ -274,32 +348,88 @@ for(i=0; i <tabList.length; i++)
           </div>
       </div>
   </footer>
-<div style="min-height: 50px;">
+ <div style="min-height: 50px;">
       <ul id="cheng-href" style="margin: auto;width: 1200px;">
-          <li>
-              <a href="">友情链接</a>
-          </li>
-          <li>
-              <a href="">新浪新闻</a>
-          </li>
-          <li>
-              <a href="">网易云音乐</a>
-          </li>
-          <li>
-              <a href="">腾讯新闻</a>
-          </li>
-          <li>
-              <a href="">百度</a>
-          </li>
-             <li>
-                 <a href="">360</a>
-             </li>
       </ul>
       <div id="fudong"></div>
   </div>
-  
+
   <div class="banquanxinxi">
           © 2005－2017德栗家教   |   <a href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action">粤ICP备16062097号-4</a> 关键词：家教,一对一家教,广州家教网</div>
+  </div>
+  <div class="footer_flot_box">
+      <div class="footer_mar">
+          <div class="fm_img"><img src="/new/images/xsznt.png"></div>
+          <div class="fm_content">
+              <p>还没找到心仪的老师？我们的金牌顾问帮您挑吧</p>
+              <h3 style="font-size: 26px;margin: 0;">专业大学生上门家教<span class="fm_free">免费上门试课！</span></h3>
+              <div style="margin-top: 6px">
+                  
+                  <select style="width: 123px;height: 26px;vertical-align: middle;color:#000;font-size:12px; padding: 0" name="km" id="km">
+                      <option value="">请选择授课科目</option>
+                      <option value="初中">初中</option>
+                      <option value="高中">高中</option>
+                      <option value="小学及学龄前">小学及学龄前</option>
+                      <option value="语言">语言</option>
+                      <option value="艺术">艺术</option>
+                      <option value="其他">其他</option>
+                  </select>
+                  <input type=""  placeholder="请输入手机号" style="width: 123px;height: 26px;vertical-align: middle;padding: 0;font-size:12px;color:#000;" name="phone" id="float_phone">
+                  <input type="submit" id="float_tj_btn" style="background: #ff3939;border: none;color: #fff;font-size:12px;padding: 5px  10px;border-radius: 4px;" onclick="isPhoneNo()" value="马上提交"  >
+                  
+              </div>
+          </div>
+          <div class="tel_box">
+              <p><?php echo e(substr(session('cityname'),0,6)); ?>热线：<?php echo e(session('phone')); ?></p>
+              <p>全国热线：400-8250-710</p>
+              <a href="https://hztk5.kuaishang.cn/bs/im.htm?cSource=1&cas=69564___125636&fi=79140&ri=18245998447&vi=84d357f55f854a87b7683824f3938530&dp=http%3A%2F%2Fwww.delijiajiao.com%2F&_d=1494806260357&_tk=575c5551" target="_blank"><span class="zxzx">在线咨询</span></a>
+          </div>
+      </div>
+  </div>
+  
+  
+      
+          
+              
+          
+          
+              
+              
+              
+              
+                  
+                      
+                      
+                  
+                  
+                      
+                  
+              
+          
+
+      
+      
+          
+          
+              
+                  
+                  
+                  
+                  
+                  
+                  
+              
+          
+          
+              
+              
+          
+          
+      
+      
+  
+  <div class="wx_box" style="display:none;">
+      <img src="<?php echo session('fz_wx'); ?>" alt=""  width="100%">
   </div>
   <script>
       $('#icon').mouseover(function(){
@@ -311,7 +441,173 @@ for(i=0; i <tabList.length; i++)
       $('.more-city').mouseout(function(){
           $(this).css('display','none')
       })
+
+      $('#float_phone').blur(function(){
+          var myreg = /^1[345678]\d{9}$/;
+          if($(this).val() == ''){
+              alert('手机号不能为空')
+          }
+          else if(!myreg.test($("#float_phone").val()))
+          {
+              layer.alert('请输入有效的手机号码！');
+              return false;
+          }
+      })
+      function isPhoneNo() {
+          var km = $('#km').val()
+          //alert(km);
+          var phone = $('#float_phone').val();
+          if(km != ''){
+              if(phone != ''){
+                  var myreg = /^1[34578]\d{9}$/;
+                  if(!myreg.test($("#float_phone").val()))
+                  {
+                      layer.alert('请输入有效的手机号码！');
+                      return false;
+                  }else{
+                      $.post('/dofloatyyform',{km:km,phone:phone},function(r){
+                          layer.alert('尊敬的家长/学员,我们已经收到您的需求,我们的金牌顾问将尽快联系您,非常感谢您的认可。');
+                      })
+                  }
+              }else{
+                  alert('手机号码不能为空');
+                  return false;
+              }
+
+          }else{
+                alert('科目不能为空');
+              return false;
+          }
+      }
+
   </script>
+  <style>
+      .fcb_b_box_active{
+          border: 1px solid #000;
+      }
+      .fc{
+          position: fixed;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.41);
+          z-index: 998;
+          left: 0;
+          bottom: 0;
+      }
+      .fc_body{
+          position: fixed;
+          background: transparent;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+          width: 498px;
+          border-radius: 10px;
+          z-index: 999;
+      }
+      .fc_body_clock {
+          position: absolute;
+          background: #f7b528;
+          width: 26px;
+          height: 26px;
+          border-radius: 50%;
+          top: -12px;
+          right: -12px;
+          text-align: center;
+          line-height: 29px;
+          cursor: pointer;
+      }
+      .fc_body_clock i {
+          background: url(/new/images/X.png)center center no-repeat;
+          background-size: 100%;
+          width: 13px;
+          height: 13px;
+          display: inline-block;
+      }
+      .fcb_top{
+          width: 100%;
+          height: 175px;
+          background: #fff;
+          border-radius: 10px 10px 0 0;
+      }
+      .fcb_bottom{
+          width: 100%;
+          height: 145px;
+          background: #f7b528;
+          border-radius: 0 0 10px 10px;
+          text-align: center;
+      }
+      .fcb_text{
+          font-size: 12px;
+          background: #f7b528;
+          color: #fff;
+          padding: 4px 12px;
+      }
+      .fcb_h2{
+          color: #6e6e6e;
+          margin: 0;
+      }
+      .fcb_h2_span{
+          color: #f7b528;
+      }
+      .dsv{
+          display: inline-block;
+          vertical-align: middle;
+      }
+      .dsv a{
+          padding: 2px 17px;
+          background: #2097fb;
+          color: #fff;
+          border-radius: 10px;
+          margin-left: 39px;
+      }
+      .dsv p{
+          padding: 3px 0;
+          margin: 0;
+      }
+      .fcb_b_box{
+          margin-left: -14px;
+      }
+
+      .fcb_b_box li{
+          display: inline-block;
+          padding: 2px 15px;
+          background: #fff;
+          border-radius: 17px;
+          font-size: 12px;
+          color: #f7b528;
+          margin: 5px 0;
+          cursor: pointer;
+      }
+      .fcb_bottom .ljtj{
+          background: #fd1616;
+          font-size: 12px;
+          color: #fff;
+          padding: 3px 33px;
+          border-radius: 16px;
+          height: auto;
+          cursor: pointer;
+      }
+      .fcb_bottom input {
+          border: none;
+          height: 26px;
+          padding-left: 11px;
+          width: 138px;
+          color: #000;
+      }
+      .fcb_bottom_titp{
+          padding: 14px 0 3px 28px;
+          text-align: left;
+          color: #fff;
+          font-size: 14px;
+      }
+      .wx_box {
+          position: fixed;
+          right: 94px;
+          bottom:31%;
+          width: 100px;
+          height: 100px;
+      }
+  </style>
   <script type="text/javascript">
       $(function(){
 
@@ -329,7 +625,6 @@ for(i=0; i <tabList.length; i++)
               }
           })
       })
-
   </script>
   <script type="text/javascript" src="/delijiajiao/js/layer.js"></script>
    <script type="text/javascript">
@@ -379,8 +674,47 @@ for(i=0; i <tabList.length; i++)
                 $('#as1').removeClass();
                 $('#as5').addClass('vtle');
             }
+          setTimeout(function(){
+              $('.fc').fadeIn()
+              $('.fc_body').fadeIn()
+          }, 7000)
+
+          $('.fc_body_clock').click(function(event) {
+              $('.fc_body').hide()
+              $('.fc').hide()
+          });
+          $(document).on('click','.fcb_b_box li',function(){
+              $('.fcb_b_box li').removeClass('fcb_b_box_active')
+              $(this).addClass('fcb_b_box_active')
+          })
+          setTimeout(function(){
+              var aa = $('#div4')
+              aa.hover(function(){
+                  $('.wx_box').show()
+              },function(){
+                  $('.wx_box').hide()
+              })
+          },4000)
+          setTimeout(function(){
+              var aa = $('#div4_off')
+              aa.hover(function(){
+                  $('.wx_box').show()
+              },function(){
+                  $('.wx_box').hide()
+              })
+          },4000)
+
   </script>
-  <script>  </script>
+  <script type="text/javascript" src="https://hztk5.kuaishang.cn/bs/ks.j?cI=125636&fI=79140" charset="utf-8"></script>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?369d7ab93408dc8f73e2587f48b8915c";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
 <?php $__env->startSection('js'); ?>
 
 

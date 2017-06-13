@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="/phone/js/flexible.js"></script>
     <meta charset="UTF-8">
     <title>教员库</title>{{--教员库--}}
     <link rel="stylesheet" href="/phone/css/fast.css">
     <link rel="stylesheet" href="/phone/css/reset.css">
     <link rel="stylesheet" href="/phone/css/teacher.css">
-    <script src="/phone/js/flexible.js"></script>
     <style>
         .fy{
 
@@ -63,7 +63,6 @@
             <li class="spacer"></li>
             <li>
                 <span class="Span" onclick="xb()">性别</span>
-
             </li>
             <li class="spacer"></li>
             <li>

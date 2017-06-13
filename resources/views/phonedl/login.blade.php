@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<script src="/phone/lichengphonedl/js/flexible.js"></script>
 	<meta charset="UTF-8">
 	<meta name="renderer" content="webkit">
 	<!-- <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" /> -->
@@ -161,7 +162,6 @@
 		<span>Copyright&copy 2005 - 2017 delijiajiao.com</span>
 	</footer>
 	<script src="/phone/lichengphonedl/js/jquery-2.2.3.min.js"></script>
-	<script src="/phone/lichengphonedl/js/flexible.js"></script>
 	<script src="/phone/lichengphonedl/js/zepto.js"></script>
 	<script src="/phone/lichengphonedl/js/jquery-mvalidate.js"></script>
 	<script>

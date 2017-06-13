@@ -14,6 +14,7 @@
   <meta name="keywords" content="{{ session('cityname') }}家教,{{ session('cityname') }}家教网,大学生家教,上门家教,家教一对一,一对一家教,大学生兼职,大学生上门家教,一对一辅导,德栗家教" />
   @endif
   <script src="/delijiajiao/js/jquery-1.7.2.min.js"></script>
+
   <link rel="stylesheet" href="/delijiajiao/css/index.css" onerror="tracker.resErr(this)" />
   <link rel="stylesheet" href="/delijiajiao/css/style.css" onerror="tracker.resErr(this)" />
   <link rel="stylesheet" href="/delijiajiao/css/style1.css" onerror="tracker.resErr(this)" />

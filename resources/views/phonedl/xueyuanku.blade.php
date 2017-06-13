@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+    <script src="/phone/lichengphonedl/js/flexible.js"></script>
     <meta charset="UTF-8">
     <title>学员库</title>
     <link rel="stylesheet" href="/phone/lichengphonedl/css/xyk.css">
-    <script src="/phone/lichengphonedl/js/flexible.js"></script>
     <style>
         .fy{
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+    <script src="/phone/lichengphonedl/js/flexible.js"></script>
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
     <title>订单管理已接的预约</title>
@@ -10,7 +11,6 @@
     <link rel="stylesheet" href="/phone/lichengphonedl/css/artModal.css">
     <script src="/phone/lichengphonedl/js/jquery-1.11.3.js"></script>
 
-    <script src="/phone/lichengphonedl/js/flexible.js"></script>
     <style>
         #time{
             font-size: .35rem;

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="/phone/js/flexible.js"></script>
     <meta charset="UTF-8">
     <title>教员个人中心</title>
     <link rel="stylesheet" href="/phone/css/fast.css">
     <link rel="stylesheet" href="/phone/css/reset.css">
     <link rel="stylesheet" href="/phone/css/ele.css">
     <link rel="stylesheet" href="/phone/css/my.css">
-    <script src="/phone/js/flexible.js"></script>
 </head>
 <body>
 <div class="wrap" id="app">

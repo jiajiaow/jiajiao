@@ -181,7 +181,6 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         'Stevenyangecho\UEditor\UEditorServiceProvider',
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
-        Mmanos\Search\SearchServiceProvider::class,
         Laravel\Scout\ScoutServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
     ],

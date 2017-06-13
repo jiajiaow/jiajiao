@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<script src="/phone/js/flexible.js"></script>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +7,6 @@
     <link rel="stylesheet" href="/phone/css/fast.css">
     <link rel="stylesheet" href="/phone/css/reset.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <script src="/phone/js/flexible.js"></script>
 </head>
 <body>
     <div class="wrap">
@@ -34,7 +34,7 @@
                         <span>手机号：</span><input type="text" name="phone" placeholder="请输入您的手机号码" id="phone">
                     </li>
                     <li>
-                        <input type="text" maxlength="4" placeholder="请输入手机验证码" name="yzm" id="yzm">
+                        <input type="text" maxlength="4" placeholder="请输入手机验证码" name="yzm" id="yzm" style="padding-left: .3rem">
                         <input class="yzm_btn" style="margin: 0" value="获取验证码" type="button" onclick="settime(this)"></input>
                     </li>
                 </ul>

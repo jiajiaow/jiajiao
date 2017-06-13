@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="/phone/js/flexible.js"></script>
     <meta charset="UTF-8">
     <title>填写资料</title>
     <link rel="stylesheet" href="/phone/css/fast.css">
     <link rel="stylesheet" href="/phone/css/reset.css">
     <link rel="stylesheet" href="/phone/css/yuyue.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <script src="/phone/js/flexible.js"></script>
 </head>
 <body>
 <div class="wrap">

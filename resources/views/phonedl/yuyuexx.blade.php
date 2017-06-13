@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="/phone/js/flexible.js"></script>
     <meta charset="UTF-8">
     <title>快速请家教</title>
     <link rel="stylesheet" href="/phone/css/ksqjj.css">
-    <script src="/phone/js/flexible.js"></script>
 <body>
     <header>
         <img src="/phone/images/zuo.png" alt="" class="zuo">

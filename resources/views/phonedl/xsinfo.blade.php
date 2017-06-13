@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+    <script src="/phone/lichengphonedl/js/flexible.js"></script>
     <meta charset="UTF-8">
     <title>快速请家教</title>
     <link rel="stylesheet" href="/phone/lichengphonedl/css/ddxq.css">
     <link rel="stylesheet" href="/phone/lichengphonedl/css/nativeShare.css">
-    <script src="/phone/lichengphonedl/js/flexible.js"></script>
 <body style="background-color: #F1F1F1">
 <header>
     <img src="/phone/lichengphonedl/images/zuo.png" alt="" class="zuo">
