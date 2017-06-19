@@ -1,11 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" >
+
+<html lang="en">
+
 <head>
     <script src="/phone/js/flexible.js"></script>
+
     <meta charset="UTF-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
     <title>@yield('title')【德栗家教】{{ session('regionname') }}家教专业大学生家教全国连锁领导品牌!</title>
     <link rel="stylesheet" href="/phone/css/ele.css">
     <link rel="stylesheet" href="/phone/css/main.css">
+    <script>
+        console.log('1')
+    </script>
     <link rel="stylesheet" href="/phone/css/swiper-3.4.2.min.css">
 </head>
 <body>
@@ -262,7 +271,7 @@
 </body>
 <script src="/phone/js/swiper-3.4.2.min.js"></script>
 <script src="/phone/js/vue.js"></script>
-<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="/phone/js/jquery-1.11.3.js"></script>
 <script src="/phone/js/ele.js"></script>
 <script src="/phone/js/home_page.js"></script>
 
