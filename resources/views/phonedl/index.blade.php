@@ -300,5 +300,6 @@
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
     });
+    console.log('1')
 </script>
 </html>
