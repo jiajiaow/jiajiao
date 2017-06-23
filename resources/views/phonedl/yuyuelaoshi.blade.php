@@ -70,7 +70,7 @@
         </section>
  @include('phonedl.float.float')
     </div>
-    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/phone/js/jquery-1.11.3.js"></script>
 
     <script>
         var countdown=60;

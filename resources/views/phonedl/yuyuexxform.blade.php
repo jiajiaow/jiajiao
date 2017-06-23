@@ -163,7 +163,7 @@
                     </select>
                 </li>
                 <li>
-                    <span>教员要求：</span><input type="text" name='teacher_info' >
+                    <span>教员要求：</span><input type="text" name='teacher_info' value="有责任心，有家教经验优先。">
                 </li>
                 <li>
                     <span>课酬：</span>
@@ -199,8 +199,8 @@
 </div>
 <style>
 
-
-
 </style>
+<script src="/phone/js/jquery-1.11.3.js"></script>
+
 </body>
 </html>

@@ -334,7 +334,7 @@
 										<option value="{{ $xx->school_name }}" {{ $list->tc_school==$xx->school_name?'selected':'' }}>{{ $xx->school_name }}</option>
 										@endforeach
 										<option >如无上述学校请手动输入</option>
-										<input style="width:300px;" name="tc_school_bak" type="text" value="{{ $list->tc_school_bak }}" placeholder="请手动输入"/>
+										<input style="width:300px;" name="tc_school_bak" type="text" value="{{ $list->tc_school_bak }}" placeholder="如无可选择学校，请手动输入"/>
 									</select>
 								</div>
 								<div class="fg sex">
@@ -374,12 +374,12 @@
 								</div>
 								<div class='fg'>
 									<label for="">任教学校或机构：</label>
-									<input style="width:460px;"  type="text" name="teaches" value="" class="" placeholder="仅专职老师填写任教学校或机构，此项对外不公布，请放心填写
-">
-
+									<input style="width:400px;"  type="text" name="teaches" value="" class="" placeholder="仅专职老师填写任教学校或机构，此项对外不公布，请放心填写">
+									<label for="">专职老师教授科目：</label>
+									<input  style="width: 200px;"  type="text" name="teaches" value="" class="" placeholder="">
 								</div>
-								<div class="fg">
-									<label for="">高中文理：</label>
+								<div class='fg'>
+									<label >高中文理：</label>
 									<select name="tc_class" id="" autocomplete="off">
 										<option value="理科" {{ $list->tc_class=="理科"?'selected':'' }}>理科</option>
 										<option value="文科" {{ $list->tc_class=="文科"?'selected':'' }} >文科</option>
@@ -442,7 +442,7 @@
 										<option value="{{ $q->county_name }}" {{ $list->tc_citys==$q->county_name?'selected':'' }}>{{ $q->county_name }}</option>
 										@endforeach
 									</select>
-									<input type="text" name="tc_now_lives" value="" placeholder="可以手动输入"/>
+									<input type="text" name="tc_now_lives" value="" placeholder="请输入详细地址"/>
 								</div>
 
 								<div class="fg sfg">
@@ -690,7 +690,7 @@
 										<div class="fg">
 											<label for="">课酬要求：</label>
 											<input type="text" name="pay" placeholder="执行德栗家教收费标准" class="imoney" value="{{ $list->tc_salary }}">
-											<a style="color:#e4393c;" href="/zfsm.html" >查看更多收费标准</a>
+											<a style="color:#e4393c;" onClick="window.open('/zfsm.html')"  >查看更多收费标准</a>
 										</div>
 										<input type="hidden" name="type" value="1">
 										<button type="reset" class="reset">取消</button>
@@ -1612,7 +1612,6 @@
 				type:'post',                //请求方式
 				async:true,                 //是否异步
 				success:function(data){     //成功回调函数
-					console.log(data);
 					for (var i = 0; i < data.length; i++) {
 						$('#cid1').append("<option value='"+data[i].provice_id+"'>"+data[i].provice_name+"</option>");
 						$('#cid2').append("<option value='"+data[i].provice_id+"'>"+data[i].provice_name+"</option>");
@@ -1639,7 +1638,6 @@
 					data:{pid:($(this).val())}, //发送的数据
 					dataType:'json',            //响应的数据类型
 					success:function(data){     //成功回调函数
-					   // console.log(data);
 						if(data.length>0){
 							//var select = $("<select id='city1' class='form-control m-b' name='szd' maxlength='20' ><option>--请选择--</option></select>")
 							for (var i = 0; i < data.length; i++) {
@@ -1665,7 +1663,6 @@
 				data:{pid:($(this).val())}, //发送的数据
 				dataType:'json',            //响应的数据类型
 				success:function(data){     //成功回调函数
-					console.log(data);
 					if(data.length>0){
 						//var select = $("<select id='city2' class='form-control m-b' name='shu' maxlength='20'><option>--请选择--</option></select>")
 						for (var i = 0; i < data.length; i++) {
@@ -1692,7 +1689,6 @@
 				data:{pid:($(this).val())}, //发送的数据
 				dataType:'json',            //响应的数据类型
 				success:function(data){     //成功回调函数
-					console.log(data);
 					if(data.length>0){
 					   // var select = $("<select id='city3' class='form-control m-b' name='han' maxlength='20' ><option>--请选择--</option></select>")
 						for (var i = 0; i < data.length; i++) {
@@ -1719,7 +1715,6 @@
 				data:{pid:($(this).val())}, //发送的数据
 				dataType:'json',            //响应的数据类型
 				success:function(data){     //成功回调函数
-					console.log(data);
 					if(data.length>0){
 						//var select = $("<select id='city4' class='form-control m-b' name='gaokao' maxlength='20'><option>--请选择--</option></select>")
 						for (var i = 0; i < data.length; i++) {
@@ -1746,7 +1741,6 @@
 				data:{pid:($(this).val())}, //发送的数据
 				dataType:'json',            //响应的数据类型
 				success:function(data){     //成功回调函数
-					console.log(data);
 					if(data.length>0){
 					   // var select = $("<select id='city5' class='form-control m-b' name='jiguan' maxlength='20' ><option>--请选择--</option></select>")
 						for (var i = 0; i < data.length; i++) {
@@ -1833,10 +1827,8 @@
 						 }
 
 					 }
-					 //console.log(result);
 				 }),
 				 error:(function(result,status){
-					 //console.log(result);
 					 //larye.alert('短信sb!');
 				 })
 

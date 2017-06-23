@@ -54,7 +54,7 @@ img{vertical-align:middle;border:0;-ms-interpolation-mode:bicubic;-webkit-tap-hi
 .jedatebox .jedaul li:nth-child(7n){border-right:none;}
 
 .jedatebot{height:34px;line-height:34px; padding:0 3px 0 5px;overflow:hidden;background:#f5f5f5;}
-.jedatebot .botflex{width:50%;float:left;display:block;margin:0;padding-top:3px; overflow:hidden;}
+.jedatebot .botflex{width:50%;float:left;display:none;margin:0;padding-top:3px; overflow:hidden; }
 .jedatebot .botflex li{width:33.33%; float:left;text-align:center;}
 .jedatebot .botflex li em{width:70%;float:left;padding: 0;border:none;border:1px #ddd solid;background-color: #fff;text-align: center;display:block;height:28px;line-height:28px;}
 .jedatebot .botflex li i{width:30%;float:left;height:28px;line-height:26px;font-style:normal;display:block;text-align: center;}

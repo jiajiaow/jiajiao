@@ -324,11 +324,10 @@
             </select>
         </div>
         <div>
-            <div class="ti_info_A"><p class="list-p">初二</p><p class="list-p">初一</p></div>
+            <div class="ti_info_A"></div>
             <div class="ti_info_B">
-
             </div>
-            <!-- <div class="ti_info_C"></div>                   -->
+            <div class="ti_info_C"></div>
         </div>
     </div>
 </div>
@@ -427,10 +426,10 @@
             name : "高中",
             list : [
                 {
-                    item:'高一',
+                    item:'高一数学',
                 },
                 {
-                    item:'高二',
+                    item:'高二数学',
                 }
             ]
         },
@@ -438,14 +437,13 @@
             name : "初中",
             list : [
                 {
-                    item:'初二',
+                    item:'初二语文',
                 },
                 {
-                    item:'初一',
+                    item:'初一英语',
                 }
             ]
         }
-
     ]
     console.log(data)
 
@@ -454,7 +452,8 @@
         for (var i = 0; data.length > i; i++) {
             if(name == data[i].name){
                 for(var j = 0;j<data[i].list.length;j++){
-                    a += '<p class="list-p">' + data[i].list[j].item + '</p>'
+                    a += '<p class="list-p" data-grade="'+data[i].name+'">' + data[i].list[j].item + '</p>'
+
                 }
             }
         }
@@ -466,29 +465,62 @@
         seleClass(b)
     });
 
-    $(document).on('click','.list-p',function(){
 
-        var c= '<p>'+'<i>'+$(this).html()+'</i>'+'<span class="deleBtn"><img src="dele.png"></span>'+'</p>'
-        var info = $('.ti_info_B').html()
+    $(document).on('click','.ti_info_A .list-p',function(){
+
+        var tem_txt = '<p class="list-p" data-grades="'+$(this).attr('data-grade') +'">'+ $(this).html() +'</p>'
+        var tem_txt2 = '<p class="list-p"  data-grades="'+$(this).attr('data-grade') +'">'+ $(this).attr('data-grade') +'</p>'
 
 
-        if (info == '') {
-            $('.ti_info_B').append(c)
+
+        var flagA = 0;
+        var flagB = 0;
+        for(var i = 0;i <  $('.ti_info_C .list-p').length; i++){
+            if( $('.ti_info_C .list-p').eq(i).html() == $(this).html()){
+                flagB = 1
+                break
+            }
         }
-        var infoP = $('.ti_info_B p i')
-        var c_html = $(this).html()
+        for(var i = 0;i <  $('.ti_info_B p').length; i++){
+            if( $(this).attr('data-grade') == $('.ti_info_B p').eq(i).html()){
+                flagA = 1
+                break
+            }
+        }
+        if(flagA == 0){
+            $('.ti_info_B').html($('.ti_info_B').html() + tem_txt2)
+        }
 
-        for(var i=0;i<infoP.length;i++){
+        if(flagB == 0){
+            $('.ti_info_C').html($('.ti_info_C').html() + tem_txt)
+        }
+    })
 
-            if (infoP[i].innerHTML == c_html) {
-                return
-            }else{
+
+    $(document).on('click','.ti_info_B .list-p',function(){
+
+
+        for(var i =0 ; i<$('.ti_info_C .list-p').length;i++){
+
+            if($('.ti_info_C .list-p').eq(i).attr('data-grades') != $(this).attr('data-grades')){
+
+                $('.ti_info_C .list-p').eq(i).css('display','none')
 
             }
         }
-        $('.ti_info_B').append(c)
+        for(var i =0 ; i<$('.ti_info_C .list-p').length;i++){
+
+            if($('.ti_info_C .list-p').eq(i).attr('data-grades') == $(this).attr('data-grades')){
+
+                $('.ti_info_C .list-p').eq(i).css('display','block')
+
+            }
+        }
+        console.log($('.ti_info_C .list-p').attr('data-grades'))
+
 
     })
+
     $(document).on('click','.deleBtn',function(){
         var fath = $(this).parent()
         fath.remove()
@@ -559,7 +591,7 @@
         width: 150px;
         height: 200px;
         border: 1px solid #ababab;
-        margin-left: 15.2%;
+        margin-left: 115px;
         margin-top: 11px;
         display: inline-block;
         vertical-align: top;
@@ -577,19 +609,18 @@
         margin-top: -39px;
         vertical-align: top;
         overflow-y: scroll;
-        margin-left: 20px;
     }
     .ti_info_B p {
         padding: 10px 0px 0px 15px;
     }
     .ti_info_C{
         width: 150px;
-        height: 200px;
+        height: 250px;
         border: 1px solid rgb(255, 209, 54);
         display: inline-block;
         vertical-align: top;
-        margin-top:11px;
-
+        overflow-y: scroll;
+        margin-top: -39px;
     }
     .ti_info_B p i{
         font-style: normal

@@ -121,7 +121,6 @@
               </div>
             </div>
             <div class="student-detial-list">
-
               <div class="stitle">
                 <i><img src="/home/picture/title_left.png" alt=""></i>
                 <h3 style="margin-left: 10px;">相似家教订单</h3>

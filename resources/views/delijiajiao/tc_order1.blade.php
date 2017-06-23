@@ -223,7 +223,7 @@
                                 <form action="/tc_qxorder.html" method="post" style="display: inline-block;">
                                     <input type="hidden" name="oid" value="{{ $yaps->id }}">
                                     <input type="hidden" name="tc_id" value="{{ $yaps->tc_id }}">
-                                    <button type="submit" style="border: none;height: 30px;line-height: 30px;border-radius: 2px;background: #fff0;">取消预约</button>
+                                    <button type="submit" style="border: none;height: 30px;line-height: 30px;border-radius: 2px;background: #f7b529">取消预约</button>
                                 </form>
                         </a>|
                         <a style=";" href="javascript:;" onclick="cyjs({{ $yaps->id }})">

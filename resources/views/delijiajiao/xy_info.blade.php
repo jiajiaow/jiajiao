@@ -76,7 +76,7 @@
                                     <input type="text" name="fname" placeholder="请输入学生姓名" value="" /></div> 
                                     <div class="div5"></div>
                                     <div class="yh"><label>学生电话</label>
-                                    <input type="text" name="lname" placeholder="请输入学生电话" value="" /><div class="txt">是否接收授课情况信息　　　是：<input type="radio" checked="checked" name="Sex" value="male" />　　　否：<input type="radio" name="Sex" value="female" /></div></div>
+                                    <input type="text" name="lname" placeholder="请输入学生电话" value="" /><div class="txt">是否接收授课情况信息　　　是：<input type="radio" checked="checked" name="sk" value="male" />　　　否：<input type="radio" name="sk" value="female" /></div></div>
                                     <div class="div5"></div>
                                     <div class="yh"><label>性　　别</label>
                                     男性： <input type="radio" checked="checked" name="Sex" value="male" />
@@ -110,7 +110,7 @@
                                     <input type="text" name="fname" placeholder="请输入学生姓名" value="" /></div> 
                                     <div class="div5"></div>
                                     <div class="yh"><label>学生电话</label>
-                                    <input type="text" name="lname" placeholder="请输入学生电话" value="" /><div class="txt">是否接收授课情况信息　　　是：<input type="radio" checked="checked" name="Sex" value="male" />　　　否：<input type="radio" name="Sex" value="female" /></div></div>
+                                    <input type="text" name="lname" placeholder="请输入学生电话" value="" /><div class="txt">是否接收授课情况信息　　　是：<input type="radio" checked="checked" name="sk" value="male" />　　　否：<input type="radio" name="sk" value="female" /></div></div>
                                     <div class="div5"></div>
                                     <div class="yh"><label>性　　别</label>
                                     男性： <input type="radio" checked="checked" name="Sex" value="male" />
@@ -145,7 +145,7 @@
                                     <input type="text" name="fname" placeholder="请输入学生姓名" value="" /></div> 
                                     <div class="div5"></div>
                                     <div class="yh"><label>学生电话</label>
-                                    <input type="text" name="lname" placeholder="请输入学生电话" value="" /><div class="txt">是否接收授课情况信息　　　是：<input type="radio" checked="checked" name="Sex" value="male" />　　　否：<input type="radio" name="Sex" value="female" /></div></div>
+                                    <input type="text" name="lname" placeholder="请输入学生电话" value="" /><div class="txt">是否接收授课情况信息　　　是：<input type="radio" checked="checked" name="sk" value="male" />　　　否：<input type="radio" name="sk" value="female" /></div></div>
                                     <div class="div5"></div>
                                     <div class="yh"><label>性　　别</label>
                                     男性： <input type="radio" checked="checked" name="Sex" value="male" />

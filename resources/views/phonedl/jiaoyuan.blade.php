@@ -259,6 +259,7 @@
     $('.syy').on('tap',function(){
         window.history.go(-1);
     })
+    console.log('1')
 </script>
 </body>
 </html>

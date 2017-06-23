@@ -14,7 +14,7 @@
     <div class="nav_header">
         <i class="header_left_icon header_icon" onclick="javascript :history.back(-1);"></i>
         <span>个人中心</span> {{--学员个人中心--}}
-        <a href="/mobile/outlogin.html"><span class="ex_icon"></span></a>
+        <a href="/mobile"><span class="ex_icon"></span></a>
     </div>
     <div class="com_content_box">
         <div class="my_details_box">
@@ -38,7 +38,7 @@
             <div class="my_details_bottom">
                 <ul class="my_details_bottom_ul">
                     <li>
-                        <p>1200</p>
+                        <p>0</p>
                         <p>积分</p>
                     </li>
                     <li>
@@ -46,7 +46,7 @@
                         <p>积分等级</p>
                     </li>
                     <li>
-                        <p>金牌学员</p>
+                        <p>普通</p>
                         <p>教员等级</p>
                     </li>
                 </ul>
@@ -56,31 +56,39 @@
             <ul>
                 <li>
                     <i class="icons my_icon"></i>
-                    <div>
-                        <p>个人资料维护</p>
-                        <i class="right_icon"></i>
-                    </div>
+                    <a href="">
+                        <div>
+                            <p>个人资料维护</p>
+                            <i class="right_icon"></i>
+                        </div>
+                    </a>
                 </li>
                 <li>
                     <i class="icons my_dd"></i>
-                    <div>
-                        <p>订单管理</p>
-                        <i class="right_icon"></i>
-                    </div>
+                    <a href="">
+                        <div>
+                            <p>订单管理</p>
+                            <i class="right_icon"></i>
+                        </div>
+                    </a>
                 </li>
                 <li>
                     <i class="icons my_setdd"></i>
-                    <div>
-                        <p>授课订单管理</p>
-                        <i class="right_icon"></i>
-                    </div>
+                    <a href="">
+                        <div>
+                            <p>授课订单管理</p>
+                            <i class="right_icon"></i>
+                        </div>
+                    </a>
                 </li>
                 <li>
                     <i class="icons my_xy"></i>
-                    <div>
-                        <p>我的学员</p>
-                        <i class="right_icon"></i>
-                    </div>
+                    <a href="">
+                        <div>
+                            <p>我的学员</p>
+                            <i class="right_icon"></i>
+                        </div>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -88,24 +96,30 @@
             <ul>
                 <li>
                     <i class="icons my_cw"></i>
-                    <div>
-                        <p>财务中心</p>
-                        <i class="right_icon"></i>
-                    </div>
+                    <a href="">
+                        <div>
+                            <p>财务中心</p>
+                            <i class="right_icon"></i>
+                        </div>
+                    </a>
                 </li>
                 <li>
                     <i class="icons my_shop"></i>
-                    <div>
-                        <p>积分商城</p>
-                        <i class="right_icon"></i>
-                    </div>
+                    <a href="">
+                        <div>
+                            <p>积分商城</p>
+                            <i class="right_icon"></i>
+                        </div>
+                    </a>
                 </li>
                 <li>
                     <i class="icons my_info"></i>
-                    <div>
-                        <p>沟通中心</p>
-                        <i class="right_icon"></i>
-                    </div>
+                    <a href="">
+                        <div>
+                            <p>沟通中心</p>
+                            <i class="right_icon"></i>
+                        </div>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -132,7 +146,7 @@
     }
 </style>
 <script src="/phone/js/vue.js"></script>
-<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="/phone/js/jquery-1.11.3.js"></script>
 <script src="/phone/js/ele.js"></script>
 <script>
 

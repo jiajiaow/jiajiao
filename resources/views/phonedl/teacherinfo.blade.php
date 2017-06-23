@@ -43,7 +43,7 @@
             <div class="my_details_bottom">
                 <ul class="my_details_bottom_ul">
                     <li>
-                        <p>1200</p>
+                        <p>0</p>
                         <p>积分</p>
                     </li>
                     <li>
@@ -180,7 +180,7 @@
     }
 </style>
 <script src="/phone/js/vue.js"></script>
-<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="/phone/js/jquery.min.js"></script>
 <script src="/phone/js/ele.js"></script>
 <script>
 

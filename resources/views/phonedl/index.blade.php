@@ -12,9 +12,7 @@
     <title>@yield('title')【德栗家教】{{ session('regionname') }}家教专业大学生家教全国连锁领导品牌!</title>
     <link rel="stylesheet" href="/phone/css/ele.css">
     <link rel="stylesheet" href="/phone/css/main.css">
-    <script>
-        console.log('1')
-    </script>
+
     <link rel="stylesheet" href="/phone/css/swiper-3.4.2.min.css">
 </head>
 <body>

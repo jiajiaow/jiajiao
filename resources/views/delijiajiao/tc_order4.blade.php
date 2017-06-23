@@ -209,7 +209,7 @@
                             <script type="text/javascript">
                                 jeDate({
                                     dateCell:"#dateinfo{{ $skzs->id }}",
-                                    format:"YYYY年MM月DD日 hh:mm:ss",
+                                    format:"YYYY年MM月DD日",
                                     isinitVal:true,
                                     isTime:true, //isClear:false,
                                     minDate:"2014-09-19 00:00:00",
@@ -673,6 +673,9 @@
     }
     .seeMar{
         margin: 0 27px;
+    }
+    #jy_adres{
+        text-align: center;
     }
 </style>
 <footer style='background-color:#333'>

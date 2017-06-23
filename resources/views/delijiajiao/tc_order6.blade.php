@@ -203,7 +203,7 @@
 
 						<div class="bk">
 							<div class="left">介绍信/合同</div>
-							<div class="right">（查看电子介绍/合同）</div>
+							<a href="/hetong/{{ $sskzs->id }}.html" class="right">（查看电子介绍信/合同）</a>
 						</div>
 						<div class="bk2">
 							<a style="margin-left: 160px;margin-right: 160px;" href="" target="_blank"><font color="#000">每月反馈</font></a>|

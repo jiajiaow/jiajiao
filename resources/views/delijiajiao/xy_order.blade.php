@@ -2,7 +2,6 @@
 @section('title',mb_substr(session('regionname'),0,2))
 @section('style')
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    {{--<link href="/home/css/ljj.css" rel="stylesheet" type="text/css" />--}}
     @endsection
     @section('content')
 	<!-- 主体部分 -->
@@ -57,7 +56,7 @@
 							<option value=""></option>
 							<option value=""></option>
 						</select>
-						<a href="">快速请家教</a>
+						<a href="#" onclick="larye.alert('1')">快速请家教</a>
 					</div>
 				</div>
 				<!-- 主体的导航栏 公共样式，修改自行加class -->
@@ -68,9 +67,8 @@
 					<span>安排中的订单</span>
 					<span>试课未成功</span> -->
 				<ul id="myTab" class="nav nav-tabs">
-					<li class="active"><a href="#home" data-toggle="tab">
-						待试课</a></li>
-						<li><a href="#ios_a" data-toggle="tab">授课中</a></li>
+					<li class="active"><a href="#home" data-toggle="tab">待试课</a></li>
+						<li ><a href="#ios_a" data-toggle="tab">授课中</a></li>
 						<li><a href="#ios_b" data-toggle="tab">授课结束</a></li>
 						<li><a href="#ios_c" data-toggle="tab">安排中的订单</a></li>
 						<li><a href="#ios_d" data-toggle="tab">试课未成功</a></li>
@@ -79,7 +77,7 @@
 				<!-- 中间部分 -->
 				<div>
 					<div id="myTabContent" class="tab-content">
-						<div class="tab-pane fade in active" id="home">
+						<div class="tab-pane fade " id="home">
 						@foreach($dsk as $dsks)
 							<div class="c_container">
 								<div class="cz shen">
@@ -105,9 +103,9 @@
 								</div>
 								<div class="cz">
 									<label>评价教员：</label>
-									<p style="color:red;text-align: center;">
+									<p style="color:red; text-align: center">
 										<!-- <form action="" method="POST"> -->
-											<input id="jz"type="text" name='pj' placeholder='                                             立即评价（教员不可见）'>
+										<a href="#">立即评价（教员不可见）</a>
 										<!-- </form> -->
 									</p>
 								</div>
@@ -135,7 +133,7 @@
 						@endforeach
 							{{ $dsk->links()}}
 						</div>
-						<div class="tab-pane fade" id="ios_a">
+						<div class="tab-pane fade in active" id="ios_a">
 						@foreach($skz as $skzs)
 							<div class="c_container">
 								<div class="cz shen">
@@ -160,9 +158,9 @@
 								</div>
 								<div class="cz">
 									<label>评价教员：</label>
-									<p style="color:red;">
+									<p style="color:red; text-align: center">
 										<!-- <form action="" method="POST"> -->
-										<input id="jz"type="text" name='pj' placeholder='                                             立即评价（教员不可见）'>
+										<a href="#">立即评价（教员不可见）</a>
 										<!-- </form> -->
 									</p>
 								</div>
@@ -192,6 +190,7 @@
 						</div>
 
 						<div class="tab-pane fade" id="ios_b">
+
 						@foreach($skjs as $skjss)
 							<div class="c_container">
 								<div class="cz shen">
@@ -216,9 +215,9 @@
 								</div>
 								<div class="cz">
 									<label>评价教员：</label>
-									<p style="color:red;">
+									<p style="color:red; text-align: center">
 										<!-- <form action="" method="POST"> -->
-										<input id="jz"type="text" name='pj' placeholder='                                             立即评价（教员不可见）'>
+										<a href="#">立即评价（教员不可见）</a>
 										<!-- </form> -->
 									</p>
 								</div>
@@ -319,7 +318,7 @@
 									<label>评价教员：</label>
 									<p style="color:red;">
 										<!-- <form action="" method="POST"> -->
-										<input id="jz"type="text" name='pj' placeholder='                                             立即评价（教员不可见）'>
+										<a href="#">立即评价（教员不可见）</a>
 										<!-- </form> -->
 									</p>
 								</div>
@@ -361,6 +360,9 @@
 			width:32%;
 		}
 	</style>
+	<script>
+
+	</script>
 @endsection
 @section('js')
 

@@ -144,7 +144,7 @@
                 </div>
                 <div class="queren">
                     <input type="button" value="取消" class="qx">
-                    <input type="submit" value="确认" style="background-color: #337AB7">
+                    <input type="submit" value="确认" style="background-color: #ffbf39">
                 </div>
             </div>
             </form>

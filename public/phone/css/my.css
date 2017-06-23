@@ -98,6 +98,9 @@
     font-size: .38rem;
     padding-left: .5rem;
 }
+.my_information li a {
+    flex:1;
+}
 .my_information li a div {
     display: flex;
     align-items: center;

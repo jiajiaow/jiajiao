@@ -6,6 +6,8 @@
     <link rel="stylesheet" type="text/css" href="/new/css/cheng_css.css">
     <link rel="stylesheet" href="/new/css/bootstrap.css">
     <script type="text/javascript" src='/new/js/jquery-2.2.3.min.js'></script>
+    <script type="text/javascript" src='/delijiajiao/js/layer.js'></script>
+
     <script src="/admin/js/bootstrap.min.js"></script>
 
     <style type="text/css">
@@ -80,7 +82,6 @@
                     <div class="cheng_line"></div>
                     <a href="/" class="lf wenzi">返回首页</a>
                     <div class="cheng_line"></div>
-                    <a href="outlogin.html"><div class="glyphicon glyphicon-off tubiao"></div></a>
                 </div>
             </div>
         </div>
@@ -106,15 +107,21 @@
 
     <script type="text/javascript" src='/new/js/script_cheng.js'></script>
     <script>
-        $(function(){
-            $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-                // 获取已激活的标签页的名称
-                var activeTab = $(e.target).text();
-                // 获取前一个激活的标签页的名称
-                var previousTab = $(e.relatedTarget).text();
-                $(".active-tab span").html(activeTab);
-                $(".previous-tab span").html(previousTab);
+        $(document).ready(function() {
+            if(location.hash) {
+                $('a[href="' + location.hash + '"]').tab('show');
+
+            }
+            $(document.body).on("click", "a[data-toggle]", function(event) {
+                location.hash = this.getAttribute("href");
             });
+        });
+        console.log($(window))
+
+        $(window).on('popstate', function() {
+            var anchor = location.hash || $("a[data-toggle=tab]").first().attr("href");
+            console.log(anchor)
+            $('a[href="' + anchor + '"]').tab('show');
         });
     </script>
     <style type="text/css">

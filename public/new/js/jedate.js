@@ -194,9 +194,9 @@
 
     var config = {
         dateCell:"#dateval",
-        format:"YYYY-MM-DD hh:mm:ss", //日期格式
-        minDate:"1900-01-01 00:00:00", //最小日期
-        maxDate:"2099-12-31 23:59:59", //最大日期
+        format:"YYYY-MM-DD ", //日期格式
+        minDate:"1900-01-01 ", //最小日期
+        maxDate:"2099-12-31 ", //最大日期
         isinitVal:false, //是否初始化时间
         isTime:false, //是否开启时间选择
         isClear:true, //是否显示清空
@@ -429,33 +429,33 @@
                     });
                 });
                 //生成定位时分秒
-                jeDt.each(QD(Cell + " .jedatebot .jedatehms em"), function(i, cls) {
-                    jeDt.on(cls, "click", function() {
-                        var hmsStr = "", acton, hmscell = QD(Cell + " .jedateprophms")[0], hmslen = jeDt.attr(cls, "data-hms"), hmsstxt = [ "小时", "分钟", "秒数" ], removeEmpty = function() {
-                            jeDt.removeClass(hmscell, hmslen == 24 ? "jedateh" :"jedatems");
-                            jeDt.html(hmscell, "");
-                        };
-                        hmsStr += '<div class="jedatehmstitle">' + hmsstxt[i] + '<div class="jedatehmsclose">&times;</div></div>';
-                        for (var h = 0; h < hmslen; h++) {
-                            h = jeDt.digit(h);
-                            acton = jeDt.text(cls) == h ? "action" :"";
-                            hmsStr += '<p class="' + acton + '">' + h + "</p>";
-                        }
-                        jeDt.removeClass(hmscell, hmslen == 24 ? "jedatems" :"jedateh").addClass(hmscell, hmslen == 24 ? "jedateh" :"jedatems");
-                        jeDt.html(hmscell, hmsStr);
-                        jeDt.each(QD(Cell + " .jedateprophms p"), function(i, p) {
-                            jeDt.on(p, "click", function() {
-                                jeDt.html(cls, jeDt.digit(jeDt.text(p)));
-                                removeEmpty();
-                            });
-                        });
-                        jeDt.each(QD(Cell + " .jedateprophms .jedatehmstitle"), function(i, c) {
-                            jeDt.on(c, "click", function() {
-                                removeEmpty();
-                            });
-                        });
-                    });
-                });
+                // jeDt.each(QD(Cell + " .jedatebot .jedatehms em"), function(i, cls) {
+                //     jeDt.on(cls, "click", function() {
+                //         var hmsStr = "", acton, hmscell = QD(Cell + " .jedateprophms")[0], hmslen = jeDt.attr(cls, "data-hms"), hmsstxt = [ "小时", "分钟", "秒数" ], removeEmpty = function() {
+                //             jeDt.removeClass(hmscell, hmslen == 24 ? "jedateh" :"jedatems");
+                //             jeDt.html(hmscell, "");
+                //         };
+                //         hmsStr += '<div class="jedatehmstitle">' + hmsstxt[i] + '<div class="jedatehmsclose">&times;</div></div>';
+                //         for (var h = 0; h < hmslen; h++) {
+                //             h = jeDt.digit(h);
+                //             acton = jeDt.text(cls) == h ? "action" :"";
+                //             hmsStr += '<p class="' + acton + '">' + h + "</p>";
+                //         }
+                //         jeDt.removeClass(hmscell, hmslen == 24 ? "jedatems" :"jedateh").addClass(hmscell, hmslen == 24 ? "jedateh" :"jedatems");
+                //         jeDt.html(hmscell, hmsStr);
+                //         jeDt.each(QD(Cell + " .jedateprophms p"), function(i, p) {
+                //             jeDt.on(p, "click", function() {
+                //                 jeDt.html(cls, jeDt.digit(jeDt.text(p)));
+                //                 removeEmpty();
+                //             });
+                //         });
+                //         jeDt.each(QD(Cell + " .jedateprophms .jedatehmstitle"), function(i, c) {
+                //             jeDt.on(c, "click", function() {
+                //                 removeEmpty();
+                //             });
+                //         });
+                //     });
+                // });
                 //今天
                 jeDt.on(QD(Cell + " .jedatebot .jedatetodaymonth")[0], "click", function() {
                     var toTime = [ newDate.getFullYear(), newDate.getMonth() + 1, newDate.getDate(), newDate.getHours(), newDate.getMinutes(), newDate.getSeconds() ];
@@ -662,8 +662,8 @@
     jeDate.now = function(num) {
         var dd = new Date();
         dd.setDate(dd.getDate() + num);
-        var y = dd.getFullYear(), m = dd.getMonth() + 1, d = dd.getDate();
-        return y + "-" + m + "-" + d;
+        var y = dd.getFullYear(), m = dd.getMonth() + 1 ;
+        return y + "-" + m ;
     };
     "function" === typeof define ? define(function() {
         return jeDate;
